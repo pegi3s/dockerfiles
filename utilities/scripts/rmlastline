@@ -1,0 +1,20 @@
+#!/bin/bash
+
+display_usage() { 
+	echo -e "\nUsage:"
+	echo -e "\trmlastline file1 [file2] [file3] ...[fileN]"
+} 
+
+if [ $# -eq 0 ]
+then 
+	echo "This script requires at least one argument" 
+	display_usage
+	exit 1
+fi 
+
+for file in "$@"
+do
+    truncate -s -"$(tail -n1 $file | wc -c)" $file
+done
+
+
