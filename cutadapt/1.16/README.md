@@ -13,7 +13,7 @@ To see the [cutadapt](http://cutadapt.readthedocs.io/) help, just run `docker ru
 # Test data
 To test the previous command, you can download [this fastq compressed file](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=dload&run_list=SRR1654650&format=fastq) (1.1GB). Note that it does not need to be descompressed as `cutadapt` can deal with both compressed and uncompressed fastq files. 
 
-In the previous command you just need to replace `/data/input.fq` with `/data/sra_data.fastq.gz`. You can also speed up the execution by adding `j 4` to tell `cutadapt` to use 4 cores (it uses 1 core by default).
+In the previous command you just need to replace `/data/input.fq` with `/data/sra_data.fastq.gz`. You can also speed up the execution by adding `-j 4` to tell `cutadapt` to use 4 cores (it uses 1 core by default).
 
 *Note*: processing this file ends up with the following error because of an extra line at the end of the fasqc, but the `output` file contains the correct result.
 
