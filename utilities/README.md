@@ -7,7 +7,7 @@ These utilities are alphabetically listed bellow along with comprehensive explan
 
 The `deinterleave_fastq` script deinterleaves a FASTQ file of paired reads into two FASTQ files. Optionally, the output files can be compressed using GZip.
 
-You should adapt and run the following command: `docker run --rm -it -v /your/data/dir:/data pegi3s/utilities bash -c "deinterleave_fastq < /data/data.fastq /data/data_1.fastq /data/data_2.fastq"`
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities bash -c "deinterleave_fastq < /data/data.fastq /data/data_1.fastq /data/data_2.fastq"`
 `
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input file you want to process.
@@ -20,7 +20,7 @@ To test this utility, you can download and decompress [this fastq compressed fil
 
 The `rmlastline` script removes the last line of one or more files. Note that this command modifies the files passed as parameters.
 
-You should adapt and run the following command: `docker run --rm -it -v /your/data/dir:/data pegi3s/utilities rmlastline /data/file1.txt /data/file2.txt`
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities rmlastline /data/file1.txt /data/file2.txt`
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input file you want to process.
