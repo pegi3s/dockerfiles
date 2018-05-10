@@ -22,7 +22,7 @@ cutadapt.seqio.FormatError: Line 1 in FASTQ file is expected to start with '@', 
 cutadapt: error: Line 1 in FASTQ file is expected to start with '@', but found '\n'
 ```
 
-# Using the cutadpat image in Windows
+# Using the cutadapt image in Windows
 
 Please, note that data must be under in the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permisions (e.g. `C:/Users/User_name/`).
 
