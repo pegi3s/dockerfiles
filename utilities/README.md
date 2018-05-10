@@ -7,14 +7,14 @@ These utilities are alphabetically listed bellow along with comprehensive explan
 
 The `deinterleave_fastq` script deinterleaves a FASTQ file of paired reads into two FASTQ files. Optionally, the output files can be compressed using GZip.
 
-You should adapt and run the following command: `docker run --rm -it -v /your/data/dir:/data pegi3s/utilities bash -c "deinterleave_fastq < /data/input.fastq /data/input_1.fastq /data/input_2.fastq"`
+You should adapt and run the following command: `docker run --rm -it -v /your/data/dir:/data pegi3s/utilities bash -c "deinterleave_fastq < /data/data.fastq /data/data_1.fastq /data/data_2.fastq"`
 `
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input file you want to process.
-- `/data/input.fastq` to the actual name of your input file.
-- `/data/input_1.fastq` and `/data/input_2.fastq` to the actual name of the output files.
+- `/data/data.fastq` to the actual name of your input FASTQ file.
+- `/data/data_1.fastq` and `/data/data_2.fastq` to the actual name of the output FASTQ files.
 
-To test this utility, you can download and decompress [this fastq compressed file](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=dload&run_list=SRR1654650&format=fastq) (1.1GB). In the previous command you just need to replace `/data/input.fq` with `/data/sra_data.fastq.gz`.
+To test this utility, you can download and decompress [this fastq compressed file](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=dload&run_list=SRR1654650&format=fastq) (1.1GB). In the previous command you just need to replace `/data/data.fastq` with `/data/sra_data.fastq.gz`.
 
 # `rmlastline`
 
