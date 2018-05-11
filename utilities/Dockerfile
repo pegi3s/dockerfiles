@@ -5,4 +5,6 @@ find /opt/scripts -type f -print | sed 's/\/opt\/scripts\///g'" > /usr/local/bin
 
 ADD scripts /opt/scripts
 
+RUN chmod 777 /opt/scripts
+
 ENV PATH="/opt/scripts:${PATH}"

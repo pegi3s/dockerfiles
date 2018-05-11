@@ -1,0 +1,35 @@
+#!/bin/bash
+
+display_usage() { 
+	echo -e "This script converts a FASTQ file into a FASTA file."
+	echo -e "\nUsage:"
+	echo -e "\trfastq-to-fasta input [output]"
+} 
+
+if [[ $1 == "--help" ]]; then
+	display_usage
+	exit 1
+fi
+
+if [ $# -ne 1 ] && [ $# -ne 2 ]
+then 
+	echo "This script requires one or two arguments" 
+	display_usage
+	exit 1
+fi
+
+INPUT=$1
+
+if [ ! -z "$2" ]
+then
+	OUTPUT=$2
+else
+	OUTPUT=$(echo "$INPUT" | sed -e 's/\.fastq//g' -e 's/\.fq//g')
+	OUTPUT="$OUTPUT.fa"
+fi
+
+echo "Converting FASTQ format to FASTA format"
+echo -e "\tInputfile: $INPUT"
+echo -e "\tOutput file: $OUTPUT"
+
+awk 'NR % 4 == 1 {print ">" $0 } NR % 4 == 2 {print $0}' $INPUT | awk '{if ($0 ~ ">") {print ">" 1+x++} else {print $0}}' > $OUTPUT

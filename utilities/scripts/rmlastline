@@ -1,9 +1,15 @@
 #!/bin/bash
 
-display_usage() { 
+display_usage() {
+	echo -e "This script removes the last line of one or more files. Note that this command modifies the files passed as parameters."
 	echo -e "\nUsage:"
 	echo -e "\trmlastline file1 [file2] [file3] ...[fileN]"
 } 
+
+if [[ $1 == "--help" ]]; then
+	display_usage
+	exit 1
+fi
 
 if [ $# -eq 0 ]
 then 
