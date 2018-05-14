@@ -12,13 +12,7 @@ RUN apt-get update && apt-get install -y software-properties-common && \
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
-RUN apt-get update && apt-get install -y autoconf build-essential unzip muscle
-
-RUN wget http://www.tcoffee.org/Packages/Stable/Latest/linux/T-COFFEE_installer_Version_11.00.8cbe486_linux_x64.tar.gz -O /tmp/tcoffee.tar.gz && \
-	tar zxvf /tmp/tcoffee.tar.gz -C /opt/ && \
-	rm /tmp/tcoffee.tar.gz 
-
-ENV PATH="/opt/T-COFFEE_installer_Version_11.00.8cbe486_linux_x64/bin:${PATH}"
+RUN apt-get update && apt-get install -y autoconf build-essential unzip t-coffee=11.00.8cbe486-6
 
 RUN wget https://sourceforge.net/projects/mrbayes/files/mrbayes/3.2.2/mrbayes-3.2.2.tar.gz/download -O /tmp/mrbayes.tar.gz &&  \
 	tar zxvf /tmp/mrbayes.tar.gz -C /opt/ && \
@@ -43,6 +37,7 @@ ENV PATH="/opt/paml4.9h/bin:${PATH}"
 RUN wget http://static.sing-group.org/ADOPS/ADOPS_v0.7.1.zip -O /tmp/ADOPS.zip && \
 	unzip /tmp/ADOPS.zip -d /opt/ && \
 	mv /opt/ADOPS* /opt/ADOPS && \
-	rm /tmp/ADOPS.zip -f
+	rm /tmp/ADOPS.zip -f && \
+	sed -i "s/^mrbayes\.dir.*/mrbayes\.dir=\/opt\/mrbayes_3\.2\.2\/src/g" /opt/ADOPS/system.conf
 
 CMD sh /opt/ADOPS/run.sh
