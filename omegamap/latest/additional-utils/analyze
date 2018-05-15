@@ -1,0 +1,48 @@
+#!/bin/bash  
+
+omega_map_dir="/opt/omegaMap/";
+
+if [ $# -ne 2 ] && [ $# -ne 3 ];
+then
+  echo "Error: this script requires two or three arguments."
+  echo "Usage: analyze <input_fasta> <results_dir> [<iterations>]";
+else
+  filename="$1";
+  input_file=$(basename $filename);
+  result_dir=$2;
+  result_file="${input_file}.result";
+  order_file=$(mktemp);
+  config_file=$(mktemp);
+  iterations=${3:-25000};
+
+  echo "Results: " $result_dir;
+  echo "Order file: " $order_file;
+  echo "Config file: " $config_file;
+  
+  cp "$filename" "$input_file";
+  chmod a+w "$input_file";
+  
+  seq_count=$(fgrep -o '>' "$filename" | wc -l);
+  echo "Number of sequences: $seq_count";
+
+  ${omega_map_dir}/order $seq_count 10 > "$order_file";
+
+  order=$(cat "$order_file");
+  #order=${order::-5};
+  order=$(echo -n $order | head -c -5)
+
+  echo "Order: " $order;
+  echo "FASTA = $input_file" > "$config_file";
+  cat "${omega_map_dir}/additional-utils/config.template" >> "$config_file";
+
+  sed -i -e "s?RESULTS_DIR?${result_dir}?g" -e "s/RESULTS_FILE/${result_file}/g" -e "s/ITERATIONS/$iterations/g" -e "s/ORDERS/$order/g" "$config_file";
+
+  ${omega_map_dir}/omegaMap "$config_file";
+  echo "Generating summary";
+  ${omega_map_dir}/summarize $iterations "${result_dir}/$result_file" > "${result_dir}/${input_file}.summary";
+
+  echo "Removing files";
+  rm "$input_file";
+  rm "$order_file";
+  rm "$config_file";
+fi;
