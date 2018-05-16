@@ -12,7 +12,7 @@ To see the [`coral`](https://www.cs.helsinki.fi/u/lmsalmel/coral/) help, just ru
 # Test data
 To test the previous command, you can download and decompress [this FASTA compressed file](https://www.cs.helsinki.fi/u/lmsalmel/coral/basespace12x3.fasta.zip) (20MB).
 
-Them, in the previous command you just need to replace `/data/input.fasta` with `/data/basespace12x3.fasta`.
+Then, in the previous command you just need to replace `/data/input.fasta` with `/data/basespace12x3.fasta`.
 
 # Using the coral image in Windows
 

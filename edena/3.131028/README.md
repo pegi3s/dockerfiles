@@ -11,7 +11,7 @@ To see the [`edena`](http://www.genomic.ch/edena.php) help, just run `docker run
 # Test data
 To test the previous command, you can download and decompress [this FASTA compressed file](http://www.genomic.ch/edena/mw2Reads.seq.gz) (63MB).
 
-Them, in the previous command you just need to replace `/data/input` with `/data/mw2Reads.seq`.
+Then, in the previous command you just need to replace `/data/input` with `/data/mw2Reads.seq`.
 
 # Using the edena image in Windows
 
