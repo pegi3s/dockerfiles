@@ -87,7 +87,7 @@ GTAAGGGTGGACCAGGTGGCGTCATCTGCAACATTGGCTCTGTGACCGGTTTCAATGCCATCTACCAGGT
 CCCTGTCTATTCCGCATCCAAAGCAGCTGTTGTTAGCTTCACTCAATCCATTGCC
 ```
 
-# Using the FastTree image in Windows
+# Using the omegaMap image in Windows
 
 Please, note that data must be under in the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permisions (e.g. `C:/Users/User_name/`).
 
