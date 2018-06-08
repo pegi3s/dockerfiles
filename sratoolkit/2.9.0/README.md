@@ -24,7 +24,7 @@ To run an application, you should adapt and run the following command: `docker r
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the SRA file you want to convert into a FASTQ file.
-- <sratoolkit-application-name> to the name of the `SRA Toolkit` application you want to use.
+- `<sratoolkit-application-name>` to the name of the `SRA Toolkit` application you want to use.
 - `mydata.sra` to the actual name of your input file.
 - `outdir` to the actual name of your output directory.
 
