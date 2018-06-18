@@ -14,9 +14,10 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 RUN apt-get update && apt-get install -y autoconf build-essential unzip t-coffee=11.00.8cbe486-6
 
-RUN wget https://sourceforge.net/projects/mrbayes/files/mrbayes/3.2.2/mrbayes-3.2.2.tar.gz/download -O /tmp/mrbayes.tar.gz &&  \
-	tar zxvf /tmp/mrbayes.tar.gz -C /opt/ && \
+RUN wget https://github.com/NBISweden/MrBayes/archive/v3.2.2.tar.gz -O /tmp/mrbayes.tar.gz &&  \
+	tar zxvf /tmp/mrbayes.tar.gz -C /tmp/ && \
 	rm /tmp/mrbayes.tar.gz && \
+	tar zxvf /tmp/MrBayes-3.2.2/mrbayes-3.2.2.tar.gz -C /opt/ && \
 	cd /opt/mrbayes_3.2.2/src && \
 	autoconf && ./configure --with-beagle=no && make
 
