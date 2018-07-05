@@ -30,6 +30,14 @@ In this command, you should replace:
 
 For instance, to download data SRR6175516 using the `fastq-dump` application, you should run: `docker run --rm -v /your/data/dir:/data pegi3s/sratoolkit fastq-dump SRR6175516 --outdir /data`
 
+*Note*: Depending on DNS restrictions from your firewall institution, you may obtain an error message:
+
+```
+fastq-dump.2.9.0 sys: connection busy while validating within network system module - Failed to Make Connection in KClientHttpOpen to 'www.ncbi.nlm.nih.gov:443
+```
+
+In order to solve it, you need to change your DNS Address. Please follow the steps provided [here](https://github.com/hlfernandez/til/blob/master/docker/fix-dns-problems.md).
+
 # Using the SRA Toolkit image in Windows
 
 Please, note that data must be under in the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permisions (e.g. `C:/Users/User_name/`).
