@@ -1,4 +1,5 @@
 This image allows the usage of the [`EMBOSS`](http://emboss.sourceforge.net) suite. Popular applications in this suite [are](http://emboss.sourceforge.net/what/#Overview):
+- getorf: Find and extract open reading frames.
 - prophet: Gapped alignment for profiles.
 - infoseq: Displays some simple information about sequences.
 - water: Smith-Waterman local alignment.
