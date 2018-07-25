@@ -1,4 +1,4 @@
-# Using the FastTree image
+# Using the FastTree image in Linux
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/fasttree bash -c "FastTree -nt -gtr -gamma /data/input > /data/output"`
 
 In this command, you should replace:

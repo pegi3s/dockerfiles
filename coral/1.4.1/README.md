@@ -1,4 +1,4 @@
-# Using the coral image
+# Using the coral image in Linux
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/coral -f /data/input.fasta -o /data/output.fasta`
 
 In this command, you should replace:

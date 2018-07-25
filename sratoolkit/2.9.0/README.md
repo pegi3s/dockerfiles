@@ -19,7 +19,7 @@ Additional tools included in this suite are:
 
 To obtain the help of an application, you just need to run: `docker run --rm pegi3s/sratoolkit <sratoolkit-application-name> --help` (e.g. `docker run --rm pegi3s/sratoolkit fastq-dump --help`)
 
-# Using the SRA Toolkit image
+# Using the SRA Toolkit image in Linux
 To run an application, you should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/sratoolkit <sratoolkit-application-name> /data/mydata.sra --outdir /data/outdir`
 
 In this command, you should replace:

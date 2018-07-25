@@ -1,4 +1,4 @@
-# Using the Clustal Omega image
+# Using the Clustal Omega image in Linux
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/clustalomega -i /data/sequences.fasta -o /data/sequences_aligned.fasta`
 
 In this command, you should replace:

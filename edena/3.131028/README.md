@@ -1,4 +1,4 @@
-# Using the edena image
+# Using the edena image in Linux
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/edena -singleEnd /data/input -prefix /data/result`
 
 In this command, you should replace:

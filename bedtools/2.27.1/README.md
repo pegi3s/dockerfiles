@@ -51,7 +51,7 @@ In case the mismatch happens, you should use the names of the executable functio
 
 To obtain the help of a particular application, you just need to run: `docker run --rm -v /your/data/dir:/data pegi3s/bedtools bedtools <bedtools-application-name>` (e.g. `docker run --rm -v /your/data/dir:/data pegi3s/bedtools bedtools fastaFromBed`)
 
-# Using the BedTools image
+# Using the BedTools image in Linux
 To run an application, you should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/bedtools <bedtools-application-name> -fi <input FASTA> -bed <BED/GFF/VCF> -fo /data/stdout`
 
 In this command, you should replace:

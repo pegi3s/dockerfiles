@@ -1,4 +1,6 @@
-# Using the ADOPS image
+# Using the ADOPS image in Linux
+Please, note that the following instructions must be executed in Linux environments only.
+
 You should adapt and run the following command: `docker run --rm -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v "/your/data/dir:/data" pegi3s/adops-gui`
 
 If the above command fails, try running `xhost +` first. In this command, you should replace:

@@ -1,4 +1,4 @@
-# Using the FLASH image
+# Using the FLASH image in Linux
 You should adapt and run the following commands:
 - Interleaved paired-end FASTQ file: `docker run --rm -v /your/data/dir:/data pegi3s/flash --interleaved-input /data/input.fastq -d /data/result`
 - Paired-end FASTQ files:  `docker run --rm -v /your/data/dir:/data pegi3s/flash /data/input_1.fastq /data/input_2.fastq -d /data/result`

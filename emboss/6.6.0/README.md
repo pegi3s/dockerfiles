@@ -19,7 +19,7 @@ This image allows the usage of the [`EMBOSS`](http://emboss.sourceforge.net) sui
 
 To obtain the help of an application, you just need to run: `docker run --rm pegi3s/emboss <emboss-application-name> -h` (e.g. `docker run --rm pegi3s/emboss prophet -h`)
 
-# Using the emboss image
+# Using the emboss image in Linux
 
 To run an application, you should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/emboss <emboss-application-name> <options>`
 

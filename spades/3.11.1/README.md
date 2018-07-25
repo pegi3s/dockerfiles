@@ -1,4 +1,4 @@
-# Using the SPAdes image
+# Using the SPAdes image in Linux
 
 The [`SPAdes`](http://cab.spbu.ru/software/spades/) manual can be found [here](http://spades.bioinf.spbau.ru/release3.11.1/manual.html). This image allows you to use the main `SPAdes` scripts, namely:
 - `spades.py` (main executable script)

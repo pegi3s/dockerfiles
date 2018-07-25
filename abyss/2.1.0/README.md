@@ -5,7 +5,7 @@ Since the default k-mer size to run an assembly is 64, we have compiled two addi
 
 *Note*: increasing `--enable-maxk` increases the memory requirements of `ABySS` and you may need to adjust some MPI settings for large k-mer sizes, as described [here](https://github.com/bcgsc/abyss/wiki/ABySS-Users-FAQ#2-my-abyss-assembly-jobs-hang-when-i-run-them-with-high-k-values-eg-k250). 
 
-# Using the ABySS image: assemble a small synthetic data set
+# Using the ABySS image in Linux: assemble a small synthetic data set
 
 To test `ABySS`, you can download and uncompress the test dataset available [here](http://www.bcgsc.ca/platform/bioinfo/software/abyss/releases/1.3.4/test-data.tar.gz).
 

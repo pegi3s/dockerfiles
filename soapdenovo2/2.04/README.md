@@ -1,4 +1,5 @@
-# Using the SOAPdenovo2 image
+# Using the SOAPdenovo2 image in Linux
+Please, note that the following instructions must be executed in Linux environments only.
 
 The `SOAPdenovo2` manual can be found [here](https://github.com/aquaskyline/SOAPdenovo2). This image allows you to use the main `SOAPdenovo2` scripts, namely:
 - `SOAPdenovo-127mer`

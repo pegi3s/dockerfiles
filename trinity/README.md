@@ -6,7 +6,7 @@ The `Trinity` [wiki](https://github.com/trinityrnaseq/trinityrnaseq/wiki/Trinity
 
 For instance, you can show the help by running `docker run --rm trinityrnaseq/trinityrnaseq Trinity -h`.
 
-# Using the Trinity image
+# Using the Trinity image in Linux
 
 To test the `Trinity` docker image you can download these two *E. coli* FASTQ files from the [`SPAdes` examples](http://cab.spbu.ru/software/spades/#examples): [left](http://spades.bioinf.spbau.ru/spades_test_datasets/ecoli_mc/s_6_1.fastq.gz) and [right](http://spades.bioinf.spbau.ru/spades_test_datasets/ecoli_mc/s_6_2.fastq.gz)
 

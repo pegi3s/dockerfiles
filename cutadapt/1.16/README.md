@@ -1,4 +1,4 @@
-# Using the cutadapt image
+# Using the cutadapt image in Linux
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/cutadapt -u 10 /data/input.fq -o /data/output.fq`
 
 In this command, you should replace:

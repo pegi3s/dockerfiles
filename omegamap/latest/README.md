@@ -1,6 +1,6 @@
 This image facilitates the usage of [`omegaMap`](http://www.danielwilson.me.uk/omegaMap.html), a program for detecting natural selection and recombination in DNA or RNA sequences. It provides a single command `analyze` which creates the analysis model (i.e. the configuration file), runs `omegaMap` and finally runs the `summarize` utility from `omegaMap`.
 
-# Using the omegaMap image
+# Using the omegaMap image in Linux
 
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/omegamap analyze /data/input.fasta /data 25000`
 
