@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bioinformatics Docker Images Project</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#install">Install Docker</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#images">Images</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="bg-primary text-white">
+     <div class="container text-center">
+        <h1>Bioinformatics Docker Images Project</h1>
+        <p class="lead">Phenotypic Evolution Group - IBMC/i3S</p>
+        <a class="navbar-brand js-scroll-trigger" href="https://hub.docker.com/u/pegi3s/"><img src="images/pegi3s_logo.png" alt="pegi3s"></a>
+     </div>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>About this page</h2>
+            <p class="lead">This website contains information about the Docker images maintained by the <a href="https://www.i3s.up.pt/phenotypic-evolution">Phenotypic Evolution Group (pegi3s)</a> at the <a href="https://www.ibmc.up.pt/">Instituto de Biologia Molecular e Celular (IBMC)</a> / <a href="https://www.i3s.up.pt/">Instituto de Investigação e Inovação em Saúde da Universidade do Porto (i3S)</a>. All images are available through our <a href="https://hub.docker.com/u/pegi3s/">Docker Hub repository</a>. 
+            
+            <br></br>
+            
+            In addition, this repository also contains tutorials to serve as guidance on the usage of existing Docker images (e.g. Trinity for RNA-Seq).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Install Docker</h2>
+            <p class="lead">In order to use the Docker images maintained by <a href="https://www.i3s.up.pt/phenotypic-evolution">pegi3s</a> users need to install Docker first.</p>
+            <h4>Linux</h4>
+            <p class="lead">To install Docker in Linux, please follow the steps provided <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04">here</a> (additional information can be found <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">here</a>).</p>
+            <h4>Windows</h4>
+            <p class="lead">To install Docker in Windows, please download the official installer <a href="https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe">Docker for Windows Installer.exe</a>. If your system does not meet the requirements to run Docker for Windows (available <a href="https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install">here</a>), please install <a href="https://docs.docker.com/toolbox/overview/">Docker Toolbox</a> instead.</p>   
+          </div>
+        </div>
+       </div>
+     </section>
+
+    <section id="images">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Images</h2>
+            <p class="lead">List of available images:</p>
+            <ul>
+            <li><a href="https://hub.docker.com/r/pegi3s/abyss/"><b>abyss</b></a> 
+            <a href="https://github.com/bcgsc/abyss/blob/master/README.md">[doc]</a> - <i>de novo</i> sequence assembler</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/adops-gui/"><b>adops</b></a> 
+            <a href="http://www.sing-group.org/ADOPS/">[doc]</a> - Philogenetics and detection of positively selected sites</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/alter/"><b>alter</b></a> 
+            <a href="http://sing-group.org/ALTER/help/ALTER-UserGuide.htm">[doc]</a> - File conversion</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/bedtools/"><b>bedtools</b></a> 
+            <a href="http://bedtools.readthedocs.io/en/latest/content/overview.html">[doc]</a> - General utilities</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/clustalomega/"><b>clustalomega</b></a> 
+            <a href="https://www.ebi.ac.uk/seqdb/confluence/display/THD/Clustal+Omega">[doc]</a> - Sequence alignment</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/coral/"><b>coral</b></a> 
+            <a href="https://www.cs.helsinki.fi/u/lmsalmel/coral/">[doc]</a> - Sequence read correction</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/cutadapt/"><b>cutadapt</b></a> 
+            <a href="http://cutadapt.readthedocs.io/en/stable/guide.html">[doc]</a> - Sequence read trimming</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/edena/"><b>edena</b></a> 
+            <a href="http://www.genomic.ch/edena.php">[doc]</a> - <i>de novo</i> sequence assembler</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/emboss/"><b>emboss</b></a> 
+            <a href="http://emboss.sourceforge.net/docs/">[doc]</a> - General utilities</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/fastqc/"><b>fastqc</b></a> 
+            <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/">[doc]</a> - Sequence read quality assessment</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/fasttree/"><b>fasttree</b></a> 
+            <a href="http://www.microbesonline.org/fasttree/#How">[doc]</a> - Philogenetics inferences</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/flash/"><b>flash</b></a> 
+            <a href="http://ccb.jhu.edu/software/FLASH/">[doc]</a> - Sequence read overlap</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/mauve/"><b>mauve</b></a> 
+            <a href="http://darlinglab.org/mauve/mauve.html">[doc]</a> - Genome alignment</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/omegamap/"><b>omegamap</b></a> 
+            <a href="https://github.com/danny-wilson/omegaMap/blob/master/Documentation/documentation.pdf">[doc]</a> - Detection of positively selected sites</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/soapdenovo2/"><b>soapdenovo2</b></a> 
+            <a href="https://github.com/aquaskyline/SOAPdenovo2/blob/master/README.md">[doc]</a> - <i>de novo</i> sequence assembler</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/spades/"><b>spades</b></a> 
+            <a href="http://spades.bioinf.spbau.ru/release3.11.1/manual.html">[doc]</a> - <i>de novo</i> sequence assembler</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/sratoolkit/"><b>sratoolkit</b></a> 
+            <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc">[doc]</a> - Operations on SRA database</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/trinity/"><b>trinity</b></a> 
+            <a href="https://github.com/trinityrnaseq/trinityrnaseq/wiki">[doc]</a> - <i>de novo</i> transcript assembly and quantification</li>
+            <li><a href="https://hub.docker.com/r/pegi3s/utilities/"><b>utilities</b></a> - General utilities</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Phenotypic Evolution Group 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+
+  </body>
+
+</html>
