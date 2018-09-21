@@ -29,6 +29,6 @@ Note that `/your/data/dir` should point to the directory that contains the input
 
 # Using the SPAdes image in Windows
 
-Please, note that data must be under in the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permisions (e.g. `C:/Users/User_name/`).
+Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 To analyze the test data, you should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/spades spades.py --careful --only-assembler --pe1-1 /data/s_6_1.fastq.gz --pe1-2 /data/s_6_2.fastq.gz -o /data/output`

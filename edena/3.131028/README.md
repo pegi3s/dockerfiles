@@ -15,6 +15,6 @@ Then, in the previous command you just need to replace `/data/input` with `/data
 
 # Using the edena image in Windows
 
-Please, note that data must be under in the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permisions (e.g. `C:/Users/User_name/`).
+Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/edena -singleEnd /data/input -prefix /data/result`

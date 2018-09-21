@@ -71,6 +71,6 @@ grep -P "\texon\t" input_gff
 
 # Using the BedTools image in Windows
 
-Please, note that data must be under in the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permisions (e.g. `C:/Users/User_name/`).
+Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 As in the Linux case, to run an application, you should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/bedtools <bedtools-application-name> -fi <input FASTA> -bed <BED/GFF/VCF> -fo /data/stdout`

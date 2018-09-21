@@ -19,6 +19,6 @@ Results will be generated in `your/data/dir/trinity_results`. In this command, y
 
 # Using the Trinity image in Windows
 
-Please, note that data must be under in the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permisions (e.g. `C:/Users/User_name/`).
+Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data trinityrnaseq/trinityrnaseq Trinity --seqType fq --left /data/s_6_1.fastq.gz --right /data/s_6_2.fastq.gz --CPU 4 --max_memory 8G --output /data/trinity_results`

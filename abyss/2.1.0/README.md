@@ -17,6 +17,6 @@ In this command, you should replace:
 
 # Using the ABySS image in Windows
 
-Please, note that data must be under in the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permisions (e.g. `C:/Users/User_name/`).
+Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/abyss abyss-pe k=25 name=test in='/data/test-data/reads1.fastq /data/test-data/reads2.fastq' --directory=/data/results`
