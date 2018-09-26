@@ -14,7 +14,9 @@ In this command, you should replace:
 - `mydb.fasta` to the actual name of the database you created.
 - `output` to the actual name of your output file.
 
-For other options common to all [`BLAST`](https://blast.ncbi.nlm.nih.gov/Blast.cgi) search applications please go [here](https://www.ncbi.nlm.nih.gov/books/NBK279684/).
+For other options common to all BLAST search applications please go [here](https://www.ncbi.nlm.nih.gov/books/NBK279684/).
+
+*Note*: The parameter `max_target_seqs` does not behave as it is described. Please read the following [article](https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/bty833/5106166).
 
 To obtain abbreviated help of an application, you just need to run: `docker run --rm pegi3s/blast <blast-application-name> -h` (e.g. `docker run --rm pegi3s/blast blastn -h`). For more extensive documention just replace the `-h` flag for the `-help` flag. 
 
