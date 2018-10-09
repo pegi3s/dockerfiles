@@ -1,3 +1,5 @@
+# (Please note that the original software licenses still apply)
+
 # Using the fastqc image in Linux
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/fastqc /data/input.fq`
 
@@ -19,6 +21,6 @@ In the previous command you just need to replace `/data/input.fq` with `/data/sr
 
 # Using the fastqc image in Windows
 
-Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
+Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/fastqc /data/input.fq`

@@ -17,8 +17,10 @@ Results will be generated in `your/data/dir/trinity_results`. In this command, y
 - `--CPU 4` to set a number of cores appropiate to your hardware configuration.
 - `--max_memory 8G` to set an amount of RAM memory appropiate to your hardware configuration.
 
+Please note that the execution of this command may take a few hours, depending on the hardware settings.
+
 # Using the Trinity image in Windows
 
-Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
+Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data trinityrnaseq/trinityrnaseq Trinity --seqType fq --left /data/s_6_1.fastq.gz --right /data/s_6_2.fastq.gz --CPU 4 --max_memory 8G --output /data/trinity_results`

@@ -1,3 +1,5 @@
+# (Please note that the original software licenses still apply)
+
 This image facilitates the usage of [`BLAST`](https://blast.ncbi.nlm.nih.gov/Blast.cgi), a program that finds regions of similarity between biological sequences. It compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.
 
 # Using BLAST image in Linux
@@ -22,7 +24,7 @@ To obtain abbreviated help of an application, you just need to run: `docker run 
 
 # Using BLAST image in Windows
 
-Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
+Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 In order to use this image you need to create a custom database from a multi-FASTA file of sequences with this command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/blast makeblastdb –in /data/mydb.fasta –dbtype nucl –parse_seqids`
 

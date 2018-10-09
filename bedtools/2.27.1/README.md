@@ -1,3 +1,5 @@
+# (Please note that the original software licenses still apply)
+
 This image allows the usage of the `BedTools` suite - a fast and flexible toolset for genome arithmetic. `BedTools` allows to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF.
 
 By running the command `docker run --rm -v /your/data/dir:/data pegi3s/bedtools bedtools -h` you can list the tools included in this suite, namely:
@@ -71,6 +73,6 @@ grep -P "\texon\t" input_gff
 
 # Using the BedTools image in Windows
 
-Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
+Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 As in the Linux case, to run an application, you should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/bedtools <bedtools-application-name> -fi <input FASTA> -bed <BED/GFF/VCF> -fo /data/stdout`

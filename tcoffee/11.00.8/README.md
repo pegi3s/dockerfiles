@@ -1,3 +1,5 @@
+# (Please note that the original software licenses still apply)
+
 This image facilitates the usage of [`T-Coffee`](http://www.tcoffee.org/Projects/tcoffee/index.html), a multiple sequence alignment package. T-Coffee is used to align sequences or to combine the output of alignment methods (Clustal, Mafft, Probcons, Muscle, etc.) into one unique alignment (M-coffee). Please note that these alignment methods are not included in this image. 
 T-Coffee can align Protein, DNA and RNA sequences. It is also able to combine sequence information with protein structural information (Expresso), profile information (PSI-Coffee) or RNA secondary structures (R-Coffee).
 
@@ -20,6 +22,6 @@ To see T-Coffee general parameters help, you just need to run: `docker run --rm 
 
 # Using T-Coffee image in Windows
 
-Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
+Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/tcoffee t_coffee /data/input -run_name /data/output`

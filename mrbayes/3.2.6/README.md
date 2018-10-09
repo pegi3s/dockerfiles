@@ -1,3 +1,5 @@
+# (Please note that the original software licenses still apply)
+
 This image facilitates the usage of [`MrBayes`](http://mrbayes.sourceforge.net/index.php), a program for Bayesian inference and model choice across a wide range of phylogenetic and evolutionary models. MrBayes uses Markov chain Monte Carlo (MCMC) methods to estimate the posterior distribution of model parameters.
 
 # Using MrBayes image in Linux
@@ -208,6 +210,6 @@ end;
 
 # Using MrBayes image in Windows
 
-Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
+Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/mrbayes mb /data/input`

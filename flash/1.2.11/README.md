@@ -1,3 +1,5 @@
+# (Please note that the original software licenses still apply)
+
 # Using the FLASH image in Linux
 You should adapt and run the following commands:
 - Interleaved paired-end FASTQ file: `docker run --rm -v /your/data/dir:/data pegi3s/flash --interleaved-input /data/input.fastq -d /data/result`
@@ -18,6 +20,6 @@ Then, you can analyze the two FASTQ mate files with `FLASH` by running:  `docker
 
 # Using the FLASH image in Windows
 
-Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
+Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/flash /data/s_6_1.fastq.gz /data/s_6_2.fastq.gz -d /data/result`

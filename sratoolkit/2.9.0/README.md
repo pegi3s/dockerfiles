@@ -1,3 +1,5 @@
+# (Please note that the original software licenses still apply)
+
 This image allows the usage of the `SRA Toolkit` suite. Frequently used tools in this suite are:
 
 - `fastq-dump`: convert SRA data into fastq format.
@@ -40,6 +42,6 @@ In order to solve it, you need to change your DNS Address. Please follow the ste
 
 # Using the SRA Toolkit image in Windows
 
-Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
+Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 As in the Linux case, to run an application, you should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/sratoolkit <sratoolkit-application-name> /data/mydata.sra --outdir /data/outdir`

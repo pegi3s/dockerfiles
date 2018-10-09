@@ -1,3 +1,5 @@
+# (Please note that the original software licenses still apply)
+
 # Using the SPAdes image in Linux
 
 The [`SPAdes`](http://cab.spbu.ru/software/spades/) manual can be found [here](http://spades.bioinf.spbau.ru/release3.11.1/manual.html). This image allows you to use the main `SPAdes` scripts, namely:
@@ -29,6 +31,6 @@ Note that `/your/data/dir` should point to the directory that contains the input
 
 # Using the SPAdes image in Windows
 
-Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
+Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 To analyze the test data, you should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/spades spades.py --careful --only-assembler --pe1-1 /data/s_6_1.fastq.gz --pe1-2 /data/s_6_2.fastq.gz -o /data/output`

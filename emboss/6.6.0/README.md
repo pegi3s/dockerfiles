@@ -1,3 +1,5 @@
+# (Please note that the original software licenses still apply)
+
 This image allows the usage of the [`EMBOSS`](http://emboss.sourceforge.net) suite. Popular applications in this suite [are](http://emboss.sourceforge.net/what/#Overview):
 - getorf: Find and extract open reading frames.
 - prophet: Gapped alignment for profiles.
@@ -30,6 +32,6 @@ In this command, you should replace:
 
 # Using the emboss image in Windows
 
-Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
+Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 As in the Linux case, to run an application, you should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/emboss <emboss-application-name> <options>`

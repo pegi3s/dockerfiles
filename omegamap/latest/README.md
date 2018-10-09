@@ -1,3 +1,5 @@
+# (Please note that the original software licenses still apply)
+
 This image facilitates the usage of [`omegaMap`](http://www.danielwilson.me.uk/omegaMap.html), a program for detecting natural selection and recombination in DNA or RNA sequences. It provides a single command `analyze` which creates the analysis model (i.e. the configuration file), runs `omegaMap` and finally runs the `summarize` utility from `omegaMap`.
 
 # Using the omegaMap image in Linux
@@ -89,6 +91,6 @@ CCCTGTCTATTCCGCATCCAAAGCAGCTGTTGTTAGCTTCACTCAATCCATTGCC
 
 # Using the omegaMap image in Windows
 
-Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
+Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/omegamap analyze /data/input.fasta /data 25000`

@@ -1,3 +1,5 @@
+# (Please note that the original software licenses still apply)
+
 # Using the ALTER image in Linux
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/alter -i /data/input -o /data/output.fasta -ia -of FASTA -oo Linux -op GENERAL`
 
@@ -534,6 +536,6 @@ end;
 
 # Using the ALTER image in Windows
 
-Please, note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
+Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/alter -i /data/input -o /data/output.fasta -ia -of FASTA -oo Linux -op GENERAL`
