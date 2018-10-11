@@ -4,7 +4,7 @@ This image facilitates the usage of [`BLAST`](https://blast.ncbi.nlm.nih.gov/Bla
 
 # Using BLAST image in Linux
 
-In order to use this image you need to create a custom database from a multi-FASTA file of sequences with this command: `docker run --rm -v /your/data/dir:/data pegi3s/blast makeblastdb –in /data/mydb.fasta –dbtype nucl –parse_seqids`
+In order to use this image you need to create a custom database from a multi-FASTA file of sequences with this command: `docker run --rm -v /your/data/dir:/data pegi3s/blast makeblastdb -in /data/mydb.fasta -dbtype nucl -parse_seqids`
 
 See the following section, [`Building a BLAST database with local sequences`](https://www.ncbi.nlm.nih.gov/books/NBK279688/), for more details.
 
@@ -26,7 +26,7 @@ To obtain abbreviated help of an application, you just need to run: `docker run 
 
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
-In order to use this image you need to create a custom database from a multi-FASTA file of sequences with this command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/blast makeblastdb –in /data/mydb.fasta –dbtype nucl –parse_seqids`
+In order to use this image you need to create a custom database from a multi-FASTA file of sequences with this command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/blast makeblastdb -in /data/mydb.fasta -dbtype nucl -parse_seqids`
 
 See the following section, [`Building a BLAST database with local sequences`](https://www.ncbi.nlm.nih.gov/books/NBK279688/), for more details.
 
