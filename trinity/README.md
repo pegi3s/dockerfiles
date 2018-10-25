@@ -2,7 +2,7 @@
 
 # Trinity
 
-The `Trinity` [wiki](https://github.com/trinityrnaseq/trinityrnaseq/wiki/Trinity-in-Docker) explains how to use its docker image, which is available at the [trinityrnaseq/trinityrnaseq](https://hub.docker.com/r/trinityrnaseq/trinityrnaseq/tags/) repository. 
+The [Trinity wiki](https://github.com/trinityrnaseq/trinityrnaseq/wiki/Trinity-in-Docker) explains how to use its docker image, which is available at the [trinityrnaseq/trinityrnaseq](https://hub.docker.com/r/trinityrnaseq/trinityrnaseq/tags/) repository. 
 
 For instance, you can show the help by running `docker run --rm trinityrnaseq/trinityrnaseq Trinity -h`.
 

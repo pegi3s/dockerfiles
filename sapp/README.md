@@ -1,6 +1,6 @@
 # (Please note that the original software licenses still apply)
 
-This images facilitates the usage of `SAPP`, a Semantic genome Annotation Platform with Provenance and designed on the basis of Semantic Web. The platform and corresponding modules allow the user to annotate genomes of various qualities linked to a full chain of data provenance. Resulting is an annotated genome in the RDF data model which the user can query and analyse using SPARQL. Various modules are available which allow users to compare, annotate and visualise genomes and export annotations to various standard genome annotation formats.
+This images facilitates the usage of [SAPP](http://sapp.gitlab.io/), a Semantic genome Annotation Platform with Provenance and designed on the basis of Semantic Web. The platform and corresponding modules allow the user to annotate genomes of various qualities linked to a full chain of data provenance. Resulting is an annotated genome in the `RDF` data model which the user can query and analyse using `SPARQL`. Various modules are available which allow users to compare, annotate and visualise genomes and export annotations to various standard genome annotation formats.
 
 `SAPP` platform includes the following jar packages:
 
@@ -30,7 +30,7 @@ To run a package, you should adapt and run the following command: `docker run --
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input files you want to analyze.
 - `<package.jar>` to the name of the `SAPP` package you want to use.
-- `<options> ` with the specific options of the SAPP package. These options will include the input/output files, which should be referenced under /data/.
+- `<options> ` with the specific options of the `SAPP` package. These options will include the input/output files, which should be referenced under `/data/`.
 
 For instance, to run the `Conversion.jar` package for an Eukaryotic Genome, you should run: `docker run --rm -v /your/data/dir:/data pegi3s/sapp java -jar Conversion.jar -fasta2rdf -input /data/FlyBase_JCLNID.fasta -o /data/DMelanogaster.hdt -genome -chromosome -id DMelanogaster -org "Drosophila melanogaster"`
 

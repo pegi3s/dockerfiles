@@ -2,13 +2,13 @@
 
 # Using the SPAdes image in Linux
 
-The [`SPAdes`](http://cab.spbu.ru/software/spades/) manual can be found [here](http://spades.bioinf.spbau.ru/release3.11.1/manual.html). This image allows you to use the main `SPAdes` scripts, namely:
+The [SPAdes](http://cab.spbu.ru/software/spades/) manual can be found [here](http://spades.bioinf.spbau.ru/release3.11.1/manual.html). This image allows you to use the main `SPAdes` scripts, namely:
 - `spades.py` (main executable script)
-- `dipspades.py` (main executable script for dipSPAdes)
-- `metaspades.py` (main executable script for metaSPAdes)
-- `plasmidspades.py` (main executable script for plasmidSPAdes)
-- `rnaspades.py` (main executable script for rnaSPAdes)
-- `truspades.py` (main executable script for truSPAdes)
+- `dipspades.py` (main executable script for `dipSPAdes`)
+- `metaspades.py` (main executable script for `metaSPAdes`)
+- `plasmidspades.py` (main executable script for `plasmidSPAdes`)
+- `rnaspades.py` (main executable script for `rnaSPAdes`)
+- `truspades.py` (main executable script for `truSPAdes`)
 
 For instance, you can show the help associated to the `spades.py` main script by running: `docker run --rm pegi3s/spades spades.py --help`
 

@@ -1,6 +1,6 @@
 # (Please note that the original software licenses still apply)
 
-This image allows the usage of the `BedTools` suite - a fast and flexible toolset for genome arithmetic. `BedTools` allows to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF.
+This image allows the usage of the [Bedtools](http://bedtools.readthedocs.io/en/latest/index.html) suite - a fast and flexible toolset for genome arithmetic. `Bedtools` allows to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF.
 
 By running the command `docker run --rm -v /your/data/dir:/data pegi3s/bedtools bedtools -h` you can list the tools included in this suite, namely:
 
@@ -53,12 +53,12 @@ In case the mismatch happens, you should use the names of the executable functio
 
 To obtain the help of a particular application, you just need to run: `docker run --rm -v /your/data/dir:/data pegi3s/bedtools bedtools <bedtools-application-name>` (e.g. `docker run --rm -v /your/data/dir:/data pegi3s/bedtools bedtools fastaFromBed`)
 
-# Using the BedTools image in Linux
+# Using the Bedtools image in Linux
 To run an application, you should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/bedtools <bedtools-application-name> -fi <input FASTA> -bed <BED/GFF/VCF> -fo /data/stdout`
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input files you want to analyze.
-- `<bedtools-application-name>` to the name of the `BedTools` application you want to use.
+- `<bedtools-application-name>` to the name of the `Bedtools` application you want to use.
 - `<input FASTA>` to the actual name of your input FASTA file.
 - `<BED/GFF/VCF>` to the actual name of your input BED/GFF/VCF file.
 - `stdout` to the actual name of your output file.
@@ -71,7 +71,7 @@ For instance, to use the `fastaFromBed` application, you should run: `docker run
 grep -P "\texon\t" input_gff
 ``` 
 
-# Using the BedTools image in Windows
+# Using the Bedtools image in Windows
 
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 

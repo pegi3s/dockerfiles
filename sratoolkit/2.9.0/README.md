@@ -1,6 +1,6 @@
 # (Please note that the original software licenses still apply)
 
-This image allows the usage of the `SRA Toolkit` suite. Frequently used tools in this suite are:
+This image allows the usage of the [SRA Toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc) suite. Frequently used tools in this suite are:
 
 - `fastq-dump`: convert SRA data into fastq format.
 - `prefetch`: allows command-line downloading of SRA, dbGaP, and ADSP data.

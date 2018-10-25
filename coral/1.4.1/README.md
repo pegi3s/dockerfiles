@@ -1,6 +1,6 @@
 # (Please note that the original software licenses still apply)
 
-# Using the coral image in Linux
+# Using the Coral image in Linux
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/coral -f /data/input.fasta -o /data/output.fasta`
 
 In this command, you should replace:
@@ -9,14 +9,14 @@ In this command, you should replace:
 
 Note that the `-f` parameter indicates that the input file is in FASTA format. You should use `-fq` for standard FASTQ files and `-fs` for Solexa FASTA files.
 
-To see the [`coral`](https://www.cs.helsinki.fi/u/lmsalmel/coral/) help, just run `docker run --rm pegi3s/coral`.
+To see the [Coral](https://www.cs.helsinki.fi/u/lmsalmel/coral/) help, just run `docker run --rm pegi3s/coral`.
 
 # Test data
 To test the previous command, you can download and decompress [this FASTA compressed file](https://www.cs.helsinki.fi/u/lmsalmel/coral/basespace12x3.fasta.zip) (20MB).
 
 Then, in the previous command you just need to replace `/data/input.fasta` with `/data/basespace12x3.fasta`.
 
-# Using the coral image in Windows
+# Using the Coral image in Windows
 
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 

@@ -6,7 +6,7 @@ Please note that the following instructions must be executed in Linux environmen
 You should adapt and run the following command: `docker run --rm --env QT_X11_NO_MITSHM=1 -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v "/your/data/dir:/data" pegi3s/popart`
 
 In this command, you should replace:
-- `/your/data/dir` to point to the directory that you want to have available at PopART.
+- `/your/data/dir` to point to the directory that you want to have available at `PopART`.
 
 If the above command fails, try running `xhost +` first. 
 

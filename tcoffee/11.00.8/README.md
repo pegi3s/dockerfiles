@@ -1,7 +1,7 @@
 # (Please note that the original software licenses still apply)
 
-This image facilitates the usage of [`T-Coffee`](http://www.tcoffee.org/Projects/tcoffee/index.html), a multiple sequence alignment package. T-Coffee is used to align sequences or to combine the output of alignment methods (Clustal, Mafft, Probcons, Muscle, etc.) into one unique alignment (M-coffee). Please note that these alignment methods are not included in this image. 
-T-Coffee can align Protein, DNA and RNA sequences. It is also able to combine sequence information with protein structural information (Expresso), profile information (PSI-Coffee) or RNA secondary structures (R-Coffee).
+This image facilitates the usage of [T-Coffee](http://www.tcoffee.org/Projects/tcoffee/index.html), a multiple sequence alignment package. `T-Coffee` is used to align sequences or to combine the output of alignment methods (`Clustal`, `Mafft`, `Probcons`, `Muscle`, etc.) into one unique alignment (`M-Coffee`). Please note that these alignment methods are not included in this image. 
+`T-Coffee` can align Protein, DNA and RNA sequences. It is also able to combine sequence information with protein structural information (`Expresso`), profile information (`PSI-Coffee`) or RNA secondary structures (`R-Coffee`).
 
 # Using T-Coffee image in Linux
 
@@ -13,12 +13,12 @@ In this command, you should replace:
 - `data` to the actual name of the directory where output files will be created.
 - `output` to the actual name of your output file.
 
-*Note*: When aligning, T-Coffee will always at least generate three output files:
-- `output.aln`: Multiple Sequence Alignment (ClustalW format by default).
-- `output.dnd`: guide tree (Newick format).
-- `output.html`: colored MSA according to consistency (html format).
+*Note*: When aligning, `T-Coffee` will always at least generate three output files:
+- `output.aln`: Multiple Sequence Alignment (`ClustalW` format by default).
+- `output.dnd`: guide tree (`Newick` format).
+- `output.html`: colored MSA according to consistency (`HTML` format).
 
-To see T-Coffee general parameters help, you just need to run: `docker run --rm pegi3s/tcoffee t_coffee -help`. To obtain the help of a specific parameter, just run: `docker run --rm pegi3s/tcoffee t_coffee -help -<tcoffee-parameter-name>` (e.g. `docker run --rm pegi3s/tcoffee -help -align`)
+To see `T-Coffee` general parameters help, you just need to run: `docker run --rm pegi3s/tcoffee t_coffee -help`. To obtain the help of a specific parameter, just run: `docker run --rm pegi3s/tcoffee t_coffee -help -<tcoffee-parameter-name>` (e.g. `docker run --rm pegi3s/tcoffee -help -align`)
 
 # Using T-Coffee image in Windows
 

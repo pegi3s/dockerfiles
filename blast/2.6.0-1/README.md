@@ -1,6 +1,6 @@
 # (Please note that the original software licenses still apply)
 
-This image facilitates the usage of [`BLAST`](https://blast.ncbi.nlm.nih.gov/Blast.cgi), a program that finds regions of similarity between biological sequences. It compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.
+This image facilitates the usage of [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi), a program that finds regions of similarity between biological sequences. It compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.
 
 # Using BLAST image in Linux
 
@@ -16,7 +16,7 @@ In this command, you should replace:
 - `mydb.fasta` to the actual name of the database you created.
 - `output` to the actual name of your output file.
 
-For other options common to all BLAST search applications please go [here](https://www.ncbi.nlm.nih.gov/books/NBK279684/).
+For other options common to all `BLAST` search applications please go [here](https://www.ncbi.nlm.nih.gov/books/NBK279684/).
 
 *Note*: The parameter `max_target_seqs` does not behave as it is described. Please read the following [article](https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/bty833/5106166).
 

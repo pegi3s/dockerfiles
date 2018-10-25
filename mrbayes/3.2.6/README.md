@@ -1,6 +1,6 @@
 # (Please note that the original software licenses still apply)
 
-This image facilitates the usage of [`MrBayes`](http://mrbayes.sourceforge.net/index.php), a program for Bayesian inference and model choice across a wide range of phylogenetic and evolutionary models. MrBayes uses Markov chain Monte Carlo (MCMC) methods to estimate the posterior distribution of model parameters.
+This image facilitates the usage of [MrBayes](http://mrbayes.sourceforge.net/index.php), a program for Bayesian inference and model choice across a wide range of phylogenetic and evolutionary models. `MrBayes` uses Markov chain Monte Carlo (`MCMC`) methods to estimate the posterior distribution of model parameters.
 
 # Using MrBayes image in Linux
 
@@ -11,7 +11,7 @@ In this command, you should replace:
 - `input` to the actual name of your input NEXUS file.
 - `data` to the actual name of the directory where output files will be created.
 
-To see MrBayes help menu, first you need to run: `docker run --rm -it -v /your/data/dir:/data pegi3s/mrbayes mb`, which opens MrBayes own command-line interface. Then execute: `help`.
+To see `MrBayes` help menu, first you need to run: `docker run --rm -it -v /your/data/dir:/data pegi3s/mrbayes mb`, which opens `MrBayes` own command-line interface. Then execute: `help`.
 
 # Test data
 To test the previous command, you can copy and paste the following sample data into the input NEXUS file:

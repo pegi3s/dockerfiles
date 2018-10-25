@@ -8,7 +8,7 @@ In this command, you should replace:
 - `sequences.fasta` to the actual name of your FASTA file.
 - `sequences_aligned.fasta` to the actual name of your aligned FASTA file.
 
-To see the Clustal Omega help, just run `docker run --rm pegi3s/clustalomega --help`.
+To see the [Clustal Omega](https://www.ebi.ac.uk/seqdb/confluence/display/THD/Clustal+Omega) help, just run `docker run --rm pegi3s/clustalomega --help`.
 
 # Test data
 To test the previous command, you can copy and paste the following sample data into the `sequences.fasta` file:
