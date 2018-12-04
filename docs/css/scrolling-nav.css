@@ -21,3 +21,7 @@ section {
 footer {
   margin-top: 15px;
 }
+
+.footer-logo {
+	max-width: 100%;
+}
