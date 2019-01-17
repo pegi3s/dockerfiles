@@ -1,4 +1,5 @@
-# (Please note that the original software licenses still apply)
+# This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
+## (Please note that the original software licenses still apply)
 
 This image facilitates the usage of [MrBayes](http://mrbayes.sourceforge.net/index.php), a program for Bayesian inference and model choice across a wide range of phylogenetic and evolutionary models. `MrBayes` uses Markov chain Monte Carlo (`MCMC`) methods to estimate the posterior distribution of model parameters.
 

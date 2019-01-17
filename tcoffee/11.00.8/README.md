@@ -1,4 +1,5 @@
-# (Please note that the original software licenses still apply)
+# This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
+## (Please note that the original software licenses still apply)
 
 This image facilitates the usage of [T-Coffee](http://www.tcoffee.org/Projects/tcoffee/index.html), a multiple sequence alignment package. `T-Coffee` is used to align sequences or to combine the output of alignment methods (`Clustal`, `Mafft`, `Probcons`, `Muscle`, etc.) into one unique alignment (`M-Coffee`). Please note that these alignment methods are not included in this image. 
 `T-Coffee` can align Protein, DNA and RNA sequences. It is also able to combine sequence information with protein structural information (`Expresso`), profile information (`PSI-Coffee`) or RNA secondary structures (`R-Coffee`).

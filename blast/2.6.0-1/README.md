@@ -1,4 +1,5 @@
-# (Please note that the original software licenses still apply)
+# This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
+## (Please note that the original software licenses still apply)
 
 This image facilitates the usage of [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi), a program that finds regions of similarity between biological sequences. It compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.
 

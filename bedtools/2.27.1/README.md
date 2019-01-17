@@ -1,4 +1,5 @@
-# (Please note that the original software licenses still apply)
+# This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
+## (Please note that the original software licenses still apply)
 
 This image allows the usage of the [Bedtools](http://bedtools.readthedocs.io/en/latest/index.html) suite - a fast and flexible toolset for genome arithmetic. `Bedtools` allows to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF.
 

@@ -1,4 +1,5 @@
-# (Please note that the original software licenses still apply)
+# This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
+## (Please note that the original software licenses still apply)
 
 This image allows the usage of the [EMBOSS](http://emboss.sourceforge.net) suite. Popular applications in this suite [are](http://emboss.sourceforge.net/what/#Overview):
 - getorf: Find and extract open reading frames.

@@ -1,4 +1,5 @@
-# (Please note that the original software licenses still apply)
+# This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
+## (Please note that the original software licenses still apply)
 
 This images facilitates the usage of [SAPP](http://sapp.gitlab.io/), a Semantic genome Annotation Platform with Provenance and designed on the basis of Semantic Web. The platform and corresponding modules allow the user to annotate genomes of various qualities linked to a full chain of data provenance. Resulting is an annotated genome in the `RDF` data model which the user can query and analyse using `SPARQL`. Various modules are available which allow users to compare, annotate and visualise genomes and export annotations to various standard genome annotation formats.
 

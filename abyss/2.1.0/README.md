@@ -1,4 +1,5 @@
-# (Please note that the original software licenses still apply)
+# This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
+## (Please note that the original software licenses still apply)
 
 This image facilitates the usage of [ABySS](https://github.com/bcgsc/abyss), a `de novo` sequence assembler intended for short paired-end reads and large genomes. All `abyss-*` commands are available in the path. For instance, you can show the `abyss-pe` help by running `docker run --rm pegi3s/abyss abyss-pe -h`.
 

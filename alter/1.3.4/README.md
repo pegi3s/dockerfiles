@@ -1,4 +1,5 @@
-# (Please note that the original software licenses still apply)
+# This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
+## (Please note that the original software licenses still apply)
 
 # Using the ALTER image in Linux
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/alter -i /data/input -o /data/output.fasta -ia -of FASTA -oo Linux -op GENERAL`

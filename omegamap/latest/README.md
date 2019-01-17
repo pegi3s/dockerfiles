@@ -1,4 +1,5 @@
-# (Please note that the original software licenses still apply)
+# This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
+## (Please note that the original software licenses still apply)
 
 This image facilitates the usage of [omegaMap](http://www.danielwilson.me.uk/omegaMap.html), a program for detecting natural selection and recombination in DNA or RNA sequences. It provides a single command `analyze` which creates the analysis model (i.e. the configuration file), runs `omegaMap` and finally runs the `summarize` utility from `omegaMap`.
 

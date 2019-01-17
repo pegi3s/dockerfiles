@@ -1,4 +1,5 @@
-# (Please note that the original software licenses still apply)
+# This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
+## (Please note that the original software licenses still apply)
 
 This image facilitates the usage of [Auto AUGUSTUS](https://github.com/Gaius-Augustus/Augustus/blob/master/scripts/README.autoAug), a pipeline script to run the [AUGUSTUS](http://bioinf.uni-greifswald.de/augustus/) training process and gene prediction algorithm automatically on a given eukaryotic genome with available cDNA evidence. [BLAT](https://genome.ucsc.edu/FAQ/FAQblat.html) is a software component included in this image. Apart from using `autoAug.pl` you may also run `AUGUSTUS` with our [SAPP](https://hub.docker.com/r/pegi3s/sapp/) Docker image. 
 

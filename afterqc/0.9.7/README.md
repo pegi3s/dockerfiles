@@ -1,4 +1,5 @@
-# (Please note that the original software licenses still apply)
+# This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
+## (Please note that the original software licenses still apply)
 
 This image facilitates the usage of [AfterQC](https://github.com/OpenGene/AfterQC), a program for automatic filtering, trimming, error removing and quality control of FASTQ files.
 
