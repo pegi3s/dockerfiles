@@ -15,7 +15,7 @@ header {
 }
 
 section {
-  padding: 55px 0;
+  padding: 35px 0;
 }
 
 footer {
@@ -24,4 +24,8 @@ footer {
 
 .footer-logo {
 	max-width: 100%;
+}
+
+.header-img {
+    margin-left: 15px;
 }
