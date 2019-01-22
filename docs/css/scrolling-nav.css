@@ -10,7 +10,7 @@ header {
 
 @media (min-width: 992px) {
   header {
-    padding: 115px 0 50px;
+    padding: 90px 0 40px;
   }
 }
 
@@ -27,5 +27,5 @@ footer {
 }
 
 .header-img {
-    margin-left: 15px;
+    margin-left: 10px;
 }
