@@ -12,6 +12,8 @@ In this command, you should replace:
 - `input.fasta` to the actual name of your input file.
 - `output` to the actual name of your output file.
 
+To see the `PhiPack` help, just run `docker run --rm pegi3s/phipack Phi`.
+
 # Using the PhiPack image in Windows
 
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
