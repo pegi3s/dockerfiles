@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM pegi3s/tcoffee:10.00.r1613
 
 # Install Java
 RUN apt-get update && apt-get install -y software-properties-common && \
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y software-properties-common && \
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
-RUN apt-get update && apt-get install -y autoconf build-essential unzip t-coffee=11.00.8cbe486-6
+RUN apt-get update && apt-get install -y autoconf build-essential unzip
 
 RUN wget https://github.com/NBISweden/MrBayes/archive/v3.2.2.tar.gz -O /tmp/mrbayes.tar.gz &&  \
 	tar zxvf /tmp/mrbayes.tar.gz -C /tmp/ && \
