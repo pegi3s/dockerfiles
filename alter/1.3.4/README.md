@@ -17,7 +17,7 @@ This docker image can be also used to run the ALTER GUI. To do so, just run: `do
 If the above command fails, try running `xhost +` first.
 
 # Test data
-To test the previous command, you can copy and paste [this sample data](https://github.com/pegi3s/dockerfiles/blob/master/alter/1.3.4/test_data/input.nexus) into the `input`file.
+To test the previous command, you can copy and paste [this sample data](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/alter/1.3.4/test_data/input.nexus) into the `input`file.
 
 # Using the ALTER image in Windows
 
