@@ -1,0 +1,4 @@
+#!/bin/bash
+
+curl $1 > /tmp/temp
+perl /opt/formfind.pl < /tmp/temp > /data/info
