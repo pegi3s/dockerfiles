@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "Running..."
+fields=$(cat /data/parameters)
+echo "Parameters: " $fields
+mkdir /data/results
+for f in /data/*.pdb
+do
+	a="$(basename -- $f)"
+	echo "Submitting " $a
+	curl -F PDBFileName="@/$f" $fields https://sppider.cchmc.org/cgi-bin/int_recognition.cgi > /data/results/$a.result
+	sleep 20
+done
+chmod 777 /data/results

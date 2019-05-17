@@ -1,0 +1,68 @@
+--- FORM report. Uses POST to URL "/cgi-bin/int_recognition.cgi"
+Input: NAME="Info" (HIDDEN)
+Input: NAME="TQuery" VALUE="1" (RADIO)
+Input: NAME="TQuery" VALUE="2" (RADIO)
+Input: NAME="TQuery" VALUE="3" (RADIO)
+Input: NAME="EMail" (TEXT)
+Input: NAME="PDBCode" (TEXT)
+Select: NAME="BioUnit"
+  Option VALUE="0"
+  Option VALUE="1" (SELECTED)
+[end of select]
+Input: NAME="PDBChain" (TEXT)
+Input: NAME="btnChainLookup" VALUE="Chain Lookup" (BUTTON)
+Input: NAME="PDBkeywords" (TEXT)
+Input: NAME="btnPDBIDLookup" VALUE="Find" (BUTTON)
+Input: NAME="PDBFileName" (FILE)
+Input: NAME="QName" (TEXT)
+Textarea: NAME="QSeq"
+Input: NAME="Version" VALUE="1" (RADIO)
+Input: NAME="Version" VALUE="2" (RADIO)
+Select: NAME="Trade"
+  Option VALUE=""
+  Option VALUE=""
+  Option VALUE=""
+  Option VALUE=""
+  Option VALUE="" (SELECTED)
+  Option VALUE=""
+  Option VALUE=""
+  Option VALUE=""
+  Option VALUE=""
+  Option VALUE=""
+[end of select]
+Select: NAME="ThrType"
+  Option VALUE="abs"
+  Option VALUE="rel" (SELECTED)
+[end of select]
+Input: NAME="ThrValue" VALUE="4" (TEXT)
+Select: NAME="TradeSB"
+  Option VALUE=""
+  Option VALUE=""
+  Option VALUE=""
+  Option VALUE="" (SELECTED)
+  Option VALUE=""
+  Option VALUE=""
+  Option VALUE=""
+  Option VALUE=""
+  Option VALUE=""
+[end of select]
+Input: NAME="PDBres" (CHECKBOX)
+Select: NAME="BFgradient"
+  Option VALUE="0" (SELECTED)
+  Option VALUE="1"
+[end of select]
+Input: NAME="PDBresOrg" (CHECKBOX)
+Input: NAME="SCORPPIONres" (CHECKBOX)
+Select: NAME="SCORPPIONcombine"
+  Option VALUE="0"
+  Option VALUE="1" (SELECTED)
+[end of select]
+Input: NAME="SABLEres" (CHECKBOX)
+Input: NAME="CASPfmt" (CHECKBOX)
+Input: NAME="ReportType" VALUE="1" (RADIO)
+Input: NAME="ReportType" VALUE="2" (RADIO)
+Input: NAME="SABLEres" (CHECKBOX)
+Input: NAME="CASPfmt" (CHECKBOX)
+Button: "Submit" (SUBMIT)
+--- end of FORM
+
