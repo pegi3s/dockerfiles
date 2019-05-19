@@ -4,13 +4,11 @@ RUN apt-get update && apt-get install -y build-essential unzip wget && \
 	apt-get install -y software-properties-common && \
 	apt-get install libboost-iostreams1.62.0
 
-#INSTALL JAVA
-RUN add-apt-repository ppa:webupd8team/java -y && \
-	apt-get update && \
-	echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
-	apt-get install -y oracle-java8-installer
+RUN apt-get update && \
+	apt-get install -y openjdk-8-jre && \
+	rm -rf /var/lib/apt/lists/*
 
-ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 
 RUN wget http://download.systemsbiology.nl/sapp/Aragorn.jar
 RUN wget http://download.systemsbiology.nl/sapp/BLAST.jar
