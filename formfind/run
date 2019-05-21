@@ -1,4 +1,6 @@
 #!/bin/bash
 
+OUTDIR=${2:-/data}
+echo "outdir=" $OUTDIR
 curl $1 > /tmp/temp
-perl /opt/formfind.pl < /tmp/temp > $2
+perl /opt/formfind.pl < /tmp/temp > $OUTDIR/info
