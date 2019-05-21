@@ -1,14 +1,15 @@
 #!/bin/bash
 
+OUTDIR=${1:-/data}
 echo "Running..."
-fields=$(cat /data/parameters)
+echo "outdir=" $OUTDIR
+fields=$(cat $OUTDIR/parameters.sppider)
 echo "Parameters: " $fields
-mkdir /data/results
-for f in /data/*.pdb
+mkdir $OUTDIR/results
+for f in $OUTDIR/*.pdb
 do
 	a="$(basename -- $f)"
 	echo "Submitting " $a
-	curl -F PDBFileName="@/$f" $fields https://sppider.cchmc.org/cgi-bin/int_recognition.cgi > /data/results/$a.result
+	curl -F PDBFileName="@/$f" $fields https://sppider.cchmc.org/cgi-bin/int_recognition.cgi > $OUTDIR/results/$a.result.sppider
 	sleep 20
 done
-chmod 777 /data/results
