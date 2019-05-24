@@ -1,0 +1,100 @@
+--- FORM report. Uses POST to URL "https://alcazar.science.uu.nl/cgi/enmr/services/HADDOCK2.2/haddockserver-prediction.cgi"
+Input: NAME="runname" VALUE=" " (TEXT)
+Select: NAME="p1-pdb-mode"
+  Option VALUE="" (SELECTED)
+  Option VALUE="submit"
+  Option VALUE="download"
+[end of select]
+Select: NAME="p1-pdb-chain"
+  Option VALUE="" (SELECTED)
+  Option VALUE="All"
+  Option VALUE="A"
+  Option VALUE="B"
+  Option VALUE="C"
+  Option VALUE="D"
+  Option VALUE="E"
+  Option VALUE="F"
+  Option VALUE="G"
+  Option VALUE="H"
+  Option VALUE="I"
+  Option VALUE="J"
+  Option VALUE="K"
+  Option VALUE="L"
+  Option VALUE="M"
+  Option VALUE="N"
+  Option VALUE="O"
+  Option VALUE="P"
+  Option VALUE="Q"
+  Option VALUE="R"
+  Option VALUE="S"
+  Option VALUE="T"
+  Option VALUE="U"
+  Option VALUE="V"
+  Option VALUE="W"
+  Option VALUE="X"
+  Option VALUE="Y"
+  Option VALUE="Z"
+[end of select]
+Input: NAME="p1-pdb-pdbfile" VALUE=" " (FILE)
+Input: NAME="p1-pdb-code" VALUE=" " (TEXT)
+Input: NAME="p1-r-activereslist" VALUE=" " (TEXT)
+Input: NAME="p1-r-passivereslist" VALUE=" " (TEXT)
+Input: NAME="p1-r-auto_passive" VALUE=" " (CHECKBOX)
+Select: NAME="p1-moleculetype"
+  Option VALUE="Protein" (SELECTED)
+  Option VALUE="Protein-DNA"
+  Option VALUE="Protein-RNA"
+  Option VALUE="DNA"
+  Option VALUE="RNA"
+[end of select]
+Select: NAME="p2-pdb-mode"
+  Option VALUE="" (SELECTED)
+  Option VALUE="submit"
+  Option VALUE="download"
+[end of select]
+Select: NAME="p2-pdb-chain"
+  Option VALUE="" (SELECTED)
+  Option VALUE="All"
+  Option VALUE="A"
+  Option VALUE="B"
+  Option VALUE="C"
+  Option VALUE="D"
+  Option VALUE="E"
+  Option VALUE="F"
+  Option VALUE="G"
+  Option VALUE="H"
+  Option VALUE="I"
+  Option VALUE="J"
+  Option VALUE="K"
+  Option VALUE="L"
+  Option VALUE="M"
+  Option VALUE="N"
+  Option VALUE="O"
+  Option VALUE="P"
+  Option VALUE="Q"
+  Option VALUE="R"
+  Option VALUE="S"
+  Option VALUE="T"
+  Option VALUE="U"
+  Option VALUE="V"
+  Option VALUE="W"
+  Option VALUE="X"
+  Option VALUE="Y"
+  Option VALUE="Z"
+[end of select]
+Input: NAME="p2-pdb-pdbfile" VALUE=" " (FILE)
+Input: NAME="p2-pdb-code" VALUE=" " (TEXT)
+Input: NAME="p2-r-activereslist" VALUE=" " (TEXT)
+Input: NAME="p2-r-passivereslist" VALUE=" " (TEXT)
+Input: NAME="p2-r-auto_passive" VALUE=" " (CHECKBOX)
+Select: NAME="p2-moleculetype"
+  Option VALUE="Protein" (SELECTED)
+  Option VALUE="Protein-DNA"
+  Option VALUE="Protein-RNA"
+  Option VALUE="DNA"
+  Option VALUE="RNA"
+[end of select]
+Input: NAME="username" VALUE=" " (TEXT)
+Input: NAME="password" VALUE=" " (PASSWORD)
+Button: "" (SUBMIT)
+--- end of FORM
