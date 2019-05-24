@@ -10,3 +10,4 @@ RUN apt-get install -y curl
 
 COPY ./info ./opt/info
 COPY ./run ./opt/run
+COPY ./parameters.haddock ./opt/parameters.haddock
