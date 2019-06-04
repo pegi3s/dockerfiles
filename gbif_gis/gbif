@@ -1,0 +1,7 @@
+library(dismo)
+
+args = commandArgs(trailingOnly=TRUE)
+
+data = gbif(args[1],args[2],geo=TRUE,removeZeros=TRUE,nrecs=200000,download=TRUE)
+datasubset <- subset(data, !is.na(lon) & !is.na(lat))
+write.csv(datasubset, file = "datadownload")

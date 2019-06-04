@@ -1,0 +1,13 @@
+tempdir="/opt"
+
+Rscript $tempdir/gbif $1 $2
+
+csvcut -c lat,lon /data/datadownload > $tempdir/t1
+sed -i '1d' $tempdir/t1
+sort -u  $tempdir/t1 > $tempdir/t2
+rm $tempdir/t1
+sed -i '1i  latitude,longitude' $tempdir/t2
+echo "" >> $tempdir/t2
+cp $tempdir/t2 /data/data.csv
+rm $tempdir/t2
+Rscript /opt/gis && pdfcrop --margins '0 0 0 0' /data/Rplots.pdf && rm /data/Rplots.pdf
