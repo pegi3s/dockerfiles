@@ -1,0 +1,22 @@
+library(dismo)
+library(maptools)
+
+sink('/data/statistics')
+
+obsdata <- read.csv(file = "/data/data.csv")
+summary(obsdata)
+
+bioclim.data <- getData(name = "worldclim", var = "bio", res = 2.5, path = "/data")
+
+obsdata <- obsdata[, c("longitude", "latitude")]
+
+bc.model <- bioclim(x = bioclim.data, p = obsdata)
+predict.presence <- dismo::predict(object = bc.model, x = bioclim.data)
+
+data(wrld_simpl)
+plot(wrld_simpl, xlim=c(-180,200), ylim=c(-90,90), col="grey95")
+
+plot(predict.presence, add = TRUE)
+plot(wrld_simpl, add = TRUE, border = "grey90")
+
+points(obsdata$longitude, obsdata$latitude, col='blue', pch=20, cex=0.15)
