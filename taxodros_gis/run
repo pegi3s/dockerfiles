@@ -1,0 +1,48 @@
+#!/bin/bash
+
+tempdir="/tmp"
+curl -L -d from=dist_reg.php -d bool_sf="or" -d species1="$1" -d bool_def="or" -d searcharr[]='gr-aeg,Aegean Islands (GR)' -d searcharr[]='al,Albania' -d searcharr[]='ad,Andorra' -d searcharr[]='at,Austria' -d searcharr[]='pt-azo,Azores (Portugal)' -d searcharr[]='es-bal,Balearic Islands (Spain)' -d searcharr[]='by,Belarus' -d searcharr[]='be,Belgium' -d searcharr[]='ba,Bosnia and Herzegovina' -d searcharr[]='bg,Bulgaria' -d searcharr[]='es-cny,Canary Islands (Spain)' -d searcharr[]='gb-ci,Channel Islands (GB)' -d searcharr[]='fr-cor,Corsica (France)' -d searcharr[]='gr-kri,Crete (GR)' -d searcharr[]='hr,Croatia' -d searcharr[]='gr-cyc,Cyclades Islands (GR)' -d searcharr[]='cy,Cyprus' -d searcharr[]='cz,Czech Republic' -d searcharr[]='dk,Denmark' -d searcharr[]='gr-dod,Dodecanese Islands (GR)' -d searcharr[]='ee,Estonia' -d searcharr[]='tr-tue,European Turkey' -d searcharr[]='dk-for,Faroe Islands (DK)' -d searcharr[]='fi,Finland' -d searcharr[]='fr,France (mainland)' -d searcharr[]='de,German Federal Republic' -d searcharr[]='gb-gi,Gibraltar' -d searcharr[]='gb,Great Britain (mainland)' -d searcharr[]='gr,Greece (mainland)' -d searcharr[]='greenland,Greenland' -d searcharr[]='hu,Hungary' -d searcharr[]='is,Iceland' -d searcharr[]='ie,Ireland' -d searcharr[]='it,Italy (mainland)' -d searcharr[]='it-sar,Italy (Sardinia)' -d searcharr[]='it-si,Italy (Sicily and islands)' -d searcharr[]='lv,Latvia' -d searcharr[]='li,Liechtenstein' -d searcharr[]='lt,Lithuania' -d searcharr[]='lu,Luxembourg' -d searcharr[]='mk,Macedonia' -d searcharr[]='pt-mdr,Madeira (Portugal)' -d searcharr[]='mt,Malta' -d searcharr[]='md,Moldavia' -d searcharr[]='nl,Netherlands' -d searcharr[]='no,Norway' -d searcharr[]='pl,Poland' -d searcharr[]='pt,Portugal (mainland)' -d searcharr[]='ro,Romania' -d searcharr[]='ru-a,Russia (Asian part)' -d searcharr[]='ru,Russia (European part)' -d searcharr[]='ru-kgd,Russia (Kaliningrad area)' -d searcharr[]='sk,Slovakia' -d searcharr[]='sl,Slovenia' -d searcharr[]='es,Spain (mainland)' -d searcharr[]='se,Sweden' -d searcharr[]='ch,Switzerland' -d searcharr[]='tr,Turkey (mainland)' -d searcharr[]='ua,Ukraine' -d searcharr[]='gb-ni,Ulster (GB)' -d searcharr[]='yu,Yugoslavia (former)' -d searcharr[]='senegal,Africa' -d searcharr[]='angola,Africa' -d searcharr[]='alger,Algeria' -d searcharr[]='benin,Benin' -d searcharr[]='bioko,Bioko' -d searcharr[]='botswana,Botswana' -d searcharr[]='burkina,Burkina' -d searcharr[]='burundi,Burundi' -d searcharr[]='capeverde,Cabo Verde' -d searcharr[]='camer,Cameroon' -d searcharr[]='centralaf,Central African Republic' -d searcharr[]='chad,Chad' -d searcharr[]='congo,Congo Brazzaville' -d searcharr[]='zaire,Congo-Zaire' -d searcharr[]='dahomey,Dahomey' -d searcharr[]='egypt,Egypt' -d searcharr[]='eritrea,Eritrea' -d searcharr[]='ethiopia,Ethiopia' -d searcharr[]='gabon,Gabon' -d searcharr[]='gambia,Gambia' -d searcharr[]='ghana,Ghana' -d searcharr[]='gough,Gough Island' -d searcharr[]='guinea,Guinea' -d searcharr[]='bissao,Guinea-Bissao' -d searcharr[]='ivory,Ivory Coast' -d searcharr[]='kenya,Kenya' -d searcharr[]='lesotho,Lesotho' -d searcharr[]='liberia,Liberia' -d searcharr[]='libya,Libya' -d searcharr[]='madag,Madagascar' -d searcharr[]='malawi,Malawi' -d searcharr[]='mali,Mali' -d searcharr[]='mauretania,Mauretania' -d searcharr[]='mauritius,Mauritius' -d searcharr[]='morocco,Morocco' -d searcharr[]='mozambique,Mozambique' -d searcharr[]='namibia,Namibia' -d searcharr[]='niger,Niger' -d searcharr[]='nigeria,Nigeria' -d searcharr[]='reunion,Reunion' -d searcharr[]='rwanda,Rwanda' -d searcharr[]='sambia,Sambia' -d searcharr[]='saotome,Sao Tome' -d searcharr[]='seychelles,Seychelles' -d searcharr[]='sierraleone,Sierra Leone' -d searcharr[]='somalia,Somalia' -d searcharr[]='southafrica,South Africa' -d searcharr[]='sthelena,St. Helena' -d searcharr[]='sudan,Sudan' -d searcharr[]='swaziland,Swaziland' -d searcharr[]='tanzania,Tanzania' -d searcharr[]='togo,Togo' -d searcharr[]='tristan,Tristan da Cunha' -d searcharr[]='tunisia,Tunisia' -d searcharr[]='uganda,Uganda' -d searcharr[]='zambia,Zambia' -d searcharr[]='zimbabwe,Zimbabwe' -d searcharr[]='iraq,Iraq' -d searcharr[]='israel,Israel' -d searcharr[]='jordan,Jordan' -d searcharr[]='lebanon,Lebanon' -d searcharr[]='oman,Oman' -d searcharr[]='saudi,Saudi Arabia' -d searcharr[]='syria,Syria' -d searcharr[]='uae,United Arab Emirates' -d searcharr[]='yemen,Yemen' -d searcharr[]='canada,Canada' -d searcharr[]='hawaii,Hawaii Islands' -d searcharr[]='mexico,Mexico' -d searcharr[]='usa,USA' -d searcharr[]='belize,Belize' -d searcharr[]='costarica,Costa Rica' -d searcharr[]='elsalv,El Salvador' -d searcharr[]='guatemala,Guatemala' -d searcharr[]='honduras,Honduras' -d searcharr[]='nicaragua,Nicaragua' -d searcharr[]='panama,Panama' -d searcharr[]='bahamas,Bahamas' -d searcharr[]='bermudas,Bermudes' -d searcharr[]='cuba,Cuba' -d searcharr[]='haiti,Hispaniola' -d searcharr[]='jamaica,Jamaica' -d searcharr[]='puertor,Puerto Rico' -d searcharr[]='west,West Indies, Antilles' -d searcharr[]='argent,Argentina' -d searcharr[]='bolivia,Bolivia' -d searcharr[]='brazil,Brazil' -d searcharr[]='chile,Chile' -d searcharr[]='colombia,Colombia' -d searcharr[]='ecuador,Ecuador' -d searcharr[]='french-guyana,French Guyana' -d searcharr[]='galapagos,Galapagos Islands' -d searcharr[]='guyana,Guyana' -d searcharr[]='paraguay,Paraguay' -d searcharr[]='peru,Peru' -d searcharr[]='surinam,Surinam' -d searcharr[]='uruguay,Uruguay' -d searcharr[]='venezuela,Venezuela' -d searcharr[]='afghan,Afghanistan' -d searcharr[]='andamans,Andamans' -d searcharr[]='bangla,Bangladesh' -d searcharr[]='bhutan,Bhutan' -d searcharr[]='bonin,Bonin Islands' -d searcharr[]='burma,Burma/Myanmar' -d searcharr[]='cambodia,Cambodia' -d searcharr[]='china,China' -d searcharr[]='comores,Comores' -d searcharr[]='diego,Diego Garcia' -d searcharr[]='india,India' -d searcharr[]='indonesia,Indonesia' -d searcharr[]='iran,Iran' -d searcharr[]='japan,Japan' -d searcharr[]='laos,Laos' -d searcharr[]='malaysia,Malaysia, Singapore' -d searcharr[]='mongolia,Mongolia' -d searcharr[]='nepal,Nepal' -d searcharr[]='nicobars,Nicobars' -d searcharr[]='korean,North Korea' -d searcharr[]='pakistan,Pakistan' -d searcharr[]='papua,Papua New Guinea' -d searcharr[]='philipp,Philippines' -d searcharr[]='ryukyu,Ryukyu Islands' -d searcharr[]='koreas,South Korea' -d searcharr[]='srilanka,Sri Lanka' -d searcharr[]='taiwan,Taiwan' -d searcharr[]='thailand,Thailand' -d searcharr[]='vietnam,Vietnam' -d searcharr[]='christmas,Christmas Island' -d searcharr[]='marquesas,Marquesas' -d searcharr[]='pac,Pacific Area' -d searcharr[]='aust,Australia' -d searcharr[]='howe,Howe Island' -d searcharr[]='newzealand,New Zealand' https://www.taxodros.uzh.ch/search/bin/subsel.php > $tempdir/1taxodros
+
+sed -n '96,108p' $tempdir/1taxodros > $tempdir/q1
+rm $tempdir/1taxodros
+sed -i 's%<input type="hidden" name="%%g' $tempdir/q1
+sed -i 's%" VALUE%%g' $tempdir/q1
+sed -i 's%>%%g' $tempdir/q1
+sed -i '1i  curl' $tempdir/q1
+echo "https://www.taxodros.uzh.ch/search/bin/lookup.php" >> $tempdir/q1
+tr '\n' ' ' < $tempdir/q1 > $tempdir/q2
+rm $tempdir/q1
+sed -i 's/\t/-d /g' $tempdir/q2
+chmod 777 $tempdir/q2
+$tempdir/q2 > $tempdir/q3
+rm $tempdir/q2
+
+grep "value=" $tempdir/q3 | cut -d';' -f5 > $tempdir/q4
+rm $tempdir/q3
+sed -i '/  ,  /d' $tempdir/q4
+sed -i 's/ca. //g' $tempdir/q4
+sed -i 's/ //g' $tempdir/q4
+sed -i '/value/d' $tempdir/q4
+sed -i '/,(CH0,0)/d'  $tempdir/q4
+sed -i 's/(CH/\n(CH/g' $tempdir/q4
+sed -i '/(CH/d'  $tempdir/q4
+sort -u  $tempdir/q4 > $tempdir/q5
+rm $tempdir/q4
+sed -i '1d' $tempdir/q5
+paste $tempdir/q5 $tempdir/q5 > $tempdir/q6
+rm $tempdir/q5
+sed -i 's/\t/,/g' $tempdir/q6
+cut -f2,3 -d ',' < $tempdir/q6 > $tempdir/q7
+rm $tempdir/q6
+sort -u  $tempdir/q7 > $tempdir/q8
+rm $tempdir/q7
+sed -i '1i  latitude,longitude' $tempdir/q8
+echo "" >> $tempdir/q8
+
+
+
+cp $tempdir/q8 /data/data.csv
+Rscript /opt/gis && pdfcrop --margins '0 0 0 0' /data/Rplots.pdf && rm /data/Rplots.pdf
+rm $tempdir/q8
+
+
