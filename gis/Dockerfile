@@ -1,4 +1,4 @@
-FROM pegi3s/r
+FROM pegi3s/r_project
 
 #Install GIS-specific packages
 
