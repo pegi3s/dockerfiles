@@ -38,6 +38,9 @@ For instance, to run the `Conversion.jar` package for an Eukaryotic Genome, you 
 Now you can run `Augustus`, for gene prediction, with the following command:
 `docker run --rm -v /your/data/dir:/data pegi3s/sapp java -jar genecaller.jar -augustus -c 1 -i /data/DMelanogaster.hdt -o /data/DMelanogaster_augustus.hdt -s fly`
 
+# Test data
+To test the previous command, the datasets used are available as  [FlyBase_JCLNID.fasta](https://github.com/pegi3s/dockerfiles/blob/master/sapp/test_data/FlyBase_JCLNID.fasta) and [DMelanogaster.hdt](https://github.com/pegi3s/dockerfiles/blob/master/sapp/test_data/DMelanogaster.hdt).
+
 # Using the SAPP image in Windows
 
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
