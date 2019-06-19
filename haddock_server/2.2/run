@@ -9,13 +9,16 @@ do
 	cd $f
 	P1="$(ls *.pdb1)"
 	P2="$(ls *.pdb2)"
+	P3="${P1%.*}"
+	P4="${P2%.*}"
+	P5='"'$P3"-"$P4'"'
 	A=$(cat *.a1)
 	B=$(cat *.a2)
 	C=$(cat *.p1)
 	D=$(cat *.p2)
-	echo "Submitting " $P1 $P2
+	echo "Submitting " $P5
 	fields="-F p1-r-activereslist=$A -F p2-r-activereslist=$B -F p1-r-passivereslist=$C -F p2-r-passivereslist=$D"
-	echo '-F p1-pdb-mode="submit" -F p2-pdb-mode="submit" -F p1-pdb-chain="All" -F p2-pdb-chain="All"' $fields $account > run_options
+	echo '-F p1-pdb-mode="submit" -F p2-pdb-mode="submit" -F p1-pdb-chain="All" -F p2-pdb-chain="All"' $fields $account -F runname="$P5" > run_options
 	sed -i 's/pdb\-mode=submit/pdb\-mode="submit"/g' run_options
 	sed -i 's/pdb\-chain=All/pdb\-chain="All"/g' run_options
 	options=$(cat run_options)
