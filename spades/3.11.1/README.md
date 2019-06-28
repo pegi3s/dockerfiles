@@ -28,7 +28,7 @@ Then, you can run the main script by adapting the following command: `docker run
 
 Note that `/your/data/dir` should point to the directory that contains the input files you have downloaded. The output files will be created in the `/data/output` directory.  You can also speed up the execution by adding `-t 4` to tell `SPAdes` to use 4 threads.
 
-*Note*: the analysis of this files may take a while. For instance, it took 100 minutes to complete using 4 threads on a Ubuntu 14.04.3 LTS with an Intel(R) Core(TM) i5 @ 2.20GHz processor, 16GB of RAM and SSD disk.
+*Note*: the analysis of these files may take a while. For instance, it took 100 minutes to complete using 4 threads on a Ubuntu 14.04.3 LTS with an Intel(R) Core(TM) i5 @ 2.20GHz processor, 16GB of RAM and SSD disk.
 
 # Using the SPAdes image in Windows
 
