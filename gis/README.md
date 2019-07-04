@@ -11,7 +11,7 @@ In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input files you want to analyze.
 
 # Test data
-Please make sure you first create a file named `data.csv` containing the latitude and longitude coordinates where your species were observed. The file header must be `"latitude,longitude"`. 
+Please make sure you first create a file named `data.csv` containing the latitude and longitude coordinates where your species was observed. The file header must be `"latitude,longitude"`. 
 
 Your `data.csv` should present the following format:
 ```
