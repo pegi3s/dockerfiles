@@ -10,12 +10,15 @@ This images facilitates the usage of [SAPP](http://sapp.gitlab.io/), a Semantic 
 - `CRT.jar`
 - `Conversion.jar`
 - `EnzDP.jar`
+- `GenomeInformation.jar`
 - `GenomeSync.jar`
 - `HDTQuery.jar`
 - `HMM.jar`
 - `InterProScan.jar`
 - `Loader.jar`
+- `RDFLoader.jar`
 - `TMHMM.jar`
+- `Transcriptomics.jar`
 - `WoLFPSort.jar`
 - `assembly.jar`
 - `genecaller.jar`
@@ -33,7 +36,7 @@ In this command, you should replace:
 - `<package.jar>` to the name of the `SAPP` package you want to use.
 - `<options> ` with the specific options of the `SAPP` package. These options will include the input/output files, which should be referenced under `/data/`.
 
-For instance, to run the `Conversion.jar` package for an Eukaryotic Genome, you should run: `docker run --rm -v /your/data/dir:/data pegi3s/sapp java -jar Conversion.jar -fasta2rdf -input /data/FlyBase_JCLNID.fasta -o /data/DMelanogaster.hdt -genome -chromosome -id DMelanogaster -org "Drosophila melanogaster"`
+For instance, to run the `Conversion.jar` package for an Eukaryotic Genome, you should run: `docker run --rm -v /your/data/dir:/data pegi3s/sapp java -jar Conversion.jar -fasta2hdt -input /data/FlyBase_JCLNID.fasta -o /data/DMelanogaster.hdt -genome -chromosome -id DMelanogaster -org "Drosophila melanogaster"`
 
 Now you can run `Augustus`, for gene prediction, with the following command:
 `docker run --rm -v /your/data/dir:/data pegi3s/sapp java -jar genecaller.jar -augustus -c 1 -i /data/DMelanogaster.hdt -o /data/DMelanogaster_augustus.hdt -s fly`
