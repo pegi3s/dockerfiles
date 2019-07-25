@@ -14,15 +14,15 @@ In this command, you should replace:
 
 For instance, in order to convert a NEXUS file into a FASTA file, you should run: `docker run --rm -v /your/data/dir:/data pegi3s/alter -i /data/input.nexus -o /data/output.fasta -ia -of FASTA -oo Linux -op GENERAL`
 
+# Test data
+To test the previous command, you can copy and paste [this sample data](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/alter/1.3.4/test_data/input.nexus) into the `input`file.
+
 To see the [ALTER](http://sing-group.org/ALTER/) help, just run `docker run --rm pegi3s/alter help`.
 
 # Running the ALTER GUI in Linux
 This docker image can be also used to run the ALTER GUI. To do so, just run: `docker run --rm -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v "/your/data/dir:/data" pegi3s/alter `
 
 If the above command fails, try running `xhost +` first.
-
-# Test data
-To test the previous command, you can copy and paste [this sample data](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/alter/1.3.4/test_data/input.nexus) into the `input`file.
 
 # Using the ALTER image in Windows
 
