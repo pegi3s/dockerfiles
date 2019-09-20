@@ -14,7 +14,7 @@ In this command, you should replace:
 To see the `HyPhy` help, just run `docker run --rm pegi3s/hyphy HYPHYMP -h`.
 
 # Test data
-To test the previous command, you can use as input some example datasets provided [here](https://github.com/veg/hyphy-site/blob/master/docs/tutorials/files/tutorial_data.zip?raw=true) (12MB). Make sure you prepare your input data as described [here](http://hyphy.org/tutorials/current-release-tutorial/) in the section `Preparing input data for HyPhy`.
+To test the previous command, you can use as input some example datasets provided [here](https://github.com/veg/hyphy-site/blob/master/docs/tutorials/files/tutorial_data.zip?raw=true) (12MB). Make sure you prepare your input data as described [here](http://hyphy.org/tutorials/CL-prompt-tutorial/) in the section `Preparing input data for HyPhy`.
 
 For instance, to run `FUBAR` you should follow these steps:
 

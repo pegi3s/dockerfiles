@@ -5,8 +5,9 @@ This image facilitates the usage of [Auto AUGUSTUS](https://github.com/Gaius-Aug
 
 # Using Auto AUGUSTUS image in Linux
 
-To see `AUGUSTUS` general parameters help, you just need to run: `docker run --rm pegi3s/autoaugustus augustus --help`
-For a complete list of parameters, just type: `docker run --rm pegi3s/autoaugustus augustus --paramlist`
+To see `AUGUSTUS` general parameters help, you just need to run: `docker run --rm pegi3s/autoaugustus augustus --help`.
+
+For a complete list of parameters, just type: `docker run --rm pegi3s/autoaugustus augustus --paramlist`.
 
 ## *Scenario 1* - If you have a set of training genes in GFF / GB format
 

@@ -15,8 +15,9 @@ In this command, you should replace:
 
 For instance, if you want to make an assembly using a k-mer size of 21 with a coverage cutoff of 4 and minimum contig length of 100 base pairs, you should run: `docker run --rm -v "/your/data/dir:/data" pegi3s/velvet bash -c "conda run activate velvet_env && velveth /data 21 -fastq -short /data/input.fq && velvetg /data -cov_cutoff 4 -min_contig_lgth 100"`
 
-To see the `velveth` help, just run `docker run --rm pegi3s/velvet velveth --help`
-To see the `velvetg` help, just run `docker run --rm pegi3s/velvet velvetg --help`
+To see the `velveth` help, just run `docker run --rm pegi3s/velvet velveth --help`.
+
+To see the `velvetg` help, just run `docker run --rm pegi3s/velvet velvetg --help`.
 
 # Using the Velvet image in Windows
 
