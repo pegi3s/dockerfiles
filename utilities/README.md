@@ -28,7 +28,7 @@ In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input file you want to process.
 - `/data/data.fastq` to the actual name of your input FASTQ file.
 
-This command will create convert the input FASTQ to FASTA and write the output in `/data/data.fa`. You can also specify the name of the converted file by running `docker run --rm -v /your/data/dir:/data pegi3s/utilities fastq_to_fasta /data/data.fastq /data/converted.fa`
+This command will convert the input FASTQ to FASTA and write the output in `/data/data.fa`. You can also specify the name of the converted file by running `docker run --rm -v /your/data/dir:/data pegi3s/utilities fastq_to_fasta /data/data.fastq /data/converted.fa`
 
 To test this utility, you can copy and paste the following sample data into the `data.fastq` file:
 ```
