@@ -1,7 +1,7 @@
 # This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
 ## (Please note that the original software licenses still apply)
 
-This images facilitates the usage of [jModelTest2](https://github.com/ddarriba/jmodeltest2/blob/master/README.md), a  tool to carry out statistical selection of best-fit models of nucleotide substitution. It implements five different model selection strategies: hierarchical and dynamical likelihood ratio tests (`hLRT` and `dLRT`), Akaike and Bayesian information criteria (`AIC` and `BIC`), and a decision theory method (`DT`). It also provides estimates of model selection uncertainty, parameter importances and model-averaged parameter estimates, including model-averaged tree topologies.
+This image facilitates the usage of [jModelTest2](https://github.com/ddarriba/jmodeltest2/blob/master/README.md), a  tool to carry out statistical selection of best-fit models of nucleotide substitution. It implements five different model selection strategies: hierarchical and dynamical likelihood ratio tests (`hLRT` and `dLRT`), Akaike and Bayesian information criteria (`AIC` and `BIC`), and a decision theory method (`DT`). It also provides estimates of model selection uncertainty, parameter importances and model-averaged parameter estimates, including model-averaged tree topologies.
 
 # Using the jModelTest2 image in Linux
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/jmodeltest2 java -jar /jmodeltest2/dist/jModelTest.jar -d /data/input -g <number_rate_categories> -i -f -AIC -BIC -a -o /data/output`
