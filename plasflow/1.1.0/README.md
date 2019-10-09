@@ -19,7 +19,7 @@ For instance, in order to classify the `SPAdes` 3.9.1 assembly of `Citrobacter f
 The predictions will be located in the `test.plasflow_predictions.tsv` file.
 
 # Test data
-To test the previous command, you can copy and paste [this sample data](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/plasflow/1.1.10/test_data/Citrobacter_freundii_strain_CAV1321_scaffolds.fasta) into the `input` file.
+To test the previous command, you can copy and paste [this sample data](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/plasflow/1.1.0/test_data/Citrobacter_freundii_strain_CAV1321_scaffolds.fasta) into the `input` file.
 
 # Using the PlasFlow image in Windows
 
