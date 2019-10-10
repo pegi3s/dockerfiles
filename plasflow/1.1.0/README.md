@@ -21,6 +21,8 @@ The predictions will be located in the `test.plasflow_predictions.tsv` file.
 # Test data
 To test the previous command, you can copy and paste [this sample data](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/plasflow/1.1.0/test_data/Citrobacter_freundii_strain_CAV1321_scaffolds.fasta) into the `input` file.
 
+To see `PlasFlow.py` options, just run `docker run --rm pegi3s/plasflow PlasFlow.py --help`.
+
 # Using the PlasFlow image in Windows
 
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
