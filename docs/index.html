@@ -81,6 +81,25 @@
       </div>
     </section>
 
+    <section id="advantages">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Docker Images Advantages</h2>
+            <ul>
+            <li>Easy to use since it only requires the installation of Docker;</li>
+            <li>Portable between computers and immutable;</li>
+            <li>Can be deposited in public databases such as <b>Docker Hub</b>;</li>
+            <li>Can be downloaded when needed and erased when no longer needed;</li>
+            <li>The installed scientific software is ready to run;</li>
+            <li>Software invoked through the command line can be directly run in <b>Linux</b> and <b>Windows</b> platforms;</li>
+            <li>Docker images can be used in pipelines.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="install">
       <div class="container">
         <div class="row">
@@ -214,9 +233,15 @@
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>Final Remarks</h2>
-            <p class="lead">Please note that the original software licenses still apply.</p>
-            <p class="lead">If there is not a Dockerfile tab on an image repository just add "<b>dockerfile</b>" to the end of the Docker image URL.</p>
-            <p class="lead"><b>sudo su</b> (administrator privileges) is required to run any image. As an alternative please follow the steps described <a href="https://docs.docker.com/install/linux/linux-postinstall/">here</a> to manage Docker as a non-root user.</p>
+            <ul>
+            <li>Please note that the original software licenses still apply.</li>
+            <li>If there is not a Dockerfile tab on an image repository just add "<b>dockerfile</b>" to the end of the Docker image URL.</li>
+            <li><code>$ sudo su</code> (administrator privileges) is required to run any image. As an alternative please follow the steps described <a href="https://docs.docker.com/install/linux/linux-postinstall/">here</a> to manage Docker as a non-root user.</li>
+            <li>To purge all unused or dangling images, containers, volumes and networks, please use the following command:</li>
+            <code>$ docker system prune -a</code>
+            <li>To remove one or more specific images, please use instead the following command:</li>                
+            <code>$ docker rmi &lt;image_name&gt; or &lt;image_ID&gt;</code>
+            </ul>
           </div>
         </div>
       </div>
