@@ -29,3 +29,8 @@ footer {
 .header-img {
     margin-left: 10px;
 }
+
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
