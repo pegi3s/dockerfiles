@@ -1,7 +1,7 @@
 # This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
 ## (Please note that the original software licenses still apply)
 
-This images facilitates the usage of [RAxML](https://sco.h-its.org/exelixis/web/software/raxml/index.html) (Randomized Axelerated Maximum Likelihood), a program for sequential and parallel Maximum Likelihood based inference of large phylogenetic trees. It can also be used for post-analyses of sets of phylogenetic trees, analyses of alignments and, evolutionary placement of short reads.
+This image facilitates the usage of [RAxML](https://sco.h-its.org/exelixis/web/software/raxml/index.html) (Randomized Axelerated Maximum Likelihood), a program for sequential and parallel Maximum Likelihood based inference of large phylogenetic trees. It can also be used for post-analyses of sets of phylogenetic trees, analyses of alignments and, evolutionary placement of short reads.
 It has originally been derived from `fastDNAml` which in turn was derived from Joe Felsentein's `dnaml` which is part of the `PHYLIP` package.
 
 # Using the RAxML image in Linux
