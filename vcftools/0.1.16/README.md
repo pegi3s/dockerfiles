@@ -49,7 +49,7 @@ In this command, you should replace:
 For instance, to output a new `VCF` file from the input `VCF` file that removes any indel sites, you should run: `docker run --rm -v /your/data/dir:/data pegi3s/vcftools vcftools --gzvcf /data/ALL.chrY.phase3_integrated_v2a.20130502.genotypes.vcf.gz --remove-indels --recode --recode-INFO-all --out /data/output`
 
 # Test data
-To test the previous command, the dataset used is available [here](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chrY.phase3_integrated_v2a.20130502.genotypes.vcf.gz).
+To test the previous command, the dataset used is available [here](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chrY.phase3_integrated_v2a.20130502.genotypes.vcf.gz).
 
 # Using the VCFtools image in Windows
 
