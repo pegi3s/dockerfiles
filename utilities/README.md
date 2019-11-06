@@ -5,11 +5,11 @@ This Docker image contains different utilities and scripts that may be useful in
 
 These utilities are alphabetically listed bellow along with comprehensive explanations. To show the help of a specific utiliy, run `docker run --rm pegi3s/utilities <utility_name> --help`.
 
-# `count-dockehub-pulls`
+# `count-dockerhub-pulls`
 
-The `count-dockehub-pulls` lists the number of pulls of each image for a given Docker Hub user.
+The `count-dockerhub-pulls` lists the number of pulls of each image for a given Docker Hub user.
 
-To test this utility, you can run the following command: `docker run --rm pegi3s/utilities count-dockehub-pulls pegi3s`
+To test this utility, you can run the following command: `docker run --rm pegi3s/utilities count-dockerhub-pulls pegi3s`
 
 # `deinterleave_fastq`
 
