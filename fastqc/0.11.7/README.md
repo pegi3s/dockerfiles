@@ -13,7 +13,7 @@ In this command, you should replace:
 To see the `FastQC` help, just run `docker run --rm pegi3s/fastqc --help`.
 
 # Running the FastQC GUI in Linux
-This docker image can be also used to run the fastqc GUI. To do so, just run: `docker run --rm -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v "/your/data/dir:/data" pegi3s/fastqc`
+This docker image can be also used to run the `FastQC` GUI. To do so, just run: `docker run --rm -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v "/your/data/dir:/data" pegi3s/fastqc`
 
 If the above command fails, try running `xhost +` first.
 
