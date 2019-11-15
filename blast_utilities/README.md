@@ -1,7 +1,7 @@
 # This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
 
 # BLAST utilities
-This Docker image contains a script that may be useful when using [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi). 
+This Docker image contains scripts that may be useful when using [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi). 
 
 # `m3f1`
 
