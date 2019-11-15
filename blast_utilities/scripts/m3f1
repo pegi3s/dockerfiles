@@ -1,0 +1,77 @@
+#!/bin/bash
+
+#Usage: m3f1; Nucleotide FASTA File; Reference Protein File; Output File Name
+
+function perform_blast {
+makeblastdb -in temp0 -dbtype nucl -parse_seqids
+tblastn -query $1 -db temp0 -evalue 0.05 -max_target_seqs 1 -outfmt 6 -out blast_output
+head -1 blast_output > temp1
+}
+
+while read header
+do
+read sequence
+
+echo $header > temp0 && echo $sequence >> temp0
+
+perform_blast $2
+
+tr "\t" " " < temp1 > temp2
+a=$(cut -d' ' -f9 temp2)
+b=$(cut -d' ' -f10 temp2)
+
+if [[ $a -gt $b ]]
+then
+echo "Reverting"
+echo $header > temp0
+echo $sequence > to_revert
+cat to_revert | tr "[ATGCUatgcuNnYyRrSsWwKkMmBbDdHhVv]" "[TACGAtacgaNnRrYySsWwMmKkVvHhDdBb]" | rev >> temp0
+rm to_revert
+perform_blast $2
+
+tr "\t" " " < temp1 > temp2
+a=$(cut -d' ' -f9 temp2)
+sequence=$(cat temp0 | tail -1)
+
+else echo "Already plus frame"
+fi
+
+remainder=$(( a % 3 ))
+if [ "$remainder" -eq 1 ]
+then
+echo 'Already frame 1'
+elif [ "$remainder" -eq 2 ]
+then
+echo 'Frame 3 - Trimming'
+sequence="${sequence:1}"
+elif [ "$remainder" -eq 0 ]
+then
+echo 'Frame 2 - Trimming'
+sequence="${sequence:2}"
+fi
+
+c=$(expr length $sequence)
+
+remainder=$(( c % 3 ))
+if [ "$remainder" -eq 1 ]
+then
+echo "Non-multiple of three - Trimming"
+sequence="${sequence::-1}"
+elif [ "$remainder" -eq 2 ]
+then
+echo "Non-multiple of three - Trimming"
+sequence="${sequence::-2}"
+elif [ "$remainder" -eq 0 ]
+then
+echo 'Already multiple of three'
+fi
+
+
+echo $header >> $3
+echo $sequence >> $3
+
+rm temp0 temp1 temp2 blast_output
+rm temp0.nin temp0.nog temp0.nhr temp0.nsq temp0.nsd temp0.nsi
+
+done < $1
+
