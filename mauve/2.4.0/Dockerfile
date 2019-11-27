@@ -18,3 +18,5 @@ RUN wget http://darlinglab.org/mauve/snapshots/2015/2015-02-13/linux-x64/mauve_l
 RUN echo "java -jar /opt/mauve_snapshot_2015-02-13/Mauve.jar" > "/opt/mauve_snapshot_2015-02-13/run.sh"
 
 CMD sh /opt/mauve_snapshot_2015-02-13/run.sh
+
+ENV PATH="/opt/mauve_snapshot_2015-02-13/linux-x64/:${PATH}"
