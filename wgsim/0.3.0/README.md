@@ -5,7 +5,7 @@ This image facilitates the usage of [Wgsim](https://github.com/lh3/wgsim), a sma
 
 `Wgsim` outputs the simulated polymorphisms, and writes the true read coordinates as well as the number of polymorphisms and sequencing errors in read names. One can evaluate the accuracy of a mapper or a `SNP` caller with `wgsim_eval.pl` that comes with the package.
 
-To see `wgsim` options, just run `docker run --rm pegi3s/wgsim wgsim -h`.
+To see `Wgsim` options, just run `docker run --rm pegi3s/wgsim wgsim -h`.
 
 # Using the Wgsim image in Linux
 
