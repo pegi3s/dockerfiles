@@ -29,7 +29,7 @@ The previous command generates two FASTQ files, `7859_GPI.read1.fq` and `7859_GP
 - None of the reads contain indels (`-R0` & `-X0`) nor mutations/variants (`-r0`).
 - Base quality scales with the value given to `-e` so we set it to zero (`-e0`) for base quality scores of `I`, which is, according to [this page](https://en.wikipedia.org/wiki/FASTQ_format) and [this site](http://broadinstitute.github.io/picard/explain-qualities.html), an excellent base quality score equivalent to a Sanger Phred+33 score of 40.
 
-For a 43 kb contig, 10K x 2 x 151 reads should give you ~70x hypothetical coverage.
+For a 43 kb contig, 10K x 2 x 151 reads should give you ≃70x hypothetical coverage.
 
 # Test data
 To test the previous command, the input FASTA file used is available [here](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/wgsim/0.3.0/test_data/chr19_KI270866v1_alt.fasta).
