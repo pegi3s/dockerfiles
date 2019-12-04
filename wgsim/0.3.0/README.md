@@ -13,7 +13,7 @@ You should adapt and run the following command: `docker run --rm -v "/your/data/
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the FASTA file you want to analyze.
-- `<options>` with the specific options of the `Wgsim` tool. These options will include the input/output files, which should be referenced under /data/.
+- `<options>` with the specific options of the `Wgsim` tool. These options will include the input/output files, which should be referenced under `/data/`.
 - `<in.ref.fa>` to the actual name of your input FASTA file.
 - `<out.read1.fq>` to the actual name of your output reads file 1 in FASTQ format.
 - `<out.read2.fq>` to the actual name of your output reads file 2 in FASTQ format.
