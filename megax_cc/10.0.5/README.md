@@ -5,7 +5,7 @@ This image facilitates the usage of [MEGA X CC](https://www.megasoftware.net/web
 
 The Command Line interface requires a special input file called a [MEGA Analysis Options](https://www.megasoftware.net/web_help_10/MEGA_Analysis_Options_File.htm)`(.mao)`file, which specifies the analysis to run as well as the analysis options to use. This `.mao` file can only be created by using the `GUI` interface. We provide an example of a `.mao` file [here](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/megax_cc/10.0.5/options_menu/infer_NJ_nucleotide.mao). If you intend to generate your own `.mao` file make sure you follow the steps described [here](https://www.megasoftware.net/web_help_10/Running_in_Command-Line_Mode.htm) in the section `Generating the MEGA Analysis Options File`.
 
-To see `megacc` options, just run `docker run --rm pegi3s/megax_cc megacc -h`.
+To see `MEGA X CC` options, just run `docker run --rm pegi3s/megax_cc megacc -h`.
 
 # Using the MEGA X CC image in Linux
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/megax_cc megacc -a <mao_file> -d <meg_seq_align> -o output`
