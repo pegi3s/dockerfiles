@@ -22,7 +22,7 @@ For instance, if you want to generate a high quality VCF file from an input SAM 
 - `docker run --rm -v /your/data/dir:/data pegi3s/samtools_bcftools bash -c "bcftools filter -s LowQual -e '%QUAL<20 || DP>100' /data/var.raw.vcf  > /data/var.flt.vcf"`
 
 # Test data
-To test the previous commands, the input SAM file used is available [here](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/samtools_bcftools/1.19/test_data/aln-pe.sam), and the input FASTA file is available [here](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/samtools_bcftools/1.19/test_data/chr19_KI270866v1_alt.fasta).
+To test the previous commands, the input SAM file used is available [here](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/samtools_bcftools/1.9/test_data/aln-pe.sam), and the input FASTA file is available [here](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/samtools_bcftools/1.9/test_data/chr19_KI270866v1_alt.fasta).
 
 # Using the SAMtools-BCFtools image in Windows
 
