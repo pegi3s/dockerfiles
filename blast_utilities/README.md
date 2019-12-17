@@ -42,4 +42,4 @@ For instance, to run the script `2-way-blast` with `tblastx` type and using as a
 
 # Test data
 
-To test this utility, the nucleotide FASTA files are available [here](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/blast_utilities/test_data/input) and the reference nucleotide file is available [here](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/blast_utilities/test_data/input/nucleotide.fasta).
+To test this utility, the nucleotide FASTA files are available [here](https://github.com/pegi3s/dockerfiles/tree/master/blast_utilities/test_data/input) and the reference nucleotide file is available [here](https://github.com/pegi3s/dockerfiles/blob/master/blast_utilities/test_data/input/nucleotide.fasta).
