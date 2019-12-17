@@ -1,0 +1,59 @@
+INPUT_DIR=$1
+OUTPUT_DIR=$2
+REFERENCE_FILE=$3
+BLAST_TYPE=$4
+WORK_DIR="${$5:-/workdir}"
+
+#Prepare files and Blast Databases
+mkdir -p $WORK_DIR/temp -p $WORK_DIR/files -p $WORK_DIR/databases
+cd $INPUT_DIR
+
+for file in *
+do
+  if [ -s $file ]
+  then
+    sed '/^>/ s/$/#######/g' $file > $WORK_DIR/temp/temp1
+    sed -z 's/\r//g' $WORK_DIR/temp/temp1 > $WORK_DIR/temp/temp2
+    sed -z 's/\n//g' $WORK_DIR/temp/temp2 > $WORK_DIR/temp/temp3
+    sed 's/>/\n>/g' $WORK_DIR/temp/temp3 > $WORK_DIR/temp/temp4
+    sed 's/#######/\n/g' $WORK_DIR/temp/temp4 > $WORK_DIR/temp/temp5
+    sed -i '1d' $WORK_DIR/temp/temp5
+    mv  $WORK_DIR/temp/temp5 $WORK_DIR/files/$file
+    makeblastdb -in $WORK_DIR/files/$file -dbtype nucl -parse_seqids -out $WORK_DIR/databases/$file
+  fi
+done
+
+#Batch Two-way-Blast
+mkdir -p $WORK_DIR/results -p $WORK_DIR/orthologs
+while read -r line1; do
+  read -r line2
+
+  echo $line1 > $WORK_DIR/temp/ref
+  echo $line2 >> $WORK_DIR/temp/ref
+
+  cd $WORK_DIR/files
+
+  for file in *
+  do
+    $BLAST_TYPE -query $WORK_DIR/temp/ref -db $WORK_DIR/databases/$file -evalue 0.05 -max_target_seqs 1 -outfmt 6 -out $WORK_DIR/temp/output1
+    seqref=$(cut -f1 $WORK_DIR/temp/output1 | head -1)
+    seqID1=$(cut -f2 $WORK_DIR/temp/output1 | head -1)
+    if [ -z "$seqID1" ]
+      then
+        echo "No Blast hit"
+      else
+        echo "Got a Blast hit"
+        grep -A1 $seqID1 $file > $WORK_DIR/temp/seq
+        $BLAST_TYPE -query $WORK_DIR/temp/seq -db $WORK_DIR/databases/$REFERENCE_FILE -evalue 0.05 -max_target_seqs 1 -outfmt 6 -out $WORK_DIR/temp/output2
+        seqID2=$(cut -f2 $WORK_DIR/temp/output2 | head -1)
+        if [ "$seqref" == "$seqID2" ]
+        then
+          grep -A1 $seqID1 $file >> $WORK_DIR/orthologs/$seqref.orthologs
+        fi
+    fi
+  done
+done < $WORK_DIR/files/$REFERENCE_FILE
+
+mv $WORK_DIR/orthologs $OUTPUT_DIR
+chmod -R 777 $OUTPUT_DIR
+rm -rf $WORK_DIR
