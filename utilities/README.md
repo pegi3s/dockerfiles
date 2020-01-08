@@ -26,10 +26,10 @@ To test this utility, you can download and decompress [this fastq compressed fil
 
 # `fasta_remove_line_breaks`
 
-The `fasta_remove_line_breaks` script the line breaks of sequences in a FASTA file.
+The `fasta_remove_line_breaks` script removes the line breaks of sequences in a FASTA file.
 
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities fasta_remove_line_breaks /data/input.fasta -o=/data/output.fasta`
-`
+
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input file you want to process.
 - `/data/input.fasta` to the actual name of your input FASTA file.
