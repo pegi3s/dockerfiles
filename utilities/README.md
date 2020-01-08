@@ -5,11 +5,11 @@ This Docker image contains different utilities and scripts that may be useful in
 
 These utilities are alphabetically listed bellow along with comprehensive explanations. To show the help of a specific utiliy, run `docker run --rm pegi3s/utilities <utility_name> --help`.
 
-# `count-dockerhub-pulls`
+# `count_dockerhub_pulls`
 
-The `count-dockerhub-pulls` lists the number of pulls of each image for a given Docker Hub user.
+The `count_dockerhub_pulls` lists the number of pulls of each image for a given Docker Hub user.
 
-To test this utility, you can run the following command: `docker run --rm pegi3s/utilities count-dockerhub-pulls pegi3s`
+To test this utility, you can run the following command: `docker run --rm pegi3s/utilities count_dockerhub_pulls pegi3s`
 
 # `deinterleave_fastq`
 
@@ -71,5 +71,8 @@ The `latest` tag contains always the most recent version.
 - Initial `utilities` image containing the `rmlastline` and `deinterleave_fastq` utilities.
 
 ## [0.2.0] - 11/05/2018
-- Add the `fastq_to_fasta` utiliy.
+- Add the `fastq_to_fasta` utility.
 - Add `--help` parameter to all utilities in order to show the usage instructions.
+
+## [0.3.0] - 6/11/2019
+- Add the `count_dockerhub_pulls` utility.
