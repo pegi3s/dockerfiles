@@ -24,6 +24,32 @@ In this command, you should replace:
 
 To test this utility, you can download and decompress [this fastq compressed file](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=dload&run_list=SRR1654650&format=fastq) (1.1GB). In the previous command you just need to replace `/data/data.fastq` with `/data/sra_data.fastq.gz`.
 
+# `fasta_remove_line_breaks`
+
+The `fasta_remove_line_breaks` script the line breaks of sequences in a FASTA file.
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities fasta_remove_line_breaks /data/input.fasta -o=/data/output.fasta`
+`
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input file you want to process.
+- `/data/input.fasta` to the actual name of your input FASTA file.
+- `/data/output.fasta` to the actual name of your output FASTA file.
+
+This command will process the input FASTA and write the output in `/data/output.fasta`. The `-o=/data/output.fasta` parameter can be ommited, causing that the input file will be overwritten.
+
+To test this utility, you can copy and paste the following sample data into the `input.fasta` file:
+```
+>1
+GATGGAGCGAAAAGAAATGA
+GTATCGTATGCCGTCTTCTG
+CTTGAAAAA
+>2
+TTGGACGGGACGTGACGAAA
+CGGTATCGTATGCCGTCTTC
+TGCTTGAAATGCTTGAAACT
+TGCTTGAAATGCTTGAAAAG
+```
+
 # `fastq_to_fasta`
 
 The `fastq_to_fasta` script converts a FASTQ file into a FASTA file.
@@ -76,3 +102,6 @@ The `latest` tag contains always the most recent version.
 
 ## [0.3.0] - 6/11/2019
 - Add the `count_dockerhub_pulls` utility.
+
+## [0.4.0] - 8/01/2020
+- Add the `fasta_remove_line_breaks` utility.

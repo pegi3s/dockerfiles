@@ -1,0 +1,46 @@
+#!/bin/bash
+
+display_usage() { 
+  echo -e "This script removes the line breaks of sequences in a FASTA file."
+  echo -e "\nUsage:"
+  echo -e "\t`basename $0` <input> [-o/--output=<output>]"
+} 
+
+if [[ $1 == "--help" ]]; then
+  display_usage
+  exit 1
+fi
+
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
+  display_usage
+  exit 0
+fi
+
+INPUT=$1
+
+for key in "$@"
+do
+case $key in
+    -o=*|--output=*)
+    OUTPUT="${key#*=}"
+    shift # past argument=value
+    ;;
+    *)
+      # unknown option
+    ;;
+esac
+done
+
+if [ -z ${OUTPUT+x} ]; then 
+	sed -i '/^>/ s/$/#######/g' $INPUT
+	sed -i -z 's/\n//g' $INPUT
+	sed -i 's/>/\n>/g' $INPUT
+	sed -i 's/#######/\n/g' $INPUT
+	sed -i '1d' $INPUT
+else 
+	sed '/^>/ s/$/#######/g' $INPUT > $OUTPUT
+	sed -i -z 's/\n//g' $OUTPUT
+	sed -i 's/>/\n>/g' $OUTPUT
+	sed -i 's/#######/\n/g' $OUTPUT
+	sed -i '1d' $OUTPUT
+fi
