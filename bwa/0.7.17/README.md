@@ -7,7 +7,7 @@ To see `BWA` options, just run `docker run --rm pegi3s/bwa bwa`.
 
 # Using the BWA image in Linux
 
-You should adapt and run the following command: `docker run --rm -v "/your/data/dir:/data" pegi3s/bwa bwa <command> [options]`
+You should adapt and run the following command: `docker run --rm -v "/your/data/dir:/data" pegi3s/bwa bwa <command> <options>`
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the FASTA file you want to analyze.
@@ -27,4 +27,4 @@ The two FASTQ files used, one for each mate of the paired reads, are available [
 
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
-You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/bwa bwa <command> [options]`
+You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/bwa bwa <command> <options>`
