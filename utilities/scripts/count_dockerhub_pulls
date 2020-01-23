@@ -26,11 +26,11 @@ do
 case $key in
     -jq=*|--option=*)
     JQ="${key#*=}"
-    shift # past argument=value
+    shift
     ;;
     -ps=*|--page-size=*)
     PAGE_SIZE="${key#*=}"
-    shift # past argument=value
+    shift
     ;;
     *)
       # unknown option

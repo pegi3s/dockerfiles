@@ -23,7 +23,7 @@ do
 case $key in
     -o=*|--output=*)
     OUTPUT="${key#*=}"
-    shift # past argument=value
+    shift
     ;;
     *)
       # unknown option

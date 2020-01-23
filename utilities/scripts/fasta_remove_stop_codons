@@ -1,0 +1,43 @@
+#!/bin/bash
+
+display_usage() {
+	echo -e "This script removes the stop codons (TAA, TAG and TGA) at the end of sequences in a FASTA file."
+	echo -e "\nIMPORTANT: if the input file have line breaks separating the sequences, remove them first using the fasta_remove_line_breaks script. Otherwise, stop codons will be removed from each sequence line."
+	echo -e "\nUsage:"
+	echo -e "\t`basename $0` <input> [-o/--output=<output>]"
+} 
+
+if [[ $1 == "--help" ]]; then
+  display_usage
+  exit 1
+fi
+
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
+  display_usage
+  exit 0
+fi
+
+INPUT=$1
+
+for key in "$@"
+do
+case $key in
+    -o=*|--output=*)
+    OUTPUT="${key#*=}"
+    shift
+    ;;
+    *)
+      # unknown option
+    ;;
+esac
+done
+
+if [ -z ${OUTPUT+x} ]; then 
+	sed -i '/^>/! s/TAA$//g' $INPUT
+	sed -i '/^>/! s/TAG$//g' $INPUT
+	sed -i '/^>/! s/TGA$//g' $INPUT
+else 
+	sed '/^>/! s/TAA$//g' $INPUT > $OUTPUT
+	sed -i '/^>/! s/TAG$//g' $OUTPUT
+	sed -i '/^>/! s/TGA$//g' $OUTPUT
+fi

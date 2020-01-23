@@ -1,0 +1,24 @@
+#!/bin/bash
+
+display_usage() {
+	echo -e "This script removes the stop codons (TAA, TAG and TGA) at the end of sequences from one or more files. Note that this command modifies the files passed as parameters."
+	echo -e "\nIMPORTANT: if the input files have line breaks separating the sequences, remove them first using the fasta_remove_line_breaks script. Otherwise, stop codons will be removed from each sequence line."
+	echo -e "\nUsage:"
+	echo -e "\tbatch_remove_stop_codons file1 [file2] [file3] ...[fileN]"
+} 
+
+if [[ $1 == "--help" ]]; then
+	display_usage
+	exit 1
+fi
+
+if [ $# -eq 0 ]
+then 
+	echo "This script requires at least one argument" 
+	display_usage
+	exit 1
+fi 
+
+sed -i '/^>/! s/TAA$//g' "$@"
+sed -i '/^>/! s/TAG$//g' "$@"
+sed -i '/^>/! s/TGA$//g' "$@"

@@ -12,9 +12,27 @@ You should adapt and run the following command: `docker run --rm -v /your/data/d
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input file you want to process.
-- `/data/file*.fasta` to the actual names of your input FASTA files. Note that it is possible to use bash wildcards such as `/data/*` when running the command.
+- `/data/file*.fasta` to the actual names of your input FASTA files. 
+
+Note that it is possible to use bash wildcards such as `/data/*` when running the command, altough in this case the command should be called using `bash -c`, that is: `docker run --rm -v /your/data/dir:/data pegi3s/utilities bash -c "batch_fasta_remove_line_breaks /data/*.fasta"`
 
 This command will process all the input FASTA files specified, editing them in place. See the [`fasta_remove_line_breaks`](#fasta_remove_line_breaks) command descripion for an example.
+
+## `batch_fasta_remove_stop_codons`
+
+The `batch_fasta_remove_stop_codons` script modifies the sequences in one or more FASTA files to remove the stop codons (TAA, TAG and TGA) at the end of sequences. 
+
+Note that if the input files have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. Otherwise, stop codons will be removed from each sequence line.
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities batch_fasta_remove_stop_codons /data/file1.fasta /data/file2.fasta`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input file you want to process.
+- `/data/file*.fasta` to the actual names of your input FASTA files. 
+
+Note that it is possible to use bash wildcards such as `/data/*` when running the command, altough in this case the command should be called using `bash -c`, that is: `docker run --rm -v /your/data/dir:/data pegi3s/utilities bash -c "batch_fasta_remove_stop_codons /data/*.fasta"`
+
+This command will process all the input FASTA files specified, editing them in place. See the [`fasta_remove_stop_codons`](#fasta_remove_stop_codons) command descripion for an example.
 
 ## `count_dockerhub_pulls`
 
@@ -59,6 +77,33 @@ TTGGACGGGACGTGACGAAA
 CGGTATCGTATGCCGTCTTC
 TGCTTGAAATGCTTGAAACT
 TGCTTGAAATGCTTGAAAAG
+```
+
+## `fasta_remove_stop_codons`
+
+The `fasta_remove_stop_codons` script modifies the sequences in a FASTA file to remove the stop codons (TAA, TAG and TGA) at the end of sequences. 
+
+Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. Otherwise, stop codons will be removed from each sequence line.
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities fasta_remove_stop_codons /data/input.fasta -o=/data/output.fasta`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input file you want to process.
+- `/data/input.fasta` to the actual name of your input FASTA file.
+- `/data/output.fasta` to the actual name of your output FASTA file.
+
+This command will process the input FASTA and write the output in `/data/output.fasta`. The `-o=/data/output.fasta` parameter can be ommited, causing that the input file will be overwritten.
+
+To test this utility, you can copy and paste the following sample data into the `input.fasta` file:
+```
+>1
+ACTACTACTACTACTTAA
+>2
+ACTACTACTACTACTTAG
+>3
+ACTACTACTACTACTTGA
+>4
+ACTACTACTACTACT
 ```
 
 ## `fastq_to_fasta`
