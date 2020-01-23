@@ -1,0 +1,25 @@
+#!/bin/bash
+
+display_usage() { 
+  echo -e "This script removes the line breaks of sequences in one or more FASTA files. Note that this command modifies the files passed as parameters."
+  echo -e "\nUsage:"
+  echo -e "\t`basename $0` file1 [file2] [file3] ...[fileN]"
+} 
+
+if [[ $1 == "--help" ]]; then
+	display_usage
+	exit 1
+fi
+
+if [ $# -eq 0 ]
+then 
+	echo "This script requires at least one argument" 
+	display_usage
+	exit 1
+fi 
+
+sed -i '/^>/ s/$/#######/g' "$@"
+sed -i -z 's/\n//g' "$@"
+sed -i 's/>/\n>/g' "$@"
+sed -i 's/#######/\n/g' "$@"
+sed -i '1d' "$@"

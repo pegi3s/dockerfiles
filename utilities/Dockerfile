@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM pegi3s/docker
 
 RUN apt-get update && \
 	apt-get install -y wget
