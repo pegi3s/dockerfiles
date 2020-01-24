@@ -8,9 +8,12 @@ These utilities are alphabetically listed bellow along with comprehensive explan
 The list of utilities is presented below, please refer to [this manual](https://github.com/pegi3s/dockerfiles/blob/master/utilities/MANUAL.md) for detailed instructions and examples.
 
 - `batch_fasta_remove_line_breaks`: removes the line breaks of sequences in one or more FASTA files.
+- `batch_fasta_remove_stop_codons`: modifies the sequences in one or more FASTA files to remove the stop codons (TAA, TAG and TGA) at the end of sequences. Note that if the input files have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. Otherwise, stop codons will be removed from each sequence line.
 - `count_dockerhub_pulls`: lists the number of pulls of each image for a given Docker Hub user.
 - `deinterleave_fastq`: deinterleaves a FASTQ file of paired reads into two FASTQ files. Optionally, the output files can be compressed using GZip.
 - `fasta_remove_line_breaks`: removes the line breaks of sequences in a FASTA file.
+- `fasta_remove_sequences_with_in_frame_stops_or_n`: removes the sequences containing N's or in-frame STOP codons (TAA, TAG and TGA) and writes the output into a new file.
+- `fasta_remove_stop_codons`: modifies the sequences in a FASTA file to remove the stop codons (TAA, TAG and TGA) at the end of sequences. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. Otherwise, stop codons will be removed from each sequence line.
 - `fastq_to_fasta`: converts a FASTQ file into a FASTA file.
 - `rmlastline`: removes the last line of one or more files. Note that this command modifies the files passed as parameters.
 
@@ -33,3 +36,9 @@ The `latest` tag contains always the most recent version.
 
 ## [0.5.0] - 23/01/2020
 - Add the `batch_fasta_remove_line_breaks` utility.
+
+## [0.6.0] - 23/01/2020
+- Add the `fasta_remove_stop_codons` and `batch_fasta_remove_stop_codons` utilities.
+
+## [0.7.0] - 24/01/2020
+- Add the `fasta_remove_sequences_with_in_frame_stops_or_n`.

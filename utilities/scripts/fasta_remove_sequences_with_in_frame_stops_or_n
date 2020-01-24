@@ -1,0 +1,80 @@
+#!/bin/bash
+
+display_usage() {
+	echo -e "This script removes the sequences containing N's or in-frame STOP codons (TAA, TAG and TGA) and writes the output into a new file."
+	echo -e "\nUsage:"
+    echo -e "\t1) `basename $0` <input> <output>"
+    echo -e "\t2) `basename $0` <input> <output> [<host_input_file_path>]"
+}
+
+if [[ $1 == "--help" ]]
+then
+	display_usage
+	exit 1
+fi
+
+if ! [[ $# -eq 2 || $# -eq 3 ]]
+then 
+	echo "This script requires two or three arguments" 
+	display_usage
+	exit 1
+fi 
+
+INPUT_DIR=$(cd "$(dirname "$1")"; pwd)
+INPUT="$INPUT_DIR/$(basename "$1")"
+
+DOCKER_MOUNT_INPUT_DIR=${3:-${INPUT_DIR}}
+DOCKER_INPUT="$DOCKER_MOUNT_INPUT_DIR/$(basename "$1")"
+
+if  ! [ -f $INPUT ]
+then
+    echo "The input file $INPUT does not exist"
+    exit 1
+fi
+
+OUTPUT_DIR=$(cd "$(dirname "$2")"; pwd)
+OUTPUT="$OUTPUT_DIR/$(basename "$2")"
+
+WORK_DIR=$(mktemp -d)
+
+# First, remove sequences with N's in the original file. 
+docker run --rm -v ${DOCKER_MOUNT_INPUT_DIR}:${DOCKER_MOUNT_INPUT_DIR} -v ${WORK_DIR}:${WORK_DIR} pegi3s/seqkit grep -s -v -p N ${DOCKER_INPUT} > ${WORK_DIR}/original_without_N
+
+# Line breaks in the transformed file must be removed so that the line numbers can be matched then agains the 
+# translated file, which also do not have line breaks.
+docker run -v ${WORK_DIR}:${WORK_DIR} pegi3s/utilities fasta_remove_line_breaks ${WORK_DIR}/original_without_N
+
+# Secondly, translate the file with sequences not containing N's and remove line breaks. In the translated file, stop 
+# codons will appear as X.
+docker run --rm -v ${WORK_DIR}:${WORK_DIR} pegi3s/emboss transeq -sequence ${WORK_DIR}/original_without_N -outseq ${WORK_DIR}/translated -clean
+docker run --rm -v ${WORK_DIR}:${WORK_DIR} pegi3s/utilities fasta_remove_line_breaks ${WORK_DIR}/translated
+
+# Thirdly, remove those sequences where an X appears at the beginning or in the middle but not at the end of the 
+# sequence because sequences with stop codons are only allowed at the end.
+
+#
+# In the grep command: 
+#   (1) use -n to get line numbers
+#   (2) use -E to specify extended regex (so that the .+ works)
+#   (3) use "^[^>].*.*X.+" to match: 
+#       3.1 lines not starting with > (because we do not want to match X in the sequence headers)
+#       3.2 containing an X in the middle (.+ forces to be at least one character after the X)
+#   (4) use -B1 to get the line number of the previous line of the match, this way we obtain the numbers of the 
+#       corresponding headers and avoid the while/done loop to create them
+#   (5) --no-group-separator to get rid of the -- introduced by the -B1 in some cases
+#
+# Note: the -B1 reports the before matches with an - instead of a :, thus we replace this characetr with a : so that 
+# the cut command can handle both line number reports.
+#
+
+cat ${WORK_DIR}/translated | grep -n -E "^[^>].*X.+" -B1 --no-group-separator | sed 's/-/:/g' | cut -d":" -f1 > ${WORK_DIR}/to_be_deleted_1
+
+if [ -s ${WORK_DIR}/to_be_deleted_1 ]
+then
+    cat ${WORK_DIR}/to_be_deleted_1 | sort | tr "\n" "_" | sed 's/_/d;/g' > ${WORK_DIR}/to_be_deleted_2
+    rm ${WORK_DIR}/to_be_deleted_1
+    lines=$(cat ${WORK_DIR}/to_be_deleted_2)
+    sed "$lines" ${WORK_DIR}/original_without_N > ${OUTPUT}
+else
+    cat ${WORK_DIR}/original_without_N > ${OUTPUT}
+fi
