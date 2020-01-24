@@ -109,7 +109,7 @@ In this command, you should replace:
 - `input.fasta` to the actual name of your input FASTA file.
 - `output.fasta` to the actual name of your output FASTA file.
 
-When running this command, both the input and output file paths must be under the same working directory and the same absolute paths are used in the command thar runs in the docker container. This guarantees that the inner docker commands can handle these paths properly.
+When running this command, both the input and output file paths must be under the same working directory and the same absolute paths are used in the command that runs in the docker container. This guarantees that the inner docker commands can handle these paths properly.
 
 To test this utility, you can copy and paste the following sample data into the `input.fasta` file. Only those sequences named with _keep_ will appear in the output file.
 
