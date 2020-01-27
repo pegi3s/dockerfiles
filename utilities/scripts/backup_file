@@ -1,0 +1,56 @@
+#!/bin/bash
+
+display_usage() {
+	echo -e "This script creates a backup file of the file passed as parameter. By default, it adds the extension \".bak\" (or \".bak1\", \".bak2\", and so on, if a file with any of the previous extensions exist)."
+	echo -e "\nUsage:"
+    echo -e "\t`basename $0` </path/to/input-file> [-s/--suffix <suffix>]"
+}
+
+if [[ $1 == "--help" ]]
+then
+	display_usage
+	exit 1
+fi
+
+if ! [[ $# -eq 1 || $# -eq 2 ]]
+then 
+	echo -e "This script requires one or two arguments.\n" 
+	display_usage
+	exit 1
+fi 
+
+INPUT_DIR=$(cd "$(dirname "$1")"; pwd)
+FILENAME=$(basename -- "$1")
+INPUT="$INPUT_DIR/$FILENAME"
+shift
+
+if [ ! -f $INPUT ]; then
+	echo "$INPUT file does not exist"
+	exit 0;
+fi
+
+while [[ $# -gt 1 ]]
+do
+	key="$1"
+
+	case $key in
+		-s|--suffix)
+		PREFIX="$2"
+		shift
+		;; 
+		*)
+		;;
+	esac
+	shift
+done
+
+OUTPUT="$INPUT_DIR/$FILENAME.bak"
+INDEX=0
+
+while [ -f $OUTPUT ]
+do
+	INDEX=$(($INDEX + 1))
+	OUTPUT="$INPUT_DIR/$FILENAME.bak.$INDEX"
+done
+
+mv $INPUT $OUTPUT

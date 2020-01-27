@@ -4,6 +4,7 @@ The `pegi3s/utilities` Docker image contains different utilities and scripts tha
 
 These utilities are alphabetically listed bellow along with comprehensive explanations. To show the help of a specific utility, run `docker run --rm pegi3s/utilities <utility_name> --help`.
 
+   * [backup_file](#backup_file)
    * [batch_fasta_remove_line_breaks](#batch_fasta_remove_line_breaks)
    * [batch_fasta_remove_stop_codons](#batch_fasta_remove_stop_codons)
    * [count_dockerhub_pulls](#count_dockerhub_pulls)
@@ -13,6 +14,27 @@ These utilities are alphabetically listed bellow along with comprehensive explan
    * [fasta_remove_stop_codons](#fasta_remove_stop_codons)
    * [fastq_to_fasta](#fastq_to_fasta)
    * [rmlastline](#rmlastline)
+
+## `backup_file`
+
+The `backup_file` script creates a backup file of the file passed as parameter. By default, it adds the extension \".bak\" (or \".bak1\", \".bak2\", and so on, if a file with any of the previous extensions exist).
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities backup_file /data/file.txt`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the file you want to backup.
+- `file.txt` to the actual names of your input file.
+
+This command will create a file named `/your/data/dir/file.txt.backup`. If this file already exist, the new backup file will be named `/your/data/dir/file.txt.backup.1`. Run the following commands to re-create this effect:
+
+```bash
+for i in {1..3}; do 
+    touch /tmp/file.txt
+    docker run --rm -v /tmp:/data pegi3s/utilities backup_file /data/file.txt
+    echo -e "\nFiles after iteration $i":
+    ls -1a /tmp/ | grep 'file.txt'
+done
+```
 
 ## `batch_fasta_remove_line_breaks`
 
