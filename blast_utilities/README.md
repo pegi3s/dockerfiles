@@ -43,3 +43,10 @@ For instance, to run the script `2-way-blast` with `tblastx` type and using as a
 # Test data
 
 To test this utility, the nucleotide FASTA files are available [here](https://github.com/pegi3s/dockerfiles/tree/master/blast_utilities/test_data/input) and the reference nucleotide file is available [here](https://github.com/pegi3s/dockerfiles/blob/master/blast_utilities/test_data/input/nucleotide.fasta).
+
+# Changelog
+
+The `latest` tag contains always the most recent version.
+
+## [0.1.0] - 17/12/2019
+- Initial `utilities` image containing the `m3f1` and `2-way-blast` utilities.
