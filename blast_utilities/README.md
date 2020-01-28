@@ -25,6 +25,8 @@ To test this utility, the nucleotide FASTA file is available [here](https://raw.
 
 # `2-way-blast`
 
+`[DEPRECATED]`- This script is deprecated. Please use [pegi3s/two-way-blast](https://hub.docker.com/r/pegi3s/two-way-blast) Docker image instead, which runs the analysis faster by running tasks in parallel.
+
 The `2-way-blast` performs a 2 way `BLAST` analysis.
 
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/blast_utilities bash -c "2-way-blast <input_dir> <output_dir> <reference_nucleotide> <blast_type>"`
