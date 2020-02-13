@@ -19,7 +19,7 @@ In this command, you should replace:
 - `output.dnd`: guide tree (`Newick` format).
 - `output.html`: colored MSA according to consistency (`HTML` format).
 
-To see `T-Coffee` general parameters help, you just need to run: `docker run --rm pegi3s/tcoffee t_coffee -help`. To obtain the help of a specific parameter, just run: `docker run --rm pegi3s/tcoffee t_coffee -help -<tcoffee-parameter-name>` (e.g. `docker run --rm pegi3s/tcoffee -help -align`)
+To see `T-Coffee` general parameters help, you just need to run: `docker run --rm pegi3s/tcoffee t_coffee -help`. To obtain the help of a specific parameter, just run: `docker run --rm pegi3s/tcoffee t_coffee -help -<tcoffee-parameter-name>` (e.g. `docker run --rm pegi3s/tcoffee t_coffee -help -align`)
 
 # Using T-Coffee image in Windows
 
