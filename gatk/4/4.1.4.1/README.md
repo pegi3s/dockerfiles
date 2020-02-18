@@ -3,7 +3,7 @@
 
 This image facilitates the usage of [GATK 4](https://gatk.broadinstitute.org/hc/en-us), the industry standard for identifying SNPs and indels in germline DNA and RNAseq data. Its scope is now expanding to include somatic short variant calling, and to tackle copy number (CNV) and structural variation (SV). In addition to the variant callers themselves, the GATK also includes many utilities to perform related tasks such as processing and quality control of high-throughput sequencing data, and bundles the popular Picard toolkit.
 
-To see `GATK 4` available tools, just run `docker run --rm pegi3s/gatk-4:4.1.4.1 gatk --list`. Please note that `GATK 4` does not include some tools that are included in [GATK 3](https://hub.docker.com/r/pegi3s/gatk-3:3.8.0/).
+To see `GATK 4` available tools, just run `docker run --rm pegi3s/gatk-4:4.1.4.1 gatk --list`. Please note that `GATK 4` does not include some tools that are included in [GATK 3](https://hub.docker.com/r/pegi3s/gatk-3).
 
 To obtain the help of a particular tool, you just need to run: `docker run --rm pegi3s/gatk-4:4.1.4.1 gatk <tools> --help` (e.g. `docker run --rm pegi3s/gatk-4:4.1.4.1 gatk SortVcf --help`)
 
