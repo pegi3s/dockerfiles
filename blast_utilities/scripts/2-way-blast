@@ -45,12 +45,12 @@ while read -r line1; do
         echo "No Blast hit"
       else
         echo "Got a Blast hit"
-        grep -A1 $seqID1 $file > $WORK_DIR/temp/seq
+        grep -w -A1 $seqID1 $file > $WORK_DIR/temp/seq
         $BLAST_TYPE -query $WORK_DIR/temp/seq -db $WORK_DIR/databases/$REFERENCE_FILE -evalue 0.05 -max_target_seqs 1 -outfmt 6 -out $WORK_DIR/temp/output2
         seqID2=$(cut -f2 $WORK_DIR/temp/output2 | head -1)
         if [ "$seqref" == "$seqID2" ]
         then
-          grep -A1 $seqID1 $file >> $WORK_DIR/orthologs/$seqref.orthologs
+          grep -w -A1 $seqID1 $file >> $WORK_DIR/orthologs/$seqref.orthologs
         fi
     fi
   done
