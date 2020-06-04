@@ -13,7 +13,7 @@ In this command, you should replace:
 - `<species_name>` to the actual name of the species in the `Dfam` library, for instance Drosophila.
 - `input ` to the actual name of your input FASTA file.
 
-*Note1*:
+*Note*:
 To run `RepeatMasker` with a custom library you should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/repeat_masker bash -c "cp /data/library_input /usr/local/RepeatMasker/Libraries/library_input && cd /usr/local/RepeatMasker && ./add_lib && RepeatMasker -lib /usr/local/RepeatMasker/Libraries/library_input -s  /data/input"`
 
 In this command, you should replace:
