@@ -1,0 +1,1 @@
+perl ./configure -trfbin=/usr/local/bin/trf -rmblastbin=`which rmblastn`
