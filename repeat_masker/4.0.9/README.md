@@ -9,15 +9,15 @@ To see `RepeatMasker` help, just run:  `docker run --rm pegi3s/repeat_masker bas
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/repeat_masker bash -c "RepeatMasker -species <species_name>  -s  /data/input"`
 
 In this command, you should replace:
-- `/your/data/dir` to point to the directory that contains the FASTQ file you want to analyze.
-- `<species_name>` to the actual name of the species in the `Dfam` library, for instance Drosophila.
+- `/your/data/dir` to point to the directory that contains the FASTA file you want to analyze.
+- `<species_name>` to the actual name of the species in the `Dfam` library, for instance drosophila.
 - `input ` to the actual name of your input FASTA file.
 
 *Note*:
 To run `RepeatMasker` with a custom library you should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/repeat_masker bash -c "cp /data/library_input /usr/local/RepeatMasker/Libraries/library_input && cd /usr/local/RepeatMasker && ./add_lib && RepeatMasker -lib /usr/local/RepeatMasker/Libraries/library_input -s  /data/input"`
 
 In this command, you should replace:
-- `/your/data/dir` to point to the directory that contains the FASTQ file you want to analyze.
+- `/your/data/dir` to point to the directory that contains the FASTA file you want to analyze.
 - `library_input` to the actual name of the FASTA file containing a set of consensus sequences.
 - `input ` to the actual name of your input FASTA file.
 
