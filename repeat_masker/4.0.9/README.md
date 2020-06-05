@@ -10,7 +10,7 @@ You should adapt and run the following command: `docker run --rm -v /your/data/d
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the FASTA file you want to analyze.
-- `<species_name>` to the actual name of the species in the `Dfam` library, for instance drosophila.
+- `<species_name>` to the actual name of the species in the `Dfam` library, for instance `drosophila`.
 - `input ` to the actual name of your input FASTA file.
 
 *Note*:
