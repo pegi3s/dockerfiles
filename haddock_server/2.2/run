@@ -22,6 +22,6 @@ do
 	sed -i 's/pdb\-mode=submit/pdb\-mode="submit"/g' run_options
 	sed -i 's/pdb\-chain=All/pdb\-chain="All"/g' run_options
 	options=$(cat run_options)
-	curl -F p1-pdb-pdbfile="@./$P1" -F p2-pdb-pdbfile="@./$P2" $options https://alcazar.science.uu.nl/cgi/enmr/services/HADDOCK2.2/haddockserver-prediction.cgi  > ./result.haddock
+	curl -F p1-pdb-pdbfile="@./$P1" -F p2-pdb-pdbfile="@./$P2" $options -F covid="False" https://alcazar.science.uu.nl/cgi/enmr/services/HADDOCK2.2/haddockserver-prediction.cgi  > ./result.haddock
 	sleep 21600
 done

@@ -94,6 +94,10 @@ Select: NAME="p2-moleculetype"
   Option VALUE="DNA"
   Option VALUE="RNA"
 [end of select]
+Select: NAME="covid"
+  Option VALUE="True"
+  Option VALUE="False" (SELECTED)
+[end of select]
 Input: NAME="username" VALUE=" " (TEXT)
 Input: NAME="password" VALUE=" " (PASSWORD)
 Button: "" (SUBMIT)
