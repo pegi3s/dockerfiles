@@ -5,7 +5,7 @@
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/fasttree bash -c "FastTree -nt -gtr -gamma /data/input > /data/output"`
 
 In this command, you should replace:
-- `/your/data/dir` to point to the directory that contains the FASTQ file you want to analyze.
+- `/your/data/dir` to point to the directory that contains the FASTA file you want to analyze.
 - `input` to the actual name of your input file.
 - `output` to the actual name of your output file.
 
