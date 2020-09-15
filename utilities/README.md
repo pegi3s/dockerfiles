@@ -10,6 +10,7 @@ The list of utilities is presented below, please refer to [this manual](https://
 - `backup_file`: creates a backup file of the file passed as parameter. By default, it adds the extension \".bak\" (or \".bak1\", \".bak2\", and so on, if a file with any of the previous extensions exist).
 - `batch_fasta_remove_line_breaks`: removes the line breaks of sequences in one or more FASTA files.
 - `batch_fasta_remove_stop_codons`: modifies the sequences in one or more FASTA files to remove the stop codons (TAA, TAG and TGA) at the end of sequences. Note that if the input files have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. Otherwise, stop codons will be removed from each sequence line.
+- `check_multiple_3`: verifies if all sequences in a FASTA file are multiple of 3. If so, the exit code is 0. Otherwise, the exit code is 1. Note that the exit code can be captured with `$?`. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. Otherwise, the script may produce unpredictable result.
 - `count_dockerhub_pulls`: lists the number of pulls of each image for a given Docker Hub user.
 - `deinterleave_fastq`: deinterleaves a FASTQ file of paired reads into two FASTQ files. Optionally, the output files can be compressed using GZip.
 - `fasta_remove_line_breaks`: removes the line breaks of sequences in a FASTA file.
@@ -46,3 +47,6 @@ The `latest` tag contains always the most recent version.
 
 ## [0.8.0] - 27/01/2020
 - Add the `backup_file` utility.
+
+## [0.9.0] - 15/09/2020
+- Add the `check_multiple_3` utility.

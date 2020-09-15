@@ -7,6 +7,7 @@ These utilities are alphabetically listed bellow along with comprehensive explan
    * [backup_file](#backup_file)
    * [batch_fasta_remove_line_breaks](#batch_fasta_remove_line_breaks)
    * [batch_fasta_remove_stop_codons](#batch_fasta_remove_stop_codons)
+   * [check_multiple_3](#check_multiple_3)
    * [count_dockerhub_pulls](#count_dockerhub_pulls)
    * [deinterleave_fastq](#deinterleave_fastq)
    * [fasta_remove_line_breaks](#fasta_remove_line_breaks)
@@ -66,9 +67,36 @@ Note that it is possible to use bash wildcards such as `/data/*` when running th
 
 This command will process all the input FASTA files specified, editing them in place. See the [`fasta_remove_stop_codons`](#fasta_remove_stop_codons) command descripion for an example.
 
+## `check_multiple_3`
+
+The `check_multiple_3` script verifies if all sequences in a FASTA file are multiple of 3. If so, the exit code is 0. Otherwise, the exit code is 1. Note that the exit code can be captured with `$?`. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. Otherwise, the script may produce unpredictable results.
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities check_multiple_3 /data/input.fasta`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input file you want to process.
+- `/data/input.fasta` to the actual name of your input FASTA file.
+
+To test this utility, you can copy and paste the following sample data into the `input.fasta` file:
+```
+>1
+ACTACT
+>2
+TGATGA
+```
+```bash
+docker run --rm -v /your/data/dir:/data pegi3s/utilities check_multiple_3 /data/input.fasta
+
+if  [ $? -eq 0 ]; then
+    echo "All sequences are multiple of 3"
+else
+    echo "Warning: not all sequences are multiple of three"
+fi
+```
+
 ## `count_dockerhub_pulls`
 
-The `count_dockerhub_pulls` lists the number of pulls of each image for a given Docker Hub user.
+The `count_dockerhub_pulls` script lists the number of pulls of each image for a given Docker Hub user.
 
 To test this utility, you can run the following command: `docker run --rm pegi3s/utilities count_dockerhub_pulls pegi3s`
 

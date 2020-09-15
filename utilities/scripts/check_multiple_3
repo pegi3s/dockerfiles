@@ -1,0 +1,26 @@
+#!/bin/bash
+
+function display_usage() {
+	echo -e "This script verifies if all sequences in a FASTA file are multiple of 3. If so, the exit code is 0. Otherwise, the exit code is 1. Note that the exit code can be captured with $?."
+	echo -e "\nIMPORTANT: if the input file have line breaks separating the sequences, remove them first using the fasta_remove_line_breaks script. Otherwise, the script may produce unpredictable results."
+	echo "Usage: `basename $0` </path/to/input_fasta>"
+}
+
+if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+  display_usage
+  exit 0
+fi
+
+if [ ! $# -eq 1 ]; then
+	echo "Error: one argument is required."
+	display_usage
+	exit 1
+fi
+
+count=$(grep -v '>' $1 | awk 'length($0) % 3 != 0' | wc -l)
+
+if [ $count -eq 0 ]; then
+	exit 0;
+else
+	exit 1;
+fi
