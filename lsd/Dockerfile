@@ -15,4 +15,6 @@ RUN ln -s /usr/lib/libRmath.so /usr/lib/libRmath.so.1
 
 RUN apt-get install -y tcl8.3
 
+RUN cd /opt/lineagesequencediscovery-master && rm -rf SFBB.fasta SFBB_neg.fasta demo demo1 dist libgnome2-print-perl_1.000-1_i386.deb libgtk2-sourceview-perl_1.000-0ubuntu4_i386.deb lineage-sequence-discovery-0.3.5 lineage-sequence-discovery.tar.gz lineagesequencediscovery-0.3.4-i386-all.deb lineage-sequence-discovery-0.3.5-1.i686.rpm lineagesequencediscovery-0.3.5-i386-all.deb lineage-sequence-discovery-debuginfo-0.3.5-1.i686.rpm meme.pat neg_file_test.fasta negative.dnd negfile_1.dnd pats.pat pos_file_test.fasta proteins2000.fasta res.arff res.csv res.pat.arff res1.fasta res2.fasta retrovirus5000.fasta retrovirus5000.fasta.pat
+
 CMD /opt/lineagesequencediscovery-master/LSD.sh
