@@ -15,7 +15,7 @@ To see the [FLASH](http://ccb.jhu.edu/software/FLASH/) help, just run `docker ru
 
 # Test data
 
-To test the `FLASH` docker image you can download these two *E. coli* FASTQ files from the [`SPAdes` examples](http://cab.spbu.ru/software/spades/#examples): [left](http://spades.bioinf.spbau.ru/spades_test_datasets/ecoli_mc/s_6_1.fastq.gz) and [right](http://spades.bioinf.spbau.ru/spades_test_datasets/ecoli_mc/s_6_2.fastq.gz)
+To test the `FLASH` docker image you can download these two *E. coli* FASTQ files from the [`SPAdes` examples](http://cab.spbu.ru/software/spades/#examples): [left](http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/spades/test-data/s_6_1.fastq.gz) and [right](http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/spades/test-data/s_6_2.fastq.gz)
 
 Then, you can analyze the two FASTQ mate files with `FLASH` by running:  `docker run --rm -v /your/data/dir:/data pegi3s/flash /data/s_6_1.fastq.gz /data/s_6_2.fastq.gz -d /data/result`
 
