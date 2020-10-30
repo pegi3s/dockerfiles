@@ -11,8 +11,9 @@ The list of utilities is presented below, please refer to [this manual](https://
 - `batch_fasta_remove_line_breaks`: removes the line breaks of sequences in one or more FASTA files.
 - `batch_fasta_remove_stop_codons`: modifies the sequences in one or more FASTA files to remove the stop codons (TAA, TAG and TGA) at the end of sequences. Note that if the input files have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. Otherwise, stop codons will be removed from each sequence line.
 - `check_multiple_3`: verifies if all sequences in a FASTA file are multiple of 3. If so, the exit code is 0. Otherwise, the exit code is 1. Note that the exit code can be captured with `$?`. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. Otherwise, the script may produce unpredictable result.
-- `count_dockerhub_pulls`: lists the number of pulls of each image for a given Docker Hub user.
 - `deinterleave_fastq`: deinterleaves a FASTQ file of paired reads into two FASTQ files. Optionally, the output files can be compressed using GZip.
+- `dockerhub_count_pulls`: lists the number of pulls of each image for a given Docker Hub user.
+- `dockerhub_list_images_with_tags`: lists all the images and tags for a given Docker Hub user.
 - `fasta_remove_line_breaks`: removes the line breaks of sequences in a FASTA file.
 - `fasta_remove_sequences_with_in_frame_stops_or_n`: removes the sequences containing N's or in-frame STOP codons (TAA, TAG and TGA) and writes the output into a new file.
 - `fasta_remove_stop_codons`: modifies the sequences in a FASTA file to remove the stop codons (TAA, TAG and TGA) at the end of sequences. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. Otherwise, stop codons will be removed from each sequence line.
@@ -50,3 +51,7 @@ The `latest` tag contains always the most recent version.
 
 ## [0.9.0] - 15/09/2020
 - Add the `check_multiple_3` utility.
+
+## [0.10.0] - 30/10/2020
+- Add the `dockerhub_list_images_with_tags` utility.
+- Rename `count_dockerhub_pulls` to `dockerhub_count_pulls`.

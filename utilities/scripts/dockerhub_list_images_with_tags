@@ -1,0 +1,89 @@
+#!/bin/bash
+
+display_usage() {
+  echo -e "This script lists the lists the images and tags for a given Docker Hub user."
+  echo -e "\nUsage:"
+  echo -e "\tUsage: `basename $0` <docker-hub-user> [-jq=</path/to/jq>] [-ps/--page-size=<page-size>]]"
+}
+
+if [[ $1 == "--help" ]]; then
+  display_usage
+  exit 1
+fi
+
+if [ $# -lt 1 ]; then
+  display_usage
+  exit 0
+fi
+
+USER=$1
+
+PAGE_SIZE=100
+JQ=jq-linux64
+
+for key in "$@"
+do
+case $key in
+    -jq=*|--option=*)
+    JQ="${key#*=}"
+    shift
+    ;;
+    -ps=*|--page-size=*)
+    PAGE_SIZE="${key#*=}"
+    shift
+    ;;
+    *)
+      # unknown option
+    ;;
+esac
+done
+
+if ! [ -x "$(command -v $JQ)" ]; then
+  echo "The jq executable is not available: $JQ"
+  exit 1
+fi
+
+NEXT="https://hub.docker.com/v2/repositories/$USER/?page_size=$PAGE_SIZE"
+
+TMP_IMAGES=$(mktemp /tmp/docker-images.XXXXXXXX)
+
+touch ${TMP_IMAGES}
+
+while [ "$NEXT" != "null" ]; do
+  tmpFile=$(mktemp)
+  wget -q "$NEXT" -O $tmpFile
+
+  NEXT=$(cat $tmpFile | $JQ --raw-output '.next')
+
+  RESULTS=$(cat $tmpFile | $JQ '.results | length')
+
+  RESULTS=$(expr $RESULTS - 1)
+
+  for i in $(seq 0 $RESULTS); do
+   im=$(cat $tmpFile | $JQ --raw-output ".results[$i].name" | tr '\n' ' ')
+   echo $im >> ${TMP_IMAGES}
+  done
+
+  rm $tmpFile
+done
+
+while read image; do
+  item=$USER/$image
+
+  # Code to get tags from this gits: https://gist.github.com/robv8r/fa66f5e0fdf001f425fe9facf2db6d49
+  tokenUri="https://auth.docker.io/token"
+  data=("service=registry.docker.io" "scope=repository:$item:pull")
+  token="$(curl --silent --get --data-urlencode ${data[0]} --data-urlencode ${data[1]} $tokenUri | $JQ --raw-output '.token')"
+  listUri="https://registry-1.docker.io/v2/$item/tags/list"
+  authz="Authorization: Bearer $token"
+  result="$(curl --silent --get -H "Accept: application/json" -H "Authorization: Bearer $token" $listUri)"
+
+  tagsPresent=$(echo $result | grep tags)
+  if [ ! -z $tagsPresent ]; then
+    result=$(echo $result | $JQ --raw-output '.')
+
+    for tag in $(echo $result | $JQ -r '.tags[]'); do
+      echo "$item:$tag"
+    done
+  fi
+done < ${TMP_IMAGES}

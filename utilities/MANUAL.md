@@ -8,8 +8,9 @@ These utilities are alphabetically listed bellow along with comprehensive explan
    * [batch_fasta_remove_line_breaks](#batch_fasta_remove_line_breaks)
    * [batch_fasta_remove_stop_codons](#batch_fasta_remove_stop_codons)
    * [check_multiple_3](#check_multiple_3)
-   * [count_dockerhub_pulls](#count_dockerhub_pulls)
    * [deinterleave_fastq](#deinterleave_fastq)
+   * [dockerhub_count_pulls](#dockerhub_count_pulls)
+   * [dockerhub_list_images_with_tags](#dockerhub_list_images_with_tags)
    * [fasta_remove_line_breaks](#fasta_remove_line_breaks)
    * [fasta_remove_sequences_with_in_frame_stops_or_n](#fasta_remove_sequences_with_in_frame_stops_or_n)
    * [fasta_remove_stop_codons](#fasta_remove_stop_codons)
@@ -94,12 +95,6 @@ else
 fi
 ```
 
-## `count_dockerhub_pulls`
-
-The `count_dockerhub_pulls` script lists the number of pulls of each image for a given Docker Hub user.
-
-To test this utility, you can run the following command: `docker run --rm pegi3s/utilities count_dockerhub_pulls pegi3s`
-
 ## `deinterleave_fastq`
 
 The `deinterleave_fastq` script deinterleaves a FASTQ file of paired reads into two FASTQ files. Optionally, the output files can be compressed using GZip.
@@ -112,6 +107,18 @@ In this command, you should replace:
 - `/data/data_1.fastq` and `/data/data_2.fastq` to the actual name of the output FASTQ files.
 
 To test this utility, you can download and decompress [this fastq compressed file](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=dload&run_list=SRR1654650&format=fastq) (1.1GB). In the previous command you just need to replace `/data/data.fastq` with `/data/sra_data.fastq.gz`.
+
+## `dockerhub_count_pulls`
+
+The `dockerhub_count_pulls` script lists the number of pulls of each image for a given Docker Hub user.
+
+To test this utility, you can run the following command: `docker run --rm pegi3s/utilities dockerhub_count_pulls pegi3s`
+
+## `dockerhub_list_images_with_tags`
+
+The `dockerhub_list_images_with_tags` script lists all the images and tags for a given Docker Hub user.
+
+To test this utility, you can run the following command: `docker run --rm pegi3s/utilities dockerhub_list_images_with_tags pegi3s`
 
 ## `fasta_remove_line_breaks`
 
