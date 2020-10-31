@@ -18,7 +18,11 @@ then
 	echo "This script requires two or three arguments" 
 	display_usage
 	exit 1
-fi 
+fi
+
+VERSION_SEQKIT=${VERSION_SEQKIT:-latest}
+VERSION_PEGI3S_UTILITIES=${VERSION_PEGI3S_UTILITIES:-latest}
+VERSION_EMBOSS=${VERSION_EMBOSS:-latest}
 
 INPUT_DIR=$(cd "$(dirname "$1")"; pwd)
 INPUT="$INPUT_DIR/$(basename "$1")"
@@ -38,16 +42,16 @@ OUTPUT="$OUTPUT_DIR/$(basename "$2")"
 WORK_DIR=$(mktemp -d)
 
 # First, remove sequences with N's in the original file. 
-docker run --rm -v ${DOCKER_MOUNT_INPUT_DIR}:${DOCKER_MOUNT_INPUT_DIR} -v ${WORK_DIR}:${WORK_DIR} pegi3s/seqkit grep -s -v -p N ${DOCKER_INPUT} > ${WORK_DIR}/original_without_N
+docker run --rm -v ${DOCKER_MOUNT_INPUT_DIR}:${DOCKER_MOUNT_INPUT_DIR} -v ${WORK_DIR}:${WORK_DIR} pegi3s/seqkit:${VERSION_SEQKIT} grep -s -v -p N ${DOCKER_INPUT} > ${WORK_DIR}/original_without_N
 
 # Line breaks in the transformed file must be removed so that the line numbers can be matched then agains the 
 # translated file, which also do not have line breaks.
-docker run -v ${WORK_DIR}:${WORK_DIR} pegi3s/utilities fasta_remove_line_breaks ${WORK_DIR}/original_without_N
+docker run --rm -v ${WORK_DIR}:${WORK_DIR} pegi3s/utilities:${VERSION_PEGI3S_UTILITIES} fasta_remove_line_breaks ${WORK_DIR}/original_without_N
 
 # Secondly, translate the file with sequences not containing N's and remove line breaks. In the translated file, stop 
 # codons will appear as X.
-docker run --rm -v ${WORK_DIR}:${WORK_DIR} pegi3s/emboss transeq -sequence ${WORK_DIR}/original_without_N -outseq ${WORK_DIR}/translated -clean
-docker run --rm -v ${WORK_DIR}:${WORK_DIR} pegi3s/utilities fasta_remove_line_breaks ${WORK_DIR}/translated
+docker run --rm -v ${WORK_DIR}:${WORK_DIR} pegi3s/emboss:${VERSION_EMBOSS} transeq -sequence ${WORK_DIR}/original_without_N -outseq ${WORK_DIR}/translated -clean
+docker run --rm -v ${WORK_DIR}:${WORK_DIR} pegi3s/utilities:${VERSION_PEGI3S_UTILITIES} fasta_remove_line_breaks ${WORK_DIR}/translated
 
 # Thirdly, remove those sequences where an X appears at the beginning or in the middle but not at the end of the 
 # sequence because sequences with stop codons are only allowed at the end.

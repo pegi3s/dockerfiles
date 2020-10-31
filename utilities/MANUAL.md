@@ -157,6 +157,12 @@ This script requires Docker since it runs scripts and commands from other images
 
 Then, the path containing the input and output files can be mounted in the two ways explained below.
 
+In case you need to specify the versions of the pegi3s Docker images to use, you can pass them as environment variables to the Docker command. Just add the following parameters to the commands explaiend below:
+
+```
+--env VERSION_SEQKIT=0.12.1 --env VERSION_PEGI3S_UTILITIES=0.11.0 --env VERSION_EMBOSS=6.6.0
+```
+
 ### Option 1 (recommended): mount the local absolute path into the docker container
 
 You should adapt and run the following command: `docker run --rm -v /tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/your/data/dir pegi3s/utilities remove_sequences_with_in_frames /your/data/dir/input.fasta /your/data/dir/output.fasta`

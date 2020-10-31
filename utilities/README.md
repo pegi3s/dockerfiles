@@ -55,3 +55,6 @@ The `latest` tag contains always the most recent version.
 ## [0.10.0] - 30/10/2020
 - Add the `dockerhub_list_images_with_tags` utility.
 - Rename `count_dockerhub_pulls` to `dockerhub_count_pulls`.
+
+## [0.11.0] - 31/10/2020
+- Allow changing the tags of the Docker images used in the `fasta_remove_sequences_with_in_frame_stops_or_n` utility.
