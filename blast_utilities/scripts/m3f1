@@ -2,10 +2,14 @@
 
 #Usage: m3f1; Nucleotide FASTA File; Reference Protein File; Output File Name
 
+echo "Nucleotide FASTA File: $1"
+echo "Reference Protein File: $2"
+echo "Output File Name: $3"
+
 function perform_blast {
-makeblastdb -in temp0 -dbtype nucl -parse_seqids
-tblastn -query $1 -db temp0 -evalue 0.05 -max_target_seqs 1 -outfmt 6 -out blast_output
-head -1 blast_output > temp1
+	makeblastdb -in temp0 -dbtype nucl -parse_seqids
+	tblastn -query $1 -db temp0 -evalue 0.05 -max_target_seqs 1 -outfmt 6 -out blast_output
+	head -1 blast_output > temp1
 }
 
 while read header

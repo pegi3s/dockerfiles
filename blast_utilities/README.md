@@ -52,3 +52,6 @@ The `latest` tag contains always the most recent version.
 
 ## [0.1.0] - 17/12/2019
 - Initial `utilities` image containing the `m3f1` and `2-way-blast` utilities.
+
+## [0.2.0] - 06/11/2020
+- Updates the `m3f1` utility to show the values of the input parameters (useful for debugging purposes).
