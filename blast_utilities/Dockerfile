@@ -1,4 +1,4 @@
-FROM pegi3s/blast
+FROM pegi3s/blast:2.6.0-1
 
 ADD scripts /opt/scripts
 
