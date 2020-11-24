@@ -21,7 +21,7 @@ PIGZ_COMPRESSION_THREADS=10
 display_usage() { 
 	echo -e "This script deinterleaves a FASTQ file of paired reads into two FASTQ files. Optionally, the output files can be compressed using GZip."
 	echo -e "\nUsage:"
-	echo -e "\tdeinterleave_fastq.sh < interleaved.fastq f.fastq r.fastq [compress]"
+	echo -e "\t`basename $0` < interleaved.fastq f.fastq r.fastq [compress]"
 } 
 
 if [[ $1 == "--help" ]]; then

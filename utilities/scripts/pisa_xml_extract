@@ -1,0 +1,113 @@
+#!/bin/bash
+
+display_usage() {
+	echo -e "This script extracts information regarding the number of interface residues and the interface area from XML."
+	echo -e "files generated using PDBePISA.\n"
+	echo -e "It also shows information regarding the sites involved in the interaction for the two protein structures."
+	echo -e "If more than one alternative XML is given for the same pair of proteins, this utility also selects the pair"
+	echo -e "of structures with the highest number of interface residues in the first structure. If two alternatives show"
+	echo -e "the same number of interface residues, the one showing the highest number of interface residues for the"
+	echo -e "second structure is chosen.\n"
+	echo -e "The input directory must contain as many folders as the pairs of different proteins being analysed. Inside"
+	echo -e "each folder one or several PISAePDB XML files should be placed."
+	echo -e "\nUsage:"
+	echo -e "\t`basename $0` </path/to/input/dir> </path/to/output/dir>"
+}
+
+if [[ $1 == "--help" ]]; then
+	display_usage
+	exit 1
+fi
+
+if [ $# -ne 2 ]
+then
+	tput setaf 1
+	echo -e "Error. This script requires two arguments.\n"
+	tput sgr0
+	display_usage
+	exit 1
+fi
+
+INPUT_DIRECTORY=$1
+OUTPUT_DIRECTORY=$2
+
+mkdir -p ${OUTPUT_DIRECTORY}
+
+ls ${INPUT_DIRECTORY} > ${OUTPUT_DIRECTORY}/folder_list
+
+while read folder
+do
+	TMP_DIR=$(mktemp -d /tmp/pisa_xml_extract.XXXXX)
+	psel=0
+	psel2=0
+	ls ${INPUT_DIRECTORY}/$folder > ${OUTPUT_DIRECTORY}/file_list
+	while read file
+	do
+		echo "Analyzing " $file
+		for value in 1 2
+		do
+				sed -n "/STRUCTURE$value/,/STRUCTURE$value/p" ${INPUT_DIRECTORY}/$folder/$file > ${TMP_DIR}/$value.tmp0
+				grep -w 'NINTERFACEREDSIDUES' ${TMP_DIR}/$value.tmp0 | sed 's/<\/NINTERFACEREDSIDUES>//g; s/<//g; s/>/=/g'  > ${TMP_DIR}/$value.tmp1
+				grep -w 'INTERFACEAREA' ${TMP_DIR}/$value.tmp0  | sed 's/<\/INTERFACEAREA>//g; s/<//g; s/>/=/g' >> ${TMP_DIR}/$value.tmp1
+				sed -n "/RESIDUE$value/,/RESIDUE$value/p" ${INPUT_DIRECTORY}/$folder/$file > ${TMP_DIR}/$value.tmp2
+				grep -w 'STRUCTURE' ${TMP_DIR}/$value.tmp2 | sed 's/<BURIEDSURFACEAREA>//g; s/<\/BURIEDSURFACEAREA>//g' | cut -d" " -f2-5  | sed 's/  / /g' | sed -r 's/([A-Z]*)([0-9]*)/\1 \2/g; s/    / /g; s/   / /g; s/  / /g' > ${TMP_DIR}/$value.tmp3
+				cut -d" " -f3  ${TMP_DIR}/$value.tmp3 > ${TMP_DIR}/$value.tmp4
+				paste -s ${TMP_DIR}/$value.tmp4 > ${TMP_DIR}/$value.tmp5
+				cut -d" " -f2  ${TMP_DIR}/$value.tmp3 > ${TMP_DIR}/$value.tmp6
+				paste ${TMP_DIR}/$value.tmp4 ${TMP_DIR}/$value.tmp6 | sed 's/\t//g' | paste -s > ${TMP_DIR}/$value.tmp7
+				grep -w 'BURIEDSURFACEAREA' ${TMP_DIR}/$value.tmp2 | sed 's/<BURIEDSURFACEAREA>//g; s/<\/BURIEDSURFACEAREA>//g' | cut -f1 > ${TMP_DIR}/$value.tmp8
+				while read number
+				do
+						number1=$(echo $number | sed 's/\.//g')
+						if [ $number1 -gt "0" ]
+						then
+							nnumber1=1
+						else
+							nnumber1=0
+						fi
+						echo $nnumber1 >> ${TMP_DIR}/$value.tmp9
+				done < ${TMP_DIR}/$value.tmp8
+				paste -s ${TMP_DIR}/$value.tmp8 > ${TMP_DIR}/$value.tmp10
+				paste -s ${TMP_DIR}/$value.tmp9 > ${TMP_DIR}/$value.tmp11
+		done
+		printf "Structure 1\n" > ${TMP_DIR}/p1
+		printf "Structure 2\n" > ${TMP_DIR}/p2
+		cat ${TMP_DIR}/p1 ${TMP_DIR}/1.tmp1 ${TMP_DIR}/p2 ${TMP_DIR}/2.tmp1 ${TMP_DIR}/p1 ${TMP_DIR}/1.tmp5 ${TMP_DIR}/1.tmp7 ${TMP_DIR}/1.tmp10 ${TMP_DIR}/1.tmp11 ${TMP_DIR}/p2 ${TMP_DIR}/2.tmp5 ${TMP_DIR}/2.tmp7 ${TMP_DIR}/2.tmp10 ${TMP_DIR}/2.tmp11 > ${TMP_DIR}/summary
+		mkdir -p ${OUTPUT_DIRECTORY}/results/$folder/$file
+		cp ${TMP_DIR}/summary ${OUTPUT_DIRECTORY}/results/$folder/$file
+		sel=$(head -1 ${TMP_DIR}/1.tmp1 | sed 's/NINTERFACEREDSIDUES=//g')
+		sel2=$(head -1 ${TMP_DIR}/2.tmp1 | sed 's/NINTERFACEREDSIDUES=//g')
+		if [ $sel -gt $psel ]
+		then
+			psel=$sel
+			sfile=$file
+			psel2=0
+		fi
+		if [ $sel -eq $psel ] && [ $sel2 -gt $psel2 ]
+		then
+				psel2=$sel2
+				sfile=$file
+		fi
+		rm ${TMP_DIR}/*
+	done < ${OUTPUT_DIRECTORY}/file_list
+	mkdir -p ${OUTPUT_DIRECTORY}/selection/$folder/$sfile
+	cp ${OUTPUT_DIRECTORY}/results/$folder/$sfile/* ${OUTPUT_DIRECTORY}/selection/$folder/$sfile
+	cp ${OUTPUT_DIRECTORY}/results/$folder/$sfile/* ${TMP_DIR}/$value.tmp12
+	sed '11q;d' ${TMP_DIR}/$value.tmp12 > ${TMP_DIR}/$value.tmp13
+	tmp14=$(cat ${TMP_DIR}/$value.tmp13)
+	echo $folder $tmp14 | sed 's/ /\t/g' >> ${OUTPUT_DIRECTORY}/selection/structure1
+	folder1=$folder
+	rm ${TMP_DIR}/*
+	rmdir ${TMP_DIR}
+done < ${OUTPUT_DIRECTORY}/folder_list
+
+rm ${OUTPUT_DIRECTORY}/folder_list
+rm ${OUTPUT_DIRECTORY}/file_list
+
+a=$(sed '9q;d' ${OUTPUT_DIRECTORY}/selection/$folder1/$sfile/summary)
+b=$(sed '8q;d' ${OUTPUT_DIRECTORY}/selection/$folder1/$sfile/summary)
+
+sed -i "1s/^/\t$a\n/; 1s/^/Interactor\t$b\n/" ${OUTPUT_DIRECTORY}/selection/structure1
+
+
+

@@ -19,10 +19,14 @@ The list of utilities is presented below, please refer to [this manual](https://
 - `fasta_remove_stop_codons`: modifies the sequences in a FASTA file to remove the stop codons (TAA, TAG and TGA) at the end of sequences. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. Otherwise, stop codons will be removed from each sequence line.
 - `fastq_to_fasta`: converts a FASTQ file into a FASTA file.
 - `rmlastline`: removes the last line of one or more files. Note that this command modifies the files passed as parameters.
+- `pisa_xml_extract`: extract information regarding the number of interface residues and the interface area from XML files generated using [PDBePISA](https://www.ebi.ac.uk/pdbe/pisa/).
 
 # Changelog
 
 The `latest` tag contains always the most recent version.
+
+## [0.12.0] - 24/11/2020
+- Add the `pisa_xml_extract` utility.
 
 ## [0.11.0] - 31/10/2020
 - Allow changing the tags of the Docker images used in the `fasta_remove_sequences_with_in_frame_stops_or_n` utility.

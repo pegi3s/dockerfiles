@@ -16,6 +16,7 @@ These utilities are alphabetically listed bellow along with comprehensive explan
    * [fasta_remove_stop_codons](#fasta_remove_stop_codons)
    * [fastq_to_fasta](#fastq_to_fasta)
    * [rmlastline](#rmlastline)
+   * [pisa_xml_extract](#pisa_xml_extract)
 
 ## `backup_file`
 
@@ -298,3 +299,16 @@ You should adapt and run the following command: `docker run --rm -v /your/data/d
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input file you want to process.
 - `/data/file*.txt` to the actual names of your input files.
+
+## `pisa_xml_extract`
+
+The `pisa_xml_extract` script extracts information regarding the number of interface residues and the interface area from XML files generated using [PDBePISA](https://www.ebi.ac.uk/pdbe/pisa/). It also shows information regarding the sites involved in the interaction for the two protein structures. If more than one alternative XML is given for the same pair of proteins, this utility also selects the pair of structures with the highest number of interface residues in the first structure. If two alternatives show the same number of interface residues, the one showing the highest number of interface residues for the second structure is chosen. It also produces a file called "structure1" where the interacting residues of structure1 is shown for the selected pairs of proteins.
+
+In order to use this utility, please create a main input folder (first parameter of the script) and inside it create as many folders as the pairs of different proteins being analysed. Inside each folder one or several PISAePDB XML files should be placed. An example of a input data can be is available [here](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/utilities/test_data/PISA_XMLs.zip). You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities pisa_xml_extract /data/PISA_XMLs /data/PISA_extract_output`
+
+In this command, you should replace
+- `/your/data/dir` to point to the directory that contains the input directory you want to process.
+- `/data/PISA_XMLs` to the name of the input directory (under `/data`). `PISA_XMLs` is the name of the input directory in the sample data.
+- `/data/PISA_extract_output` to the name of the output directory (under `/data`).
+
+The tab separated result files procuded by the script are best viewed with a spreadsheet editor.
