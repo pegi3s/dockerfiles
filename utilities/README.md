@@ -24,37 +24,37 @@ The list of utilities is presented below, please refer to [this manual](https://
 
 The `latest` tag contains always the most recent version.
 
-## [0.1.0] - 09/05/2018
-- Initial `utilities` image containing the `rmlastline` and `deinterleave_fastq` utilities.
-
-## [0.2.0] - 11/05/2018
-- Add the `fastq_to_fasta` utility.
-- Add `--help` parameter to all utilities in order to show the usage instructions.
-
-## [0.3.0] - 6/11/2019
-- Add the `count_dockerhub_pulls` utility.
-
-## [0.4.0] - 8/01/2020
-- Add the `fasta_remove_line_breaks` utility.
-
-## [0.5.0] - 23/01/2020
-- Add the `batch_fasta_remove_line_breaks` utility.
-
-## [0.6.0] - 23/01/2020
-- Add the `fasta_remove_stop_codons` and `batch_fasta_remove_stop_codons` utilities.
-
-## [0.7.0] - 24/01/2020
-- Add the `fasta_remove_sequences_with_in_frame_stops_or_n` utility.
-
-## [0.8.0] - 27/01/2020
-- Add the `backup_file` utility.
-
-## [0.9.0] - 15/09/2020
-- Add the `check_multiple_3` utility.
+## [0.11.0] - 31/10/2020
+- Allow changing the tags of the Docker images used in the `fasta_remove_sequences_with_in_frame_stops_or_n` utility.
 
 ## [0.10.0] - 30/10/2020
 - Add the `dockerhub_list_images_with_tags` utility.
 - Rename `count_dockerhub_pulls` to `dockerhub_count_pulls`.
 
-## [0.11.0] - 31/10/2020
-- Allow changing the tags of the Docker images used in the `fasta_remove_sequences_with_in_frame_stops_or_n` utility.
+## [0.9.0] - 15/09/2020
+- Add the `check_multiple_3` utility.
+
+## [0.8.0] - 27/01/2020
+- Add the `backup_file` utility.
+
+## [0.7.0] - 24/01/2020
+- Add the `fasta_remove_sequences_with_in_frame_stops_or_n` utility.
+
+## [0.6.0] - 23/01/2020
+- Add the `fasta_remove_stop_codons` and `batch_fasta_remove_stop_codons` utilities.
+
+## [0.5.0] - 23/01/2020
+- Add the `batch_fasta_remove_line_breaks` utility.
+
+## [0.4.0] - 8/01/2020
+- Add the `fasta_remove_line_breaks` utility.
+
+## [0.3.0] - 6/11/2019
+- Add the `count_dockerhub_pulls` utility.
+
+## [0.2.0] - 11/05/2018
+- Add the `fastq_to_fasta` utility.
+- Add `--help` parameter to all utilities in order to show the usage instructions.
+
+## [0.1.0] - 09/05/2018
+- Initial `utilities` image containing the `rmlastline` and `deinterleave_fastq` utilities.
