@@ -1,0 +1,47 @@
+#!/bin/bash
+
+display_usage() {
+	echo -e "This script reverses the sequences in a FASTA file. Also, a prefix can be added to the header of each sequence."
+	echo -e "\nIMPORTANT: if the input file have line breaks separating the sequences, remove them first using the fasta_remove_line_breaks script."
+	echo -e "\nUsage:"
+	echo -e "\t`basename $0` <input> <output> [-p/--prefix=<prefix>]"
+}
+
+if [[ $1 == "--help" ]]; then
+  display_usage
+  exit 1
+fi
+
+if [ $# -lt 2 ] || [ $# -gt 3 ]; then
+  tput setaf 1
+  echo -e "Error. This script requires two or three arguments.\n"
+  tput sgr0
+  display_usage
+  exit 0
+fi
+
+INPUT=$1
+OUTPUT=$2
+PREFIX=""
+
+for key in "$@"
+do
+case $key in
+    -p=*|--prefix=*)
+    PREFIX="${key#*=}"
+    shift
+    ;;
+    *)
+      # unknown option
+    ;;
+esac
+done
+
+TMP_DIR=$(mktemp -d /tmp/fasta_reverse.XXXXXXXXX)
+
+cat ${INPUT} | grep '^>' | sed "s#^>#>${PREFIX}#g" > ${TMP_DIR}/headers
+cat ${INPUT} | grep -v '^>' | rev > ${TMP_DIR}/sequences.1.original
+
+paste -d \\n ${TMP_DIR}/headers ${TMP_DIR}/sequences.1.original > ${OUTPUT}
+
+rm -rf ${TMP_DIR}

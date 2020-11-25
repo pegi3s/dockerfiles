@@ -15,9 +15,13 @@ The list of utilities is presented below, please refer to [this manual](https://
 - `dockerhub_count_pulls`: lists the number of pulls of each image for a given Docker Hub user.
 - `dockerhub_list_images_with_tags`: lists all the images and tags for a given Docker Hub user.
 - `dockerhub_list_repo_with_tags`: lists the tags for a given Docker Hub repository (user/image).
+- `fasta_put_headers_back`: replaces the sequence headers using the provided mapping file (with input headers in the first column and new headers in the second).
 - `fasta_remove_line_breaks`: removes the line breaks of sequences in a FASTA file.
 - `fasta_remove_sequences_with_in_frame_stops_or_n`: removes the sequences containing N's or in-frame STOP codons (TAA, TAG and TGA) and writes the output into a new file.
 - `fasta_remove_stop_codons`: modifies the sequences in a FASTA file to remove the stop codons (TAA, TAG and TGA) at the end of sequences. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. Otherwise, stop codons will be removed from each sequence line.
+- `fasta_replace_and_save_headers`: replaces the sequence headers by correlative numbers starting at 1 with a specified prefix. Also, a headers map is created so that original sequence headers can be restored using the `fasta_put_headers_back` script."
+  echo -e "script.
+- `fasta_reverse_complement`: reverses the sequences in a FASTA file and converts them into their complement counterparts. Also, a prefix can be added to the header of each sequence. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. The scripts `fasta_complement` and ``fasta_reverse` perform these two tasks separately.
 - `fastq_to_fasta`: converts a FASTQ file into a FASTA file.
 - `rmlastline`: removes the last line of one or more files. Note that this command modifies the files passed as parameters.
 - `pisa_xml_extract`: extract information regarding the number of interface residues and the interface area from XML files generated using [PDBePISA](https://www.ebi.ac.uk/pdbe/pisa/).
@@ -25,6 +29,10 @@ The list of utilities is presented below, please refer to [this manual](https://
 # Changelog
 
 The `latest` tag contains always the most recent version.
+
+## [0.13.0] - 25/11/2020
+- Add the `dockerhub_list_repo_with_tags`, `fasta_replace_and_save_headers`, `fasta_put_headers_back`, `fasta_complement`, `fasta_reverse`, `fasta_reverse_complement` utilities.
+- Modify the `fasta_remove_line_breaks` to add a newline at the end of the output files.
 
 ## [0.12.0] - 24/11/2020
 - Add the `pisa_xml_extract` utility.

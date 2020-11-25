@@ -12,9 +12,12 @@ These utilities are alphabetically listed bellow along with comprehensive explan
    * [dockerhub_count_pulls](#dockerhub_count_pulls)
    * [dockerhub_list_images_with_tags](#dockerhub_list_images_with_tags)
    * [dockerhub_list_repo_with_tags](#dockerhub_list_repo_with_tags)
+   * [fasta_put_headers_back](#fasta_put_headers_back)
    * [fasta_remove_line_breaks](#fasta_remove_line_breaks)
    * [fasta_remove_sequences_with_in_frame_stops_or_n](#fasta_remove_sequences_with_in_frame_stops_or_n)
    * [fasta_remove_stop_codons](#fasta_remove_stop_codons)
+   * [fasta_replace_and_save_headers](#fasta_replace_and_save_headers)
+   * [fasta_reverse_complement](#fasta_reverse_complement)
    * [fastq_to_fasta](#fastq_to_fasta)
    * [rmlastline](#rmlastline)
    * [pisa_xml_extract](#pisa_xml_extract)
@@ -127,6 +130,38 @@ To test this utility, you can run the following command: `docker run --rm pegi3s
 The `dockerhub_list_repo_with_tags` script lists the tags for a given Docker Hub repository (user/image).
 
 To test this utility, you can run the following command: `docker run --rm pegi3s/utilities dockerhub_list_repo_with_tags pegi3s/utilities`
+
+## `fasta_put_headers_back`
+
+The `fasta_put_headers_back` script replaces the sequence headers using the provided mapping file (with input headers in the first column and new headers in the second). This mapping file is also produced by the [`fasta_replace_and_save_headers`](#fasta_replace_and_save_headers) script script.
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities fasta_put_headers_back /data/input.fasta /data/input.fasta.headers_map /data/output.renamed.fasta`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input files you want to process.
+- `/data/input.fasta` to the actual name of your input FASTA file.
+- `/data/input.fasta.headers_map` to the actual name of your input headers mapping file.
+- `/data/output.renamed.fasta` to the actual name of your output FASTA file.
+
+To test this utility, you can copy and paste the following sample data into the `input.fasta` file:
+```
+>SEQ1
+AAAAAAAAA
+>SEQ2
+AAAAAAAAA
+>SEQ3
+AAAAAAAAA
+>SEQ4
+AAAAAAAAA
+```
+
+And the following sample data into the `input.fasta.headers_map` file:
+```
+>SEQ1   >Sequence Header 1
+>SEQ2   >Sequence Header 2
+>SEQ3   >Sequence Header 3
+>SEQ4   >Sequence Header 4
+```
 
 ## `fasta_remove_line_breaks`
 
@@ -268,6 +303,31 @@ ACTACTACTACTACTTGA
 ACTACTACTACTACT
 ```
 
+## `fasta_replace_and_save_headers`
+
+The `fasta_replace_and_save_headers` script eplaces the sequence headers by correlative numbers starting at 1 with a specified prefix. Also, a headers map is created so that original sequence headers can be restored using the `fasta_put_headers_back` script.
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities fasta_replace_and_save_headers /data/input.fasta /data/output -p=SEQ`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input file you want to process.
+- `/data/input.fasta` to the actual name of your input FASTA file.
+- `/data/output` to the actual name of your output directory to create the output files.
+
+This command will process the input FASTA and write the outputs in `/data/output`. Two files are created: one with extension `renamed` that contains the renamed sequences and another one with extension `.headers_map` that contains the headers mapping. This latter file can be used to restore the original sequence headers the [`fasta_put_headers_back`](#fasta_put_headers_back) script.
+
+To test this utility, you can copy and paste the following sample data into the `input.fasta` file:
+```
+>Sequence Header 1
+AAAAAAAAA
+>Sequence Header 2
+AAAAAAAAA
+>Sequence Header 3
+AAAAAAAAA
+>Sequence Header 4
+AAAAAAAAA
+```
+
 ## `fastq_to_fasta`
 
 The `fastq_to_fasta` script converts a FASTQ file into a FASTA file.
@@ -295,6 +355,28 @@ TTGGACGGGACGTGACGAAACGGTATCGTATGCCGTCTTCTGCTTGAAA
 +SRR1654650.3.1 FCD2CVLACXX:8:1101:1327:2187 length=49
 @@@FFFFFHAFAFFHIJJI:FFG?FGGHHGGGHHIFAHGGGIFIG@=?E
 
+```
+
+## `fasta_reverse_complement`
+
+The `fasta_reverse_complement` script reverses the sequences in a FASTA file and converts them into their complement counterparts. Also, a prefix can be added to the header of each sequence. The scripts `fasta_complement` and ``fasta_reverse` perform these two tasks separately.
+
+Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script.
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities fasta_reverse_complement /data/input.fasta /data/output.fasta --prefix=reverse_complement`
+`
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input file you want to process.
+- `/data/input.fasta` to the actual name of your input FASTA file.
+- `/data/output.fasta` to the actual name of your output FASTA file.
+- `reverse_complement` to the prefix to add to the sequence headers (omit this parameter in case you don't want to add a prefix).
+
+To test this utility, you can copy and paste the following sample data into the `input.fasta` file:
+```
+>1
+ACTG
+>2
+GTCA
 ```
 
 ## `rmlastline`

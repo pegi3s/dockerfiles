@@ -1,0 +1,72 @@
+#!/bin/bash
+
+function printHelp {
+  echo -e "This script replaces the sequence headers by correlative numbers starting at 1 with a specified prefix (default prefix"
+  echo -e "is C). Also, a headers map is created so that original sequence headers can be restored using the fasta_put_headers_back"
+  echo -e "script."
+  echo -e "\nUsage:"
+  echo -e "\t`basename $0` </path/to/input_fasta> </path/to/outut/dir> [-p/--prefix=<prefix>]"
+}
+
+if [ "${INPUT}" == "-h" ] || [ "${INPUT}" == "--help" ]; then
+  printHelp
+  exit 0
+fi
+
+if [ $# -lt 2 ] || [ $# -gt 3 ]; then
+  tput setaf 1
+  echo -e "Error. This script requires two or three arguments.\n"
+  tput sgr0
+  printHelp
+  exit 1
+fi
+
+PREFIX="C"
+INPUT=$1
+OUTPUT_DIR=$2
+
+if [ ! -d ${OUTPUT_DIR} ]; then
+  tput setaf 1
+  echo -e "Error. The output directory does not exist.\n"
+  tput sgr0
+  exit 1
+fi
+
+for key in "$@"
+do
+case $key in
+    -p=*|--prefix=*)
+    PREFIX="${key#*=}"
+    shift
+    ;;
+    *)
+      # unknown option
+    ;;
+esac
+done
+
+FILENAME=$(basename -- "${INPUT}")
+
+cat ${INPUT} | awk -v prefix=$PREFIX '
+  BEGIN {
+    count = 1
+  }
+  {
+  if (match($0,"^>")){
+    printf ">%s%s\n", prefix, count
+    count = count +1
+  } else {
+    print $0
+  }
+}' > ${OUTPUT_DIR}/$FILENAME.renamed
+
+cat ${INPUT} | awk -v prefix=$PREFIX '
+  BEGIN {
+    count = 1
+  }
+  {
+  if (match($0,"^>")){
+    printf ">%s%s\t%s\n", prefix, count, $0
+    count = count +1
+  }
+}' > ${OUTPUT_DIR}/$FILENAME.headers_map

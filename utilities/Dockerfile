@@ -13,3 +13,5 @@ ADD scripts /opt/scripts
 RUN chmod 777 /opt/scripts/*
 
 ENV PATH="/opt/scripts:${PATH}"
+
+ENV TERM=xterm-256color
