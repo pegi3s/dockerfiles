@@ -11,6 +11,7 @@ These utilities are alphabetically listed bellow along with comprehensive explan
    * [deinterleave_fastq](#deinterleave_fastq)
    * [dockerhub_count_pulls](#dockerhub_count_pulls)
    * [dockerhub_list_images_with_tags](#dockerhub_list_images_with_tags)
+   * [dockerhub_list_repo_with_tags](#dockerhub_list_repo_with_tags)
    * [fasta_remove_line_breaks](#fasta_remove_line_breaks)
    * [fasta_remove_sequences_with_in_frame_stops_or_n](#fasta_remove_sequences_with_in_frame_stops_or_n)
    * [fasta_remove_stop_codons](#fasta_remove_stop_codons)
@@ -120,6 +121,12 @@ To test this utility, you can run the following command: `docker run --rm pegi3s
 The `dockerhub_list_images_with_tags` script lists all the images and tags for a given Docker Hub user.
 
 To test this utility, you can run the following command: `docker run --rm pegi3s/utilities dockerhub_list_images_with_tags pegi3s`
+
+## `dockerhub_list_repo_with_tags`
+
+The `dockerhub_list_repo_with_tags` script lists the tags for a given Docker Hub repository (user/image).
+
+To test this utility, you can run the following command: `docker run --rm pegi3s/utilities dockerhub_list_repo_with_tags pegi3s/utilities`
 
 ## `fasta_remove_line_breaks`
 

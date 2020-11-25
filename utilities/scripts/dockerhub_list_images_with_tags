@@ -3,7 +3,7 @@
 display_usage() {
   echo -e "This script lists the lists the images and tags for a given Docker Hub user."
   echo -e "\nUsage:"
-  echo -e "\tUsage: `basename $0` <docker-hub-user> [-jq=</path/to/jq>] [-ps/--page-size=<page-size>]]"
+  echo -e "\tUsage: `basename $0` <docker-hub-user> [-jq=</path/to/jq>] [-ps/--page-size=<page-size>]"
 }
 
 if [[ $1 == "--help" ]]; then

@@ -14,6 +14,7 @@ The list of utilities is presented below, please refer to [this manual](https://
 - `deinterleave_fastq`: deinterleaves a FASTQ file of paired reads into two FASTQ files. Optionally, the output files can be compressed using GZip.
 - `dockerhub_count_pulls`: lists the number of pulls of each image for a given Docker Hub user.
 - `dockerhub_list_images_with_tags`: lists all the images and tags for a given Docker Hub user.
+- `dockerhub_list_repo_with_tags`: lists the tags for a given Docker Hub repository (user/image).
 - `fasta_remove_line_breaks`: removes the line breaks of sequences in a FASTA file.
 - `fasta_remove_sequences_with_in_frame_stops_or_n`: removes the sequences containing N's or in-frame STOP codons (TAA, TAG and TGA) and writes the output into a new file.
 - `fasta_remove_stop_codons`: modifies the sequences in a FASTA file to remove the stop codons (TAA, TAG and TGA) at the end of sequences. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. Otherwise, stop codons will be removed from each sequence line.
