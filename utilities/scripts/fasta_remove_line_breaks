@@ -37,10 +37,12 @@ if [ -z ${OUTPUT+x} ]; then
 	sed -i 's/>/\n>/g' $INPUT
 	sed -i 's/#######/\n/g' $INPUT
 	sed -i '1d' $INPUT
+	printf "\n" >> $INPUT
 else 
 	sed '/^>/ s/$/#######/g' $INPUT > $OUTPUT
 	sed -i -z 's/\n//g' $OUTPUT
 	sed -i 's/>/\n>/g' $OUTPUT
 	sed -i 's/#######/\n/g' $OUTPUT
 	sed -i '1d' $OUTPUT
+	printf "\n" >> $OUTPUT
 fi
