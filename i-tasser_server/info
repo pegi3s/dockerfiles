@@ -1,0 +1,22 @@
+--- FORM report. Uses POST to URL "/cgi-bin/itasser_submit.cgi"
+Textarea: NAME="SEQUENCE"
+Input: NAME="seq_file" (FILE)
+Input: NAME="REPLY-E-MAIL" (TEXT)
+Input: NAME="password" (PASSWORD)
+Input: NAME="TARGET-NAME" (TEXT)
+Input: NAME="RESTRAINT1" (FILE)
+Input: NAME="pdb" (TEXT)
+Input: NAME="pdbfile" (FILE)
+Input: NAME="RESTRAINT2" (FILE)
+Input: NAME="RESTRAINT1" (FILE)
+Input: NAME="pdb" (TEXT)
+Input: NAME="pdbfile" (FILE)
+Input: NAME="RESTRAINT2" (FILE)
+Input: NAME="SID" (TEXT)
+Input: NAME="HOMOL" (FILE)
+Input: NAME="SID" (TEXT)
+Input: NAME="HOMOL" (FILE)
+Input: NAME="SS" (FILE)
+Input: NAME="SS" (FILE)
+Input: NAME="PRI" VALUE="no" (CHECKBOX)
+--- end of FORM
