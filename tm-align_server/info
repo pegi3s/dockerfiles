@@ -1,0 +1,8 @@
+--- FORM report. Uses POST to URL "/cgi-bin/TMalign.pl"
+Textarea: NAME="pdb01"
+Input: NAME="pdb1" (FILE)
+Textarea: NAME="pdb02"
+Input: NAME="pdb2" (FILE)
+Input: NAME="email" (TEXT)
+Button: "Run TM-align" (SUBMIT)
+--- end of FORM
