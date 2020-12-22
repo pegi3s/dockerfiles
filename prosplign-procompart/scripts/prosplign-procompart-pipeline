@@ -1,0 +1,70 @@
+#!/bin/bash
+
+export TERM=xterm-256color
+
+display_usage() { 
+	echo -e "This script runs the ProSplign/ProCompart pipeline (https://www.ncbi.nlm.nih.gov/sutils/static/prosplign/prosplign.html).\n"
+	echo -e "For more details, see the description of the pipeline in section 3.6 of our paper about SEDA (https://doi.org/10.1109/TCBB.2020.3040383)."
+	echo -e "\nUsage:"
+	echo -e "\t`basename $0` <nucleotide_subject> <query_protein_CDS> <output> [<max_target_seqs>]"
+	echo -e "\t\t<max_target_seqs>: optionally, the max_target_seqs for tblastn, default value is 1."
+} 
+
+if [[ $1 == "--help" ]]; then
+	display_usage
+	exit 1
+fi
+
+if [ $# -lt 3 ] || [ $# -gt 4 ]
+then 
+	tput setaf 1
+	echo -e "Error. This script requires three or four arguments.\n"
+	tput sgr0
+	display_usage
+	exit 1
+fi 
+
+INPUT_NUCLEOTIDE_SUBJECT=$1
+INPUT_QUERY_PROTEIN_CDS=$2
+OUTPUT=$3
+MAX_TARGET_SEQS=${4:-1}
+
+echo "Running ProSplign/ProCompart pipeline"
+echo "Input nucleotide subject: ${INPUT_NUCLEOTIDE_SUBJECT}"
+echo "Input query CDS: ${INPUT_QUERY_PROTEIN_CDS}"
+echo "BLAST -max_target_seqs: ${MAX_TARGET_SEQS}"
+
+TEMP_DIR=$(mktemp -d /tmp/prosplign-procompart-pipeline.XXXXXXXXXX)
+
+#
+# Data preparation
+#
+
+cp ${INPUT_NUCLEOTIDE_SUBJECT} ${TEMP_DIR}/nucleotide_subject
+cp ${INPUT_QUERY_PROTEIN_CDS} ${TEMP_DIR}/query_protein
+
+fasta_replace_and_save_headers ${TEMP_DIR}/nucleotide_subject ${TEMP_DIR} --prefix="gi|"
+
+cat ${TEMP_DIR}/nucleotide_subject.headers_map | sed 's#^>gi|#>#g' > ${TEMP_DIR}/nucleotide_subject.headers_map_output
+
+fasta_replace_and_save_headers ${TEMP_DIR}/query_protein ${TEMP_DIR}
+
+#
+# ProSplign/ProCompart pipeline (https://www.ncbi.nlm.nih.gov/sutils/static/prosplign/prosplign.html)
+#
+
+makeblastdb -dbtype nucl -in ${TEMP_DIR}/nucleotide_subject.renamed
+
+tblastn -query ${TEMP_DIR}/query_protein.renamed -db ${TEMP_DIR}/nucleotide_subject.renamed -outfmt 6 -max_target_seqs ${MAX_TARGET_SEQS} -evalue 0.05 | sort -k 2,2 -k 1,1 > ${TEMP_DIR}/blast.hit
+
+cat ${TEMP_DIR}/blast.hit | procompart -t > ${TEMP_DIR}/comp
+
+prosplign -i ${TEMP_DIR}/comp -fasta ${TEMP_DIR}/nucleotide_subject.renamed,${TEMP_DIR}/query_protein.renamed -nogenbank -o ${TEMP_DIR}/pro.asn -eo ${TEMP_DIR}/pro.txt
+
+# Use the map nucleotide_subject.headers_map_output when parsing the results
+
+java -jar /opt/pro-ncbi/prosplign-parser.jar ${TEMP_DIR}/pro.txt ${TEMP_DIR}/pro.fasta ${TEMP_DIR}/query_protein.headers_map ${TEMP_DIR}/nucleotide_subject.headers_map_output
+
+cp ${TEMP_DIR}/pro.fasta ${OUTPUT}
+
+rm -rf ${TEMP_DIR}
