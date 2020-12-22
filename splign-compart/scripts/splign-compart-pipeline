@@ -1,0 +1,91 @@
+#!/bin/bash
+
+export TERM=xterm-256color
+
+display_usage() { 
+	echo -e "This script runs the Splign/ompart pipeline (https://www.ncbi.nlm.nih.gov/sutils/splign/splign.cgi?textpage=documentation).\n"
+	echo -e "For more details, see the description of the pipeline in section 3.6 of our paper about SEDA (https://doi.org/10.1109/TCBB.2020.3040383)."
+	echo -e "\nUsage:"
+	echo -e "\t`basename $0` <nucleotide_subject> <query_nucleotide_CDS> <output> [--concat-exons]"
+	echo -e "\t\t--concat-exons: optionally, if adjacent exons must be concatenated in the output FASTA file. Using this option, if an annotation is obtained for every exon of a given gene then the resulting sequence will be the complete CDS."
+} 
+
+if [[ $1 == "--help" ]]; then
+	display_usage
+	exit 1
+fi
+
+if [ $# -lt 3 ] || [ $# -gt 4 ]
+then 
+	tput setaf 1
+	echo -e "Error. This script requires three or four arguments.\n"
+	tput sgr0
+	display_usage
+	exit 1
+fi 
+
+INPUT_SUBJECT_GENOME=$1
+INPUT_QUERY_CDS=$2
+OUTPUT=$3
+
+echo "Running Splign/Compart pipeline"
+echo "Input subject genome: ${INPUT_SUBJECT_GENOME}"
+echo "Input query CDS: ${INPUT_QUERY_CDS}"
+
+CONCAT_EXONS=0
+if [[ $4 == "--concat-exons" ]]; then
+    echo "Concat exons: true"
+    CONCAT_EXONS=1
+else
+    echo "Concat exons: false"
+fi
+
+TEMP_DIR=$(mktemp -d /tmp/splign-compart-pipeline.XXXXXXXXXX)
+
+#
+# Data preparation
+#
+
+fasta_remove_line_breaks ${INPUT_SUBJECT_GENOME} -o=${TEMP_DIR}/genome.1.clean
+
+fasta_reverse_complement ${TEMP_DIR}/genome.1.clean ${TEMP_DIR}/genome.2.reverse_complement -p=Reverse_Complement_
+
+cat ${TEMP_DIR}/genome.1.clean ${TEMP_DIR}/genome.2.reverse_complement > ${TEMP_DIR}/genome.bidirectional
+
+rm ${TEMP_DIR}/genome.1.clean ${TEMP_DIR}/genome.2.reverse_complement
+
+SUBJECT_GENOME=${TEMP_DIR}/genome.bidirectional
+QUERY_CDS=${TEMP_DIR}/query.cds
+
+cp ${INPUT_QUERY_CDS} ${QUERY_CDS}
+
+#
+# Splign/Compart pipeline (https://www.ncbi.nlm.nih.gov/sutils/splign/splign.cgi?textpage=documentation)
+#
+
+splign -mklds ${TEMP_DIR}
+
+makeblastdb -dbtype nucl -parse_seqids -in ${QUERY_CDS}
+makeblastdb -dbtype nucl -parse_seqids -in ${SUBJECT_GENOME}
+
+compart -qdb ${QUERY_CDS} -sdb ${SUBJECT_GENOME} > ${TEMP_DIR}/cdna.compartments
+
+splign -ldsdir ${TEMP_DIR} -comps ${TEMP_DIR}/cdna.compartments > ${TEMP_DIR}/output.tsv
+
+cat ${TEMP_DIR}/output.tsv | grep -v "#" | awk -F'\t' '{if($7 != "-" && $8-1 < $9 ) {printf "%s\t%s\t%s\t%s\n", $3, $8-1, $9, $2 }}' > ${TEMP_DIR}/output.bed
+
+if [[ ${CONCAT_EXONS} -eq 1 ]]; then
+    bedtools getfasta -fi ${SUBJECT_GENOME} -bed ${TEMP_DIR}/output.bed -fo  ${TEMP_DIR}/output.fasta -nameOnly
+    seqkit split --by-id ${TEMP_DIR}/output.fasta -O ${TEMP_DIR}/exons
+    mkdir ${TEMP_DIR}/exons.concat
+    for file in $(ls /tmp/exons/); do
+        head -1 /tmp/exons/$file > /tmp/exons.concat/$file
+        cat /tmp/exons/$file | grep -v '>' >> /tmp/exons.concat/$file
+    done
+    cat /tmp/exons.concat/* > /tmp/exons.concat.fasta
+    fasta_remove_line_breaks /tmp/exons.concat.fasta -o=${OUTPUT}
+else
+    bedtools getfasta -fi ${SUBJECT_GENOME} -bed ${TEMP_DIR}/output.bed -fo ${OUTPUT} -name
+fi
+
+rm -rf ${TEMP_DIR}
