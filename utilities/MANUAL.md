@@ -19,8 +19,10 @@ These utilities are alphabetically listed bellow along with comprehensive explan
    * [fasta_replace_and_save_headers](#fasta_replace_and_save_headers)
    * [fasta_reverse_complement](#fasta_reverse_complement)
    * [fastq_to_fasta](#fastq_to_fasta)
-   * [rmlastline](#rmlastline)
+   * [pipe_delimited_extractor](#pipe_delimited_extractor)
    * [pisa_xml_extract](#pisa_xml_extract)
+   * [rmlastline](#rmlastline)
+
 
 ## `backup_file`
 
@@ -379,15 +381,18 @@ ACTG
 GTCA
 ```
 
-## `rmlastline`
+## `pipe_delimited_extractor`
+The `pipe_delimited_extractor` script extracts sequences from FASTA files, according to the information in a given field, separated by pipes.
 
-The `rmlastline` script removes the last line of one or more files. Note that this command modifies the files passed as parameters.
-
-You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities rmlastline /data/file1.txt /data/file2.txt`
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities pipe_delimited_extractor /data/input.fasta /data/output_folder <field_position>`
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input file you want to process.
-- `/data/file*.txt` to the actual names of your input files.
+- `/data/input.fasta` to the actual name of your input FASTA file.
+- `/data/output_folder` to the actual name of your output folder.
+- `<field_position>` to the integer according to the field position you want to analyze.
+
+This command will process the input FASTA and write the output inside the folder `/data/output_folder`.
 
 ## `pisa_xml_extract`
 
@@ -401,3 +406,13 @@ In this command, you should replace
 - `/data/PISA_extract_output` to the name of the output directory (under `/data`).
 
 The tab separated result files produced by the script are best viewed with a spreadsheet editor.
+
+## `rmlastline`
+
+The `rmlastline` script removes the last line of one or more files. Note that this command modifies the files passed as parameters.
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities rmlastline /data/file1.txt /data/file2.txt`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input file you want to process.
+- `/data/file*.txt` to the actual names of your input files.

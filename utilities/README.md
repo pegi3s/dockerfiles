@@ -19,16 +19,19 @@ The list of utilities is presented below, please refer to [this manual](https://
 - `fasta_remove_line_breaks`: removes the line breaks of sequences in a FASTA file.
 - `fasta_remove_sequences_with_in_frame_stops_or_n`: removes the sequences containing N's or in-frame STOP codons (TAA, TAG and TGA) and writes the output into a new file.
 - `fasta_remove_stop_codons`: modifies the sequences in a FASTA file to remove the stop codons (TAA, TAG and TGA) at the end of sequences. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. Otherwise, stop codons will be removed from each sequence line.
-- `fasta_replace_and_save_headers`: replaces the sequence headers by correlative numbers starting at 1 with a specified prefix. Also, a headers map is created so that original sequence headers can be restored using the `fasta_put_headers_back` script."
-  echo -e "script.
-- `fasta_reverse_complement`: reverses the sequences in a FASTA file and converts them into their complement counterparts. Also, a prefix can be added to the header of each sequence. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. The scripts `fasta_complement` and ``fasta_reverse` perform these two tasks separately.
+- `fasta_replace_and_save_headers`: replaces the sequence headers by correlative numbers starting at 1 with a specified prefix. Also, a headers map is created so that original sequence headers can be restored using the `fasta_put_headers_back` script. "echo -e" script.
+- `fasta_reverse_complement`: reverses the sequences in a FASTA file and converts them into their complement counterparts. Also, a prefix can be added to the header of each sequence. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. The scripts `fasta_complement` and `fasta_reverse` perform these two tasks separately.
 - `fastq_to_fasta`: converts a FASTQ file into a FASTA file.
-- `rmlastline`: removes the last line of one or more files. Note that this command modifies the files passed as parameters.
+- `pipe_delimited_extractor`: extract sequences from FASTA files, according to the information in a given field, separated by pipes.
 - `pisa_xml_extract`: extract information regarding the number of interface residues and the interface area from XML files generated using [PDBePISA](https://www.ebi.ac.uk/pdbe/pisa/).
+- `rmlastline`: removes the last line of one or more files. Note that this command modifies the files passed as parameters.
 
 # Changelog
 
 The `latest` tag contains always the most recent version.
+
+## [0.14.0] - 07/01/2021
+- Add the `pipe_delimited_extractor` utility.
 
 ## [0.13.0] - 25/11/2020
 - Add the `dockerhub_list_repo_with_tags`, `fasta_replace_and_save_headers`, `fasta_put_headers_back`, `fasta_complement`, `fasta_reverse`, `fasta_reverse_complement` utilities.
@@ -59,10 +62,10 @@ The `latest` tag contains always the most recent version.
 ## [0.5.0] - 23/01/2020
 - Add the `batch_fasta_remove_line_breaks` utility.
 
-## [0.4.0] - 8/01/2020
+## [0.4.0] - 08/01/2020
 - Add the `fasta_remove_line_breaks` utility.
 
-## [0.3.0] - 6/11/2019
+## [0.3.0] - 06/11/2019
 - Add the `count_dockerhub_pulls` utility.
 
 ## [0.2.0] - 11/05/2018

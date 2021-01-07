@@ -1,0 +1,19 @@
+#!/bin/bash
+input=$1
+output=$2
+field=$3
+mkdir -p $output
+cp $input $input.tmp
+sed -i '/^>/ s/$/#######/g' $input.tmp
+sed -i -z 's/\n//g' $input.tmp
+sed -i 's/>/\n>/g' $input.tmp
+sed -i 's/#######/\n/g' $input.tmp
+sed -i '1d' $input.tmp
+sed -i '/^[[:space:]]*$/d' $input.tmp
+while read a; do
+read b
+c=$(echo $a | sed 's/ /_/g' | sed 's/|/ /g' | cut -f$field -d' ' | sed 's/>//g; s/[^a-zA-Z0-9]/_/g')
+echo $a >> $output/$c
+echo $b >> $output/$c
+done < $input.tmp
+rm $input.tmp
