@@ -1,0 +1,53 @@
+--- FORM report. Uses POST to URL "https://alcazar.science.uu.nl/cgi/services/CPORT/cport.py"
+Select: NAME="pdb_mode"
+  Option VALUE="" (SELECTED)
+  Option VALUE="submit"
+  Option VALUE="download"
+[end of select]
+Select: NAME="pdb_chain"
+  Option VALUE="" (SELECTED)
+  Option VALUE="A"
+  Option VALUE="B"
+  Option VALUE="C"
+  Option VALUE="D"
+  Option VALUE="E"
+  Option VALUE="F"
+  Option VALUE="G"
+  Option VALUE="H"
+  Option VALUE="I"
+  Option VALUE="J"
+  Option VALUE="K"
+  Option VALUE="L"
+  Option VALUE="M"
+  Option VALUE="N"
+  Option VALUE="O"
+  Option VALUE="P"
+  Option VALUE="Q"
+  Option VALUE="R"
+  Option VALUE="S"
+  Option VALUE="T"
+  Option VALUE="U"
+  Option VALUE="V"
+  Option VALUE="W"
+  Option VALUE="X"
+  Option VALUE="Y"
+  Option VALUE="Z"
+[end of select]
+Input: NAME="pdb_pdbfile" (FILE)
+Input: NAME="pdb_code" (TEXT)
+Input: NAME="alignment_file" (FILE)
+Select: NAME="alignment_format"
+  Option VALUE="" (SELECTED)
+  Option VALUE="PHYLIP"
+  Option VALUE="CLUSTAL"
+  Option VALUE="FASTA"
+  Option VALUE="MSF"
+[end of select]
+Input: NAME="alignment_hsspid" (TEXT)
+Select: NAME="threshold"
+  Option VALUE="1"
+  Option VALUE="2"
+  Option VALUE="3" (SELECTED)
+[end of select]
+Button: "" (SUBMIT)
+--- end of FORM

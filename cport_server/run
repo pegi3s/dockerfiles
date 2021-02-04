@@ -1,0 +1,105 @@
+#!/bin/bash
+#
+# CPORT Server
+#
+# docker run (...) bash -c "/opt/run $1 $2 $3"
+# 	$1 - input folder (contains folder w/pdb files and optional whiscy file)
+#	$2 - output folder
+#	$3 - chain to use (default A)
+#
+#------------------------------------------------------------------------
+
+# Setting input and output folder names
+if [[ ! -z "$1" ]] && [[ ! -z "$2" ]];
+then
+	INPUTDIR=$1
+	OUTDIR=$2
+else
+	INPUTDIR=data/input
+	OUTDIR=data/Results_CPORT
+fi
+
+# Check for chain argument
+if [[ ! -z "$3" ]]; then CHAIN=$3; else CHAIN=A; fi
+
+# Variable init
+SLEEP=$(echo $(( $RANDOM % 7 + 3 )))
+
+# Loop through each folder
+for f in $INPUTDIR/*/ ; do
+	PDBFOLDER=$(basename -- "$f")
+	PDBFILE=$PDBFOLDER.pdb
+	WHISCYFILE=$PDBFOLDER.phylseq
+
+	# Check for optional WHISCY file
+	if [ -f "$f$WHISCYFILE" ]; then whiscy=1; else whiscy=0; fi	
+
+	# Set WHISCY and CPORT form fields
+	mkdir -p $OUTDIR $OUTDIR/tempFiles
+
+	if [[ $whiscy -eq 1 ]]; 
+	then
+		touch $OUTDIR/tempFiles/whiscy_options
+		echo "-F alignment_file="@$f$WHISCYFILE" -F alignment_format="PHYLIP"" > $OUTDIR/tempFiles/whiscy_options
+		WHISCY_OPTIONS=$(cat $OUTDIR/tempFiles/whiscy_options)
+	fi
+
+	touch $OUTDIR/tempFiles/run_options
+	echo "-F pdb_mode="submit" -F pdb_chain="$CHAIN" -F pdb_pdbfile="@$f$PDBFILE" $WHISCY_OPTIONS -F threshold="3"" > $OUTDIR/tempFiles/run_options
+
+	OPTIONS=$(cat $OUTDIR/tempFiles/run_options)
+
+	# Submission
+	curl $OPTIONS https://alcazar.science.uu.nl/cgi/services/CPORT/cport.py > $OUTDIR/tempFiles/submission.html 
+	
+	# Get results link
+	perl -nle 'print $1 if /<a.*=(.+?)>/' $OUTDIR/tempFiles/submission.html | head -1 > $OUTDIR/tempFiles/link.tmp
+
+	#Check if results are ready
+	url=$(cat $OUTDIR/tempFiles/link.tmp)
+	wget -O - $url > $OUTDIR/tempFiles/Results.html
+	grep -iq 'cport is running' $OUTDIR/tempFiles/Results.html
+	ready=$?
+	while [[ $ready -eq 0 ]]; 
+	do
+		sleep ${SLEEP}m
+		wget -O - $url > $OUTDIR/tempFiles/Results.html
+		grep -i 'cport is running' $OUTDIR/tempFiles/Results.html
+		ready=$?
+	done
+
+	# "Your prediction FAILED"
+	grep -iq 'your prediction failed' $OUTDIR/tempFiles/Results.html
+	failed=$? # if 0, word match => job failed to submit
+	if [[ $failed -eq 0 ]]; 
+	then
+		echo "Error: Prediction failed. See 'Results.html' for more information."
+		
+		# Move results url, Remove temporary files
+		mkdir -p $OUTDIR/${PDBFOLDER}_failed
+		mv $OUTDIR/tempFiles/Results.html $OUTDIR/${PDBFOLDER}_failed && rm -rf $OUTDIR/tempFiles/
+		
+	else
+		echo "Your prediction was successful."
+		
+		# Obtain prediction .pdb
+		sed -i 's/index.html/cport.pdb/g' $OUTDIR/tempFiles/link.tmp
+		url=$(cat $OUTDIR/tempFiles/link.tmp)
+		mkdir -p $OUTDIR/$PDBFOLDER
+		wget -O - $url > $OUTDIR/$PDBFOLDER/${PDBFOLDER}_prediction.pdb
+		
+		# Copy results html file
+		cp $OUTDIR/tempFiles/Results.html $OUTDIR/$PDBFOLDER
+
+		# Convert Results.html to txt
+		lynx --dump $OUTDIR/tempFiles/Results.html > $OUTDIR/tempFiles/results.txt
+
+		# Obtain active and passive residues list
+		sed -n '/Predicted residues/,/Surrounding/p' $OUTDIR/tempFiles/results.txt | head -n -1 | tail -n +2 | sed -e 's/,$//g' | sed 's/          //g' | tr '\n' ' ' > $OUTDIR/$PDBFOLDER/Active_Residues
+		sed -n '/Surrounding/,/Thank/p' $OUTDIR/tempFiles/results.txt | head -n -1 | tail -n +2 | sed -e 's/,$//g' | sed 's/          //g' | tr '\n' ' ' > $OUTDIR/$PDBFOLDER/Passive_Residues
+
+		# Remove temporary files
+		rm -rf $OUTDIR/tempFiles/
+	fi
+
+done
