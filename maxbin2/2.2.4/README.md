@@ -5,7 +5,7 @@ This image facilitates the usage of [MaxBin2](https://downloads.jbei.org/data/mi
 
 # Using the MaxBin2 image in Linux
 
-You should adapt and run the following command: `docker run --rm -v "/your/data/dir:/data" pegi3s/maxbin2 run_MaxBin.pl -contig /data/contig.fa -reads /data/reads1.fastq -reads2 /data/reads2.fastq -out /data/output`
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/maxbin2 run_MaxBin.pl -contig /data/contig.fa -reads /data/reads1.fastq -reads2 /data/reads2.fastq -out /data/output`
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the files you want to analyze.
