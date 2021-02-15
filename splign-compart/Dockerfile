@@ -20,6 +20,9 @@ RUN ln -s -T /lib/x86_64-linux-gnu/libpcre.so.3 /lib/x86_64-linux-gnu/libpcre.so
 
 ENV PATH="/opt/splign-compart:${PATH}"
 
+RUN wget https://github.com/shenwei356/seqkit/releases/download/v0.12.1/seqkit_linux_amd64.tar.gz -O /tmp/seqkit.tar.gz && \
+	tar zxvf /tmp/seqkit.tar.gz -C /usr/bin/ && rm /tmp/seqkit.tar.gz
+
 RUN apt-get remove -y wget build-essential
 
 COPY --from=base_pegi3s_utilities /opt/scripts/fasta_remove_line_breaks /opt/scripts/fasta_remove_line_breaks

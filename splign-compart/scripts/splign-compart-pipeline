@@ -78,12 +78,12 @@ if [[ ${CONCAT_EXONS} -eq 1 ]]; then
     bedtools getfasta -fi ${SUBJECT_GENOME} -bed ${TEMP_DIR}/output.bed -fo  ${TEMP_DIR}/output.fasta -nameOnly
     seqkit split --by-id ${TEMP_DIR}/output.fasta -O ${TEMP_DIR}/exons
     mkdir ${TEMP_DIR}/exons.concat
-    for file in $(ls /tmp/exons/); do
-        head -1 /tmp/exons/$file > /tmp/exons.concat/$file
-        cat /tmp/exons/$file | grep -v '>' >> /tmp/exons.concat/$file
+    for file in $(ls ${TEMP_DIR}/exons/); do
+        head -1 ${TEMP_DIR}/exons/$file > ${TEMP_DIR}/exons.concat/$file
+        cat ${TEMP_DIR}/exons/$file | grep -v '>' >> ${TEMP_DIR}/exons.concat/$file
     done
-    cat /tmp/exons.concat/* > /tmp/exons.concat.fasta
-    fasta_remove_line_breaks /tmp/exons.concat.fasta -o=${OUTPUT}
+    cat ${TEMP_DIR}/exons.concat/* > ${TEMP_DIR}/exons.concat.fasta
+    fasta_remove_line_breaks ${TEMP_DIR}/exons.concat.fasta -o=${OUTPUT}
 else
     bedtools getfasta -fi ${SUBJECT_GENOME} -bed ${TEMP_DIR}/output.bed -fo ${OUTPUT} -name
 fi
