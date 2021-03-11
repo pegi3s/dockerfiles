@@ -1,0 +1,207 @@
+#!/usr/bin/env bash
+
+# Write simplified pisa configuration file
+function writePisaCfgTemplateFile() 
+{
+# $1 - dir where the file will be written
+printf -- "DATA_ROOT
+/tmp/root/
+
+SRS_DIR
+//ccp4/share/ccp4srs/
+
+MOLREF_DIR
+//ccp4/share/pisa/
+
+PISTORE_DIR
+//ccp4/share/pisa/
+
+HELP_DIR
+//ccp4/html/pisa/
+
+DOWNLOAD_URL
+http://files.rcsb.org/download/
+
+RASMOL_COM
+/dummy/rasmol
+
+JMOL_COM
+/dummy/jmol
+
+CCP4MG_COM
+//ccp4/bin/ccp4mg
+
+SESSION_PREFIX
+__tmp_pisa_
+
+PDB_DIR
+
+HELP_URI
+http://www.domain.com/path/to/pisahelp
+
+PDB_DIR_FORMAT
+PDB_PLAIN_PDB_GZ
+
+PHP_URI
+http://www.pisa.com/php/
+
+JSRVIEW_URI
+http://www.pisa.com/jsrview/
+
+EXPIRY_TIME
+10800
+
+ERASE_TIME
+172800
+" > $1/pisa.cfg
+}
+
+# Get .tsv file from interface file obtained with ccp4/pisa
+function getTsvInfo()
+{
+# $1 input file (absolute path)
+# $2 output dir (absolute path)
+#-----------------------------------------------------------
+
+FILE=$1 # absolute path to file
+FILENAME=$(basename -- "$1")
+OUTPUTDIR=$2
+
+# If $OUTPUTDIR doesnt exist, create it !
+if [[ ! -d $OUTPUTDIR ]]; then
+	mkdir -p $OUTPUTDIR
+fi
+
+# Create folder for tmp files
+TEMPFOLDER=$OUTPUTDIR/tempFiles
+mkdir -p $TEMPFOLDER
+
+# Create file
+touch $OUTPUTDIR/$FILENAME.tsv
+OUTFILE=$OUTPUTDIR/$FILENAME.tsv
+
+# Structure 1
+echo Structure 1 > $OUTFILE
+# NINTERFACEREDSIDUES - line 20, col 2
+S1_NINTERFACEREDSIDUES=$(sed -n 20p $FILE | sed 's/ //g' | sed 's/(.*//' | sed 's/.*|//')
+echo NINTERFACEREDSIDUES=$S1_NINTERFACEREDSIDUES >> $OUTFILE
+# INTERFACEAREA - line 24, col2
+S1_INTERFACEAREA=$(sed -n 24p $FILE | sed 's/ //g' | sed 's/(.*//' | sed 's/.*|//')
+echo INTERFACEAREA=$S1_INTERFACEAREA >> $OUTFILE
+
+# Structure 2
+echo Structure 2 >> $OUTFILE
+# NINTERFACEREDSIDUES - line 20, col 3
+# note: somehow, changing the order of the sed's changes the
+#order of the matches (number in the second and third column)
+S2_NINTERFACEREDSIDUES=$(sed -n 20p $FILE | sed 's/ //g' | sed 's/.*|//' | sed 's/(.*//')
+echo NINTERFACEREDSIDUES=$S2_NINTERFACEREDSIDUES >> $OUTFILE
+# INTERFACEAREA - line 24, col 3
+S2_INTERFACEAREA=$(sed -n 24p $FILE | sed 's/ //g' | sed 's/.*|//' | sed 's/(.*//')
+echo INTERFACEAREA=$S2_INTERFACEAREA >> $OUTFILE
+
+
+# Beginning of the tsv values section
+
+# Structure 1
+echo Structure 1 >> $OUTFILE
+
+# File with just the info for the interfacing residues
+sed -n '/Interfacing Residues: Structure 1/,/Residues/p' $FILE | head -n -3 | tail -n +5 > $TEMPFOLDER/$FILENAME.tmp1
+total_lines=$(cat $TEMPFOLDER/$FILENAME.tmp1 | wc -l)
+
+# Write residue numbers
+sed 's/ //g' $TEMPFOLDER/$FILENAME.tmp1 | sed 's/.*://' | sed 's/|.*//' | sed 's/[a-zA-Z]*//' > $TEMPFOLDER/$FILENAME.tmp1.resnum
+for i in $(eval echo "{1..$total_lines}"); 
+do
+	printf -- "$(sed -n ${i}p "$TEMPFOLDER/$FILENAME.tmp1.resnum")\t" >> $OUTFILE
+done
+printf "\n" >> $OUTFILE
+
+# Write residue names
+sed 's/ //g' $TEMPFOLDER/$FILENAME.tmp1 | sed 's/.*://' | sed 's/|.*//' | sed 's/[0-9].*//' > $TEMPFOLDER/$FILENAME.tmp1.resname
+for i in $(eval echo "{1..$total_lines}"); 
+do
+	printf -- "$(sed -n ${i}p "$TEMPFOLDER/$FILENAME.tmp1.resnum"):$(sed -n ${i}p "$TEMPFOLDER/$FILENAME.tmp1.resname")\t" >> $OUTFILE
+done
+printf "\n" >> $OUTFILE
+
+# Values (ASA    BSA  DeltaG) - we only want BSA and DeltaG (2nd & 3rd columns)
+sed 's/.*|//g' $TEMPFOLDER/$FILENAME.tmp1 | awk '{print $2}' > $TEMPFOLDER/$FILENAME.tmp1.bsa
+sed 's/.*|//g' $TEMPFOLDER/$FILENAME.tmp1 | awk '{print $3}' > $TEMPFOLDER/$FILENAME.tmp1.deltag
+
+# BSA
+for i in $(eval echo "{1..$total_lines}")
+do
+	printf -- "$(sed -n ${i}p "$TEMPFOLDER/$FILENAME.tmp1.bsa")\t" >> $OUTFILE
+done
+printf "\n" >> $OUTFILE
+
+# DeltaG - 0 or 1 #!
+for i in $(eval echo "{1..$total_lines}")
+do
+	# edit: for some reason indentation was giving me an error
+	#in this for loop.
+	DELTAG=$(sed -n ${i}p "$TEMPFOLDER/$FILENAME.tmp1.deltag")
+	if (( $(echo "$DELTAG != 0" | bc -l) )) #!
+	then
+		DELTAG_FINAL=1
+	else
+		DELTAG_FINAL=$DELTAG
+	fi
+	printf -- "$DELTAG_FINAL\t" >> $OUTFILE
+done
+printf "\n" >> $OUTFILE
+
+
+# Structure 2
+echo Structure 2 >> $OUTFILE
+
+# File with just the info for the interfacing residues
+sed -n '/Interfacing Residues: Structure 2/,/Residues/p' $FILE | head -n -3 | tail -n +5 > $TEMPFOLDER/$FILENAME.tmp2
+total_lines_2=$(cat $TEMPFOLDER/$FILENAME.tmp2 | wc -l)
+
+# Write residue numbers
+sed 's/ //g' $TEMPFOLDER/$FILENAME.tmp2 | sed 's/.*://' | sed 's/|.*//' | sed 's/[a-zA-Z]*//' > $TEMPFOLDER/$FILENAME.tmp2.resnum
+for i in $(eval echo "{1..$total_lines_2}"); 
+do
+	printf -- "$(sed -n ${i}p "$TEMPFOLDER/$FILENAME.tmp2.resnum")\t" >> $OUTFILE
+done
+printf "\n" >> $OUTFILE
+
+# Write residue names
+sed 's/ //g' $TEMPFOLDER/$FILENAME.tmp2 | sed 's/.*://' | sed 's/|.*//' | sed 's/[0-9].*//' > $TEMPFOLDER/$FILENAME.tmp2.resname
+for i in $(eval echo "{1..$total_lines_2}"); 
+do
+	printf -- "$(sed -n ${i}p "$TEMPFOLDER/$FILENAME.tmp2.resnum"):$(sed -n ${i}p "$TEMPFOLDER/$FILENAME.tmp2.resname")\t" >> $OUTFILE
+done
+printf "\n" >> $OUTFILE
+
+# Values (ASA    BSA  DeltaG) - we only want BSA and DeltaG (2nd & 3rd columns)
+sed 's/.*|//g' $TEMPFOLDER/$FILENAME.tmp2 | awk '{print $2}' > $TEMPFOLDER/$FILENAME.tmp2.bsa
+sed 's/.*|//g' $TEMPFOLDER/$FILENAME.tmp2 | awk '{print $3}' > $TEMPFOLDER/$FILENAME.tmp2.deltag
+
+# BSA
+for i in $(eval echo "{1..$total_lines_2}"); 
+do
+	printf -- "$(sed -n ${i}p "$TEMPFOLDER/$FILENAME.tmp2.bsa")\t" >> $OUTFILE
+done
+printf "\n" >> $OUTFILE
+
+# DeltaG - 0 or 1
+for i in $(eval echo "{1..$total_lines_2}");
+do
+	DELTAG_2=$(sed -n ${i}p "$TEMPFOLDER/$FILENAME.tmp2.deltag")
+	if (( $(echo "$DELTAG_2 != 0" | bc -l) )); 
+	then
+		DELTAG_FINAL_2=1
+	else
+		DELTAG_FINAL_2=$DELTAG_2
+	fi
+	printf -- "$DELTAG_FINAL_2\t" >> $OUTFILE
+done
+printf "\n" >> $OUTFILE
+
+# Delete tempFolder
+yes | rm -rf $TEMPFOLDER
+}
