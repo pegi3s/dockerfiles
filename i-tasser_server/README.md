@@ -31,7 +31,7 @@ which must be in the same folder as your input FASTA file. Registration is manda
 
 For Developers: To see `Formfind information`, just run: `cat ./opt/info`.
 
-# Using the I-TASSER Server image on Windows
+# Using the I-TASSER Server image in Windows
 
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 

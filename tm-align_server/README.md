@@ -24,7 +24,7 @@ You have the option to run the image without specifying the `/inputFolder` and t
 
 For Developers: To see `Formfind information`, just run: `cat ./opt/info`.
 
-# Using the TM-align Server image on Windows
+# Using the TM-align Server image in Windows
 
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 

@@ -33,7 +33,7 @@ For instance, to use the WHISCY prediction for `pdb_file.pdb`, you should put it
 For Developers: To see `Formfind information`, just run: `cat ./opt/info`.
 
 
-# Using the CPORT Server image on Windows
+# Using the CPORT Server image in Windows
 
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
