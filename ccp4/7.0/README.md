@@ -36,7 +36,7 @@ You have the option to run the image without specifying the `/inputFolder` and t
 To see other options available with `PISA` inside `CCP4`, just run: `pisa` inside the docker image.
 
 
-# Using the CCP4 Server image on Windows
+# Using the CCP4 image on Windows
 
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
