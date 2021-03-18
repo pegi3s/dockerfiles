@@ -7,3 +7,6 @@ RUN apt-get update && \
 
 COPY ./run /opt/run
 COPY ./info /opt/info
+
+RUN chmod u+x /opt/run
+RUN chmod u+x /opt/info
