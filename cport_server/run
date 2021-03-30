@@ -6,6 +6,9 @@
 # (lines 36, 41, 49 and 54)
 #
 #------------------------------------------------------------------------
+# edit 2: restructured code from lines 46-62
+#
+#------------------------------------------------------------------------
 # CPORT Server
 #
 # docker run (...) bash -c "/opt/run $1 $2 $3"
@@ -42,17 +45,20 @@ for f in $INPUTDIR/*/ ; do
 
 	# Set WHISCY and CPORT form fields
 	mkdir -p $OUTDIR $OUTDIR/tempFiles
+	touch $OUTDIR/tempFiles/run_options
 
 	if [[ $whiscy -eq 1 ]]; 
 	then
+		# Whiscy file, append alignment options for CPORT
 		touch $OUTDIR/tempFiles/whiscy_options
-		echo "-F alignment_file=\"@$f$WHISCYFILE\" -F alignment_format="PHYLIP"" > $OUTDIR/tempFiles/whiscy_options
+		echo "-F alignment_file=@$f$WHISCYFILE -F alignment_format=PHYLIP" > $OUTDIR/tempFiles/whiscy_options
 		WHISCY_OPTIONS=$(cat $OUTDIR/tempFiles/whiscy_options)
+	else
+		# No whiscy alignment file, use normal options for CPORT
+		echo "-F pdb_mode=submit -F pdb_chain=$CHAIN -F pdb_pdbfile=@$f$PDBFILE $WHISCY_OPTIONS -F threshold=3" > $OUTDIR/tempFiles/run_options
 	fi
 
-	touch $OUTDIR/tempFiles/run_options
-	echo "-F pdb_mode="submit" -F pdb_chain="$CHAIN" -F pdb_pdbfile=\"@$f$PDBFILE\" $WHISCY_OPTIONS -F threshold="3"" > $OUTDIR/tempFiles/run_options
-
+	# Form options for curl
 	OPTIONS=$(cat $OUTDIR/tempFiles/run_options)
 
 	# Submission
