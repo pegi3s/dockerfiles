@@ -41,39 +41,70 @@ do
 
 	# Job submission
 	mkdir -p $OUTDIR/$resDir/tempFiles
-	curl -F seq_file="@$job" $ACCOUNT -F TARGET-NAME="$header" -F PRI="no" https://zhanglab.ccmb.med.umich.edu/cgi-bin/itasser_submit.cgi > $OUTDIR/$resDir/tempFiles/submission.html #results_itasser.tmp
+	curl -F seq_file="@$job" $ACCOUNT -F TARGET-NAME="$header" -F PRI="no" https://zhanglab.ccmb.med.umich.edu/cgi-bin/itasser_submit.cgi > $OUTDIR/$resDir/tempFiles/submission.html
 
 	# Getting the results URL
-	perl -nle 'print $1 if /<a.*=(.+?)>/' $OUTDIR/$resDir/tempFiles/submission.html | head -1 > $OUTDIR/$resDir/tempFiles/link.tmp #link_itasser_results.tmp
+	perl -nle 'print $1 if /<a.*=(.+?)>/' $OUTDIR/$resDir/tempFiles/submission.html | head -1 > $OUTDIR/$resDir/tempFiles/link.tmp
 	res=$(cat $OUTDIR/$resDir/tempFiles/link.tmp)
 
 	# Getting the source code
-	wget -O - $res > $OUTDIR/$resDir/tempFiles/results.html #url_check.html
+	wget -O - $res > $OUTDIR/$resDir/tempFiles/results.html
+
+	# Dealing with failed submissions ($OUTDIR/$resDir_failed)
+	lynx --dump $OUTDIR/$resDir/tempFiles/submission.html > $OUTDIR/$resDir/tempFiles/submission.txt
+	
+	# If < 10aa
+	grep -q -s 'short' $OUTDIR/$resDir/tempFiles/submission.txt
+	error_status_short=$?
+
+	# If > 1500aa
+	grep -q -s 'long' $OUTDIR/$resDir/tempFiles/submission.txt
+	error_status_long=$?
+
+	if (( ! $error_status_short ))
+	then
+		printf -- "$(head -3 $OUTDIR/$resDir/tempFiles/submission.txt)\n"
+
+		# Move html to failed directory & remove temporary files
+		mkdir -p $OUTDIR/${resDir}_failed
+		cp $OUTDIR/$resDir/tempFiles/submission.html $OUTDIR/${resDir}_failed && rm -rf $OUTDIR/$resDir
+	
+	elif (( ! $error_status_long ))
+	then
+		printf -- "$(head -5 $OUTDIR/$resDir/tempFiles/submission.txt)\n"
+
+		# Move html to failed directory & remove temporary files
+		mkdir -p $OUTDIR/${resDir}_failed
+		cp $OUTDIR/$resDir/tempFiles/submission.html $OUTDIR/${resDir}_failed && rm -rf $OUTDIR/$resDir
+	fi
 
 	# Checking if results are ready
-	grep -q "I-TASSER results for" $OUTDIR/$resDir/tempFiles/results.html ; ready=$? # grep exit status 1 if lines not matched, 0 if matched
+	if [[ "$error_status_short" != "0" && "$error_status_long" != "0" ]]
+	then
+		grep -q "I-TASSER results for" $OUTDIR/$resDir/tempFiles/results.html ; ready=$? # grep exit status 1 if lines not matched, 0 if matched
 
-	while [[ $ready -eq 1 ]]; 
-	do #ready == 1, means results are not ready
-		sleep ${SLEEP}h
-		# Visit url again
-		wget -O - $res > $OUTDIR/$resDir/tempFiles/results.html
-		grep -q "I-TASSER results for" $OUTDIR/$resDir/tempFiles/results.html ; ready=$?
-	done
-	
-	# Move results link
-	mv $OUTDIR/$resDir/tempFiles/results.html $OUTDIR/$resDir
+		while [[ $ready -eq 1 ]]; 
+		do #ready == 1, means results are not ready
+			sleep ${SLEEP}h
+			# Visit url again
+			wget -O - $res > $OUTDIR/$resDir/tempFiles/results.html
+			grep -q "I-TASSER results for" $OUTDIR/$resDir/tempFiles/results.html ; ready=$?
+		done
+		
+		# Move results link
+		mv $OUTDIR/$resDir/tempFiles/results.html $OUTDIR/$resDir
 
-	# Get results from URL (all 5 models)
-	for (( i = 1; i <=5 ; i++ )); do
-		wget -O - $(echo ${res}model${i}.pdb) 2>/dev/null > $OUTDIR/$resDir/model${i}.pdb
-	done
+		# Get results from URL (all 5 models)
+		for (( i = 1; i <=5 ; i++ )); do
+			wget -O - $(echo ${res}model${i}.pdb) 2>/dev/null > $OUTDIR/$resDir/model${i}.pdb
+		done
 
-	# Remove models that dont exist (because wget still creates the files)
-	find $OUTDIR/$resDir -empty -type f -delete
+		# Remove models that dont exist (because wget still creates the files)
+		find $OUTDIR/$resDir -empty -type f -delete
 
-	# Remove temp folder
-	rm -rf $OUTDIR/$resDir/tempFiles
+		# Remove temp folder
+		rm -rf $OUTDIR/$resDir/tempFiles
+	fi
 
 done < $INPUTDIR/$FILENAME.copy
 
