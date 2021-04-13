@@ -11,11 +11,11 @@ Section 3.6 of [this paper](https://doi.org/10.1109/TCBB.2020.3040383) about SED
 5. Run the `ldsdir` option of Splign (`splign --ldsdir`) to obtain the annotations using the obtained compartments as input.
 6. Convert the ldsdir output annotations into a BED file.
 7. Extract the regions in the BED file from bidirectional genome FASTA file to produce the output FASTA file with the annotations using bedtools.
-8. If the concatenate exons option is selected, the adjacent exons are concatenated in the output FASTA file. Using this option, if an annotation is obtained for every exon of a given gene then the resulting sequence will be the complete CDS.
+8. If the concatenate exons option is selected, the adjacent exons are concatenated in the output FASTA file. Using this option, if an annotation is obtained for every exon of a given gene then the resulting sequence will be the complete CDS. In addition, if the with coordinates option is selected, the coordinates of each concatenaded sequence are added to the output sequence headers.
 
 # Using Splign/Compart image in Linux
 
-You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/splign-compart splign-compart-pipeline /data/<nucleotide_subject> /data/<query_nucleotide_CDS> /data/<output> [--concat-exons]`
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/splign-compart splign-compart-pipeline /data/<nucleotide_subject> /data/<query_nucleotide_CDS> /data/<output> [--concat-exons --with-coordinates]`
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input files you want to analyze.
@@ -23,7 +23,7 @@ In this command, you should replace:
 - `<query_nucleotide_CDS>` to the name of the FASTA file for the CDS query.
 - `<output>` to the name of the output FASTA file.
 
-Note that the `--concat-exons` is optional.
+Note that the `--concat-exons` and `--with-coordinates` parameters are optional. Type `docker run --rm pegi3s/splign-compart splign-compart-pipeline --help` for more details.
 
 # Test data
 
@@ -39,4 +39,14 @@ docker run --rm -v /your/data/dir:/data pegi3s/splign-compart splign-compart-pip
 
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
-You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/splign-compart splign-compart-pipeline /data/<nucleotide_subject> /data/<query_nucleotide_CDS> /data/<output> [--concat-exons]`
+You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/splign-compart splign-compart-pipeline /data/<nucleotide_subject> /data/<query_nucleotide_CDS> /data/<output> [--concat-exons --with-coordinates]`
+
+# Changelog
+
+The `latest` tag contains always the most recent version.
+
+## [1.1.0] - 12/04/2021
+- Add the `--with-coordinates` flag.
+
+## [1.0.0] - 15/02/2021
+- Initial version.
