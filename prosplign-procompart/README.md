@@ -39,3 +39,17 @@ docker run --rm -v /your/data/dir:/data pegi3s/prosplign-procompart prosplign-pr
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/prosplign-procompart /data/<nucleotide_subject> /data/<query_protein_CDS> /data/<output> [<max_target_seqs>]`
+
+# Debugging
+
+In case you need to keep the intermediate, temporary files generated during the pipeline execution, just add `-v /tmp:/tmp -e KEEP_TEMPORARY_DIR=TRUE` to the `docker run` command. The intermediate files will appear at `/tmp/prosplign-procompart-pipeline.*`.
+
+# Changelog
+
+The `latest` tag contains always the most recent version.
+
+## [1.0.1] - 13/04/2020
+- Add support for keeping temporary files.
+
+## [1.0.0] - 22/12/2020
+- Initial version.

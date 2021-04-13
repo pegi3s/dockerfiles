@@ -3,6 +3,7 @@
 export TERM=xterm-256color
 
 display_usage() { 
+    echo -e "`basename $0` v1.0.0\n" 
 	echo -e "This script runs the ProSplign/ProCompart pipeline (https://www.ncbi.nlm.nih.gov/sutils/static/prosplign/prosplign.html).\n"
 	echo -e "For more details, see the description of the pipeline in section 3.6 of our paper about SEDA (https://doi.org/10.1109/TCBB.2020.3040383)."
 	echo -e "\nUsage:"
@@ -67,4 +68,6 @@ java -jar /opt/pro-ncbi/prosplign-parser.jar ${TEMP_DIR}/pro.txt ${TEMP_DIR}/pro
 
 cp ${TEMP_DIR}/pro.fasta ${OUTPUT}
 
-rm -rf ${TEMP_DIR}
+if [ ! "${KEEP_TEMPORARY_DIR}" = true ] && [ ! "${KEEP_TEMPORARY_DIR}" = TRUE ]; then 
+    rm -rf ${TEMP_DIR}
+fi
