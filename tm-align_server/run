@@ -24,7 +24,7 @@ F2=$(ls $INPUTDIR/*.pdb | tail -1)
 mkdir -p $OUTDIR/temp
 
 # Submission
-curl -F pdb1="@$F1" -F pdb2="@$F2" https://zhanglab.ccmb.med.umich.edu/cgi-bin/TMalign.pl > $OUTDIR/temp/submission.tmp # results_tmalign.tmp
+curl -F pdb1="@$F1" -F pdb2="@$F2" https://zhanglab.dcmb.med.umich.edu/cgi-bin/TMalign.pl > $OUTDIR/temp/submission.tmp # results_tmalign.tmp
 
 # Get results url
 perl -nle 'print $1 if /url=(.+?)">/' $OUTDIR/temp/submission.tmp > $OUTDIR/temp/link.tmp #link_tmalign_results.tmp
