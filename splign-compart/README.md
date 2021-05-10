@@ -41,9 +41,16 @@ Please note that data must be under the same drive than the Docker Toolbox insta
 
 You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/splign-compart splign-compart-pipeline /data/<nucleotide_subject> /data/<query_nucleotide_CDS> /data/<output> [--concat-exons --with-coordinates]`
 
+# Debugging
+
+In case you need to keep the intermediate, temporary files generated during the pipeline execution, just add `-v /tmp:/tmp -e KEEP_TEMPORARY_DIR=TRUE` to the `docker run` command. The intermediate files will appear at `/tmp/splign-compart-pipeline.*`.
+
 # Changelog
 
 The `latest` tag contains always the most recent version.
+
+## [1.1.1] - 10/05/2020
+- Add support for keeping temporary files.
 
 ## [1.1.0] - 12/04/2021
 - Add the `--with-coordinates` flag.

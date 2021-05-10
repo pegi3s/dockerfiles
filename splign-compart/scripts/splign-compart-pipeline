@@ -115,4 +115,6 @@ else
     bedtools getfasta -fi ${SUBJECT_GENOME} -bed ${TEMP_DIR}/output.bed -fo ${OUTPUT} -name
 fi
 
-rm -rf ${TEMP_DIR}
+if [ ! "${KEEP_TEMPORARY_DIR}" = true ] && [ ! "${KEEP_TEMPORARY_DIR}" = TRUE ]; then 
+    rm -rf ${TEMP_DIR}
+fi
