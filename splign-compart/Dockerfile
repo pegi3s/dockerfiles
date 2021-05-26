@@ -26,7 +26,7 @@ RUN wget https://github.com/shenwei356/seqkit/releases/download/v0.12.1/seqkit_l
 RUN apt-get remove -y wget build-essential
 
 COPY --from=base_pegi3s_utilities /opt/scripts/fasta_remove_line_breaks /opt/scripts/fasta_remove_line_breaks
-COPY --from=base_pegi3s_utilities /opt/scripts/fasta_reverse_complement  /opt/scripts/fasta_reverse_complement
+COPY --from=base_pegi3s_utilities /opt/scripts/fasta_reverse_complement /opt/scripts/fasta_reverse_complement
 
 ADD scripts/splign-compart-pipeline /opt/scripts/
 

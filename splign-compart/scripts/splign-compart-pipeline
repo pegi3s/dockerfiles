@@ -3,13 +3,12 @@
 export TERM=xterm-256color
 
 display_usage() { 
-    echo -e "`basename $0` v1.1.0\n"
+    echo -e "`basename $0` v1.2.0\n"
 	echo -e "This script runs the Splign/Compart pipeline (https://www.ncbi.nlm.nih.gov/sutils/splign/splign.cgi?textpage=documentation).\n"
 	echo -e "For more details, see the description of the pipeline in section 3.6 of our paper about SEDA (https://doi.org/10.1109/TCBB.2020.3040383)."
 	echo -e "\nUsage:"
-	echo -e "\t`basename $0` <nucleotide_subject> <query_nucleotide_CDS> <output> [--concat-exons --with-coordinates]"
+	echo -e "\t`basename $0` <nucleotide_subject> <query_nucleotide_CDS> <output> [--concat-exons]"
 	echo -e "\t\t--concat-exons: optionally, if adjacent exons must be concatenated in the output FASTA file. Using this option, if an annotation is obtained for every exon of a given gene then the resulting sequence will be the complete CDS."
-	echo -e "\t\t--with-coordinates: optionally, when --concat-exons is used, if the coordinates of every concatenaded exon must be added to the output sequence headers."
 } 
 
 if [[ $1 == "--help" ]]; then
@@ -17,10 +16,10 @@ if [[ $1 == "--help" ]]; then
 	exit 1
 fi
 
-if [ $# -lt 3 ] || [ $# -gt 5 ]
+if [ $# -lt 3 ] || [ $# -gt 4 ]
 then 
 	tput setaf 1
-	echo -e "Error. This script requires three or five arguments.\n"
+	echo -e "Error. This script requires three or arguments.\n"
 	tput sgr0
 	display_usage
 	exit 1
@@ -35,17 +34,22 @@ echo "Input subject genome: ${INPUT_SUBJECT_GENOME}"
 echo "Input query CDS: ${INPUT_QUERY_CDS}"
 
 CONCAT_EXONS=0
-WITH_COORDINATES=0
-if [[ $4 == "--concat-exons" ]]; then
+
+for key in "$@"
+do
+    case $key in
+        --concat-exons*)
+        CONCAT_EXONS=1
+        ;;
+        *)
+            # unknown option
+        ;;
+    esac
+done
+
+if [[ ${CONCAT_EXONS} -eq 1 ]]; then
     echo "Concat exons: true"
     CONCAT_EXONS=1
-
-    if [[ $5 == "--with-coordinates" ]]; then
-        echo "With coordinates: true"
-        WITH_COORDINATES=1
-    else
-        echo "With coordinates: false"
-    fi
 else
     echo "Concat exons: false"
 fi
@@ -56,16 +60,10 @@ TEMP_DIR=$(mktemp -d /tmp/splign-compart-pipeline.XXXXXXXXXX)
 # Data preparation
 #
 
-fasta_remove_line_breaks ${INPUT_SUBJECT_GENOME} -o=${TEMP_DIR}/genome.1.clean
-
-fasta_reverse_complement ${TEMP_DIR}/genome.1.clean ${TEMP_DIR}/genome.2.reverse_complement -p=Reverse_Complement_
-
-cat ${TEMP_DIR}/genome.1.clean ${TEMP_DIR}/genome.2.reverse_complement > ${TEMP_DIR}/genome.bidirectional
-
-rm ${TEMP_DIR}/genome.1.clean ${TEMP_DIR}/genome.2.reverse_complement
-
-SUBJECT_GENOME=${TEMP_DIR}/genome.bidirectional
+SUBJECT_GENOME=${TEMP_DIR}/genome.1.clean
 QUERY_CDS=${TEMP_DIR}/query.cds
+
+fasta_remove_line_breaks ${INPUT_SUBJECT_GENOME} -o=${SUBJECT_GENOME}
 
 cp ${INPUT_QUERY_CDS} ${QUERY_CDS}
 
@@ -82,38 +80,110 @@ compart -qdb ${QUERY_CDS} -sdb ${SUBJECT_GENOME} > ${TEMP_DIR}/cdna.compartments
 
 splign -ldsdir ${TEMP_DIR} -comps ${TEMP_DIR}/cdna.compartments > ${TEMP_DIR}/output.tsv
 
-cat ${TEMP_DIR}/output.tsv | grep -v "#" | awk -F'\t' '{if($7 != "-" && $8-1 < $9 ) {printf "%s\t%s\t%s\t%s\n", $3, $8-1, $9, $2 }}' > ${TEMP_DIR}/output.bed
+#
+# Process output.tsv and split annotations into four bed files depending on the comparisons between the
+# subject and query start and stop columns.
+#
+
+#
+# Case 1: 6 < 7 e 8 < 9 => read from beginning to end.
+#
+cat ${TEMP_DIR}/output.tsv \
+    | grep -v "#" \
+    | awk -F'\t' '{if($7 != "-" && $6 < $7 && $8 < $9 ) {printf "%s\t%s\t%s\t%s_%s\n", $3, $8-1, $9, $2, $1 }}' \
+> ${TEMP_DIR}/case_1_output.bed
+
+if [ -s ${TEMP_DIR}/case_1_output.bed ]; then
+    bedtools getfasta -fi ${SUBJECT_GENOME} -bed ${TEMP_DIR}/case_1_output.bed -fo ${TEMP_DIR}/case_1_output.fasta -name
+else
+    touch ${TEMP_DIR}/case_1_output.fasta
+fi
+
+#
+# Case 2: 6 < 7 e 8 > 9: read from beginning to end and obtain the reverse-complement of the sequences.
+#
+cat ${TEMP_DIR}/output.tsv \
+    | grep -v "#" \
+    | awk -F'\t' '{if($7 != "-" && $6 < $7 && $8 > $9 ) {printf "%s\t%s\t%s\t%s_%s\n", $3, $9-1, $8, $2, $1 }}' \
+> ${TEMP_DIR}/case_2_output.bed
+
+if [ -s ${TEMP_DIR}/case_2_output.bed ]; then
+    bedtools getfasta -fi ${SUBJECT_GENOME} -bed ${TEMP_DIR}/case_2_output.bed -fo ${TEMP_DIR}/case_2_output.fasta -name
+    fasta_reverse_complement ${TEMP_DIR}/case_2_output.fasta ${TEMP_DIR}/case_2_output_rev_comp.fasta
+else
+    touch ${TEMP_DIR}/case_2_output_rev_comp.fasta
+fi
+
+#
+# Case 3: 6 > 7 e 8 < 9 => read from end to beginning and obtain reverse-complement of the sequences.
+#
+cat ${TEMP_DIR}/output.tsv \
+    | grep -v "#" \
+    | awk -F'\t' '{if($7 != "-" && $6 > $7 && $8 < $9 ) {printf "%s\t%s\t%s\t%s_%s\n", $3, $8-1, $9, $2, $1 }}' \
+    | sort -r -k 2 \
+> ${TEMP_DIR}/case_3_output.bed
+
+if [ -s ${TEMP_DIR}/case_3_output.bed ]; then
+    bedtools getfasta -fi ${SUBJECT_GENOME} -bed ${TEMP_DIR}/case_3_output.bed -fo ${TEMP_DIR}/case_3_output.fasta -name
+    fasta_reverse_complement ${TEMP_DIR}/case_3_output.fasta ${TEMP_DIR}/case_3_output_rev_comp.fasta
+else
+    touch ${TEMP_DIR}/case_3_output_rev_comp.fasta
+fi
+
+#
+# Case 4: 6 > 7 e 8 > 9 => read from end to beginning.
+#
+cat ${TEMP_DIR}/output.tsv \
+    | grep -v "#" \
+    | awk -F'\t' '{if($7 != "-" && $6 > $7 && $8 > $9 ) {printf "%s\t%s\t%s\t%s_%s\n", $3, $9-1, $8, $2, $1 }}' \
+    | sort -r -k 2 \
+> ${TEMP_DIR}/case_4_output.bed
+
+if [ -s ${TEMP_DIR}/case_4_output.bed ]; then
+    bedtools getfasta -fi ${SUBJECT_GENOME} -bed ${TEMP_DIR}/case_4_output.bed -fo ${TEMP_DIR}/case_4_output.fasta -name
+else
+    touch ${TEMP_DIR}/case_4_output.fasta
+fi
+
+#
+# Join the four FASTA files and remove the "::" generated by bedtools.
+#
+
+cat ${TEMP_DIR}/case_1_output.fasta ${TEMP_DIR}/case_2_output_rev_comp.fasta ${TEMP_DIR}/case_3_output_rev_comp.fasta ${TEMP_DIR}/case_4_output.fasta > ${TEMP_DIR}/output_no_concat.fasta
+
+sed -i -r 's/::/ [/g; s/^(>.*)$/\1]/g' ${TEMP_DIR}/output_no_concat.fasta
+
+#
+# Finally, if --concat-exons is used, merge those sequences with the same sequence identifiers.
+#
 
 if [[ ${CONCAT_EXONS} -eq 1 ]]; then
-    bedtools getfasta -fi ${SUBJECT_GENOME} -bed ${TEMP_DIR}/output.bed -fo  ${TEMP_DIR}/output.fasta -nameOnly
-    seqkit split --by-id ${TEMP_DIR}/output.fasta -O ${TEMP_DIR}/exons
+    seqkit split --by-id ${TEMP_DIR}/output_no_concat.fasta -O ${TEMP_DIR}/exons
+
     mkdir ${TEMP_DIR}/exons.concat
     for file in $(ls ${TEMP_DIR}/exons/); do
-        head -1 ${TEMP_DIR}/exons/$file > ${TEMP_DIR}/exons.concat/$file
-        cat ${TEMP_DIR}/exons/$file | grep -v '>' >> ${TEMP_DIR}/exons.concat/$file
+       head -1 ${TEMP_DIR}/exons/$file | sed 's/ \[.*$//g' > ${TEMP_DIR}/exons.concat/$file       
+       cat ${TEMP_DIR}/exons/$file | grep -v '>' >> ${TEMP_DIR}/exons.concat/$file
     done
+
     cat ${TEMP_DIR}/exons.concat/* > ${TEMP_DIR}/exons.concat.fasta
     fasta_remove_line_breaks ${TEMP_DIR}/exons.concat.fasta -o=${TEMP_DIR}/exons.concat.clean.fasta
     
-    if [[ ${WITH_COORDINATES} -eq 1 ]]; then
-        bedtools getfasta -fi ${SUBJECT_GENOME} -bed ${TEMP_DIR}/output.bed -fo ${TEMP_DIR}/output-no-concat.fasta -name
+    cat ${TEMP_DIR}/exons.concat.clean.fasta | grep '>' | tr -d '>' > ${TEMP_DIR}/sequence.names
     
-        cat ${TEMP_DIR}/exons.concat.clean.fasta | grep '>' | tr -d '>' > ${TEMP_DIR}/sequence.names
-        
-        cp ${TEMP_DIR}/exons.concat.clean.fasta ${TEMP_DIR}/exons.concat.with-coordinates.fasta
+    cp ${TEMP_DIR}/exons.concat.clean.fasta ${TEMP_DIR}/exons.concat.with-coordinates.fasta
 
-        while read -r line; do
-            coordinates=$(cat ${TEMP_DIR}/output-no-concat.fasta | grep "^>${line}" | sed "s#>${line}##g; s#::##g; s#Reverse_Complement_##g" | paste -sd";")
-            sed -i "s#${line}#${line} [${coordinates}]#g" ${TEMP_DIR}/exons.concat.with-coordinates.fasta
-        done < ${TEMP_DIR}/sequence.names
-        
-        cp ${TEMP_DIR}/exons.concat.with-coordinates.fasta ${OUTPUT}
-    else
-        cp ${TEMP_DIR}/exons.concat.clean.fasta ${OUTPUT}
-    fi
+    while read -r line; do
+        coordinates=$(cat ${TEMP_DIR}/output_no_concat.fasta | grep "^>${line}" | sed 's#]$##g; s#^>.*\[##g' | sed 's#:#\t#g' | sort -k2 -n | sed 's#\t#:#g' | paste -sd";")
+        sed -i "s#${line}#${line} [${coordinates}]#g" ${TEMP_DIR}/exons.concat.with-coordinates.fasta
+    done < ${TEMP_DIR}/sequence.names
+    
+    cp ${TEMP_DIR}/exons.concat.with-coordinates.fasta ${OUTPUT}
+
 else
-    bedtools getfasta -fi ${SUBJECT_GENOME} -bed ${TEMP_DIR}/output.bed -fo ${OUTPUT} -name
+    cp ${TEMP_DIR}/output_no_concat.fasta ${OUTPUT}
 fi
+
 
 if [ ! "${KEEP_TEMPORARY_DIR}" = true ] && [ ! "${KEEP_TEMPORARY_DIR}" = TRUE ]; then 
     rm -rf ${TEMP_DIR}
