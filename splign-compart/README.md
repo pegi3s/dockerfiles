@@ -18,7 +18,7 @@ Section 3.6 of [this paper](https://doi.org/10.1109/TCBB.2020.3040383) about SED
 
 # Using Splign/Compart image in Linux
 
-You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/splign-compart splign-compart-pipeline /data/<nucleotide_subject> /data/<query_nucleotide_CDS> /data/<output> [--concat-exons --with-coordinates]`
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/splign-compart splign-compart-pipeline /data/<nucleotide_subject> /data/<query_nucleotide_CDS> /data/<output> [--concat-exons]`
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input files you want to analyze.
@@ -26,7 +26,7 @@ In this command, you should replace:
 - `<query_nucleotide_CDS>` to the name of the FASTA file for the CDS query.
 - `<output>` to the name of the output FASTA file.
 
-Note that the `--concat-exons` and `--with-coordinates` parameters are optional. Type `docker run --rm pegi3s/splign-compart splign-compart-pipeline --help` for more details.
+Note that the `--concat-exons`parameter is optional. Type `docker run --rm pegi3s/splign-compart splign-compart-pipeline --help` for more details.
 
 # Test data
 
@@ -42,7 +42,7 @@ docker run --rm -v /your/data/dir:/data pegi3s/splign-compart splign-compart-pip
 
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
-You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/splign-compart splign-compart-pipeline /data/<nucleotide_subject> /data/<query_nucleotide_CDS> /data/<output> [--concat-exons --with-coordinates]`
+You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/splign-compart splign-compart-pipeline /data/<nucleotide_subject> /data/<query_nucleotide_CDS> /data/<output> [--concat-exons]`
 
 # Debugging
 
