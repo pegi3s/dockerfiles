@@ -13,4 +13,6 @@ RUN touch $HOME/.agree2ccp4v6
 COPY ./run /ccp4/bin
 COPY ./functions /ccp4/bin
 
+RUN chmod u+x /ccp4/bin/run
+
 CMD ["ccp4/start"]
