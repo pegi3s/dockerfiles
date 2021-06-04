@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Submit jobs to I-TASSER server
 #
@@ -27,20 +27,20 @@ SLEEP=$(echo $(( $RANDOM % 5 + 3 )))
 FILENAME=$(ls $INPUTDIR | grep -v 'parameters.itasser')
 
 # Remove line breaks
-docker run --rm -v $(pwd):/data pegi3s/utilities fasta_remove_line_breaks /data/$INPUTDIR/$FILENAME
+awk '!/^>/ { printf "%s", $0; n = "\n" } /^>/ { print n $0; n = "" } END { printf "%s", n } ' "$INPUTDIR"/"$FILENAME" > "$INPUTDIR"/tmp.seq && mv -f "$INPUTDIR"/tmp.seq "$INPUTDIR"/"$FILENAME"
 
 # Parse and submit each sequence (1 at a time); Creates copy file with "<" between header and seq (because of while...read syntax)
-sed '1~2 s/$/</' $INPUTDIR/$FILENAME | sed ':a;N;$!ba;s/<\n/</g' > $INPUTDIR/$FILENAME.copy
+sed '1~2 s/$/</' "$INPUTDIR"/"$FILENAME" | sed ':a;N;$!ba;s/<\n/</g' > "$INPUTDIR"/${FILENAME}.copy
 
 while IFS=$'<' read -r header seq;
 do
-	resDir=$(echo "$header" | sed 's/[^A-Za-z0-9]/_/g') && mkdir -p $OUTDIR/$resDir && touch $OUTDIR/$resDir/fileJob.fasta
-	echo "$header" > $OUTDIR/$resDir/fileJob.fasta
-	echo "$seq" >> $OUTDIR/$resDir/fileJob.fasta
-	job="$OUTDIR/$resDir/fileJob.fasta"
+	resDir=$(echo "$header" | sed 's/[^A-Za-z0-9]/_/g') && mkdir -p "$OUTDIR"/"$resDir" && touch "$OUTDIR"/"$resDir"/fileJob.fasta
+	echo "$header" > "$OUTDIR"/"$resDir"/fileJob.fasta
+	echo "$seq" >> "$OUTDIR"/"$resDir"/fileJob.fasta
+	job="$OUTDIR"/"$resDir"/fileJob.fasta
 
 	# Job submission
-	mkdir -p $OUTDIR/$resDir/tempFiles
+	mkdir -p "$OUTDIR"/"$resDir"/tempFiles
 	curl -F seq_file="@$job" $ACCOUNT -F TARGET-NAME="$header" -F PRI="no" https://zhanglab.ccmb.med.umich.edu/cgi-bin/itasser_submit.cgi > $OUTDIR/$resDir/tempFiles/submission.html
 
 	# Getting the results URL
@@ -108,5 +108,5 @@ do
 
 done < $INPUTDIR/$FILENAME.copy
 
-# Remove copy file
+Remove copy file
 rm -f $INPUTDIR/$FILENAME.copy
