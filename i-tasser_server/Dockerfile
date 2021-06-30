@@ -25,3 +25,5 @@ RUN apt-get update && \
 COPY ./run /opt/run
 COPY ./info /opt/info
 COPY ./parameters.itasser /opt/parameters.itasser
+
+RUN chmod a+x /opt/run
