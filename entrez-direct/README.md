@@ -31,7 +31,9 @@ In this command, you should replace:
 - `<entrez-direct-command>` to the name of the Entrez Direct command you want to use.
 - `<options>` with the specific options of the Entrez Direct command. These options will include the input/output files if required, which should be referenced under `/data/`.
 
-# Example: retrieve FASTA sequences from accession numbers
+# Examples
+
+## Example 1: retrieve FASTA sequences from accession numbers
 
 To download the FASTA sequences from the accession numbers *XM_016057909.1* and *XM_030992799.1*, the `epost` and `efetch` commands can be used. The steps are:
 - Create a file named `accessions.txt` with these accessions.
@@ -48,6 +50,14 @@ Alternatively, the output of the `epost` command can be piped to the `efetch` co
 
 ```
 docker run --rm -v /your/data/dir:/data pegi3s/entrez-direct bash -c "echo -e \"XM_016057909.1\nXM_030992799.1\" | epost -db nuccore -format uid | efetch -format fasta > /data/sequences.fasta"
+```
+
+## Example 2: retrieve taxonomy information for a given species
+
+To retrieve the taxonomy information for a for a given species, the `esearch` and `efetch` commands can be used. For instance, the following commands downloads the taxonomy of *Homo sapiens* into a `taxonomy.xml` file:
+
+```
+docker run --rm -v /your/data/dir:/data pegi3s/entrez-direct bash -c "esearch -db taxonomy -query "Homo+sapiens" | efetch -db taxonomy -format xml > /data/taxonomy.xml"
 ```
 
 # Using the Entrez Direct image in Windows
