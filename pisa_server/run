@@ -1,0 +1,87 @@
+#!/bin/bash
+
+
+DATA_DIR=/data
+
+# Setting input and output dir
+if [[ ! -z "$1" && ! -z "$2" ]]; then
+  INPUTDIR=$1
+  OUTPUTDIR=$2
+else
+  INPUTDIR=$DATA_DIR/input
+  OUTPUTDIR=$DATA_DIR/Results_PISA
+fi
+
+for FILE in $INPUTDIR/*
+do
+
+FILENAME="$(basename -- ${FILE%.*})"
+
+SERVER=https://www.ebi.ac.uk/msd-srv/prot_int/cgi-bin/piserver
+DATA_URL=https://www.ebi.ac.uk/msd-srv/prot_int/data
+
+
+# Get a session id from PISA
+echo "Getting session id"
+my_id=$(curl -c /tmp/mycookies.txt -X POST -F 'action_key=act_start_server' -F 'start_server=' https://www.ebi.ac.uk/msd-srv/prot_int/cgi-bin/piserver 2> /dev/null | grep hidden | grep dir_key | sed 's/.*value=\"\(.*\)\".*/\1/g')
+
+echo "Session: $my_id"
+
+sleep 1
+
+# Move to PDB file upload mode (click in coordinates file)
+echo "Surfing to PDF upload..."
+curl -X POST -F 'page_key=sform_page' -F 'action_key=act_to_coorfile' -F "dir_key=$my_id" -F 'session_point=2' -F 'radio_sf_session_type=id_sf_struct' -F "edt_pdbcode=3gcb" -F "radio_source=id_coorfile" -F "analtext=1 amino acid chain and 7 ligands in ASU" -F "ckb_ligname_0=on" -F "ckb_ligname_1=on" -F "sel_llist=id_llist_auto" $SERVER > /dev/null 2>&1
+
+sleep 1
+
+echo "Uploading file: $FILE"
+# Upload the file
+curl -X POST -F 'page_key=sform_page' -F 'action_key=act_upload_file' -F "dir_key=$my_id" -F 'session_point=2' -F 'radio_sf_session_type=id_sf_struct' -F 'radio_source=id_coorfile' -F "file_upload=@${FILE}" $SERVER > /dev/null 2>&1
+
+# Request "Interfaces Analysis"
+
+echo "Requesting 'Interfaces' analysis"
+cat /dev/null > /tmp/empty
+
+curl -X POST -F 'page_key=sform_page' -F 'action_key=act_submit_interfaces' -F "dir_key=$my_id" -F 'session_point=2' -F 'radio_sf_session_type=id_sf_struct' -F 'radio_source=id_coorfile' -F "analtext=1 amino acid chain and 3 ligands in ASU" -F "edt_cell_a=35.474" -F "edt_cell_alpha=90" -F "edt_cell_b=50.028" -F "edt_cell_beta=90" -F "edt_cell_c=62.725" -F "edt_cell_gamma=90" -F "edt_spacegroup=P 21 21 21" -F "ckb_ligname_0=on" -F "ckb_ligname_1=on" -F "sel_llist=id_llist_auto" -F "file_upload=@/tmp/empty;type=application/octet-stream;filename=\"\"" $SERVER > /dev/null 2>&1
+
+
+# Polling results
+
+until echo $(curl ${SERVER}?check_session=$my_id 2> /dev/null) | grep "few seconds" > /dev/null
+do
+  echo "Waiting for computation..."
+  sleep 5
+done
+
+echo "Computation complete. Waiting 5 secs..."
+sleep 5
+
+# Request results
+echo "Requesting results"
+curl -X POST -d "page_key=call_page&action_key=act_go_to_ilist&dir_key=${my_id}&session_point=3&edt_clocks=00%3A00%3A05" $SERVER > /dev/null 2>&1
+
+
+# Interface Details
+echo "Getting interface details"
+curl -X POST -d "page_key=interface_list_page&action_key=act_go_to_ipage_p&dir_key=${my_id}&session_point=3&radio_interface=0" $SERVER > /dev/null 2>&1
+
+
+# Download XML result
+sleep 1
+
+
+mkdir -p ${OUTPUTDIR}
+
+
+echo "Download results to ${OUTPUTDIR}/interface-0-${my_id}-${FILENAME}.xml"
+
+curl ${DATA_URL}/pisrv_${my_id}/interface-0.xml --output ${OUTPUTDIR}/interface-0-${my_id}-${FILENAME}.xml > /dev/null 2>&1
+
+echo "Done"
+
+
+
+done
+
