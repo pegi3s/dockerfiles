@@ -184,6 +184,12 @@ else
     cp ${TEMP_DIR}/output_no_concat.fasta ${OUTPUT}
 fi
 
+# Final check to produce a really empty file
+lines=$(cat ${OUTPUT} | wc -l)
+if [[ ${lines} -eq 1 ]]; then
+    rm ${OUTPUT}
+    touch ${OUTPUT}
+fi
 
 if [ ! "${KEEP_TEMPORARY_DIR}" = true ] && [ ! "${KEEP_TEMPORARY_DIR}" = TRUE ]; then 
     rm -rf ${TEMP_DIR}
