@@ -47,17 +47,55 @@ done
 
 ## `batch_fasta_remove_line_breaks`
 
-The `batch_fasta_remove_line_breaks` script removes the line breaks of sequences in one or more FASTA files.
+The `batch_fasta_remove_line_breaks` script removes the line breaks of sequences in one or more FASTA files. This command will process all the input FASTA files specified, editing them in place and using the [`fasta_remove_line_breaks`](#fasta_remove_line_breaks) script for it.
 
-You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities batch_fasta_remove_line_breaks /data/file1.fasta /data/file2.fasta`
+When processing large FASTA files (> 2 000 000 sequences), this script requires Docker since it runs commands from other images (`pegi3s/seqkit`) to do its job. Thus, this script requires additional parameters in the `docker run` command to allow the docker container to run other containers using the host's docker:
+
+- `-v /tmp:/tmp`: mounts the host's `/tmp` directory in the same path.
+- `-v /var/run/docker.sock:/var/run/docker.sock`: mounts the `docker.sock` to give access to the host's docker.
+
+Then, the path containing the input and output files can be mounted in the two ways explained below.
+
+In case you need to specify the versions of the pegi3s Docker images to use, you can pass them as environment variables to the Docker command. Just add the following parameters to the commands explaiend below:
+
+```
+--env VERSION_SEQKIT=0.16.1
+```
+
+To test this utility, you can copy and paste the following sample data into the `input1.fasta` and `input2.fasta` files:
+```
+>1
+GATGGAGCGAAAAGAAATGA
+GTATCGTATGCCGTCTTCTG
+CTTGAAAAA
+>2
+TTGGACGGGACGTGACGAAA
+CGGTATCGTATGCCGTCTTC
+TGCTTGAAATGCTTGAAACT
+TGCTTGAAATGCTTGAAAAG
+```
+
+### Option 1 (recommended): mount the local absolute path into the docker container
+
+You should adapt and run the following command: `docker run --rm -v /tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/your/data/dir pegi3s/utilities batch_fasta_remove_line_breaks /your/data/dir/input1.fasta /your/data/dir/input2.fasta`
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input file you want to process.
-- `/data/file*.fasta` to the actual names of your input FASTA files. 
+- `input*.fasta` to the actual name of your input FASTA files.
 
-Note that it is possible to use bash wildcards such as `/data/*` when running the command, altough in this case the command should be called using `bash -c`, that is: `docker run --rm -v /your/data/dir:/data pegi3s/utilities bash -c "batch_fasta_remove_line_breaks /data/*.fasta"`
+Note that it is possible to use bash wildcards such as `/your/data/dir/*` when running the command, altough in this case the command should be called using `bash -c`, that is: `docker run --rm -v /tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/your/data/dir pegi3s/utilities bash -c "batch_fasta_remove_line_breaks /your/data/dir/*.fasta"`
 
-This command will process all the input FASTA files specified, editing them in place. See the [`fasta_remove_line_breaks`](#fasta_remove_line_breaks) command descripion for an example.
+### Option 2: mount the host path as `/data`
+
+You should adapt and run the following command: `docker run --rm -v /tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/data pegi3s/utilities batch_fasta_remove_line_breaks -hi=/your/data/dir /data/input1.fasta /data/input2.fasta`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input file you want to process.
+- `input*.fasta` to the actual name of your input FASTA files.
+
+Note that it is possible to use bash wildcards such as `/your/data/dir/*` when running the command, altough in this case the command should be called using `bash -c`, that is: `docker run --rm -v /tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/your/data/dir pegi3s/utilities bash -c "batch_fasta_remove_line_breaks -hi=/your/data/dir /your/data/dir/*.fasta"`
+
+Note that these two options requires passing the full path of the local directory that contains the data as last parameter of the script command (`-hi=/your/data/dir`).
 
 ## `batch_fasta_remove_stop_codons`
 
@@ -169,14 +207,18 @@ And the following sample data into the `input.fasta.headers_map` file:
 
 The `fasta_remove_line_breaks` script removes the line breaks of sequences in a FASTA file.
 
-You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities fasta_remove_line_breaks /data/input.fasta -o=/data/output.fasta`
+When processing large FASTA files (> 2 000 000 sequences), this script requires Docker since it runs commands from other images (`pegi3s/seqkit`) to do its job. Thus, this script requires additional parameters in the `docker run` command to allow the docker container to run other containers using the host's docker:
 
-In this command, you should replace:
-- `/your/data/dir` to point to the directory that contains the input file you want to process.
-- `/data/input.fasta` to the actual name of your input FASTA file.
-- `/data/output.fasta` to the actual name of your output FASTA file.
+- `-v /tmp:/tmp`: mounts the host's `/tmp` directory in the same path.
+- `-v /var/run/docker.sock:/var/run/docker.sock`: mounts the `docker.sock` to give access to the host's docker.
 
-This command will process the input FASTA and write the output in `/data/output.fasta`. The `-o=/data/output.fasta` parameter can be ommited, causing that the input file will be overwritten.
+Then, the path containing the input and output files can be mounted in the two ways explained below.
+
+In case you need to specify the versions of the pegi3s Docker images to use, you can pass them as environment variables to the Docker command. Just add the following parameters to the commands explaiend below:
+
+```
+--env VERSION_SEQKIT=0.16.1
+```
 
 To test this utility, you can copy and paste the following sample data into the `input.fasta` file:
 ```
@@ -190,6 +232,30 @@ CGGTATCGTATGCCGTCTTC
 TGCTTGAAATGCTTGAAACT
 TGCTTGAAATGCTTGAAAAG
 ```
+
+Also, an example of a large FASTA file (with 3 million sequences) is available [here](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/utilities/test_data/input-large.zip).
+
+### Option 1 (recommended): mount the local absolute path into the docker container
+
+You should adapt and run the following command: `docker run --rm -v /tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/your/data/dir pegi3s/utilities fasta_remove_line_breaks /your/data/dir/input.fasta -o=/your/data/dir/output.fasta`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input file you want to process.
+- `input.fasta` to the actual name of your input FASTA file.
+- `output.fasta` to the actual name of your output FASTA file.
+
+This command will process the input FASTA and write the output in `/your/data/dir/output.fasta`. The `-o=/your/data/dir/output.fasta` parameter can be ommited, causing that the input file will be overwritten.
+
+### Option 2: mount the host path as `/data`
+
+You should adapt and run the following command: `docker run --rm -v /tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/data pegi3s/utilities fasta_remove_line_breaks /data/input.fasta -o=/data/output.fasta -hi=/your/data/dir`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input file you want to process.
+- `input.fasta` to the actual name of your input FASTA file.
+- `output.fasta` to the actual name of your output FASTA file.
+
+Note that this option requires passing the full path of the local directory that contains the data as last parameter of the script command (`-hi=/your/data/dir`).
 
 ## `fasta_remove_sequences_with_in_frame_stops_or_n`
 

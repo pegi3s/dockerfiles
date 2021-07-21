@@ -30,6 +30,10 @@ The list of utilities is presented below, please refer to [this manual](https://
 
 The `latest` tag contains always the most recent version.
 
+## [0.15.0] - 21/07/2021
+- Fix the `fasta_remove_line_breaks` utility to work properly with large FASTA files.
+- Change the `batch_fasta_remove_line_breaks` utility to invoke the `fasta_remove_line_breaks` utility for each input file.
+
 ## [0.14.0] - 07/01/2021
 - Add the `pipe_delimited_extractor` utility.
 

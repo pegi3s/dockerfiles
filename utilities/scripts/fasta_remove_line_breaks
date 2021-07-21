@@ -3,7 +3,11 @@
 display_usage() { 
   echo -e "This script removes the line breaks of sequences in a FASTA file."
   echo -e "\nUsage:"
-  echo -e "\t`basename $0` <input> [-o/--output=<output>]"
+  echo -e "\t`basename $0` <input>  [-o/--output=<output>]  [-hi/--host-input-file-path=<host-input-file-path>]"
+  echo -e "\nParameters:"
+  echo -e "\t-o/--output\t the output file; if not provided, the input file will be overwritten."
+  echo -e "\t-hi/--host-input-file-path\tthe path to the directory that contains the input file in the host; this parameter"
+  echo -e "\t\t\t\t\tmust be used when the script runs inside in a Docker image." 
 } 
 
 if [[ $1 == "--help" ]]; then
@@ -11,12 +15,18 @@ if [[ $1 == "--help" ]]; then
   exit 1
 fi
 
-if [ $# -lt 1 ] || [ $# -gt 2 ]; then
+if ! [[ $# -eq 1 || $# -eq 2 || $# -eq 3 ]]
+then
+  tput setaf 1
+  echo "This script requires one, two or three arguments" 
+  tput sgr0
   display_usage
-  exit 0
+  exit 1
 fi
 
-INPUT=$1
+
+INPUT_DIR=$(cd "$(dirname "$1")"; pwd)
+INPUT="$INPUT_DIR/$(basename "$1")"
 
 for key in "$@"
 do
@@ -25,24 +35,68 @@ case $key in
     OUTPUT="${key#*=}"
     shift
     ;;
+    -hi=*|--host-input-file-path=*)
+    HOST_INPUT="${key#*=}"
+    shift
+    ;;
     *)
       # unknown option
     ;;
 esac
 done
 
-if [ -z ${OUTPUT+x} ]; then 
-	sed -i '/^>/ s/$/#######/g' $INPUT
-	sed -i -z 's/\n//g' $INPUT
-	sed -i 's/>/\n>/g' $INPUT
-	sed -i 's/#######/\n/g' $INPUT
-	sed -i '1d' $INPUT
-	printf "\n" >> $INPUT
-else 
-	sed '/^>/ s/$/#######/g' $INPUT > $OUTPUT
-	sed -i -z 's/\n//g' $OUTPUT
-	sed -i 's/>/\n>/g' $OUTPUT
-	sed -i 's/#######/\n/g' $OUTPUT
-	sed -i '1d' $OUTPUT
-	printf "\n" >> $OUTPUT
+DOCKER_MOUNT_INPUT_DIR=${HOST_INPUT:-${INPUT_DIR}}
+DOCKER_INPUT="$DOCKER_MOUNT_INPUT_DIR/$(basename "${INPUT}")"
+
+in_place_remove_line_breaks() {
+  sed -i '/^>/ s/$/#######/g' $1
+  sed -i -z 's/\n//g' $1
+  sed -i 's/>/\n>/g' $1
+  sed -i 's/#######/\n/g' $1
+  sed -i '1d' $1
+  printf "\n" >> $1
+}
+
+VERSION_SEQKIT=${VERSION_SEQKIT:-0.16.1}
+
+SEQUENCE_LIMIT=2000000
+
+count=$(grep -c '^>' $INPUT)
+
+TMP_WORKING_DIR=$(mktemp -d /tmp/pegi3s_fasta_remove_line_breaks.XXXXXX)
+
+if [[ ${count} -gt ${SEQUENCE_LIMIT} ]]; then
+  echo "The number of sequences (${count}) is greater than ${SEQUENCE_LIMIT}, splitting the file before removing line breaks."
+
+  docker run --rm \
+      -v ${DOCKER_MOUNT_INPUT_DIR}:${DOCKER_MOUNT_INPUT_DIR} \
+      -v ${TMP_WORKING_DIR}:${TMP_WORKING_DIR} \
+      pegi3s/seqkit:${VERSION_SEQKIT} \
+          split2 -s ${SEQUENCE_LIMIT} -O ${TMP_WORKING_DIR} ${DOCKER_INPUT}
+
+  echo "Removing line breaks in each split"
+  for file in $(ls ${TMP_WORKING_DIR}); do
+      in_place_remove_line_breaks ${TMP_WORKING_DIR}/$file
+  done
+
+  echo "Joining processed parts to produce the output"
+  if [ -z ${OUTPUT+x} ]; then 
+    cat ${TMP_WORKING_DIR}/* > $INPUT
+  else
+    cat ${TMP_WORKING_DIR}/* > $OUTPUT
+  fi
+else
+  if [ -z ${OUTPUT+x} ]; then 
+      in_place_remove_line_breaks $INPUT
+  else 
+      sed '/^>/ s/$/#######/g' $INPUT > $OUTPUT
+      sed -i -z 's/\n//g' $OUTPUT
+      sed -i 's/>/\n>/g' $OUTPUT
+      sed -i 's/#######/\n/g' $OUTPUT
+      sed -i '1d' $OUTPUT
+      printf "\n" >> $OUTPUT
+  fi
 fi
+
+rm -rf ${TMP_WORKING_DIR}
+

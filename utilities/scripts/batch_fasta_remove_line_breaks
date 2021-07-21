@@ -3,23 +3,33 @@
 display_usage() { 
   echo -e "This script removes the line breaks of sequences in one or more FASTA files. Note that this command modifies the files passed as parameters."
   echo -e "\nUsage:"
-  echo -e "\t`basename $0` file1 [file2] [file3] ...[fileN]"
+  echo -e "\t`basename $0` [-hi/--host-input-file-path=<host-input-file-path>] file1 [file2] [file3] ...[fileN]"
+  echo -e "\nParameters:"
+  echo -e "\t-hi/--host-input-file-path\tthe path to the directory that contains the input file in the host; this parameter"
+  echo -e "\t\t\t\t\tmust be used when the script runs inside in a Docker image."
 } 
 
 if [[ $1 == "--help" ]]; then
-	display_usage
-	exit 1
+  display_usage
+  exit 1
 fi
 
 if [ $# -eq 0 ]
 then 
-	echo "This script requires at least one argument" 
-	display_usage
-	exit 1
+  tput setaf 1
+  echo "This script requires at least one argument"
+  tput sgr0
+  display_usage
+  exit 1
 fi 
 
-sed -i '/^>/ s/$/#######/g' "$@"
-sed -i -z 's/\n//g' "$@"
-sed -i 's/>/\n>/g' "$@"
-sed -i 's/#######/\n/g' "$@"
-sed -i '1d' "$@"
+HOST_WORKING_DIR=""
+if [[ $1 =~ -hi=.* ]] || [[ $1 =~ --host-input-file-path=.* ]]; then
+  HOST_WORKING_DIR=" $1"
+  shift
+fi
+
+for file in "$@"
+do
+    fasta_remove_line_breaks "${file}"${HOST_WORKING_DIR}
+done

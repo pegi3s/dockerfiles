@@ -4,7 +4,7 @@ display_usage() {
 	echo -e "This script removes the sequences containing N's or in-frame STOP codons (TAA, TAG and TGA) and writes the output into a new file."
 	echo -e "\nUsage:"
     echo -e "\t1) `basename $0` <input> <output>"
-    echo -e "\t2) `basename $0` <input> <output> [<host_input_file_path>]"
+    echo -e "\t2) `basename $0` <input> <output> <host-input-file-path>"
 }
 
 if [[ $1 == "--help" ]]
