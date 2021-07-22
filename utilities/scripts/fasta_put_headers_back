@@ -23,7 +23,8 @@ rm -f $3
 
 while IFS= read -r line || [ -n "$line" ]; do
   if [[ $line = \>* ]] ; then
-    original_header=$(cat $2 | grep -P "^${line}\t" | cut -f2)
+    line_regex=$(echo $line | sed 's/\[/\\[/g; s/\]/\\]/g')
+    original_header=$(cat $2 | grep -P "^${line_regex}\t" | cut -f2)
     if [ -z "$original_header" ]
     then
       echo "$line" >> $3
