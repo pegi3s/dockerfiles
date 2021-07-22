@@ -1,0 +1,37 @@
+#!/bin/bash
+
+display_usage() {
+  echo -e "This script extracts the accession numbers present in the headers of a given FASTA file.\n"
+  echo -e "The output is a tab-delimited file with the FASTA headers (first column) and the accession found (second column). In case"
+  echo -e "multiple accessions are present, only the first one is reported."
+  echo -e "\nUsage:"
+  echo -e "\t`basename $0` <input> [<output>]"
+}
+
+if [[ $1 == "--help" ]]; then
+  display_usage
+  exit 1
+fi
+
+if ! [[ $# -eq 1 || $# -eq 2 ]]
+then
+  tput setaf 1
+  echo \n "This script requires one or two arguments."
+  tput sgr0
+  display_usage
+  exit 1
+fi
+
+INPUT=$1
+OUTPUT=$2
+
+grep '^>' ${INPUT} | while read header; do
+  accession=$(echo $header | sed 's/>/ /g' | sed 's/$/ /g; s/\./ /g' | egrep -oh "[a-z,A-Z]{1,}_*[0-9]{1,}" | head -1)
+  accession=$(echo $accession | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+
+  if [ -z ${OUTPUT} ]; then
+    echo -e "${header}\t${accession}"
+  else
+     echo -e "${header}\t${accession}" >> ${OUTPUT}
+  fi
+done

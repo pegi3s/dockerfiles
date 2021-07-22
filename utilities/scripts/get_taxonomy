@@ -1,0 +1,71 @@
+#!/bin/bash
+
+display_usage() {
+  echo -e "This script receives a list of accession numbers (either through an input file or the standard input), identifies the"
+  echo -e "species associated to each one of them and gets the requested taxonomic information."
+  echo -e "\nUsage:"
+  echo -e "\t `basename $0` <taxonomy_rank_terms> <database> [<input_file>]"
+  echo -e "\nPositional arguments:"
+  echo -e "\ttaxonomy_rank_terms\ta comma-separated list of the taxonomic terms to retrieve (e.g. \"family,order,class\")."
+  echo -e "\tdatabase\tthe NCBI database to us: nuccore or protein."
+  echo -e "\tinput_file\toptionally, the input file; if not provided, the standard input is used."
+}
+
+if [[ $1 == "--help" ]]; then
+  display_usage
+  exit 1
+fi
+
+if ! [[ $# -eq 2 || $# -eq 3 ]]
+then
+  tput setaf 1
+  echo -e "This script requires two or three arguments.\n"
+  tput sgr0
+  display_usage
+  exit 1
+fi
+
+VERSION_ENTREZ_DIRECT=${VERSION_ENTREZ_DIRECT:-latest}
+
+TAX_RANK=$1 # comma-separated taxonomic terms (e.g. family,order,class)
+DATABASE=$2 # nuccore or protein
+TMP_DIR=$(mktemp -d /tmp/get_taxonomy.XXXX)
+
+while read accession
+do
+  species=$(
+    docker run --rm pegi3s/entrez-direct:${VERSION_ENTREZ_DIRECT} bash -c "efetch -db ${DATABASE} -id $accession -format gpc" \
+      | grep '<INSDSeq_organism>' \
+      | cut -f2 -d'>' \
+      | cut -f1 -d'<'
+  )
+
+  species1=$(echo $species | sed 's/ /\+/g')
+
+  docker run --rm pegi3s/entrez-direct:${VERSION_ENTREZ_DIRECT} bash -c "esearch -db taxonomy -query "$species1" | efetch -db taxonomy -format xml" \
+    | sed 's/[><\/]//g' > ${TMP_DIR}/tmp1
+
+  echo ${TAX_RANK} > ${TMP_DIR}/tmp4
+  sed -i 's/,/\n/g' ${TMP_DIR}/tmp4
+
+  to_add_1=""
+
+  while read tax_terms; do
+    a1=$(echo "Rank"$tax_terms"Rank")
+    to_add=$(grep -B1 $a1 ${TMP_DIR}/tmp1 | head -1 | sed 's/ScientificName//g; s/ //g')
+    to_add_1=$(echo $to_add_1" "$to_add)
+  done < ${TMP_DIR}/tmp4
+
+  rm ${TMP_DIR}/tmp*
+
+  to_add_2="$accession\t$species $to_add_1"
+
+  if [[ $# -eq 3 ]]
+  then
+    echo -e $to_add_2 >> ${3}.tax.tsv
+  else
+    echo -e $to_add_2
+  fi
+done < "${3:-/dev/stdin}"
+
+rm -rf ${TMP_DIR}

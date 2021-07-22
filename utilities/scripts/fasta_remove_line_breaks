@@ -24,7 +24,6 @@ then
   exit 1
 fi
 
-
 INPUT_DIR=$(cd "$(dirname "$1")"; pwd)
 INPUT="$INPUT_DIR/$(basename "$1")"
 

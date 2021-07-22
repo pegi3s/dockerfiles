@@ -12,13 +12,16 @@ These utilities are alphabetically listed bellow along with comprehensive explan
    * [dockerhub_count_pulls](#dockerhub_count_pulls)
    * [dockerhub_list_images_with_tags](#dockerhub_list_images_with_tags)
    * [dockerhub_list_repo_with_tags](#dockerhub_list_repo_with_tags)
+   * [fasta_extract_accession_numbers](#fasta_extract_accession_numbers)
    * [fasta_put_headers_back](#fasta_put_headers_back)
    * [fasta_remove_line_breaks](#fasta_remove_line_breaks)
    * [fasta_remove_sequences_with_in_frame_stops_or_n](#fasta_remove_sequences_with_in_frame_stops_or_n)
    * [fasta_remove_stop_codons](#fasta_remove_stop_codons)
+   * [fasta_rename_headers_with_taxonomy_info](#fasta_rename_headers_with_taxonomy_info)
    * [fasta_replace_and_save_headers](#fasta_replace_and_save_headers)
    * [fasta_reverse_complement](#fasta_reverse_complement)
    * [fastq_to_fasta](#fastq_to_fasta)
+   * [get_taxonomy](#get_taxonomy)
    * [pipe_delimited_extractor](#pipe_delimited_extractor)
    * [pisa_xml_extract](#pisa_xml_extract)
    * [rmlastline](#rmlastline)
@@ -56,7 +59,7 @@ When processing large FASTA files (> 2 000 000 sequences), this script requires 
 
 Then, the path containing the input and output files can be mounted in the two ways explained below.
 
-In case you need to specify the versions of the pegi3s Docker images to use, you can pass them as environment variables to the Docker command. Just add the following parameters to the commands explaiend below:
+In case you need to specify the versions of the pegi3s Docker images to use, you can pass them as environment variables to the Docker command. Just add the following parameters to the commands explained below:
 
 ```
 --env VERSION_SEQKIT=0.16.1
@@ -171,6 +174,19 @@ The `dockerhub_list_repo_with_tags` script lists the tags for a given Docker Hub
 
 To test this utility, you can run the following command: `docker run --rm pegi3s/utilities dockerhub_list_repo_with_tags pegi3s/utilities`
 
+## `fasta_extract_accession_numbers`
+
+The `fasta_extract_accession_numbers` script extracts the accession numbers present in the headers of a given FASTA file. The output is a tab-delimited file with the FASTA headers (first column) and the accession found (second column). In case multiple accessions are present, only the first one is reported.
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities fasta_extract_accession_numbers /data/input.fasta /data/accessions-mapping.tsv`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input files you want to process.
+- `/data/input.fasta` to the actual name of your input FASTA file.
+- `/data/accessions-mapping.tsv` to the actual name of your output TSV file.
+
+To test this utility, you can use these two FASTA files: [nucleotide sequences](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/utilities/test_data/test-nucleotide-accessions.fasta) or [protein sequences](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/utilities/test_data/test-protein-accessions.fasta).
+
 ## `fasta_put_headers_back`
 
 The `fasta_put_headers_back` script replaces the sequence headers using the provided mapping file (with input headers in the first column and new headers in the second). This mapping file is also produced by the [`fasta_replace_and_save_headers`](#fasta_replace_and_save_headers) script.
@@ -214,7 +230,7 @@ When processing large FASTA files (> 2 000 000 sequences), this script requires 
 
 Then, the path containing the input and output files can be mounted in the two ways explained below.
 
-In case you need to specify the versions of the pegi3s Docker images to use, you can pass them as environment variables to the Docker command. Just add the following parameters to the commands explaiend below:
+In case you need to specify the versions of the pegi3s Docker images to use, you can pass them as environment variables to the Docker command. Just add the following parameters to the commands explained below:
 
 ```
 --env VERSION_SEQKIT=0.16.1
@@ -268,7 +284,7 @@ This script requires Docker since it runs scripts and commands from other images
 
 Then, the path containing the input and output files can be mounted in the two ways explained below.
 
-In case you need to specify the versions of the pegi3s Docker images to use, you can pass them as environment variables to the Docker command. Just add the following parameters to the commands explaiend below:
+In case you need to specify the versions of the pegi3s Docker images to use, you can pass them as environment variables to the Docker command. Just add the following parameters to the commands explained below:
 
 ```
 --env VERSION_SEQKIT=0.12.1 --env VERSION_PEGI3S_UTILITIES=0.11.0 --env VERSION_EMBOSS=6.6.0
@@ -344,6 +360,27 @@ In this command, you should replace:
 
 Note that this option requires passing the full path of the local directory that contains the data (`/your/data/dir`) as last parameter of the script command. To test this utility, you can use the example given for the option 1.
 
+## `fasta_rename_headers_with_taxonomy_info`
+
+The `fasta_rename_headers_with_taxonomy_info` script renames the headers of a FASTA file with the taxonomic information associated to the accession numbers found in them.
+
+This script requires Docker since it runs scripts and commands from other images (`pegi3s/entrez-direct`) to do its job. Thus, this script requires additional parameters in the `docker run` command to allow the docker container to run other containers using the host's docker:
+
+- `-v /var/run/docker.sock:/var/run/docker.sock`: mounts the `docker.sock` to give access to the host's docker.
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities fasta_rename_headers_with_taxonomy_info /data/input.fasta "family,order,class" nuccore /data/output.fasta -aa`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input file you want to process.
+- `/data/input.fasta` to the actual name of your input FASTA file.
+- `"family,order,class"` is the list of taxonomic terms to retrieve.
+- `"nuccore"` is the NCBI database used to retrieve the accession numbers (`nuccore` or `protein`).
+- `/data/output.fasta` to the actual name of your output FASTA file.
+
+This command will process the input FASTA and write the output in `/data/output.fasta`. The `-aa` parameter is an optional flag, if it is present, then the accession numbers are appended at the beginning of the headers in the output.
+
+To test this utility, you can use these two FASTA files: [nucleotide sequences](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/utilities/test_data/test-nucleotide-accessions.fasta) or [protein sequences](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/utilities/test_data/test-protein-accessions.fasta).
+
 ## `fasta_remove_stop_codons`
 
 The `fasta_remove_stop_codons` script modifies the sequences in a FASTA file to remove the stop codons (TAA, TAG and TGA) at the end of sequences. 
@@ -394,6 +431,30 @@ AAAAAAAAA
 AAAAAAAAA
 >Sequence Header 4
 AAAAAAAAA
+```
+
+## `get_taxonomy`
+
+The `get_taxonomy` script receives a list of accession numbers (either through an input file or the standard input), identifies the species associated to each one of them and gets the requested taxonomic information.
+
+This script requires Docker since it runs scripts and commands from other images (`pegi3s/entrez-direct`) to do its job. Thus, this script requires additional parameters in the `docker run` command to allow the docker container to run other containers using the host's docker:
+
+- `-v /var/run/docker.sock:/var/run/docker.sock`: mounts the `docker.sock` to give access to the host's docker.
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data -v /var/run/docker.sock:/var/run/docker.sock pegi3s/utilities get_taxonomy "family,order,class" "nuccore" /data/accessions.list`
+`
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input file you want to process.
+- `"family,order,class"` is the list of taxonomic terms to retrieve.
+- `"nuccore"` is the NCBI database used to retrieve the accession numbers (`nuccore` or `protein`).
+- `accessions.list` is the actual name of the file containing the accesion numbers (in separated lines).
+
+This command will write the output in a file named `accessions.list.tax.tsv`.
+
+To test this utility, you can copy and paste the following sample data into the `accessions.list` file:
+```
+CM009000
+CM009589
 ```
 
 ## `fastq_to_fasta`
