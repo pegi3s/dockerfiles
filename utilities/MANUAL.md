@@ -368,7 +368,7 @@ This script requires Docker since it runs scripts and commands from other images
 
 - `-v /var/run/docker.sock:/var/run/docker.sock`: mounts the `docker.sock` to give access to the host's docker.
 
-You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities fasta_rename_headers_with_taxonomy_info /data/input.fasta "family,order,class" nuccore /data/output.fasta -aa`
+You should adapt and run the following command: `docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/data pegi3s/utilities fasta_rename_headers_with_taxonomy_info /data/input.fasta "family,order,class" nuccore /data/output.fasta -aa`
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input file you want to process.
@@ -442,12 +442,12 @@ This script requires Docker since it runs scripts and commands from other images
 - `-v /var/run/docker.sock:/var/run/docker.sock`: mounts the `docker.sock` to give access to the host's docker.
 
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data -v /var/run/docker.sock:/var/run/docker.sock pegi3s/utilities get_taxonomy "family,order,class" "nuccore" /data/accessions.list`
-`
+
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input file you want to process.
 - `"family,order,class"` is the list of taxonomic terms to retrieve.
 - `"nuccore"` is the NCBI database used to retrieve the accession numbers (`nuccore` or `protein`).
-- `accessions.list` is the actual name of the file containing the accesion numbers (in separated lines).
+- `accessions.list` is the actual name of the file containing the accession numbers (in separated lines).
 
 This command will write the output in a file named `accessions.list.tax.tsv`.
 
