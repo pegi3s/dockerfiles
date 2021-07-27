@@ -9,6 +9,11 @@
 # edit 2: restructured code from lines 46-62
 #
 #------------------------------------------------------------------------
+# edit 3: removed extra sed instruction (sed -e 's/,$//g') that prevented the results
+# (active and passive residues) from being correctly parsed from the
+# cport results url
+# 
+#------------------------------------------------------------------------
 # CPORT Server
 #
 # docker run (...) bash -c "/opt/run $1 $2 $3"
@@ -62,6 +67,7 @@ for f in $INPUTDIR/*/ ; do
 	OPTIONS=$(cat $OUTDIR/tempFiles/run_options)
 
 	# Submission
+	echo "Running CPORT..."
 	curl $OPTIONS https://alcazar.science.uu.nl/cgi/services/CPORT/cport.py > $OUTDIR/tempFiles/submission.html 
 	
 	# Get results link
@@ -69,12 +75,15 @@ for f in $INPUTDIR/*/ ; do
 
 	#Check if results are ready
 	url=$(cat $OUTDIR/tempFiles/link.tmp)
+	echo "Checking if results are ready..."
 	wget -O - $url > $OUTDIR/tempFiles/Results.html
 	grep -iq 'cport is running' $OUTDIR/tempFiles/Results.html
 	ready=$?
 	while [[ $ready -eq 0 ]]; 
 	do
+		echo "Results not ready. Sleeping until next try..."
 		sleep ${SLEEP}m
+		echo "Checking if results are ready..."
 		wget -O - $url > $OUTDIR/tempFiles/Results.html
 		grep -i 'cport is running' $OUTDIR/tempFiles/Results.html
 		ready=$?
@@ -92,7 +101,7 @@ for f in $INPUTDIR/*/ ; do
 		mv $OUTDIR/tempFiles/Results.html $OUTDIR/${PDBFOLDER}_failed && rm -rf $OUTDIR/tempFiles/
 		
 	else
-		echo "Your prediction was successful."
+		echo "Your prediction was successful!"
 		
 		# Obtain prediction .pdb
 		sed -i 's/index.html/cport.pdb/g' $OUTDIR/tempFiles/link.tmp
@@ -107,11 +116,13 @@ for f in $INPUTDIR/*/ ; do
 		lynx --dump $OUTDIR/tempFiles/Results.html > $OUTDIR/tempFiles/results.txt
 
 		# Obtain active and passive residues list
-		sed -n '/Predicted residues/,/Surrounding/p' $OUTDIR/tempFiles/results.txt | head -n -1 | tail -n +2 | sed -e 's/,$//g' | sed 's/          //g' | tr '\n' ' ' > $OUTDIR/$PDBFOLDER/Active_Residues
-		sed -n '/Surrounding/,/Thank/p' $OUTDIR/tempFiles/results.txt | head -n -1 | tail -n +2 | sed -e 's/,$//g' | sed 's/          //g' | tr '\n' ' ' > $OUTDIR/$PDBFOLDER/Passive_Residues
+		echo "Obtaining Active and Passive residues files..."
+		sed -n '/Predicted residues/,/Surrounding/p' $OUTDIR/tempFiles/results.txt | head -n -1 | tail -n +2 | sed 's/          //g' | tr '\n' ' ' | sed 's/ //g' > $OUTDIR/$PDBFOLDER/Active_Residues
+		sed -n '/Surrounding/,/Thank/p' $OUTDIR/tempFiles/results.txt | head -n -1 | tail -n +2 | sed 's/          //g' | tr '\n' ' ' | sed 's/ //g' > $OUTDIR/$PDBFOLDER/Passive_Residues
 
 		# Remove temporary files
 		rm -rf $OUTDIR/tempFiles/
+		echo "Finished CPORT."
 	fi
 
 done
