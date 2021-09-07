@@ -3,7 +3,7 @@
 display_usage() {
   echo -e "This script renames the headers of a FASTA file with the taxonomic information associated to the accession numbers found in them."
   echo -e "\nUsage:"
-  echo -e "\t `basename $0` <input_file> <taxonomy_rank_terms> <database> <output_file> [-aa/--add-accession]"
+  echo -e "\t `basename $0` <input_file> <taxonomy_rank_terms> <database> <output_file> [-aa/--add-accession] "
   echo -e "\nPositional arguments:"
   echo -e "\tinput_file\tthe input FASTA file."
   echo -e "\ttaxonomy_rank_terms\ta comma-separated list of the taxonomic terms to retrieve (e.g. \"family,order,class\")."
@@ -11,7 +11,7 @@ display_usage() {
   echo -e "\toutput_file\tthe output FASTA file."
   echo -e "\nNamed arguments (always after positional ones):"
   echo -e "\t-aa/--add-accession\tif this flag is present, then appends the accession number at the beginning of the headers in the output."
-
+  echo -e "\t-rs/--replace-spaces\tif this flag is present, spaces in the taxonomy information added are replaced with underscores."
 }
 
 if [[ $1 == "--help" ]]; then
@@ -19,10 +19,10 @@ if [[ $1 == "--help" ]]; then
   exit 1
 fi
 
-if [[ $# -lt 4 || $# -gt 5 ]]
+if [[ $# -lt 4 || $# -gt 6 ]]
 then
   tput setaf 1
-  echo -e "This script requires four or five arguments.\n"
+  echo -e "This script requires four, five or six arguments.\n"
   tput sgr0
   display_usage
   exit 1
@@ -34,9 +34,24 @@ DATABASE=$3 # nuccore or protein
 OUTPUT=$4
 
 CHOICE="0"
-if [[ $5 =~ -aa ]] || [[ $a =~ --add-accession ]]; then
-  CHOICE="1"
-fi
+REPLACE_SPACES="0"
+
+while [[ $# -gt 4 ]]
+do
+	key="$5"
+
+	case $key in
+		-aa|--add-accession)
+		CHOICE="1"
+		;; 
+		-rs|--replace-spaces)
+		REPLACE_SPACES="1"
+		;; 
+		*)
+		;;
+	esac
+	shift
+done
 
 TEMP_WORKING_DIR=$(mktemp -d /tmp/fasta_rename_headers_taxonomy.XXXXX)
 
@@ -58,6 +73,14 @@ cat ${TEMP_WORKING_DIR}/1_headers_to_accessions.mapping \
   | sort -t $'\t' -k 1 \
     > ${TEMP_WORKING_DIR}/2_accessions_to_taxonomy.mapping
 
+if [ "$REPLACE_SPACES" = "1" ]; then
+	sed -i 's/ /_/g' ${TEMP_WORKING_DIR}/2_accessions_to_taxonomy.mapping
+	SEPARATOR="_"
+else
+	SEPARATOR=" "
+fi
+
+
 echo -ne "Getting taxonomy information ... DONE\r"
 echo
 
@@ -68,10 +91,10 @@ join -t $'\t' -1 2 -2 1 ${TEMP_WORKING_DIR}/1_headers_to_accessions.mapping ${TE
 # Create a mapping file to use the "fasta_put_headers_back" script:
 # >ORIGINAL_HEADER \t >ACCESSION TAXONOMY ORIGINAL_HEADER
 if [ "$CHOICE" = "1" ]; then
-  cat ${TEMP_WORKING_DIR}/3_full.mapping | awk -F'\t' '{
+  cat ${TEMP_WORKING_DIR}/3_full.mapping | awk -F'\t' -v SEPARATOR="$SEPARATOR" '{
   printf "%s\t", $2
   gsub("^>", "", $2)
-  printf ">%s %s %s\n", $1, $3, $2
+  printf ">%s%s%s %s\n", $1, SEPARATOR, $3, $2
   }' > ${TEMP_WORKING_DIR}/4_file_for_put_headers_back.mapping
 else
   cat ${TEMP_WORKING_DIR}/3_full.mapping | awk -F'\t' '{

@@ -33,6 +33,9 @@ The list of utilities is presented below, please refer to [this manual](https://
 
 The `latest` tag contains always the most recent version.
 
+## [0.17.0] - 06/09/2021
+- Add the `rs` (`--replace-spaces` flag) to the `fasta_rename_headers_with_taxonomy_info` utility.
+
 ## [0.16.0] - 22/07/2021
 - Add the `fasta_extract_accession_numbers`, `get_taxonomy`, and `fasta_rename_headers_with_taxonomy_info` utilities.
 - Fix the `fasta_put_headers_back` utility to deal with special characters.

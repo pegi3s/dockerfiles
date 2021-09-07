@@ -368,7 +368,7 @@ This script requires Docker since it runs scripts and commands from other images
 
 - `-v /var/run/docker.sock:/var/run/docker.sock`: mounts the `docker.sock` to give access to the host's docker.
 
-You should adapt and run the following command: `docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/data pegi3s/utilities fasta_rename_headers_with_taxonomy_info /data/input.fasta "family,order,class" nuccore /data/output.fasta -aa`
+You should adapt and run the following command: `docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/data pegi3s/utilities fasta_rename_headers_with_taxonomy_info /data/input.fasta "family,order,class" nuccore /data/output.fasta -aa -rs`
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input file you want to process.
@@ -377,7 +377,11 @@ In this command, you should replace:
 - `"nuccore"` is the NCBI database used to retrieve the accession numbers (`nuccore` or `protein`).
 - `/data/output.fasta` to the actual name of your output FASTA file.
 
-This command will process the input FASTA and write the output in `/data/output.fasta`. The `-aa` parameter is an optional flag, if it is present, then the accession numbers are appended at the beginning of the headers in the output.
+This command will process the input FASTA and write the output in `/data/output.fasta`. 
+
+Note that the two last flags of the command (`-aa -rs`) are optional:
+- `-aa`: if the flag is present, then the accession numbers are appended at the beginning of the headers in the output.
+- `-rs`: if the flag is present, then spaces in the taxonomy information added are replaced with underscores.
 
 To test this utility, you can use these two FASTA files: [nucleotide sequences](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/utilities/test_data/test-nucleotide-accessions.fasta) or [protein sequences](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/utilities/test_data/test-protein-accessions.fasta).
 
