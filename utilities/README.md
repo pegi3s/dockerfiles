@@ -33,6 +33,9 @@ The list of utilities is presented below, please refer to [this manual](https://
 
 The `latest` tag contains always the most recent version.
 
+## [0.17.1] - 13/09/2021
+- Allow saving the temporary working directory with intermediate files in the `fasta_rename_headers_with_taxonomy_info` utility.
+
 ## [0.17.0] - 06/09/2021
 - Add the `rs` (`--replace-spaces` flag) to the `fasta_rename_headers_with_taxonomy_info` utility.
 

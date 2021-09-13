@@ -385,6 +385,10 @@ Note that the two last flags of the command (`-aa -rs`) are optional:
 
 To test this utility, you can use these two FASTA files: [nucleotide sequences](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/utilities/test_data/test-nucleotide-accessions.fasta) or [protein sequences](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/utilities/test_data/test-protein-accessions.fasta).
 
+### Debugging
+
+In case you need to keep the intermediate, temporary files generated during the script execution, just add `-v /tmp:/tmp -e KEEP_TEMPORARY_DIR=TRUE` to the `docker run` command. The intermediate files will appear at `/tmp/fasta_rename_headers_taxonomy.*`.
+
 ## `fasta_remove_stop_codons`
 
 The `fasta_remove_stop_codons` script modifies the sequences in a FASTA file to remove the stop codons (TAA, TAG and TGA) at the end of sequences. 

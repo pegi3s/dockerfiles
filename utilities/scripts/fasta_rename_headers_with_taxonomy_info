@@ -109,4 +109,6 @@ fasta_put_headers_back ${INPUT} ${TEMP_WORKING_DIR}/4_file_for_put_headers_back.
 echo -ne "Creating mapping and output FASTA file ... DONE\r"
 echo
 
-rm -rf ${TEMP_WORKING_DIR}
+if [ ! "${KEEP_TEMPORARY_DIR}" = true ] && [ ! "${KEEP_TEMPORARY_DIR}" = TRUE ]; then 
+    rm -rf ${TEMP_WORKING_DIR}
+fi
