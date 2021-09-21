@@ -25,7 +25,7 @@ fi
 INPUT=$1
 OUTPUT=$2
 
-grep '^>' ${INPUT} | while read header; do
+grep '^>' ${INPUT} | sort -u | while read header; do
   accession=$(echo $header | sed 's/>/ /g' | sed 's/$/ /g; s/\./ /g' | egrep -oh "[a-z,A-Z]{1,}_*[0-9]{1,}" | head -1)
   accession=$(echo $accession | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
 

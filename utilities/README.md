@@ -33,6 +33,9 @@ The list of utilities is presented below, please refer to [this manual](https://
 
 The `latest` tag contains always the most recent version.
 
+## [0.17.2] - 13/09/2021
+- Modify the `fasta_extract_accession_numbers` utility to print unique sequence headers.
+
 ## [0.17.1] - 13/09/2021
 - Allow saving the temporary working directory with intermediate files in the `fasta_rename_headers_with_taxonomy_info` utility.
 
