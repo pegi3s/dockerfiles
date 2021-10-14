@@ -3,7 +3,7 @@
 Run:
 
 ```bash
-docker build -t pegi3s/seqkit:0.4.3
+docker build ./ -t pegi3s/bioconvert:0.4.3
 ```
 
 # Build log
