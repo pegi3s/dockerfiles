@@ -17,6 +17,8 @@
 
 FROM ubuntu:19.04
 
+RUN sed -i -re 's/([a-z]{2}\.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
+
 WORKDIR /tmp
 
 RUN apt-get update \
