@@ -1,47 +1,40 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Bioinformatics Docker Images Project: Docker images for common bioinformatics software">
     <meta name="author" content="Instituto de Biologia Molecular e Celular (IBMC)">
-      
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      
     <title>Bioinformatics Docker Images Project</title>
-
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="css/scrolling-nav.css" rel="stylesheet">
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133688766-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
+      
       gtag('config', 'UA-133688766-1');
     </script>
-    
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="manifest" href="images/site.webmanifest">
   </head>
-
   <body id="page-top">
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
@@ -64,49 +57,44 @@
         </div>
       </div>
     </nav>
-
     <header class="bg-primary text-white">
-     <div class="container text-center">
+      <div class="container text-center">
         <h1>Bioinformatics Docker Images Project</h1>
         <p class="lead">Phenotypic Evolution Group - IBMC/i3S</p>
         <a class="navbar-brand js-scroll-trigger" href="https://hub.docker.com/u/pegi3s/" target="_blank"><img src="images/pegi3s_logo.png" alt="pegi3s"></a>
-     </div>
+      </div>
     </header>
-
     <section id="about">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>About this page</h2>
             <p class="lead">This website contains information about the Docker images maintained by the <a href="https://www.i3s.up.pt/research-group?x=44" target="_blank">Phenotypic Evolution Group (pegi3s)</a> at the <a href="https://www.ibmc.up.pt/" target="_blank">Instituto de Biologia Molecular e Celular (IBMC)</a> / <a href="https://www.i3s.up.pt/" target="_blank">Instituto de Investigação e Inovação em Saúde da Universidade do Porto (i3S)</a>. All images are available through our <a href="https://hub.docker.com/u/pegi3s/" target="_blank">Docker Hub repository</a>, and the respective Docker files at our <a href="https://github.com/pegi3s/dockerfiles" target="_blank">GitHub repository</a>.
-            
-            <br></br>
-            
-            In addition, this repository also contains tutorials to serve as guidance on the usage of existing Docker images (e.g. Trinity for RNA-Seq).</p>
+              <br></br>
+              In addition, this repository also contains tutorials to serve as guidance on the usage of existing Docker images (e.g. Trinity for RNA-Seq).
+            </p>
           </div>
         </div>
       </div>
     </section>
-
     <section id="advantages">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>Docker Images Advantages</h2>
             <ul style="font-size:20px">
-            <li>Easy to use since it only requires the installation of Docker.</li>
-            <li>Portable between computers and immutable.</li>
-            <li>Can be deposited in public databases such as <a href="https://hub.docker.com" target="_blank">Docker Hub</a>.</li>
-            <li>Can be downloaded when needed and erased when no longer needed.</li>
-            <li>The installed scientific software is ready to run.</li>
-            <li>Software invoked through the command line can be directly run in <a href="https://www.linux.org/pages/download/" target="_blank">Linux</a> and <a href="https://www.microsoft.com/en-gb/software-download/" target="_blank">Windows</a> platforms.</li>
-            <li>Docker images can be used in pipelines.</li>
+              <li>Easy to use since it only requires the installation of Docker.</li>
+              <li>Portable between computers and immutable.</li>
+              <li>Can be deposited in public databases such as <a href="https://hub.docker.com" target="_blank">Docker Hub</a>.</li>
+              <li>Can be downloaded when needed and erased when no longer needed.</li>
+              <li>The installed scientific software is ready to run.</li>
+              <li>Software invoked through the command line can be directly run in <a href="https://www.linux.org/pages/download/" target="_blank">Linux</a> and <a href="https://www.microsoft.com/en-gb/software-download/" target="_blank">Windows</a> platforms.</li>
+              <li>Docker images can be used in pipelines.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
-
     <section id="install">
       <div class="container">
         <div class="row">
@@ -122,262 +110,330 @@
             <p><b>Note:</b> For proper performance, we recommend the use of a machine with at least 8 GB of RAM memory in order to allocate half of that memory (4 GB) to VirtualBox. Using a smaller amount of RAM memory for the virtual machine may cause a very low performance of the entire system.</p>
           </div>
         </div>
-       </div>
-     </section>
-
+      </div>
+    </section>
     <section id="images">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>Images</h2>
             <p class="lead">List of available bioinformatic images:</p>
-              
             <h5>Utilities:</h5>
             <ul style="font-size:20px">
-            <li><a href="https://hub.docker.com/r/pegi3s/biopython_utilities/" target="_blank"><b>biopython_utilities</b></a>
-            <a href="https://github.com/pegi3s/dockerfiles/blob/master/biopython_utilities/README.md" target="_blank">[doc]</a> - Biopython utilities</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/blast_utilities/" target="_blank"><b>blast_utilities</b></a>
-            <a href="https://github.com/pegi3s/dockerfiles/blob/master/blast_utilities/README.md" target="_blank">[doc]</a> - BLAST utilities</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/utilities/" target="_blank"><b>utilities</b></a>
-            <a href="https://github.com/pegi3s/dockerfiles/blob/master/utilities/MANUAL.md" target="_blank">[doc]</a> - General utilities</li>
+              <li><a href="https://hub.docker.com/r/pegi3s/biopython_utilities/" target="_blank"><b>biopython_utilities</b></a>
+                <a href="https://github.com/pegi3s/dockerfiles/blob/master/biopython_utilities/README.md" target="_blank">[doc]</a> - Biopython utilities
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/blast_utilities/" target="_blank"><b>blast_utilities</b></a>
+                <a href="https://github.com/pegi3s/dockerfiles/blob/master/blast_utilities/README.md" target="_blank">[doc]</a> - BLAST utilities
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/utilities/" target="_blank"><b>utilities</b></a>
+                <a href="https://github.com/pegi3s/dockerfiles/blob/master/utilities/MANUAL.md" target="_blank">[doc]</a> - General utilities
+              </li>
             </ul>
-
             <h5>Programs:</h5>
             <ul style="font-size:20px">
-            <li><a href="https://hub.docker.com/r/pegi3s/abyss/" target="_blank"><b>abyss</b></a> 
-            <a href="https://github.com/bcgsc/abyss/blob/master/README.md" target="_blank">[doc]</a> - <i>de novo</i> sequence assembler</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/adops-gui/" target="_blank"><b>adops</b></a> 
-            <a href="http://www.sing-group.org/ADOPS/" target="_blank">[doc]</a> - Philogenetics and detection of positively selected sites</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/afterqc/" target="_blank"><b>afterqc</b></a> 
-            <a href="https://github.com/OpenGene/AfterQC/blob/master/README.md" target="_blank">[doc]</a> - Sequence read quality assessment</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/alter/" target="_blank"><b>alter</b></a> 
-            <a href="http://sing-group.org/ALTER/help/ALTER-UserGuide.htm" target="_blank">[doc]</a> - File conversion</li>            
-            <li><a href="https://hub.docker.com/r/pegi3s/autoaugustus/" target="_blank"><b>autoaugustus</b></a> 
-            <a href="https://github.com/Gaius-Augustus/Augustus/blob/master/scripts/README.autoAug" target="_blank">[doc]</a> - Gene annotation</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/bdbm/" target="_blank"><b>bdbm</b></a> 
-            <a href="https://www.sing-group.org/BDBM/manual.html" target="_blank">[doc]</a> - Sequence database manager</li>                
-            <li><a href="https://hub.docker.com/r/pegi3s/bedtools/" target="_blank"><b>bedtools</b></a> 
-            <a href="http://bedtools.readthedocs.io/en/latest/content/overview.html" target="_blank">[doc]</a> - General utilities</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/bioconvert/" target="_blank"><b>bioconvert</b></a> 
-            <a href="https://bioconvert.readthedocs.io" target="_blank">[doc]</a> - Interconversion of life science data formats</li>
-            
-            <li><a href="https://hub.docker.com/r/pegi3s/blast/" target="_blank"><b>blast</b></a> 
-            <a href="https://www.ncbi.nlm.nih.gov/books/NBK279690/" target="_blank">[doc]</a> - Sequence alignment</li>
-            
-            <li><a href="https://hub.docker.com/r/pegi3s/bowtie1/" target="_blank"><b>bowtie1</b></a> 
-            <a href="http://bowtie-bio.sourceforge.net/manual.shtml" target="_blank">[doc]</a> - Short sequence alignment</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/bwa/" target="_blank"><b>bwa</b></a> 
-            <a href="http://bio-bwa.sourceforge.net/bwa.shtml" target="_blank">[doc]</a> - Sequence read aligner</li>   
-            <li><a href="https://hub.docker.com/r/pegi3s/ccp4" target="_blank"><b>ccp4</b></a> 
-            <a href="https://www.ccp4.ac.uk/?page_id=200" target="_blank">[doc]</a> - Software for Macromolecular X-Ray Crystallography</li>   
-            <li><a href="https://hub.docker.com/r/pegi3s/clustalomega/" target="_blank"><b>clustalomega</b></a> 
-            <a href="https://www.ebi.ac.uk/seqdb/confluence/display/THD/Clustal+Omega" target="_blank">[doc]</a> - Sequence alignment</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/coral/" target="_blank"><b>coral</b></a> 
-            <a href="https://www.cs.helsinki.fi/u/lmsalmel/coral/" target="_blank">[doc]</a> - Sequence read correction</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/cutadapt/" target="_blank"><b>cutadapt</b></a> 
-            <a href="http://cutadapt.readthedocs.io/en/stable/guide.html" target="_blank">[doc]</a> - Sequence read trimming</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/dnasp-v6" target="_blank"><b>dnasp-v6</b></a> 
-            <a href="http://www.ub.edu/dnasp/" target="_blank">[doc]</a> -  DNA sequence polymorphism</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/edena/" target="_blank"><b>edena</b></a> 
-            <a href="http://www.genomic.ch/edena.php" target="_blank">[doc]</a> - <i>de novo</i> sequence assembler</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/emboss/" target="_blank"><b>emboss</b></a> 
-            <a href="http://emboss.sourceforge.net/docs/" target="_blank">[doc]</a> - General utilities</li>   
-            <li><a href="https://hub.docker.com/r/pegi3s/entrez-direct" target="_blank"><b>entrez-direct</b></a> 
-            <a href="https://www.ncbi.nlm.nih.gov/books/NBK179288/" target="_blank">[doc]</a> - NCBI E-utilities on the Unix Command Line</li> <li><a href="https://hub.docker.com/r/pegi3s/fastqc/" target="_blank"><b>fastqc</b></a> 
-            <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/" target="_blank">[doc]</a> - Sequence read quality assessment</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/fasttree/" target="_blank"><b>fasttree</b></a> 
-            <a href="http://www.microbesonline.org/fasttree/#How" target="_blank">[doc]</a> - Philogenetics inferences</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/feature-counts/" target="_blank"><b>feature-counts</b></a> 
-            <a href="https://www.rdocumentation.org/packages/Rsubread/versions/1.22.2/topics/featureCounts" target="_blank">[doc]</a> - Sequence read summarization function.</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/flash/" target="_blank"><b>flash</b></a> 
-            <a href="http://ccb.jhu.edu/software/FLASH/" target="_blank">[doc]</a> - Sequence read overlap</li>   
-            <li><a href="https://hub.docker.com/r/pegi3s/gatk-4" target="_blank"><b>gatk-4</b></a> 
-            <a href="https://gatk.broadinstitute.org/hc/en-us/articles/360037224712--Tool-Documentation-Index" target="_blank">[doc]</a> - Genomic tools</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/gatk-3" target="_blank"><b>gatk-3</b></a> 
-            <a href="https://gatk.broadinstitute.org/hc/en-us/categories/360002302312" target="_blank">[doc]</a> - Genomic tools</li>  
-            <li><a href="https://hub.docker.com/r/pegi3s/gmap-gsnap" target="_blank"><b>gmap-gsnap</b></a> 
-            <a href="http://research-pub.gene.com/gmap/src/README" target="_blank">[doc]</a> - Genome sequence mapping</li>    
-            <li><a href="https://hub.docker.com/r/pegi3s/goalign" target="_blank"><b>goalign</b></a> 
-            <a href="https://github.com/evolbioinfo/goalign" target="_blank">[doc]</a> - Multiple sequence alignments manipulation</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/gotree" target="_blank"><b>gotree</b></a> 
-            <a href="https://github.com/evolbioinfo/gotree" target="_blank">[doc]</a> - Phylogenetic trees manipulation</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/hyphy/" target="_blank"><b>hyphy</b></a> 
-            <a href="http://hyphy.org/tutorials/CL-prompt-tutorial/" target="_blank">[doc]</a> - Philogenetics inferences</li>   
-            <li><a href="https://hub.docker.com/r/pegi3s/jmodeltest2/" target="_blank"><b>jmodeltest2</b></a> 
-            <a href="https://usermanual.wiki/Document/manual.230794443.pdf" target="_blank">[doc]</a> - Best-fit models of nucleotide substitution</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/lsd/" target="_blank"><b>lsd</b></a>
-            <a href="https://code.google.com/archive/p/lineagesequencediscovery/" target="_blank">[doc]</a> - Discover patterns within biological sequences</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/mauve/" target="_blank"><b>mauve</b></a> 
-            <a href="http://darlinglab.org/mauve/mauve.html" target="_blank">[doc]</a> - Genome alignment</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/maxbin2/" target="_blank"><b>maxbin2</b></a> 
-            <a href="https://raw.githubusercontent.com/pegi3s/dockerfiles/master/maxbin2/2.2.4/options_menu/options.txt" target="_blank">[doc]</a> - Software for binning assembled metagenomic sequences</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/megax/" target="_blank"><b>megax</b></a> 
-            <a href="https://www.megasoftware.net/web_help_10/index.htm#t=First_Time_User.htm" target="_blank">[doc]</a> - Philogenetics inferences</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/megax_cc/" target="_blank"><b>megax_cc</b></a> 
-            <a href="https://www.megasoftware.net/web_help_10/index.htm#t=Quick_Start_Tutorial.htm" target="_blank">[doc]</a> - Philogenetics inferences</li>                
-            <li><a href="https://hub.docker.com/r/pegi3s/mrbayes/" target="_blank"><b>mrbayes</b></a> 
-            <a href="http://mrbayes.sourceforge.net/mb3.2_manual.pdf" target="_blank">[doc]</a> - Philogenetics inferences</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/omegamap/" target="_blank"><b>omegamap</b></a> 
-            <a href="https://github.com/danny-wilson/omegaMap/blob/master/Documentation/documentation.pdf" target="_blank">[doc]</a> - Detection of positively selected sites</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/paml/" target="_blank"><b>paml</b></a> 
-            <a href="http://abacus.gene.ucl.ac.uk/software/pamlDOC.pdf" target="_blank">[doc]</a> - Detection of positively selected sites</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/phipack/" target="_blank"><b>phipack</b></a> 
-            <a href="https://www.maths.otago.ac.nz/~dbryant/software/phimanual.pdf" target="_blank">[doc]</a> - Recombination tests</li> 
-            <li><a href="https://hub.docker.com/r/pegi3s/picard/" target="_blank"><b>picard</b></a> 
-            <a href="https://broadinstitute.github.io/picard/command-line-overview.html" target="_blank">[doc]</a> - Genomic tools</li>  
-            <li><a href="https://hub.docker.com/r/pegi3s/plasflow/" target="_blank"><b>plasflow</b></a> 
-            <a href="https://github.com/smaegol/PlasFlow/blob/master/README.md" target="_blank">[doc]</a> - Plasmid prediction</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/plottree/" target="_blank"><b>plottree</b></a> 
-            <a href="https://github.com/iBiology/plottree" target="_blank">[doc]</a> - Tree drawing</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/popart/" target="_blank"><b>popart</b></a> 
-            <a href="http://popart.otago.ac.nz/documentation.shtml" target="_blank">[doc]</a> - Population genetics software</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/pymol/" target="_blank"><b>pymol</b></a> 
-            <a href="https://pymolwiki.org/index.php/Main_Page" target="_blank">[doc]</a> - 3D protein structure</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/qualimap/" target="_blank"><b>qualimap</b></a> 
-            <a href="http://qualimap.bioinfo.cipf.es/doc_html/index.html" target="_blank">[doc]</a> - Sequence read quality assessment</li>   
-            <li><a href="https://hub.docker.com/r/pegi3s/r_deseq2/" target="_blank"><b>r_deseq2</b></a> 
-            <a href="http://www.bioconductor.org/packages/release/bioc/html/DESeq2.html" target="_blank">[doc]</a> - Differential gene expression analysis</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/raxml/" target="_blank"><b>raxml</b></a> 
-            <a href="https://sco.h-its.org/exelixis/resource/download/NewManual.pdf" target="_blank">[doc]</a> - Philogenetics inferences</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/repeat_masker/" target="_blank"><b>repeat_masker</b></a> 
-            <a href="http://www.repeatmasker.org/webrepeatmaskerhelp.html" target="_blank">[doc]</a> - Repetitive DNA</li>  
-            <li><a href="https://hub.docker.com/r/pegi3s/samtools_bcftools/" target="_blank"><b>samtools_bcftools</b></a> 
-            <a href="http://www.htslib.org/doc/#manual-pages" target="_blank">[doc]</a> - Genomic tools</li>  
-            <li><a href="https://hub.docker.com/r/pegi3s/sapp/" target="_blank"><b>sapp</b></a> 
-            <a href="http://sapp.gitlab.io/" target="_blank">[doc]</a> - Genomic tools</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/seda/" target="_blank"><b>seda</b></a> 
-            <a href="http://www.sing-group.org/seda/manual/index.html" target="_blank">[doc]</a> - Sequence dataset builder</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/seqkit/" target="_blank"><b>seqkit</b></a> 
-            <a href="https://bioinf.shenwei.me/seqkit/usage/" target="_blank">[doc]</a> - FASTA/Q toolkit</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/soapdenovo2/" target="_blank"><b>soapdenovo2</b></a> 
-            <a href="https://github.com/aquaskyline/SOAPdenovo2/blob/master/README.md" target="_blank">[doc]</a> - <i>de novo</i> sequence assembler</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/spades/" target="_blank"><b>spades</b></a> 
-            <a href="http://spades.bioinf.spbau.ru/release3.11.1/manual.html" target="_blank">[doc]</a> - <i>de novo</i> sequence assembler</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/splitstree/" target="_blank"><b>splitstree</b></a> 
-            <a href="http://ab.inf.uni-tuebingen.de/data/software/splitstree4/download/manual.pdf" target="_blank">[doc]</a> - Recombination analysis</li>    
-            <li><a href="https://hub.docker.com/r/pegi3s/sppider/" target="_blank"><b>sppider</b></a> 
-            <a href="http://sppider.cchmc.org/sppider_doc.html" target="_blank">[doc]</a> - Prediction of protein-protein interfaces</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/sratoolkit/" target="_blank"><b>sratoolkit</b></a> 
-            <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc" target="_blank">[doc]</a> - Operations on SRA database</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/tcoffee/" target="_blank"><b>tcoffee</b></a> 
-            <a href="https://media.readthedocs.org/pdf/tcoffee/latest/tcoffee.pdf" target="_blank">[doc]</a> - Sequence alignment</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/treeviewx/" target="_blank"><b>treeviewx</b></a>
-            <a href="https://code.google.com/archive/p/treeviewx/" target="_blank">[doc]</a> - Displays philogenetics trees</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/vcftools/" target="_blank"><b>vcftools</b></a> 
-            <a href="http://vcftools.sourceforge.net/man_latest.html" target="_blank">[doc]</a> - Genomic tools</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/velvet/" target="_blank"><b>velvet</b></a> 
-            <a href="https://www.ebi.ac.uk/~zerbino/velvet/Manual.pdf" target="_blank">[doc]</a> - Sequence assembler for very short reads</li>                
-            <li><a href="https://hub.docker.com/r/pegi3s/wgsim/" target="_blank"><b>wgsim</b></a> 
-            <a href="https://github.com/lh3/wgsim/blob/master/README" target="_blank">[doc]</a> - Simulate sequencing data</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/whiscy/" target="_blank"><b>whiscy</b></a> 
-            <a href="https://github.com/haddocking/whiscy" target="_blank">[doc]</a> - Prediction of protein-protein interfaces</li>
-            </ul>          
-              
-            
+              <li><a href="https://hub.docker.com/r/pegi3s/abyss/" target="_blank"><b>abyss</b></a> 
+                <a href="https://github.com/bcgsc/abyss/blob/master/README.md" target="_blank">[doc]</a> - <i>de novo</i> sequence assembler
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/adops-gui/" target="_blank"><b>adops</b></a> 
+                <a href="http://www.sing-group.org/ADOPS/" target="_blank">[doc]</a> - Philogenetics and detection of positively selected sites
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/afterqc/" target="_blank"><b>afterqc</b></a> 
+                <a href="https://github.com/OpenGene/AfterQC/blob/master/README.md" target="_blank">[doc]</a> - Sequence read quality assessment
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/alter/" target="_blank"><b>alter</b></a> 
+                <a href="http://sing-group.org/ALTER/help/ALTER-UserGuide.htm" target="_blank">[doc]</a> - File conversion
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/autoaugustus/" target="_blank"><b>autoaugustus</b></a> 
+                <a href="https://github.com/Gaius-Augustus/Augustus/blob/master/scripts/README.autoAug" target="_blank">[doc]</a> - Gene annotation
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/bdbm/" target="_blank"><b>bdbm</b></a> 
+                <a href="https://www.sing-group.org/BDBM/manual.html" target="_blank">[doc]</a> - Sequence database manager
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/bedtools/" target="_blank"><b>bedtools</b></a> 
+                <a href="http://bedtools.readthedocs.io/en/latest/content/overview.html" target="_blank">[doc]</a> - General utilities
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/bioconvert/" target="_blank"><b>bioconvert</b></a> 
+                <a href="https://bioconvert.readthedocs.io" target="_blank">[doc]</a> - Interconversion of life science data formats
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/blast/" target="_blank"><b>blast</b></a> 
+                <a href="https://www.ncbi.nlm.nih.gov/books/NBK279690/" target="_blank">[doc]</a> - Sequence alignment
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/bowtie1/" target="_blank"><b>bowtie1</b></a> 
+                <a href="http://bowtie-bio.sourceforge.net/manual.shtml" target="_blank">[doc]</a> - Short sequence alignment
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/bwa/" target="_blank"><b>bwa</b></a> 
+                <a href="http://bio-bwa.sourceforge.net/bwa.shtml" target="_blank">[doc]</a> - Sequence read aligner
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/ccp4" target="_blank"><b>ccp4</b></a> 
+                <a href="https://www.ccp4.ac.uk/?page_id=200" target="_blank">[doc]</a> - Software for Macromolecular X-Ray Crystallography
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/clustalomega/" target="_blank"><b>clustalomega</b></a> 
+                <a href="https://www.ebi.ac.uk/seqdb/confluence/display/THD/Clustal+Omega" target="_blank">[doc]</a> - Sequence alignment
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/coral/" target="_blank"><b>coral</b></a> 
+                <a href="https://www.cs.helsinki.fi/u/lmsalmel/coral/" target="_blank">[doc]</a> - Sequence read correction
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/cutadapt/" target="_blank"><b>cutadapt</b></a> 
+                <a href="http://cutadapt.readthedocs.io/en/stable/guide.html" target="_blank">[doc]</a> - Sequence read trimming
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/dnasp-v6" target="_blank"><b>dnasp-v6</b></a> 
+                <a href="http://www.ub.edu/dnasp/" target="_blank">[doc]</a> -  DNA sequence polymorphism
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/edena/" target="_blank"><b>edena</b></a> 
+                <a href="http://www.genomic.ch/edena.php" target="_blank">[doc]</a> - <i>de novo</i> sequence assembler
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/emboss/" target="_blank"><b>emboss</b></a> 
+                <a href="http://emboss.sourceforge.net/docs/" target="_blank">[doc]</a> - General utilities
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/entrez-direct" target="_blank"><b>entrez-direct</b></a> 
+                <a href="https://www.ncbi.nlm.nih.gov/books/NBK179288/" target="_blank">[doc]</a> - NCBI E-utilities on the Unix Command Line
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/fastqc/" target="_blank"><b>fastqc</b></a> 
+                <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/" target="_blank">[doc]</a> - Sequence read quality assessment
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/fasttree/" target="_blank"><b>fasttree</b></a> 
+                <a href="http://www.microbesonline.org/fasttree/#How" target="_blank">[doc]</a> - Philogenetics inferences
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/feature-counts/" target="_blank"><b>feature-counts</b></a> 
+                <a href="https://www.rdocumentation.org/packages/Rsubread/versions/1.22.2/topics/featureCounts" target="_blank">[doc]</a> - Sequence read summarization function.
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/flash/" target="_blank"><b>flash</b></a> 
+                <a href="http://ccb.jhu.edu/software/FLASH/" target="_blank">[doc]</a> - Sequence read overlap
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/gatk-4" target="_blank"><b>gatk-4</b></a> 
+                <a href="https://gatk.broadinstitute.org/hc/en-us/articles/360037224712--Tool-Documentation-Index" target="_blank">[doc]</a> - Genomic tools
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/gatk-3" target="_blank"><b>gatk-3</b></a> 
+                <a href="https://gatk.broadinstitute.org/hc/en-us/categories/360002302312" target="_blank">[doc]</a> - Genomic tools
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/gmap-gsnap" target="_blank"><b>gmap-gsnap</b></a> 
+                <a href="http://research-pub.gene.com/gmap/src/README" target="_blank">[doc]</a> - Genome sequence mapping
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/goalign" target="_blank"><b>goalign</b></a> 
+                <a href="https://github.com/evolbioinfo/goalign" target="_blank">[doc]</a> - Multiple sequence alignments manipulation
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/gotree" target="_blank"><b>gotree</b></a> 
+                <a href="https://github.com/evolbioinfo/gotree" target="_blank">[doc]</a> - Phylogenetic trees manipulation
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/hyphy/" target="_blank"><b>hyphy</b></a> 
+                <a href="http://hyphy.org/tutorials/CL-prompt-tutorial/" target="_blank">[doc]</a> - Philogenetics inferences
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/jmodeltest2/" target="_blank"><b>jmodeltest2</b></a> 
+                <a href="https://usermanual.wiki/Document/manual.230794443.pdf" target="_blank">[doc]</a> - Best-fit models of nucleotide substitution
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/lsd/" target="_blank"><b>lsd</b></a>
+                <a href="https://code.google.com/archive/p/lineagesequencediscovery/" target="_blank">[doc]</a> - Discover patterns within biological sequences
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/mauve/" target="_blank"><b>mauve</b></a> 
+                <a href="http://darlinglab.org/mauve/mauve.html" target="_blank">[doc]</a> - Genome alignment
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/maxbin2/" target="_blank"><b>maxbin2</b></a> 
+                <a href="https://raw.githubusercontent.com/pegi3s/dockerfiles/master/maxbin2/2.2.4/options_menu/options.txt" target="_blank">[doc]</a> - Software for binning assembled metagenomic sequences
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/megax/" target="_blank"><b>megax</b></a> 
+                <a href="https://www.megasoftware.net/web_help_10/index.htm#t=First_Time_User.htm" target="_blank">[doc]</a> - Philogenetics inferences
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/megax_cc/" target="_blank"><b>megax_cc</b></a> 
+                <a href="https://www.megasoftware.net/web_help_10/index.htm#t=Quick_Start_Tutorial.htm" target="_blank">[doc]</a> - Philogenetics inferences
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/mrbayes/" target="_blank"><b>mrbayes</b></a> 
+                <a href="http://mrbayes.sourceforge.net/mb3.2_manual.pdf" target="_blank">[doc]</a> - Philogenetics inferences
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/omegamap/" target="_blank"><b>omegamap</b></a> 
+                <a href="https://github.com/danny-wilson/omegaMap/blob/master/Documentation/documentation.pdf" target="_blank">[doc]</a> - Detection of positively selected sites
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/paml/" target="_blank"><b>paml</b></a> 
+                <a href="http://abacus.gene.ucl.ac.uk/software/pamlDOC.pdf" target="_blank">[doc]</a> - Detection of positively selected sites
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/phipack/" target="_blank"><b>phipack</b></a> 
+                <a href="https://www.maths.otago.ac.nz/~dbryant/software/phimanual.pdf" target="_blank">[doc]</a> - Recombination tests
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/picard/" target="_blank"><b>picard</b></a> 
+                <a href="https://broadinstitute.github.io/picard/command-line-overview.html" target="_blank">[doc]</a> - Genomic tools
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/plasflow/" target="_blank"><b>plasflow</b></a> 
+                <a href="https://github.com/smaegol/PlasFlow/blob/master/README.md" target="_blank">[doc]</a> - Plasmid prediction
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/plottree/" target="_blank"><b>plottree</b></a> 
+                <a href="https://github.com/iBiology/plottree" target="_blank">[doc]</a> - Tree drawing
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/popart/" target="_blank"><b>popart</b></a> 
+                <a href="http://popart.otago.ac.nz/documentation.shtml" target="_blank">[doc]</a> - Population genetics software
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/pymol/" target="_blank"><b>pymol</b></a> 
+                <a href="https://pymolwiki.org/index.php/Main_Page" target="_blank">[doc]</a> - 3D protein structure
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/qualimap/" target="_blank"><b>qualimap</b></a> 
+                <a href="http://qualimap.bioinfo.cipf.es/doc_html/index.html" target="_blank">[doc]</a> - Sequence read quality assessment
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/r_deseq2/" target="_blank"><b>r_deseq2</b></a> 
+                <a href="http://www.bioconductor.org/packages/release/bioc/html/DESeq2.html" target="_blank">[doc]</a> - Differential gene expression analysis
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/raxml/" target="_blank"><b>raxml</b></a> 
+                <a href="https://sco.h-its.org/exelixis/resource/download/NewManual.pdf" target="_blank">[doc]</a> - Philogenetics inferences
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/repeat_masker/" target="_blank"><b>repeat_masker</b></a> 
+                <a href="http://www.repeatmasker.org/webrepeatmaskerhelp.html" target="_blank">[doc]</a> - Repetitive DNA
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/samtools_bcftools/" target="_blank"><b>samtools_bcftools</b></a> 
+                <a href="http://www.htslib.org/doc/#manual-pages" target="_blank">[doc]</a> - Genomic tools
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/sapp/" target="_blank"><b>sapp</b></a> 
+                <a href="http://sapp.gitlab.io/" target="_blank">[doc]</a> - Genomic tools
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/seda/" target="_blank"><b>seda</b></a> 
+                <a href="http://www.sing-group.org/seda/manual/index.html" target="_blank">[doc]</a> - Sequence dataset builder
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/seqkit/" target="_blank"><b>seqkit</b></a> 
+                <a href="https://bioinf.shenwei.me/seqkit/usage/" target="_blank">[doc]</a> - FASTA/Q toolkit
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/soapdenovo2/" target="_blank"><b>soapdenovo2</b></a> 
+                <a href="https://github.com/aquaskyline/SOAPdenovo2/blob/master/README.md" target="_blank">[doc]</a> - <i>de novo</i> sequence assembler
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/spades/" target="_blank"><b>spades</b></a> 
+                <a href="http://spades.bioinf.spbau.ru/release3.11.1/manual.html" target="_blank">[doc]</a> - <i>de novo</i> sequence assembler
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/splitstree/" target="_blank"><b>splitstree</b></a> 
+                <a href="http://ab.inf.uni-tuebingen.de/data/software/splitstree4/download/manual.pdf" target="_blank">[doc]</a> - Recombination analysis
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/sppider/" target="_blank"><b>sppider</b></a> 
+                <a href="http://sppider.cchmc.org/sppider_doc.html" target="_blank">[doc]</a> - Prediction of protein-protein interfaces
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/sratoolkit/" target="_blank"><b>sratoolkit</b></a> 
+                <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc" target="_blank">[doc]</a> - Operations on SRA database
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/tcoffee/" target="_blank"><b>tcoffee</b></a> 
+                <a href="https://media.readthedocs.org/pdf/tcoffee/latest/tcoffee.pdf" target="_blank">[doc]</a> - Sequence alignment
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/treeviewx/" target="_blank"><b>treeviewx</b></a>
+                <a href="https://code.google.com/archive/p/treeviewx/" target="_blank">[doc]</a> - Displays philogenetics trees
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/vcftools/" target="_blank"><b>vcftools</b></a> 
+                <a href="http://vcftools.sourceforge.net/man_latest.html" target="_blank">[doc]</a> - Genomic tools
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/velvet/" target="_blank"><b>velvet</b></a> 
+                <a href="https://www.ebi.ac.uk/~zerbino/velvet/Manual.pdf" target="_blank">[doc]</a> - Sequence assembler for very short reads
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/wgsim/" target="_blank"><b>wgsim</b></a> 
+                <a href="https://github.com/lh3/wgsim/blob/master/README" target="_blank">[doc]</a> - Simulate sequencing data
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/whiscy/" target="_blank"><b>whiscy</b></a> 
+                <a href="https://github.com/haddocking/whiscy" target="_blank">[doc]</a> - Prediction of protein-protein interfaces
+              </li>
+            </ul>
             <h5>Automated submission to web servers:</h5>
             <ul style="font-size:20px">
-            <li><a href="https://hub.docker.com/r/pegi3s/cport_server/" target="_blank"><b>cport_server</b></a> 
-            <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0017695" target="_blank">[doc]</a> - Protein docking prediction</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/haddock_server/" target="_blank"><b>haddock_server</b></a> 
-            <a href="http://www.bonvinlab.org/software/haddock2.2/manual/" target="_blank">[doc]</a> - Protein docking prediction</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/i-tasser_server" target="_blank"><b>i-tasser_server</b></a> 
-            <a href="https://zhanglab.ccmb.med.umich.edu/I-TASSER/about.html" target="_blank">[doc]</a> - Protein structure prediction</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/pisa_server" target="_blank"><b>pisa_server</b></a> 
-            <a href="https://www.ebi.ac.uk/pdbe/docs/Tutorials/workshop_tutorials/PDBepisa.pdf" target="_blank">[doc]</a> - Prediction of protein interfaces</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/tm-align_server" target="_blank"><b>tm-align_server</b></a> 
-            <a href="https://zhanglab.dcmb.med.umich.edu/TM-align/" target="_blank">[doc]</a> - Protein structure alignment</li>
+              <li><a href="https://hub.docker.com/r/pegi3s/cport_server/" target="_blank"><b>cport_server</b></a> 
+                <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0017695" target="_blank">[doc]</a> - Protein docking prediction
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/haddock_server/" target="_blank"><b>haddock_server</b></a> 
+                <a href="http://www.bonvinlab.org/software/haddock2.2/manual/" target="_blank">[doc]</a> - Protein docking prediction
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/i-tasser_server" target="_blank"><b>i-tasser_server</b></a> 
+                <a href="https://zhanglab.ccmb.med.umich.edu/I-TASSER/about.html" target="_blank">[doc]</a> - Protein structure prediction
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/pisa_server" target="_blank"><b>pisa_server</b></a> 
+                <a href="https://www.ebi.ac.uk/pdbe/docs/Tutorials/workshop_tutorials/PDBepisa.pdf" target="_blank">[doc]</a> - Prediction of protein interfaces
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/tm-align_server" target="_blank"><b>tm-align_server</b></a> 
+                <a href="https://zhanglab.dcmb.med.umich.edu/TM-align/" target="_blank">[doc]</a> - Protein structure alignment
+              </li>
             </ul>
-              
-              
             <h5>Pipelines:</h5>
             <ul style="font-size:20px">
-            <li><a href="https://hub.docker.com/r/pegi3s/gbif_gis/" target="_blank"><b>gbif_gis</b></a> 
-            <a href="https://www.gbif.org/what-is-gbif" target="_blank">[doc]</a> - Species distribution software</li>    
-            <li><a href="https://hub.docker.com/r/pegi3s/gis/" target="_blank"><b>gis</b></a> 
-            <a href="https://en.wikipedia.org/wiki/Geographic_information_system" target="_blank">[doc]</a> - Species distribution software</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/prosplign-procompart/" target="_blank"><b>prosplign-procompart</b></a> 
-            <a href="https://www.ncbi.nlm.nih.gov/sutils/static/prosplign/prosplign.html" target="_blank">[doc]</a> - Gene annotation</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/splign-compart/" target="_blank"><b>splign-compart</b></a> 
-            <a href="https://www.ncbi.nlm.nih.gov/sutils/splign/splign.cgi?textpage=documentation#refAD" target="_blank">[doc]</a> - Gene annotation</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/taxodros_gis/" target="_blank"><b>taxodros_gis</b></a> 
-            <a href="https://www.taxodros.uzh.ch/history.php" target="_blank">[doc]</a> - Species distribution software</li>
+              <li><a href="https://hub.docker.com/r/pegi3s/gbif_gis/" target="_blank"><b>gbif_gis</b></a> 
+                <a href="https://www.gbif.org/what-is-gbif" target="_blank">[doc]</a> - Species distribution software
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/gis/" target="_blank"><b>gis</b></a> 
+                <a href="https://en.wikipedia.org/wiki/Geographic_information_system" target="_blank">[doc]</a> - Species distribution software
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/prosplign-procompart/" target="_blank"><b>prosplign-procompart</b></a> 
+                <a href="https://www.ncbi.nlm.nih.gov/sutils/static/prosplign/prosplign.html" target="_blank">[doc]</a> - Gene annotation
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/splign-compart/" target="_blank"><b>splign-compart</b></a> 
+                <a href="https://www.ncbi.nlm.nih.gov/sutils/splign/splign.cgi?textpage=documentation#refAD" target="_blank">[doc]</a> - Gene annotation
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/taxodros_gis/" target="_blank"><b>taxodros_gis</b></a> 
+                <a href="https://www.taxodros.uzh.ch/history.php" target="_blank">[doc]</a> - Species distribution software
+              </li>
             </ul>
-              
-              
             <h5>Compi Pipelines:</h5>
             <ul style="font-size:20px">
-            <li><a href="https://hub.docker.com/r/pegi3s/auto-pss-genome" target="_blank"><b>auto-pss-genome</b></a> 
-            <a href="https://github.com/pegi3s/auto-pss-genome" target="_blank">[doc]</a> - Automatic detection of positively selected sites in complete genomes</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/check-cds/" target="_blank"><b>check-cds</b></a> 
-            <a href="https://github.com/pegi3s/check-cds" target="_blank">[doc]</a> - Compi pipeline to produce valid CDS files</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/ipssa" target="_blank"><b>ipssa</b></a> 
-            <a href="https://github.com/pegi3s/ipssa" target="_blank">[doc]</a> - Automatic detection of positively selected amino acid sites</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/pss-fs/" target="_blank"><b>pss-fs</b></a> 
-            <a href="https://github.com/pegi3s/pss-fs" target="_blank">[doc]</a> - Fast identification of genes with positively selected amino acid sites for detailed analyses</li>   
-            <li><a href="https://hub.docker.com/r/pegi3s/pss-genome-fs" target="_blank"><b>pss-genome-fs</b></a> 
-            <a href="https://github.com/pegi3s/pss-genome-fs" target="_blank">[doc]</a> - Fast identification of genes with positively selected amino acid sites for detailed analyses in complete genomes</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/two-way-blast/" target="_blank"><b>two-way-blast</b></a> 
-            <a href="https://sing-group.org/compihub/explore/5e2db6f9e1138700316488be" target="_blank">[doc]</a> - Find orthologs using a two-way BLAST (or BLAST reciprocal best hits) approach</li>
+              <li><a href="https://hub.docker.com/r/pegi3s/auto-pss-genome" target="_blank"><b>auto-pss-genome</b></a> 
+                <a href="https://github.com/pegi3s/auto-pss-genome" target="_blank">[doc]</a> - Automatic detection of positively selected sites in complete genomes
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/check-cds/" target="_blank"><b>check-cds</b></a> 
+                <a href="https://github.com/pegi3s/check-cds" target="_blank">[doc]</a> - Compi pipeline to produce valid CDS files
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/ipssa" target="_blank"><b>ipssa</b></a> 
+                <a href="https://github.com/pegi3s/ipssa" target="_blank">[doc]</a> - Automatic detection of positively selected amino acid sites
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/pss-fs/" target="_blank"><b>pss-fs</b></a> 
+                <a href="https://github.com/pegi3s/pss-fs" target="_blank">[doc]</a> - Fast identification of genes with positively selected amino acid sites for detailed analyses
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/pss-genome-fs" target="_blank"><b>pss-genome-fs</b></a> 
+                <a href="https://github.com/pegi3s/pss-genome-fs" target="_blank">[doc]</a> - Fast identification of genes with positively selected amino acid sites for detailed analyses in complete genomes
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/two-way-blast/" target="_blank"><b>two-way-blast</b></a> 
+                <a href="https://sing-group.org/compihub/explore/5e2db6f9e1138700316488be" target="_blank">[doc]</a> - Find orthologs using a two-way BLAST (or BLAST reciprocal best hits) approach
+              </li>
             </ul>
-              
-              
             <h5>External images:</h5>
             <ul style="font-size:20px">
-            <li><a href="https://hub.docker.com/r/pegi3s/trinity/" target="_blank"><b>trinity</b></a> 
-            <a href="https://github.com/trinityrnaseq/trinityrnaseq/wiki" target="_blank">[doc]</a> - <i>de novo</i> transcript assembly and quantification</li>  
-            </ul>  
-            
-              
+              <li><a href="https://hub.docker.com/r/pegi3s/trinity/" target="_blank"><b>trinity</b></a> 
+                <a href="https://github.com/trinityrnaseq/trinityrnaseq/wiki" target="_blank">[doc]</a> - <i>de novo</i> transcript assembly and quantification
+              </li>
+            </ul>
             <h5>Additional images:</h5>
             <ul style="font-size:20px">
-            <li><a href="https://hub.docker.com/r/pegi3s/biopython/" target="_blank"><b>biopython</b></a> 
-            <a href="http://biopython.org/DIST/docs/tutorial/Tutorial.html" target="_blank">[doc]</a> - Multipurpose Python tools for computational molecular biology</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/formfind/" target="_blank"><b>formfind</b></a> 
-            <a href="https://github.com/VR51/formfind" target="_blank">[doc]</a> - HTML processing</li>
-            <li><a href="https://hub.docker.com/r/pegi3s/r_project/" target="_blank"><b>r_project</b></a> 
-            <a href="https://cran.r-project.org/manuals.html" target="_blank">[doc]</a> - Statistical computing</li>
+              <li><a href="https://hub.docker.com/r/pegi3s/biopython/" target="_blank"><b>biopython</b></a> 
+                <a href="http://biopython.org/DIST/docs/tutorial/Tutorial.html" target="_blank">[doc]</a> - Multipurpose Python tools for computational molecular biology
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/formfind/" target="_blank"><b>formfind</b></a> 
+                <a href="https://github.com/VR51/formfind" target="_blank">[doc]</a> - HTML processing
+              </li>
+              <li><a href="https://hub.docker.com/r/pegi3s/r_project/" target="_blank"><b>r_project</b></a> 
+                <a href="https://cran.r-project.org/manuals.html" target="_blank">[doc]</a> - Statistical computing
+              </li>
             </ul>
-              
           </div>
         </div>
       </div>
     </section>
-
     <section id="remarks">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>Final Remarks</h2>
             <ul style="font-size:20px">
-            <li>Please note that the original software licenses still apply.</li>
-            <li>If there is not a Dockerfile tab on an image repository just add "<b>dockerfile</b>" to the end of the Docker image URL.</li>
-            <li><code>sudo su</code> (administrator privileges) is required to run any image. As an alternative please follow the steps described <a href="https://docs.docker.com/install/linux/linux-postinstall/" target="_blank">here</a> to manage Docker as a non-root user.</li>
-            <li>To purge all unused or dangling images, containers, volumes and networks, please use the following command:</li>
-            <code>docker system prune -a</code>
-            <li>To remove one or more specific images, please use instead the following command:</li>                
-            <code>docker rmi &lt;image_name&gt; or &lt;image_ID&gt;</code>
-            <li>To ensure using the latest version of an image, please perform:</li>                
-            <code>docker pull pegi3s/&lt;image_name&gt;</code>
+              <li>Please note that the original software licenses still apply.</li>
+              <li>If there is not a Dockerfile tab on an image repository just add "<b>dockerfile</b>" to the end of the Docker image URL.</li>
+              <li><code>sudo su</code> (administrator privileges) is required to run any image. As an alternative please follow the steps described <a href="https://docs.docker.com/install/linux/linux-postinstall/" target="_blank">here</a> to manage Docker as a non-root user.</li>
+              <li>To purge all unused or dangling images, containers, volumes and networks, please use the following command:</li>
+              <code>docker system prune -a</code>
+              <li>To remove one or more specific images, please use instead the following command:</li>
+              <code>docker rmi &lt;image_name&gt; or &lt;image_ID&gt;</code>
+              <li>To ensure using the latest version of an image, please perform:</li>
+              <code>docker pull pegi3s/&lt;image_name&gt;</code>
             </ul>
           </div>
         </div>
       </div>
     </section>
-
     <section id="faq">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>FAQ</h2>
             <p style="font-size:20px">
-                <b>Q</b>. Are the Docker images compatible with Singularity? <br/>
-                <b>A</b>. Yes. In principle, all of our images can be run using Singularity. This <a href="https://github.com/pegi3s/dockerfiles/blob/master/tutorials/singularity.md" target="_blank">guide</a> provides some examples.
+              <b>Q</b>. Are the Docker images compatible with Singularity? <br/>
+              <b>A</b>. Yes. In principle, all of our images can be run using Singularity. This <a href="https://github.com/pegi3s/dockerfiles/blob/master/tutorials/singularity.md" target="_blank">guide</a> provides some examples.
             </p>
           </div>
         </div>
       </div>
     </section>
-
     <section id="contact">
       <div class="container">
         <div class="row">
@@ -388,98 +444,101 @@
         </div>
       </div>
     </section>
-
     <section id="dissemination">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>Dissemination</h2>
             <ul>
-            <li><p class="lead">H. López-Fernández; P. Ferreira; M. Reboiro-Jato; C.P. Vieira; J. Vieira (2021) <a href="https://doi.org/10.1007/978-3-030-86258-9_4" target="_blank">The pegi3s Bioinformatics Docker Images Project</a>. 15th International Conference on Practical Applications of Computational Biology & Bioinformatics: PACBB 2021. Salamanca, Spain. 6 - October <a href="https://doi.org/10.1007/978-3-030-86258-9_4" target="_blank"><img src="https://zenodo.org/badge/DOI/10.1007/zenodo.978-3-030-86258-9_4.svg" alt="DOI"></a></p></li>
-            <li><p class="lead">P. Ferreira; H. López-Fernández; P. Duque; Cristina P. Vieira; F. Fdez-Riverola; Miguel Reboiro-Jato; J. Vieira (2019) <a href="https://doi.org/10.5281/zenodo.2573107" target="_blank">Bioinformatics Docker Images</a>. Bioinformatics Open Days: BOD 2019. Braga, Portugal. 21 - February <a href="https://doi.org/10.5281/zenodo.2573107" target="_blank"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2573107.svg" alt="DOI"></a></p></li>
-            <li><p class="lead">ELIXIR bio.tools: <a href="https://bio.tools/Bioinformatics_Docker_Images_Project" target="_blank">Bioinformatics Docker Images Project</a>.</p></li>
-            <li><p class="lead">Follow us on Social Networks:</p></li>
+              <li>
+                <p class="lead">H. López-Fernández; P. Ferreira; M. Reboiro-Jato; C.P. Vieira; J. Vieira (2021) <a href="https://doi.org/10.1007/978-3-030-86258-9_4" target="_blank">The pegi3s Bioinformatics Docker Images Project</a>. 15th International Conference on Practical Applications of Computational Biology & Bioinformatics: PACBB 2021. Salamanca, Spain. 6 - October <a href="https://doi.org/10.1007/978-3-030-86258-9_4" target="_blank"><img src="https://zenodo.org/badge/DOI/10.1007/zenodo.978-3-030-86258-9_4.svg" alt="DOI"></a></p>
+              </li>
+              <li>
+                <p class="lead">P. Ferreira; H. López-Fernández; P. Duque; Cristina P. Vieira; F. Fdez-Riverola; Miguel Reboiro-Jato; J. Vieira (2019) <a href="https://doi.org/10.5281/zenodo.2573107" target="_blank">Bioinformatics Docker Images</a>. Bioinformatics Open Days: BOD 2019. Braga, Portugal. 21 - February <a href="https://doi.org/10.5281/zenodo.2573107" target="_blank"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2573107.svg" alt="DOI"></a></p>
+              </li>
+              <li>
+                <p class="lead">ELIXIR bio.tools: <a href="https://bio.tools/Bioinformatics_Docker_Images_Project" target="_blank">Bioinformatics Docker Images Project</a>.</p>
+              </li>
+              <li>
+                <p class="lead">Follow us on Social Networks:</p>
+              </li>
             </ul>
             <div style="text-align: center">
-                <a href="https://twitter.com/pegi3sdocker" class="fa fa-twitter" target="_blank"></a>
-                <a href="https://www.linkedin.com/in/pegi3s-docker-31861a196/" class="fa fa-linkedin" target="_blank"></a>
-                <a href="https://www.facebook.com/pegi3sdocker/" class="fa fa-facebook" target="_blank"></a>
+              <a href="https://twitter.com/pegi3sdocker" class="fa fa-twitter" target="_blank"></a>
+              <a href="https://www.linkedin.com/in/pegi3s-docker-31861a196/" class="fa fa-linkedin" target="_blank"></a>
+              <a href="https://www.facebook.com/pegi3sdocker/" class="fa fa-facebook" target="_blank"></a>
             </div>
           </div>
         </div>
       </div>
     </section>
-
     <section id="citation">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>Please Cite Us</h2>
-                <p class="lead">If you use these Docker Images, please include in the acknowledgments section of your paper the sentence: "<b>The authors wish to thank to the Bioinformatics Docker Images Project (https://pegi3s.github.io/dockerfiles/) and to the BioData.pt Project (https://biodata.pt)</b>".</p>
-                <ul>
-                <li><p class="lead">H. López-Fernández; P. Ferreira; M. Reboiro-Jato; C.P. Vieira; J. Vieira (2021) <a href="https://doi.org/10.1007/978-3-030-86258-9_4" target="_blank">The pegi3s Bioinformatics Docker Images Project</a>. 15th International Conference on Practical Applications of Computational Biology & Bioinformatics: PACBB 2021. Salamanca, Spain. 6 - October <a href="https://doi.org/10.1007/978-3-030-86258-9_4" target="_blank"><img src="https://zenodo.org/badge/DOI/10.1007/zenodo.978-3-030-86258-9_4.svg" alt="DOI"></a></p></li>
-                </ul>
+            <p class="lead">If you use these Docker Images, please include in the acknowledgments section of your paper the sentence: "<b>The authors wish to thank to the Bioinformatics Docker Images Project (https://pegi3s.github.io/dockerfiles/) and to the BioData.pt Project (https://biodata.pt)</b>".</p>
+            <ul>
+              <li>
+                <p class="lead">H. López-Fernández; P. Ferreira; M. Reboiro-Jato; C.P. Vieira; J. Vieira (2021) <a href="https://doi.org/10.1007/978-3-030-86258-9_4" target="_blank">The pegi3s Bioinformatics Docker Images Project</a>. 15th International Conference on Practical Applications of Computational Biology & Bioinformatics: PACBB 2021. Salamanca, Spain. 6 - October <a href="https://doi.org/10.1007/978-3-030-86258-9_4" target="_blank"><img src="https://zenodo.org/badge/DOI/10.1007/zenodo.978-3-030-86258-9_4.svg" alt="DOI"></a></p>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
-
     <section id="funding">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>Funding</h2>
-              <p class="lead">We are grateful to <a href="https://biodata.pt/" target="_blank"><b>BioData.pt</b></a>, funded by project 22231/01/SAICT/2016.</p>
+            <p class="lead">We are grateful to <a href="https://biodata.pt/" target="_blank"><b>BioData.pt</b></a>, funded by project 22231/01/SAICT/2016.</p>
           </div>
         </div>
       </div>
     </section>
-
     <section id="collaborators">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>Authors</h2>
             <ul style="font-size:20px">
-            <li><a href="https://orcid.org/0000-0001-7032-5220" target="_blank">Jorge Vieira</a><sup>1,2</sup><i class="fa fa-envelope fa-lg"></i><a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#106;&#098;&#118;&#105;&#101;&#105;&#114;&#097;&#064;&#105;&#098;&#109;&#099;&#046;&#117;&#112;&#046;&#112;&#116;">&#106;&#098;&#118;&#105;&#101;&#105;&#114;&#097;&#064;&#105;&#098;&#109;&#099;&#046;&#117;&#112;&#046;&#112;&#116;</a></li>
-            <li><a href="https://orcid.org/0000-0002-6476-7206" target="_blank">Hugo López-Fernández</a><sup>3,4,5</sup><i class="fa fa-envelope fa-lg"></i><a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#104;&#108;&#102;&#101;&#114;&#110;&#097;&#110;&#100;&#101;&#122;&#064;&#117;&#118;&#105;&#103;&#111;&#046;&#101;&#115;">&#104;&#108;&#102;&#101;&#114;&#110;&#097;&#110;&#100;&#101;&#122;&#064;&#117;&#118;&#105;&#103;&#111;&#046;&#101;&#115;</a></li>
-            <li><a href="https://orcid.org/0000-0002-7139-2107" target="_blank">Cristina Vieira</a><sup>1,2</sup><i class="fa fa-envelope fa-lg"></i><a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#099;&#103;&#118;&#105;&#101;&#105;&#114;&#097;&#064;&#105;&#098;&#109;&#099;&#046;&#117;&#112;&#046;&#112;&#116;">&#099;&#103;&#118;&#105;&#101;&#105;&#114;&#097;&#064;&#105;&#098;&#109;&#099;&#046;&#117;&#112;&#046;&#112;&#116;</a></li>
-            <li><a href="https://orcid.org/0000-0002-4657-6991" target="_blank">Pedro Ferreira</a><sup>1,2</sup><i class="fa fa-envelope fa-lg"></i><a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#112;&#101;&#100;&#114;&#111;&#046;&#102;&#101;&#114;&#114;&#101;&#105;&#114;&#097;&#064;&#105;&#051;&#115;&#046;&#117;&#112;&#046;&#112;&#116;">&#112;&#101;&#100;&#114;&#111;&#046;&#102;&#101;&#114;&#114;&#101;&#105;&#114;&#097;&#064;&#105;&#051;&#115;&#046;&#117;&#112;&#046;&#112;&#116;</a></li>              
+              <li><a href="https://orcid.org/0000-0001-7032-5220" target="_blank">Jorge Vieira</a><sup>1,2</sup><i class="fa fa-envelope fa-lg"></i><a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#106;&#098;&#118;&#105;&#101;&#105;&#114;&#097;&#064;&#105;&#098;&#109;&#099;&#046;&#117;&#112;&#046;&#112;&#116;">&#106;&#098;&#118;&#105;&#101;&#105;&#114;&#097;&#064;&#105;&#098;&#109;&#099;&#046;&#117;&#112;&#046;&#112;&#116;</a></li>
+              <li><a href="https://orcid.org/0000-0002-6476-7206" target="_blank">Hugo López-Fernández</a><sup>3,4,5</sup><i class="fa fa-envelope fa-lg"></i><a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#104;&#108;&#102;&#101;&#114;&#110;&#097;&#110;&#100;&#101;&#122;&#064;&#117;&#118;&#105;&#103;&#111;&#046;&#101;&#115;">&#104;&#108;&#102;&#101;&#114;&#110;&#097;&#110;&#100;&#101;&#122;&#064;&#117;&#118;&#105;&#103;&#111;&#046;&#101;&#115;</a></li>
+              <li><a href="https://orcid.org/0000-0002-7139-2107" target="_blank">Cristina Vieira</a><sup>1,2</sup><i class="fa fa-envelope fa-lg"></i><a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#099;&#103;&#118;&#105;&#101;&#105;&#114;&#097;&#064;&#105;&#098;&#109;&#099;&#046;&#117;&#112;&#046;&#112;&#116;">&#099;&#103;&#118;&#105;&#101;&#105;&#114;&#097;&#064;&#105;&#098;&#109;&#099;&#046;&#117;&#112;&#046;&#112;&#116;</a></li>
+              <li><a href="https://orcid.org/0000-0002-4657-6991" target="_blank">Pedro Ferreira</a><sup>1,2</sup><i class="fa fa-envelope fa-lg"></i><a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#112;&#101;&#100;&#114;&#111;&#046;&#102;&#101;&#114;&#114;&#101;&#105;&#114;&#097;&#064;&#105;&#051;&#115;&#046;&#117;&#112;&#046;&#112;&#116;">&#112;&#101;&#100;&#114;&#111;&#046;&#102;&#101;&#114;&#114;&#101;&#105;&#114;&#097;&#064;&#105;&#051;&#115;&#046;&#117;&#112;&#046;&#112;&#116;</a></li>
             </ul>
             <div style="text-align: left">
-            <b>1</b> - Instituto de Investigação e Inovação em Saúde da Universidade do Porto (i3S), <b>2</b> - Instituto de Biologia Molecular e Celular (IBMC), <b>3</b> - SING Research Group, Universidade de Vigo (UVigo), <b>4</b> - Centro de Investigaciones Biomédicas (CINBIO), <b>5</b> - Instituto de Investigación Sanitaria Galicia Sur (IISGS).
+              <b>1</b> - Instituto de Investigação e Inovação em Saúde da Universidade do Porto (i3S), <b>2</b> - Instituto de Biologia Molecular e Celular (IBMC), <b>3</b> - SING Research Group, Universidade de Vigo (UVigo), <b>4</b> - Centro de Investigaciones Biomédicas (CINBIO), <b>5</b> - Instituto de Investigación Sanitaria Galicia Sur (IISGS).
             </div>
           </div>
         </div>
       </div>
     </section>
-
     <section id="collaborators">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>Contributors</h2>
             <ul style="font-size:20px">
-            <li>Daniel Pérez Rodríguez (since 2021) - Instituto de Investigación Sanitaria Galicia Sur (IISGS).</li>
+              <li>Daniel Pérez Rodríguez (since 2021) - Instituto de Investigación Sanitaria Galicia Sur (IISGS).</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
-
     <section id="logos">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <a class="navbar-brand js-scroll-trigger" href="https://biodata.pt/" target="_blank"><img src="images/biodata_elixir.png" alt="biodata_elixir" class="footer-logo"></a>
-                    <br></br>
-                    <p align="left" class="footer-logo">Co-funded by:</p>
-                    <a><img src="images/biodata_support.png" alt="biodata_support" class="footer-logo"></a>
-                </div>
-            </div>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <a class="navbar-brand js-scroll-trigger" href="https://biodata.pt/" target="_blank"><img src="images/biodata_elixir.png" alt="biodata_elixir" class="footer-logo"></a>
+            <br></br>
+            <p align="left" class="footer-logo">Co-funded by:</p>
+            <a><img src="images/biodata_support.png" alt="biodata_support" class="footer-logo"></a>
+          </div>
         </div>
+      </div>
     </section>
-
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
@@ -487,17 +546,13 @@
       </div>
       <!-- /.container -->
     </footer>
-
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
     <!-- Custom JavaScript for this theme -->
     <script src="js/scrolling-nav.js"></script>
-
   </body>
-
 </html>
+
