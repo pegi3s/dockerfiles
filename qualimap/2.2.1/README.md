@@ -22,6 +22,7 @@ By running the command `docker run --rm -v /your/data/dir:/data pegi3s/qualimap 
 To obtain the help of a particular tool, you just need to run: `docker run --rm -v /your/data/dir:/data pegi3s/qualimap qualimap <tools>` (e.g. `docker run --rm -v /your/data/dir:/data pegi3s/qualimap qualimap bamqc`)
 
 # Using the QualiMap image in Linux
+
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/qualimap qualimap <tools> <options>`
 
 In this command, you should replace:
@@ -32,12 +33,14 @@ In this command, you should replace:
 For instance, to use the `bamqc` tool with `HG00096.chrom20.bam` alignment with 400 windows and size of a homopolymer = 3, you should run: `docker run --rm -v /your/data/dir:/data pegi3s/qualimap qualimap bamqc -bam /data/HG00096.chrom20.bam -c -nw 400 -hm 3`
 
 # Running the QualiMap GUI in Linux
+
 This docker image can be also used to run the `QualiMap` GUI. To do so, just run: `docker run --rm -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v "/your/data/dir:/data" pegi3s/qualimap qualimap`
 
 If the above command fails, try running `xhost +` first.
 
 # Test data
-To test the previous command, the sequence alignment file used is available [here](http://qualimap.bioinfo.cipf.es/samples/alignments/HG00096.chrom20.bam).
+
+To test the previous command, the sequence alignment file used is available [here](http://qualimap.conesalab.org/samples/alignments/HG00096.chrom20.bam).
 
 # Using the QualiMap image in Windows
 

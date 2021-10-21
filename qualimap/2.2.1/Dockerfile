@@ -15,7 +15,7 @@
 #   limitations under the License.
 #
 
-FROM ubuntu:19.04
+FROM pegi3s/r_project:3.6.0
 
 RUN apt-get update && apt-get -y upgrade && \
 	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -32,11 +32,6 @@ RUN ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6 /usr/lib/x86_64-linux-gnu/l
 RUN apt-get update && \
 	apt-get install -y openjdk-8-jre && \
 	rm -rf /var/lib/apt/lists/*
-
-#Install R 3.6
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 51716619E084DAB9
-RUN add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran35/"
-RUN  apt update && apt install -y r-base
 
 #Install Bioconductor packages required by Qualimap
 RUN Rscript -e "install.packages('optparse')"
