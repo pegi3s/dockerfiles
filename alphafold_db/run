@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Docker image - downloads AlphaFold structures from a list of Uniprot IDs
+
+# docker run --rm -v /your/data/dir:/data pegi3s/alphafold_db bash -c "/opt/run /data/file_with_ids"
+# --
+
+OUTFOLDER="$(dirname -- "$1")"/Structures_from_AlphaFold
+
+# Download structures
+while IFS='' read -r uniprot_id
+do
+	printf -- "\033[0;32m Downloading $uniprot_id structure from AlphaFold... \033[0m \n"
+
+	current_url='https://alphafold.ebi.ac.uk/files/AF-'$uniprot_id'-F1-model_v1.pdb'
+
+	mkdir -p "$OUTFOLDER"/"$uniprot_id"
+
+	# Put them into $INTERACTORS_FOLDER
+	wget -O - $current_url > "$OUTFOLDER"/$uniprot_id/model1.pdb
+
+done < "$1"
+
+printf -- "\033[0;32m Finished downloading. \033[0m \n"
+sleep 5s
