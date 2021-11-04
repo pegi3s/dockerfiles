@@ -1,19 +1,22 @@
 #!/bin/bash
 
 display_usage() {
-  echo -e "This script lists the tags for a given Docker Hub repository (user/image)."
-  echo -e "\nUsage:"
-  echo -e "\tUsage: `basename $0` <docker-hub-repository> [-jq=</path/to/jq>]"
+    echo -e "This script lists the tags for a given Docker Hub repository (user/image)."
+    echo -e "\nUsage:"
+    echo -e "\tUsage: `basename $0` <docker-hub-repository> [-jq=</path/to/jq>]"
 }
 
 if [[ $1 == "--help" ]]; then
-  display_usage
-  exit 1
+    display_usage
+    exit 0
 fi
 
-if [ $# -lt 1 ]; then
-  display_usage
-  exit 0
+if [ $# -lt 1 ] && [ $# -gt 2 ]; then
+    tput setaf 1
+    echo -e "Error. This script requires one or two arguments.\n"
+    tput sgr0
+    display_usage
+    exit 1
 fi
 
 REPOSITORY=$1
@@ -34,8 +37,10 @@ esac
 done
 
 if ! [ -x "$(command -v $JQ)" ]; then
-  echo "The jq executable is not available: $JQ"
-  exit 1
+    tput setaf 1
+    echo -e "Error. The jq executable is not available: $JQ.\n"
+    tput sgr0
+    exit 1
 fi
 
 item=${REPOSITORY}

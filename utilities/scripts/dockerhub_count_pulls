@@ -7,13 +7,16 @@ display_usage() {
 } 
 
 if [[ $1 == "--help" ]]; then
-  display_usage
-  exit 1
+    display_usage
+    exit 0
 fi
 
-if [ $# -lt 1 ]; then
-  display_usage
-  exit 0
+if [ $# -lt 1 ] && [ $# -gt 3 ]; then
+    tput setaf 1
+    echo -e "Error. This script requires one, two or three arguments.\n"
+    tput sgr0
+    display_usage
+    exit 1
 fi
 
 USER=$1
@@ -39,8 +42,10 @@ esac
 done
 
 if ! [ -x "$(command -v $JQ)" ]; then
-  echo "The jq executable is not available: $JQ"
-  exit 1
+    tput setaf 1
+    echo -e "Error. The jq executable is not available: $JQ.\n"
+    tput sgr0
+    exit 1
 fi
 
 NEXT="https://hub.docker.com/v2/repositories/$USER/?page_size=$PAGE_SIZE"

@@ -21,7 +21,7 @@ fi
 
 if [ $# -ne 0 ] && [ $# -ne 1 ] && [ $# -ne 4 ]; then
 	tput setaf 1
-	echo -e "This script requires zero, one or four arguments\n"
+	echo -e "Error. This script requires zero, one or four arguments\n"
 	tput sgr0
 	display_usage
 	exit 0

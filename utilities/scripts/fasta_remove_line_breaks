@@ -18,7 +18,7 @@ fi
 if ! [[ $# -eq 1 || $# -eq 2 || $# -eq 3 ]]
 then
   tput setaf 1
-  echo "This script requires one, two or three arguments" 
+  echo -e "Error. This script requires one, two or three arguments\n"
   tput sgr0
   display_usage
   exit 1

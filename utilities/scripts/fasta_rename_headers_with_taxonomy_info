@@ -22,7 +22,7 @@ fi
 if [[ $# -lt 4 || $# -gt 6 ]]
 then
   tput setaf 1
-  echo -e "This script requires four, five or six arguments.\n"
+  echo -e "Error. This script requires four, five or six arguments.\n"
   tput sgr0
   display_usage
   exit 1

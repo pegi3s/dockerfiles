@@ -9,12 +9,14 @@ display_usage() {
 if [[ $1 == "--help" ]]
 then
 	display_usage
-	exit 1
+	exit 0
 fi
 
 if ! [[ $# -eq 1 || $# -eq 2 ]]
 then 
-	echo -e "This script requires one or two arguments.\n" 
+	tput setaf 1
+	echo -e "Error. This script requires one or two arguments. \n"
+	tput sgr0
 	display_usage
 	exit 1
 fi 

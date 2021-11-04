@@ -12,8 +12,10 @@ if [[ $1 == "--help" ]]; then
 fi
 
 if [ $# -eq 0 ]
-then 
-	echo "This script requires at least one argument" 
+then
+	tput setaf 1
+	echo -e "Error. This script requires at least one argument.\n"
+	tput sgr0
 	display_usage
 	exit 1
 fi 

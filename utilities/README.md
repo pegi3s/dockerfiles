@@ -34,6 +34,9 @@ The list of utilities is presented below, please refer to [this manual](https://
 
 The `latest` tag contains always the most recent version.
 
+## [0.18.1] - 04/11/2021
+- Unifies input parameter checking across all scripts.
+
 ## [0.18.0] - 04/11/2021
 - Add the `get_phylo_taxa` utility.
 

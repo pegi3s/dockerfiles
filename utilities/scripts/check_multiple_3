@@ -7,12 +7,14 @@ function display_usage() {
 }
 
 if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
-  display_usage
-  exit 0
+    display_usage
+    exit 0
 fi
 
 if [ ! $# -eq 1 ]; then
-	echo "Error: one argument is required."
+	tput setaf 1
+	echo -e "Error. This script requires one argument. \n"
+	tput sgr0
 	display_usage
 	exit 1
 fi
