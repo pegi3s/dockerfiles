@@ -24,6 +24,7 @@ The list of utilities is presented below, please refer to [this manual](https://
 - `fasta_replace_and_save_headers`: replaces the sequence headers by correlative numbers starting at 1 with a specified prefix. Also, a headers map is created so that original sequence headers can be restored using the `fasta_put_headers_back` script.
 - `fasta_reverse_complement`: reverses the sequences in a FASTA file and converts them into their complement counterparts. Also, a prefix can be added to the header of each sequence. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. The scripts `fasta_complement` and `fasta_reverse` perform these two tasks separately.
 - `fastq_to_fasta`: converts a FASTQ file into a FASTA file.
+- `get_phylo_taxa`: extracts a group of sequences from a file by providing the name of the sequences that flank the group of interest in a phylogenetic tree.
 - `get_taxonomy`: receives a list of accession numbers (either through an input file or the standard input), identifies the species associated to each one of them and gets the requested taxonomic information.
 - `pipe_delimited_extractor`: extract sequences from FASTA files, according to the information in a given field, separated by pipes.
 - `pisa_xml_extract`: extract information regarding the number of interface residues and the interface area from XML files generated using [PDBePISA](https://www.ebi.ac.uk/pdbe/pisa/).
@@ -32,6 +33,9 @@ The list of utilities is presented below, please refer to [this manual](https://
 # Changelog
 
 The `latest` tag contains always the most recent version.
+
+## [0.18.0] - 04/11/2021
+- Add the `get_phylo_taxa` utility.
 
 ## [0.17.2] - 13/09/2021
 - Modify the `fasta_extract_accession_numbers` utility to print unique sequence headers.

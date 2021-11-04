@@ -21,6 +21,7 @@ These utilities are alphabetically listed bellow along with comprehensive explan
    * [fasta_replace_and_save_headers](#fasta_replace_and_save_headers)
    * [fasta_reverse_complement](#fasta_reverse_complement)
    * [fastq_to_fasta](#fastq_to_fasta)
+   * [get_phylo_taxa](#get_phylo_taxa)
    * [get_taxonomy](#get_taxonomy)
    * [pipe_delimited_extractor](#pipe_delimited_extractor)
    * [pisa_xml_extract](#pisa_xml_extract)
@@ -440,6 +441,34 @@ AAAAAAAAA
 >Sequence Header 4
 AAAAAAAAA
 ```
+
+## `get_phylo_taxa`
+
+The `get_phylo_taxa` script extracts a group of sequences from a file by providing the name of the sequences that flank the group of interest in a phylogenetic tree. Output files are created as `<seqfile>.excluding` and `<seqfile>.only`.
+
+To use this utility, you should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities get_phylo_taxa name1 name2 /data/seqfile /data/treefile`.
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input files you want to process and where the outputs are generated too.
+- `name1` and `name2` with the names of the sequences that delimit the group of sequences to be extracted.
+- `seqfile` to the name of the actual file that contains the sequences in FASTA format (each sequence must be declared in a single line).
+- `treefile` to the name of the actual file that contains the corresponding tree file in Newick format (see the [`convert_tree.py`](https://hub.docker.com/r/pegi3s/biopython_utilities) script of our `biopython_utilities` image in case you need to convert between tree formats).
+
+To test this utility, you can use these two files:
+- [sequences.fas](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/utilities/test_data/get_phylo_taxa/sequences.fas)
+- [tree.nwk](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/utilities/test_data/get_phylo_taxa/tree.nwk)
+
+Which can be processed with: `docker run --rm -v /your/data/dir:/data pegi3s/utilities get_phylo_taxa R_multiflora_sc0006888_F_box_minus4 R_multuflora_sc0006888_F_box_minus2 /data/sequences.fas /data/tree.nwk`
+
+Alternatively, you can create a `parameters` file containing the four parameters:
+```
+name1=R_multiflora_sc0006888_F_box_minus4
+name2=R_multuflora_sc0006888_F_box_minus2
+seqfile=/data/sequences.fas
+treefile=/data/tree.nwk
+```
+
+Using this parameters file (with the values to the ones used with the test data provided), you should simply run: `docker run --rm -v /your/data/dir:/data pegi3s/utilities get_phylo_taxa`, which assumes that the parameters file is located at `/data/parameters` (in case it have a different name, it should be simply added as parameter: `[...] pegi3s/utilities get_phylo_taxa /path/to/params_file`).
 
 ## `get_taxonomy`
 
