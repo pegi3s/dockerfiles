@@ -18,4 +18,4 @@ For instance, to run the control file for `codeml` you should adapt and run the 
 
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
-You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/paml /data/control_file`
+You should adapt and run the following command: `docker run --user $(id -u):$(id -g) --rm -v "/c/Users/User_name/dir/":/data pegi3s/paml /data/control_file`
