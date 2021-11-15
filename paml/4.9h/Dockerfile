@@ -20,7 +20,7 @@ FROM ubuntu:16.04
 RUN apt-get update --fix-missing \
     && apt-get install -y wget gcc make \
     && cd /usr/local/ \
-    && wget http://abacus.gene.ucl.ac.uk/software/paml4.9h.tgz \
+    && wget http://abacus.gene.ucl.ac.uk/software/SoftOld/paml4.9h.tgz \
     && tar -xzvf paml4.9h.tgz \
     && rm -rf paml4.9h.tgz \
     && cd paml4.9h/src \
