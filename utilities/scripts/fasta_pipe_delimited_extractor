@@ -1,0 +1,44 @@
+#!/bin/bash
+
+display_usage() { 
+  echo -e "This script extracts sequences from FASTA files, according to the information in a given field, separated by pipes."
+  echo -e "\nUsage:"
+  echo -e "\tUsage: `basename $0` <input-fasta> <output-folder> <field-index>"
+} 
+
+if [[ $1 == "--help" ]]; then
+    display_usage
+    exit 0
+fi
+
+if [ $# -ne 3 ]; then
+    tput setaf 1
+    echo -e "Error. This script three arguments.\n"
+    tput sgr0
+    display_usage
+    exit 1
+fi
+
+INPUT=$1
+OUTPUT=$2
+FIELD=$3
+
+INPUT_TEMP=$(mktemp /tmp/${INPUT}.XXXXX)
+
+mkdir -p ${OUTPUT}
+cp ${INPUT} ${INPUT_TEMP}
+sed -i '/^>/ s/$/#######/g' ${INPUT_TEMP}
+sed -i -z 's/\n//g' ${INPUT_TEMP}
+sed -i 's/>/\n>/g' ${INPUT_TEMP}
+sed -i 's/#######/\n/g' ${INPUT_TEMP}
+sed -i '1d' ${INPUT_TEMP}
+sed -i '/^[[:space:]]*$/d' ${INPUT_TEMP}
+
+while read a; do
+    read b
+    c=$(echo $a | sed 's/ /_/g' | sed 's/|/ /g' | cut -f${FIELD} -d' ' | sed 's/>//g; s/[^a-zA-Z0-9]/_/g')
+    echo $a >> ${OUTPUT}/$c
+    echo $b >> ${OUTPUT}/$c
+done < ${INPUT_TEMP}
+
+rm ${INPUT_TEMP}

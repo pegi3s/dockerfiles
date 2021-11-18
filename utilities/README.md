@@ -16,6 +16,7 @@ The list of utilities is presented below, please refer to [this manual](https://
 - `dockerhub_list_images_with_tags`: lists all the images and tags for a given Docker Hub user.
 - `dockerhub_list_repo_with_tags`: lists the tags for a given Docker Hub repository (user/image).
 - `fasta_extract_accession_numbers`: extracts the accession numbers present in the headers of a given FASTA file. The output is a tab-delimited file with the FASTA headers (first column) and the accession found (second column). In case multiple accessions are present, only the first one is reported.
+- `fasta_pipe_delimited_extractor`: extract sequences from FASTA files, according to the information in a given field, separated by pipes.
 - `fasta_put_headers_back`: replaces the sequence headers using the provided mapping file (with input headers in the first column and new headers in the second).
 - `fasta_remove_line_breaks`: removes the line breaks of sequences in a FASTA file.
 - `fasta_remove_sequences_with_in_frame_stops_or_n`: removes the sequences containing N's or in-frame STOP codons (TAA, TAG and TGA) and writes the output into a new file.
@@ -26,13 +27,15 @@ The list of utilities is presented below, please refer to [this manual](https://
 - `fastq_to_fasta`: converts a FASTQ file into a FASTA file.
 - `get_phylo_taxa`: extracts a group of sequences from a file by providing the name of the sequences that flank the group of interest in a phylogenetic tree.
 - `get_taxonomy`: receives a list of accession numbers (either through an input file or the standard input), identifies the species associated to each one of them and gets the requested taxonomic information.
-- `pipe_delimited_extractor`: extract sequences from FASTA files, according to the information in a given field, separated by pipes.
 - `pisa_xml_extract`: extract information regarding the number of interface residues and the interface area from XML files generated using [PDBePISA](https://www.ebi.ac.uk/pdbe/pisa/).
 - `rmlastline`: removes the last line of one or more files. Note that this command modifies the files passed as parameters.
 
 # Changelog
 
 The `latest` tag contains always the most recent version.
+
+## [0.19.0] - 18/11/2021
+- Renames `pipe_delimited_extractor` to `fasta_pipe_delimited_extractor` and adds parameter checking.
 
 ## [0.18.1] - 04/11/2021
 - Unifies input parameter checking across all scripts.

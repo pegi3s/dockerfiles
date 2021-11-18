@@ -13,6 +13,7 @@ These utilities are alphabetically listed bellow along with comprehensive explan
    * [dockerhub_list_images_with_tags](#dockerhub_list_images_with_tags)
    * [dockerhub_list_repo_with_tags](#dockerhub_list_repo_with_tags)
    * [fasta_extract_accession_numbers](#fasta_extract_accession_numbers)
+   * [fasta_pipe_delimited_extractor](#fasta_pipe_delimited_extractor)
    * [fasta_put_headers_back](#fasta_put_headers_back)
    * [fasta_remove_line_breaks](#fasta_remove_line_breaks)
    * [fasta_remove_sequences_with_in_frame_stops_or_n](#fasta_remove_sequences_with_in_frame_stops_or_n)
@@ -23,7 +24,6 @@ These utilities are alphabetically listed bellow along with comprehensive explan
    * [fastq_to_fasta](#fastq_to_fasta)
    * [get_phylo_taxa](#get_phylo_taxa)
    * [get_taxonomy](#get_taxonomy)
-   * [pipe_delimited_extractor](#pipe_delimited_extractor)
    * [pisa_xml_extract](#pisa_xml_extract)
    * [rmlastline](#rmlastline)
 
@@ -187,6 +187,32 @@ In this command, you should replace:
 - `/data/accessions-mapping.tsv` to the actual name of your output TSV file.
 
 To test this utility, you can use these two FASTA files: [nucleotide sequences](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/utilities/test_data/test-nucleotide-accessions.fasta) or [protein sequences](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/utilities/test_data/test-protein-accessions.fasta).
+
+## `fasta_pipe_delimited_extractor`
+
+The `fasta_pipe_delimited_extractor` script extracts sequences from FASTA files, according to the information in a given field, separated by pipes.
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities fasta_pipe_delimited_extractor /data/input.fasta /data/output_folder <field_position>`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input file you want to process.
+- `/data/input.fasta` to the actual name of your input FASTA file.
+- `/data/output_folder` to the actual name of your output folder.
+- `<field_position>` to the integer according to the field position you want to analyze.
+
+This command will process the input FASTA and write the output inside the folder `/data/output_folder`.
+
+To test this utility, you can copy and paste the following sample data into the `input.fasta` file:
+```
+>Sequence1 A.1|B.1|C.1
+AAAAAAATTTTTTTATG
+>Sequence2 A.2|B.2|C.2
+ACTGACTG
+>Sequence3 A.3|B.3|C.3
+ACTGACTGACT
+```
+
+And then run `docker run --rm -v /your/data/dir:/data pegi3s/utilities fasta_pipe_delimited_extractor /data/input.fasta /data/sequences 2`. This will create a folder named `sequences` with three files: `B_1`, `B_2`, and `B_3`, each one containing the corresponding sequence.
 
 ## `fasta_put_headers_back`
 
@@ -544,19 +570,6 @@ ACTG
 >2
 GTCA
 ```
-
-## `pipe_delimited_extractor`
-The `pipe_delimited_extractor` script extracts sequences from FASTA files, according to the information in a given field, separated by pipes.
-
-You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities pipe_delimited_extractor /data/input.fasta /data/output_folder <field_position>`
-
-In this command, you should replace:
-- `/your/data/dir` to point to the directory that contains the input file you want to process.
-- `/data/input.fasta` to the actual name of your input FASTA file.
-- `/data/output_folder` to the actual name of your output folder.
-- `<field_position>` to the integer according to the field position you want to analyze.
-
-This command will process the input FASTA and write the output inside the folder `/data/output_folder`.
 
 ## `pisa_xml_extract`
 
