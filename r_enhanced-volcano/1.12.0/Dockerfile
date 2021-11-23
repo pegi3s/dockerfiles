@@ -27,4 +27,18 @@ RUN apt-get install -y gfortran libblas-dev liblapack-dev && \
     apt install -y libpng-dev  && \
     R -e "install.packages('png')"
 
-RUN R -e "install.packages('BiocManager'); library('BiocManager'); BiocManager::install('EnhancedVolcano')"
+RUN R -e "install.packages('BiocManager'); library('BiocManager')"
+
+RUN apt update  && \
+    apt install -y libproj-dev libgdal-dev  && \
+    apt-get install -y libxt-dev  && \
+    apt-get install -y libcairo2-dev  && \
+    apt install -y libharfbuzz-dev libfribidi-dev
+
+RUN R -e "install.packages('proj4', dependencies=TRUE)"  && \
+    R -e "install.packages('ggalt', dependencies = T)"  && \
+    R -e "install.packages('ragg', dependencies = T)"  && \
+    R -e "install.packages('textshaping', dependencies = T)"  && \
+    R -e "install.packages('ggrastr', dependencies = T)"
+
+RUN R -e "BiocManager::install('EnhancedVolcano')"
