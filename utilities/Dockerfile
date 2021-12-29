@@ -22,13 +22,17 @@ RUN apt-get update && \
 
 RUN mkdir -p /opt/scripts && wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O /opt/scripts/jq-linux64 
 
-RUN echo "#!/bin/bash \n\
-find /opt/scripts -type f -print | sed 's/\/opt\/scripts\///g' | sort" > /usr/local/bin/help && chmod u+x /usr/local/bin/help
+ARG utilities_version
+
+ENV UTILITIES_VERSION=${utilities_version}
+
+ADD scripts/help /usr/local/bin/help
 
 ADD scripts /opt/scripts
 
-RUN chmod 777 /opt/scripts/*
+RUN chmod 777 /opt/scripts/* && chmod u+x /usr/local/bin/help
 
 ENV PATH="/opt/scripts:${PATH}"
 
 ENV TERM=xterm-256color
+

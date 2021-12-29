@@ -1,0 +1,11 @@
+#!/bin/bash 
+
+echo -e "pegi3s/utilities version ${UTILITIES_VERSION}"
+
+echo -e "\nList of utilities:"
+
+find /opt/scripts -type f -print | \
+	grep -v '^help$' | \
+	sed 's/\/opt\/scripts\///g' | \
+	awk '{print "\t"$0}' | \
+	sort
