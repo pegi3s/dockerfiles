@@ -21,6 +21,7 @@ These utilities are alphabetically listed bellow along with comprehensive explan
    * [fasta_rename_headers_with_taxonomy_info](#fasta_rename_headers_with_taxonomy_info)
    * [fasta_replace_and_save_headers](#fasta_replace_and_save_headers)
    * [fasta_reverse_complement](#fasta_reverse_complement)
+   * [fasta_sort_by_header](#fasta_sort_by_header)
    * [fastq_to_fasta](#fastq_to_fasta)
    * [get_phylo_taxa](#get_phylo_taxa)
    * [get_taxonomy](#get_taxonomy)
@@ -520,12 +521,40 @@ CM009000
 CM009589
 ```
 
+## `fasta_sort_by_header`
+
+The `fasta_sort_by_header` scruot sorts the sequences in a FASTA file according to their full sequence headers. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script.
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities fasta_sort_by_header /data/input.fasta /data/output.fasta`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input file you want to process.
+- `/data/input.fasta` and `/data/output.fasta` to the actual names of your input and output FASTA files.
+
+By default, the script sorts the sequences in ascending order and considering numbers. You can use the `--natural` flag to apply a natural sort and the `--reverse` flag to sort in descending order. In addition, case can be ignored with `--ignore-case`.
+
+To test this utility, you can copy and paste the following sample data into the `input.fasta` file:
+```
+>B.003
+ACTG
+>B.001
+AAA
+>B.002
+GACGATTAATAAGATGTGAGGCAGTCTGAACTGCTTCACCCCACAGATA
+>A.003
+ACTG
+>A.001
+AAA
+>A.002
+GACGATTAATAAGATGTGAGGCAGTCTGAACTGCTTCACCCCACAGATA
+```
+
 ## `fastq_to_fasta`
 
 The `fastq_to_fasta` script converts a FASTQ file into a FASTA file.
 
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities fastq_to_fasta /data/data.fastq`
-`
+
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input file you want to process.
 - `/data/data.fastq` to the actual name of your input FASTQ file.

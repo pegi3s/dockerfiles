@@ -1,0 +1,62 @@
+#!/bin/bash
+
+set -o nounset
+set -o errexit
+
+display_usage() {
+	echo -e "This script sorts the sequences in a FASTA file according to their full sequence headers. By default, it sorts in ascending order and considering numbers. Use \"--natural\" to apply a natural sort and \"--reverse\" to sort in descending order. In addition, case can be ignored with \"--ignore-case\"."
+	echo -e "\nIMPORTANT: if the input file have line breaks separating the sequences, remove them first using the fasta_remove_line_breaks script."
+	echo -e "\nUsage:"
+	echo -e "\t`basename $0` <input> <output> [-re/--reverse] [--natural/-na] [--ignore-case/-ic]"
+}
+
+if [[ $1 == "--help" ]]; then
+	display_usage
+	exit 1
+fi
+
+if [ $# -lt 2 ] || [ $# -gt 5 ]; then
+	tput setaf 1
+	echo -e "Error. This script requires between two and five arguments.\n"
+	tput sgr0
+	display_usage
+	exit 0
+fi
+
+INPUT=$1
+OUTPUT=$2
+SORT_TYPE="-V"
+SORT_MODE=""
+SORT_CASE=""
+
+for key in "$@"
+do
+	case $key in
+		--reverse|-re)
+		SORT_MODE="--reverse"
+		shift
+		;;
+		--natural|-na)
+		SORT_TYPE=""
+		shift
+		;;
+		--ignore-case|-ic)
+		SORT_CASE="--ignore-case"
+		shift
+		;;
+		*)
+			# unknown option
+		;;
+	esac
+done
+
+rm -f ${OUTPUT}
+
+TEMP_FILE=$(mktemp /tmp/fasta_sort_by_header.XXXXXXX)
+
+grep '>' ${INPUT} | sort ${SORT_TYPE} ${SORT_MODE} ${SORT_CASE} > ${TEMP_FILE}
+while read name; do
+	grep -w -F -A1 "${name}" ${INPUT} >> ${OUTPUT}
+done < ${TEMP_FILE}
+
+rm ${TEMP_FILE}

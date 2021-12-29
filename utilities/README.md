@@ -24,6 +24,7 @@ The list of utilities is presented below, please refer to [this manual](https://
 - `fasta_rename_headers_with_taxonomy_info`: renames the headers of a FASTA file with the taxonomic information associated to the accession numbers found in them.
 - `fasta_replace_and_save_headers`: replaces the sequence headers by correlative numbers starting at 1 with a specified prefix. Also, a headers map is created so that original sequence headers can be restored using the `fasta_put_headers_back` script.
 - `fasta_reverse_complement`: reverses the sequences in a FASTA file and converts them into their complement counterparts. Also, a prefix can be added to the header of each sequence. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. The scripts `fasta_complement` and `fasta_reverse` perform these two tasks separately.
+- `fasta_sort_by_header`: sorts the sequences in a FASTA file according to their full sequence headers. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script.
 - `fastq_to_fasta`: converts a FASTQ file into a FASTA file.
 - `get_phylo_taxa`: extracts a group of sequences from a file by providing the name of the sequences that flank the group of interest in a phylogenetic tree.
 - `get_taxonomy`: receives a list of accession numbers (either through an input file or the standard input), identifies the species associated to each one of them and gets the requested taxonomic information.
@@ -34,11 +35,17 @@ The list of utilities is presented below, please refer to [this manual](https://
 
 The `latest` tag contains always the most recent version.
 
+## [0.20.0] - 29/12/2021
+- Add the `fasta_sort_by_header` utility.
+
+## [0.19.1] - 22/12/2021
+- Show utilities version to the help script.
+
 ## [0.19.0] - 18/11/2021
-- Renames `pipe_delimited_extractor` to `fasta_pipe_delimited_extractor` and adds parameter checking.
+- Rename `pipe_delimited_extractor` to `fasta_pipe_delimited_extractor` and adds parameter checking.
 
 ## [0.18.1] - 04/11/2021
-- Unifies input parameter checking across all scripts.
+- Unify input parameter checking across all scripts.
 
 ## [0.18.0] - 04/11/2021
 - Add the `get_phylo_taxa` utility.
