@@ -523,7 +523,7 @@ CM009589
 
 ## `fasta_sort_by_header`
 
-The `fasta_sort_by_header` scruot sorts the sequences in a FASTA file according to their full sequence headers. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script.
+The `fasta_sort_by_header` script sorts the sequences in a FASTA file according to their full sequence headers. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script.
 
 You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities fasta_sort_by_header /data/input.fasta /data/output.fasta`
 
