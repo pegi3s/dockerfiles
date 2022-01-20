@@ -17,9 +17,14 @@
 
 FROM ubuntu:19.04
 
+ENV DEBIAN_FRONTEND=noninteractive
+
+ENV TZ=Europe/Madrid
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 RUN sed -i -re 's/([a-z]{2}\.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
 
 RUN apt-get update && \
 	apt-get install -y software-properties-common build-essential
 
-RUN apt-get install -y samtools bcftools
+RUN apt-get install -y samtools bcftools gnuplot
