@@ -17,7 +17,7 @@ To see the `TranslatorX` help, just run: `docker run --rm -v /your/data/dir:/opt
 
 ### *Note*
 
-Severall output files are produced by `TranslatorX` but the one with the desired result is output.nt_ali.fasta
+Severall output files are produced by `TranslatorX` but the one with the desired result is `output.nt_ali.fasta`
 
 # Using the TranslatorX image in Windows
 
