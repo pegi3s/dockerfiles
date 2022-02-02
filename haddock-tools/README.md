@@ -18,7 +18,7 @@ For some `HADDOCK` tools their location is different than `/opt/haddock-tools/`
 
 # Examples
 
-Several examples of the usage of `Haddock-tools` are given below (the test files can be obtained [here](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/haddock-tools/test_data/)):
+Several examples of the usage of `Haddock-tools` are given below (the test files can be obtained [here](https://github.com/pegi3s/dockerfiles/tree/master/haddock-tools/test_data)):
 
 ## Examples 1
 
