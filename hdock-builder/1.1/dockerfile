@@ -1,0 +1,5 @@
+FROM pegi3s/docker
+
+WORKDIR /docker_image
+COPY cp_dockerfile /docker_image
+RUN mv cp_dockerfile dockerfile
