@@ -34,7 +34,7 @@ head -n -2 tmp1 > tmp2 && rm tmp1
 csplit -z tmp2 /TER/ '{*}' 1> /dev/null && rm tmp2 && mv xx00 tmp3a
 tail -n +3 xx01 > tmp3b && rm xx01
 sed -i 's/$/  1.00 10.00      A   /g' tmp3a
-sed -i 's/$/  1.00 10.00      B   /g; s/ A / B /g' tmp3b
+sed -i -E 's/$/  1.00 10.00      B   /g; s/ A / B /g; s/ A([1-9])/ B\1/g' tmp3b
 cat tmp3a tmp3b > tmp4 && rm tmp3a tmp3b
 echo 'END' >> tmp4
 mv tmp4 ${OUTPUT}

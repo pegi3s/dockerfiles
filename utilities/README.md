@@ -36,6 +36,10 @@ The list of utilities is presented below, please refer to [this manual](https://
 
 The `latest` tag contains always the most recent version.
 
+## [0.21.1] - 18/03/2022
+
+- Fixes the `hdock_to_PDBePISA_conversion` utility.
+
 ## [0.21.0] - 17/02/2022
 
 - Add the `hdock_to_PDBePISA_conversion` utility.
