@@ -26,7 +26,7 @@ Note that the `<max_target_seqs>` is optional. It specifies the value for the `-
 
 # Test data
 
-To test the these commands, it is possible to use [this test data](http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/prosplign-procompart/test-data-prosplign-procompart.zip) to apply the protocol described in [this page of ProSplign/ProCompart](https://www.ncbi.nlm.nih.gov/sutils/static/prosplign/prosplign.html).
+To test these commands, it is possible to use [this test data](http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/prosplign-procompart/test-data-prosplign-procompart.zip) to apply the protocol described in [this page of ProSplign/ProCompart](https://www.ncbi.nlm.nih.gov/sutils/static/prosplign/prosplign.html).
 
 After downloading and unzipping the test data, you should simply run (remember to change the `/your/data/dir` path):
 
