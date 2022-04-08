@@ -1,0 +1,21 @@
+tmp_file=$1
+mkdir /tmp/axt
+cp $1 /tmp/axt/tmp1
+while read ref_name
+do 
+   read ref_seq
+   tail -n+3 /tmp/axt/tmp1 > /tmp/axt/tmp2
+   while read name
+   do
+      read seq
+      echo $ref_name.$name >> /tmp/axt/tmp3
+      echo $ref_seq >> /tmp/axt/tmp3      
+      echo $seq >> /tmp/axt/tmp3
+      echo "" >> /tmp/axt/tmp3
+   done < /tmp/axt/tmp2
+   rm /tmp/axt/tmp1 && mv /tmp/axt/tmp2 /tmp/axt/tmp1
+done < $tmp_file
+rm /tmp/axt/tmp1
+sed -i 's/\.>/_\&_/g; s/>//g' /tmp/axt/tmp3
+mv /tmp/axt/tmp3 $1.axt
+rmdir /tmp/axt
