@@ -1,7 +1,7 @@
 # This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
 ## (Please note that the original software licenses still apply)
 
-This image facilitates the usage of [PI-LZerD](https://kiharalab.org/proteindocking/pilzerd.php), a software for protein-protein docking.
+This image facilitates the usage of LZerD, through the [PI-LZerD](https://kiharalab.org/proteindocking/pilzerd.php) suite, a software for protein-protein docking.
 
 # Using the PI-LZerD image in Linux
 
