@@ -3,9 +3,9 @@
 
 This image facilitates the usage of [PyDock3](https://life.bsc.es/pid/pydock/), a software that facilitates the usage of `zdock` and `ftdock` protein-protein docking software.
 
-### *Note 1*
+#### *Note 1*
 
-Because of licensing issues we cannot make available `PyDock3` or `zdock` files. Therefore, they must be obtained from [https://life.bsc.es/pid/pydock/get_pydock.html]() and [https://zdock.umassmed.edu/software/]() respectively.
+Because of licensing issues we cannot make available `PyDock3` or `zdock` files. Therefore, they must be obtained from [https://life.bsc.es/pid/pydock/get_pydock.html](https://life.bsc.es/pid/pydock/get_pydock.html) and [https://zdock.umassmed.edu/software/](https://zdock.umassmed.edu/software/) respectively.
 
 After obtaining the `pyDock3.tgz` and `zdock3.0.2_linux_x64.tar.gz` files, just put it in a empty folder and use the following command to create a working docker image called `pegi3s/pydock3`:
 
@@ -35,7 +35,7 @@ In this command, you should replace:
 - `best_PDB` to the number of the best solutions to be obtained (recommended: `5`).
 - `restraint` to `R` or `r` if restrainsts are declared in the .ini file. Any other value if restraints are not declared.
 
-### *Note 3*
+#### *Note 3*
 
 In the `run_zdock` script, `zdock` is invoked using `zdock -o project_name.zdock -R project_name_rec.pdb.H -L project_name_lig.pdb.H` and not `pyDock3 project_name zdock`, because the latter command requires the `libg2c.so.0` library that can only be installed in Ubuntu versions older than the oldest one available in DockerHub (`Ubuntu 14.04`).
 
@@ -51,7 +51,7 @@ In this command, you should replace:
 - `best_PDB` to the number of best solutions to be obtained (recommended: `5`).
 - `restraint` to `R` or `r` if restrainsts are declared in the .ini file. Any other value if restraints are not declared.
 	
-### *Note 4*
+#### *Note 4*
 
 In the `run_ftdock` script, `ftdock` is invoked using `ftdock -static project_name_rec.pdb -mobile project_name_lig.pdb > output` and not `pyDock3 project_name zdock`, because the latter command requires the `libg2c.so.0` library that can only be installed in Ubuntu versions older than the oldest one available in DockerHub (`Ubuntu 14.04`).
 
