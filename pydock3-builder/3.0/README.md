@@ -86,7 +86,7 @@ In this command, you should replace:
 	
 # Test data
 
-To test the previous commands, download the test data available [here](https://github.com/pegi3s/dockerfiles/tree/master/pydock3/3.0/test_data/) and then run:
+To test the previous commands, download the test data available [here](https://github.com/pegi3s/dockerfiles/tree/master/pydock3-builder/3.0/test_data/) and then run:
 
 `docker run --rm -v /your/data/dir:/data pegi3s/pydock3 bash -c "./run_zdock test 100 5 R"`
 
