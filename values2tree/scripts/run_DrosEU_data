@@ -1,0 +1,34 @@
+#!/bin/bash
+
+working_path="/data"
+working_path1=$1
+metafiles_dir=$2
+droseu_dir="$working_path/$metafiles_dir"
+
+mkdir -p $working_path/prep_files $working_path/tmp
+for file in $droseu_dir/*; do
+	tail -n+2 $file > $working_path/tmp/tmp1
+	flag=0
+	while read line; do
+		if [ $flag -eq "1" ]; then
+			true
+		else
+			if [ -z "$line" ]; then
+				flag=1
+			else
+				echo $line >> $working_path/tmp/tmp2			
+			fi
+		fi
+	done < $working_path/tmp/tmp1
+	cut -f1 -d" " $working_path/tmp/tmp2 | cut -f2 -d"_" > $working_path/tmp/tmp3
+	sort -u $working_path/tmp/tmp3 > $working_path/tmp/tmp4
+	while read name; do
+		file_name=$(basename ${file})
+		grep $name $working_path/tmp/tmp2 | cut -f1,2 -d " " > $working_path/prep_files/$file_name.$name
+	done < $working_path/tmp/tmp4
+	rm $working_path/tmp/tmp1 $working_path/tmp/tmp2 $working_path/tmp/tmp3 $working_path/tmp/tmp4
+done
+
+rmdir $working_path/tmp && cd $working_path
+
+run_UPGMA_tree $working_path1 prep_files

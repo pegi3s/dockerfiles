@@ -1,0 +1,51 @@
+#!/bin/bash
+working_path="/data"
+working_path1=$1
+data_dir=$2
+
+mkdir $working_path/trees $working_path/tmp
+for file in $working_path/$data_dir/*; do
+file_name=$(basename ${file})
+echo $file
+	cut -f1 -d ' ' $file > $working_path/tmp/tmp1
+	cut -f2 -d ' ' $file > $working_path/tmp/tmp2
+	echo "#mega" > $working_path/tmp/$file_name.matrix.meg
+	echo "TITLE: "$file_name >> $working_path/tmp/$file_name.matrix.meg
+	echo ""  >> $working_path/tmp/$file_name.matrix.meg
+	while read value; do
+		echo "#"$value >> $working_path/tmp/$file_name.matrix.meg
+	done < $working_path/tmp/tmp1
+	echo ""  >> $working_path/tmp/$file_name.matrix.meg
+	
+	while read value1; do
+		i=$((i+1)) && j=0
+		while read value2; do
+				j=$((j+1))
+				y=$((j-i))
+				dif=`echo "scale=4; $value1-$value2" | bc`
+				echo $i $j $y $dif >> $working_path/tmp/tmp3
+		done < $working_path/tmp/tmp2
+	done < $working_path/tmp/tmp2
+	sort -k 2,2 $working_path/tmp/tmp3 > $working_path/tmp/tmp4
+	while read word1 word2 word3 word4; do
+		if [ $word3 -gt "0" ]; then
+			echo $word4 >> $working_path/tmp/tmp5
+		fi
+	done < $working_path/tmp/tmp4
+	sed -i 's/-//g; s/^\./0./g' $working_path/tmp/tmp5
+	cat $working_path/tmp/$file_name.matrix.meg $working_path/tmp/tmp5  > $working_path/tmp/tmp6
+	rm $working_path/tmp/$file_name.matrix.meg
+	tr "\n" " " < $working_path/tmp/tmp6 > $working_path/tmp/tmp7
+	tr " " "\r" < $working_path/tmp/tmp7 > $working_path/tmp/tmp8
+	sed 's/\r/\r\n/g' $working_path/tmp/tmp8 > $working_path/tmp/$file_name.matrix.meg
+	cp $working_path/tmp/$file_name.matrix.meg $working_path/trees
+	cp /opt/infer_UPGMA_distances.mao $working_path/tmp
+	docker run --rm -v $working_path1:/data pegi3s/megax_cc megacc -a /data/tmp/infer_UPGMA_distances.mao -d /data/tmp/$file_name.matrix.meg -o /data/tmp/output_tree
+	cp $working_path/tmp/output_tree.nwk $working_path/tmp/$file_name.nwk
+	cp $working_path/tmp/$file_name.nwk $working_path/trees
+	docker run --rm -v $working_path1:/data pegi3s/plottree bash -c "plottree -a -s 20 -w 20 -l 15 /data/tmp/output_tree.nwk -o /data/tmp/tree_image"
+	cp $working_path/tmp/tree_image.png $working_path/trees/$file_name.png
+	cd $working_path/tmp && rm * && cd $working_path
+	i=0	
+done
+rmdir $working_path/tmp
