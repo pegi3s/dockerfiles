@@ -5,7 +5,7 @@ This image facilitates the usage of [TranslatorX](http://translatorx.co.uk/), a 
 
 # Using the TranslatorX image in Linux
 
-You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/translatorx bash -c "perl translatorx_vLocal.pl -i /data/input.fas -a /data/alignment.fas -o /data/output"`
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/translatorx translatorx_vLocal.pl -i /data/input.fas -a /data/alignment.fas -o /data/output`
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input file you want to align.
@@ -13,7 +13,7 @@ In this command, you should replace:
 - `alignment.fas` to the actual name of your FASTA input file containing the protein sequence alignment.
 - `output` to the actual name of your output file.
 
-To see the `TranslatorX` help, just run: `docker run --rm -v /your/data/dir:/data pegi3s/translatorx bash -c "perl translatorx_vLocal.pl -help"`
+To see the `TranslatorX` help, just run: `docker run --rm -v /your/data/dir:/data pegi3s/translatorx translatorx_vLocal.pl`
 
 ### *Note*
 
@@ -24,4 +24,4 @@ Severall output files are produced by `TranslatorX` but the one with the desired
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 You should adapt and run the following command: 
-`docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/translatorx bash -c "perl translatorx_vLocal.pl -i /data/input.fas -a /data/alignment.fas -o /data/output"`
+`docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/translatorx translatorx_vLocal.pl -i /data/input.fas -a /data/alignment.fas -o /data/output`
