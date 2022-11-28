@@ -16,6 +16,8 @@ This image facilitates the usage of [R Project](https://www.r-project.org/) with
 - [purrr](https://cran.r-project.org/web/packages/purrr/index.html) version 0.3.4.
 - [openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html) version 4.2.4.
 - [tidytext](https://cran.r-project.org/web/packages/tidytext/index.html) version 0.3.2.
+- [gplots](https://cran.r-project.org/web/packages/gplots/index.html) version 3.1.3.
+- [dendextend](https://cran.r-project.org/web/packages/dendextend/index.html) version 1.16.0
 
 # Using the R Project image in Linux
 
