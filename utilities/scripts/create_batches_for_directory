@@ -1,0 +1,43 @@
+#!/bin/bash
+
+display_usage() {
+	echo -e "This script creates batches for all files and directories under the specified directory. One file per batch is created in the output directory, each one containing a batch of files or directories of the specified size from the input file."
+	echo -e "\nUsage:"
+	echo -e "\t`basename $0` </path/to/files/dir> </path/to/output-dir> <batch-size>"
+}
+
+if [[ $1 == "--help" ]]
+then
+	display_usage
+	exit 0
+fi
+
+if ! [[ $# -eq 3 ]]
+then 
+	tput setaf 1
+	echo -e "Error. This script requires three arguments. \n"
+	tput sgr0
+	display_usage
+	exit 1
+fi 
+
+INPUT_DIR=$1
+OUTPUT_DIR=$2
+BATCH_SIZE=$3
+
+if [ ! -d ${OUTPUT_DIR} ];
+then
+  	tput setaf 1
+	echo -e "Error. The output directory must exist. \n"
+	tput sgr0
+	exit 1  
+fi
+
+TMP_LIST=$(mktemp /tmp/create-batches.XXXXXX)
+
+# Remove the first line from find output since it is equals to ${INPUT_DIR}
+find "${INPUT_DIR}" -maxdepth 1 | sed -n '2,$p' | sort -u > ${TMP_LIST}
+
+create_batches ${TMP_LIST} ${OUTPUT_DIR} ${BATCH_SIZE}
+
+rm ${TMP_LIST}

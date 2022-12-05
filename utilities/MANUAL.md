@@ -8,6 +8,8 @@ These utilities are alphabetically listed bellow along with comprehensive explan
    * [batch_fasta_remove_line_breaks](#batch_fasta_remove_line_breaks)
    * [batch_fasta_remove_stop_codons](#batch_fasta_remove_stop_codons)
    * [check_multiple_3](#check_multiple_3)
+   * [create_batches](#create_batches)
+   * [create_batches_for_directory](#create_batches_for_directory)
    * [deinterleave_fastq](#deinterleave_fastq)
    * [dockerhub_count_pulls](#dockerhub_count_pulls)
    * [dockerhub_list_images_with_tags](#dockerhub_list_images_with_tags)
@@ -136,6 +138,7 @@ ACTACT
 >2
 TGATGA
 ```
+
 ```bash
 docker run --rm -v /your/data/dir:/data pegi3s/utilities check_multiple_3 /data/input.fasta
 
@@ -144,6 +147,55 @@ if  [ $? -eq 0 ]; then
 else
     echo "Warning: not all sequences are multiple of three"
 fi
+```
+
+## `create_batches`
+
+The `create_batches` script creates batches for all lines of a given text file. One file per batch is created in the output directory, each one containing a batch of lines of the specified size from the input file.
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities create_batches /data/list.txt /data/batches <batch_size>`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input file you want to process.
+- `/data/list.txt` to the actual name of your input file containing the lines to split in batches.
+- `/data/batches` to the actual name of your output directory where the batch files will be created (note that this directory must exist, otherwise the script will fail).
+- `<batch_size>` to the desired batch size.
+
+To test this utility, you can run the following code:
+```bash
+echo -e "line_1\nline_2\nline_3\nline_4\nline_5\nline_6" > /tmp/test-create-batches.txt
+
+mkdir /tmp/test-batches
+
+docker run --rm -v /tmp:/data pegi3s/utilities create_batches /data/test-create-batches.txt /data/test-batches 2
+
+ls -1 /tmp/test-batches
+```
+
+## `create_batches_for_directory`
+
+The `create_batches_for_directory` script creates batches for all files and directories under the specified directory. One file per batch is created in the output directory, each one containing a batch of files or directories of the specified size from the input file.
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities create_batches_for_directory /data/directory /data/batches <batch_size>`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input file you want to process.
+- `/your/directory` to point to the directory that contains the files and directories you want to process.
+- `/data/batches` to the actual name of your output directory where the batch files will be created (note that this directory must exist, otherwise the script will fail).
+- `<batch_size>` to the desired batch size.
+
+To test this utility, you can run the following code:
+```bash
+mkdir /tmp/test-directory && \
+    touch /tmp/test-directory/1.txt && touch /tmp/test-directory/2.txt && \
+    touch /tmp/test-directory/3.txt && touch /tmp/test-directory/4.txt && \
+    touch /tmp/test-directory/5.txt && touch /tmp/test-directory/6.txt
+
+mkdir /tmp/test-batches
+
+docker run --rm -v /tmp:/data pegi3s/utilities create_batches_for_directory /data/test-directory /data/test-batches 3
+
+ls -1 /tmp/test-batches
 ```
 
 ## `deinterleave_fastq`

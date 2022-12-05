@@ -1,0 +1,48 @@
+#!/bin/bash
+
+display_usage() {
+	echo -e "This script creates batches for all lines of a given text file. One file per batch is created in the output directory, each one containing a batch of lines of the specified size from the input file."
+	echo -e "\nUsage:"
+	echo -e "\t`basename $0` </path/to/input/file> </path/to/output-dir> <batch-size>"
+}
+
+if [[ $1 == "--help" ]]
+then
+	display_usage
+	exit 0
+fi
+
+if ! [[ $# -eq 3 ]]
+then 
+	tput setaf 1
+	echo -e "Error. This script requires three arguments. \n"
+	tput sgr0
+	display_usage
+	exit 1
+fi 
+
+INPUT_FILE=$1
+OUTPUT_DIR=$2
+BATCH_SIZE=$3
+
+if [ ! -d ${OUTPUT_DIR} ];
+then
+  	tput setaf 1
+	echo -e "Error. The output directory must exist. \n"
+	tput sgr0
+	exit 1  
+fi
+
+LINES_COUNT=$(wc -l ${INPUT_FILE} | cut -f1 -d' ')
+
+BATCH_INDEX=1
+START=1
+END=$((BATCH_SIZE + START - 1))
+while [ ${START} -le ${LINES_COUNT} ]
+do
+	sed -n "${START},${END}p" ${INPUT_FILE} > ${OUTPUT_DIR}/${BATCH_INDEX}_${START}_${END}.txt
+
+	START=$((BATCH_SIZE + START))
+	END=$((BATCH_SIZE + START - 1))
+	BATCH_INDEX=$((BATCH_INDEX+1))
+done

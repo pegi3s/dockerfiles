@@ -11,6 +11,8 @@ The list of utilities is presented below, please refer to [this manual](https://
 - `batch_fasta_remove_line_breaks`: removes the line breaks of sequences in one or more FASTA files.
 - `batch_fasta_remove_stop_codons`: modifies the sequences in one or more FASTA files to remove the stop codons (TAA, TAG and TGA) at the end of sequences. Note that if the input files have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. Otherwise, stop codons will be removed from each sequence line.
 - `check_multiple_3`: verifies if all sequences in a FASTA file are multiple of 3. If so, the exit code is 0. Otherwise, the exit code is 1. Note that the exit code can be captured with `$?`. Note that if the input file have line breaks separating the sequences, they should be removed using the `fasta_remove_line_breaks` script. Otherwise, the script may produce unpredictable result.
+- `create_batches`: creates batches for all lines of a given text file. One file per batch is created in the output directory, each one containing a batch of lines of the specified size from the input file.
+- `create_batches_for_directory`: script creates batches for all files and directories under the specified directory. One file per batch is created in the output directory, each one containing a batch of files or directories of the specified size from the input file.
 - `deinterleave_fastq`: deinterleaves a FASTQ file of paired reads into two FASTQ files. Optionally, the output files can be compressed using GZip.
 - `dockerhub_count_pulls`: lists the number of pulls of each image for a given Docker Hub user.
 - `dockerhub_list_images_with_tags`: lists all the images and tags for a given Docker Hub user.
@@ -35,6 +37,10 @@ The list of utilities is presented below, please refer to [this manual](https://
 # Changelog
 
 The `latest` tag contains always the most recent version.
+
+## [0.22.0] - 14/09/2022
+
+- Add the `create_batches` and `create_batches_for_directory` utilities.
 
 ## [0.21.2] - 09/09/2022
 
