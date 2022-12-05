@@ -1,0 +1,54 @@
+#!/bin/bash
+
+VERSION_PEGI3S_UTILITIES=${VERSION_PEGI3S_UTILITIES:-latest}
+
+set -o errexit
+
+display_usage() {
+	echo -e "This script generates a GFF3 file from a FASTA file containing CDS and a genome FASTA file."
+	echo -e "\nUsage:"
+	echo -e "\t`basename $0` <input_cds> <input_genome> <output_gff3>"
+}
+
+if [[ $1 == "--help" ]]; then
+	display_usage
+	exit 0
+fi
+
+if [ ! $# -eq 3 ]; then
+	tput setaf 1
+	echo -e "Error. This script requires three arguments.\n"
+	tput sgr0
+	display_usage
+	exit 1
+fi
+
+CDS=$1
+GENOME=$2
+OUTPUT=$3
+
+TMP_DIR=$(mktemp -d /tmp/cds2gff3-maker.XXXXXX)
+
+echo "##gff-version 3" > ${TMP_DIR}/gff3
+cp ${GENOME} ${TMP_DIR}/genome
+cp ${CDS} ${TMP_DIR}/cds
+
+docker run --rm \
+	-v /var/run/docker.sock:/var/run/docker.sock \
+	-v ${TMP_DIR}:/data pegi3s/utilities:${VERSION_PEGI3S_UTILITIES} \
+		fasta_remove_line_breaks /data/cds -o=/data/cds_without_line_breaks
+
+while read header; do
+	read seq
+	rm -f ${TMP_DIR}/input
+	echo "$header" > ${TMP_DIR}/input
+	echo $seq >> ${TMP_DIR}/input
+	gene_name=$(head -1 ${TMP_DIR}/input | sed 's/>//g' | cut -f1 -d' ')
+
+	echo "Running cds2gff3-maker for" $gene_name
+	cds2gff3 ${TMP_DIR}
+done < ${TMP_DIR}/cds_without_line_breaks
+
+mv ${TMP_DIR}/gff3 ${OUTPUT}
+
+rm -rf ${TMP_DIR}

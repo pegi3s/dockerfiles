@@ -1,0 +1,96 @@
+#!/bin/bash
+
+VERSION_PEGI3S_SPLIGN_COMPART=${VERSION_PEGI3S_SPLIGN_COMPART:-latest}
+
+tmp_dir=$1 # the temporary working dir where all the action takes place.
+
+cds=input
+genome=genome
+
+cd $tmp_dir
+gene_name=$(head -1 $cds | sed 's/>//g' | cut -f1 -d' ')
+
+docker run --rm \
+	-v $tmp_dir:/data \
+		pegi3s/splign-compart:${VERSION_PEGI3S_SPLIGN_COMPART} bash -c "makeblastdb -dbtype nucl -parse_seqids -in /data/$cds &> /dev/null && makeblastdb -dbtype nucl -parse_seqids -in /data/$genome &> /dev/null && compart -qdb /data/$cds -sdb /data/$genome > /data/cdna.compartments 2> /dev/null && sed -i '/^$/Q' /data/cdna.compartments && splign -mklds /data && splign -ldsdir /data -comps /data/cdna.compartments > /data/gff3_tmp1"
+
+rm $genome.nhr $genome.nin $genome.nog $genome.nsq $genome.nsd $genome.nsi 
+rm $cds.nhr $cds.nin $cds.nog $cds.nsq $cds.nsd $cds.nsi cdna.compartments
+rm -r _SplignLDS_
+
+cd $tmp_dir
+
+head -n-1 gff3_tmp1 > gff3_tmp2
+size=$(cat gff3_tmp2 | wc -l)
+oldvalue=0
+i=0
+while read line1; do
+	j=$(( $j+1 ))
+	value=$(echo $line1 | cut -f6 -d' ')
+	if [[ $value -gt $oldvalue ]]; then
+		if [[ $oldvalue -eq 0 ]] && [[ $i -eq 0 ]]; then
+			start=$(echo $line1 | cut -f8 -d' ')
+		fi
+		echo $line1 >> gff3_tmp3
+		end=$(echo $line1 | cut -f9 -d' ')
+		oldvalue=$value
+	fi
+	if [[ $value -lt $oldvalue ]] || [[ $j -eq $size ]]; then
+		i=$(( $i+1 ))
+		c7="+"
+		if [[ $end -lt $start ]]; then
+			tmp1=$start
+			start=$end
+			end=$tmp1
+			c7="-"
+		fi
+		s1=$(cat gff3_tmp3 | head -1 | cut -f3 -d' ')
+		gene=$(echo $s1 "." "gene" $start $end "." $c7 "." "ID="$gene_name";Name="$gene_name)
+		mRNA=$(echo $s1 "." "mRNA" $start $end "." $c7 "." "ID="$gene_name".1;Parent="$gene_name";""Name="$gene_name".1")
+		echo $gene >> gff3
+		echo $mRNA >> gff3
+		while read line2; do
+			c1=$(echo $line2 | cut -f3 -d' ')
+			c2=$(echo ".")
+			c3=$(echo "CDS")
+			c4=$(echo $line2 | cut -f8 -d' ')
+			c5=$(echo $line2 | cut -f9 -d' ')
+			c6=$c2
+			c7="+"
+			if [[ $c5 -lt $c4 ]]; then
+				tmp1=$c5
+				c5=$c4
+				c4=$tmp1				
+				c7="-"
+				if [[ $c5 -eq $end ]]; then
+					cum=0
+				fi
+			fi			
+			if [[ $c4 -eq $start ]] && [[ $c7 == "+" ]]; then
+				c8=0
+				cum=0
+			else
+				cum1=$(( $cum +1 ))
+				if (( $(( $cum1 )) % 3 == 0 )); then
+					c8=1
+				elif (( $(( $cum1 -1)) % 3 == 0 )); then
+					c8=0
+				elif (( $(( $cum1 +1)) % 3 == 0 )); then
+					c8=2
+				fi
+			fi
+			cum=$(( $cum + $c5 - $c4 +1 ))
+			c9="Parent="$gene_name".1"
+			echo $c1 $c2 $c3 $c4 $c5 $c6 $c7 $c8 $c9 >> gff3				
+		done < gff3_tmp3
+		oldvalue=0
+		rm gff3_tmp3
+		echo $line1 >> gff3_tmp3
+		end=$(echo $line1 | cut -f9 -d' ')
+	fi
+	if [[ $oldvalue -eq 0 ]]; then
+		start=$(echo $line1 | cut -f8 -d' ')
+	fi
+done < gff3_tmp2
+sed -i 's/ /\t/g; s/##gff-version\t3/##gff-version 3/g' gff3
+rm gff3_tmp1 gff3_tmp2 gff3_tmp3
