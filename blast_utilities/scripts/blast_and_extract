@@ -1,0 +1,119 @@
+#!/bin/bash
+
+VERSION_PEGI3S_UTILITIES=${VERSION_PEGI3S_UTILITIES:-latest}
+
+set -o errexit
+
+display_usage() {
+	echo -e "This script identifies and retrieves genome regions showing similarity to a protein."
+	echo -e "\nUsage:"
+	echo -e "\t`basename $0` <input_genome_FASTA> <reference_protein> <max_distance_hits> <extra_sequence> <evalue> <output_genome_regions>"
+	echo -e "\n\tWhere:"
+	echo -e "\t\t- <input_genome_FASTA> is the absolute path of your input genome FASTA file."
+	echo -e "\t\t- <reference_protein> is the absolute path of your reference protein FASTA file."
+	echo -e "\t\t- <max_distance_hits> is a number that specifies the maximum distance between BLAST hits to be considered the same region"
+	echo -e "\t\t- <extra_sequence> is the number of nucleotides to be included 5' and 3' of the region retrieved in the BLAST search (2000 is suggested)"
+	echo -e "\t\t- <evalue> is the expectation value for tblastn"
+	echo -e "\t\t- <output_genome_regions> is the absolute path of your output file."
+}
+
+if [[ $1 == "--help" ]]; then
+	display_usage
+	exit 0
+fi
+
+if [ ! $# -eq 6 ]; then
+	tput setaf 1
+	echo -e "Error. This script requires six arguments.\n"
+	tput sgr0
+	display_usage
+	exit 1
+fi
+
+GENOME=$1
+REF_PROTEIN=$2
+MAX_DISTANCE_HITS=$3
+EXTRA_SEQUENCE=$4
+EVALUE=$5
+OUTPUT_GENOME_REGIONS=$6
+
+TMP_DIR=$(mktemp -d /tmp/blast_and_extract.XXXXXXXX)
+
+cd ${TMP_DIR}
+
+fasta_remove_line_breaks ${GENOME} -o=genome.nlb
+
+makeblastdb -in genome.nlb -dbtype nucl -parse_seqids
+
+tblastn -query ${REF_PROTEIN} -db genome.nlb -evalue ${EVALUE} -outfmt 6 -out blast_tmp1
+
+cut -f2 blast_tmp1 | sort -u > blast_tmp2
+
+while read list;do
+	grep $list blast_tmp1 | cut -f2,9,10 | sort -n -k 2 | sed "s/\t/ /g" > blast_tmp3.$list
+	field4=0
+	grep -A1 $list genome.nlb | tail -n+2 > blast_tmp3
+	while read field1 field2 field3;do
+	
+		if [ $field2 -gt $field3 ]; then
+		fieldtmp=$field2
+		field2=$field3
+		field3=$fieldtmp
+		fi
+
+		a=$(( field2 - field4 ))
+		if [ $field4 -eq 0 ]; then
+			begin=$field2
+		fi
+
+		if [ $a -gt ${MAX_DISTANCE_HITS} ] && [ $field4 -gt 0 ]; then
+		
+			end=$field4
+			begin=$(( $begin - ${EXTRA_SEQUENCE} ))
+				if [ $begin -le 0 ]; then
+				begin=1
+				fi
+			end=$(( $end + ${EXTRA_SEQUENCE} ))
+			b=$(cut -c $begin-$end blast_tmp3)
+			n=${#b}
+			c=$(( $n + $begin -1 ))
+			if [ $end -gt $c ]; then
+			end=$c
+			fi
+
+			echo ">"$list $begin $end >> ${OUTPUT_GENOME_REGIONS}
+
+			cut -c $begin-$end blast_tmp3 >> ${OUTPUT_GENOME_REGIONS}
+			begin=$field2
+
+		fi
+		
+		field4=$field3
+	done < blast_tmp3.$list
+
+	
+	begin=$(( $begin - ${EXTRA_SEQUENCE} ))
+	if [ $begin -le 0 ]; then
+	begin=1
+	fi
+	
+	end=$(( $field4 + ${EXTRA_SEQUENCE} ))
+	b=$(cut -c $begin-$end blast_tmp3)
+	n=${#b}
+	c=$(( $n + $begin -1 ))
+
+	if [ $end -gt $c ]; then
+	end=$c
+	fi
+
+	echo ">"$list $begin $end >> ${OUTPUT_GENOME_REGIONS}
+	cut -c $begin-$end blast_tmp3 >> ${OUTPUT_GENOME_REGIONS}
+
+
+
+done < blast_tmp2
+
+sed -i 's/ /_/g' ${OUTPUT_GENOME_REGIONS}
+
+# rm blast_tmp1 blast_tmp2 genome.nlb.ndb genome.nlb.nhr genome.nlb.nin genome.nlb.njs genome.nlb.nog genome.nlb.nos genome.nlb.not genome.nlb.nsq genome.nlb.ntf genome.nlb.nto blast_tmp3.* blast_tmp3 genome.nlb
+rm -rf ${TMP_DIR}

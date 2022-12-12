@@ -35,4 +35,3 @@ RUN chmod 777 /opt/scripts/* && chmod u+x /usr/local/bin/help
 ENV PATH="/opt/scripts:${PATH}"
 
 ENV TERM=xterm-256color
-
