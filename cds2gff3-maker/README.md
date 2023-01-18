@@ -7,7 +7,7 @@ This image allows the creation of a GFF3 file from a FASTA file containing CDS a
 
 You should adapt and run the following command:
 ```
-docker run --rm -it -v /tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir/data:/data pegi3s/cds2gff3-maker /data/CDS /data/genome /data/output.gff3
+docker run --rm -v /tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/data pegi3s/cds2gff3-maker /data/CDS /data/genome /data/output.gff3
 ```
 
 In this command, you should replace:
@@ -30,7 +30,7 @@ By default, the scripts use the latest versions of those Docker images. To chang
 To test the `pegi3s/cds2gff3-maker` image, it is possible to use [this test data](http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/cds2gff3-maker/test-data-cds2gff3-maker.zip). After downloading and unzipping the test data, you should simply run (remember to change the `/your/data/dir` path):
 
 ```
-docker run --rm -it -v /tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir/data:/data pegi3s/cds2gff3-maker /data/CDS /data/genome /data/output.gff3
+docker run --rm -v /tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/data pegi3s/cds2gff3-maker /data/CDS /data/genome /data/output.gff3
 ```
 
 The ZIP also contains an example of the GFF3 file that should be obtained (`expected-output.gff3`).
