@@ -1,5 +1,6 @@
 #!/bin/bash
 
+CDS2GFF3_KEEP_TEMPORARY_FILES=${CDS2GFF3_KEEP_TEMPORARY_FILES:-no}
 VERSION_PEGI3S_SPLIGN_COMPART=${VERSION_PEGI3S_SPLIGN_COMPART:-latest}
 
 tmp_dir=$1 # the temporary working dir where all the action takes place.
@@ -93,4 +94,7 @@ while read line1; do
 	fi
 done < gff3_tmp2
 sed -i 's/ /\t/g; s/##gff-version\t3/##gff-version 3/g' gff3
-rm gff3_tmp1 gff3_tmp2 gff3_tmp3
+
+if [ "${CDS2GFF3_KEEP_TEMPORARY_FILES}" == "no" ]; then
+	rm gff3_tmp1 gff3_tmp2 gff3_tmp3
+fi

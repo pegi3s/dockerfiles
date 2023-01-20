@@ -1,5 +1,6 @@
 #!/bin/bash
 
+CDS2GFF3_KEEP_TEMPORARY_FILES=${CDS2GFF3_KEEP_TEMPORARY_FILES:-no}
 VERSION_PEGI3S_UTILITIES=${VERSION_PEGI3S_UTILITIES:-latest}
 
 set -o errexit
@@ -51,4 +52,6 @@ done < ${TMP_DIR}/cds_without_line_breaks
 
 mv ${TMP_DIR}/gff3 ${OUTPUT}
 
-rm -rf ${TMP_DIR}
+if [ "${CDS2GFF3_KEEP_TEMPORARY_FILES}" == "no" ]; then
+	rm -rf ${TMP_DIR}
+fi
