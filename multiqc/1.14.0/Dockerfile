@@ -26,4 +26,4 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update -y && \
 	apt-get install -y python3 python3-pip
 
-RUN pip install multiqc
+RUN pip install multiqc==1.14

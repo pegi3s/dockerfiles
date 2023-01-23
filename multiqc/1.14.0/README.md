@@ -9,7 +9,7 @@ You should adapt and run the following command: `docker run --rm -it -v /your/da
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input files or directories you want to analyze with the python script to be executed.
-- `script.R` to the actual name of your script using MultiQC (i.e. containing `import multiqc`).
+- `/data/script.py` to the actual name of your script using MultiQC (i.e. containing `import multiqc`).
 
 # Using the MultiQC image in Windows
 
