@@ -23,4 +23,6 @@ RUN chmod u+x /opt/scripts/*
 
 ENV PATH="/opt/scripts/:${PATH}"
 
+ENV TERM=xterm-256color
+
 ENTRYPOINT ["cds2gff3-maker"]

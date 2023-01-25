@@ -6,11 +6,11 @@ VERSION_PEGI3S_UTILITIES=${VERSION_PEGI3S_UTILITIES:-latest}
 set -o errexit
 
 display_usage() {
-	echo -e "This script generates a GFF3 file from a FASTA file containing CDS and a genome FASTA file."
+	echo -e "This script generates a GFF3 file from a FASTA file containing CDS (one or more sequences) and a genome FASTA file."
 	echo -e "\nUsage:"
 	echo -e "\t`basename $0` <input_cds> <input_genome> <output_gff3> [--give-all]"
 	echo -e "\nWhere:"
-	echo -e "\t--give-all: optional flag to force obtaining all annotations"
+	echo -e "\t--give-all: optional flag to force obtaining all annotations (be careful, this option is mainly for exploratory purposes)"
 }
 
 if [[ $1 == "--help" ]]; then
@@ -69,7 +69,9 @@ while read header; do
 	cds2gff3 ${TMP_DIR} ${GIVE_ALL}
 done < ${TMP_DIR}/cds_without_line_breaks
 
-mv ${TMP_DIR}/gff3 ${OUTPUT}
+put_headers_back ${TMP_DIR}/gff3 ${TMP_DIR}/genome.old.headers_map
+
+mv ${TMP_DIR}/gff3.renamed ${OUTPUT}
 
 if [ "${CDS2GFF3_KEEP_TEMPORARY_FILES}" == "no" ]; then
 	rm -rf ${TMP_DIR}

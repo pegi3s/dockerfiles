@@ -1,0 +1,20 @@
+#!/bin/bash
+
+GFF3=${1}
+MAP=${2}
+
+while IFS= read -r line || [ -n "$line" ]; do
+  if [[ $line = \Genome_Sequence_* ]] ; then
+    line_regex=$(echo -e "$line" | cut -d$'\t' -f1 | sed 's/\[/\\[/g; s/\]/\\]/g; s#(#\\(#; s#)#\\)#; s#>##')
+    rest_of_gff3_line=$(echo -e "$line" | cut -d$'\t' -f2-)
+    original_header=$(cat $MAP | sed 's/>//g' | grep -P "^${line_regex}\t" | cut -f2)
+    if [ -z "$original_header" ]
+    then
+      echo "$line" >> "${GFF3}.renamed"
+    else
+      echo -e "$original_header\t$rest_of_gff3_line" >> "${GFF3}.renamed"
+    fi
+  else
+    echo "$line" >> "${GFF3}.renamed"
+  fi
+done < "${GFF3}"
