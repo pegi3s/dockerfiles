@@ -41,7 +41,16 @@ fi
 TMP_DIR=$(mktemp -d /tmp/cds2gff3-maker.XXXXXX)
 
 echo "##gff-version 3" > ${TMP_DIR}/gff3
-cp ${GENOME} ${TMP_DIR}/genome
+cp ${GENOME} ${TMP_DIR}/genome.old
+
+docker run --rm \
+	-v /var/run/docker.sock:/var/run/docker.sock \
+	-v ${TMP_DIR}:/data pegi3s/utilities:${VERSION_PEGI3S_UTILITIES} \
+		fasta_replace_and_save_headers /data/genome.old /data/ -p=Genome_Sequence_
+
+mv ${TMP_DIR}/genome.old.renamed ${TMP_DIR}/genome
+rm ${TMP_DIR}/genome.old
+
 cp ${CDS} ${TMP_DIR}/cds
 
 docker run --rm \
@@ -52,7 +61,7 @@ docker run --rm \
 while read header; do
 	read seq
 	rm -f ${TMP_DIR}/input
-	echo "$header" > ${TMP_DIR}/input
+	echo "$header" | sed 's/|/ /g' > ${TMP_DIR}/input
 	echo $seq >> ${TMP_DIR}/input
 	gene_name=$(head -1 ${TMP_DIR}/input | sed 's/>//g' | cut -f1 -d' ')
 
