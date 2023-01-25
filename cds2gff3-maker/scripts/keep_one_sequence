@@ -1,0 +1,38 @@
+#!/bin/bash
+
+HEAD_SEQ=$(cat $1 | grep -v '#' | head -1)
+SYMBOL=$(echo ${HEAD_SEQ:0:1})
+cat $1 | grep "^${SYMBOL}" > /tmp/$1.filtered
+OUTPUT=$2
+touch ${OUTPUT}
+
+LAST=0
+while IFS= read -r line; do
+  CURRENT=$(echo "$line" | cut -d$'\t' -f 9)
+  if [[ $LAST -eq 0 ]]; then
+    LAST=${CURRENT}
+    echo "$line" >> ${OUTPUT}
+  else
+    if [[ "${SYMBOL}" == "+" ]]; then
+        if [[ ${CURRENT} -gt ${LAST} ]]; then
+            LAST=${CURRENT}
+            echo "$line" >> ${OUTPUT}
+        else
+            break
+        fi
+    elif  [[ "${SYMBOL}" == "-" ]]; then
+        if [[ ${CURRENT} -lt ${LAST} ]]; then
+            LAST=${CURRENT}
+            echo "$line" >> ${OUTPUT}
+        else
+            break
+        fi
+    fi
+  fi
+done < /tmp/$1.filtered
+
+if [ -s ${OUTPUT} ]; then
+  echo "#END" >> ${OUTPUT}
+fi
+
+rm /tmp/$1.filtered
