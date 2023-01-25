@@ -4,7 +4,7 @@ CDS2GFF3_KEEP_TEMPORARY_FILES=${CDS2GFF3_KEEP_TEMPORARY_FILES:-no}
 VERSION_PEGI3S_SPLIGN_COMPART=${VERSION_PEGI3S_SPLIGN_COMPART:-latest}
 
 tmp_dir=$1 # the temporary working dir where all the action takes place.
-force=$2
+give_all=$2
 
 cds=input
 genome=genome
@@ -20,7 +20,7 @@ rm $genome.nhr $genome.nin $genome.nog $genome.nsq $genome.nsd $genome.nsi
 rm $cds.nhr $cds.nin $cds.nog $cds.nsq $cds.nsd $cds.nsi cdna.compartments
 rm -r _SplignLDS_
 
-if [ "${force}" == "yes" ]; then
+if [ "${give_all}" == "no" ]; then
 	mv gff3_tmp1 gff3_tmp1.splign-compart
 	keep_one_sequence gff3_tmp1.splign-compart gff3_tmp1
 fi

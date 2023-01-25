@@ -8,9 +8,9 @@ set -o errexit
 display_usage() {
 	echo -e "This script generates a GFF3 file from a FASTA file containing CDS and a genome FASTA file."
 	echo -e "\nUsage:"
-	echo -e "\t`basename $0` <input_cds> <input_genome> <output_gff3> [--force1]"
+	echo -e "\t`basename $0` <input_cds> <input_genome> <output_gff3> [--give-all]"
 	echo -e "\nWhere:"
-	echo -e "\t--force1: optional flag to force only one annotation"
+	echo -e "\t--give-all: optional flag to force obtaining all annotations"
 }
 
 if [[ $1 == "--help" ]]; then
@@ -29,10 +29,10 @@ fi
 CDS=$1
 GENOME=$2
 OUTPUT=$3
-FORCE="no"
+GIVE_ALL="no"
 if [ $# -eq 4 ]; then
-	if [ "$4" == "--force1" ]; then
-		FORCE="yes"
+	if [ "$4" == "--give-all" ]; then
+		GIVE_ALL="yes"
 	else
 		echo -e "Warning. Ignoring unknown option $4"
 	fi
@@ -57,7 +57,7 @@ while read header; do
 	gene_name=$(head -1 ${TMP_DIR}/input | sed 's/>//g' | cut -f1 -d' ')
 
 	echo "Running cds2gff3-maker for" $gene_name
-	cds2gff3 ${TMP_DIR} ${FORCE}
+	cds2gff3 ${TMP_DIR} ${GIVE_ALL}
 done < ${TMP_DIR}/cds_without_line_breaks
 
 mv ${TMP_DIR}/gff3 ${OUTPUT}
