@@ -21,4 +21,5 @@ FROM pegi3s/r_data-analysis:${R_DATA_ANALYSIS_VERSION}
 
 RUN R -e "install.packages('igraph')"  && \
     R -e "install.packages('networkD3')"  && \
-    R -e "install.packages('htmlwidgets')"
+    R -e "install.packages('htmlwidgets')" && \
+    R -e "install.packages('pandoc')"
