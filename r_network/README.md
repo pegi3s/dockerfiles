@@ -21,6 +21,8 @@ This image facilitates the usage of [R Project](https://www.r-project.org/) with
 - [igraph](https://cran.r-project.org/web/packages/igraph/index.html) version 1.3.5
 - [networkD3](https://cran.r-project.org/web/packages/networkD3/index.html) version 0.4
 - [htmlwidgets](https://cran.r-project.org/web/packages/htmlwidgets/index.html) version 1.6.1
+- [pandoc](https://cran.r-project.org/web/packages/pandoc/index.html) version 0.1.0
+- [pandoc](https://pandoc.org/index.html) version 2.5-3build2
 
 # Using the R Project image in Linux
 

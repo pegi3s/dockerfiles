@@ -19,6 +19,9 @@ ARG R_DATA_ANALYSIS_VERSION
 
 FROM pegi3s/r_data-analysis:${R_DATA_ANALYSIS_VERSION}
 
+RUN apt-get -qq update && apt-get -y upgrade && \
+    apt-get install -y pandoc
+
 RUN R -e "install.packages('igraph')"  && \
     R -e "install.packages('networkD3')"  && \
     R -e "install.packages('htmlwidgets')" && \
