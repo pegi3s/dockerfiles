@@ -3,6 +3,11 @@
 
 This image allows the usage of the [DESeq2](http://www.bioconductor.org/packages/release/bioc/html/DESeq2.html) Bioconductor package, a software tool for differential gene expression analysis based on the negative binomial distribution.
 
+The image includes the following packages:
+- [DESeq2](http://www.bioconductor.org/packages/release/bioc/html/DESeq2.html) version 1.32.0.
+- [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html) version 1.1.0.
+- [stringr](https://cran.r-project.org/web/packages/stringr/index.html) version 1.5.0.
+
 # Using the R Project image in Linux
 
 You should adapt and run the following command: `docker run --rm -it -v /your/data/dir:/data pegi3s/r_deseq2 Rscript /data/script.R`

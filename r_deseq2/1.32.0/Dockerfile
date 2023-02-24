@@ -17,14 +17,17 @@
 
 FROM pegi3s/r_project:4.1.1
 
-RUN apt-get install -y gfortran libblas-dev liblapack-dev && \
-    apt install -y libxml2-dev  && \
-    R -e "install.packages('XML')"  && \
-    apt install -y libcurl4-openssl-dev  && \
-    R -e "install.packages('RCurl')"  && \
+RUN apt-get update -y && \
+    apt-get install -y gfortran libblas-dev liblapack-dev && \
+    apt install -y libxml2-dev && \
+    R -e "install.packages('XML')" && \
+    apt install -y libcurl4-openssl-dev && \
+    R -e "install.packages('RCurl')" && \
     apt install -y libssl-dev  && \
-    R -e "install.packages('httr')"  && \
+    R -e "install.packages('httr')" && \
     apt install -y libpng-dev  && \
-    R -e "install.packages('png')"
+    R -e "install.packages('png')" && \
+    R -e "install.packages('stringr')"  && \
+    R -e "install.packages('dplyr')"
 
 RUN R -e "install.packages('BiocManager'); library('BiocManager'); BiocManager::install('DESeq2')"
