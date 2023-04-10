@@ -31,4 +31,5 @@ RUN R -e "install.packages('dplyr')"  && \
     R -e "install.packages('openxlsx')"  && \
     R -e "install.packages('tidytext')" && \
     R -e "install.packages('gplots')"  && \
-    R -e "install.packages('dendextend')"
+    R -e "install.packages('dendextend')" && \
+    R -e "install.packages('amap')"
