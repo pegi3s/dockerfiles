@@ -1,0 +1,79 @@
+#!/bin/bash
+
+pdb=$1
+file_name=$2
+background=$3
+
+echo "Processing..."
+mkdir ./tmp
+
+#check
+cut -f2-3 -d' ' $file_name > ./tmp/pss.tmp
+cat $background ./tmp/pss.tmp | cut -f2 -d' ' > ./tmp/pre-check && rm ./tmp/pss.tmp
+while read check; do
+	if [ "$check" -ge "100" ] || [ "$check" -lt "0" ]; then
+		echo "B factor values must vary between 0 and 99" && rm -r ./tmp && exit 
+	fi
+done < ./tmp/pre-check
+
+#create the needed files for easy processing
+grep "ATOM  " $pdb > ./tmp/naked_pdb
+sed -i 's/.\{22\}/& /' ./tmp/naked_pdb
+cat ./tmp/naked_pdb | cut -c22 | sort -u  | sed '/^$/d' | sed '/^ *$/d' > ./tmp/chain_list
+while read chain; do
+	awk -v chain=$chain '{ if ($5 == chain) print $0 }' ./tmp/naked_pdb > ./tmp/parsed.$chain
+	cut -c1-22,24- ./tmp/parsed.$chain > ./tmp/tmp.$chain
+	cut -c1-22 ./tmp/tmp.$chain > ./tmp/tmp.$chain.part1
+	cut -c23-26 ./tmp/tmp.$chain > ./tmp/tmp.$chain.part2
+	cut -c27-60 ./tmp/tmp.$chain > ./tmp/tmp.$chain.part3
+	cut -c61-66 ./tmp/tmp.$chain > ./tmp/tmp.$chain.part4
+	cut -c67-80 ./tmp/tmp.$chain > ./tmp/tmp.$chain.part5
+	if [ -f "$background" ]; then
+   		background_color=$(grep $chain $background | cut -f2 -d' ' | cut -f1 -d'.')
+   		if [ "$background_color" == "" ]; then
+   			echo "Please specify a background color for every chain" && exit
+   		fi
+   		if [ "$background_color" -ge "10" ]; then
+ 			sed -i -E "s/[ ,0-9][ ,0-9][ ,0-9]\.[0-9][0-9]$/ $background_color".00"/g"  ./tmp/tmp.$chain.part4
+ 			b_color=$background_color
+ 		fi
+ 		if [ "$background_color" -lt "10" ]; then
+ 			sed -i -E "s/[ ,0-9][ ,0-9][ ,0-9]\.[0-9][0-9]$/  $background_color".00"/g"  ./tmp/tmp.$chain.part4
+ 			b_color=$background_color
+ 		fi
+	else 
+    		sed -i -E "s/[ ,0-9][ ,0-9][ ,0-9]\.[0-9][0-9]$/  0\.00/g"  ./tmp/tmp.$chain.part4
+    		b_color="0"
+	fi
+	grep $chain $file_name > ./tmp/PSS.$chain
+	sed -i "s/\r//g" ./tmp/PSS.$chain
+	paste  ./tmp/tmp.$chain.part4 ./tmp/tmp.$chain.part2 > ./tmp/tmp1.$chain	
+	while read chain1 number color; do # allocates colors between 1-99
+		if [ $color -ge "10" ] && [ $b_color -ge "10" ]; then
+			sed -i " /[\t, ]$number$/ s/ $b_color\.00/ $color\.00/g" ./tmp/tmp1.$chain1
+		elif [ $color -lt "10" ] && [ $b_color -lt "10" ]; then
+			sed -i " /[\t, ]$number$/ s/  $b_color\.00/  $color\.00/g" ./tmp/tmp1.$chain1
+		elif [ $color -lt "10" ] && [ $b_color -ge "10" ]; then
+			sed -i " /[\t, ]$number$/ s/ $b_color\.00/  $color\.00/g" ./tmp/tmp1.$chain1
+		elif [ $color -ge "10" ] && [ $b_color -lt "10" ]; then
+			sed -i " /[\t, ]$number$/ s/  $b_color\.00/ $color\.00/g" ./tmp/tmp1.$chain1
+		fi
+	done < ./tmp/PSS.$chain
+	cut -c1-6  ./tmp/tmp1.$chain >  ./tmp/tmp2.$chain
+	paste ./tmp/tmp.$chain.part1 ./tmp/tmp.$chain.part2  ./tmp/tmp.$chain.part3  ./tmp/tmp2.$chain ./tmp/tmp.$chain.part5 > ./tmp/marked.$chain
+	sed -i "s/\t//g" ./tmp/marked.$chain
+done < ./tmp/chain_list
+
+#put everything back together
+while read chain; do
+	touch ./tmp/chained
+	cat ./tmp/chained ./tmp/marked.$chain > ./tmp/tmp_chained
+	rm ./tmp/chained && mv ./tmp/tmp_chained ./tmp/chained
+done <  ./tmp/chain_list
+echo "TER" >>  ./tmp/chained
+echo "" >>  ./tmp/chained
+pdb_name=$(echo $pdb | sed 's/\/data\///g')
+mv  ./tmp/chained /data/mapped.$pdb_name
+rm ./tmp/tmp* ./tmp/chain_list  ./tmp/naked_pdb ./tmp/marked.* ./tmp/parsed.* ./tmp/PSS.*
+rm -r ./tmp
+
