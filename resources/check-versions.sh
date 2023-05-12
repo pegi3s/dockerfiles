@@ -16,7 +16,7 @@ echo -n "Checking BLAST ..."
 
 LATEST_BLAST=$(wget -q ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/VERSION -O-)
 
-ls blast | grep -q ${LATEST_BLAST}
+grep -q ${LATEST_BLAST} blast/*/BUILD.md
 
 if [ $? == 1 ]; then
     echo " new version available: ${LATEST_BLAST}"
