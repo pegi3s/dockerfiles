@@ -23,3 +23,15 @@ if [ $? == 1 ]; then
 else
     echo " up-to-date"
 fi
+
+echo -n "Checking fastqc ..."
+
+LATEST_FASTQC=$(wget -q https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc -O- | grep 'fastqc_v' | grep 'zip' | sed 's/.*fastqc_v//g; s/.zip.*//')
+
+docker run --rm pegi3s/utilities dockerhub_list_repo_with_tags pegi3s/fastqc | grep -q "${LATEST_FASTQC}"
+
+if [ $? == 1 ]; then
+    echo " new version available: ${LATEST_FASTQC}"
+else
+    echo " up-to-date"
+fi
