@@ -35,3 +35,15 @@ if [ $? == 1 ]; then
 else
     echo " up-to-date"
 fi
+
+echo -n "Checking sratoolkit ..."
+
+LATEST_SRATOOLKIT=$(wget -q https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current/sratoolkit.current.version -O-)
+
+docker run --rm pegi3s/utilities dockerhub_list_repo_with_tags pegi3s/sratoolkit | grep -q "${LATEST_SRATOOLKIT}"
+
+if [ $? == 1 ]; then
+    echo " new version available: ${LATEST_SRATOOLKIT}"
+else
+    echo " up-to-date"
+fi
