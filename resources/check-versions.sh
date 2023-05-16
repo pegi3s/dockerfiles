@@ -47,3 +47,15 @@ if [ $? == 1 ]; then
 else
     echo " up-to-date"
 fi
+
+echo -n "Checking bedtools ..."
+
+LATEST_BEDTOOLS=$(curl -L https://api.github.com/repos/arq5x/bedtools2/releases | jq '.[]."tag_name"' -r | sort -r | head -1 | sed 's/^v//')
+
+docker run --rm pegi3s/utilities dockerhub_list_repo_with_tags pegi3s/bedtools | grep -q "${LATEST_BEDTOOLS}"
+
+if [ $? == 1 ]; then
+    echo " new version available: ${LATEST_BEDTOOLS}"
+else
+    echo " up-to-date"
+fi
