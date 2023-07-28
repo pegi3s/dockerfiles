@@ -1,0 +1,31 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build docker",
+            "type": "shell",
+            "command": "CURRENT_VERSION=$(cat current.version) && docker build ./ -t pegi3s/id-mapping:${CURRENT_VERSION} --build-arg version=${CURRENT_VERSION} && docker tag pegi3s/id-mapping:${CURRENT_VERSION} pegi3s/id-mapping:latest",
+            "problemMatcher": []
+        },
+        {
+            "label": "id-mapping 1 [without cache]",
+            "type": "shell",
+            "command": "rm -f test.tsv && docker run --rm -v $(pwd):/data -w /data pegi3s/id-mapping map-ids --from-db UniProtKB_AC-ID --to-db Gene_Name --input test_data/ids.txt --batch-size 2 --output test.tsv && bat test.tsv",
+            "problemMatcher": []
+        },
+        {
+            "label": "id-mapping 2 [with cache]",
+            "type": "shell",
+            "command": "rm -f test.tsv && docker run --rm -v $(pwd):/data -w /data pegi3s/id-mapping map-ids --from-db UniProtKB_AC-ID --to-db Gene_Name --input test_data/ids.txt --batch-size 2 --output test.tsv --cache-dir tmp_cache && bat test.tsv",
+            "problemMatcher": []
+        },
+        {
+            "label": "list-from-dbs",
+            "type": "shell",
+            "command": "docker run --rm pegi3s/id-mapping list-from-dbs",
+            "problemMatcher": []
+        }
+    ]
+}

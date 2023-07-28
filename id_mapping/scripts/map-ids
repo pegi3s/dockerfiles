@@ -1,0 +1,129 @@
+#!/usr/bin/python3
+
+import os
+import argparse
+import time
+from unipressed.id_mapping.types import From, To
+from unipressed import IdMappingClient
+from typing import get_args
+
+
+def validate_db(db_str, valid_dbs, db_type):
+    if not db_str in get_args(valid_dbs):
+        print(
+            f'Error: The specified {db_type} database is not valid. It must be one of: {get_args(valid_dbs)}')
+        exit(1)
+
+
+def map_ids_unipressed(from_db, to_db, ids):
+    request = IdMappingClient.submit(source=from_db, dest=to_db, ids=ids)
+
+    while request.get_status() != "FINISHED":
+        time.sleep(1)
+
+    return list(request.each_result())
+
+
+def load_input(input_file):
+    if input_file and os.path.isfile(input_file) and os.access(input_file, os.R_OK):
+        with open(input_file, "r") as f:
+            return [line.strip() for line in f.readlines()]
+    else:
+        print("Error: The input file is missing or not readable.")
+        exit(1)
+
+
+def load_cache_and_subset_ids(cache_dir, from_db, to_db, source_ids):
+    cached_data = {}
+    source_ids_not_cached = source_ids
+
+    if cache_dir and os.path.isdir(cache_dir) and os.access(cache_dir, os.R_OK):
+        cache_file = os.path.join(cache_dir, f"cache_{from_db}_{to_db}.tsv")
+        if os.path.isfile(cache_file) and os.access(cache_file, os.R_OK):
+            with open(cache_file, "r") as f:
+                for line in f:
+                    key, value = line.strip().split("\t")
+                    cached_data[key] = value
+            print(f"Loaded data from cache. Size: {len(cached_data)}")
+
+            source_ids_not_cached = [item for item in source_ids if item not in cached_data]
+
+    return source_ids_not_cached, cached_data
+
+
+def map_ids(ids, from_db, to_db, batch_size, delay):
+    total_items = len(ids)
+    num_batches = (total_items + batch_size - 1) // batch_size
+
+    mapped_ids = []
+    for i in range(num_batches):
+        start_idx = i * batch_size
+        end_idx = min(start_idx + batch_size, total_items)
+        batch_data = ids[start_idx:end_idx]
+
+        print(f"Mapping batch {i+1}")
+        mapped_ids.extend(map_ids_unipressed(from_db, to_db, batch_data))
+
+        time.sleep(delay)
+
+    mapped_ids_dict = {}
+    for mapping in mapped_ids:
+        mapped_ids_dict[mapping['from']] = mapping['to']
+
+    return mapped_ids_dict
+
+
+def write_mapped_ids(output_file, source_ids, mapped_ids_dict, cached_data):
+    with open(output_file, "w") as output:
+        for source_id in source_ids:
+            if source_id in cached_data:
+                output.write(f"{source_id}\t{cached_data[source_id]}\n")
+            elif source_id in mapped_ids_dict:
+                output.write(f"{source_id}\t{mapped_ids_dict[source_id]}\n")
+            else:
+                output.write(f"{source_id}\t-\n")
+
+
+def save_cache(cache_dir, from_db, to_db, mapped_ids_dict):
+    os.makedirs(cache_dir, exist_ok=True)
+    if cache_dir and os.path.isdir(cache_dir) and os.access(cache_dir, os.R_OK):
+        cache_file = os.path.join(cache_dir, f"cache_{from_db}_{to_db}.tsv")
+        cached_data = {}
+        with open(cache_file, "a") as cache_file:
+            for key in mapped_ids_dict:
+                cache_file.write(f"{key}\t{mapped_ids_dict[key]}\n")
+
+
+def main(from_db, to_db, input_file, output_file, batch_size=10, delay=1, cache_dir=""):
+    validate_db(from_db, From, 'from')
+    validate_db(to_db, To, 'to')
+
+    print(f"Mapping IDs from '{from_db}' to '{to_db}' in batches of {batch_size} with a delay of {delay} second(s).")
+    print(f"Cache directory: '{cache_dir}'")
+    print(f"Input file: '{input_file}'")
+    print(f"Output file: '{output_file}'\n")
+
+    source_ids = load_input(input_file)
+    source_ids_not_cached, cached_data = load_cache_and_subset_ids(cache_dir, from_db, to_db, source_ids)
+    mapped_ids_dict = map_ids(source_ids_not_cached, from_db, to_db, batch_size, delay)
+    write_mapped_ids(output_file, source_ids, mapped_ids_dict, cached_data)
+
+    if cache_dir:
+        save_cache(cache_dir, from_db, to_db, mapped_ids_dict)
+
+
+if __name__ == "__main__":
+    print('Script version:', os.getenv('VERSION', 'NA'))
+    parser = argparse.ArgumentParser(description="Converts identifiers using the UniProt ID mapping server.")
+
+    parser.add_argument("--from-db", type=str, help="Source database.", required=True)
+    parser.add_argument("--to-db", type=str, help="Destination database.", required=True)
+    parser.add_argument("--input", type=str, help="Path to the input data file with the source IDs to be converted (one per line).", required=True)
+    parser.add_argument("--output", type=str, help="Path to the output file.", required=True)
+
+    parser.add_argument("--batch-size", type=int, default=10, help="Batch size for querying IDs to the UniProt server.")
+    parser.add_argument("--delay", type=int, default=1, help="Delay in seconds between batches.")
+    parser.add_argument("--cache-dir", type=str, default="", help="Cache directory.")
+
+    args = parser.parse_args()
+    main(args.from_db, args.to_db, args.input, args.output, args.batch_size, args.delay, args.cache_dir)

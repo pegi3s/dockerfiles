@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+
+from unipressed.id_mapping.types import From
+from typing import get_args
+
+for db in get_args(From):
+    print(db)
