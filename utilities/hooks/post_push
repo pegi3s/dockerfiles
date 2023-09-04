@@ -1,0 +1,13 @@
+#!/bin/bash
+
+BUILD_DIR=$(dirname ${DOCKERFILE_PATH})
+
+if [ ! -f ${BUILD_DIR}/current.version ]; then 
+    echo "current.version file not found."
+    exit 1
+else
+    VERSION=$(cat ${BUILD_DIR}/current.version)
+    echo "Tagging and pushing ${VERSION}"
+    docker tag ${IMAGE_NAME} ${DOCKER_REPO}:${VERSION}
+    docker push ${DOCKER_REPO}:${VERSION}
+fi

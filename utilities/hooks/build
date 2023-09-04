@@ -1,0 +1,12 @@
+#!/bin/bash
+
+BUILD_DIR=$(dirname ${DOCKERFILE_PATH})
+
+if [ ! -f ${BUILD_DIR}/current.version ]; then 
+    echo "current.version file not found."
+    exit 1
+else
+    VERSION=$(cat ${BUILD_DIR}/current.version)
+    echo "Building ${VERSION}"
+    docker build -f ${DOCKERFILE_PATH} --build-arg utilities_version=${VERSION} -t ${IMAGE_NAME} .
+fi
