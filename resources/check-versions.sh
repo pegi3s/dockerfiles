@@ -4,7 +4,7 @@ echo -n "Checking seqkit ..."
 
 LATEST_SEQKIT=$(curl -s -H "Accept: application/vnd.github+json" https://api.github.com/repos/shenwei356/seqkit/releases | jq '.[]."tag_name"' -r | sort -r | head -1 | sed 's/^v//')
 
-grep -q ${LATEST_SEQKIT} seqkit/*/BUILD.md
+docker run --rm pegi3s/utilities dockerhub_list_repo_with_tags pegi3s/seqkit | grep -q "${LATEST_SEQKIT}"
 
 if [ $? == 1 ]; then
     echo " new version available: ${LATEST_SEQKIT}"
@@ -16,7 +16,7 @@ echo -n "Checking BLAST ..."
 
 LATEST_BLAST=$(wget -q ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/VERSION -O-)
 
-grep -q ${LATEST_BLAST} blast/*/BUILD.md
+docker run --rm pegi3s/utilities dockerhub_list_repo_with_tags pegi3s/blast | grep -q "${LATEST_BLAST}"
 
 if [ $? == 1 ]; then
     echo " new version available: ${LATEST_BLAST}"
@@ -50,7 +50,7 @@ fi
 
 echo -n "Checking bedtools ..."
 
-LATEST_BEDTOOLS=$(curl -L https://api.github.com/repos/arq5x/bedtools2/releases | jq '.[]."tag_name"' -r | sort -r | head -1 | sed 's/^v//')
+LATEST_BEDTOOLS=$(curl -s -L https://api.github.com/repos/arq5x/bedtools2/releases | jq '.[]."tag_name"' -r | sort -r | head -1 | sed 's/^v//')
 
 docker run --rm pegi3s/utilities dockerhub_list_repo_with_tags pegi3s/bedtools | grep -q "${LATEST_BEDTOOLS}"
 
