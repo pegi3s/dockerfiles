@@ -1,0 +1,138 @@
+#!/bin/bash
+
+#### supported methods are: scriber ispred4 sppider cons_ppisp meta_ppisp predictprotein psiver csm_potential scannet whiscy predus2 ####
+
+if [  $1 -gt "0" ]; then
+	echo "Number of retries is "$1
+	sed -i "s/NUM_RETRIES = 12/NUM_RETRIES = $1/g"  /opt/cport/src/cport/modules/*.py
+	sed -i "s/NUM_RETRIES = 24/NUM_RETRIES = $1/g"  /opt/cport/src/cport/modules/*.py
+	sed -i "s/NUM_RETRIES = 36/NUM_RETRIES = $1/g"  /opt/cport/src/cport/modules/*.py
+	sed -i "s/NUM_RETRIES = 300/NUM_RETRIES = $1/g"  /opt/cport/src/cport/modules/*.py
+fi
+
+. /data/config
+
+cd /opt
+ls /data/$input_dir > /opt/list
+while read name; do
+	. /data/config
+	grep "^ATOM" /data/$input_dir/$name > /opt/tmp0
+	protein_size=$(tail -1 /opt/tmp0 | cut -c 23-26 | sed 's/ //g')
+	for single_method in $method
+	do
+		touch /opt/$name.result
+		cport /opt/tmp0 $chain --pred $single_method && cp /opt/cport_*.csv /opt/tmp1 
+
+		mkdir -p /data/Results/$name/$single_method && cp  /opt/cport_*.csv /data/Results/$name/$single_method && mv /data/Results/$name/$single_method/cport_tmp0.csv /data/Results/$name/$single_method/cport.$name.csv
+		cat /opt/$name.result /opt/tmp1 > /opt/tmp2 && rm /opt/$name.result && mv /opt/tmp2 /opt/$name.result && rm /opt/tmp1
+		rm /opt/cport_*.csv
+	done
+	position=1
+	while [ $position -le $protein_size ]
+	do
+		sed -i "s/$/\,\-/g" /opt/$name.result
+		position=$(( $position +1 ))
+	done
+	ct=$(( $protein_size + 1 ))
+	cut -f1-$ct -d',' /opt/$name.result > /opt/$name.result_a && rm /opt/$name.result && mv /opt/$name.result_a /opt/$name.result
+	rm  /opt/tmp0
+	position=1
+	while [ $position -le $protein_size ];
+	do
+		echo $position >> /opt/position
+		position=$(( $position +1 ))
+	done
+	header=$(cat /opt/position | tr '\n' ',')
+	echo "Position,"$header >> /opt/$name.final_result_position
+	while read line1; do
+		read line2
+		
+		b=1
+		a=$(echo $line1 | cut -f2 -d',')
+		while [  $a -gt $b ]; do
+			c=$(echo $c"-,")
+			d=$(echo $line2 | cut -f2- -d',')
+			e=$(echo $line2 | cut -f1 -d',')
+			b=$(( b + 1 ))
+		done 
+		line2mod=$(echo $e","$c$d)
+		if [  $a -eq "1" ]; then
+			line2=$line2
+		else
+			line2=$line2mod
+		fi
+		a=1; b=1; c=""; d=""; e=""
+		
+		echo $line2 >> /opt/$name.final_result
+	done < /opt/$name.result
+cut -f1-$ct -d',' /opt/$name.final_result > /opt/$name.final_result_a && cat /opt/$name.final_result_position /opt/$name.final_result_a > /data/Results/$name.final_result.csv && rm /opt/$name.final_result_position /opt/$name.final_result_a /opt/$name.final_result
+	touch /opt/$name.result.csv
+	rm /opt/$name.result.csv
+	cp /data/Results/$name.final_result.csv /opt/$name.final_result.csv
+	f=$(cat /opt/$name.final_result.csv | wc -l)
+	#transpose file
+	sed 's/\,/ /g'  /opt/$name.final_result.csv | awk '
+	{ 
+	    for (i=1; i<=NF; i++)  {
+	        a[NR,i] = $i
+	    }
+	}
+	NF>p { p = NF }
+	END {    
+	    for(j=1; j<=p; j++) {
+	        str=a[1,j]
+	        for(i=2; i<=NR; i++){
+	            str=str" "a[i,j];
+	        }
+	        print str
+	    }
+	}' >  /opt/tmp3
+
+	g=$(head -1 /opt/tmp3)
+	echo "Detected "$f"  columns with headers '"$g"'"
+	echo $g" score" > /opt/tmp4
+	sed -i 's/predictor/residue/g' /opt/tmp4
+	tail -n+2 /opt/tmp3 | sed 's/A/1/g; s/-/0/g; s/P/2/g' > /opt/tmp5
+	rm /opt/tmp3
+	sed -i 's/0\.50/0\.51/g' /opt/tmp5 # to force rounding 0,50 to 1 rather than to 0
+	cat /opt/tmp5 | awk '{for (i=1; i<=NF; i++) printf "%.0f%s", $i, (i==NF?RS:FS)}' >> /opt/tmp6 && rm /opt/tmp5
+	
+	while read line; do
+	
+		line1=$(echo $line | cut -f2- -d' ')
+	
+		active=$(echo $line1 | sed 's/ /\n/g' | grep -c '1')
+		passive=$(echo $line1 | sed 's/ /\n/g' | grep -c '2')
+		undetermined=$(echo $line1 | sed 's/ /\n/g' | grep -c '0')
+
+		if [  $active -gt $passive ] && [  $active -ge $undetermined ]; then
+			echo "1" >> /opt/tmp7
+		elif [  $passive -gt $active ] && [  $passive -ge $undetermined ]; then
+			echo "2" >> /opt/tmp7
+		else
+			echo "0" >> /opt/tmp7
+		fi
+	done < /opt/tmp6
+
+	paste -d " "  /opt/tmp6 /opt/tmp7 > /opt/tmp8
+	rm /opt/tmp6 /opt/tmp7
+	cat /opt/tmp4 /opt/tmp8 > /opt/tmp9 && rm /opt/tmp4 /opt/tmp8
+	sed -i 's/ /\,/g'  /opt/tmp9
+	mkdir -p /data/Active_and_passive/
+	mv /opt/tmp9 /data/Active_and_passive/$name.results.csv
+	grep '\,1$' /data/Active_and_passive/$name.results.csv | cut -f1 -d',' | tr "\n" "," | sed 's/\,$//g' > /data/Active_and_passive/$name.active_sites
+	grep '\,2$' /data/Active_and_passive/$name.results.csv | cut -f1 -d','|  tr "\n" "," | sed 's/\,$//g' > /data/Active_and_passive/$name.passive_sites
+	rm /opt/*
+done < /opt/list
+rm /opt/list
+
+
+
+
+
+
+
+
+
+
+
