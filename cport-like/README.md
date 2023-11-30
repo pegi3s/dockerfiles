@@ -24,10 +24,11 @@ The available methods are (according to the comments on cport github page on the
 
 Then you should adapt and run the following command:
 
-You should adapt and run the following command: `docker run -v /your/data/dir:/data pegi3s/cport-like bash -c "./batch"`
+You should adapt and run the following command: `docker run -v /your/data/dir:/data pegi3s/cport-like bash -c "./cport_batch retries"`
 
 In this command, you should replace:
 - `/your/data/dir`  to point to the directory that contains the config file and the folder with the input files you want to analyze.
+- `retries`  to the maximum number of times a response will try to be obtained from a server.
 
 # Test data
 To test the cport batch mode you can download files from [alphafold](https://alphafold.ebi.ac.uk/), for instance.
