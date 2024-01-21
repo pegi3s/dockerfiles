@@ -1,0 +1,17 @@
+#!/bin/bash
+if [ ! -f /data/uniprot_pdb.csv ]; then
+	wget -P /data https://ftp.ebi.ac.uk/pub/databases/msd/sifts/flatfiles/csv/uniprot_pdb.csv.gz
+	gunzip /data/uniprot_pdb.csv.gz
+fi
+while read name; do
+	grep $name /data/uniprot_pdb.csv > tmp1
+	sed -i "s/\;/\n/g" tmp1
+	sed -i "s/\,/\n/g" tmp1
+	tail -n+2 tmp1 > tmp2 && rm tmp1
+	while read acc; do
+		wget -P /opt https://files.rcsb.org/download/$acc.pdb
+		mv /opt/$acc.pdb /data/$name"-"$acc.pdb
+	done < tmp2
+done < /data/$1
+
+
