@@ -28,6 +28,5 @@ RUN unzip cport.zip
 RUN chmod -R 777 *
 WORKDIR /opt/cport
 RUN python3 setup.py develop
-RUN sed -i 's/mizuguchilab/psiver\.mizuguchilab/g' /opt/cport/src/cport/url.py
 WORKDIR /opt
 COPY cport_batch /opt
