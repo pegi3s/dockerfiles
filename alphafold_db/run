@@ -12,7 +12,7 @@ while IFS='' read -r uniprot_id
 do
 	printf -- "\033[0;32m Downloading $uniprot_id structure from AlphaFold... \033[0m \n"
 
-	current_url='https://alphafold.ebi.ac.uk/files/AF-'$uniprot_id'-F1-model_v1.pdb'
+	current_url='https://alphafold.ebi.ac.uk/files/AF-'$uniprot_id'-F1-model_v4.pdb'
 
 	mkdir -p "$OUTFOLDER"/"$uniprot_id"
 
