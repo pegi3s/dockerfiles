@@ -1,0 +1,113 @@
+#!/usr/bin/python3
+
+import os
+import json
+import time
+import click
+import requests
+from bs4 import BeautifulSoup
+
+CACHE_FILE = 'gene-id-to-uniprotkb.json'
+
+def write_tsv(results, output_file):
+    click.echo('GeneID\tUniProtKB', file=output_file)
+    for result in results:
+        click.echo(f'{result[0]}\t{result[1]}', file=output_file)
+
+def write_txt(results, output_file):
+    for result in results:
+        click.echo(result[1], file=output_file)
+
+def process_results(results, output_file, output_format):
+    if output_format == 'txt':
+        write_txt(results, output_file)
+    else:
+        write_tsv(results, output_file)
+
+def load_cache(cache_dir):
+    cache_file_path = os.path.join(cache_dir, CACHE_FILE)
+    if os.path.exists(cache_file_path):
+        with open(cache_file_path, 'r', encoding='utf-8') as cache_file:
+            return json.load(cache_file)
+    return {}
+
+def save_cache(cache, cache_dir):
+    cache_file_path = os.path.join(cache_dir, CACHE_FILE)
+    os.makedirs(cache_dir, exist_ok=True)
+    with open(cache_file_path, 'w', encoding='utf-8') as cache_file:
+        json.dump(cache, cache_file, indent=2)
+
+def query_gene_id(input_string, cache, quiet):
+    if input_string in cache:
+        return input_string, cache[input_string]
+
+    if not quiet:
+        click.echo(f'Querying NCBI {input_string}')
+
+    url = f'https://www.ncbi.nlm.nih.gov/gene/{input_string}/'
+    response = requests.get(url, timeout=360)
+
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, 'html.parser')
+        protein_tables = soup.find_all('table', {'id': 'proteinTblId'})
+
+        if len(protein_tables) >= 2:
+            protein_table = protein_tables[1]
+            protein_links = protein_table.find_all('a', href=True)
+
+            for link in protein_links:
+                if link['href'].startswith('https://www.uniprot.org/uniprot/'):
+                    uniprot_url = link['href']
+                    cache[input_string] = uniprot_url.replace('https://www.uniprot.org/uniprot/', '')
+
+                    return input_string, cache[input_string]
+
+        click.echo(f'Failed to parse {input_string} from NCBI ({url})')
+    elif not quiet:
+        click.echo(f'Failed to retrieve {input_string} from NCBI ({url}) ({response.status_code})')
+
+
+    return input_string, 'Not found'
+
+def process_version():
+    version = os.getenv('VERSION', None)
+    if version:
+        click.echo(f'Version {version}')
+
+@click.command()
+@click.argument('input_file', type=click.File('r'), metavar='INPUT_FILE')
+@click.argument('output_file', type=click.File('w'), metavar='OUTPUT_FILE')
+@click.option('-of', '--output-format', type=click.Choice(['txt', 'tsv']), default='tsv', metavar='FORMAT')
+@click.option('--ignore-missing', '-i', is_flag=True, help='Ignore missing results and continue processing.')
+@click.option('-c', '--cache-dir', type=click.Path(exists=False, file_okay=False, dir_okay=True), metavar='CACHE_DIR')
+@click.option('-d', '--delay', type=int, default=1, metavar='DELAY', help='Delay between consecutive query_gene_id calls in seconds.')
+@click.option('--quiet', '-q', is_flag=True, help='Do not output script logs to the console.')
+def process_file(input_file, output_file, output_format, ignore_missing, cache_dir, delay, quiet):
+    process_version()
+    results = []
+    cache = {}
+
+    if cache_dir:
+        cache = load_cache(cache_dir)
+
+    for line in input_file:
+        input_string = line.strip()
+
+        if not quiet:
+            click.echo(f'Mapping {input_string}')
+
+        result = query_gene_id(input_string, cache, quiet)
+        time.sleep(delay)
+
+        if result[1] == 'Not found' and ignore_missing:
+            continue
+
+        results.append(result)
+
+    process_results(results, output_file, output_format)
+
+    if cache_dir:
+        save_cache(cache, cache_dir)
+
+if __name__ == '__main__':
+    process_file()

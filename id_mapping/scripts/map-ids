@@ -111,9 +111,12 @@ def main(from_db, to_db, input_file, output_file, batch_size=10, delay=1, cache_
     if cache_dir:
         save_cache(cache_dir, from_db, to_db, mapped_ids_dict)
 
+def process_version():
+    version = os.getenv('VERSION', None)
+    if version:
+        print(f'Version {version}')
 
 if __name__ == "__main__":
-    print('Script version:', os.getenv('VERSION', 'NA'))
     parser = argparse.ArgumentParser(description="Converts identifiers using the UniProt ID mapping server.")
 
     parser.add_argument("--from-db", type=str, help="Source database.", required=True)

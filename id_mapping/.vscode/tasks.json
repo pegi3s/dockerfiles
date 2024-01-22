@@ -26,6 +26,42 @@
             "type": "shell",
             "command": "docker run --rm pegi3s/id-mapping list-from-dbs",
             "problemMatcher": []
+        },
+        {
+            "label": "gene-id-to-uniprotkb [tsv] [without cache]",
+            "type": "shell",
+            "command": "rm -f ${OUTPUT_FILE} && docker run --rm -v $(pwd):/data -w /data -v /tmp:/tmp pegi3s/id-mapping gene-id-to-uniprotkb test_data/gene_ids.txt ${OUTPUT_FILE} ${ARGS} && bat ${OUTPUT_FILE}",
+            "problemMatcher": [],
+            "options": {
+                "env": {
+                    "OUTPUT_FILE": "/tmp/output.tsv",
+                    "ARGS": "--ignore-missing"
+                }
+            }
+        },
+        {
+            "label": "gene-id-to-uniprotkb [txt] [without cache]",
+            "type": "shell",
+            "command": "rm -f ${OUTPUT_FILE} && docker run --rm -v $(pwd):/data -w /data -v /tmp:/tmp pegi3s/id-mapping gene-id-to-uniprotkb test_data/gene_ids.txt ${OUTPUT_FILE} ${ARGS} && bat ${OUTPUT_FILE}",
+            "problemMatcher": [],
+            "options": {
+                "env": {
+                    "OUTPUT_FILE": "/tmp/output.txt",
+                    "ARGS": "--output-format txt"
+                }
+            }
+        },
+        {
+            "label": "gene-id-to-uniprotkb [tsv] [with cache]",
+            "type": "shell",
+            "command": "docker run --rm -v $(pwd):/data -w /data -v /tmp:/tmp pegi3s/id-mapping gene-id-to-uniprotkb test_data/gene_ids.txt ${OUTPUT_FILE} ${ARGS} && bat ${OUTPUT_FILE}",
+            "problemMatcher": [],
+            "options": {
+                "env": {
+                    "OUTPUT_FILE": "/tmp/output.tsv",
+                    "ARGS": "--cache-dir /tmp/cache-gene-id-to-uniprotkb"
+                }
+            }
         }
     ]
 }

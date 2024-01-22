@@ -19,7 +19,7 @@ FROM ubuntu:22.04
 
 RUN apt-get update && \
     apt-get install -y python3-pip && \
-    pip install -Iv unipressed==1.2.0
+    pip install -Iv unipressed==1.2.0 beautifulsoup4==4.12.2 click==8.1.7 requests==2.31.0
 
 ARG version
 
