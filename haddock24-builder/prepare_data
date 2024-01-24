@@ -1,0 +1,85 @@
+# -*- coding: utf-8 -*-cat
+
+import os
+import shutil
+import subprocess
+import sys
+
+#try -> confirma se existe o ficheiro config, se não existir cria um para o user preencher.
+#Se exitir confirma se todos os ficheiros declarados estão no dir e se estiverem todos copia para opt
+
+
+values = {}
+try: #/data/config
+    with open('/data/haddock_config','r') as config:
+        lines = config.readlines()
+        for line in lines:
+            parts = line.strip().split('=')
+            key = parts[0].strip()
+            value = "=".join(parts[1:]).strip()
+            values[key] = value
+
+except IOError:
+    print("The haddock_config file does not exist.\nPlease fill in the config file that has just been created with the necessary information.\nThank you! ")
+    with open('/data/haddock_config','w') as new_config:
+        new_config.write('ACTIVE1=\n')
+        new_config.write('ACTIVE2=\n')
+        new_config.write('PASSIVE1=\n')
+        new_config.write('PASSIVE2=\n')
+        new_config.write('PDB1=\n')
+        new_config.write('PDB2=\n')
+        new_config.write('ALL_FILES=')
+
+
+files = []
+files.append(values['ACTIVE1'])
+files.append(values['ACTIVE2'])
+files.append(values['PASSIVE1'])
+files.append(values['PASSIVE2'])
+files.append(values['PDB1'])
+files.append(values['PDB2'])
+
+def check_files_in_directory(directory, file_names):
+    missing_files = []
+    for file_name in file_names:
+        file_path = os.path.join(directory, file_name)
+        if not os.path.isfile(file_path):
+            missing_files.append(file_name)
+    return missing_files
+
+   
+directory_path ='/data' 
+
+missing_files = check_files_in_directory(directory_path, files)
+
+if missing_files:
+    print("The following files are missing: {}".format(', '.join(missing_files)))
+    sys.exit(1) 
+else:
+    print("All files are present in the directory.")
+
+    def copy_files_with_new_names(source_dir, destination_dir, file_mappings):
+        for source_name, destination_name in file_mappings.items():
+            source_path = os.path.join(source_dir, source_name)
+            destination_path = os.path.join(destination_dir, destination_name)
+            try:
+                shutil.copy2(source_path, destination_path)
+            except Exception as e:
+                print("Error copying '{}': {}".format(source_name, e))
+        
+    source_dir ='/data' 
+    destination_dir ='/opt' 
+    protein = '/home/haddock/haddock2.4-2023-08/examples/protein-protein'
+    file_mappings = {
+        values['ACTIVE1']: 'active1',
+        values['ACTIVE2']: 'active2',
+        values['PASSIVE1']: 'passive1',
+        values['PASSIVE2']: 'passive2',
+        values['PDB1']: 'pre_pdb1.pdb',   ######pre_pdb
+        values['PDB2']: 'pre_pdb2.pdb'    ######pre_pdb
+        }
+        
+    copy_files_with_new_names(source_dir, protein, file_mappings)
+
+    # Criar restrains.tbl
+    subprocess.call(['python', '/home/haddock/haddock2.4-2023-08/examples/protein-protein/restraints_run'])

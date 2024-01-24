@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd $HOME/haddock/haddock2.4-2023-08/examples/protein-peptide
+./run-example.csh
+cp -R $HOME/haddock/haddock2.4-2023-08/examples/protein-peptide/* /data

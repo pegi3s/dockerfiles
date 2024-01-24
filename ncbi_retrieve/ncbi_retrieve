@@ -1,0 +1,91 @@
+#!/bin/bash
+
+db_type=""
+include=""
+
+while [ "$#" -gt 0 ]; do
+    case "$1" in
+        -db)
+        db_type="$2"
+        shift 2
+        ;;
+        -inc)
+        include="$2"
+        shift 2
+        ;;
+        *)
+        echo "Unexpected argument: $1"
+        exit 1
+        ;;
+    esac
+done
+
+
+if [[ $db_type != "nucleotide" && $db_type != "assembly" ]]; then
+  echo "Invalid -db value. Expected 'nucleotide' or 'assembly'."
+  exit 1
+fi
+
+
+OIFS=$IFS
+IFS=','
+read -ra include_values <<< "$include"
+IFS=$OIFS
+for value in "${include_values[@]}"; do
+    if ! [[ $value =~ ^(GENOME_FASTA|GENOME_GFF|RNA_FASTA|CDS_FASTA|PROT_FASTA|SEQUENCE_REPORT)$ ]]; then
+      echo "Invalid -inc value: $value. Expected one of: GENOME_FASTA, GENOME_GFF, RNA_FASTA, CDS_FASTA, PROT_FASTA, SEQUENCE_REPORT."
+      exit 1
+    fi
+done
+
+
+acc_numbers_name=$(find /data -maxdepth 1 -type f | head -n 1)
+if [ -z "$acc_numbers_name" ]; then
+    echo "No accession number file found in the directory."
+    exit 1
+fi
+
+sed -i 's/\r$//' "$acc_numbers_name"
+
+echo "Retrieving the sequences"
+mkdir -p /data/out_dir /data/intermediate
+
+cat "$acc_numbers_name" | while read -r acc term ; do
+    if [ "$db_type" == "assembly" ]; then
+        curl -OJX GET "https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/$acc/download?include_annotation_type=$include&filename=$acc.zip" -H "Accept: application/zip"
+        unzip -q "$acc.zip" -d "/data/out_dir"
+        cat "/data/out_dir/ncbi_dataset/data/$acc"/*.fna >> "/data/out_dir/${acc}_assembly.fa"
+        num_sequences_assembly=$(grep -c '^>' "/data/out_dir/${acc}_assembly.fa")
+        echo "The assembly of the accession number $acc retrieved a file with all the $num_sequences_assembly sequences" >> /data/intermediate/log_file.txt
+        rm -r "/data/out_dir/ncbi_dataset/" && rm "$acc.zip" && rm /data/out_dir/*.md
+        
+    elif [ "$db_type" == "nucleotide" ]; then
+        docker run --rm -v /data:/data pegi3s/entrez-direct bash -c "efetch -db nuccore -id $acc -format gb" > /data/tmp
+
+        if grep -q "CDS" /data/tmp; then
+            docker run --rm -v /data:/data pegi3s/entrez-direct bash -c "esearch -db nuccore -query $acc | efetch -format fasta_cds_na" > /data/tmp_all_cds
+
+            if [ -z "$term" ]; then
+                cp /data/tmp_all_cds "/data/out_dir/${acc}_CDS.fa"
+                num_sequences=$(grep -c '^>' "/data/out_dir/${acc}_CDS.fa")
+                if [ $num_sequences -eq 0 ]; then
+                    echo "The accession number $acc file is empty" >> /data/intermediate/log_file.txt
+                else
+                    echo "The accession number $acc retrieved a file with all the $num_sequences CDS available" >> /data/intermediate/log_file.txt
+                fi
+            else
+                awk -v term="$term" '/^>/ { p = (index($0, term) > 0) ? 1 : 0 } p { print }' /data/tmp_all_cds > "/data/out_dir/${acc}_CDS.fa"
+                num_sequences_with_term=$(grep -c '^>' "/data/out_dir/${acc}_CDS.fa")
+                echo "The accession number $acc retrieved a file with $num_sequences_with_term CDS with the term $term" >> /data/intermediate/log_file.txt
+            fi
+        else
+            echo "No CDS found for the accession number $acc" >> /data/intermediate/log_file.txt
+        fi
+    fi
+    if [ -f "/data/out_dir/${acc}_CDS.fa" ]; then
+        sed -i 's/>lcl|/>/' "/data/out_dir/${acc}_CDS.fa"
+    fi
+done
+
+rm -f /data/tmp /data/tmp_all_cds
+

@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+
+import subprocess
+
+#1º prepare_data
+#2º haddock -> copy run1
+#3º z_score 
+#4º important_files
+
+
+prep = subprocess.call(['python', '/home/haddock/haddock2.4-2023-08/examples/protein-protein/prepare_data'])
+
+if prep == 0:
+    #preparar pdb
+    pdb = subprocess.call(['python', '/home/haddock/haddock2.4-2023-08/examples/protein-protein/prepare_pdb'])
+    if pdb != 0:
+        print('Error preparing PDB files')
+        exit
+
+    runparam = subprocess.call(['python', '/home/haddock/haddock2.4-2023-08/examples/protein-protein/create_runparam'])
+    if runparam != 0:
+        print('Error with the run.param file.')
+        exit
+    
+    haddock = subprocess.call(['csh', '/home/haddock/haddock2.4-2023-08/examples/protein-protein/run-example.csh'])
+    if haddock != 0:
+        print('Error with HADDOCK2.4')
+        exit
+    
+    else:
+        zscore = subprocess.call(['python', '/home/haddock/haddock2.4-2023-08/examples/protein-protein/zscore_run'])
+        if zscore == 0:
+            subprocess.call(['python', '/home/haddock/haddock2.4-2023-08/examples/protein-protein/important_files'])
+                    
+        else:
+            print('HADDOCK did not find any acceptable results. The z_score could not be calculated.')
+            exit
+
+else:
+    print('Error preparing the files.')
+    exit
+
+
+
+
+

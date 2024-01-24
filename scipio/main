@@ -1,0 +1,13 @@
+#!/bin/bash
+genome=$1
+proteins=$2
+
+cd /opt/scipio-1.4
+awk '/^>/ { print (NR==1 ? "" : RS) $0; next } { printf "%s", $0 } END { printf RS }' /data/$proteins > /data/scipio_proteins
+while read header;do
+read sequence
+echo $header > ./protein_file
+echo "$sequence" >> ./protein_file
+scipio.1.4.1.pl /data/$genome ./protein_file >> /data/scipio_yaml
+done < /data/scipio_proteins
+yaml2gff.1.4.pl /data/scipio_yaml >> /data/scipio_gff

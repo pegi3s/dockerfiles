@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+def add_end_after_last_atom(input_file, output_file):
+    with open(input_file, 'r') as infile:
+        pdb_lines = infile.readlines()
+
+    # Encontrar a última linha que começa com 'ATOM'
+    last_atom_index = -1
+    for i, line in enumerate(pdb_lines):
+        if line.startswith('ATOM'):
+            last_atom_index = i
+
+    if last_atom_index == -1:
+       return
+
+    #retirar linhas depois da ultima
+    pdb_lines = pdb_lines[:last_atom_index + 1]
+        
+    # Adiciona 'END' após a última linha 'ATOM'
+    pdb_lines.append('END')
+
+    with open(output_file, 'w') as outfile:
+        outfile.writelines(pdb_lines)
+
+
+add_end_after_last_atom("/home/haddock/haddock2.4-2023-08/examples/protein-protein/pre_pdb1.pdb", "/home/haddock/haddock2.4-2023-08/examples/protein-protein/pdb1.pdb")
+add_end_after_last_atom("/home/haddock/haddock2.4-2023-08/examples/protein-protein/pre_pdb2.pdb", "/home/haddock/haddock2.4-2023-08/examples/protein-protein/pdb2.pdb")
+
