@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "CURRENT_VERSION=$(cat current.version) && docker build ./ -t pegi3s/human_prot_atlas:${CURRENT_VERSION} --build-arg version=${CURRENT_VERSION} && docker tag  pegi3s/human_prot_atlas:${CURRENT_VERSION} pegi3s/human_prot_atlas:latest",
+        },
+        {
+            "label": "run-tests",
+            "type": "shell",
+            "command": "cd test && ./run-all.sh | grep '^\\[test'",
+            "dependsOn": "build"
+        },
+        {
+            "label": "help",
+            "type": "shell",
+            "command": "docker run --rm pegi3s/human_prot_atlas --help",
+            "dependsOn": "build"
+        }
+    ]
+}

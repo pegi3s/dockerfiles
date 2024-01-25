@@ -1,0 +1,258 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+HUMAN_PROT_ATLAS_FILE=${HUMAN_PROT_ATLAS_FILE:-"${SCRIPT_DIR}/human_prot_atlas.tsv"}
+DEBUG=${DEBUG:-FALSE}
+
+if [ -f "${SCRIPT_DIR}/current.version" ]; then
+    echo "Version: $(cat ${SCRIPT_DIR}/current.version)"
+fi
+
+# Function to check if names are present in the first column of the human protein atlas TSV file
+check_names() {
+    local names=($(echo "${1}" | tr ";" "\n"))
+    for name in "${names[@]}"; do
+        if ! grep -qw "^$name" "${HUMAN_PROT_ATLAS_FILE}"; then
+            echo "Error: Name '$name' not found in the first column of '${HUMAN_PROT_ATLAS_FILE}'."
+            exit 1
+        fi
+    done
+}
+
+# Function to download files from human protein atlas links with retries and cleanup
+download_files() {
+    start=`date +%s`
+
+    local names=($(echo "${1}" | tr ";" "\n"))
+    local cache_directory="$2"
+
+    for name in "${names[@]}"; do
+        local retry_count=0
+        local file_path="$cache_directory/$name"
+
+        while [ "$retry_count" -lt 4 ]; do
+            if [ ! -f "$file_path" ]; then
+                local download_url=$(grep "^$name" "${HUMAN_PROT_ATLAS_FILE}" | cut -f 2)
+
+                if [ -n "$download_url" ]; then
+                    echo "Downloading file for name '$name' from: $download_url"
+                    if curl -sL --max-time 60 "$download_url" -o "$file_path"; then
+                        # Check if the downloaded file is correct (contains "Uniprot" in the first line)
+                        if head -n 1 "$file_path" | grep -q "Uniprot"; then
+                            # Remove the first line, empty lines, and handle lines with multiple values separated by ','
+                            tail -n +2 "$file_path" | grep -v '^$' | awk -F ',' '{gsub(/"/, ""); for (i=1; i<=NF; i++) print $i}' | awk '{$1=$1};1' | sort -u > "${file_path}.tmp"
+                            mv "${file_path}.tmp" "$file_path"
+                            break
+                        else
+                            echo "Error: Downloaded file for name '$name' is incorrect. Retrying..."
+                            retry_count=$((retry_count + 1))
+                        fi
+                    else
+                        echo "Error: Download failed for name '$name'. Retrying..."
+                        retry_count=$((retry_count + 1))
+                    fi
+                else
+                    echo "Error: Download URL not found for name '$name' in '${HUMAN_PROT_ATLAS_FILE}'."
+                    exit 1
+                fi
+            else
+                echo "File for name '$name' already exists in the cache directory."
+                break
+            fi
+        done
+
+        if [ "$retry_count" -eq 4 ]; then
+            echo "Error: Maximum retry count reached for name '$name'. Exiting..."
+            exit 1
+        fi
+    done
+
+    if [ "${DEBUG}" == "TRUE" ]; then
+        end=`date +%s`
+        echo "[DEBUG] Download time was `expr $end - $start` seconds"
+    fi
+}
+
+show_usage() {
+    echo "Usage: $0 <config_file> <input_file> <output_file> [cache_directory]"
+    echo -e "\nThe <config_file> should contain the following keys:"
+    echo -e "\thuman_prot_atlas_tissue_include=*|TissueA;TissueB;TissueC"
+    echo -e "\thuman_prot_atlas_tissue_include_mode=intersection|union"
+    echo -e "\thuman_prot_atlas_tissue_exclude=TissueD;TissueF;TissueG"
+    echo -e "\nWhere * means that all tissues listed in the current human_prot_atlas.tsv file are included. Use --list to see available tissues."
+}
+
+wrong_arguments() {
+    echo "Error: wrong number of arguments, this script requires three or four arguments."
+    show_usage && exit 1
+}
+
+if [ "$#" -eq 1 ]; then
+    if [ "$1" == "--help" ]; then
+        show_usage && exit 0
+    elif [ "$1" == "--list" ]; then
+        cut -f 1 "${HUMAN_PROT_ATLAS_FILE}"
+        exit 0
+    else
+        wrong_arguments
+    fi
+elif [ "$#" -lt 3 ] || [ "$#" -gt 4 ]; then
+    wrong_arguments
+fi
+
+config_file="$1"
+input_file="$2"
+output_file="$3"
+cache_directory="$4"
+
+if [ -z "$cache_directory" ]; then
+    cache_directory=$(mktemp -d)
+    echo "Temporary cache directory '$cache_directory' created."
+else
+    if [ ! -d "$cache_directory" ]; then
+        mkdir -p "$cache_directory"
+        echo "Cache directory '$cache_directory' created."
+    fi
+fi
+
+if [ ! -f "$config_file" ]; then
+    echo "Error: Config file '$config_file' not found."
+    exit 1
+fi
+
+declare -A config
+while IFS='=' read -r key value; do
+    config["$key"]="$value"
+done < "$config_file"
+
+echo "-------------------------"
+echo "Configuration:"
+echo -e "\t- human_prot_atlas_tissue_include: ${config[human_prot_atlas_tissue_include]}"
+echo -e "\t- human_prot_atlas_tissue_exclude: ${config[human_prot_atlas_tissue_exclude]}"
+echo -e "\t- human_prot_atlas_tissue_include_mode: ${config[human_prot_atlas_tissue_include_mode]}"
+echo -e "\nFiles:"
+echo -e "\t- human_prot_atlas.tsv: ${HUMAN_PROT_ATLAS_FILE}"
+echo "-------------------------"
+
+if [ -z "${config[human_prot_atlas_tissue_include_mode]}" ]; then
+    config[human_prot_atlas_tissue_include_mode]="union"
+elif [ "${config[human_prot_atlas_tissue_include_mode]}" != "union" ] && [ "${config[human_prot_atlas_tissue_include_mode]}" != "intersection" ]; then
+    echo "Error: Invalid value for human_prot_atlas_tissue_include_mode. Valid values are 'union' or 'intersection'."
+    exit 1
+fi
+
+if [ ! -f "$input_file" ]; then
+    echo "Error: Input file '$input_file' not found."
+    exit 1
+fi
+
+#
+# Process human_prot_atlas_tissue_exclude key to create the exclude_names_list variable
+#
+if [ -z "${config[human_prot_atlas_tissue_exclude]}" ]; then
+    config[human_prot_atlas_tissue_exclude]=""
+    exclude_names_list=()
+else
+    exclude_names_list=($(echo "${config[human_prot_atlas_tissue_exclude]}" | tr ';' ' '))
+    check_names "${config[human_prot_atlas_tissue_exclude]}"
+    download_files "${config[human_prot_atlas_tissue_exclude]}" "$cache_directory"
+fi
+
+#
+# Process human_prot_atlas_tissue_include key to create the include_names variable
+#
+if [ -z "${config[human_prot_atlas_tissue_include]}" ] || [ "${config[human_prot_atlas_tissue_include]}" == "*" ]; then
+    # When using the wildcard character * to include all names in the first column, all files
+    # listed explicitly as exclude files must be then removed from the include_names list used
+    if [ ${#exclude_names_list[@]} -eq 0 ]; then
+        include_names=$(cut -f 1 "${HUMAN_PROT_ATLAS_FILE}" | tr '\n' ';' | sed 's/;$//')
+    else
+        grep_regex=$(echo "${exclude_names_list[@]}" | sed 's/ / -e /g')
+        include_names=$(cut -f 1 "${HUMAN_PROT_ATLAS_FILE}" | grep -v -e $grep_regex | tr '\n' ';' | sed 's/;$//')
+    fi
+else
+    check_names "${config[human_prot_atlas_tissue_include]}"
+    include_names=(${config[human_prot_atlas_tissue_include]})
+
+    for exclude_name in "${exclude_names_list[@]}"; do
+        if [ "${DEBUG}" == "TRUE" ]; then
+            echo "[DEBUG] Checking exclude name: ${exclude_name}"
+        fi
+
+        if [[ *"${include_names}"* == *"${exclude_name}"* ]]; then
+            echo "Error: File listed in human_prot_atlas_tissue_exclude is already present in human_prot_atlas_tissue_include."
+            exit 1
+        fi
+    done
+fi
+
+download_files "$(IFS=";"; echo "${include_names[*]}")" "$cache_directory"
+
+#
+# Create a temporary file (tmp_include_file) to include the initial set of elements that
+# must be considered depending on the mode (union or intersection)
+#
+tmp_include_file=$(mktemp)
+if [ "${config[human_prot_atlas_tissue_include_mode]}" == "union" ]; then
+    if [ "${DEBUG}" == "TRUE" ]; then
+        echo "[DEBUG] Union mode with: ${include_names}"
+    fi
+
+    for name in $(echo "${include_names}" | tr ";" "\n"); do
+        if [ "${DEBUG}" == "TRUE" ]; then
+            echo -e "\tAdding file: $cache_directory/$name"
+        fi
+        cat "$cache_directory/$name" >> "${tmp_include_file}"
+        sort -u -o "${tmp_include_file}" "${tmp_include_file}"
+    done
+
+    if [ "${DEBUG}" == "TRUE" ]; then
+        echo "[DEBUG] Union is:"
+        cat "${tmp_include_file}"
+    fi
+elif [ "${config[human_prot_atlas_tissue_include_mode]}" == "intersection" ]; then
+    files=$(echo "${include_names}" | tr ";" "\n" | sed "s|^|$cache_directory/|" | tr "\n" " ")
+    files=(${files})
+
+    awk -v count="${#files[@]}" '{b[$0]++} END{for (line in b) if (b[line] == count) print line}' ${files[@]} > "${tmp_include_file}"
+    sort -u -o "${tmp_include_file}" "${tmp_include_file}"
+
+    if [ "${DEBUG}" == "TRUE" ]; then
+        echo -e "[DEBUG] Intersection mode with ${#files[@]} files:\n[DEBUG] ${files[@]}\n[DEBUG] Intersection is:"
+        cat "${tmp_include_file}" | awk '{print "[DEBUG] " $0}'
+    fi
+else
+    echo "Error: Invalid value for human_prot_atlas_tissue_include_mode. Valid values are 'union' or 'intersection'."
+    exit 1
+fi
+
+#
+# Process exclude files list
+#
+tmp_include_file_filtered=$(mktemp)
+if [ ${#exclude_names_list[@]} -eq 0 ]; then
+    cp "${tmp_include_file}" "${tmp_include_file_filtered}"
+else
+    exclude_files=($(echo "${exclude_names_list[@]}" | tr ' ' '\n' | sed "s|^|$cache_directory/|" | tr '\n' ' ' | sed 's/ $//'))
+    tmp_exclude_file=$(mktemp)
+    awk '{print $0}' "${exclude_files[@]}" | sort -u > "${tmp_exclude_file}"
+    grep -vf "${tmp_exclude_file}" "${tmp_include_file}" > "${tmp_include_file_filtered}"
+
+    if [ "${DEBUG}" == "TRUE" ]; then
+        echo -e "[DEBUG] Excluding elements from ${#exclude_files[@]} files:\n[DEBUG] ${exclude_files[@]}"
+        echo "[DEBUG] With the following exclude file (concatenation of exclude files):"
+        cat "${tmp_exclude_file}" | awk '{print "[DEBUG] " $0}'
+    fi
+
+    rm -f "${tmp_exclude_file}"
+fi
+
+grep -f "${tmp_include_file_filtered}" "${input_file}" > "${output_file}"
+
+rm -f "${tmp_include_file}" "${tmp_include_file_filtered}"
+
+echo "Processing complete. Output written to '${output_file}'"
+if [ "${DEBUG}" == "TRUE" ]; then
+    echo "[DEBUG] Result:"
+    cat "${output_file}" | awk '{print "[DEBUG] " $0}'
+fi

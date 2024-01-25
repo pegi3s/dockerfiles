@@ -1,0 +1,3 @@
+human_prot_atlas_tissue_include=Include1;Include2;Include3;Include4
+human_prot_atlas_tissue_include_mode=intersection
+human_prot_atlas_tissue_exclude=Exclude1;Include1
