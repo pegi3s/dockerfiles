@@ -1,0 +1,66 @@
+#!/bin/bash
+
+if [ "$1" == "config" ]; then 
+	echo "Saving the config in the working directory"
+	cp /app/config /data/config
+fi
+if [ "$1" == "ptable" ]; then 
+	echo "Building a table with dimensions $2 x $2 x $2 to be saved in the working directory with the $3 name"
+	cd /data && echo "Y" | /git/3seq/3seq -g $3 $2
+fi
+if [ "$1" == "3seq" ] || [ "$1" == "all" ]; then
+	if [ "$1" == "all" ]; then
+		ptable=$4
+	else
+		ptable=$3
+	fi
+	echo "Running 3seq using the ptable $ptable and the dataset $2"
+	mkdir -p /data/Results
+	cd /data/Results && echo "Y" | /git/3seq/3seq -full /data/$2 -ptable /data/$ptable > /data/Results/3seq.$2
+	mv /data/Results/3s.pvalHist /data/Results/3seq.pvalHist.$2
+	mv /data/Results/3s.log /data/Results/3seq.log.$2
+	mv /data/Results/3s.rec.csv /data/Results/3seq.rec.$2.csv
+	mv /data/Results/3s.longRec /data/Results/3seq.longRec.$2	
+fi
+if [ "$1" == "geneconv" ] || [ "$1" == "all" ]; then
+	echo "Running geneconv using the dataset $2 and the config file $3"
+	mkdir -p /data/Results
+	openrdp -c /data/$3 -m geneconv -o /data/Results/geneconv.$2 /data/$2
+	mv /data/*.frags /data/Results/geneconv.$2.frags
+fi
+if [ "$1" == "bootscan" ] || [ "$1" == "all" ]; then
+	echo "Running bootscan using the dataset $2 and the config file $3"
+	mkdir -p /data/Results
+	openrdp -c /data/$3 -m bootscan -o /data/Results/bootscan.$2 /data/$2
+fi
+if [ "$1" == "maxchi" ] || [ "$1" == "all" ]; then
+	echo "Running maxchi using the dataset $2 and the config file $3"
+	mkdir -p /data/Results
+	openrdp -c /data/$3 -m maxchi -o /data/Results/maxchi.$2 /data/$2
+fi
+if [ "$1" == "siscan" ] || [ "$1" == "all" ]; then
+	echo "Running siscan using the dataset $2 and the config file $3"
+	mkdir -p /data/Results
+	openrdp -c /data/$3 -m siscan -o /data/Results/siscan.$2 /data/$2
+fi
+if [ "$1" == "chimaera" ] || [ "$1" == "all" ]; then
+	echo "Running chimaera using the dataset $2 and the config file $3"
+	mkdir -p /data/Results
+	openrdp -c /data/$3 -m chimaera -o /data/Results/chimaera.$2 /data/$2
+fi
+if [ "$1" == "rdp" ] || [ "$1" == "all" ]; then
+	echo "Running rdp using the dataset $2 and the config file $3"
+	mkdir -p /data/Results
+	openrdp -c /data/$3 -m rdp -o /data/Results/rdp.$2 /data/$2
+fi
+if [ "$1" == "phipack" ] || [ "$1" == "all" ]; then
+	echo "Running phipack using the dataset $2"
+	mkdir -p /data/Results
+	cd /data/Results && /phipack/PhiPack/Phi -f /data/$2 -p 1000 -o > /data/Results/phipack.$2
+	mv /data/Results/Phi.inf.list /data/Results/Phi.inf.list.$2
+	mv /data/Results/Phi.inf.sites /data/Results/Phi.inf.sites.$2
+	mv /data/Results/Phi.log /data/Results/Phi.log.$2
+	mv /data/Results/Phi.poly.unambig.sites /data/Results/Phi.poly.unambig.sites.$2
+
+fi
+                    

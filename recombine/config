@@ -1,0 +1,53 @@
+[Geneconv]
+indels_as_polymorphisms = False
+mismatch_penalty = 1
+min_len = 1
+min_poly = 2
+min_score = 2
+max_num = 1
+
+[MaxChi]
+max_pvalue = 0.05
+win_size = 40
+strip_gaps = False
+fixed_win_size = True
+num_var_sites = 70
+frac_var_sites = 0.1
+
+[Chimaera]
+max_pvalue = 0.05
+win_size = 40
+strip_gaps = False
+fixed_win_size = True
+; Number of variable sites per window
+num_var_sites = 70
+; Fraction of variable sites per window (only applicable if fixed_win_size = False)
+frac_var_sites = 0.1
+
+[RDP]
+max_pvalue = 0.05
+reference_sequence = None
+window_size = 40
+;detect recombination between min_identity and max_identity
+min_identity = 0
+max_identity = 100
+
+[Bootscan]
+max_pvalue = 0.1
+win_size = 20
+step_size = 5
+num_replicates = 100
+random_seed = 3
+cutoff_percentage = 0.7
+scan = distances
+np = 2
+
+[Siscan]
+max_pvalue = 0.8
+win_size = 40
+step_size = 5
+strip_gaps = True
+pvalue_perm_num = 1100
+scan_perm_num = 100
+random_seed = 3
+
