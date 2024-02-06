@@ -1,7 +1,7 @@
 # This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
 ## (Please note that the original software licenses still apply)
 
-This image facilitates the usage of [PROBCONS](http://probcons.stanford.edu/), a sequence alignment tool.
+This image facilitates the usage of [PROBCONS](http://probcons.stanford.edu/), a protein sequence alignment tool.
 
 # Using PROBCONS image in Linux
 
@@ -9,7 +9,7 @@ In order to use this image you should adapt and run the following command: `dock
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the FASTA file you want to align.
-- `sequences.fasta` to the actual name of your FASTA file.
+- `sequences.fasta` to the actual name of your protein FASTA file.
 - `sequences_aligned.fasta` to the actual name of your aligned FASTA file.
 
 To see the PROBCONS help, just run `docker run --rm pegi3s/probcons probcons`.
