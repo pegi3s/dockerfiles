@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -z ${VERSION} ]; then 
+    echo "VERSION environment variable not set."
+    exit 1
+else
+    echo "Tagging ${IMAGE_NAME} as ${DOCKER_REPO}:${VERSION}"
+    docker tag ${IMAGE_NAME} ${DOCKER_REPO}:${VERSION}
+    docker push ${DOCKER_REPO}:${VERSION}
+fi
