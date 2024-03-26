@@ -21,7 +21,7 @@ RUN apt-get update
 
 RUN apt-get install -y python3-pip 
 
-RUN pip3 install BIO
+RUN pip3 install biopython==1.78
 
 RUN pip3 install reportlab
 
