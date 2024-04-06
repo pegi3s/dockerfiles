@@ -30,6 +30,7 @@ TMP_WORKING_DIR=$(mktemp -d /tmp/hdock_to_PDBePISA_conversion.XXXXXXX)
 cd ${TMP_WORKING_DIR}
 
 tail -n +8 ${INPUT} > tmp1
+sed -i 's/ $//g' tmp1 ## sometimes hdock produces files with a blank space before the end of line
 head -n -2 tmp1 > tmp2 && rm tmp1
 csplit -z tmp2 /TER/ '{*}' 1> /dev/null && rm tmp2 && mv xx00 tmp3a
 tail -n +3 xx01 > tmp3b && rm xx01
