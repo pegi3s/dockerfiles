@@ -17,3 +17,4 @@ CURRENT_UTILITIES_VERSION=0.22.0 && docker build ./ -t pegi3s/utilities:${CURREN
 - 0.21.1 - 18/03/2022 - Hugo López Fernández
 - 0.21.2 - 09/09/2022 - Hugo López Fernández
 - 0.22.0 - 14/09/2022 - Hugo López Fernández
+- 0.22.2 - 14/09/2022 - Jorge Vieira
