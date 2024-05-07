@@ -8,12 +8,10 @@ RUN apt-get install -y git pip
 
 WORKDIR /opt
 
-RUN git clone https://github.com/haddocking/cport.git && \
+RUN git clone https://github.com/pegi3s/cport.git && \
     cd cport && \
-    git checkout ${COMMIT} && \
     pip install . 
 
 WORKDIR /
 
-RUN mkdir /output
 
