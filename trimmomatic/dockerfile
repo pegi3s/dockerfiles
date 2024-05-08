@@ -1,0 +1,15 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get install -y git default-jre ant
+
+RUN git clone https://github.com/usadellab/Trimmomatic.git
+
+WORKDIR Trimmomatic
+
+COPY build.xml build.xml
+
+RUN ant
+
+WORKDIR ..
+
+ENTRYPOINT ["java", "-jar" , "Trimmomatic/dist/jar/trimmomatic-0.40-rc1.jar"]
