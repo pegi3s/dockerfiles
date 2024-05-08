@@ -1,0 +1,48 @@
+# Parameters
+Parameters.filename = $filename
+Parameters.base_dir = $HOST_PATH
+
+## Get_variants_1
+Get_variants_1.tool = FreeBayes
+Get_variants_1.tool_version = latest
+Get_variants_1.skip_loop = False
+Get_variants_1.delete_folder = True
+
+Get_variants_1.input_1 = input_data/@{Parameters.filename}.bam
+Get_variants_1.output_1 = outputs/vcfs_v1/@{Parameters.filename}.vcf
+
+Get_variants_1.command = -f rCRS.fasta -p 1 --pooled-continuous -F 0.1 data/@{Get_variants_1.input_1} -v data/@{Get_variants_1.output_1}
+
+## Get_variants_2
+Get_variants_2.tool = FreeBayes
+Get_variants_2.tool_version = latest
+Get_variants_2.skip_loop = False
+Get_variants_2.delete_folder = True
+
+Get_variants_2.input_1 = input_data/@{Parameters.filename}.bam
+Get_variants_2.output_1 = outputs/vcfs_v2/@{Parameters.filename}.vcf
+
+Get_variants_2.command = -f rCRS.fasta -p 1 --pooled-continuous -F 0.05 data/@{Get_variants_2.input_1} -v data/@{Get_variants_2.output_1}
+
+## Filter_variants_1
+Filter_variants_1.tool = 
+Filter_variants_1.tool_version = 
+Filter_variants_1.skip_loop = False
+Filter_variants_1.delete_folder = False
+
+Filter_variants_1.input_1 = @{Get_variants_1.output_1}
+Filter_variants_1.output_1 = outputs/vcfs_v1_filtered/@{Parameters.filename}.vcf
+
+Filter_variants_1.command = @{Parameters.base_dir}/correct_vcf_snp.sh @{Parameters.base_dir}/@{Filter_variants_1.input_1} @{Parameters.base_dir}/@{Filter_variants_1.output_1} -b
+
+## Filter_variants_2
+Filter_variants_2.tool = 
+Filter_variants_2.tool_version = 
+Filter_variants_2.skip_loop = False
+Filter_variants_2.delete_folder = False
+
+Filter_variants_2.input_1 = @{Get_variants_2.output_1}
+Filter_variants_2.output_1 = outputs/vcfs_v2_filtered/@{Parameters.filename}.vcf
+
+Filter_variants_2.command = @{Parameters.base_dir}/correct_vcf_snp.sh @{Parameters.base_dir}/@{Filter_variants_2.input_1} @{Parameters.base_dir}/@{Filter_variants_2.output_1} -b
+

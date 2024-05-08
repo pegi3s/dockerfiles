@@ -1,0 +1,14 @@
+{
+    "Bwa":"pegi3s/bwa bwa",
+    "Bedtools":"pegi3s/bedtools",
+    "FreeBayes":"pegi3s/freebayes",
+    "Haplogrep":"pegi3s/haplogrep",
+    "Pycision":"pegi3s/pycision",
+    "RtN":"pegi3s/rtn",
+    "Samtools":"pegi3s/samtools_bcftools samtools",
+    "Trimmomatic":"pegi3s/trimmomatic",
+    "Gatk-4":"pegi3s/gatk-4:4.1.4.1 gatk",
+    "FastQC":"pegi3s/fastqc",
+    "Seqkit":"pegi3s/seqkit",
+    "VCFtools":"pegi3s/vcftools"
+}

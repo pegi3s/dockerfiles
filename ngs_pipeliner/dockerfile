@@ -1,0 +1,18 @@
+FROM pegi3s/docker
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update
+
+RUN apt-get -y install python3-pip libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio libgtk-3-0 libmpv1 zenity firefox
+
+RUN pip install flet graphviz
+
+RUN apt-get -y install graphviz
+
+COPY for_build/gui.py scripts/
+COPY for_build/main.py scripts/
+COPY for_build/tools_compatibility.json scripts/
+COPY for_build/tools_images.json scripts/
+COPY for_build/tools_help.json scripts/
+
+ENTRYPOINT ["python3", "scripts/gui.py"]
