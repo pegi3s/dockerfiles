@@ -1,0 +1,10 @@
+FROM python:3.9
+
+ADD pycision.py 1_exceptfirst.bed 2_wholemt162.bed 3_firstonly.bed PrecisionID_mtDNA_WG_targets.modified.bed PrecisionID_mtDNA_WG_targets.bed .
+
+RUN pip install pysam
+
+ENTRYPOINT ["python3", "pycision.py"]
+
+
+

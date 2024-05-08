@@ -1,0 +1,9 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get install -y wget unzip default-jre
+
+RUN wget https://github.com/genepi/haplogrep3/releases/download/v3.2.1/haplogrep3-3.2.1-linux.zip
+
+RUN unzip haplogrep3-3.2.1-linux.zip
+
+ENTRYPOINT ["./haplogrep3"]
