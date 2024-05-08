@@ -1,0 +1,39 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get install -y wget tar git bzip2 make build-essential libjsoncpp-dev m4 zlib1g-dev libbz2-dev liblzma-dev libcurl4-gnutls-dev g++ libssl-dev
+
+RUN wget https://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.xz && tar -xf autoconf-2.69.tar.xz
+WORKDIR autoconf-2.69
+RUN ./configure 
+RUN make 
+RUN make install
+
+WORKDIR ..
+RUN git clone --recursive https://github.com/Ahhgust/RtN.git
+
+WORKDIR RtN/SeqLib/htslib
+
+RUN autoconf
+RUN autoheader
+RUN ./configure --enable-libcurl
+RUN make
+
+WORKDIR ../bwa
+RUN make CC='gcc -fcommon'
+
+WORKDIR ../fermi-lite
+RUN make CC='gcc -fcommon'
+
+WORKDIR ..
+RUN ./configure LDFLAGS='-lcurl -lcrypto'
+RUN make
+
+WORKDIR ..
+
+RUN bunzip2 humans.fa.bz2
+
+RUN SeqLib/bwa/bwa index humans.fa
+
+WORKDIR ..
+
+ENTRYPOINT ["/RtN/Nix_binary/rtn"]
