@@ -3,9 +3,6 @@
 while read name; do
 	wget -P /opt wget https://zhanggroup.org/HPmod/data/$name/model1.pdb.gz
 	gunzip model1.pdb.gz
-	sed -i '/^TER/d' model1.pdb
-	sed -i '/^END/d' model1.pdb
 	awk '{print substr($0,1,21) "A" substr($0,23)}' model1.pdb > ed_model1.pdb
-	echo "TER" >> ed_model1.pdb
 	mv /opt/ed_model1.pdb /data/$name.pdb && rm /opt/model1.pdb
 done < /data/$1
