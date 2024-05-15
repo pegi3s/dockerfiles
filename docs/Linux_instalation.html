@@ -1,0 +1,59 @@
+<h4>Linux</h4>
+<p class="lead">To install Docker in Linux, please follow the following steps:<br/><br/>
+
+ <b>- Step 1: (Update Ubuntu repositories.)</b><br/><br/>
+
+In the Ubuntu terminal run the following commands (you will be asked for the super user password):<br/><br/>
+
+    <em>sudo apt-get update</em><br/><br/>
+    <em>sudo apt-get upgrade</em><br/><br/>
+
+ <b>- Step 2: (Install xorg. This is required to run Docker images with graphical interface.) </b><br/><br/>
+
+In the Ubuntu terminal run the following command (you will be asked for the super user password):<br/><br/>
+
+    <em>sudo apt install -y xorg xinit</em><br/><br/>
+
+ <b>- Step 3: (Install Docker.) </b><br/><br/>
+
+Run the following commands one by one:<br/><br/>
+
+    <em>sudo apt-get install ca-certificates curl</em><br/><br/>
+
+    <em>sudo install -m 0755 -d /etc/apt/keyrings</em><br/><br/>
+
+    <em>sudo curl -fsSL https://download.docker.com/linux/ubuntu/ gpg -o /etc/apt/keyrings/docker.asc</em><br/><br/>
+
+    <em>sudo chmod a+r /etc/apt/keyrings/docker.asc</em><br/><br/>
+
+    <em>echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ ubuntu $(./etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null</em><br/><br/>
+
+    <em>sudo apt-get update</em><br/><br/>
+
+    <em>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dockercompose-plugin</em><br/><br/>
+
+ <b>- Step 4: (Change Docker permissions so that the user does not need to use sudo to run Docker images.) </b><br/><br/>
+
+Run the following commands one by one:<br/><br/>
+    
+    <em>sudo groupadd docker</em><br/><br/>
+    <em>sudo gpasswd -a $USER docker</em><br/><br/>
+    
+ <b>- Step 5: (Test the Docker installation.) </b><br/><br/>
+
+Run the following command:<br/><br/>
+    
+    <em>docker run hello-world</em><br/><br/>
+    
+ <b>- Step 6: (Reboot.) </b><br/><br/>
+
+Reboot your computer. Docker Images with a graphical interface may not be displayed properly until you
+reboot your computer<br/><br/>
+
+Please note that in order to run Docker images with a graphical interface you need to run the
+following command first:<br/><br/>
+    
+    <em>xhost +</em><br/><br/>
+    
+You are now ready to run any pegi3s Docker image.</p>
+
