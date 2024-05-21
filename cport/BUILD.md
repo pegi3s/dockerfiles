@@ -7,3 +7,5 @@ cport_version=2024.05 && cport_commit="a523b9cd70bf57dcd8d39a31185d03b53f76e493"
 ```
 
 # Build log
+
+- 2024.05 - 21/05/2024 - Hugo López Fernández

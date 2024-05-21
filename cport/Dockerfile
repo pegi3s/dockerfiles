@@ -14,7 +14,3 @@ RUN git clone https://github.com/pegi3s/cport.git && \
     pip install . 
 
 WORKDIR /
-
-
-
-
