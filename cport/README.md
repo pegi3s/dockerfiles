@@ -1,13 +1,16 @@
 # This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
 ## (Please note that the original software licenses still apply)
 
-This image uses the code that was available at https://github.com/haddocking/cport on the 16/04/2024, and that, at that time was still under development. You can show the help associated to the cport code by running: 
+This image uses code from a project forked from another repository on GitHub. The original repository is located at https://github.com/haddocking/cport. We thank the team behind the original repository for their contribution to the community.
+The code base is located at https://github.com/pegi3s/cport/.
+
+You can show the help associated to the cport code by running:
 
 ```
 docker run pegi3s/cport:latest cport -h
 ```
 
-The available methods are (according to the comments on cport github page on the 16/04/2024): whiscy, scriber, ispred4, sppider, meta_ppisp, cons_ppisp, predictprotein, psiver, csm_potencial and scannet.
+The tested methods are: scriber, ispred4, sppider, psiver and scannet.
 
 # Using the cport image in Linux
 To run script, you should adapt and run the following command: 
