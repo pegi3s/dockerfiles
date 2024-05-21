@@ -3,9 +3,9 @@
 Run:
 
 ```bash
-docker build ./ -t pegi3s/r_edger:3.36.0
+docker build ./ -t pegi3s/r_edger:4.0.16
 ```
 
 # Build log
 
-- 3.36.0 - 14/10/2021 - Hugo López Fernández
+- 4.0.16 - 25/04/2024 - Hugo López Fernández
