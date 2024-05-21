@@ -1,7 +1,7 @@
 # This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
 ## (Please note that the original software licenses still apply)
 
-This image uses the code that was available at https://github.com/haddocking/cport on the 16/06/2023, and that, at that time was still under development. The methods that reliably work are: ispred4, scriber, spidder and psiver. You can show the help associated to the cport code by running: `docker run pegi3s/cport-like cport -h`
+This image uses the code that was available at https://github.com/pegi3s/cport/ on the 21/05/2024, and that, at that time was still under development. The methods that reliably work are: ispred4, scriber, spidder and psiver. You can show the help associated to the cport code by running: `docker run pegi3s/cport-like cport -h`
 
 # Using the cport-like image in Linux
 To run the custom batch script that allows running in batch mode PDB files and get results in csv format, you should create a file named config in your working directory with the following information:
@@ -20,15 +20,27 @@ chain=A
 method="sppider scriber"
 ```
 
-The available methods are (according to the comments on cport github page on the 16/06/2023): scriber, ispred4, sppider, cons_ppisp, meta_ppisp, predictprotein, psiver, csm_potential, and scannet.
+If you want to change the number of retries or the wait interval for a specific method, you can write the method with 'wi' at the end to change the wait time, or "nr" to change the number of retries. Example:
+
+```
+input_dir=PDB
+chain=A
+method="psiver"
+psiverwi=3600
+psivernr=1000
+```
+
+The tested methods are: scriber, ispred4, spider, psiver and scannet.
 
 Then you should adapt and run the following command:
 
-You should adapt and run the following command: `docker run -v /your/data/dir:/data pegi3s/cport-like bash -c "./cport_batch retries"`
+You should adapt and run the following command: 
+`docker run -v /your/data/dir:/data -v /your/output/dir:/output pegi3s/cport-like bash -c "./cport_batch"`
 
 In this command, you should replace:
 - `/your/data/dir`  to point to the directory that contains the config file and the folder with the input files you want to analyze.
-- `retries`  to the maximum number of times a response will try to be obtained from a server.
+- `/your/output/dir`   to point to the directory where to save the results.
+
 
 # Test data
 To test the cport batch mode you can download files from [alphafold](https://alphafold.ebi.ac.uk/), for instance.
