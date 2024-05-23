@@ -96,7 +96,7 @@ while read name; do
 			for(j=1; j<=p; j++) {
 				str=a[1,j]
 				for(i=2; i<=NR; i++){
-					str=str" "a[i,j];
+					str=str","a[i,j];
 				}
 				print str
 			}
