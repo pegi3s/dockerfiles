@@ -106,7 +106,44 @@ while read name; do
 				print str
 			}
 		}' >  $protein_dir/"${name%.*}".$single_method.result.csv
-		
+
+		initial=$protein_dir/"${name%.*}".$single_method.result.csv
+		output=$protein_dir/"${name%.*}".$single_method.result.cat.csv
+		head -n 1 $initial > $output
+
+		tail -n +2 $initial | awk -v method="$single_method" -F, '
+			function adjust_sppider(value) {
+				return value == "A"? 1: value
+			}
+			function adjust_ispred4(value) {
+				return value >= 0.5 ? 1: value < 0.5 ? 2: value
+			}
+			function adjust_psiver(value) {
+				return value >= 0.5? 1 : value <= 0.37? 2 : value > 0.37 && value < 0.5? 0 : value
+			}
+			function adjust_scannet(value) {
+				return value < 0.35 ? 2 : value >= 0.35 && value < 0.5 ? 0 : value >= 0.5 ? 1: value
+			}
+			function adjust_scriber(value) {
+				return value < 0.27 ? 2 : value >= 0.27 && value < 0.5 ? 0 : value >= 0.5 ? 1: value
+			}
+			{
+			if ($2 ~ /^[0-9]*\.?[0-9]+$/) {
+				if (method == "sppider") {
+					$2 = adjust_sppider($2)			
+				} else if (method == "psiver") {
+					$2 = adjust_psiver($2)
+				} else if (method == "ispred4") {
+					$2 = adjust_ispred4($2)
+				} else if (method == "scannet") {
+					$2 = adjust_scannet($2)
+				} else if (method == "scriber") {
+					$2 = adjust_scriber($2)
+				}
+			}
+			print $1 "," $2
+		}'  | sed 's/,-/,0/g'  >> $output
+
 		rm /output/$name.final_result.csv
 		rm /output/position
 	done
@@ -114,14 +151,3 @@ while read name; do
 	rm /output/tmp0.pdb
 done < /output/list
 rm /output/list
-
-
-
-
-
-
-
-
-
-
-
