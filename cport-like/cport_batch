@@ -79,7 +79,6 @@ while read name; do
 			echo $next_line >> /output/$name.final_result
 		done < /output/$name.result
 
-		
 		cut -f1-$ct -d',' /output/$name.final_result > /output/$name.final_result_a && 
 			cat /output/$name.final_result_position /output/$name.final_result_a > /output/$name.final_result.csv && 
 			rm /output/$name.final_result_position /output/$name.final_result_a /output/$name.final_result
@@ -104,9 +103,9 @@ while read name; do
 		}' >  /output/"${name%.*}".$single_method.result.csv
 		
 		rm /output/$name.final_result.csv
+		rm /output/position
 	done
 	rm /output/$name.result
-	rm /output/position
 	rm /output/tmp0.pdb
 done < /output/list
 rm /output/list
