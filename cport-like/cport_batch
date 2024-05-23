@@ -23,6 +23,11 @@ done
 
 ls /data/$input_dir > /output/list
 while read name; do
+	protein_dir=/output/${name%.*}
+	
+	if [ ! -d "$protein_dir" ]; then
+		mkdir -p "$protein_dir"
+	fi
 
 	grep "^ATOM" /data/$input_dir/$name > /output/tmp0.pdb
 	protein_size=$(tail -1 /output/tmp0.pdb | cut -c 23-26 | sed 's/ //g')
@@ -37,7 +42,7 @@ while read name; do
 			echo "The program ended with an error."
 			continue
 		else
-			cp /output/predictors_tmp0.csv /output/"${name%.*}".$single_method.csv 
+			cp /output/predictors_tmp0.csv $protein_dir/"${name%.*}".$single_method.csv 
 			touch /output/$name.result && cp /output/predictors_tmp0.csv /output/$name.result && rm /output/predictors_tmp0.csv
 		fi
 
@@ -100,7 +105,7 @@ while read name; do
 				}
 				print str
 			}
-		}' >  /output/"${name%.*}".$single_method.result.csv
+		}' >  $protein_dir/"${name%.*}".$single_method.result.csv
 		
 		rm /output/$name.final_result.csv
 		rm /output/position
