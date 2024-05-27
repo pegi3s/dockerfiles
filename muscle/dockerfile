@@ -1,0 +1,32 @@
+FROM debian:stable-slim
+
+# Update commands and install dependencies
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        wget \
+        ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /opt/muscle
+
+# Download and extract MUSCLE
+RUN wget -q https://www.drive5.com/muscle/downloads3.8.31/muscle3.8.31_src.tar.gz \
+    && tar -xzf muscle3.8.31_src.tar.gz \
+    && rm muscle3.8.31_src.tar.gz
+
+# Compile MUSCLE
+RUN cd muscle3.8.31/src \
+    && make CXXFLAGS='-Wno-c++11-narrowing' -j$(nproc) \
+    && mv muscle /usr/local/bin \
+    && cd ../.. \
+    && rm -r muscle3.8.31
+
+# General clear
+RUN apt-get remove --purge -y build-essential wget \
+    && apt-get autoremove -y \
+    && apt-get clean
+
+# Default command for the docker image
+ENTRYPOINT ["muscle"]
+
