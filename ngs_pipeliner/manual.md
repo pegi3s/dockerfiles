@@ -5,22 +5,38 @@ Currently build-in tools are:
 - Custom (this one allows you to run any custom script)
 - [Bwa](https://bio-bwa.sourceforge.net/bwa.shtml)
 - [Bedtools](https://bedtools.readthedocs.io/en/latest/content/bedtools-suite.html)
+- [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/)
 - [FreeBayes](https://github.com/freebayes/freebayes/blob/master/README.md)
+- [Gatk-4](https://gatk.broadinstitute.org/hc/en-us/articles/360037224712--Tool-Documentation-Index)
 - [Haplogrep](https://haplogrep.readthedocs.io/en/latest/parameters/)
 - [Pycision](https://github.com/Ahhgust/Pycision/blob/master/README.md)
 - [RtN](https://github.com/Ahhgust/RtN/blob/master/README.md)
 - [Samtools](https://www.htslib.org/doc/samtools.html) 
-- [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
-- [Gatk-4](https://gatk.broadinstitute.org/hc/en-us/articles/360037224712--Tool-Documentation-Index)
-- [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/)
 - [Seqkit](https://bioinf.shenwei.me/seqkit/usage/)
+- [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
 - [VCFtools](http://vcftools.sourceforge.net/man_latest.html)
 
-## Prerequisites
+## How does NGS_pipeliner work?
+![NGS_pipeliner schematic](manual_images/ngs_pipeliner%20structure.png)
 
-NGS_pipeliner is packaged inside a docker container, this allows to run it in any computer without the need for installing numerous dependencies.
+NGS_pipeliner runs inside a linux-based system, but it can run on Windows using the WSL (Windows Subsystem for Linux). It is packaged inside a docker container, this allows to run it in any computer without the need for installing numerous dependencies. The only requirement is having [docker](https://docs.docker.com/manuals/) installed.
 
-The only requirement is to have a linux system with [docker](https://docs.docker.com/manuals/) installed. It can also be executed in Windows via the WSL (see the Installation section).
+With NGS_pipeliner docker image you can:
+- Design your pipeline
+- Plan the execution stragegy
+- Select the files you want to process
+- Generate a execution file
+
+Once you generate a execution file (run.sh), you can run the pipeline at any time by executing it in your linux terminal.
+
+The idea of generating a pipeline is to combine multiple execution steps into one seamless execution. For each one of these steps you can use the tools included with the NGS_pipeliner or use your custom tools.
+
+All the tools included with the NGS_pipeliner are packaged inside a docker container and maintained in the [pegi3s repository](https://pegi3s.github.io/dockerfiles/). This means that they dont need to be compiled/installed on your system for the pipeline to work. The first time you use one of the tools in a pipeline it will automatically download the docker image for the desired tool, in the following executions it will already be installed in the system.
+
+Being based on docker, each one of the tools is a virtual machine running inside of our system. To pass our data to this machine we have to mount our working directory (base_dir) inside the docker image. All built-in tools will mount the working directory inside the /data directory of the docker image. This is key to avoid problems during the execution of the pipeline. If the paths are not correct it will give "File not found" errors during execution.
+
+![docker directories](manual_images/folder_structure.png)
+
 
 ## Installation
 ### Windows
@@ -40,11 +56,16 @@ which is the case for most recent laptops.
 Open a PowerShell prompt as an Administrator and run the following command:
 
     ```
-    wsl –install
+    wsl.exe -–install
     ```
+
 - **Step 2:Install Ubuntu using the Microsoft Store.**<br/>
-Press the Windows button, type “Microsoft Store” in the search bar, and run the application.
-In the “Microsoft Store” search bar, type Ubuntu, choose the distribution you want, and then click on the “Get” button. During the installation, you will be asked to give a name to the super user account, that could be different from the name of your Windows account, and set the respective password.
+If you have just installed Windows Subsystem Linux, it should have installed Ubuntu along the way. You can check by typing ubuntu in the search bar. If it is already installed you can skip this step.
+
+    If you don't have it or want to have a separate ubuntu installation:
+
+    Press the Windows button, type “Microsoft Store” in the search bar, and run the application.
+    In the “Microsoft Store” search bar, type Ubuntu, choose the distribution you want, and then click on the “Get” button. During the installation, you will be asked to give a name to the super user account, that could be different from the name of your Windows account, and set the respective password.
 Once the installation is completed, a new app, named "Ubuntu” will be available, that can be accessed by pressing the Windows button, typing “Ubuntu” in the search bar, and running the application. When this is done, a command line terminal appears.
 
 
@@ -56,10 +77,13 @@ If you already have xorg and Docker installed you can skip these steps and run t
 
 - **Step 1:**<br/>
 Update Ubuntu repositories.<br/>
-In the Ubuntu terminal run the following command (you will be asked for the super user password):
+In the Ubuntu terminal run the following commands (you will be asked for the super user password):
 
     ```
-    sudo apt-get update && apt-get upgrade
+    sudo apt-get update
+    ```
+    ```
+    sudo apt-get upgrade
     ```
 - **Step 2:**<br/>
 Install xorg (required to run Docker images with graphical interface). <br/>
@@ -74,24 +98,32 @@ Run the following commands one by one:
 
     ```
     sudo apt-get install ca-certificates curl
-
+    ```
+    ```
     sudo install -m 0755 -d /etc/apt/keyrings
-
-    sudo curl -fsSL https://download.docker.com/linux/ubuntu/ gpg -o /etc/apt/keyrings/docker.asc
-
+    ```
+    ```
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+    ```
+    ```
     sudo chmod a+r /etc/apt/keyrings/docker.asc
-
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ ubuntu $(./etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
+    ```
+    ```
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    ```
+    ```
     sudo apt-get update
-
-    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dockercompose-plugin
+    ```
+    ```
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     ```
 - **Step 4:**<br/>
 Change Docker permissions so that the user does not need to use sudo to run Docker images.<br/>
 Run the following commands one by one:
     ```
     sudo groupadd docker
+    ```
+    ```
     sudo gpasswd -a $USER docker
     ```
 - **Step 5:**<br/>
@@ -99,17 +131,25 @@ To test the installation run the following command:
     ```
     docker run hello-world
     ```
+    If you get an error in this step, proceed to step 6, then do step 5 again.
+
+    If you still get an error and are using an old version of Ubuntu it may cause problems installing/running docker. Specially images with graphical images. In this case it is usually better to install a secondary fresh Ubuntu image to run docker.
 - **Step 6:**<br/>
-Reboot your computer. Docker Images with a graphical interface may not be displayed properly until you
-reboot your computer
+Reboot your computer. Docker Images with a graphical interface may not be displayed properly until you reboot your computer.
 - **Step 7:**<br/>
-Please note that in order to run Docker images with a graphical interface you need to run the
-following command first:
+Please note that in order to run Docker images with a graphical interface you may need to run the following command first:
     ```
     xhost +
     ```
 - **Step 8:**<br/>
 You are now ready to run the NGS_pipeliner (and every other pegi3s Docker image).
+
+## Uninstalling NGS_pipeliner
+If you are using Windows, you can just uninstall the whole Ubuntu system, that will remove NGS_pipeliner and all the other tools installed.
+
+If you are using a Linux system or you don't want to delete the whole Ubuntu you can uninstall NGS_pipeliner or any of the other tools by using docker commands or visually via the [pegi3s/docker-manager](https://hub.docker.com/r/pegi3s/docker-manager/).
+
+![docker-manager](manual_images/docker_manager.png)
 
 ## Usage
 
@@ -197,7 +237,7 @@ To load the files into the program, first we need to create a txt file with the 
         ```
 
 5. **Loading the inputs**<br/>
-This will tell NGS_pipeliner the samples that it needs to process. Navigate to File/Load inputs and select the inputs file.
+This will tell NGS_pipeliner the samples that it needs to process. Navigate to File/Load inputs and select the inputs file (the txt file created in step 4).
 
 6. **Creating the execution file**<br/>
 There are two types of execution supported:<br/>
@@ -219,7 +259,7 @@ If you are already in the project directory, run:
 
     > /path_to_project_folder/run.sh
 
-    Depending on the chosen execution type you should get one of the following outputs (times will not appear, they are just for you to know how much time does it take to execute in on a average laptop):
+    Depending on the chosen execution type you should get one of the following outputs (times will not appear, they are just for you to know how much time does it take to execute in on an average laptop):
 
     ![Step_Files](manual_images/execution_types.png)
 
@@ -328,3 +368,52 @@ Keep in mind that if the files loop option is being used and the Skip loop optio
 ### Changing the Docker tools versions
 
 The Docker tool version for a tool can be changed in the textfield next to the Tool selection box to any of the versions available at the pegi3S Bioinformatics Docker Images project. Default value is "latest". We advise users to use specific versions of the built-in docker images for repetibility purposes.
+
+### Adding your own tools to NGS_pipeliner
+
+Apart from being able to save your custom scripts as templates you can also create a copy of the NGS_pipeliner docker image and add your own tools to work exactly like the build-in tools.
+
+To do this you must first create a docker image of your tool. You can see the dockerfiles that we use to create our docker images in the [pegi3s github](https://github.com/pegi3s/dockerfiles). 
+
+When creating the docker image make sure the program will execute when you mount the input data into the /data folder.
+
+Once you hace created the dockerfile for your image:
+- Open the Linux terminal with docker installed
+- Go to the directory of your dockerfile
+- Run:
+    ```
+    docker build -t <name_of_your_tool_in_lowercase> -f dockerfile .
+    ```
+    This will create a docker image of the tool in your system.
+- To add this tool to NGS_pipeliner, first clone the [NGS_pipeliner github repository](https://github.com/pegi3s/dockerfiles/tree/master/ngs_pipeliner)
+
+    ```
+    git clone  --depth 1 --no-checkout https://github.com/pegi3s/dockerfiles.git
+    ```
+    ```
+    cd dockerfiles
+    ```
+    ```
+    git sparse-checkout set https://github.com/pegi3s/dockerfiles.git/ngs_pipeliner
+    ```
+    ```
+    git checkout
+    ```
+    ```
+    cd ngs_pipeliner
+    ```
+- In this folder you will have to edit three json files, to include your tool. These files are inside the /for_build directory (tools_compatibility.json, tools_help.json and tools_images.json). In these three files you will have to add: the input/output type of the files processed by the tool, the tool image name and the links to the tool help (if you don't know/have links to the manuals use a random webpage). You can do this in a text editor or automatically by using the add_tool.sh script, which is in the for_build directory as well.
+    - To use add_tool.sh go to the /for_build directory and run:
+        ```
+        ./add_tool.sh "<tool_name>" "<image_name>" "<file_types>" "<link_manual_tool>" "<link_docker_image_help>"
+        ```
+        Don't use this character "|" in any of the names or it will fail.
+        You may need to give it execution privileges first: `xhost +x add_tool.sh`
+
+- Once you have modified the files build the new NGS_pipeliner image:
+    - Go to the directory with the dockerfile (/ngs_pipeliner)
+    - Build the new image, make sure you don't use pegi3s/ngs_pipeliner as the name, that way you will be overwriting the original image. In the example we have named it modified_ngs_pipeliner.
+    ```
+    docker build -t modified_ngs_pipeliner -f dockerfile .
+    ```
+- Now this image should have your tools added and working as if they were included by default and you can use it like you would the pegi3s/ngs_pipeliner image.
