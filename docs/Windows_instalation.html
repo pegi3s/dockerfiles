@@ -10,11 +10,17 @@ which is the case for most recent laptops.<br/><br/>
 
 Open a PowerShell prompt as an Administrator and run the following command:<br/><br/>
 
-    <em>wsl –install</em><br/><br/>
+    <em>wsl --install</em><br/><br/>
+    
+If you get an error try:<br/><br/>
+
+    <em>wsl.exe --install</em><br/><br/>
+    
+This procedure will install an Ubuntu app that may be suitable to install Docker and run Docker images. See Step 2 below if you want to install a different Ubuntu app version.<br/><br/>
     
  <b>- Step 2: (Install Ubuntu using the Microsoft Store.) </b><br/><br/>
 Press the Windows button, type “Microsoft Store” in the search bar, and run the application.<br/><br/>
-In the “Microsoft Store” search bar, type Ubuntu, choose the distribution you want, and then click on the “Get” button. During the installation, you will be asked to give a name to the super user account, that could be different from the name of your Windows account, and set the respective password.<br/><br/>
+In the “Microsoft Store” search bar, type Ubuntu, choose the distribution you want (we recommend version 22.04.4), and then click on the “Get” button. During the installation, you will be asked to give a name to the super user account, that could be different from the name of your Windows account, and set the respective password.<br/><br/>
 Once the installation is completed, a new app, named "Ubuntu” will be available, that can be accessed by pressing the Windows button, typing “Ubuntu” in the search bar, and running the application. When this is done, a command line terminal appears.<br/><br/>
 
 Now that you have Ubuntu installed, you can follow the Linux steps in the Ubuntu terminal. All your Windows directories will be mounted in the "/mnt" directory. For instance, if your project's directory is "C:/Users/<windows_username>/Documents/Project", inside Ubuntu it will be "/mnt/c/Users/<windows_username>/Documents/Project". Try to not use whitespaces in the directories you mount into the Docker images (e.x. Project_example instead of Project example). Users are advised to work under "/mnt/c/Users/<windows_username>/Documents" or below.
