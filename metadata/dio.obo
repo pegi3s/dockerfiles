@@ -1,0 +1,360 @@
+format-version: 1.2
+ontology: http://www.semanticweb.org/root/ontologies/2024/1/pegi3s
+
+[Term]
+id: DIO:0000001
+name: Sequences
+def: "Any program that accepts as input nucleotide, protein or short read sequences"
+
+[Term]
+id: DIO:0000002
+name: DNA
+def: "Any program that accepts DNA sequences as input"
+is_a: DIO:0000001
+
+[Term]
+id: DIO:0000003
+name: Pipelines
+def: "Pipelines that use nucleotide sequence files as input"
+is_a: DIO:0000002
+
+[Term]
+id: DIO:0000004 
+name: Alignment
+def: "Any program that allows the alignment of DNA sequences"
+is_a: DIO:0000002
+
+[Term]
+id: DIO:0000005
+name: Detection_of_PSS
+def: "Any program whose main aim is to identify positively selected amino acid sites (PSS)"
+is_a: DIO:0000002
+
+[Term]
+id: DIO:0000006
+name: Divergence
+def: "Any program that can be used to estimate non-synonymous and synonymous rates of change"
+is_a: DIO:0000002
+
+[Term]
+id: DIO:0000007
+name: Gene_annotation
+def: "Any program dedicated to the annotation of genes"
+is_a: DIO:0000002
+
+[Term]
+id: DIO:0000008
+name: Genome
+def: "Any program that can be used to perform analyses at the genome level"
+is_a: DIO:0000002
+
+[Term]
+id: DIO:0000009
+name: Alignment
+def: "Any program that can be used to align genomes"
+is_a: DIO:0000008
+
+[Term]
+id: DIO:0000010
+name: Detection_of_PSS
+def: "Any program that can be used to detect positively selected amino acid sites (PSS) at the genome level"
+is_a: DIO:0000008
+
+[Term]
+id: DIO:0000011
+name: Visualization
+def: "Any program that can be used to visualize genome information"
+is_a: DIO:0000008
+
+[Term]
+id: DIO:0000012
+name: Phylogenetics
+def: "Any program that can be used to perform phylogenetic analyses using nucleotide alignments"
+is_a: DIO:0000002
+
+[Term]
+id: DIO:0000013
+name: Annotation
+def: "Any program that can be used to perform genome annotations"
+is_a: DIO:0000008
+
+[Term]
+id: DIO:0000014
+name: Metagenome
+def: "Any program that can be used to perform metagenome analyses"
+is_a: DIO:0000002
+
+[Term]
+id: DIO:0000015
+name: Patterns
+def: "Any program that can be used to find nucleotide patterns"
+is_a: DIO:0000002
+
+[Term]
+id: DIO:0000016
+name: Inversion_breakpoint_detection
+def: "Any program that can be used to identify inversion breakpoints"
+is_a: DIO:0000002
+
+[Term]
+id: DIO:0000017
+name: Ortholog_retrieval
+def: "Any program that can be used to identify gene orthologs/paralogs"
+is_a: DIO:0000002
+
+[Term]
+id: DIO:0000018
+name: Plasmid_prediction
+def: "Any program that can be used to predict plasmid sequences"
+is_a: DIO:0000002
+
+[Term]
+id: DIO:0000019
+name: Polymorphism
+def: "Any program that can be used to estimate polymorphism levels or show the relationship between nucleotide variants"
+is_a: DIO:0000002
+
+[Term]
+id: DIO:0000020
+name: Recombination
+def "Any program that can be used to detect recombination events or estimate recombination levels"
+is_a: DIO:0000002
+
+[Term]
+id: DIO:0000021
+name: Sequence_homology_search
+def: "Any program that can be used to identify homologous sequences at the nucleotide level"
+is_a: DIO:0000002
+
+[Term]
+id: DIO:0000022
+name: Tools
+def: "General tools that can be used to handle nucleotide sequence files"
+is_a: DIO:0000002
+
+[Term]
+id: DIO:0000023
+name: Protein
+def: "Any program that accepts protein sequences as input"
+is_a: DIO:0000001
+
+[Term]
+id: DIO:0000024
+name: Alignment
+def: "Any program that allows the alignment of protein sequences"
+is_a: DIO:0000023
+
+[Term]
+id: DIO:0000025
+name: Patterns
+def: "Any program that can be used to find protein patterns"
+is_a: DIO:0000023
+
+[Term]
+id: DIO:0000026
+name: Phylogenetics
+def: "Any program that can be used to perform phylogenetic analyses using protein alignments"
+is_a: DIO:0000023
+
+[Term]
+id: DIO:0000027
+name: Variability
+def: "Any program that can be used to show the relationship of amino acid variants"
+is_a: DIO:0000023
+
+[Term]
+id: DIO:0000028
+name: Sequence_homology_search
+def: "Any program that can be used to identify homologous sequences at the protein level"
+is_a: DIO:0000023
+
+[Term]
+id: DIO:0000029
+name: Tools
+def: "General tools that can be used to handle protein sequence files"
+is_a: DIO:0000023
+
+[Term]
+id: DIO:0000030
+name: Short_reads
+def: "Any program that uses short reads as input"
+is_a: DIO:0000001
+
+[Term]
+id: DIO:0000031
+name: Alignment
+def: "Any program that can be used to align short reads to a reference genome"
+is_a: DIO:0000030
+
+[Term]
+id: DIO:0000032
+name: Assembly
+def: "Any program that can be used to assemble genomes or transcriptomes using short reads"
+is_a: DIO:0000030
+
+[Term]
+id: DIO:0000033
+name: Genome
+def: "Any program that can be used to assemble genomes using short reads"
+is_a: DIO:0000032
+
+[Term]
+id: DIO:0000034
+name: Transcriptome
+def: "Any program that can be used to assemble transcriptomes using short reads"
+is_a: DIO:0000032
+
+[Term]
+id: DIO:0000035
+name: Data_simulation
+def: "Any program that can be used to simulate short reads"
+is_a: DIO:0000030
+
+[Term]
+id: DIO:0000036
+name: Quality
+def: "Any program that can be used to evaluate short read quality and trim sequences"
+is_a: DIO:0000030
+
+[Term]
+id: DIO:0000037
+name: RNA-seq
+def: "Any program that can be used to estimate gene expression using short reads"
+is_a: DIO:0000030
+
+[Term]
+id: DIO:0000038
+def: "Any program that uses structures (PDB files) as input"
+name: Structures
+
+[Term]
+id: DIO:0000039
+name: Pipelines
+def: "Pipelines that use PDB files as input"
+is_a: DIO:0000038
+
+[Term]
+id: DIO:0000040
+name: Active_site_prediction
+def: "Any program that can be used to estimate active sites using PDB files as input"
+is_a: DIO:0000038
+
+[Term]
+id: DIO:0000041
+name: Alignment
+def: "Any program that can be used to align protein structures"
+is_a: DIO:0000038
+
+[Term]
+id: DIO:0000042
+name: Docking
+def: "Any program that can be used to perform protein-protein docking"
+is_a: DIO:0000038
+
+[Term]
+id: DIO:0000043
+name: Prediction
+def: "Any protein that can be used to predict protein structures"
+is_a: DIO:0000038
+
+[Term]
+id: DIO:0000044
+name: Retrieval
+def: "Any program that can be used to retrieve structures from databases in an automated way"
+is_a: DIO:0000038
+
+[Term]
+id: DIO:0000045
+name: Visualization
+def: "Any program that can be used to visualize protein structures"
+is_a: DIO:0000038
+
+[Term]
+id: DIO:0000046
+name: Tools
+def: "General tools to handle PDB files"
+is_a: DIO:0000038
+
+[Term]
+id: DIO:0000047
+name: Databases
+def: "Any program that can be used to retrieve data from databases"
+
+[Term]
+id: DIO:0000048
+def: "Any program that uses species information as input"
+name: Species
+
+[Term]
+id: DIO:0000049
+name: Images
+def: "Any program that can be used to handle images"
+
+[Term]
+id: DIO:0000050
+name: Values
+def: "Any program that can be used to accept as input values"
+
+[Term]
+id: DIO:0000051
+name: Image_building_tools
+def: "Any program that eases the building of docker images"
+
+[Term]
+id: DIO:0000052
+name: General_tools
+def: "General tools"
+
+[Term]
+id: DIO:0000053
+name: Detection_of_PSS
+def: "Pipelines aimed at detecting positively selected amino acid sites (PSS)"
+is_a: DIO:0000003
+
+[Term]
+id: DIO:0000054
+name: Inversion_breakpoint_detection
+def: "Pipelines aimed at detecting inversion breakpoints"
+is_a: DIO:0000003
+
+[Term]
+id: DIO:0000055
+name: Phylogenetics
+def: "Pipelines aimed at performing phylogenetic analyses
+is_a: DIO:0000003
+
+[Term]
+id: DIO:0000056
+name: Binning
+def: "Any program aimed at binning"
+is_a: DIO:0000014
+
+[Term]
+id: DIO:0000057
+name: Distribution
+def: "Any program aimed at inferring species distributions"
+is_a: DIO:0000048
+
+[Term]
+id: DIO:0000058
+name: Pathways
+def: "Any program that can be used to show/edit pathways"
+is_a: DIO:0000049
+
+[Term]
+id: DIO:0000059
+name: Phylogenetics
+def: "Any program that can be used to perform phylogenetic analyses uisng values"
+is_a: DIO:0000050
+
+[Term]
+id: DIO:0000060
+name: Statistics
+def: "Any program that is dedicated to statistical analyses"
+is_a: DIO:0000050
+
+[Term]
+id: DIO:0000061
+name: Read_mapping_and_variant_calling
+def: "Any program that can be used to map reads and/or call variants"
+is_a: DIO:0000008
