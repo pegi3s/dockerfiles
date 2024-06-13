@@ -9,3 +9,4 @@ CURRENT_VERSION=2.14.0 && docker build ./ -t pegi3s/blast:${CURRENT_VERSION} --b
 # Build log
 
 - 2.14.0 - 08/05/2023 - Hugo López Fernández
+- 2.15.0_v1 - 20/11/2023 - Docker Hub automated build (Re-tagged manually from 2.15.0 to install new libraries in the current 2.15.0)

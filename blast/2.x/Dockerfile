@@ -19,7 +19,7 @@ FROM ubuntu:22.04
 
 ARG VERSION
 
-RUN apt-get update && apt-get install -y wget libgomp1
+RUN apt-get update && apt-get install -y wget libgomp1 libnet-sftp-foreign-perl curl
 
 RUN wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/${VERSION}/ncbi-blast-${VERSION}+-x64-linux.tar.gz -O /tmp/blast.tar.gz && \
 	tar zxvf /tmp/blast.tar.gz -C /opt/ && rm /tmp/blast.tar.gz
