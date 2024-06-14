@@ -12,6 +12,25 @@ else
     echo " up-to-date"
 fi
 
+function check_github() {
+    GITHUB_REPO=$1
+    PEGI3S_REPO=$2
+
+    echo -n "Checking ${PEGI3S_REPO} ..."
+
+    LATEST=$(curl -s -H "Accept: application/vnd.github+json" https://api.github.com/repos/${GITHUB_REPO}/releases | jq '.[]."tag_name"' -r | head -1 | sed 's/^v//')
+
+    docker run --rm pegi3s/utilities dockerhub_list_repo_with_tags ${PEGI3S_REPO} | grep -q "${LATEST}"
+
+    if [ $? == 1 ]; then
+        echo " new version available: ${LATEST}"
+    else
+        echo " up-to-date"
+    fi
+}
+
+check_github "bbuchfink/diamond" "pegi3s/diamond"
+
 echo -n "Checking BLAST ..."
 
 LATEST_BLAST=$(wget -q ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/VERSION -O-)
