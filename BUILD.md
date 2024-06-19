@@ -2,7 +2,9 @@
 
 ## Local
 
-All images can be built locally from their respective directories. Some of them include a `BUILD.md` file with the specific `docker build` command used.
+All images can be built locally from their respective directories. It is encouraged the inclusion of a `BUILD.md` file with the specific `docker build` command used, specially if the build command requires build arguments.
+
+If not provided, the image should be build with `docker build ./ -t pegi3s/image_name:image_version && docker tag pegi3s/image_name:image_version pegi3s/image_name:latest`.
 
 ## Docker Hub
 
