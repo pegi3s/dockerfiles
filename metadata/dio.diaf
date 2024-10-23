@@ -158,7 +158,7 @@ DIO:0000045	pymol
 DIO:0000046	pdb-tools
 DIO:0000046	utilities
 DIO:0000047	evoppi-querier
-DIO:0000047	human-prot-atlas
+DIO:0000047	human_prot_atlas
 DIO:0000047	ncbi_retrieve
 DIO:0000047	ncbi-datasets
 DIO:0000057	gbif_gis
@@ -178,5 +178,5 @@ DIO:0000052	docker-manager
 DIO:0000061	freebayes
 DIO:0000061	haplogrep
 DIO:0000061	pycision
-DIO:0000061	ngs-pipeliner
+DIO:0000061	ngs_pipeliner
 DIO:0000061	rtn
