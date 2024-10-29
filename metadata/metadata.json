@@ -103,13 +103,13 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/afterqc bash -c ",
     "invocation_general_comments": ["/your/data/dir to point to the directory that contains the FASTQ file you want to analyze."],
-    "usual_invocation_specific": "\"cd /data && after.py -1 /data/input.fq\"",
-    "usual_invocation_specific_comments": ["input.fq to the actual name of your input file."],
+    "usual_invocation_specific": "\"cd /data && after.py -1 /data/fastqFile\"",
+    "usual_invocation_specific_comments": ["fastqFile to the actual name of your input file."],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": "fastq"
   },
 {
     "name": "alphafold_db",
@@ -137,7 +137,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Uniprot.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/alphafold_db_output.zip",
     "icon":"https://deepmind.google/static/icons/google_deepmind_48dp.5b470587fe7d.svg",
-    "input_data_type": ""
+    "input_data_type": "uniprotID"
   },
 {
     "name": "alter",
@@ -158,14 +158,14 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/alter ",
-    "invocation_general_comments": ["/your/data/dir to point to the directory that contains the input file you want to align."],
-    "usual_invocation_specific": "-i /data/input -o /data/output -ia -of out_format -oo Linux -op GENERAL",
-    "usual_invocation_specific_comments": ["input to the actual name of your input file.","output to the actual name of your output file.","out_format to the output format you intend to obtain (the allowed standard formats are: ALN, FASTA, GDE, MEGA, MSF, NEXUS, PHYLIP and PIR)."],
+    "invocation_general_comments": ["/your/data/dir to point to the directory that contains the input file you want to convert."],
+    "usual_invocation_specific": "-i /data/inputFile -o /data/outputFolder/output -ia -of out_format -oo Linux -op GENERAL",
+    "usual_invocation_specific_comments": ["inputFile to the actual name of your input file.","output to the actual name of your output file.","out_format to the output format you intend to obtain (the allowed standard formats are: ALN, FASTA, GDE, MEGA, MSF, NEXUS, PHYLIP and PIR)."],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/nexus.nex",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/alter_output.zip",
     "icon":"https://raw.githubusercontent.com/sing-group/ALTER/master/alter-web/src/main/webapp/img/logo_small.png",
-    "input_data_type": ""
+    "input_data_type": "input"
   },
 {
     "name": "autoaugustus",
@@ -271,13 +271,13 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/bioconvert ",
     "invocation_general_comments": ["'/your/data/dir' to point to the directory that contains the input file you want convert"],
-    "usual_invocation_specific": "bioconvert-conversion-name /data/input /data/output",
-    "usual_invocation_specific_comments": ["'bioconvert-conversion-name' to the name of the conversion command (e.g. fastq2fasta).","'input' to the actual name of your input file.","'output' to the actual name of your output file."],
+    "usual_invocation_specific": "bioconvert-conversion-name /data/inputFile /data/outputFolder/output",
+    "usual_invocation_specific_comments": ["'bioconvert-conversion-name' to the name of the conversion command (e.g. fastq2fasta).","'inputFile' to the actual name of your input file.","'output' to the actual name of your output file."],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/bioconvert_output.zip",
     "icon":"https://bioconvert.pasteur.cloud/static/images/logo.png",
-    "input_data_type": ""
+    "input_data_type": "input"
   },
 {
     "name": "blast",
@@ -439,13 +439,13 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/coral ",
     "invocation_general_comments": ["/your/data/dir to point to the directory that contains the input files you want to analyze."],
-    "usual_invocation_specific": "-f /data/input.fasta -o /data/output.fasta",
+    "usual_invocation_specific": "-f /data/fastaFile -o /data/outputFolder/output.fasta",
     "usual_invocation_specific_comments": ["Note that the -f parameter indicates that the input file is in FASTA format (-fq for FASTQ files, -fs for Solexa FASTA files.)","input.fasta to the actual name of your input file.","ouput.fasta to the actual name of your ouput file."],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/coral_output.zip",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": "fasta"
   },
 
 {
@@ -524,13 +524,13 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/cutadapt ",
     "invocation_general_comments": ["/your/data/dir to point to the directory that contains the input file you want to process."],
-    "usual_invocation_specific": "-u 10 /data/input.fq -o /data/output.fq",
-    "usual_invocation_specific_comments": ["input.fq to the actual name of your input file.","output.fq to the actual name of your output file.","A negative value after -u would trims reads at the end."],
+    "usual_invocation_specific": "-u 10 /data/fastqFile -o /data/outputFolder/output.fq",
+    "usual_invocation_specific_comments": ["fastqFile to the actual name of your input file.","output.fq to the actual name of your output file.","A negative value after -u would trims reads at the end."],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/cutadapt_output.zip",
     "icon":"https://raw.githubusercontent.com/marcelm/cutadapt/main/doc/_static/cutadapt-logo.svg",
-    "input_data_type": ""
+    "input_data_type": "fastq"
   },
 {
     "name": "diamond",
@@ -580,13 +580,13 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/ditasser_db bash -c ",
     "invocation_general_comments": ["'/your/data/dir' to point to the working directory, where the retrieved PDB files will be saved."],
-    "usual_invocation_specific": "\"/opt/getditasserpdb UniProt_list",
-    "usual_invocation_specific_comments": ["'UniProt_list' to the name of the list, located in the working directory, containing the UniProt numbers, one per line."],
+    "usual_invocation_specific": "\"/opt/getditasserpdb uniprotlistFile\"",
+    "usual_invocation_specific_comments": ["'uniprotlistFile' to the name of the list, located in the working directory, containing the UniProt numbers, one per line."],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Uniprot.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/ditasser_db_output.zip",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": "uniprotlist"
   },
 {
     "name": "dnasp-v6",
@@ -720,13 +720,13 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/fastqc ",
     "invocation_general_comments": ["'/your/data/dir' to point to the directory that contains the FASTQ file you want to analyze."],
-    "usual_invocation_specific": "/data/input.fq",
-    "usual_invocation_specific_comments": ["'input.fq' to the actual name of your input file."],
+    "usual_invocation_specific": "/data/fastqcFile",
+    "usual_invocation_specific_comments": ["'fastqcFile' to the actual name of your input file."],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/fastqc_output.zip",
     "icon":"https://raw.githubusercontent.com/s-andrews/FastQC/refs/heads/master/uk/ac/babraham/FastQC/Resources/fastqc_icon.svg",
-    "input_data_type": ""
+    "input_data_type": "fastqc"
   },
 {
     "name": "fastroot",
@@ -748,13 +748,13 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/fastroot ",
     "invocation_general_comments": ["'/your/data/dir' to point to the directory that contains the input file you want to analyze."],
-    "usual_invocation_specific": "-i /data/input -m method -o /data/output",
-    "usual_invocation_specific_comments": ["'input' to the actual name of your Newick input file.","'method' to either MP (midpoint), MV (minVAR), OG (outgroup), or RTT (root-to-tip). If using OG, the -g option can be used to specify the outgroups. If more than one put them between quotes","'output' to the actual name of your Newick output file."],
+    "usual_invocation_specific": "-i /data/newickFile -m method -o /data/outputFolder/output",
+    "usual_invocation_specific_comments": ["'newickFile' to the actual name of your Newick input file.","'method' to either MP (midpoint), MV (minVAR), OG (outgroup), or RTT (root-to-tip). If using OG, the -g option can be used to specify the outgroups. If more than one put them between quotes","'output' to the actual name of your Newick output file."],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/newick.nwk",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/fastroot_output.zip",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": "newick"
   },
 {
     "name": "fasttree",
@@ -776,13 +776,13 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/fasttree bash -c ",
     "invocation_general_comments": ["/your/data/dir to point to the directory that contains the FASTA file you want to analyze."],
-    "usual_invocation_specific": "\"FastTree -nt -gtr -gamma /data/input > /data/output\"",
+    "usual_invocation_specific": "\"FastTree -nt -gtr -gamma /data/fastaFile > /data/outputFolder/output\"",
     "usual_invocation_specific_comments": ["input to the actual name of your input file.","output to the actual name of your output file."],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fasta",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/fasttree_output.zip",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": "fasta"
   },
 {
     "name": "feature-counts",
@@ -1000,13 +1000,13 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/getpdb bash -c ",
     "invocation_general_comments": ["'/your/data/dir' to point to the working directory, where the retrieved PDB files will be saved."],
-    "usual_invocation_specific": "\"./getpdb UniProt_number\"",
-    "usual_invocation_specific_comments": ["UniProt_number to the UniProt number to be used (only one UniProt number can be specified)."],
+    "usual_invocation_specific": "\"./getpdb uniprotFile\"",
+    "usual_invocation_specific_comments": ["uniprotFile to the file containing the UniProt number to be used (only one UniProt number can be specified)."],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Uniprot.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/getpdb_ouput.zip",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": "uniprot"
   },
 {
     "name": "gmap-gsnap",
@@ -1056,13 +1056,13 @@
     "singularity": "untested",
     "invocation_general": "docker run -v /your/data/dir:/data --rm pegi3s/goalign ",
     "invocation_general_comments": ["'/your/data/dir' to point to the directory that contains the input files you want to analyze."],
-    "usual_invocation_specific": "goalign goalign-application-name -i /data/input -o /data/output",
-    "usual_invocation_specific_comments": ["'goalign-application-name' to the name of the Goalign application you want to use.","'input' to the actual name of your input file.","'output' to the actual name of your output file."],
+    "usual_invocation_specific": "goalign goalign-application-name -i /data/fastaFile -o /data/outputFolder/output",
+    "usual_invocation_specific_comments": ["'goalign-application-name' to the name of the Goalign application you want to use.","'fastaFile' to the actual name of your input file.","'output' to the actual name of your output file."],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/goalign_output.zip",
     "icon":"https://raw.githubusercontent.com/evolbioinfo/goalign/master/images/logo.svg",
-    "input_data_type": ""
+    "input_data_type": "fasta"
   },
 {
     "name": "gotree",
@@ -1084,13 +1084,13 @@
     "singularity": "untested",
     "invocation_general": "docker run -v /your/data/dir:/data --rm pegi3s/gotree ",
     "invocation_general_comments": ["'/your/data/dir' to point to the directory that contains the input files you want to analyze."],
-    "usual_invocation_specific": "gotree gotree-application-name -i /data/input -o /data/output",
-    "usual_invocation_specific_comments": ["'gotree-application-name' to the name of the Gotree application you want to use.","'input' to the actual name of your input file.","output to the actual name of your output file."],
+    "usual_invocation_specific": "gotree gotree-application-name -i /data/newickFile -o /data/outputFolder/output",
+    "usual_invocation_specific_comments": ["'gotree-application-name' to the name of the Gotree application you want to use.","'newickFile' to the actual name of your input file.","output to the actual name of your output file."],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/newick.nwk",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/gotree_output.zip",
     "icon":"https://raw.githubusercontent.com/evolbioinfo/gotree/refs/heads/master/images/logo.svg",
-    "input_data_type": ""
+    "input_data_type": "newick"
   },
 {
     "name": "graphviz",
@@ -1252,13 +1252,13 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data -w /data pegi3s/id-mapping map-ids ",
     "invocation_general_comments": ["/your/data/dir to point to the directory that contains the file you want to process."],
-    "usual_invocation_specific": "--from-db FROM_DB --to-db TO_DB --input input.txt --output output.tsv",
+    "usual_invocation_specific": "--from-db FROM_DB --to-db TO_DB --input inputFile --output /output.tsv",
     "usual_invocation_specific_comments": ["FROM_DB to the actual name of the source database of the input identifiers.","TO_DB to the actual name of the destination database.","input.txt to the actual name of your input TXT file with the identifiers to map (one per line).","output.tsv to the actual name of your output TSV file.","The valid names for FROM_DB and TO_DB can be obtained with docker run --rm pegi3s/id-mapping list-from-dbs and docker run --rm pegi3s/id-mapping list-to-dbs, respectively."],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/gene_ids.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/id-mapping_output.zip",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": "input"
   },
 {
     "name": "igv",
