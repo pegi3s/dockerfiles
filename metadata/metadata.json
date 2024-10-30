@@ -25,7 +25,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
   {
     "name": "adops",
@@ -53,7 +53,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
   {
     "name": "aegean",
@@ -81,7 +81,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/BrendelGroup/AEGeAn/refs/heads/main/docs/aegean-logo-v1_0-128.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
   {
     "name": "afterqc",
@@ -109,7 +109,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": "fastq"
+    "input_data_type": ["fastq"]
   },
 {
     "name": "alphafold_db",
@@ -137,7 +137,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Uniprot.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/alphafold_db_output.zip",
     "icon":"https://deepmind.google/static/icons/google_deepmind_48dp.5b470587fe7d.svg",
-    "input_data_type": "uniprotID"
+    "input_data_type": ["uniprotID"]
   },
 {
     "name": "alter",
@@ -165,7 +165,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/nexus.nex",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/alter_output.zip",
     "icon":"https://raw.githubusercontent.com/sing-group/ALTER/master/alter-web/src/main/webapp/img/logo_small.png",
-    "input_data_type": "input"
+    "input_data_type": ["input"]
   },
 {
     "name": "autoaugustus",
@@ -193,7 +193,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "bdbm",
@@ -221,7 +221,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/sing-group/BDBM/master/bdbm-logo.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "bedtools",
@@ -249,7 +249,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://bedtools.readthedocs.io/en/latest/_static/bedtools.swiss.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "bioconvert",
@@ -277,7 +277,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/bioconvert_output.zip",
     "icon":"https://bioconvert.pasteur.cloud/static/images/logo.png",
-    "input_data_type": "input"
+    "input_data_type": ["input"]
   },
 {
     "name": "blast",
@@ -305,7 +305,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "bowtie1",
@@ -333,7 +333,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/BenLangmead/bowtie/refs/heads/master/doc/website/images/bowtie_logo.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "bwa",
@@ -361,7 +361,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "ccp4",
@@ -389,7 +389,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://avatars.githubusercontent.com/u/15382671?s=200&v=4",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "clustalomega",
@@ -445,7 +445,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/coral_output.zip",
     "icon":"",
-    "input_data_type": "fasta"
+    "input_data_type": ["fasta"]
   },
 
 {
@@ -474,7 +474,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "cport-like",
@@ -502,7 +502,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "cutadapt",
@@ -530,7 +530,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/cutadapt_output.zip",
     "icon":"https://raw.githubusercontent.com/marcelm/cutadapt/main/doc/_static/cutadapt-logo.svg",
-    "input_data_type": "fastq"
+    "input_data_type": ["fastq"]
   },
 {
     "name": "diamond",
@@ -558,7 +558,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://avatars.githubusercontent.com/u/10001338?v=4",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "ditasser_db",
@@ -586,7 +586,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Uniprot.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/ditasser_db_output.zip",
     "icon":"",
-    "input_data_type": "uniprotlist"
+    "input_data_type": ["uniprotlist"]
   },
 {
     "name": "dnasp-v6",
@@ -614,7 +614,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"http://www.ub.edu/molevol/julio/media/DnaSPlogo1.gif",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "edena",
@@ -642,7 +642,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "emboss",
@@ -670,7 +670,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://emboss.sourceforge.net/images/emboss.jpg",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "entrez-direct",
@@ -698,7 +698,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "fastqc",
@@ -726,7 +726,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/fastqc_output.zip",
     "icon":"https://raw.githubusercontent.com/s-andrews/FastQC/refs/heads/master/uk/ac/babraham/FastQC/Resources/fastqc_icon.svg",
-    "input_data_type": "fastqc"
+    "input_data_type": ["fastqc"] 
   },
 {
     "name": "fastroot",
@@ -754,7 +754,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/newick.nwk",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/fastroot_output.zip",
     "icon":"",
-    "input_data_type": "newick"
+    "input_data_type": ["newick"] 
   },
 {
     "name": "fasttree",
@@ -782,7 +782,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fasta",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/fasttree_output.zip",
     "icon":"",
-    "input_data_type": "fasta"
+    "input_data_type": ["fasta"]
   },
 {
     "name": "feature-counts",
@@ -810,7 +810,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "figtree",
@@ -838,7 +838,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/rambaut/figtree/refs/heads/master/Graphics/FigTreeIcon.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "flash",
@@ -866,7 +866,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "format_auto-pss-genome",
@@ -894,7 +894,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "freebayes",
@@ -922,7 +922,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "gatk-4",
@@ -950,7 +950,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://avatars.githubusercontent.com/u/32406064?s=280&v=4",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "gatk-3",
@@ -978,7 +978,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://avatars.githubusercontent.com/u/32406064?s=280&v=4",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "getpdb",
@@ -1006,7 +1006,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Uniprot.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/getpdb_ouput.zip",
     "icon":"",
-    "input_data_type": "uniprot"
+    "input_data_type": ["uniprot"]
   },
 {
     "name": "gmap-gsnap",
@@ -1034,7 +1034,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "goalign",
@@ -1062,7 +1062,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/goalign_output.zip",
     "icon":"https://raw.githubusercontent.com/evolbioinfo/goalign/master/images/logo.svg",
-    "input_data_type": "fasta"
+    "input_data_type": ["fasta"]
   },
 {
     "name": "gotree",
@@ -1090,7 +1090,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/newick.nwk",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/gotree_output.zip",
     "icon":"https://raw.githubusercontent.com/evolbioinfo/gotree/refs/heads/master/images/logo.svg",
-    "input_data_type": "newick"
+    "input_data_type": ["newick"]
   },
 {
     "name": "graphviz",
@@ -1112,13 +1112,13 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/graphviz bash -c ",
     "invocation_general_comments": ["'/your/data/dir' to point to the directory that contains the graph.py file."],
-    "usual_invocation_specific": "\"python3 /data/graph.py\"",
-    "usual_invocation_specific_comments": ["Nothing to be changed"],
+    "usual_invocation_specific": "\"python3 /data/graph_pyFile\"",
+    "usual_invocation_specific_comments": ["graph_pyFile to the name of the graph.py file"],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/graph.py",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/graphviz_output.zip",
     "icon":"https://upload.wikimedia.org/wikipedia/en/4/48/GraphvizLogo.png",
-    "input_data_type": ""
+    "input_data_type": ["graph_py"]
   },
 {
     "name": "haddock-tools",
@@ -1146,7 +1146,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "haplogrep",
@@ -1174,7 +1174,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "human_prot_atlas",
@@ -1202,7 +1202,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://www.proteinatlas.org/favicon.ico?v=JyAbEzO2Nb",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "hyphy",
@@ -1230,7 +1230,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/veg/hyphy-site/master/docs/images/logo.svg",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "id-mapping",
@@ -1252,13 +1252,13 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data -w /data pegi3s/id-mapping map-ids ",
     "invocation_general_comments": ["/your/data/dir to point to the directory that contains the file you want to process."],
-    "usual_invocation_specific": "--from-db FROM_DB --to-db TO_DB --input inputFile --output /output.tsv",
+    "usual_invocation_specific": "--from-db FROM_DB --to-db TO_DB --input inputFile --output /outputFolder/output.tsv",
     "usual_invocation_specific_comments": ["FROM_DB to the actual name of the source database of the input identifiers.","TO_DB to the actual name of the destination database.","input.txt to the actual name of your input TXT file with the identifiers to map (one per line).","output.tsv to the actual name of your output TSV file.","The valid names for FROM_DB and TO_DB can be obtained with docker run --rm pegi3s/id-mapping list-from-dbs and docker run --rm pegi3s/id-mapping list-to-dbs, respectively."],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/gene_ids.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/id-mapping_output.zip",
     "icon":"",
-    "input_data_type": "input"
+    "input_data_type": ["input"]
   },
 {
     "name": "igv",
@@ -1286,7 +1286,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/igvteam/igv/refs/heads/main/docs/web/IGV_64.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "jmodeltest2",
@@ -1314,7 +1314,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/jmodeltest2_output.zip",
     "icon":"https://raw.githubusercontent.com/ddarriba/jmodeltest2/master/src/main/resources/resources/template/resources/logo0.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "kakscalculator",
@@ -1336,13 +1336,13 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/kakscalculator bash -c ",
     "invocation_general_comments": ["/your/data/dir to point to the directory that contains the input file you want to process."],
-    "usual_invocation_specific": "\"FASTA-AXT /data/input.fa && KaKs_Calculator -i /data/input.fa.axt -o /data/result.axt.kaks\"",
-    "usual_invocation_specific_comments": ["input.fa to the actual name of your input file with the aligned CDS sequences (with no sequence line breaks) in FASTA format.","The first nucleotide must correspond to the first codon position."],
+    "usual_invocation_specific": "\"FASTA-AXT /data/fastaFile && KaKs_Calculator -i /data/fastaFile.axt -o /data/outputFolder/results.axt.kaks\"",
+    "usual_invocation_specific_comments": ["fastaFile to the actual name of your input FASTA file with the aligned CDS sequences (with no sequence line breaks).","The first nucleotide must correspond to the first codon position."],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/CDS_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/kakscalculator_output.zip",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": ["fasta"]
   },
 {
     "name": "lsd",
@@ -1370,7 +1370,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/nunofonseca/lineagesequencediscovery/master/LSD.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "mafft",
@@ -1392,13 +1392,13 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/mafft bash -c ",
     "invocation_general_comments": ["/your/data/dir to point to the directory that contains the FASTA file you want to align."],
-    "usual_invocation_specific": "\"mafft /data/sequences.fasta > /data/sequences_aligned.fasta\"",
-    "usual_invocation_specific_comments": ["sequences.fasta to the actual name of your FASTA file.","sequences_aligned.fasta to the actual name of your aligned FASTA file."],
+    "usual_invocation_specific": "\"mafft /data/fastaFile > /data/outputFolder/sequences_aligned.fasta\"",
+    "usual_invocation_specific_comments": ["fastaFile to the actual name of your FASTA file.","sequences_aligned.fasta to the actual name of your aligned FASTA file."],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/mafft_output.zip",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": ["fasta"]
   },
 {
     "name": "mauve",
@@ -1426,7 +1426,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/koadman/mauve/master/src/images/mauve_logo.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "mauve (gui)",
@@ -1454,7 +1454,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/koadman/mauve/master/src/images/mauve_logo.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "maxbin2",
@@ -1482,7 +1482,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "megax",
@@ -1510,7 +1510,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://www.megasoftware.net/web_help_11/template/Charcoal_Grey/logo.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "megax_cc",
@@ -1538,7 +1538,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://www.megasoftware.net/web_help_11/template/Charcoal_Grey/logo.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "metaeuk",
@@ -1566,7 +1566,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/soedinglab/metaeuk/refs/heads/master/imgs/MetaEuk.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "mrbayes",
@@ -1594,7 +1594,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/nexus.nex",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/mrbayes_output.zip",
     "icon":"https://raw.githubusercontent.com/NBISweden/MrBayes/refs/heads/gh-pages/img/bayes.jpg",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "multiqc",
@@ -1622,7 +1622,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/MultiQC/MultiQC/main/multiqc/templates/default/assets/img/favicon-96x96.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "muscle",
@@ -1650,7 +1650,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/muscle_output.zip",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "ncbi-datasets",
@@ -1678,7 +1678,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/empty",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/ncbi-datasets.zip",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "ncbi_retrieve",
@@ -1706,7 +1706,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "newick_utils",
@@ -1734,7 +1734,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "omegamap",
@@ -1762,7 +1762,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "paml",
@@ -1790,7 +1790,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "pathvisio",
@@ -1818,7 +1818,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://avatars.githubusercontent.com/u/12032945?s=200&v=4",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "pdb-tools",
@@ -1846,7 +1846,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/haddocking/pdb-tools/master/docs/logo/pdb-tools.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "phipack",
@@ -1874,7 +1874,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "phylogenetic-tree-collapser",
@@ -1902,7 +1902,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "picard",
@@ -1930,7 +1930,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "pilzerd",
@@ -1958,7 +1958,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "plasflow",
@@ -1986,7 +1986,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "plottree",
@@ -2014,7 +2014,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "popart",
@@ -2042,7 +2042,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "probcons",
@@ -2070,7 +2070,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "probcons_nuc",
@@ -2098,7 +2098,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/probcons_nuc_output.zip",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "prokka",
@@ -2126,7 +2126,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "pss-3d",
@@ -2154,7 +2154,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "pycision",
@@ -2182,7 +2182,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "pymol",
@@ -2210,7 +2210,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/schrodinger/pymol-open-source/master/data/pymol/icons/icon2.svg",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "qualimap",
@@ -2238,7 +2238,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "r_data-analysis",
@@ -2266,7 +2266,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://www.r-project.org/logo/Rlogo.svg",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "r_deseq2",
@@ -2294,7 +2294,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "r_edger",
@@ -2322,7 +2322,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "r_enhanced-volcano",
@@ -2350,7 +2350,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "r_network",
@@ -2378,7 +2378,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://www.r-project.org/logo/Rlogo.svg",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "r_venn-diagram",
@@ -2406,7 +2406,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "raxml",
@@ -2434,7 +2434,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "recombine",
@@ -2462,7 +2462,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "repeat_masker",
@@ -2490,7 +2490,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://www.repeatmasker.org/images/repeatmasker-logo-1024px-greytocolor.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "roary",
@@ -2518,7 +2518,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "rootdigger",
@@ -2546,7 +2546,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/computations/root_digger/refs/heads/master/docs/images/logo.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "rtn",
@@ -2574,7 +2574,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "samtools_bcftools",
@@ -2602,7 +2602,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "sapp",
@@ -2630,7 +2630,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "scipio",
@@ -2658,7 +2658,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "seda",
@@ -2686,7 +2686,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "seqkit",
@@ -2714,7 +2714,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "seqtk",
@@ -2742,7 +2742,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "soapdenovo2",
@@ -2770,7 +2770,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "spades",
@@ -2798,7 +2798,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "splitstree",
@@ -2826,7 +2826,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "sratoolkit",
@@ -2854,7 +2854,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/empty",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/sratoolkit_output.zip",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "takeabreak",
@@ -2882,7 +2882,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "tcoffee",
@@ -2910,7 +2910,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/tcoffee_output.zip",
     "icon":"https://tcoffee.crg.eu/apps/tcoffee/public/images/tcoffeelogo-2.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "translatorx",
@@ -2938,7 +2938,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "tree_snatcher_plus",
@@ -2966,7 +2966,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"http://www.cibiv.at/software/treesnatcher/tutorials/wood256.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "treeviewx",
@@ -2994,7 +2994,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://storage.googleapis.com/google-code-archive/v2/code.google.com/treeviewx/logo.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "trimmomatic",
@@ -3022,7 +3022,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "vcftools",
@@ -3050,7 +3050,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "velvet",
@@ -3078,7 +3078,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "wgsim",
@@ -3106,7 +3106,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "whiscy",
@@ -3134,7 +3134,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/haddocking/whiscy/refs/heads/main/media/whiscy_logo.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "cport_server",
@@ -3162,7 +3162,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "evoppi-querier",
@@ -3190,7 +3190,7 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/evoppi_config.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/evoppi-querier_output.zip",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "haddock_server",
@@ -3218,7 +3218,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "i-tasser_server",
@@ -3246,7 +3246,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "pisa_server",
@@ -3274,7 +3274,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "sppider",
@@ -3302,7 +3302,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "tm-align_server",
@@ -3330,7 +3330,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "auto-phylo",
@@ -3358,7 +3358,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "auto-phylo-pipeliner",
@@ -3386,7 +3386,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "dib",
@@ -3414,7 +3414,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "gbif_gis",
@@ -3442,7 +3442,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://avatars.githubusercontent.com/u/1963797?s=200&v=4",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "gis",
@@ -3470,7 +3470,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "ngs_pipeliner",
@@ -3498,7 +3498,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "prosplign-procompart",
@@ -3526,7 +3526,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "splign-compart",
@@ -3554,7 +3554,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "taxodros_gis",
@@ -3582,7 +3582,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "auto-pss-genome",
@@ -3610,7 +3610,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "cga",
@@ -3638,7 +3638,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "check-cds",
@@ -3666,7 +3666,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "ipssa",
@@ -3694,7 +3694,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "pss-fs",
@@ -3722,7 +3722,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "pss-genome-fs",
@@ -3750,7 +3750,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "two-way-blast",
@@ -3778,7 +3778,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "haddock24-builder",
@@ -3806,7 +3806,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "hdock-builder",
@@ -3834,7 +3834,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "pydock3-builder",
@@ -3862,7 +3862,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "trinity",
@@ -3890,7 +3890,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/wiki/trinityrnaseq/trinityrnaseq/images/TrinityCompositeLogo.png",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "biopython",
@@ -3918,7 +3918,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/biopython/biopython/master/Doc/images/biopython_logo.svg",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "docker-manager",
@@ -3946,7 +3946,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "formfind",
@@ -3974,7 +3974,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "r_project",
@@ -4002,7 +4002,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://www.r-project.org/logo/Rlogo.svg",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "docker",
@@ -4030,7 +4030,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"assets/icons/logos/docker-mark-blue.svg",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "biopython_utilities",
@@ -4058,7 +4058,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"https://raw.githubusercontent.com/biopython/biopython/master/Doc/images/biopython_logo.svg",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "blast_utilities",
@@ -4086,7 +4086,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "cds2gff3-maker",
@@ -4114,7 +4114,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "utilities",
@@ -4142,7 +4142,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "orthologs-finder",
@@ -4170,7 +4170,7 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   },
 {
     "name": "values2tree",
@@ -4198,6 +4198,6 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon":"",
-    "input_data_type": ""
+    "input_data_type": [""]
   }
 ]
