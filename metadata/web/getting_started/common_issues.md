@@ -5,14 +5,14 @@ When running Docker images in Windows, using the Ubuntu app, the following issue
 <details>
 <summary><b>White Spaces in the Path</b></summary>
 
-When running the Ubuntu app in a Windows operating system, the path to the project's directory must not have white spaces. This can be easily avoided when the `<windows_username>` does not have blanks. If the `<windows_username>` has white spaces, the easiest solution is to create a new user in that computer without white spaces.
+When running the Ubuntu app in a Windows operating system, the path to the project's directory should not have white spaces. This can be easily avoided when the `<windows_username>` does not have blanks. If the `<windows_username>` has white spaces, the easiest solution is to create a new user in that computer without white spaces. Alternatively, try using single quotes around folder names that have white spaces, for instance /mnt/c/Users/'my account'/Documents/Docker that works most of the times.
 
 </details>
 
 <details>
 <summary><b>File Extensions</b></summary>
 
-If you have created the text configuration files or the data files (FASTA files, for instance) using Windows applications (Notepad, for instance), it is likely that the files have the `.txt` extension. Therefore, it is advisable to, using the Ubuntu app, go to the project’s directory (for instance by typing, cd `C:/Users/<windows_username>/Documents/Project`) and then type `ls`. This Linux command will list the name of all files under that directory. If the name of the text configuration files or the data files ends in `.txt`, the full name of the file (including the extension) must be typed in the Docker command that you want to run. Some Docker images may not accept a text configuration file or data file with the `.txt` extension. In those cases, simply use the `mv` command to change the file name (for instance `mv name.txt name`).
+If you have created the text configuration files or the data files (FASTA files, for instance) using Windows applications (Notepad, for instance), it is likely that the files have the `.txt` extension. Therefore, it is advisable to, using the Ubuntu app, go to the project’s directory (for instance by typing, cd `/mnt/c/Users/<windows_username>/Documents/Project`) and then type `ls`. This Linux command will list the name of all files under that directory. If the name of the text configuration files or the data files ends in `.txt`, the full name of the file (including the extension) must be typed in the Docker command that you want to run. Some Docker images may not accept a text configuration file or data file with the `.txt` extension. In those cases, simply use the `mv` command to change the file name (for instance `mv name.txt name`).
 
 </details>
 
