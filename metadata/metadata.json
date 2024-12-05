@@ -12,30 +12,34 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/abyss/",
     "manual_url": "https://github.com/bcgsc/abyss/blob/master/README.md",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/abyss",
-    "comments": ["Since the default k-mer size to run an assembly is 64, we have compiled two additional images with --enable-maxk=128 and --enable-maxk=256.","Please see the documentation."],
+    "comments": [
+      "Since the default k-mer size to run an assembly is 64, we have compiled two additional images with --enable-maxk=128 and --enable-maxk=256.",
+      "Please see the documentation."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/abyss ",
     "usual_invocation_specific": "abyss-pe k=25 name=test in='/data/fastq1File /data/fastq2File' --directory=/data/outputFolder",
-    "usual_invocation_specific_comments": ["The `k` parameter is the size of the k-mer. It can be changed to any odd number below the `maxk` value (see comments). The `name` parameter can be changed to any name without blank spaces."],
+    "usual_invocation_specific_comments": [
+      "The `k` parameter is the size of the k-mer. It can be changed to any odd number below the `maxk` value (see comments). The `name` parameter can be changed to any name without blank spaces."
+    ],
     "test_invocation_specific": "abyss-pe k=25 name=test in='/data/test-data/reads1.fastq /data/test-data/reads2.fastq' --directory=/data/results",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["fastq1", "fastq2"],
-    "auto-tests": 
-    		{
-    		"abyss": {
-    			"docker_image": "pegi3s/abyss",
-    			"input_files": ["SRR3143588_1.fastq", "SRR3143588_2.fastq"],
-    			"output_dir": "abyss_output",
-    			"output_file": "test-scaffolds.fa",
-   			"add_config": "",
-    			"commands": " bash -c \"abyss-pe k=25 name=test in='/data/input_data/SRR3143588_1.fastq /data/input_data/SRR3143588_2.fastq' --directory=/data/output_folder/abyss_output\" > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/abyss",
+        "input_files": ["SRR3143588_1.fastq", "SRR3143588_2.fastq"],
+        "output_dir": "abyss_output",
+        "output_file": "test-scaffolds.fa",
+        "add_config": "",
+        "commands": " bash -c \"abyss-pe k=25 name=test in='/data/input_data/SRR3143588_1.fastq /data/input_data/SRR3143588_2.fastq' --directory=/data/output_folder/abyss_output\" > /dev/null 2>&1"
+      }
+    ]
   },
   {
     "name": "adops-gui",
@@ -50,30 +54,33 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/adops/",
     "manual_url": "https://www.sing-group.org/ADOPS/",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/adops",
-    "comments": ["This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file."],
+    "comments": [
+      "This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file."
+    ],
     "gui": true,
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "xhost + && docker run --rm -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v \"/your/data/dir:/data\" pegi3s/adops-gui bash -c /opt/ADOPS/run.sh",
     "usual_invocation_specific": "",
-    "usual_invocation_specific_comments": ["This image does not have any parameters."],
+    "usual_invocation_specific_comments": [
+      "This image does not have any parameters."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"adops-gui": {
-    			"docker_image": "pegi3s/adops-gui",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/adops-gui",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
   {
     "name": "aegean",
@@ -99,19 +106,18 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://raw.githubusercontent.com/BrendelGroup/AEGeAn/refs/heads/main/docs/aegean-logo-v1_0-128.png",
+    "icon": "https://raw.githubusercontent.com/BrendelGroup/AEGeAn/refs/heads/main/docs/aegean-logo-v1_0-128.png",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"aegean": {
-    			"docker_image": "pegi3s/aegean",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/aegean",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
   {
     "name": "afterqc",
@@ -137,21 +143,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/afterqc_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["fastq"],
-    "auto-tests": 
-    		{
-    		"afterqc": {
-    			"docker_image": "pegi3s/afterqc",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/afterqc",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "alphafold_db",
     "description": "Protein structure retrieval",
     "status": "Usable",
@@ -175,21 +180,20 @@
     "test_invocation_specific": "uniprotIDFile to the filename of the list of Uniprot ID's corresponding to the proteins that you want to obtain from AlphaFold. Each line in the file should contain only one Uniprot ID.",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Uniprot.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/alphafold_db_output.zip",
-    "icon":"https://deepmind.google/static/icons/google_deepmind_48dp.5b470587fe7d.svg",
+    "icon": "https://deepmind.google/static/icons/google_deepmind_48dp.5b470587fe7d.svg",
     "input_data_type": ["uniprotID"],
-    "auto-tests": 
-    		{
-    		"alphafold_db": {
-    			"docker_image": "pegi3s/alphafold_db",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/alphafold_db",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "alter",
     "description": "File conversion",
     "status": "Usable",
@@ -209,25 +213,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/alter ",
     "usual_invocation_specific": "-i /data/inputFile -o /data/outputFolder/output -ia -of out_format -oo Linux -op GENERAL",
-    "usual_invocation_specific_comments": ["`output` to the actual name of your output file. `out_format` to the output format you intend to obtain (the allowed standard formats are: ALN, FASTA, GDE, MEGA, MSF, NEXUS, PHYLIP and PIR)."],
+    "usual_invocation_specific_comments": [
+      "`output` to the actual name of your output file. `out_format` to the output format you intend to obtain (the allowed standard formats are: ALN, FASTA, GDE, MEGA, MSF, NEXUS, PHYLIP and PIR)."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/nexus.nex",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/alter_output.zip",
-    "icon":"https://raw.githubusercontent.com/sing-group/ALTER/master/alter-web/src/main/webapp/img/logo_small.png",
+    "icon": "https://raw.githubusercontent.com/sing-group/ALTER/master/alter-web/src/main/webapp/img/logo_small.png",
     "input_data_type": ["input"],
-    "auto-tests": 
-    		{
-    		"alter": {
-    			"docker_image": "pegi3s/alter",
-    			"input_files": ["nexus.nex"],
-    			"output_dir": "alter_output",
-    			"output_file": "output.fasta",
-   			"add_config": "",
-    			"commands": " -i /data/input_data/nexus.nex -o /data/output_folder/alter_output/output.fasta -ia -of FASTA -oo Linux -op GENERAL > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/alter",
+        "input_files": ["nexus.nex"],
+        "output_dir": "alter_output",
+        "output_file": "output.fasta",
+        "add_config": "",
+        "commands": " -i /data/input_data/nexus.nex -o /data/output_folder/alter_output/output.fasta -ia -of FASTA -oo Linux -op GENERAL > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "autoaugustus",
     "description": "Gene annotation",
     "status": "Usable",
@@ -240,7 +245,9 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/autoaugustus/",
     "manual_url": "https://github.com/Gaius-Augustus/Augustus/blob/master/scripts/README.autoAug",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/autoaugustus",
-    "comments": ["To see AUGUSTUS general parameters help, you just need to run: augustus --help."],
+    "comments": [
+      "To see AUGUSTUS general parameters help, you just need to run: augustus --help."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -251,21 +258,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"autoaugustus": {
-    			"docker_image": "pegi3s/autoaugustus",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/autoaugustus",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "bdbm",
     "description": "Sequence database manager",
     "status": "Usable",
@@ -278,32 +284,35 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/bdbm/",
     "manual_url": "https://www.sing-group.org/BDBM/manual.html",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/bdbm",
-    "comments": ["This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file."],
+    "comments": [
+      "This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file."
+    ],
     "gui": true,
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v \"/your/data/dir:/mnt/shared\" ",
     "usual_invocation_specific": "-v \"outFolder:/mnt/repository\" pegi3s/bdbm",
-    "usual_invocation_specific_comments": ["This image does not have any parameters."],
+    "usual_invocation_specific_comments": [
+      "This image does not have any parameters."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
-    "icon":"https://raw.githubusercontent.com/sing-group/BDBM/master/bdbm-logo.png",
+    "icon": "https://raw.githubusercontent.com/sing-group/BDBM/master/bdbm-logo.png",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"bdbm": {
-    			"docker_image": "pegi3s/bdbm",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/bdbm",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "bedtools",
     "description": "General utilities",
     "status": "Usable",
@@ -312,7 +321,7 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "",
-    "no_longer_tested": ["2.29.2","2.27.1"],
+    "no_longer_tested": ["2.29.2", "2.27.1"],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/bedtools/",
     "manual_url": "https://bedtools.readthedocs.io/en/latest/content/overview.html",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/bedtools",
@@ -327,21 +336,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/bedtools.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/bedtools_output.zip",
-    "icon":"https://bedtools.readthedocs.io/en/latest/_static/bedtools.swiss.png",
+    "icon": "https://bedtools.readthedocs.io/en/latest/_static/bedtools.swiss.png",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"bedtools": {
-    			"docker_image": "pegi3s/bedtools",
-    			"input_files": ["GCF_000858285.1.fa", "GCF_000858285.1.gff"],
-    			"output_dir": "bedtools_output",
-    			"output_file": "GCF_000858285.1_annotation.fa",
-   			"add_config": "",
-    			"commands": " fastaFromBed -fi /data/input_data/GCF_000858285.1.fa -bed /data/input_data/GCF_000858285.1.gff -fo /data/output_folder/bedtools_output/GCF_000858285.1_annotation.fa > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/bedtools",
+        "input_files": ["GCF_000858285.1.fa", "GCF_000858285.1.gff"],
+        "output_dir": "bedtools_output",
+        "output_file": "GCF_000858285.1_annotation.fa",
+        "add_config": "",
+        "commands": " fastaFromBed -fi /data/input_data/GCF_000858285.1.fa -bed /data/input_data/GCF_000858285.1.gff -fo /data/output_folder/bedtools_output/GCF_000858285.1_annotation.fa > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "bioconvert",
     "description": "Interconversion of life science data formats",
     "status": "Usable",
@@ -361,25 +369,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/bioconvert ",
     "usual_invocation_specific": "bioconvert-conversion-name /data/inputFile /data/outputFolder/output",
-    "usual_invocation_specific_comments": ["'bioconvert-conversion-name' to the name of the conversion command (e.g. fastq2fasta)."],
+    "usual_invocation_specific_comments": [
+      "'bioconvert-conversion-name' to the name of the conversion command (e.g. fastq2fasta)."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/bioconvert_output.zip",
-    "icon":"https://bioconvert.pasteur.cloud/static/images/logo.png",
+    "icon": "https://bioconvert.pasteur.cloud/static/images/logo.png",
     "input_data_type": ["input"],
-    "auto-tests": 
-    		{
-    		"bioconvert": {
-    			"docker_image": "pegi3s/bioconvert",
-    			"input_files": ["small_aligned.fas"],
-    			"output_dir": "bioconvert_output",
-    			"output_file": "small_aligned.nex",
-   			"add_config": "",
-    			"commands": " fasta2nexus /data/input_data/small_aligned.fas /data/output_folder/bioconvert_output/small_aligned.nex > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/bioconvert",
+        "input_files": ["small_aligned.fas"],
+        "output_dir": "bioconvert_output",
+        "output_file": "small_aligned.nex",
+        "add_config": "",
+        "commands": " fasta2nexus /data/input_data/small_aligned.fas /data/output_folder/bioconvert_output/small_aligned.nex > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "blast",
     "description": "Sequence alignment",
     "status": "Usable",
@@ -388,7 +397,7 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "",
-    "no_longer_tested": ["2.14.1","2.13.0","2.10.0","2.6.0-1"],
+    "no_longer_tested": ["2.14.1", "2.13.0", "2.10.0", "2.6.0-1"],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/blast/",
     "manual_url": "https://www.ncbi.nlm.nih.gov/books/NBK279690/",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/blast",
@@ -403,21 +412,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/blast.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/blast_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"blast": {
-    			"docker_image": "pegi3s/blast",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/blast",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "bowtie1",
     "description": "Short sequence alignment",
     "status": "Usable",
@@ -441,21 +449,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://raw.githubusercontent.com/BenLangmead/bowtie/refs/heads/master/doc/website/images/bowtie_logo.png",
+    "icon": "https://raw.githubusercontent.com/BenLangmead/bowtie/refs/heads/master/doc/website/images/bowtie_logo.png",
     "input_data_type": ["genomefasta"],
-    "auto-tests": 
-    		{
-    		"bowtie1": {
-    			"docker_image": "pegi3s/bowtie1",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/bowtie1",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "bwa",
     "description": "Sequence read aligner",
     "status": "Usable",
@@ -475,25 +482,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v \"/your/data/dir:/data\" pegi3s/bwa",
     "usual_invocation_specific": "bwa command options",
-    "usual_invocation_specific_comments": ["`command` to the specific command of the BWA tool. `options` to the specific options of the BWA tool (these options will include the input/output files, which should be referenced under /data/."],
+    "usual_invocation_specific_comments": [
+      "`command` to the specific command of the BWA tool. `options` to the specific options of the BWA tool (these options will include the input/output files, which should be referenced under /data/."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"bwa": {
-    			"docker_image": "pegi3s/bwa",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/bwa",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "ccp4",
     "description": "Software for Macromolecular X-Ray Crystallography",
     "status": "Usable",
@@ -517,21 +525,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://avatars.githubusercontent.com/u/15382671?s=200&v=4",
+    "icon": "https://avatars.githubusercontent.com/u/15382671?s=200&v=4",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"ccp4": {
-    			"docker_image": "pegi3s/ccp4",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/ccp4",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "clustalomega",
     "description": "Sequence alignment",
     "status": "Usable",
@@ -551,25 +558,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/clustalomega ",
     "usual_invocation_specific": "-i /data/fastaFile -o /data/outputFolder/output.fasta",
-    "usual_invocation_specific_comments": ["`output.fasta` to the actual name of your aligned FASTA file."],
+    "usual_invocation_specific_comments": [
+      "`output.fasta` to the actual name of your aligned FASTA file."
+    ],
     "test_invocation_specific": "-i /data/Test_data/small_not_aligned.fas -o /data/outputFolder/sequences_aligned.fasta",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/clustalomega_output.zip",
-    "icon":"http://www.clustal.org/images/clustalo_title.png",
+    "icon": "http://www.clustal.org/images/clustalo_title.png",
     "input_data_type": ["fasta"],
-    "auto-tests": 
-    		{
-    		"clustalomega": {
-    			"docker_image": "pegi3s/clustalomega",
-    			"input_files": ["small_not_aligned.fas"],
-    			"output_dir": "clustalomega_output",
-    			"output_file": "sequences_aligned.fasta",
-   			"add_config": "",
-    			"commands": " -i /data/input_data/small_not_aligned.fas -o /data/output_folder/clustalomega_output/sequences_aligned.fasta > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/clustalomega",
+        "input_files": ["small_not_aligned.fas"],
+        "output_dir": "clustalomega_output",
+        "output_file": "sequences_aligned.fasta",
+        "add_config": "",
+        "commands": " -i /data/input_data/small_not_aligned.fas -o /data/output_folder/clustalomega_output/sequences_aligned.fasta > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "coral",
     "description": "Sequence read correction",
     "status": "Usable",
@@ -589,26 +597,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/coral ",
     "usual_invocation_specific": "-f /data/fastaFile -o /data/outputFolder/output.fasta",
-    "usual_invocation_specific_comments": ["Note that the `-f` parameter indicates that the input file is in FASTA format (-fq for FASTQ files, -fs for Solexa FASTA files). `ouput.fasta` to the actual name of your ouput file."],
+    "usual_invocation_specific_comments": [
+      "Note that the `-f` parameter indicates that the input file is in FASTA format (-fq for FASTQ files, -fs for Solexa FASTA files). `ouput.fasta` to the actual name of your ouput file."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/coral_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["fasta"],
-    "auto-tests": 
-    		{
-    		"coral": {
-    			"docker_image": "pegi3s/coral",
-    			"input_files": ["SRR3143588_1.fastq"],
-    			"output_dir": "coral_output",
-    			"output_file": "output.fq",
-   			"add_config": "",
-    			"commands": " -fq /data/input_data/SRR3143588_1.fastq -o /data/output_folder/coral_output/output.fq > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/coral",
+        "input_files": ["SRR3143588_1.fastq"],
+        "output_dir": "coral_output",
+        "output_file": "output.fq",
+        "add_config": "",
+        "commands": " -fq /data/input_data/SRR3143588_1.fastq -o /data/output_folder/coral_output/output.fq > /dev/null 2>&1"
+      }
+    ]
   },
-
-{
+  {
     "name": "cport",
     "description": "Active and passive sites prediction",
     "status": "Usable",
@@ -628,25 +636,26 @@
     "singularity": "untested",
     "invocation_general": "docker run -v /your/data/dir:/data pegi3s/cport ",
     "usual_invocation_specific": "cport /data/pdbFile chain_id --pred method && cp -r /output /data/outputFolder",
-    "usual_invocation_specific_comments": ["'chain_id' to indicate the identifier of the chain you want to use. `--pred` method to indicate the method you want to use."],
+    "usual_invocation_specific_comments": [
+      "'chain_id' to indicate the identifier of the chain you want to use. `--pred` method to indicate the method you want to use."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["pdb"],
-    "auto-tests": 
-    		{
-    		"cport": {
-    			"docker_image": "pegi3s/cport",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/cport",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "cport-like",
     "description": "Active and passive sites prediction",
     "status": "Usable",
@@ -659,7 +668,13 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/cport-like/",
     "manual_url": "https://github.com/haddocking/cport",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/cport-like",
-    "comments": ["To run the custom batch script that allows running in batch mode PDB files and get results in csv format, you should create a file named config in your working directory with the following information (one instruction per line):","input_dir=","chain=","method=","Check the Docker documentation for additional information regarding the number of retries or the wait interval for a specific method"],
+    "comments": [
+      "To run the custom batch script that allows running in batch mode PDB files and get results in csv format, you should create a file named config in your working directory with the following information (one instruction per line):",
+      "input_dir=",
+      "chain=",
+      "method=",
+      "Check the Docker documentation for additional information regarding the number of retries or the wait interval for a specific method"
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -670,21 +685,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"cport-like": {
-    			"docker_image": "pegi3s/cport-like",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/cport-like",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "cutadapt",
     "description": "Sequence read trimming",
     "status": "Usable",
@@ -704,25 +718,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/cutadapt ",
     "usual_invocation_specific": "-u 10 /data/fastqFile -o /data/outputFolder/output.fq",
-    "usual_invocation_specific_comments": ["`output.fq` to the actual name of your output file. A negative value after `-u` would trims reads at the end."],
+    "usual_invocation_specific_comments": [
+      "`output.fq` to the actual name of your output file. A negative value after `-u` would trims reads at the end."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/cutadapt_output.zip",
-    "icon":"https://raw.githubusercontent.com/marcelm/cutadapt/main/doc/_static/cutadapt-logo.svg",
+    "icon": "https://raw.githubusercontent.com/marcelm/cutadapt/main/doc/_static/cutadapt-logo.svg",
     "input_data_type": ["fastq"],
-    "auto-tests": 
-    		{
-    		"cutadapt": {
-    			"docker_image": "pegi3s/cutadapt",
-    			"input_files": ["SRR3143588_1.fastq"],
-    			"output_dir": "cutadapt_output",
-    			"output_file": "trimmed_SRR3143588_1.fastq",
-   			"add_config": "",
-    			"commands": " -u 10 /data/input_data/SRR3143588_1.fastq -o /data/output_folder/cutadapt_output/trimmed_SRR3143588_1.fastq > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/cutadapt",
+        "input_files": ["SRR3143588_1.fastq"],
+        "output_dir": "cutadapt_output",
+        "output_file": "trimmed_SRR3143588_1.fastq",
+        "add_config": "",
+        "commands": " -u 10 /data/input_data/SRR3143588_1.fastq -o /data/output_folder/cutadapt_output/trimmed_SRR3143588_1.fastq > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "diamond",
     "description": "Sequence alignment",
     "status": "Usable",
@@ -742,25 +757,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/diamond ",
     "usual_invocation_specific": "command options",
-    "usual_invocation_specific_comments": ["'command' to the name of the DIAMOND command you want to use. 'options' with the specific options of the DIAMOND application (these options must include the input/output files, which should be referenced under /data/; see Docker instructions for further details)."],
+    "usual_invocation_specific_comments": [
+      "'command' to the name of the DIAMOND command you want to use. 'options' with the specific options of the DIAMOND application (these options must include the input/output files, which should be referenced under /data/; see Docker instructions for further details)."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://avatars.githubusercontent.com/u/10001338?v=4",
+    "icon": "https://avatars.githubusercontent.com/u/10001338?v=4",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"diamond": {
-    			"docker_image": "pegi3s/diamond",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/diamond",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "ditasser_db",
     "description": "PDB retrieval",
     "status": "Usable",
@@ -780,25 +796,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/ditasser_db bash -c ",
     "usual_invocation_specific": "\"/opt/getditasserpdb uniprotlistFile\"",
-    "usual_invocation_specific_comments": ["The 'uniprotlistFile' should contain the UniProt numbers, one per line."],
+    "usual_invocation_specific_comments": [
+      "The 'uniprotlistFile' should contain the UniProt numbers, one per line."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Uniprot.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/ditasser_db_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["uniprotlist"],
-    "auto-tests": 
-    		{
-    		"ditasser_db": {
-    			"docker_image": "pegi3s/ditasser_db",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/ditasser_db",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "dnasp-v6",
     "description": "DNA sequence polymorphism",
     "status": "Usable",
@@ -811,32 +828,35 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/dnasp-v6/",
     "manual_url": "http://www.ub.edu/dnasp/",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/dnasp-v6",
-    "comments": ["This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file."],
+    "comments": [
+      "This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file."
+    ],
     "gui": true,
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run -it --rm --env=\"DISPLAY\" --volume=\"${XAUTHORITY:-${HOME}/.Xauthority}:/root/.Xauthority:ro\" --volume=\"/tmp/.X11-unix:/tmp/.X11-unix:ro\" -v=/your/data/dir:/data --hostname=\"$(hostname)\" pegi3s/dnasp-v6 wine \"/wineuser/.wine/drive_c/Program Files (x86)/DnaSP v6/DnaSP6.exe\"",
     "usual_invocation_specific": "",
-    "usual_invocation_specific_comments": ["This image does not have any parameters."],
+    "usual_invocation_specific_comments": [
+      "This image does not have any parameters."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/CDS_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
-    "icon":"http://www.ub.edu/molevol/julio/media/DnaSPlogo1.gif",
+    "icon": "http://www.ub.edu/molevol/julio/media/DnaSPlogo1.gif",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"dnasp-v6": {
-    			"docker_image": "pegi3s/dnasp-v6",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/dnasp-v6",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "edena",
     "description": "de novo sequence assembler",
     "status": "Usable",
@@ -849,32 +869,35 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/edena/",
     "manual_url": "https://orione-documentation.readthedocs.io/en/latest/microbiology/ngs_de_novo_assembly/edena.html",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/edena",
-    "comments": ["To see the Edena⁠ help, just run the docker image without any parameters."],
+    "comments": [
+      "To see the Edena⁠ help, just run the docker image without any parameters."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/edena ",
     "usual_invocation_specific": "-singleEnd /data/fastqFile -prefix /data/outputFolder/output",
-    "usual_invocation_specific_comments": ["/data/result to point to the prefix of the output files that will be generated by Edena."],
+    "usual_invocation_specific_comments": [
+      "/data/result to point to the prefix of the output files that will be generated by Edena."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/edena_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["fastq"],
-    "auto-tests": 
-    		{
-    		"edena": {
-    			"docker_image": "pegi3s/edena",
-    			"input_files": ["SRR3143588_1.fastq"],
-    			"output_dir": "edena_output",
-    			"output_file": "result.ovl",
-   			"add_config": "",
-    			"commands": " -singleEnd /data/input_data/SRR3143588_1.fastq -prefix /data/output_folder/edena_output/result > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/edena",
+        "input_files": ["SRR3143588_1.fastq"],
+        "output_dir": "edena_output",
+        "output_file": "result.ovl",
+        "add_config": "",
+        "commands": " -singleEnd /data/input_data/SRR3143588_1.fastq -prefix /data/output_folder/edena_output/result > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "emboss",
     "description": "General utilities",
     "status": "Usable",
@@ -887,32 +910,35 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/emboss/",
     "manual_url": "https://emboss.sourceforge.net/docs/",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/emboss",
-    "comments": ["To obtain the help of an application, you just need to run: emboss-application-name -h (e.g. prophet -h)"],
+    "comments": [
+      "To obtain the help of an application, you just need to run: emboss-application-name -h (e.g. prophet -h)"
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/emboss ",
     "usual_invocation_specific": "emboss-application-name options",
-    "usual_invocation_specific_comments": ["`emboss-application-name` to the name of the EMBOSS application you want to use. `options` with the specific options of the EMBOSS application (these options must include the input/output files, which should be referenced under /data/."],
+    "usual_invocation_specific_comments": [
+      "`emboss-application-name` to the name of the EMBOSS application you want to use. `options` with the specific options of the EMBOSS application (these options must include the input/output files, which should be referenced under /data/."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/6_Drosophila_melanogaster_CDS.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/emboss_output.zip",
-    "icon":"https://emboss.sourceforge.net/images/emboss.jpg",
+    "icon": "https://emboss.sourceforge.net/images/emboss.jpg",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"emboss": {
-    			"docker_image": "pegi3s/emboss",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/emboss",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "entrez-direct",
     "description": "NCBI E-utilities on the Unix Command Line",
     "status": "Usable",
@@ -932,25 +958,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/entrez-direct ",
     "usual_invocation_specific": "entrez-direct-command options",
-    "usual_invocation_specific_comments": ["`entrez-direct-command` to the name of the Entrez Direct command you want to use. `options` with the specific options of the Entrez Direct command (these options must include the input/output files if required, which should be referenced under /data/.)"],
+    "usual_invocation_specific_comments": [
+      "`entrez-direct-command` to the name of the Entrez Direct command you want to use. `options` with the specific options of the Entrez Direct command (these options must include the input/output files if required, which should be referenced under /data/.)"
+    ],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"entrez-direct": {
-    			"docker_image": "pegi3s/entrez-direct",
-    			"input_files": ["2_nucleotide_accessions.txt"],
-    			"output_dir": "entrez-direct_output",
-    			"output_file": "sequences.fasta",
-   			"add_config": "",
-    			"commands": " bash -c \"epost -db nuccore -format uid -input /data/input_data/2_nucleotide_accessions.txt | efetch -format fasta > /data/output_folder/entrez-direct_output/sequences.fasta\" > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/entrez-direct",
+        "input_files": ["2_nucleotide_accessions.txt"],
+        "output_dir": "entrez-direct_output",
+        "output_file": "sequences.fasta",
+        "add_config": "",
+        "commands": " bash -c \"epost -db nuccore -format uid -input /data/input_data/2_nucleotide_accessions.txt | efetch -format fasta > /data/output_folder/entrez-direct_output/sequences.fasta\" > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "fastqc",
     "description": "Sequence read quality assessment",
     "status": "Usable",
@@ -959,7 +986,7 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "25/11/2024",
-    "no_longer_tested": ["0.11.9","0.11.7"],
+    "no_longer_tested": ["0.11.9", "0.11.7"],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/fastqc/",
     "manual_url": "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/fastqc",
@@ -974,21 +1001,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/fastqc_output.zip",
-    "icon":"https://raw.githubusercontent.com/s-andrews/FastQC/refs/heads/master/uk/ac/babraham/FastQC/Resources/fastqc_icon.svg",
+    "icon": "https://raw.githubusercontent.com/s-andrews/FastQC/refs/heads/master/uk/ac/babraham/FastQC/Resources/fastqc_icon.svg",
     "input_data_type": ["fastq"],
-    "auto-tests": 
-    		{
-    		"fastqc": {
-    			"docker_image": "pegi3s/fastqc",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/fastqc",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "fastroot",
     "description": "Tree rooting software",
     "status": "Usable",
@@ -1008,25 +1034,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/fastroot ",
     "usual_invocation_specific": "-i /data/newickFile -m method -o /data/outputFolder/output",
-    "usual_invocation_specific_comments": ["'method' to either MP (midpoint), MV (minVAR), OG (outgroup), or RTT (root-to-tip). If using OG, the `-g` option can be used to specify the outgroups. If more than one, put them between quotes. 'output' to the actual name of your Newick output file."],
+    "usual_invocation_specific_comments": [
+      "'method' to either MP (midpoint), MV (minVAR), OG (outgroup), or RTT (root-to-tip). If using OG, the `-g` option can be used to specify the outgroups. If more than one, put them between quotes. 'output' to the actual name of your Newick output file."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/newick.nwk",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/fastroot_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["newick"],
-    "auto-tests": 
-    		{
-    		"fastroot": {
-    			"docker_image": "pegi3s/fastroot",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/fastroot",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "fasttree",
     "description": "Phylogenetics inferences",
     "status": "Usable",
@@ -1046,25 +1073,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/fasttree bash -c ",
     "usual_invocation_specific": "\"FastTree -nt -gtr -gamma /data/fastaFile > /data/outputFolder/output\"",
-    "usual_invocation_specific_comments": ["`output` to the actual name of your output file."],
+    "usual_invocation_specific_comments": [
+      "`output` to the actual name of your output file."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fasta",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/fasttree_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["fasta"],
-    "auto-tests": 
-    		{
-    		"fasttree": {
-    			"docker_image": "pegi3s/fasttree",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/fasttree",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "feature-counts",
     "description": "Sequence read summarization function",
     "status": "Usable",
@@ -1084,25 +1112,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/feature-counts ",
     "usual_invocation_specific": "featureCounts -a /data/gffFile -o /outputFolder/output.txt /data/bamFile",
-    "usual_invocation_specific_comments": ["'output.txt' to the actual name of your output file."],
+    "usual_invocation_specific_comments": [
+      "'output.txt' to the actual name of your output file."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["gffFile", "bam"],
-    "auto-tests": 
-    		{
-    		"feature-counts": {
-    			"docker_image": "pegi3s/feature-counts",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/feature-counts",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "figtree",
     "description": "Phylogenetic tree viewing and editing",
     "status": "Usable",
@@ -1115,32 +1144,35 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/figtree/",
     "manual_url": "https://github.com/rambaut/figtree",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/figtree",
-    "comments": ["This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file."],
+    "comments": [
+      "This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file."
+    ],
     "gui": true,
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority --device /dev/dri/ -v \"/your/data/dir:/data\" pegi3s/figtree",
     "usual_invocation_specific": "",
-    "usual_invocation_specific_comments": ["This image does not have any parameters."],
+    "usual_invocation_specific_comments": [
+      "This image does not have any parameters."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/newick.nwk",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
-    "icon":"https://raw.githubusercontent.com/rambaut/figtree/refs/heads/master/Graphics/FigTreeIcon.png",
+    "icon": "https://raw.githubusercontent.com/rambaut/figtree/refs/heads/master/Graphics/FigTreeIcon.png",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"figtree": {
-    			"docker_image": "pegi3s/figtree",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/figtree",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "flash",
     "description": "Sequence read overlap",
     "status": "Usable",
@@ -1164,21 +1196,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/flash.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/flash_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["fastq"],
-    "auto-tests": 
-    		{
-    		"flash": {
-    			"docker_image": "pegi3s/flash",
-    			"input_files": ["SRR3143588_1.fastq", "SRR3143588_2.fastq"],
-    			"output_dir": "flash_output",
-    			"output_file": "out.extendedFrags.fastq",
-   			"add_config": "",
-    			"commands": " /data/input_data/SRR3143588_1.fastq /data/input_data/SRR3143588_2.fastq -d /data/output_folder/flash_output > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/flash",
+        "input_files": ["SRR3143588_1.fastq", "SRR3143588_2.fastq"],
+        "output_dir": "flash_output",
+        "output_file": "out.extendedFrags.fastq",
+        "add_config": "",
+        "commands": " /data/input_data/SRR3143588_1.fastq /data/input_data/SRR3143588_2.fastq -d /data/output_folder/flash_output > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "format_auto-pss-genome",
     "description": "format auto-pss-genome projects for B+",
     "status": "Usable",
@@ -1202,21 +1233,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"format_auto-pss-genome": {
-    			"docker_image": "pegi3s/format_auto-pss-genome",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/format_auto-pss-genome",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "freebayes",
     "description": "haplotype based variant detector",
     "status": "Usable",
@@ -1236,25 +1266,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/freebayes ",
     "usual_invocation_specific": "-f fastaFile /data/bamFile",
-    "usual_invocation_specific_comments": ["'reference.fa' to the actual name of your reference file (rCRS.fasta is included with the docker image)."],
+    "usual_invocation_specific_comments": [
+      "'reference.fa' to the actual name of your reference file (rCRS.fasta is included with the docker image)."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["fasta", "bam"],
-    "auto-tests": 
-    		{
-    		"freebayes": {
-    			"docker_image": "pegi3s/freebayes",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/freebayes",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "gatk-4",
     "description": "Genomic tools",
     "status": "Usable",
@@ -1267,32 +1298,36 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/gatk-4/",
     "manual_url": "https://gatk.broadinstitute.org/hc/en-us/articles/360037224712--Tool-Documentation-Index",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/gatk/4/4.1.4.1",
-    "comments": ["To see GATK 4 available tools, just run gatk --list (please note that GATK 4 does not include some tools that are included in GATK 3⁠).","To obtain the help of a particular tool, you just need to run: gatk tools --help (where tools is the tool name)"],
+    "comments": [
+      "To see GATK 4 available tools, just run gatk --list (please note that GATK 4 does not include some tools that are included in GATK 3⁠).",
+      "To obtain the help of a particular tool, you just need to run: gatk tools --help (where tools is the tool name)"
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/gatk-4:4.1.4.1 ",
     "usual_invocation_specific": "gatk tools options",
-    "usual_invocation_specific_comments": ["`tools` to the name of the GATK 4 tool you want to use. `options` with the specific options of the GATK 4 tool (these options must include the input/output files, which should be referenced under /data/)."],
+    "usual_invocation_specific_comments": [
+      "`tools` to the name of the GATK 4 tool you want to use. `options` with the specific options of the GATK 4 tool (these options must include the input/output files, which should be referenced under /data/)."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://avatars.githubusercontent.com/u/32406064?s=280&v=4",
+    "icon": "https://avatars.githubusercontent.com/u/32406064?s=280&v=4",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"gatk-4": {
-    			"docker_image": "pegi3s/gatk-4",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/gatk-4",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "gatk-3",
     "description": "Genomic tools",
     "status": "Usable",
@@ -1305,32 +1340,35 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/gatk-3/",
     "manual_url": "https://gatk.broadinstitute.org/hc/en-us/categories/360002302312",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/gatk/3/3.8-0",
-    "comments": ["To see GATK 3 options and available tools, just run java -jar /opt/GenomeAnalysisTK.jar -h."],
+    "comments": [
+      "To see GATK 3 options and available tools, just run java -jar /opt/GenomeAnalysisTK.jar -h."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/gatk-3:3.8-0 ",
     "usual_invocation_specific": "java -jar /opt/GenomeAnalysisTK.jar tools options",
-    "usual_invocation_specific_comments": ["`tools` to the name of the GATK 3 tool you want to use. `options` to the specific options of the GATK 3 tool (these options will include the input/output files, which should be referenced under /data/)."],
+    "usual_invocation_specific_comments": [
+      "`tools` to the name of the GATK 3 tool you want to use. `options` to the specific options of the GATK 3 tool (these options will include the input/output files, which should be referenced under /data/)."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://avatars.githubusercontent.com/u/32406064?s=280&v=4",
+    "icon": "https://avatars.githubusercontent.com/u/32406064?s=280&v=4",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"gatk-3": {
-    			"docker_image": "pegi3s/gatk-3",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/gatk-3",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "getpdb",
     "description": "PDB retrieval",
     "status": "Usable",
@@ -1350,25 +1388,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/getpdb bash -c ",
     "usual_invocation_specific": "\"./getpdb uniprotFile\"",
-    "usual_invocation_specific_comments": ["Only one UniProt number can be specified in the `uniprotFile`."],
+    "usual_invocation_specific_comments": [
+      "Only one UniProt number can be specified in the `uniprotFile`."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Uniprot.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/getpdb_ouput.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["uniprot"],
-    "auto-tests": 
-    		{
-    		"getpdb": {
-    			"docker_image": "pegi3s/getpdb",
-    			"input_files": ["Uniprot.txt"],
-    			"output_dir": "getpdb_output",
-    			"output_file": "P54252-1yzb.pdb",
-   			"add_config": "",
-    			"commands": " bash -c \"./getpdb input_data/Uniprot.txt && mv /data/P54252* /data/output_folder/getpdb_output\" > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/getpdb",
+        "input_files": ["Uniprot.txt"],
+        "output_dir": "getpdb_output",
+        "output_file": "P54252-1yzb.pdb",
+        "add_config": "",
+        "commands": " bash -c \"./getpdb input_data/Uniprot.txt && mv /data/P54252* /data/output_folder/getpdb_output\" > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "gmap-gsnap",
     "description": "Genome sequence mapping",
     "status": "Usable",
@@ -1388,25 +1427,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v \"/your/data/dir:/data\" pegi3s/gmap-gsnap bash -c ",
     "usual_invocation_specific": "\"gmap_build -d genome_name -k k_mer_value /data/genomefastaFile && gmap -d genome_name /data/mRNAfastaFile > /data/outputFolder/output\"",
-    "usual_invocation_specific_comments": ["`genome_name` to a given name. `k_mer`_value to the value of the k-mer size you want to use. `output` to the actual name of your output file."],
+    "usual_invocation_specific_comments": [
+      "`genome_name` to a given name. `k_mer`_value to the value of the k-mer size you want to use. `output` to the actual name of your output file."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["genomefasta", "mRNAfasta"],
-    "auto-tests": 
-    		{
-    		"gmap-gsnap": {
-    			"docker_image": "pegi3s/gmap-gsnap",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/gmap-gsnap",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "goalign",
     "description": "Multiple sequence alignments manipulation",
     "status": "Usable",
@@ -1426,25 +1466,26 @@
     "singularity": "untested",
     "invocation_general": "docker run -v /your/data/dir:/data --rm pegi3s/goalign ",
     "usual_invocation_specific": "goalign goalign-application-name -i /data/fastaFile -o /data/outputFolder/output",
-    "usual_invocation_specific_comments": ["'goalign-application-name' to the name of the Goalign application you want to use. 'output' to the actual name of your output file."],
+    "usual_invocation_specific_comments": [
+      "'goalign-application-name' to the name of the Goalign application you want to use. 'output' to the actual name of your output file."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/goalign_output.zip",
-    "icon":"https://raw.githubusercontent.com/evolbioinfo/goalign/master/images/logo.svg",
+    "icon": "https://raw.githubusercontent.com/evolbioinfo/goalign/master/images/logo.svg",
     "input_data_type": ["fasta"],
-    "auto-tests": 
-    		{
-    		"goalign": {
-    			"docker_image": "pegi3s/goalign",
-    			"input_files": ["small_aligned.fas"],
-    			"output_dir": "goalign_output",
-    			"output_file": "small_aligned.sub.fasta",
-   			"add_config": "",
-    			"commands": " goalign subseq -i /data/input_data/small_aligned.fas -s 20 -l 30 -o /data/output_folder/goalign_output/small_aligned.sub.fasta > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/goalign",
+        "input_files": ["small_aligned.fas"],
+        "output_dir": "goalign_output",
+        "output_file": "small_aligned.sub.fasta",
+        "add_config": "",
+        "commands": " goalign subseq -i /data/input_data/small_aligned.fas -s 20 -l 30 -o /data/output_folder/goalign_output/small_aligned.sub.fasta > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "gotree",
     "description": "Phylogenetic trees manipulation",
     "status": "Usable",
@@ -1464,25 +1505,26 @@
     "singularity": "untested",
     "invocation_general": "docker run -v /your/data/dir:/data --rm pegi3s/gotree ",
     "usual_invocation_specific": "gotree gotree-application-name -i /data/newickFile -o /data/outputFolder/output",
-    "usual_invocation_specific_comments": ["'gotree-application-name' to the name of the Gotree application you want to use. `output` to the actual name of your output file."],
+    "usual_invocation_specific_comments": [
+      "'gotree-application-name' to the name of the Gotree application you want to use. `output` to the actual name of your output file."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/newick.nwk",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/gotree_output.zip",
-    "icon":"https://raw.githubusercontent.com/evolbioinfo/gotree/refs/heads/master/images/logo.svg",
+    "icon": "https://raw.githubusercontent.com/evolbioinfo/gotree/refs/heads/master/images/logo.svg",
     "input_data_type": ["newick"],
-    "auto-tests": 
-    		{
-    		"gotree": {
-    			"docker_image": "pegi3s/gotree",
-    			"input_files": ["newick.nwk"],
-    			"output_dir": "gotree_output",
-    			"output_file": "distance_matrix",
-   			"add_config": "",
-    			"commands": " gotree matrix -i /data/input_data/newick.nwk -o /data/output_folder/gotree_output/distance_matrix > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/gotree",
+        "input_files": ["newick.nwk"],
+        "output_dir": "gotree_output",
+        "output_file": "distance_matrix",
+        "add_config": "",
+        "commands": " gotree matrix -i /data/input_data/newick.nwk -o /data/output_folder/gotree_output/distance_matrix > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "graphviz",
     "description": "Graph building application",
     "status": "Usable",
@@ -1495,7 +1537,9 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/graphviz/",
     "manual_url": "https://graphviz.org/",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/graphviz",
-    "comments": ["Before using the graphviz image, you must prepare the file containing the instructions for building the graph as pairs of objects. Please see the test data for inspiration"],
+    "comments": [
+      "Before using the graphviz image, you must prepare the file containing the instructions for building the graph as pairs of objects. Please see the test data for inspiration"
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -1506,21 +1550,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/graph.py",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/graphviz_output.zip",
-    "icon":"https://upload.wikimedia.org/wikipedia/en/4/48/GraphvizLogo.png",
+    "icon": "https://upload.wikimedia.org/wikipedia/en/4/48/GraphvizLogo.png",
     "input_data_type": ["graph_py"],
-    "auto-tests": 
-    		{
-    		"graphviz": {
-    			"docker_image": "pegi3s/graphviz",
-    			"input_files": ["graph.py"],
-    			"output_dir": "graphviz_output",
-    			"output_file": "Graph.gv",
-   			"add_config": "",
-    			"commands": " bash -c \"python3 /data/input_data/graph.py && mv /data/Graph.gv /data/output_folder/graphviz_output && mv /data/Graph.gv.svg /data/output_folder/graphviz_output\" > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/graphviz",
+        "input_files": ["graph.py"],
+        "output_dir": "graphviz_output",
+        "output_file": "Graph.gv",
+        "add_config": "",
+        "commands": " bash -c \"python3 /data/input_data/graph.py && mv /data/Graph.gv /data/output_folder/graphviz_output && mv /data/Graph.gv.svg /data/output_folder/graphviz_output\" > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "haddock-tools",
     "description": "HADDOCK tools",
     "status": "Usable",
@@ -1544,21 +1587,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"haddock-tools": {
-    			"docker_image": "pegi3s/haddock-tools",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/haddock-tools",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "haplogrep",
     "description": "haplogroup classification tool",
     "status": "Usable",
@@ -1578,25 +1620,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/haplogrep ",
     "usual_invocation_specific": "classify --input=/data/inputFile --tree=phylotree-rcrs@17.2 --out data/outputFolder/output.txt",
-    "usual_invocation_specific_comments": ["'out.txt' to the desired name of the output file. You may also want to replace phylotree-rcrs@17.2 for another reference sequence."],
+    "usual_invocation_specific_comments": [
+      "'out.txt' to the desired name of the output file. You may also want to replace phylotree-rcrs@17.2 for another reference sequence."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["input"],
-    "auto-tests": 
-    		{
-    		"haplogrep": {
-    			"docker_image": "pegi3s/haplogrep",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/haplogrep",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "human_prot_atlas",
     "description": "Filtering UniProtKB identifier lists based on Human Protein Atlas tissues",
     "status": "Usable",
@@ -1616,25 +1659,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data -w /data pegi3s/human_prot_atlas ",
     "usual_invocation_specific": "configFile inputFile output.txt cache_dir",
-    "usual_invocation_specific_comments": ["'output.txt' to the actual name of your output TXT file with the filtered identifiers."],
+    "usual_invocation_specific_comments": [
+      "'output.txt' to the actual name of your output TXT file with the filtered identifiers."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://www.proteinatlas.org/favicon.ico?v=JyAbEzO2Nb",
+    "icon": "https://www.proteinatlas.org/favicon.ico?v=JyAbEzO2Nb",
     "input_data_type": ["config", "input"],
-    "auto-tests": 
-    		{
-    		"human_prot_atlas": {
-    			"docker_image": "pegi3s/human_prot_atlas",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/human_prot_atlas",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "hyphy",
     "description": "Phylogenetics inferences",
     "status": "Usable",
@@ -1658,21 +1702,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://raw.githubusercontent.com/veg/hyphy-site/master/docs/images/logo.svg",
+    "icon": "https://raw.githubusercontent.com/veg/hyphy-site/master/docs/images/logo.svg",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"hyphy": {
-    			"docker_image": "pegi3s/hyphy",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/hyphy",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "id-mapping",
     "description": "ID mapping",
     "status": "Usable",
@@ -1685,32 +1728,35 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/id-mapping/",
     "manual_url": "https://hub.docker.com/r/pegi3s/id-mapping",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/id_mapping",
-    "comments": ["The valid names for FROM_DB and TO_DB can be obtained with docker run --rm pegi3s/id-mapping list-from-dbs and docker run --rm pegi3s/id-mapping list-to-dbs, respectively. The script`s help can be obtained with --help."],
+    "comments": [
+      "The valid names for FROM_DB and TO_DB can be obtained with docker run --rm pegi3s/id-mapping list-from-dbs and docker run --rm pegi3s/id-mapping list-to-dbs, respectively. The script`s help can be obtained with --help."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data -w /data pegi3s/id-mapping map-ids ",
     "usual_invocation_specific": "--from-db FROM_DB --to-db TO_DB --input inputFile --output /outputFolder/output.tsv",
-    "usual_invocation_specific_comments": ["`FROM_DB` to the actual name of the source database of the input identifiers. `TO_DB` to the actual name of the destination database. `output.tsv` to the actual name of your output TSV file."],
+    "usual_invocation_specific_comments": [
+      "`FROM_DB` to the actual name of the source database of the input identifiers. `TO_DB` to the actual name of the destination database. `output.tsv` to the actual name of your output TSV file."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/gene_ids.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/id-mapping_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["input"],
-    "auto-tests": 
-    		{
-    		"id-mapping": {
-    			"docker_image": "pegi3s/id-mapping",
-    			"input_files": ["gene_ids.txt"],
-    			"output_dir": "id-mapping_output",
-    			"output_file": "output.tsv",
-   			"add_config": "",
-    			"commands": " gene-id-to-uniprotkb /data/input_data/gene_ids.txt /data/output_folder/id-mapping_output/output.tsv > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/id-mapping",
+        "input_files": ["gene_ids.txt"],
+        "output_dir": "id-mapping_output",
+        "output_file": "output.tsv",
+        "add_config": "",
+        "commands": " gene-id-to-uniprotkb /data/input_data/gene_ids.txt /data/output_folder/id-mapping_output/output.tsv > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "igv",
     "description": "Genomics viewer",
     "status": "Usable",
@@ -1730,25 +1776,26 @@
     "singularity": "untested",
     "invocation_general": "",
     "usual_invocation_specific": "",
-    "usual_invocation_specific_comments": ["This image does not have any parameters."],
+    "usual_invocation_specific_comments": [
+      "This image does not have any parameters."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
-    "icon":"https://raw.githubusercontent.com/igvteam/igv/refs/heads/main/docs/web/IGV_64.png",
+    "icon": "https://raw.githubusercontent.com/igvteam/igv/refs/heads/main/docs/web/IGV_64.png",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"igv": {
-    			"docker_image": "pegi3s/igv",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/igv",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "jmodeltest2",
     "description": "Best-fit models of nucleotide substitution",
     "status": "Usable",
@@ -1772,21 +1819,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/jmodeltest2_output.zip",
-    "icon":"https://raw.githubusercontent.com/ddarriba/jmodeltest2/master/src/main/resources/resources/template/resources/logo0.png",
+    "icon": "https://raw.githubusercontent.com/ddarriba/jmodeltest2/master/src/main/resources/resources/template/resources/logo0.png",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"jmodeltest2": {
-    			"docker_image": "pegi3s/jmodeltest2",
-    			"input_files": ["small_aligned.fas"],
-    			"output_dir": "jmodeltest2_output",
-    			"output_file": "JModeltest2_output",
-   			"add_config": "",
-    			"commands": " java -jar /jmodeltest2/dist/jModelTest.jar -d /data/input_data/small_aligned.fas -g 4 -i -f -AIC -BIC -a -o /data/output_folder/jmodeltest2_output/JModeltest2_output > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/jmodeltest2",
+        "input_files": ["small_aligned.fas"],
+        "output_dir": "jmodeltest2_output",
+        "output_file": "JModeltest2_output",
+        "add_config": "",
+        "commands": " java -jar /jmodeltest2/dist/jModelTest.jar -d /data/input_data/small_aligned.fas -g 4 -i -f -AIC -BIC -a -o /data/output_folder/jmodeltest2_output/JModeltest2_output > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "kakscalculator",
     "description": "Sequence divergence",
     "status": "Usable",
@@ -1799,7 +1845,10 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/kakscalculator/",
     "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/kakscalculator/2.0/doc/KaKs_Calculator2.0_Manual.pdf",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/kakscalculator",
-    "comments": ["The CDS sequences in the fastaFile must be aligned (with no sequence line breaks).","The first nucleotide must correspond to the first codon position. To see the KaKs Calculator help, just run \"KaKs_Calculator -h\"."],
+    "comments": [
+      "The CDS sequences in the fastaFile must be aligned (with no sequence line breaks).",
+      "The first nucleotide must correspond to the first codon position. To see the KaKs Calculator help, just run \"KaKs_Calculator -h\"."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -1810,21 +1859,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/CDS_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/kakscalculator_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["fasta"],
-    "auto-tests": 
-    		{
-    		"kakscalculator": {
-    			"docker_image": "pegi3s/kakscalculator",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/kakscalculator",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "lsd",
     "description": "Discover patterns within biological sequences",
     "status": "Usable",
@@ -1848,21 +1896,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://raw.githubusercontent.com/nunofonseca/lineagesequencediscovery/master/LSD.png",
+    "icon": "https://raw.githubusercontent.com/nunofonseca/lineagesequencediscovery/master/LSD.png",
     "input_data_type": ["config", "input"],
-    "auto-tests": 
-    		{
-    		"lsd": {
-    			"docker_image": "pegi3s/lsd",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/lsd",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "mafft",
     "description": "Sequence alignment",
     "status": "Usable",
@@ -1882,25 +1929,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/mafft bash -c ",
     "usual_invocation_specific": "\"mafft /data/fastaFile > /data/outputFolder/output.fasta\"",
-    "usual_invocation_specific_comments": ["output.fasta to the actual name of your aligned FASTA file."],
+    "usual_invocation_specific_comments": [
+      "output.fasta to the actual name of your aligned FASTA file."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/mafft_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["fasta"],
-    "auto-tests": 
-    		{
-    		"mafft": {
-    			"docker_image": "pegi3s/mafft",
-    			"input_files": ["small_not_aligned.fas"],
-    			"output_dir": "mafft_output",
-    			"output_file": "sequences_aligned.fasta",
-   			"add_config": "",
-    			"commands": " bash -c \"mafft /data/input_data/small_not_aligned.fas > /data/output_folder/mafft_output/sequences_aligned.fasta\" > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/mafft",
+        "input_files": ["small_not_aligned.fas"],
+        "output_dir": "mafft_output",
+        "output_file": "sequences_aligned.fasta",
+        "add_config": "",
+        "commands": " bash -c \"mafft /data/input_data/small_not_aligned.fas > /data/output_folder/mafft_output/sequences_aligned.fasta\" > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "mauve",
     "description": "Genome alignment",
     "status": "Usable",
@@ -1920,25 +1968,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/mauve bash -c ",
     "usual_invocation_specific": "\"progressiveMauve --output=/data/outputFolder/output /data/fastq1File /data/fastq2File\"",
-    "usual_invocation_specific_comments": ["`output` to the actual name of your output file."],
+    "usual_invocation_specific_comments": [
+      "`output` to the actual name of your output file."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://raw.githubusercontent.com/koadman/mauve/master/src/images/mauve_logo.png",
+    "icon": "https://raw.githubusercontent.com/koadman/mauve/master/src/images/mauve_logo.png",
     "input_data_type": ["fastq1", "fastq2"],
-    "auto-tests": 
-    		{
-    		"mauve": {
-    			"docker_image": "pegi3s/mauve",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/mauve",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "maxbin2",
     "description": "Software for binning assembled metagenomic sequences",
     "status": "Usable",
@@ -1962,21 +2011,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"maxbin2": {
-    			"docker_image": "pegi3s/maxbin2",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/maxbin2",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "megax",
     "description": "Phylogenetics inferences",
     "status": "Usable",
@@ -2000,21 +2048,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/CDS_aligned.fas",
     "test_results_url": "",
-    "icon":"https://www.megasoftware.net/web_help_11/template/Charcoal_Grey/logo.png",
+    "icon": "https://www.megasoftware.net/web_help_11/template/Charcoal_Grey/logo.png",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"megax": {
-    			"docker_image": "pegi3s/megax",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/megax",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "megax_cc",
     "description": "Phylogenetics inferences",
     "status": "Usable",
@@ -2038,21 +2085,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://www.megasoftware.net/web_help_11/template/Charcoal_Grey/logo.png",
+    "icon": "https://www.megasoftware.net/web_help_11/template/Charcoal_Grey/logo.png",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"megax_cc": {
-    			"docker_image": "pegi3s/megax_cc",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/megax_cc",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "metaeuk",
     "description": "Gene discovery and annotation",
     "status": "Usable",
@@ -2072,25 +2118,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/metaeuk bash -c ",
     "usual_invocation_specific": "\"module_name options\"",
-    "usual_invocation_specific_comments": ["`module_name` to the name of the module to be used. `options` to the module name options"],
+    "usual_invocation_specific_comments": [
+      "`module_name` to the name of the module to be used. `options` to the module name options"
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/metaeuk.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/metaeuk_output.zip",
-    "icon":"https://raw.githubusercontent.com/soedinglab/metaeuk/refs/heads/master/imgs/MetaEuk.png",
+    "icon": "https://raw.githubusercontent.com/soedinglab/metaeuk/refs/heads/master/imgs/MetaEuk.png",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"metaeuk": {
-    			"docker_image": "pegi3s/metaeuk",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/metaeuk",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "mrbayes",
     "description": "Phylogenetics inferences",
     "status": "Usable",
@@ -2114,21 +2161,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/nexus.nex",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/mrbayes_output.zip",
-    "icon":"https://raw.githubusercontent.com/NBISweden/MrBayes/refs/heads/gh-pages/img/bayes.jpg",
+    "icon": "https://raw.githubusercontent.com/NBISweden/MrBayes/refs/heads/gh-pages/img/bayes.jpg",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"mrbayes": {
-    			"docker_image": "pegi3s/mrbayes",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/mrbayes",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "multiqc",
     "description": "Quality control reports",
     "status": "Usable",
@@ -2152,21 +2198,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://raw.githubusercontent.com/MultiQC/MultiQC/main/multiqc/templates/default/assets/img/favicon-96x96.png",
+    "icon": "https://raw.githubusercontent.com/MultiQC/MultiQC/main/multiqc/templates/default/assets/img/favicon-96x96.png",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"multiqc": {
-    			"docker_image": "pegi3s/multiqc",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/multiqc",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "muscle",
     "description": "Sequence alignment",
     "status": "Usable",
@@ -2190,21 +2235,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/muscle_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"muscle": {
-    			"docker_image": "pegi3s/muscle",
-    			"input_files": ["small_not_aligned.fas"],
-    			"output_dir": "muscle_output",
-    			"output_file": "sequences_aligned.fasta",
-   			"add_config": "",
-    			"commands": " -in /data/input_data/small_not_aligned.fas -out /data/output_folder/muscle_output/sequences_aligned.fasta > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/muscle",
+        "input_files": ["small_not_aligned.fas"],
+        "output_dir": "muscle_output",
+        "output_file": "sequences_aligned.fasta",
+        "add_config": "",
+        "commands": " -in /data/input_data/small_not_aligned.fas -out /data/output_folder/muscle_output/sequences_aligned.fasta > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "ncbi-datasets",
     "description": "NCBI databases download",
     "status": "Usable",
@@ -2228,21 +2272,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/empty",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/ncbi-datasets.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"ncbi-datasets": {
-    			"docker_image": "pegi3s/ncbi-datasets",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/ncbi-datasets",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "ncbi_retrieve",
     "description": "Sequence retrieval",
     "status": "Usable",
@@ -2255,7 +2298,9 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/ncbi_retrieve/",
     "manual_url": "https://hub.docker.com/r/pegi3s/ncbi_retrieve/",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/ncbi_retrieve",
-    "comments": ["The assembly option no longer works in versions prior to 1.0.1 due to changes in NCBI database structure"],
+    "comments": [
+      "The assembly option no longer works in versions prior to 1.0.1 due to changes in NCBI database structure"
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -2266,21 +2311,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"ncbi_retrieve": {
-    			"docker_image": "pegi3s/ncbi_retrieve",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/ncbi_retrieve",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "newick_utils",
     "description": "Newick Utilities",
     "status": "Usable",
@@ -2300,25 +2344,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/newick_utils bash -c ",
     "usual_invocation_specific": "\"your_command\"",
-    "usual_invocation_specific_comments": ["`your_command` to the Newick Utilities command you want to perform."],
+    "usual_invocation_specific_comments": [
+      "`your_command` to the Newick Utilities command you want to perform."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/newick.nwk",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/newick_utils_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"newick_utils": {
-    			"docker_image": "pegi3s/newick_utils",
-    			"input_files": ["newick.nwk"],
-    			"output_dir": "newick_utils_output",
-    			"output_file": "tree.svg",
-   			"add_config": "",
-    			"commands": " bash -c \"nw_display -s /data/input_data/newick.nwk > /data/output_folder/newick_utils_output/tree.svg\"  > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/newick_utils",
+        "input_files": ["newick.nwk"],
+        "output_dir": "newick_utils_output",
+        "output_file": "tree.svg",
+        "add_config": "",
+        "commands": " bash -c \"nw_display -s /data/input_data/newick.nwk > /data/output_folder/newick_utils_output/tree.svg\"  > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "omegamap",
     "description": "Detection of positively selected sites",
     "status": "Usable",
@@ -2338,25 +2383,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/omegamap analyze ",
     "usual_invocation_specific": "/data/fastaFile /data/outputFolder 25000",
-    "usual_invocation_specific_comments": ["`25000` may be replaced with the actual number of iterations you want to perform."],
+    "usual_invocation_specific_comments": [
+      "`25000` may be replaced with the actual number of iterations you want to perform."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/CDS_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/omegamap_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["fasta"],
-    "auto-tests": 
-    		{
-    		"omegamap": {
-    			"docker_image": "pegi3s/omegamap",
-    			"input_files": ["CDS_aligned.fas"],
-    			"output_dir": "omegamap_output",
-    			"output_file": "CDS_aligned.fas.summary",
-   			"add_config": "",
-    			"commands": " analyze /data/input_data/CDS_aligned.fas /data/output_folder/omegamap_output 25000  > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/omegamap",
+        "input_files": ["CDS_aligned.fas"],
+        "output_dir": "omegamap_output",
+        "output_file": "CDS_aligned.fas.summary",
+        "add_config": "",
+        "commands": " analyze /data/input_data/CDS_aligned.fas /data/output_folder/omegamap_output 25000  > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "paml",
     "description": "Detection of positively selected sites",
     "status": "Usable",
@@ -2365,7 +2411,7 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "",
-    "no_longer_tested": ["4.9h","4.9"],
+    "no_longer_tested": ["4.9h", "4.9"],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/paml/",
     "manual_url": "http://abacus.gene.ucl.ac.uk/software/pamlDOC.pdf",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/paml",
@@ -2380,21 +2426,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"paml": {
-    			"docker_image": "pegi3s/paml",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/paml",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "pathvisio",
     "description": "Biological pathway editor",
     "status": "Usable",
@@ -2418,21 +2463,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://avatars.githubusercontent.com/u/12032945?s=200&v=4",
+    "icon": "https://avatars.githubusercontent.com/u/12032945?s=200&v=4",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"pathvisio": {
-    			"docker_image": "pegi3s/pathvisio",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/pathvisio",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "pdb-tools",
     "description": "PDB handling tools",
     "status": "Usable",
@@ -2456,21 +2500,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/empty",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/pdb-tools_output.zip",
-    "icon":"https://raw.githubusercontent.com/haddocking/pdb-tools/master/docs/logo/pdb-tools.png",
+    "icon": "https://raw.githubusercontent.com/haddocking/pdb-tools/master/docs/logo/pdb-tools.png",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"pdb-tools": {
-    			"docker_image": "pegi3s/pdb-tools",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/pdb-tools",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "phipack",
     "description": "Recombination tests",
     "status": "Usable",
@@ -2490,25 +2533,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/phipack bash -c \"Phi ",
     "usual_invocation_specific": "-f /data/fastaFile -p 1000 -o > /data/outputFolder/output\"",
-    "usual_invocation_specific_comments": ["`output` to the actual name of your output file."],
+    "usual_invocation_specific_comments": [
+      "`output` to the actual name of your output file."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/CDS_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/phipack_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["fasta"],
-    "auto-tests": 
-    		{
-    		"phipack": {
-    			"docker_image": "pegi3s/phipack",
-    			"input_files": ["CDS_aligned.fas"],
-    			"output_dir": "phipack_output",
-    			"output_file": "output",
-   			"add_config": "",
-    			"commands": " bash -c \"Phi -f /data/input_data/CDS_aligned.fas -p 1000 -o > /data/output_folder/phipack_output/output\" > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/phipack",
+        "input_files": ["CDS_aligned.fas"],
+        "output_dir": "phipack_output",
+        "output_file": "output",
+        "add_config": "",
+        "commands": " bash -c \"Phi -f /data/input_data/CDS_aligned.fas -p 1000 -o > /data/output_folder/phipack_output/output\" > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "phylogenetic-tree-collapser",
     "description": "Phylogenetic trees handling",
     "status": "Usable",
@@ -2517,7 +2561,7 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "",
-    "no_longer_tested": ["1.3.0-SNAPSHOT","1.1.0","1.0.3","1.0.1","0.0.1"],
+    "no_longer_tested": ["1.3.0-SNAPSHOT", "1.1.0", "1.0.3", "1.0.1", "0.0.1"],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/phylogenetic-tree-collapser/",
     "manual_url": "https://github.com/pegi3s/phylogenetic-tree-collapser",
     "github_url": "https://github.com/pegi3s/phylogenetic-tree-collapser",
@@ -2532,21 +2576,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"phylogenetic-tree-collapser": {
-    			"docker_image": "pegi3s/phylogenetic-tree-collapser",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/phylogenetic-tree-collapser",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "picard",
     "description": "Genomic tools",
     "status": "Usable",
@@ -2570,21 +2613,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SAM.sam",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/picard_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"picard": {
-    			"docker_image": "pegi3s/picard",
-    			"input_files": ["SAM.sam"],
-    			"output_dir": "picard_output",
-    			"output_file": "cleaned.sam",
-   			"add_config": "",
-    			"commands": " CleanSam -I /data/input_data/SAM.sam -O /data/output_folder/picard_output/cleaned.sam > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/picard",
+        "input_files": ["SAM.sam"],
+        "output_dir": "picard_output",
+        "output_file": "cleaned.sam",
+        "add_config": "",
+        "commands": " CleanSam -I /data/input_data/SAM.sam -O /data/output_folder/picard_output/cleaned.sam > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "pilzerd",
     "description": "Protein-protein docking",
     "status": "Usable",
@@ -2608,21 +2650,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"pilzerd": {
-    			"docker_image": "pegi3s/pilzerd",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/pilzerd",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "plasflow",
     "description": "Plasmid prediction",
     "status": "Usable",
@@ -2642,25 +2683,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/plasflow PlasFlow.py ",
     "usual_invocation_specific": "--input /data/fastaFile --output /data/outputFolder/output --threshold 0.7",
-    "usual_invocation_specific_comments": ["The default value for the threshold value is 0.7 but this can be changed by replacing 0.7 by another number"],
+    "usual_invocation_specific_comments": [
+      "The default value for the threshold value is 0.7 but this can be changed by replacing 0.7 by another number"
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/plasflow_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["fasta"],
-    "auto-tests": 
-    		{
-    		"plasflow": {
-    			"docker_image": "pegi3s/plasflow",
-    			"input_files": ["Citrobacter_freundii_strain_CAV1321_scaffolds.fas"],
-    			"output_dir": "plasflow_output",
-    			"output_file": "plasflow_predictions.tsv",
-   			"add_config": "",
-    			"commands": " PlasFlow.py --input /data/input_data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas --output /data/output_folder/plasflow_output/plasflow_predictions.tsv --threshold 0.7 > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/plasflow",
+        "input_files": ["Citrobacter_freundii_strain_CAV1321_scaffolds.fas"],
+        "output_dir": "plasflow_output",
+        "output_file": "plasflow_predictions.tsv",
+        "add_config": "",
+        "commands": " PlasFlow.py --input /data/input_data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas --output /data/output_folder/plasflow_output/plasflow_predictions.tsv --threshold 0.7 > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "plottree",
     "description": "Tree drawing",
     "status": "Usable",
@@ -2680,25 +2722,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/plottree bash -c ",
     "usual_invocation_specific": "\"plottree -s 20 -w 20 -l 15 /data/newickFile -o /data/outputFolder/output\"",
-    "usual_invocation_specific_comments": ["The plottree arguments (fontsize (-s), width (-w), and height (-l)) can be changed to suit your needs. You may also change `output` to the desired name of your output file."],
+    "usual_invocation_specific_comments": [
+      "The plottree arguments (fontsize (-s), width (-w), and height (-l)) can be changed to suit your needs. You may also change `output` to the desired name of your output file."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/newick.nwk",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/plottree_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["newick"],
-    "auto-tests": 
-    		{
-    		"plottree": {
-    			"docker_image": "pegi3s/plottree",
-    			"input_files": ["newick.nwk"],
-    			"output_dir": "plottree_output",
-    			"output_file": "output.png",
-   			"add_config": "",
-    			"commands": " bash -c \"plottree -s 20 -w 20 -l 15 /data/input_data/newick.nwk -o /data/output_folder/plottree_output/output\" > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/plottree",
+        "input_files": ["newick.nwk"],
+        "output_dir": "plottree_output",
+        "output_file": "output.png",
+        "add_config": "",
+        "commands": " bash -c \"plottree -s 20 -w 20 -l 15 /data/input_data/newick.nwk -o /data/output_folder/plottree_output/output\" > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "popart",
     "description": "Population genetics software",
     "status": "Usable",
@@ -2722,21 +2765,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/CDS_aligned.fas",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"popart": {
-    			"docker_image": "pegi3s/popart",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/popart",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "probcons",
     "description": "Sequence alignment",
     "status": "Usable",
@@ -2756,25 +2798,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/probcons bash -c ",
     "usual_invocation_specific": "\"probcons /data/fastaFile > /data/outputFolder/output.fasta\"",
-    "usual_invocation_specific_comments": ["`output.fasta` may be changed to the output desired name"],
+    "usual_invocation_specific_comments": [
+      "`output.fasta` may be changed to the output desired name"
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/4_proteins.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/probcons_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["fasta"],
-    "auto-tests": 
-    		{
-    		"probcons": {
-    			"docker_image": "pegi3s/probcons",
-    			"input_files": ["4_proteins.fas"],
-    			"output_dir": "probcons_output",
-    			"output_file": "sequences_aligned.fasta",
-   			"add_config": "",
-    			"commands": " bash -c \"probcons /data/input_data/4_proteins.fas > /data/output_folder/probcons_output/sequences_aligned.fasta\" > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/probcons",
+        "input_files": ["4_proteins.fas"],
+        "output_dir": "probcons_output",
+        "output_file": "sequences_aligned.fasta",
+        "add_config": "",
+        "commands": " bash -c \"probcons /data/input_data/4_proteins.fas > /data/output_folder/probcons_output/sequences_aligned.fasta\" > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "probcons_nuc",
     "description": "Sequence alignment",
     "status": "Usable",
@@ -2798,21 +2841,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/probcons_nuc_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"probcons_nuc": {
-    			"docker_image": "pegi3s/probcons_nuc",
-    			"input_files": ["small_not_aligned.fas"],
-    			"output_dir": "probcons_nuc_output",
-    			"output_file": "sequences_aligned.fasta",
-   			"add_config": "",
-    			"commands": " bash -c \"probcons /data/input_data/small_not_aligned.fas > /data/output_folder/probcons_nuc_output/sequences_aligned.fasta\" > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/probcons_nuc",
+        "input_files": ["small_not_aligned.fas"],
+        "output_dir": "probcons_nuc_output",
+        "output_file": "sequences_aligned.fasta",
+        "add_config": "",
+        "commands": " bash -c \"probcons /data/input_data/small_not_aligned.fas > /data/output_folder/probcons_nuc_output/sequences_aligned.fasta\" > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "prokka",
     "description": "Genome annotation",
     "status": "Usable",
@@ -2836,21 +2878,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/GCF_000858285.1.fa",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/prokka_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"prokka": {
-    			"docker_image": "pegi3s/prokka",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/prokka",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "pss-3d",
     "description": "Positively selected sites viewer",
     "status": "Usable",
@@ -2874,21 +2915,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"pss-3d": {
-    			"docker_image": "pegi3s/pss-3d",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/pss-3d",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "pycision",
     "description": "Primer trimming tool",
     "status": "Usable",
@@ -2912,21 +2952,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"pycision": {
-    			"docker_image": "pegi3s/pycision",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/pycision",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "pymol",
     "description": "3D protein structure",
     "status": "Usable",
@@ -2950,21 +2989,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/8qnc.pdb",
     "test_results_url": "",
-    "icon":"https://raw.githubusercontent.com/schrodinger/pymol-open-source/master/data/pymol/icons/icon2.svg",
+    "icon": "https://raw.githubusercontent.com/schrodinger/pymol-open-source/master/data/pymol/icons/icon2.svg",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"pymol": {
-    			"docker_image": "pegi3s/pymol",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/pymol",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "qualimap",
     "description": "Sequence read quality assessment",
     "status": "Usable",
@@ -2988,21 +3026,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"qualimap": {
-    			"docker_image": "pegi3s/qualimap",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/qualimap",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "r_data-analysis",
     "description": "R image with common data analysis libraries such as caret, dplyr, ggplot2, etc.",
     "status": "Usable",
@@ -3015,7 +3052,9 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/r_data-analysis/",
     "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/r_data-analysis",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/r_data-analysis",
-    "comments": ["You must provide an R script File that ends with .R. See the test data for inspiration."],
+    "comments": [
+      "You must provide an R script File that ends with .R. See the test data for inspiration."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -3026,21 +3065,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/r_data-analysis_script.R",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/r_data-analysis_output.zip",
-    "icon":"https://www.r-project.org/logo/Rlogo.svg",
+    "icon": "https://www.r-project.org/logo/Rlogo.svg",
     "input_data_type": ["R-script"],
-    "auto-tests": 
-    		{
-    		"r_data-analysis": {
-    			"docker_image": "pegi3s/r_data-analysis",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/r_data-analysis",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "r_deseq2",
     "description": "Differential gene expression analysis",
     "status": "Usable",
@@ -3053,7 +3091,9 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/r_deseq2/",
     "manual_url": "https://www.bioconductor.org/packages/release/bioc/html/DESeq2.html",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/r_deseq2",
-    "comments": ["You must provide an R script File that ends with .R. See the test data for inspiration."],
+    "comments": [
+      "You must provide an R script File that ends with .R. See the test data for inspiration."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -3064,21 +3104,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"r_deseq2": {
-    			"docker_image": "pegi3s/r_deseq2",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/r_deseq2",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "r_edger",
     "description": "Differential gene expression analysis",
     "status": "Usable",
@@ -3091,7 +3130,9 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/r_edger/",
     "manual_url": "https://www.bioconductor.org/packages/release/bioc/html/edgeR.html",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/r_edger",
-    "comments": ["You must provide an R script File that ends with .R. See the test data for inspiration."],
+    "comments": [
+      "You must provide an R script File that ends with .R. See the test data for inspiration."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -3102,21 +3143,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/r_edger.R",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/r_edger_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["R-script"],
-    "auto-tests": 
-    		{
-    		"r_edger": {
-    			"docker_image": "pegi3s/r_edger",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/r_edger",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "r_enhanced-volcano",
     "description": "Creation of Vulcano plots",
     "status": "Usable",
@@ -3129,7 +3169,9 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/r_enhanced-volcano/",
     "manual_url": "https://www.bioconductor.org/packages/release/bioc/html/EnhancedVolcano.html",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/r_enhanced-volcano",
-    "comments": ["You must provide an R script File that ends with .R. See the test data for inspiration."],
+    "comments": [
+      "You must provide an R script File that ends with .R. See the test data for inspiration."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -3140,21 +3182,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/r_enhanced-volcano.R",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/r_enhanced-volcano_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["R-script"],
-    "auto-tests": 
-    		{
-    		"r_enhanced-volcano": {
-    			"docker_image": "pegi3s/r_enhanced-volcano",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/r_enhanced-volcano",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "r_network",
     "description": "R image with data analysis libraries for network analysis, built on top of r_data-analysis.",
     "status": "Usable",
@@ -3167,7 +3208,9 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/r_network/",
     "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/r_network/README.md",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/r_network",
-    "comments": ["You must provide an R script File that ends with .R. See the test data for inspiration."],
+    "comments": [
+      "You must provide an R script File that ends with .R. See the test data for inspiration."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -3178,21 +3221,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/r_network.R",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/r_network_output.zip",
-    "icon":"https://www.r-project.org/logo/Rlogo.svg",
+    "icon": "https://www.r-project.org/logo/Rlogo.svg",
     "input_data_type": ["R-script"],
-    "auto-tests": 
-    		{
-    		"r_network": {
-    			"docker_image": "pegi3s/r_network",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/r_network",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "r_venn-diagram",
     "description": "Creation of Venn and Euler plots",
     "status": "Usable",
@@ -3205,7 +3247,9 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/r_venn-diagram/",
     "manual_url": "https://r-graph-gallery.com/14-venn-diagramm.html",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/r_venn-diagram",
-    "comments": ["You must provide an R script File that ends with .R. See the test data for inspiration."],
+    "comments": [
+      "You must provide an R script File that ends with .R. See the test data for inspiration."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -3216,21 +3260,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/r_venn_diagram.R",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/r_venn-diagram_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["R-script"],
-    "auto-tests": 
-    		{
-    		"r_venn-diagram": {
-    			"docker_image": "pegi3s/r_venn-diagram",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/r_venn-diagram",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "raxml",
     "description": "Phylogenetics inferences",
     "status": "Usable",
@@ -3250,25 +3293,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/raxml raxmlHPC ",
     "usual_invocation_specific": "-m BINGAMMA -p 12345 -s /data/binaryFile -n T1 -w /data/outputFolder",
-    "usual_invocation_specific_comments": ["`-m` to specify the desired model, and -p to use a fixed seed number"],
+    "usual_invocation_specific_comments": [
+      "`-m` to specify the desired model, and -p to use a fixed seed number"
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/binary.phi",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/raxml_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["binary"],
-    "auto-tests": 
-    		{
-    		"raxml": {
-    			"docker_image": "pegi3s/raxml",
-    			"input_files": ["binary.phy"],
-    			"output_dir": "raxml_output",
-    			"output_file": "RAxML_bestTree.T1",
-   			"add_config": "",
-    			"commands": " raxmlHPC -m BINGAMMA -p 12345 -s /data/input_data/binary.phy -n T1 -w /data/output_folder/raxml_output > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/raxml",
+        "input_files": ["binary.phy"],
+        "output_dir": "raxml_output",
+        "output_file": "RAxML_bestTree.T1",
+        "add_config": "",
+        "commands": " raxmlHPC -m BINGAMMA -p 12345 -s /data/input_data/binary.phy -n T1 -w /data/output_folder/raxml_output > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "recombine",
     "description": "Recombination inferences",
     "status": "Usable",
@@ -3292,21 +3336,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/CDS_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/recombine_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["config"],
-    "auto-tests": 
-    		{
-    		"recombine": {
-    			"docker_image": "pegi3s/recombine",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/recombine",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "repeat_masker",
     "description": "Repetitive DNA",
     "status": "Usable",
@@ -3326,25 +3369,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/repeat_masker bash -c ",
     "usual_invocation_specific": "\"RepeatMasker -species drosophila -s /data/fastaFile\"",
-    "usual_invocation_specific_comments": ["`drosophila` could be changed to any other species name in the Dfam library."],
+    "usual_invocation_specific_comments": [
+      "`drosophila` could be changed to any other species name in the Dfam library."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/6_Drosophila_melanogaster_CDS.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/repeat_masker_output.zip",
-    "icon":"https://www.repeatmasker.org/images/repeatmasker-logo-1024px-greytocolor.png",
+    "icon": "https://www.repeatmasker.org/images/repeatmasker-logo-1024px-greytocolor.png",
     "input_data_type": ["fasta"],
-    "auto-tests": 
-    		{
-    		"repeat_masker": {
-    			"docker_image": "pegi3s/repeat_masker",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/repeat_masker",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "roary",
     "description": "Pan genome calculation",
     "status": "Usable",
@@ -3368,21 +3412,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"roary": {
-    			"docker_image": "pegi3s/roary",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/roary",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "rootdigger",
     "description": "Phylogenetics tools",
     "status": "Usable",
@@ -3402,25 +3445,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/rootdigger rd ",
     "usual_invocation_specific": "--msa /data/fastaFile --tree /data/newickFile --mode exhaustive",
-    "usual_invocation_specific_comments": ["The value of the `--mode` parameter can be either `exhaustive` or `early-stop`."],
+    "usual_invocation_specific_comments": [
+      "The value of the `--mode` parameter can be either `exhaustive` or `early-stop`."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/rootdigger.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/rootdigger_output.zip",
-    "icon":"https://raw.githubusercontent.com/computations/root_digger/refs/heads/master/docs/images/logo.png",
+    "icon": "https://raw.githubusercontent.com/computations/root_digger/refs/heads/master/docs/images/logo.png",
     "input_data_type": ["fasta", "newick"],
-    "auto-tests": 
-    		{
-    		"rootdigger": {
-    			"docker_image": "pegi3s/rootdigger",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/rootdigger",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "rtn",
     "description": "Remove Numts",
     "status": "Usable",
@@ -3444,21 +3488,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"rtn": {
-    			"docker_image": "pegi3s/rtn",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/rtn",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "samtools_bcftools",
     "description": "Genomic tools",
     "status": "Usable",
@@ -3467,7 +3510,7 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "",
-    "no_longer_tested": ["1.9","1.9_v1"],
+    "no_longer_tested": ["1.9", "1.9_v1"],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/samtools_bcftools/",
     "manual_url": "http://www.htslib.org/doc/#manual-pages",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/samtools_bcftools",
@@ -3482,21 +3525,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"samtools_bcftools": {
-    			"docker_image": "pegi3s/samtools_bcftools",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/samtools_bcftools",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "sapp",
     "description": "Genomic tools",
     "status": "Usable",
@@ -3505,7 +3547,11 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "",
-    "no_longer_tested": ["stable-2019.09.12","dev-2019.07.05","dev-2019.09.12"],
+    "no_longer_tested": [
+      "stable-2019.09.12",
+      "dev-2019.07.05",
+      "dev-2019.09.12"
+    ],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/sapp/",
     "manual_url": "http://sapp.gitlab.io/docs/index.html",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/sapp",
@@ -3520,21 +3566,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"sapp": {
-    			"docker_image": "pegi3s/sapp",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/sapp",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "scipio",
     "description": "Gene annotation",
     "status": "Usable",
@@ -3558,21 +3603,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"scipio": {
-    			"docker_image": "pegi3s/scipio",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/scipio",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "seda",
     "description": "Sequence dataset builder",
     "status": "Usable",
@@ -3581,36 +3625,50 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "25/11/2024",
-    "no_longer_tested": ["1.6.0-SNAPSHOT-20230920.1", "1.6.0-SNAPSHOT-20230620.1", "1.6.0-SNAPSHOT-20230516.1", "1.6.0-SNAPSHOT-20230620.1", "1.6.0-SNAPSHOT-20230516.1", "1.6.0-SNAPSHOT", "1.6.0-v2304", "1.5.0", "1.5.0-SNAPSHOT", "1.4.0"],
+    "no_longer_tested": [
+      "1.6.0-SNAPSHOT-20230920.1",
+      "1.6.0-SNAPSHOT-20230620.1",
+      "1.6.0-SNAPSHOT-20230516.1",
+      "1.6.0-SNAPSHOT-20230620.1",
+      "1.6.0-SNAPSHOT-20230516.1",
+      "1.6.0-SNAPSHOT",
+      "1.6.0-v2304",
+      "1.5.0",
+      "1.5.0-SNAPSHOT",
+      "1.4.0"
+    ],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/seda/",
     "manual_url": "https://www.sing-group.org/seda/manual/index.html",
     "github_url": "https://github.com/sing-group/seda",
-    "comments": ["This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file. Due to changes in the structure of the NCBI website, the \"NCBI rename\" option no longer works in versions prior to 1.6.1"],
+    "comments": [
+      "This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file. Due to changes in the structure of the NCBI website, the \"NCBI rename\" option no longer works in versions prior to 1.6.1"
+    ],
     "gui": true,
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "xhost + && docker run --rm -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v \"/your/data/dir:/data\" -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp pegi3s/seda",
     "usual_invocation_specific": "",
-    "usual_invocation_specific_comments": ["This image does not have any parameters."],
+    "usual_invocation_specific_comments": [
+      "This image does not have any parameters."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"seda": {
-    			"docker_image": "pegi3s/seda",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/seda",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "seqkit",
     "description": "FASTA/FASTQ toolkit",
     "status": "Usable",
@@ -3619,7 +3677,16 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "",
-    "no_longer_tested": ["2.5.1","2.4.0","2.3.0","2.1.0","2.0.0","0.16.1","0.12.1","0.12.0"],
+    "no_longer_tested": [
+      "2.5.1",
+      "2.4.0",
+      "2.3.0",
+      "2.1.0",
+      "2.0.0",
+      "0.16.1",
+      "0.12.1",
+      "0.12.0"
+    ],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/seqkit/",
     "manual_url": "https://bioinf.shenwei.me/seqkit/usage/",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/seqkit",
@@ -3634,21 +3701,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"seqkit": {
-    			"docker_image": "pegi3s/seqkit",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/seqkit",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "seqtk",
     "description": "FASTA/FASTQ toolkit",
     "status": "Usable",
@@ -3672,21 +3738,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"seqtk": {
-    			"docker_image": "pegi3s/seqtk",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/seqtk",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "soapdenovo2",
     "description": "de novo sequence assembler",
     "status": "Usable",
@@ -3710,21 +3775,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"soapdenovo2": {
-    			"docker_image": "pegi3s/soapdenovo2",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/soapdenovo2",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "spades",
     "description": "de novo sequence assembler",
     "status": "Usable",
@@ -3748,21 +3812,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"spades": {
-    			"docker_image": "pegi3s/spades",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/spades",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "splitstree",
     "description": "Recombination analysis",
     "status": "Usable",
@@ -3786,28 +3849,36 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/CDS_aligned.fas",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"splitstree": {
-    			"docker_image": "pegi3s/splitstree",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/splitstree",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "sratoolkit",
     "description": "Operations on SRA database",
     "status": "Usable",
     "recommended": "3.1.0",
     "latest": "3.1.0",
     "bug_found": [""],
-    "not_working": ["3.0.10", "3.0.7", "3.0.6", "3.0.5", "3.0.1", "2.10.0", "2.9.6", "2.9.0"],
+    "not_working": [
+      "3.0.10",
+      "3.0.7",
+      "3.0.6",
+      "3.0.5",
+      "3.0.1",
+      "2.10.0",
+      "2.9.6",
+      "2.9.0"
+    ],
     "recommended_last_tested": "",
     "no_longer_tested": [""],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/sratoolkit/",
@@ -3824,21 +3895,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/empty",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/sratoolkit_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"sratoolkit": {
-    			"docker_image": "pegi3s/sratoolkit",
-    			"input_files": ["empty"],
-    			"output_dir": "sratoolkit_output",
-    			"output_file": "SRR3143588.fastq",
-   			"add_config": "",
-    			"commands": " fastq-dump SRR3143588 --outdir /data/output_folder/sratoolkit_output > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/sratoolkit",
+        "input_files": ["empty"],
+        "output_dir": "sratoolkit_output",
+        "output_file": "SRR3143588.fastq",
+        "add_config": "",
+        "commands": " fastq-dump SRR3143588 --outdir /data/output_folder/sratoolkit_output > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "takeabreak",
     "description": "Inversion breakpoint detection",
     "status": "Usable",
@@ -3862,21 +3932,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"takeabreak": {
-    			"docker_image": "pegi3s/takeabreak",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/takeabreak",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "tcoffee",
     "description": "Sequence alignment",
     "status": "Usable",
@@ -3885,7 +3954,7 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "",
-    "no_longer_tested": ["12.00.7","11.00.8","10.00.r1613"],
+    "no_longer_tested": ["12.00.7", "11.00.8", "10.00.r1613"],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/tcoffee/",
     "manual_url": "https://tcoffee.readthedocs.io/en/latest/tcoffee_main_documentation.html",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/tcoffee",
@@ -3900,21 +3969,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/tcoffee_output.zip",
-    "icon":"https://tcoffee.crg.eu/apps/tcoffee/public/images/tcoffeelogo-2.png",
+    "icon": "https://tcoffee.crg.eu/apps/tcoffee/public/images/tcoffeelogo-2.png",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"tcoffee": {
-    			"docker_image": "pegi3s/tcoffee",
-    			"input_files": ["small_not_aligned.fas"],
-    			"output_dir": "tcoffee_output",
-    			"output_file": "aligned.aln",
-   			"add_config": "",
-    			"commands": " t_coffee /data/input_data/small_not_aligned.fas -run_name /data/output_folder/tcoffee_output/aligned > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/tcoffee",
+        "input_files": ["small_not_aligned.fas"],
+        "output_dir": "tcoffee_output",
+        "output_file": "aligned.aln",
+        "add_config": "",
+        "commands": " t_coffee /data/input_data/small_not_aligned.fas -run_name /data/output_folder/tcoffee_output/aligned > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "translatorx",
     "description": "Sequence alignment",
     "status": "Usable",
@@ -3938,21 +4006,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"translatorx": {
-    			"docker_image": "pegi3s/translatorx",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/translatorx",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "tree_snatcher_plus",
     "description": "Tree editing",
     "status": "Usable",
@@ -3976,21 +4043,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"http://www.cibiv.at/software/treesnatcher/tutorials/wood256.png",
+    "icon": "http://www.cibiv.at/software/treesnatcher/tutorials/wood256.png",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"tree_snatcher_plus": {
-    			"docker_image": "pegi3s/tree_snatcher_plus",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/tree_snatcher_plus",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "treeviewx",
     "description": "Displays phylogenetics trees",
     "status": "Usable",
@@ -4014,21 +4080,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://storage.googleapis.com/google-code-archive/v2/code.google.com/treeviewx/logo.png",
+    "icon": "https://storage.googleapis.com/google-code-archive/v2/code.google.com/treeviewx/logo.png",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"treeviewx": {
-    			"docker_image": "pegi3s/treeviewx",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/treeviewx",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "trimmomatic",
     "description": "FASTQ trimming tool",
     "status": "Usable",
@@ -4052,21 +4117,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"trimmomatic": {
-    			"docker_image": "pegi3s/trimmomatic",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/trimmomatic",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "vcftools",
     "description": "Genomic tools",
     "status": "Usable",
@@ -4090,21 +4154,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"vcftools": {
-    			"docker_image": "pegi3s/vcftools",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/vcftools",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "velvet",
     "description": "Sequence assembler for very short reads",
     "status": "Usable",
@@ -4128,21 +4191,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"velvet": {
-    			"docker_image": "pegi3s/velvet",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/velvet",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "wgsim",
     "description": "Simulate sequencing data",
     "status": "Usable",
@@ -4166,59 +4228,61 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/GCF_000858285.1.fa",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/wgsim_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["fasta"],
-    "auto-tests": 
-    		{
-    		"wgsim": {
-    			"docker_image": "pegi3s/wgsim",
-    			"input_files": ["GCF_000858285.1.fa"],
-    			"output_dir": "wgsim_output",
-    			"output_file": "reads1.fq",
-   			"add_config": "",
-    			"commands": " wgsim -1151 -2151 -d500 -r0 -e0 -N10000 -R0 -X0 /data/input_data/GCF_000858285.1.fa /data/output_folder/wgsim_output/reads1.fq /data/output_folder/wgsim_output/reads2.fq  > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/wgsim",
+        "input_files": ["GCF_000858285.1.fa"],
+        "output_dir": "wgsim_output",
+        "output_file": "reads1.fq",
+        "add_config": "",
+        "commands": " wgsim -1151 -2151 -d500 -r0 -e0 -N10000 -R0 -X0 /data/input_data/GCF_000858285.1.fa /data/output_folder/wgsim_output/reads1.fq /data/output_folder/wgsim_output/reads2.fq  > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "whiscy",
     "description": "Identification of active and passive sites",
     "status": "Unusable",
     "recommended": "",
     "latest": "18.05.2019",
     "bug_found": [""],
-    "not_working": ["18.05.2019","master"],
+    "not_working": ["18.05.2019", "master"],
     "recommended_last_tested": "",
-    "no_longer_tested": ["18.05.2019","master"],
+    "no_longer_tested": ["18.05.2019", "master"],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/whiscy/",
     "manual_url": "https://github.com/haddocking/whiscy",
     "github_url": "https://github.com/pegi3s/whiscy",
-    "comments": ["No longer works because the database upon which Whiscy relied is no longer available."],
+    "comments": [
+      "No longer works because the database upon which Whiscy relied is no longer available."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "",
     "usual_invocation_specific": "",
-    "usual_invocation_specific_comments": ["No longer works because the database upon which Whiscy relied is no longer available."],
+    "usual_invocation_specific_comments": [
+      "No longer works because the database upon which Whiscy relied is no longer available."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/empty",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
-    "icon":"https://raw.githubusercontent.com/haddocking/whiscy/refs/heads/main/media/whiscy_logo.png",
+    "icon": "https://raw.githubusercontent.com/haddocking/whiscy/refs/heads/main/media/whiscy_logo.png",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"whiscy": {
-    			"docker_image": "pegi3s/whiscy",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/whiscy",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "cport_server",
     "description": "automated submission to c-port server",
     "status": "Unusable",
@@ -4231,32 +4295,35 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/cport_server/",
     "manual_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0017695",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/cport_server",
-    "comments": ["No longer works because some of the servers upon which CPORT relied stopped working."],
+    "comments": [
+      "No longer works because some of the servers upon which CPORT relied stopped working."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "",
     "usual_invocation_specific": "",
-    "usual_invocation_specific_comments": ["No longer works because some of the servers upon which CPORT relied stopped working."],
+    "usual_invocation_specific_comments": [
+      "No longer works because some of the servers upon which CPORT relied stopped working."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/empty",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"cport_server": {
-    			"docker_image": "pegi3s/cport_server",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/cport_server",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "evoppi-querier",
     "description": "Making queries to the EvoPPI web server",
     "status": "Usable",
@@ -4280,21 +4347,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/evoppi_config.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/evoppi-querier_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"evoppi-querier": {
-    			"docker_image": "pegi3s/evoppi-querier",
-    			"input_files": ["evoppi_config.txt"],
-    			"output_dir": "evoppi-querier_output",
-    			"output_file": "EvoPPI_Results.csv",
-   			"add_config": "",
-    			"commands": " query_single_species -c /data/input_data/evoppi_config.txt -o /data/output_folder/evoppi-querier_output > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/evoppi-querier",
+        "input_files": ["evoppi_config.txt"],
+        "output_dir": "evoppi-querier_output",
+        "output_file": "EvoPPI_Results.csv",
+        "add_config": "",
+        "commands": " query_single_species -c /data/input_data/evoppi_config.txt -o /data/output_folder/evoppi-querier_output > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "haddock_server",
     "description": "Protein docking prediction",
     "status": "Not_recommended",
@@ -4318,21 +4384,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"haddock_server": {
-    			"docker_image": "pegi3s/haddock_server",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/haddock_server",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "i-tasser_server",
     "description": "Protein structure prediction",
     "status": "Usable",
@@ -4356,21 +4421,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"i-tasser_server": {
-    			"docker_image": "pegi3s/i-tasser_server",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/i-tasser_server",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "pisa_server",
     "description": "Prediction of protein interfaces",
     "status": "Usable",
@@ -4394,21 +4458,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"pisa_server": {
-    			"docker_image": "pegi3s/pisa_server",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/pisa_server",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "sppider",
     "description": "Prediction of protein-protein interfaces",
     "status": "Usable",
@@ -4432,21 +4495,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"sppider": {
-    			"docker_image": "pegi3s/sppider",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/sppider",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "tm-align_server",
     "description": "Protein structure alignment",
     "status": "Usable",
@@ -4470,21 +4532,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/tm-align_server.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/tm-align_server_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"tm-align_server": {
-    			"docker_image": "pegi3s/tm-align_server",
-    			"input_files": ["AF-P58710-F1-model_v4.pdb", "8qnc.pdb"],
-    			"output_dir": "tm-align_server_output",
-    			"output_file": "results.html",
-   			"add_config": "",
-    			"commands": " bash -c \"/opt/run /data/input_data /data/output_folder/tm-align_server_output\" > /dev/null 2>&1"
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/tm-align_server",
+        "input_files": ["AF-P58710-F1-model_v4.pdb", "8qnc.pdb"],
+        "output_dir": "tm-align_server_output",
+        "output_file": "results.html",
+        "add_config": "",
+        "commands": " bash -c \"/opt/run /data/input_data /data/output_folder/tm-align_server_output\" > /dev/null 2>&1"
+      }
+    ]
   },
-{
+  {
     "name": "auto-phylo",
     "description": "Pipeline Maker for Phylogenetic Studies",
     "status": "Usable",
@@ -4508,21 +4569,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"auto-phylo": {
-    			"docker_image": "pegi3s/auto-phylo",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/auto-phylo",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "auto-phylo-pipeliner",
     "description": "GUI Designer for auto-phylo",
     "status": "Usable",
@@ -4546,21 +4606,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"auto-phylo-pipeliner": {
-    			"docker_image": "pegi3s/auto-phylo-pipeliner",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/auto-phylo-pipeliner",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "dib",
     "description": "Drosophila Inversion Breakpoints",
     "status": "Usable",
@@ -4584,21 +4643,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"dib": {
-    			"docker_image": "pegi3s/dib",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/dib",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "gbif_gis",
     "description": "Species distribution software",
     "status": "Usable",
@@ -4618,25 +4676,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/gbif_gis bash -c \"/opt/run ",
     "usual_invocation_specific": " species_name\"",
-    "usual_invocation_specific_comments": ["`species_name` to the name of the species of interest, for instance, `Solanum acaule*`."],
+    "usual_invocation_specific_comments": [
+      "`species_name` to the name of the species of interest, for instance, `Solanum acaule*`."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/wc2-5.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/gbif_gis_output.zip",
-    "icon":"https://avatars.githubusercontent.com/u/1963797?s=200&v=4",
+    "icon": "https://avatars.githubusercontent.com/u/1963797?s=200&v=4",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"gbif_gis": {
-    			"docker_image": "pegi3s/gbif_gis",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/gbif_gis",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "gis",
     "description": "Species distribution software",
     "status": "Usable",
@@ -4660,21 +4719,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/gis.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/gis_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"gis": {
-    			"docker_image": "pegi3s/gis",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/gis",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "ngs_pipeliner",
     "description": "NGS pipeliner",
     "status": "Usable",
@@ -4698,21 +4756,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"ngs_pipeliner": {
-    			"docker_image": "pegi3s/ngs_pipeliner",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/ngs_pipeliner",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "prosplign-procompart",
     "description": "Gene annotation",
     "status": "Usable",
@@ -4736,21 +4793,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"prosplign-procompart": {
-    			"docker_image": "pegi3s/prosplign-procompart",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/prosplign-procompart",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "splign-compart",
     "description": "Gene annotation",
     "status": "Usable",
@@ -4774,21 +4830,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"splign-compart": {
-    			"docker_image": "pegi3s/splign-compart",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/splign-compart",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "taxodros_gis",
     "description": "Species distribution software",
     "status": "Usable",
@@ -4808,25 +4863,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/taxodros_gis bash -c ",
     "usual_invocation_specific": "\"/opt/run 'melanogaster 1'\"",
-    "usual_invocation_specific_comments": ["`melanogaster 1` can be changed to the name of any other taxodros name"],
+    "usual_invocation_specific_comments": [
+      "`melanogaster 1` can be changed to the name of any other taxodros name"
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/wc2-5.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/taxodros_gis_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"taxodros_gis": {
-    			"docker_image": "pegi3s/taxodros_gis",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/taxodros_gis",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "auto-pss-genome",
     "description": "Automatic detection of positively selected sites in complete genomes",
     "status": "Usable",
@@ -4835,7 +4891,16 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "",
-    "no_longer_tested": ["1.11.0" ,"1.10.0","1.9.0","1.8.0","1.7.0","1.6.0","1.5.1","1.5.0"],
+    "no_longer_tested": [
+      "1.11.0",
+      "1.10.0",
+      "1.9.0",
+      "1.8.0",
+      "1.7.0",
+      "1.6.0",
+      "1.5.1",
+      "1.5.0"
+    ],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/auto-pss-genome/",
     "manual_url": "https://github.com/pegi3s/auto-pss-genome",
     "github_url": "https://github.com/pegi3s/auto-pss-genome",
@@ -4850,21 +4915,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"auto-pss-genome": {
-    			"docker_image": "pegi3s/auto-pss-genome",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/auto-pss-genome",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "cga",
     "description": "Conserved Genome Annotation Pipeline (CGA)",
     "status": "Usable",
@@ -4888,21 +4952,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"cga": {
-    			"docker_image": "pegi3s/cga",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/cga",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "check-cds",
     "description": "Compi pipeline to produce valid CDS files",
     "status": "Usable",
@@ -4926,21 +4989,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"check-cds": {
-    			"docker_image": "pegi3s/check-cds",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/check-cds",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "ipssa",
     "description": "PSS detection",
     "status": "Usable",
@@ -4949,7 +5011,16 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "",
-    "no_longer_tested": ["1.2.4", "1.2.3", "1.2.1", "1.2.0", "1.1.0", "1.0.2", "1.0.1", "1.0.0"],
+    "no_longer_tested": [
+      "1.2.4",
+      "1.2.3",
+      "1.2.1",
+      "1.2.0",
+      "1.1.0",
+      "1.0.2",
+      "1.0.1",
+      "1.0.0"
+    ],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/ipssa/",
     "manual_url": "https://github.com/pegi3s/ipssa",
     "github_url": "https://github.com/pegi3s/ipssa",
@@ -4964,21 +5035,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"ipssa": {
-    			"docker_image": "pegi3s/ipssa",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/ipssa",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "pss-fs",
     "description": "Fast identification of genes with positively selected amino acid sites for detailed analyses",
     "status": "Usable",
@@ -4987,7 +5057,16 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "",
-    "no_longer_tested": ["1.11.0", "1.10.0", "1.9.0", "1.8.0", "1.7.1", "1.7.0", "1.6.0", "1.5.0"],
+    "no_longer_tested": [
+      "1.11.0",
+      "1.10.0",
+      "1.9.0",
+      "1.8.0",
+      "1.7.1",
+      "1.7.0",
+      "1.6.0",
+      "1.5.0"
+    ],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/pss-fs/",
     "manual_url": "https://github.com/pegi3s/pss-fs",
     "github_url": "https://github.com/pegi3s/pss-fs",
@@ -5002,21 +5081,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"pss-fs": {
-    			"docker_image": "pegi3s/pss-fs",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/pss-fs",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "pss-genome-fs",
     "description": "Fast identification of genes with positively selected amino acid sites for detailed analyses in complete genomes",
     "status": "Usable",
@@ -5025,7 +5103,16 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "",
-    "no_longer_tested": ["1.13.0", "1.12.0", "1.11.0", "1.10.0", "1.9.0", "1.8.0", "1.7.0", "1.6.0"],
+    "no_longer_tested": [
+      "1.13.0",
+      "1.12.0",
+      "1.11.0",
+      "1.10.0",
+      "1.9.0",
+      "1.8.0",
+      "1.7.0",
+      "1.6.0"
+    ],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/pss-genome-fs/",
     "manual_url": "https://github.com/pegi3s/pss-genome-fs",
     "github_url": "https://github.com/pegi3s/pss-genome-fs",
@@ -5040,21 +5127,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"pss-genome-fs": {
-    			"docker_image": "pegi3s/pss-genome-fs",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/pss-genome-fs",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "two-way-blast",
     "description": "Find orthologs using a two-way BLAST (or BLAST reciprocal best hits) approach",
     "status": "Usable",
@@ -5063,7 +5149,7 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "",
-    "no_longer_tested": ["1.1.1","1.1.0","1.0.0"],
+    "no_longer_tested": ["1.1.1", "1.1.0", "1.0.0"],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/two-way-blast/",
     "manual_url": "https://sing-group.org/compihub/explore/5e2db6f9e1138700316488be#overview",
     "github_url": "https://github.com/pegi3s/two-way-blast",
@@ -5078,21 +5164,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"two-way-blast": {
-    			"docker_image": "pegi3s/two-way-blast",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/two-way-blast",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "haddock24-builder",
     "description": "Protein docking prediction",
     "status": "Usable",
@@ -5101,7 +5186,7 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "",
-    "no_longer_tested": ["2.4.1","2.4"],
+    "no_longer_tested": ["2.4.1", "2.4"],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/haddock24-builder/",
     "manual_url": "https://wenmr.science.uu.nl/haddock2.4/",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/haddock24-builder",
@@ -5116,21 +5201,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"haddock24-builder": {
-    			"docker_image": "pegi3s/haddock24-builder",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/haddock24-builder",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "hdock-builder",
     "description": "Protein docking prediction",
     "status": "Usable",
@@ -5154,21 +5238,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"hdock-builder": {
-    			"docker_image": "pegi3s/hdock-builder",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/hdock-builder",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "pydock3-builder",
     "description": "Protein docking prediction",
     "status": "Usable",
@@ -5192,21 +5275,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"pydock3-builder": {
-    			"docker_image": "pegi3s/pydock3-builder",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/pydock3-builder",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "trinity",
     "description": "de novo transcript assembly and quantification",
     "status": "Usable",
@@ -5230,21 +5312,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://raw.githubusercontent.com/wiki/trinityrnaseq/trinityrnaseq/images/TrinityCompositeLogo.png",
+    "icon": "https://raw.githubusercontent.com/wiki/trinityrnaseq/trinityrnaseq/images/TrinityCompositeLogo.png",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"trinity": {
-    			"docker_image": "pegi3s/trinity",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/trinity",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "biopython",
     "description": "Multipurpose Python tools for computational molecular biology",
     "status": "Usable",
@@ -5268,21 +5349,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://raw.githubusercontent.com/biopython/biopython/master/Doc/images/biopython_logo.svg",
+    "icon": "https://raw.githubusercontent.com/biopython/biopython/master/Doc/images/biopython_logo.svg",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"biopython": {
-    			"docker_image": "pegi3s/biopython",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/biopython",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "docker-manager",
     "description": "Docker images manager",
     "status": "Usable",
@@ -5306,21 +5386,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/empty",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"docker-manager": {
-    			"docker_image": "pegi3s/docker-manager",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/docker-manager",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "formfind",
     "description": "HTML processing",
     "status": "Usable",
@@ -5344,21 +5423,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"formfind": {
-    			"docker_image": "pegi3s/formfind",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/formfind",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "r_project",
     "description": "Statistical computing",
     "status": "Usable",
@@ -5371,7 +5449,9 @@
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/r_project/",
     "manual_url": "https://cran.r-project.org/manuals.html",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/r_project",
-    "comments": ["You must provide an R script File that ends with .R. See the test data for inspiration."],
+    "comments": [
+      "You must provide an R script File that ends with .R. See the test data for inspiration."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -5382,21 +5462,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/R_test.R",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/r_project_output.zip",
-    "icon":"https://www.r-project.org/logo/Rlogo.svg",
+    "icon": "https://www.r-project.org/logo/Rlogo.svg",
     "input_data_type": ["R_script"],
-    "auto-tests": 
-    		{
-    		"r_project": {
-    			"docker_image": "pegi3s/r_project",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/r_project",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "docker",
     "description": "Docker image that allows running Docker images",
     "status": "Usable",
@@ -5416,25 +5495,26 @@
     "singularity": "untested",
     "invocation_general": "",
     "usual_invocation_specific": "",
-    "usual_invocation_specific_comments": ["A base image with a Docker installation. Not intended to be run."],
+    "usual_invocation_specific_comments": [
+      "A base image with a Docker installation. Not intended to be run."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/empty",
     "test_results_url": "",
-    "icon":"assets/icons/logos/docker-mark-blue.svg",
+    "icon": "assets/icons/logos/docker-mark-blue.svg",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"docker": {
-    			"docker_image": "pegi3s/docker",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/docker",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "biopython_utilities",
     "description": "Biopython utilities",
     "status": "Usable",
@@ -5458,21 +5538,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"https://raw.githubusercontent.com/biopython/biopython/master/Doc/images/biopython_logo.svg",
+    "icon": "https://raw.githubusercontent.com/biopython/biopython/master/Doc/images/biopython_logo.svg",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"biopython_utilities": {
-    			"docker_image": "pegi3s/biopython_utilities",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/biopython_utilities",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "blast_utilities",
     "description": "BLAST utilities",
     "status": "Usable",
@@ -5492,25 +5571,26 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/blast_utilities blast_and_extract ",
     "usual_invocation_specific": "fastaFile fastaprotFile 100 500 0.05 ouputFolder/output_genome_regions",
-    "usual_invocation_specific_comments": ["The numbers refer to `max_distance_hits`, `extra_sequence` and `evalue`, respectively"],
+    "usual_invocation_specific_comments": [
+      "The numbers refer to `max_distance_hits`, `extra_sequence` and `evalue`, respectively"
+    ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/blast_utilities.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/blast_utilities_output.zip",
-    "icon":"",
-    "input_data_type": ["fasta","fastaprot"],
-    "auto-tests": 
-    		{
-    		"blast_utilities": {
-    			"docker_image": "pegi3s/blast_utilities",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "icon": "",
+    "input_data_type": ["fasta", "fastaprot"],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/blast_utilities",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "cds2gff3-maker",
     "description": "Creation of GFF3 files from CDS and genome",
     "status": "Usable",
@@ -5534,21 +5614,20 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/cds2gff3-maker.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/cds2gff3-maker_output.zip",
-    "icon":"",
+    "icon": "",
     "input_data_type": ["fastaCDS", "fastagenome"],
-    "auto-tests": 
-    		{
-    		"cds2gff3-maker": {
-    			"docker_image": "pegi3s/cds2gff3-maker",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/cds2gff3-maker",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "utilities",
     "description": "General utilities",
     "status": "Usable",
@@ -5557,7 +5636,16 @@
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "",
-    "no_longer_tested": ["0.22.1", "0.22.0", "0.21.2", "0.21.1", "0.21.0", "0.20.0", "0.19.0", "0.18.1"],
+    "no_longer_tested": [
+      "0.22.1",
+      "0.22.0",
+      "0.21.2",
+      "0.21.1",
+      "0.21.0",
+      "0.20.0",
+      "0.19.0",
+      "0.18.1"
+    ],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/utilities/",
     "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/utilities/MANUAL.md",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/utilities",
@@ -5572,21 +5660,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"utilities": {
-    			"docker_image": "pegi3s/utilities",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/utilities",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "orthologs-finder",
     "description": "Retrieve orthologous genes from DIOPT or Ensembl",
     "status": "Usable",
@@ -5610,21 +5697,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"orthologs-finder": {
-    			"docker_image": "pegi3s/orthologs-finder",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/orthologs-finder",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "values2tree",
     "description": "Draw UPGMA trees using lists of values",
     "status": "Usable",
@@ -5648,21 +5734,20 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"values2tree": {
-    			"docker_image": "pegi3s/values2tree",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/values2tree",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   },
-{
+  {
     "name": "auto-p2docking",
     "description": "A pipeline for protein-protein docking",
     "status": "Usable",
@@ -5686,18 +5771,17 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon":"",
+    "icon": "",
     "input_data_type": [""],
-    "auto-tests": 
-    		{
-    		"auto-p2docking": {
-    			"docker_image": "pegi3s/auto-p2docking",
-    			"input_files": [""],
-    			"output_dir": "",
-    			"output_file": "",
-   			"add_config": "",
-    			"commands": ""
- 			}
-    		}
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/auto-p2docking",
+        "input_files": [""],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   }
 ]
