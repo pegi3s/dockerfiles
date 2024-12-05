@@ -3618,14 +3618,15 @@
   },
   {
     "name": "seda",
-    "description": "Sequence dataset builder",
+    "description": "SEquence DAtaset builder",
     "status": "Usable",
-    "recommended": "1.7.0-SNAPSHOT",
-    "latest": "1.6.1",
+    "recommended": "1.7.1",
+    "latest": "1.7.1",
     "bug_found": [""],
     "not_working": [""],
     "recommended_last_tested": "25/11/2024",
     "no_longer_tested": [
+      "1.6.1",
       "1.6.0-SNAPSHOT-20230920.1",
       "1.6.0-SNAPSHOT-20230620.1",
       "1.6.0-SNAPSHOT-20230516.1",
@@ -3641,21 +3642,23 @@
     "manual_url": "https://www.sing-group.org/seda/manual/index.html",
     "github_url": "https://github.com/sing-group/seda",
     "comments": [
-      "This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file. Due to changes in the structure of the NCBI website, the \"NCBI rename\" option no longer works in versions prior to 1.6.1"
+      "Due to changes in the structure of the NCBI website, the \"NCBI rename\" option no longer works in versions prior to 1.6.1"
     ],
     "gui": true,
     "gui_command": "/opt/SEDA/run-gui.sh",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "",
-    "usual_invocation_specific": "",
+    "invocation_general": "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/data -v /tmp:/tmp pegi3s/seda",
+    "usual_invocation_specific": "/opt/SEDA/run-cli.sh seda-command-name --input-directory /data --output-directory /data/output",
     "usual_invocation_specific_comments": [
-      "This image does not have any parameters."
+       "'seda-command-name' to the name of the conversion command (e.g. fastq2fasta).",
+       "'/data' to the actual name of the folder containing the input files",
+       "'/data/output' to the actual name of the folder where the output files will be produced"
     ],
-    "test_invocation_specific": "",
+    "test_invocation_specific": "/opt/SEDA/run-cli.sh clustal-align --input-file /data/Test_data/small_not_aligned.fas --output-directory /data/outputFolder/",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
-    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
-    "icon": "",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/seda_output.zip",
+    "icon": "https://www.sing-group.org/seda/images/icon-32.png",
     "input_data_type": [""],
     "auto_tests": [
       {
