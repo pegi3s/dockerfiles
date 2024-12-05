@@ -3644,10 +3644,10 @@
       "This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file. Due to changes in the structure of the NCBI website, the \"NCBI rename\" option no longer works in versions prior to 1.6.1"
     ],
     "gui": true,
-    "gui_command": "",
+    "gui_command": "/opt/SEDA/run-gui.sh",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "xhost + && docker run --rm -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v \"/your/data/dir:/data\" -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp pegi3s/seda",
+    "invocation_general": "",
     "usual_invocation_specific": "",
     "usual_invocation_specific_comments": [
       "This image does not have any parameters."
