@@ -3531,8 +3531,9 @@
     "bug_found": [{"version": "all versions prior to 1.6.1", "description": "Due to changes in the structure of the NCBI website, the \"NCBI rename\" option no longer works"}],
     "not_working": [],
     "no_longer_tested": [
-      "1.7.0-SNAPSHOT"
-      "1.6.1"
+      "1.7.0",
+      "1.7.0-SNAPSHOT",
+      "1.6.1",
       "1.6.0-SNAPSHOT-20230920.1",
       "1.6.0-SNAPSHOT-20230620.1",
       "1.6.0-SNAPSHOT-20230516.1",
