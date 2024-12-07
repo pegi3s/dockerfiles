@@ -3567,12 +3567,12 @@
     "input_data_type": [],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/seda",
-        "input_files": [],
+        "docker_image": "pegi3s/seda:1.7.1",
+        "input_files": ["empty"],
         "output_dir": "",
         "output_file": "",
         "add_config": "",
-        "commands": ""
+        "commands": " -d -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp pegi3s/seda:1.7.1 > /dev/null 2>&1"
       }
     ]
   },
