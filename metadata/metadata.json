@@ -762,7 +762,7 @@
     "status": "Usable",
     "recommended": [{"version": "1.0.1", "date": "25/11/2024"}],
     "latest": "1.0.1",
-    "bug_found": ["1.0.0"],
+    "bug_found": [{"version": "1.0.0", "description": ""}],
     "not_working": [],
     "no_longer_tested": ["1.0.0"],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/ditasser_db/",
