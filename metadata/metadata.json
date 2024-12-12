@@ -49,7 +49,7 @@
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": ["0.7.1"],
-    "pegi3s_url": "https://hub.docker.com/r/pegi3s/adops/",
+    "pegi3s_url": "https://hub.docker.com/r/pegi3s/adops-gui",
     "manual_url": "https://www.sing-group.org/ADOPS/",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/adops",
     "comments": [
