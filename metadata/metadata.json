@@ -5715,5 +5715,45 @@
         "commands": ""
       }
     ]
+  },
+  {
+    "name": "htseq",
+    "description": "Analysis of high-throughput sequencing data",
+    "status": "Usable",
+    "recommended": [{"version": "2.0.9", "date": "25/11/2024"}],
+    "latest": "2.0.9",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": ["0.12.3"],
+    "pegi3s_url": "https://hub.docker.com/r/pegi3s/htseq/",
+    "manual_url": "https://htseq.readthedocs.io/en/latest/",
+    "github_url": "https://github.com/simon-anders/htseq",
+    "comments": [],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/htseq ",
+    "usual_invocation_specific": "<script-name> [script arguments]",
+    "usual_invocation_specific_comments": [
+      "`/your/data/dir` to point to the directory that contains the FASTA file you want to align.",
+      "`<script-name>` to the actual name of the script to be executed (e.g. `htseq-qa` or `htseq-count`.",
+      "`[script arguments]` with the argumetns required by the script."
+    ],
+    "test_invocation_specific": "htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr test.bam Homo_sapiens.GRCh38.86.chromosome22.gtf > test.out",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/htseq.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/htseq_output.zip",
+    "icon": "",
+    "input_data_type": ["bam", "gtf"],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/htseq:2.0.9",
+        "input_files": ["small_not_aligned.fas", "Homo_sapiens.GRCh38.86.chromosome22.gtf"],
+        "output_dir": "htseq_output",
+        "output_file": "test.out",
+        "add_config": "",
+        "commands": "htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr test.bam Homo_sapiens.GRCh38.86.chromosome22.gtf > test.out"
+      }
+    ]
   }
 ]

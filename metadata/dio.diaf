@@ -121,6 +121,7 @@ DIO:0000029	seda
 DIO:0000029	tree_snatcher_plus
 DIO:0000029	utilities
 DIO:0000031	bowtie1
+DIO:0000031	htseq
 DIO:0000031	bwa
 DIO:0000033	abyss
 DIO:0000033	edena
