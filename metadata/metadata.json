@@ -5677,5 +5677,43 @@
         "commands": "generate_dockerfile.sh config.json"
       }
     ]
+  },
+  {
+    "name": "r_sva",
+    "description": "Batch effects removal",
+    "status": "Usable",
+    "recommended": [{"version": "3.54.0", "date": "14/12/2024"}],
+    "latest": "3.54.0",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "pegi3s_url": "https://hub.docker.com/r/pegi3s/r_sva/",
+    "manual_url": "https://www.bioconductor.org/packages/release/bioc/html/SVA.html",
+    "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/r_sva",
+    "comments": [
+      "You must provide an R script File that ends with .R. See the test data for inspiration."
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "",
+    "usual_invocation_specific": "",
+    "usual_invocation_specific_comments": [],
+    "test_invocation_specific": "",
+    "test_data_url": "",
+    "test_results_url": "",
+    "icon": "",
+    "input_data_type": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/r_sva",
+        "input_files": [],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   }
 ]

@@ -78,6 +78,7 @@ DIO:0000022	id-mapping
 DIO:0000022	picard
 DIO:0000022	r_data-analysis
 DIO:0000022	r_deseq2
+DIO:0000022	r_sva
 DIO:0000022	r_edger
 DIO:0000022	r_enhanced-volcano
 DIO:0000022	r_network
