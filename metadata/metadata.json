@@ -5641,7 +5641,7 @@
   },
   {
     "name": "r_builder",
-    "description": "Creation of customized Dockerfiles for building R-based images.",
+    "description": "Creation of customized Dockerfiles for building R-based images",
     "status": "Usable",
     "recommended": [{"version": "1.0.0", "date": "14/15/2024"}],
     "latest": "1.0.0",
