@@ -17,7 +17,3 @@ In this command, you should replace:
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
 
 You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/htseq <script-name> [script arguments]`
-
-docker run --rm -v "$(pwd):$(pwd)" -w "$(pwd)" pegi3s/htseq:0.12.3 htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id hcc1395_normal_rep1.bam Homo_sapiens.GRCh38.86.chromosome22.gtf > test.out
-
-docker run --rm -v "$(pwd):$(pwd)" -w "$(pwd)" singgroup/dewe:1.3 /opt/HTSeq-0.12.3/scripts/htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id hcc1395_normal_rep1.bam Homo_sapiens.GRCh38.86.chromosome22.gtf > test.out
