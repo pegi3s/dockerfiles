@@ -1,0 +1,10 @@
+{
+  "name": "pegi3s/r_sva",
+  "image_version": "4.4.0",
+  "from": "r-base:4.4.0",
+  "packages": {
+    "apt": ["libssl-dev", "libcurl4-openssl-dev", "libxml2-dev"],
+    "r": ["ggplot2"],
+    "biocmanager": ["sva"]
+  }
+}
