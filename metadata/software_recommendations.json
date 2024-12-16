@@ -1,0 +1,98 @@
+[
+     {
+         "section_header": ["Phylogenetics"]
+         "categories": ["DIO:0000012", "DIO:0000026"],
+		 "also_relevant": ["R_project"],
+         "articles": [
+             {
+                 "short_name": "Zou et al. 2024",
+                 "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11117635/pdf/bioengineering-11-00480.pdf",
+                 "mentions": ["PHYLIP", "PAUP*", "PhyML", "MrBayes", "MEGA", "Phylosuite"]
+             }
+         ],
+     }
+     {
+         "section_header": ["Alignment"]
+         "categories": ["DIO:0000004"],
+		 "also_relevant": [],
+         "articles": [
+             {
+                 "short_name": "Zhang et al. 2022",
+                 "url": "https://academic.oup.com/bib/article-pdf/23/3/bbac069/43744909/bbac069.pdf",
+                 "mentions": ["Mafft", "ClustalOmega", "Muscle", "T-Coffee", "ProbCons"]
+             }
+         ],
+     },
+	      {
+         "section_header": ["Assembly"]
+         "categories": ["DIO:0000033"],
+		 "also_relevant": [],
+         "articles": [
+             {
+                 "short_name": "Jackson et al. 2024",
+                 "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11188175/pdf/12983_2024_Article_538.pdf",
+                 "mentions": ["Spades", "Abyss", "Velvet", "Trinity", "Soapdenovo2"]
+             }
+         ],
+     },
+	 {
+         "section_header": ["Short reads Quality"]
+         "categories": ["DIO:0000036"],
+		 "also_relevant": [],
+         "articles": [
+             {
+                 "short_name": "Yan et al. 2020",
+                 "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6996192/pdf/13059_2020_Article_1929.pdf",
+                 "mentions": ["FastQC", "Trimmomatic", "Cutadapt", "MultiQC"]
+             }
+         ],
+     },
+	 	 {
+         "section_header": ["Protein Docking"]
+         "categories": ["DIO:0000042"],
+		 "also_relevant": [],
+         "articles": [
+             {
+                 "short_name": "Desta et al. 2020",
+                 "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7484347/pdf/nihms-1608597.pdf",
+                 "mentions": ["Lzerd", "Haddock", "pyDock"]
+             },
+			 {
+                 "short_name": "Chen et al. 2024",
+                 "url": "https://academic.oup.com/gpb/advance-article/doi/10.1093/gpbjnl/qzae075/7822447",
+                 "mentions": ["Lzerd", "Haddock", "pyDock"]
+             },
+			 {
+                 "short_name": "de Almeida e Paiva et al. 2022",
+                 "url": "https://www.sciencedirect.com/science/article/pii/S0010482522004784",
+                 "mentions": ["Hdock", "Haddock", "PyMOL", "I-TASSER", "Alphafold", "PDB"]
+             }
+         ],
+     },
+	 {
+         "section_header": ["Protein structure prediction"]
+         "categories": ["DIO:0000043", "DIO:0000044"],
+		 "also_relevant": [],
+         "articles": [
+             {
+                 "short_name": "Chen et al. 2024",
+                 "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11313475/pdf/ijms-25-08426.pdf",
+                 "mentions": ["I-TASSER", "Alphafold"],
+             }
+         ],
+     },
+	 {
+         "section_header": ["Short reads alignment"]
+         "categories": ["DIO:0000031"],
+		 "also_relevant": [],
+         "articles": [
+             {
+                 "short_name": "Misale et al. 2014",
+                 "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4131566/pdf/BMRI2014-539410.pdf",
+                 "mentions": ["Bowtie", "BWA"]
+             }
+         ],
+     }
+ }]
+
+
