@@ -3211,7 +3211,7 @@
       "`-m` to specify the desired model, and -p to use a fixed seed number"
     ],
     "test_invocation_specific": "",
-    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/binary.phi",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/binary.phy",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/raxml_output.zip",
     "icon": "",
     "input_data_type": ["binary"],
