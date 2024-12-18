@@ -5688,7 +5688,7 @@
     "not_working": [],
     "no_longer_tested": [],
     "pegi3s_url": "https://hub.docker.com/r/pegi3s/r_sva/",
-    "manual_url": "https://www.bioconductor.org/packages/release/bioc/html/SVA.html",
+    "manual_url": "https://www.bioconductor.org/packages/release/bioc/html/sva.html",
     "github_url": "https://github.com/pegi3s/dockerfiles/tree/master/r_sva",
     "comments": [
       "You must provide an R script File that ends with .R. See the test data for inspiration."
