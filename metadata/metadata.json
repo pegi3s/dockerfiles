@@ -4317,7 +4317,7 @@
     "description": "Pipeline Maker for Phylogenetic Studies",
     "status": "Usable",
     "recommended": [{"version": "2.0.1", "date": ""}],
-    "latest": "3.0.0",
+    "latest": "3.0.2",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": ["2.2.0", "2.0.0", "1.0.0"],
