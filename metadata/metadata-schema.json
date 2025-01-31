@@ -1,0 +1,266 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/bdip-tools-schema.json",
+  "title": "BDIP Metadata",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "name",
+      "description",
+      "status",
+      "latest",
+      "manual_url",
+      "gui",
+      "podman",
+      "singularity",
+      "invocation_general",
+      "usual_invocation_specific",
+      "usual_invocation_specific_comments"
+    ],
+    "unevaluatedProperties": false,
+    "properties": {
+      "name": {
+        "type": "string",
+        "pattern": "\\S",
+        "description": "Image name"
+      },
+      "description": {
+        "type": "string",
+        "pattern": "\\S",
+        "description": "Brief description of the image"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Usable",
+          "Unusable",
+          "Not_recommended",
+          "Useful"
+        ],
+        "description": "Current status of the tool"
+      },
+      "recommended": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "version",
+            "date"
+          ],
+          "properties": {
+            "version": {
+              "type": "string",
+              "pattern": "\\S",
+              "description": "Version number"
+            },
+            "date": {
+              "type": "string",
+              "pattern": "[0-9]{2}/[0-9]{2}/[0-9]{4}",
+              "description": "Date the version was last tested"
+            }
+          }
+        },
+        "description": "List of the recommended versions of the tool"
+      },
+      "latest": {
+        "type": "string",
+        "pattern": "\\S",
+        "description": "Latest available version of the software"
+      },
+      "bug_found": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "version",
+            "description"
+          ],
+          "properties": {
+            "version": {
+              "type": "string",
+              "pattern": "\\S",
+              "description": "Version number"
+            },
+            "description": {
+              "type": "string",
+              "pattern": "\\S",
+              "description": "Brief description of the bug"
+            }
+          }
+        },
+        "description": "Versions of the software with known bugs"
+      },
+      "not_working": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Versions of the software that are not working"
+      },
+      "no_longer_tested": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "description": "Versions of the software that are no longer tested"
+      },
+      "manual_url": {
+        "type": "string",
+        "format": "uri",
+        "description": "External URL to software documentation"
+      },
+      "source_url": {
+        "type": "string",
+        "format": "uri",
+        "description": "URL to the software's source code or download page"
+      },
+      "comments": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "\\S"
+        }
+      },
+      "gui": {
+        "type": "boolean",
+        "description": "Whether the tool has a graphical user interface"
+      },
+      "podman": {
+        "type": "string",
+        "enum": [
+          "untested",
+          "tested"
+        ],
+        "description": "Podman compatibility status"
+      },
+      "singularity": {
+        "type": "string",
+        "enum": [
+          "untested",
+          "tested"
+        ],
+        "description": "Singularity compatibility status"
+      },
+      "invocation_general": {
+        "type": "string",
+        "pattern": "\\S",
+        "description": "Base docker run command without arguments"
+      },
+      "usual_invocation_specific": {
+        "type": "string",
+        "pattern": "\\S",
+        "description": "Command arguments to add to invocation_general"
+      },
+      "usual_invocation_specific_comments": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "description": "Comments about specific invocation"
+      },
+      "test_invocation_specific": {
+        "type": "string",
+        "pattern": "\\S"
+      },
+      "test_data_url": {
+        "type": "string",
+        "format": "uri",
+        "description": "URL to the test data"
+      },
+      "test_results_url": {
+        "type": "string",
+        "format": "uri",
+        "description": "URL to the test results"
+      },
+      "icon": {
+        "type": "string",
+        "format": "uri",
+        "description": "URL or path to the tool's icon"
+      },
+      "input_data_type": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "description": "Types of input data the tool can process"
+      },
+      "auto_tests": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "docker_image",
+            "input_files",
+            "output_dir",
+            "output_file",
+            "add_config",
+            "commands"
+          ],
+          "properties": {
+            "docker_image": {
+              "type": "string",
+              "pattern": "\\S",
+              "description": "Docker image to use for the test"
+            },
+            "input_files": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "description": "List of input files"
+            },
+            "output_dir": {
+              "type": "string",
+              "pattern": "\\S",
+              "description": "Output directory"
+            },
+            "output_file": {
+              "type": "string",
+              "pattern": "\\S",
+              "description": "Output file"
+            },
+            "add_config": {
+              "type": "string",
+              "pattern": "\\S",
+              "description": "Additional configuration"
+            },
+            "commands": {
+              "type": "string",
+              "pattern": "\\S",
+              "description": "List of commands to run"
+            }
+          },
+          "description": "List of automated tests"
+        }
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "gui": {
+              "const": true
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "gui_command"
+          ],
+          "properties": {
+            "gui_command": {
+              "type": "string",
+              "pattern": "\\S",
+              "description": "Command to run the GUI"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
