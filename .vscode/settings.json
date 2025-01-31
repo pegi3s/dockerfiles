@@ -1,0 +1,9 @@
+{
+    "json.maxItemsComputed": 50000,
+    "json.schemas": [
+        {
+            "fileMatch": ["metadata.json"],
+            "url": "./metadata/metadata-schema.json"
+        }
+    ]
+}
