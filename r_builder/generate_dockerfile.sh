@@ -53,9 +53,9 @@ CMD [\"/list_r_packages.sh\"]
 DOCKERFILE_PATH="${FILES_DIR}/Dockerfile"
 echo "$DOCKERFILE_CONTENT" > $DOCKERFILE_PATH
 
-cp list_r_packages.sh ${FILES_DIR}/
+cp /resources/list_r_packages.sh ${FILES_DIR}/
 
 # Build the Docker image
 IMAGE_TAG="${NAME}:${IMAGE_VERSION}"
 echo "Building Docker image with tag: $IMAGE_TAG"
-docker build -t "$IMAGE_TAG" -f "$DOCKERFILE_PATH" .
+docker build -t "$IMAGE_TAG" -f "$DOCKERFILE_PATH" "${FILES_DIR}"

@@ -25,6 +25,7 @@ RUN apt-get update -y && \
     rm -rf /var/lib/apt/lists/*
 
 COPY generate_dockerfile.sh /usr/local/bin/generate_dockerfile.sh
+COPY list_r_packages.sh /resources/list_r_packages.sh
 
 RUN chmod +x /usr/local/bin/generate_dockerfile.sh
 
