@@ -10,9 +10,27 @@ fi
 # Input JSON file
 JSON_FILE=$1
 if [ ! -f "$JSON_FILE" ]; then
-  echo "Error: JSON file '$JSON_FILE' does not exist."
-  exit 1
+    echo "Error: JSON file '$JSON_FILE' does not exist."
+    exit 1
 fi
+
+# Initialize DRY_RUN to 0
+DRY_RUN=0
+
+# Parse additional arguments
+shift
+while (( "$#" )); do
+    case "$1" in
+        --dry-run)
+            DRY_RUN=1
+            shift
+            ;;
+        *)
+            echo "Error: Unsupported flag $1"
+            exit 1
+            ;;
+    esac
+done
 
 # Extract values from the JSON file
 NAME=$(jq -r '.name' "$JSON_FILE")
@@ -39,11 +57,11 @@ ADD list_r_packages.sh list_r_packages.sh
 RUN chmod u+x list_r_packages.sh
 
 RUN R -e \"install.packages('BiocManager')\"$(
-    [ -n "$R_PACKAGES" ] && echo " \\
-    && echo 'n' | R --no-save -e \"install.packages(c(${R_PACKAGES}))\""
-)$(
     [ -n "$BIOC_PACKAGES" ] && echo " \\
     && echo 'n' | R --no-save -e \"BiocManager::install(c(${BIOC_PACKAGES}))\""
+)$(
+    [ -n "$R_PACKAGES" ] && echo " \\
+    && echo 'n' | R --no-save -e \"install.packages(c(${R_PACKAGES}))\""
 )
 
 CMD [\"/list_r_packages.sh\"]
@@ -55,7 +73,11 @@ echo "$DOCKERFILE_CONTENT" > $DOCKERFILE_PATH
 
 cp /resources/list_r_packages.sh ${FILES_DIR}/
 
-# Build the Docker image
+# Build the Docker image if not in dry-run mode
 IMAGE_TAG="${NAME}:${IMAGE_VERSION}"
-echo "Building Docker image with tag: $IMAGE_TAG"
-docker build -t "$IMAGE_TAG" -f "$DOCKERFILE_PATH" "${FILES_DIR}"
+if [ $DRY_RUN -eq 1 ]; then
+    echo "Dry run mode: Docker image with tag $IMAGE_TAG would be built."
+else
+    echo "Building Docker image with tag: $IMAGE_TAG"
+    docker build -t "$IMAGE_TAG" -f "$DOCKERFILE_PATH" "${FILES_DIR}"
+fi
