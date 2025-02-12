@@ -25,12 +25,20 @@ while (( "$#" )); do
             DRY_RUN=1
             shift
             ;;
+        --work_dir=*)
+            WORK_DIR="${1#*=}"
+            shift
+            ;;
         *)
             echo "Error: Unsupported flag $1"
             exit 1
             ;;
     esac
 done
+
+# Set default work directory if not provided
+WORK_DIR=${WORK_DIR:-$(pwd)}
+cd ${WORK_DIR}
 
 # Extract values from the JSON file
 NAME=$(jq -r '.name' "$JSON_FILE")
@@ -39,11 +47,20 @@ IMAGE_VERSION=$(jq -r '.image_version' "$JSON_FILE")
 APT_PACKAGES=$(jq -r '.packages.apt // [] | join(" ")' "$JSON_FILE")
 R_PACKAGES=$(jq -r '.packages.r // [] | map("'"'"'" + . + "'"'"'") | join(", ")' "$JSON_FILE")
 BIOC_PACKAGES=$(jq -r '.packages.biocmanager // [] | map("'"'"'" + . + "'"'"'") | join(", ")' "$JSON_FILE")
+GITHUB_PACKAGES=$(jq -r '.packages.devtools_install_github // []' "$JSON_FILE")
+
+# Check if there are GitHub packages in the JSON (only if the array is not empty)
+if [ "$(echo "$GITHUB_PACKAGES" | jq 'length')" -gt 0 ]; then
+    # Ensure devtools is included in R packages if there are GitHub packages
+    if [[ -z "$R_PACKAGES" || ! "$R_PACKAGES" =~ "devtools" ]]; then
+        R_PACKAGES="${R_PACKAGES:+$R_PACKAGES, }'devtools'"
+    fi
+fi
 
 FILES_DIR=$(echo ${NAME}_${IMAGE_VERSION} | sed 's/://;s/\//_/')
 mkdir -p ${FILES_DIR}
 
-# Generate the Dockerfile
+# Initialize the Dockerfile content
 DOCKERFILE_CONTENT="""FROM ${FROM}
 
 RUN apt-get update -y \\
@@ -62,10 +79,28 @@ RUN R -e \"install.packages('BiocManager')\"$(
 )$(
     [ -n "$R_PACKAGES" ] && echo " \\
     && echo 'n' | R --no-save -e \"install.packages(c(${R_PACKAGES}))\""
-)
+)"
 
-CMD [\"/list_r_packages.sh\"]
-"""
+# Handle GitHub packages with optional 'ref'
+if [ "$(echo "$GITHUB_PACKAGES" | jq 'length')" -gt 0 ]; then
+    for package_info in $(echo "$GITHUB_PACKAGES" | jq -c '.[]'); do
+        PACKAGE_NAME=$(echo "$package_info" | jq -r '.package')
+        REF=$(echo "$package_info" | jq -r '.ref // empty')
+
+        if [ -n "$REF" ]; then
+            INSTALL_CMD="devtools::install_github('${PACKAGE_NAME}', ref = '${REF}')"
+        else
+            INSTALL_CMD="devtools::install_github('${PACKAGE_NAME}')"
+        fi
+        
+        DOCKERFILE_CONTENT="$DOCKERFILE_CONTENT \\
+        && echo 'n' | R --no-save -e \"${INSTALL_CMD}\""
+    done
+fi
+
+# Final Dockerfile content
+DOCKERFILE_CONTENT="$DOCKERFILE_CONTENT
+CMD [\"/list_r_packages.sh\"]"
 
 # Write the Dockerfile to disk
 DOCKERFILE_PATH="${FILES_DIR}/Dockerfile"
