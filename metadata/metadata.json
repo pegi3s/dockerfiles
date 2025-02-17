@@ -3,11 +3,18 @@
     "name": "abyss",
     "description": "de novo sequence assembler",
     "status": "Usable",
-    "recommended": [{"version": "2.1.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.1.0",
+        "date": ""
+      }
+    ],
     "latest": "2.1.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["2.0.2-3"],
+    "no_longer_tested": [
+      "2.0.2-3"
+    ],
     "manual_url": "https://github.com/bcgsc/abyss/blob/master/README.md",
     "source_url": "https://github.com/bcgsc/abyss",
     "comments": [
@@ -27,11 +34,17 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon": "",
-    "input_data_type": ["fastq1", "fastq2"],
+    "input_data_type": [
+      "fastq1",
+      "fastq2"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/abyss:2.1.0",
-        "input_files": ["SRR3143588_1.fastq", "SRR3143588_2.fastq"],
+        "input_files": [
+          "SRR3143588_1.fastq",
+          "SRR3143588_2.fastq"
+        ],
         "output_dir": "abyss_output",
         "output_file": "test-scaffolds.fa",
         "add_config": "",
@@ -43,11 +56,18 @@
     "name": "adops-gui",
     "description": "Phylogenetics and detection of positively selected sites ",
     "status": "Usable",
-    "recommended": [{"version": "0.7.4", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "0.7.4",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "0.7.4",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["0.7.1"],
+    "no_longer_tested": [
+      "0.7.1"
+    ],
     "manual_url": "https://www.sing-group.org/ADOPS/",
     "source_url": "https://github.com/sing-group/adops",
     "comments": [
@@ -82,7 +102,12 @@
     "name": "aegean",
     "description": "Integrated genome analyses",
     "status": "Usable",
-    "recommended": [{"version": "v0.16.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "v0.16.0",
+        "date": ""
+      }
+    ],
     "latest": "v0.16.0",
     "bug_found": [],
     "not_working": [],
@@ -117,7 +142,12 @@
     "name": "afterqc",
     "description": "Sequence read quality assessment",
     "status": "Usable",
-    "recommended": [{"version": "0.9.7", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "0.9.7",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "0.9.7",
     "bug_found": [],
     "not_working": [],
@@ -136,7 +166,9 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/afterqc_output.zip",
     "icon": "",
-    "input_data_type": ["fastq"],
+    "input_data_type": [
+      "fastq"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/afterqc",
@@ -152,7 +184,12 @@
     "name": "alphafold_db",
     "description": "Protein structure retrieval",
     "status": "Usable",
-    "recommended": [{"version": "1.0.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.0.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.0.0",
     "bug_found": [],
     "not_working": [],
@@ -171,7 +208,9 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Uniprot.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/alphafold_db_output.zip",
     "icon": "https://deepmind.google/static/icons/google_deepmind_48dp.5b470587fe7d.svg",
-    "input_data_type": ["uniprotID"],
+    "input_data_type": [
+      "uniprotID"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/alphafold_db",
@@ -187,14 +226,21 @@
     "name": "alter",
     "description": "File conversion",
     "status": "Usable",
-    "recommended": [{"version": "1.3.4", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.3.4",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.3.4",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [],
     "manual_url": "http://sing-group.org/ALTER/help/ALTER-UserGuide.htm",
     "source_url": "https://github.com/sing-group/ALTER",
-    "comments": ["To see the ALTER help, just run help"],
+    "comments": [
+      "To see the ALTER help, just run help"
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -208,11 +254,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/nexus.nex",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/alter_output.zip",
     "icon": "https://raw.githubusercontent.com/sing-group/ALTER/master/alter-web/src/main/webapp/img/logo_small.png",
-    "input_data_type": ["input"],
+    "input_data_type": [
+      "input"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/alter:1.3.4",
-        "input_files": ["nexus.nex"],
+        "input_files": [
+          "nexus.nex"
+        ],
         "output_dir": "alter_output",
         "output_file": "output.fasta",
         "add_config": "",
@@ -224,7 +274,12 @@
     "name": "autoaugustus",
     "description": "Gene annotation",
     "status": "Usable",
-    "recommended": [{"version": "2.5.5", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.5.5",
+        "date": ""
+      }
+    ],
     "latest": "2.5.5",
     "bug_found": [],
     "not_working": [],
@@ -261,7 +316,12 @@
     "name": "bdbm",
     "description": "Sequence database manager",
     "status": "Usable",
-    "recommended": [{"version": "1.0.2", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.0.2",
+        "date": ""
+      }
+    ],
     "latest": "1.0.2",
     "bug_found": [],
     "not_working": [],
@@ -300,11 +360,19 @@
     "name": "bedtools",
     "description": "General utilities",
     "status": "Usable",
-    "recommended": [{"version": "2.31.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.31.0",
+        "date": ""
+      }
+    ],
     "latest": "2.31.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["2.29.2", "2.27.1"],
+    "no_longer_tested": [
+      "2.29.2",
+      "2.27.1"
+    ],
     "manual_url": "https://bedtools.readthedocs.io/en/latest/content/overview.html",
     "source_url": "https://github.com/arq5x/bedtools2",
     "comments": [],
@@ -323,7 +391,10 @@
     "auto_tests": [
       {
         "docker_image": "pegi3s/bedtools:2.31.0",
-        "input_files": ["GCF_000858285.1.fa", "GCF_000858285.1.gff"],
+        "input_files": [
+          "GCF_000858285.1.fa",
+          "GCF_000858285.1.gff"
+        ],
         "output_dir": "bedtools_output",
         "output_file": "GCF_000858285.1_annotation.fa",
         "add_config": "",
@@ -335,7 +406,12 @@
     "name": "bioconvert",
     "description": "Interconversion of life science data formats",
     "status": "Usable",
-    "recommended": [{"version": "0.4.3", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "0.4.3",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "0.4.3",
     "bug_found": [],
     "not_working": [],
@@ -356,11 +432,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/bioconvert_output.zip",
     "icon": "https://bioconvert.pasteur.cloud/static/images/logo.png",
-    "input_data_type": ["input"],
+    "input_data_type": [
+      "input"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/bioconvert:0.4.3",
-        "input_files": ["small_aligned.fas"],
+        "input_files": [
+          "small_aligned.fas"
+        ],
         "output_dir": "bioconvert_output",
         "output_file": "small_aligned.nex",
         "add_config": "",
@@ -372,11 +452,21 @@
     "name": "blast",
     "description": "Sequence alignment",
     "status": "Usable",
-    "recommended": [{"version": "2.15.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.15.0",
+        "date": ""
+      }
+    ],
     "latest": "2.15.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["2.14.1", "2.13.0", "2.10.0", "2.6.0-1"],
+    "no_longer_tested": [
+      "2.14.1",
+      "2.13.0",
+      "2.10.0",
+      "2.6.0-1"
+    ],
     "manual_url": "https://www.ncbi.nlm.nih.gov/books/NBK279690/",
     "source_url": "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/",
     "comments": [],
@@ -407,7 +497,12 @@
     "name": "bowtie1",
     "description": "Short sequence alignment",
     "status": "Usable",
-    "recommended": [{"version": "1.2.3", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.2.3",
+        "date": ""
+      }
+    ],
     "latest": "1.2.3",
     "bug_found": [],
     "not_working": [],
@@ -426,7 +521,9 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon": "https://raw.githubusercontent.com/BenLangmead/bowtie/refs/heads/master/doc/website/images/bowtie_logo.png",
-    "input_data_type": ["genomefasta"],
+    "input_data_type": [
+      "genomefasta"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/bowtie1",
@@ -442,7 +539,12 @@
     "name": "bwa",
     "description": "Sequence read aligner",
     "status": "Usable",
-    "recommended": [{"version": "0.7.17", "date": ""}],
+    "recommended": [
+      {
+        "version": "0.7.17",
+        "date": ""
+      }
+    ],
     "latest": "0.7.17",
     "bug_found": [],
     "not_working": [],
@@ -479,11 +581,18 @@
     "name": "ccp4",
     "description": "Software for Macromolecular X-Ray Crystallography",
     "status": "Usable",
-    "recommended": [{"version": "7.0.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "7.0.1",
+        "date": ""
+      }
+    ],
     "latest": "7.0.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["7.0"],
+    "no_longer_tested": [
+      "7.0"
+    ],
     "manual_url": "https://www.ccp4.ac.uk/documentation-2/",
     "source_url": "https://www.ccp4.ac.uk/download/",
     "comments": [],
@@ -514,7 +623,12 @@
     "name": "clustalomega",
     "description": "Sequence alignment",
     "status": "Usable",
-    "recommended": [{"version": "1.2.4", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.2.4",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.2.4",
     "bug_found": [],
     "not_working": [],
@@ -535,11 +649,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/clustalomega_output.zip",
     "icon": "http://www.clustal.org/images/clustalo_title.png",
-    "input_data_type": ["fasta"],
+    "input_data_type": [
+      "fasta"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/clustalomega:1.2.4",
-        "input_files": ["small_not_aligned.fas"],
+        "input_files": [
+          "small_not_aligned.fas"
+        ],
         "output_dir": "clustalomega_output",
         "output_file": "sequences_aligned.fasta",
         "add_config": "",
@@ -551,7 +669,12 @@
     "name": "coral",
     "description": "Sequence read correction",
     "status": "Usable",
-    "recommended": [{"version": "1.4.1", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.4.1",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.4.1",
     "bug_found": [],
     "not_working": [],
@@ -572,11 +695,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/coral_output.zip",
     "icon": "",
-    "input_data_type": ["fasta"],
+    "input_data_type": [
+      "fasta"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/coral:1.4.1",
-        "input_files": ["SRR3143588_1.fastq"],
+        "input_files": [
+          "SRR3143588_1.fastq"
+        ],
         "output_dir": "coral_output",
         "output_file": "output.fq",
         "add_config": "",
@@ -588,7 +715,12 @@
     "name": "cport",
     "description": "Active and passive sites prediction",
     "status": "Usable",
-    "recommended": [{"version": "2024.05", "date": ""}],
+    "recommended": [
+      {
+        "version": "2024.05",
+        "date": ""
+      }
+    ],
     "latest": "2024.05",
     "bug_found": [],
     "not_working": [],
@@ -609,7 +741,9 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon": "",
-    "input_data_type": ["pdb"],
+    "input_data_type": [
+      "pdb"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/cport",
@@ -625,11 +759,18 @@
     "name": "cport-like",
     "description": "Active and passive sites prediction",
     "status": "Usable",
-    "recommended": [{"version": "2024.05", "date": ""}],
+    "recommended": [
+      {
+        "version": "2024.05",
+        "date": ""
+      }
+    ],
     "latest": "2024.05",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["2023.11"],
+    "no_longer_tested": [
+      "2023.11"
+    ],
     "manual_url": "https://github.com/haddocking/cport",
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/cport-like",
     "comments": [
@@ -666,14 +807,21 @@
     "name": "cutadapt",
     "description": "Sequence read trimming",
     "status": "Usable",
-    "recommended": [{"version": "1.16", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.16",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.16",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [],
     "manual_url": "https://cutadapt.readthedocs.io/en/stable/guide.html",
     "source_url": "https://github.com/marcelm/cutadapt",
-    "comments": ["To see the Cutadapt help, just run -h."],
+    "comments": [
+      "To see the Cutadapt help, just run -h."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -687,11 +835,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/cutadapt_output.zip",
     "icon": "https://raw.githubusercontent.com/marcelm/cutadapt/main/doc/_static/cutadapt-logo.svg",
-    "input_data_type": ["fastq"],
+    "input_data_type": [
+      "fastq"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/cutadapt:1.16",
-        "input_files": ["SRR3143588_1.fastq"],
+        "input_files": [
+          "SRR3143588_1.fastq"
+        ],
         "output_dir": "cutadapt_output",
         "output_file": "trimmed_SRR3143588_1.fastq",
         "add_config": "",
@@ -703,7 +855,12 @@
     "name": "diamond",
     "description": "Sequence alignment",
     "status": "Usable",
-    "recommended": [{"version": "2.1.8", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.1.8",
+        "date": ""
+      }
+    ],
     "latest": "2.1.8",
     "bug_found": [],
     "not_working": [],
@@ -740,11 +897,23 @@
     "name": "ditasser_db",
     "description": "PDB retrieval",
     "status": "Usable",
-    "recommended": [{"version": "1.0.1", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.0.1",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.0.1",
-    "bug_found": [{"version": "1.0.0", "description": ""}],
+    "bug_found": [
+      {
+        "version": "1.0.0",
+        "description": ""
+      }
+    ],
     "not_working": [],
-    "no_longer_tested": ["1.0.0"],
+    "no_longer_tested": [
+      "1.0.0"
+    ],
     "manual_url": "https://hub.docker.com/r/pegi3s/ditasser_db",
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/ditasser_db",
     "comments": [],
@@ -761,7 +930,9 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Uniprot.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/ditasser_db_output.zip",
     "icon": "",
-    "input_data_type": ["uniprotlist"],
+    "input_data_type": [
+      "uniprotlist"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/ditasser_db",
@@ -777,7 +948,12 @@
     "name": "dnasp-v6",
     "description": "DNA sequence polymorphism",
     "status": "Usable",
-    "recommended": [{"version": "v6", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "v6",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "v6",
     "bug_found": [],
     "not_working": [],
@@ -816,7 +992,12 @@
     "name": "edena",
     "description": "de novo sequence assembler",
     "status": "Usable",
-    "recommended": [{"version": "3.131028", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "3.131028",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "3.131028",
     "bug_found": [],
     "not_working": [],
@@ -839,11 +1020,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/edena_output.zip",
     "icon": "",
-    "input_data_type": ["fastq"],
+    "input_data_type": [
+      "fastq"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/edena:3.131028",
-        "input_files": ["SRR3143588_1.fastq"],
+        "input_files": [
+          "SRR3143588_1.fastq"
+        ],
         "output_dir": "edena_output",
         "output_file": "result.ovl",
         "add_config": "",
@@ -855,7 +1040,12 @@
     "name": "emboss",
     "description": "General utilities",
     "status": "Usable",
-    "recommended": [{"version": "6.6.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "6.6.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "6.6.0",
     "bug_found": [],
     "not_working": [],
@@ -894,7 +1084,12 @@
     "name": "entrez-direct",
     "description": "NCBI E-utilities on the Unix Command Line",
     "status": "Usable",
-    "recommended": [{"version": "10.0.20180927", "date": ""}],
+    "recommended": [
+      {
+        "version": "10.0.20180927",
+        "date": ""
+      }
+    ],
     "latest": "10.0.20180927",
     "bug_found": [],
     "not_working": [],
@@ -919,7 +1114,9 @@
     "auto_tests": [
       {
         "docker_image": "pegi3s/entrez-direct:10.0.20180927",
-        "input_files": ["2_nucleotide_accessions.txt"],
+        "input_files": [
+          "2_nucleotide_accessions.txt"
+        ],
         "output_dir": "entrez-direct_output",
         "output_file": "sequences.fasta",
         "add_config": "",
@@ -931,11 +1128,19 @@
     "name": "fastqc",
     "description": "Sequence read quality assessment",
     "status": "Usable",
-    "recommended": [{"version": "0.12.1", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "0.12.1",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "0.12.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["0.11.9", "0.11.7"],
+    "no_longer_tested": [
+      "0.11.9",
+      "0.11.7"
+    ],
     "manual_url": "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/",
     "source_url": "https://github.com/s-andrews/FastQC",
     "comments": [],
@@ -950,7 +1155,9 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/fastqc_output.zip",
     "icon": "https://raw.githubusercontent.com/s-andrews/FastQC/refs/heads/master/uk/ac/babraham/FastQC/Resources/fastqc_icon.svg",
-    "input_data_type": ["fastq"],
+    "input_data_type": [
+      "fastq"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/fastqc",
@@ -966,7 +1173,12 @@
     "name": "fastroot",
     "description": "Tree rooting software",
     "status": "Usable",
-    "recommended": [{"version": "1.5", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.5",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.5",
     "bug_found": [],
     "not_working": [],
@@ -987,7 +1199,9 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/newick.nwk",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/fastroot_output.zip",
     "icon": "",
-    "input_data_type": ["newick"],
+    "input_data_type": [
+      "newick"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/fastroot",
@@ -1003,14 +1217,21 @@
     "name": "fasttree",
     "description": "Phylogenetics inferences",
     "status": "Usable",
-    "recommended": [{"version": "2.1.10", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "2.1.10",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "2.1.10",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [],
     "manual_url": "http://www.microbesonline.org/fasttree/#How",
     "source_url": "https://github.com/morgannprice/fasttree",
-    "comments": ["To see the FastTree help, just run FastTree -help."],
+    "comments": [
+      "To see the FastTree help, just run FastTree -help."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -1024,7 +1245,9 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fasta",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/fasttree_output.zip",
     "icon": "",
-    "input_data_type": ["fasta"],
+    "input_data_type": [
+      "fasta"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/fasttree",
@@ -1040,14 +1263,21 @@
     "name": "feature-counts",
     "description": "Sequence read summarization function",
     "status": "Usable",
-    "recommended": [{"version": "2.0.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.0.0",
+        "date": ""
+      }
+    ],
     "latest": "2.0.0",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [],
     "manual_url": "https://www.rdocumentation.org/packages/Rsubread/versions/1.22.2/topics/featureCounts",
     "source_url": "https://bioconductor.org/packages/release/bioc/html/Rsubread.html",
-    "comments": ["The bam file must contain the alignment file in bam format."],
+    "comments": [
+      "The bam file must contain the alignment file in bam format."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -1061,7 +1291,10 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon": "",
-    "input_data_type": ["gffFile", "bam"],
+    "input_data_type": [
+      "gffFile",
+      "bam"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/feature-counts",
@@ -1077,7 +1310,12 @@
     "name": "figtree",
     "description": "Phylogenetic tree viewing and editing",
     "status": "Usable",
-    "recommended": [{"version": "1.4.4", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.4.4",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.4.4",
     "bug_found": [],
     "not_working": [],
@@ -1116,14 +1354,21 @@
     "name": "flash",
     "description": "Sequence read overlap",
     "status": "Usable",
-    "recommended": [{"version": "1.2.11", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.2.11",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.2.11",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [],
     "manual_url": "https://ccb.jhu.edu/software/FLASH/",
     "source_url": "https://sourceforge.net/projects/flashpage/",
-    "comments": ["To see the FLASH help, just run --help."],
+    "comments": [
+      "To see the FLASH help, just run --help."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -1135,11 +1380,16 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/flash.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/flash_output.zip",
     "icon": "",
-    "input_data_type": ["fastq"],
+    "input_data_type": [
+      "fastq"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/flash:1.2.11",
-        "input_files": ["SRR3143588_1.fastq", "SRR3143588_2.fastq"],
+        "input_files": [
+          "SRR3143588_1.fastq",
+          "SRR3143588_2.fastq"
+        ],
         "output_dir": "flash_output",
         "output_file": "out.extendedFrags.fastq",
         "add_config": "",
@@ -1151,7 +1401,12 @@
     "name": "format_auto-pss-genome",
     "description": "format auto-pss-genome projects for B+",
     "status": "Usable",
-    "recommended": [{"version": "1.0.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.0.0",
+        "date": ""
+      }
+    ],
     "latest": "1.0.0",
     "bug_found": [],
     "not_working": [],
@@ -1186,7 +1441,12 @@
     "name": "freebayes",
     "description": "haplotype based variant detector",
     "status": "Usable",
-    "recommended": [{"version": "1.3.6", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.3.6",
+        "date": ""
+      }
+    ],
     "latest": "1.3.6",
     "bug_found": [],
     "not_working": [],
@@ -1207,7 +1467,10 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon": "",
-    "input_data_type": ["fasta", "bam"],
+    "input_data_type": [
+      "fasta",
+      "bam"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/freebayes",
@@ -1223,7 +1486,12 @@
     "name": "gatk-4",
     "description": "Genomic tools",
     "status": "Usable",
-    "recommended": [{"version": "4.1.4.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "4.1.4.1",
+        "date": ""
+      }
+    ],
     "latest": "4.1.4.1",
     "bug_found": [],
     "not_working": [],
@@ -1231,7 +1499,7 @@
     "manual_url": "https://gatk.broadinstitute.org/hc/en-us/articles/360037224712--Tool-Documentation-Index",
     "source_url": "https://github.com/broadinstitute/gatk",
     "comments": [
-      "To see GATK 4 available tools, just run gatk --list (please note that GATK 4 does not include some tools that are included in GATK 3⁠).",
+      "To see GATK 4 available tools, just run gatk --list (please note that GATK 4 does not include some tools that are included in GATK 3\u2060).",
       "To obtain the help of a particular tool, you just need to run: gatk tools --help (where tools is the tool name)"
     ],
     "gui": false,
@@ -1263,7 +1531,12 @@
     "name": "gatk-3",
     "description": "Genomic tools",
     "status": "Usable",
-    "recommended": [{"version": "3.8-0", "date": ""}],
+    "recommended": [
+      {
+        "version": "3.8-0",
+        "date": ""
+      }
+    ],
     "latest": "3.8-0",
     "bug_found": [],
     "not_working": [],
@@ -1302,7 +1575,12 @@
     "name": "getpdb",
     "description": "PDB retrieval",
     "status": "Usable",
-    "recommended": [{"version": "1.0.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.0.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.0.0",
     "bug_found": [],
     "not_working": [],
@@ -1323,11 +1601,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Uniprot.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/getpdb_ouput.zip",
     "icon": "",
-    "input_data_type": ["uniprot"],
+    "input_data_type": [
+      "uniprot"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/getpdb:1.0.0",
-        "input_files": ["Uniprot.txt"],
+        "input_files": [
+          "Uniprot.txt"
+        ],
         "output_dir": "getpdb_output",
         "output_file": "P54252-1yzb.pdb",
         "add_config": "",
@@ -1339,7 +1621,12 @@
     "name": "gmap-gsnap",
     "description": "Genome sequence mapping",
     "status": "Usable",
-    "recommended": [{"version": "2021.03.08", "date": ""}],
+    "recommended": [
+      {
+        "version": "2021.03.08",
+        "date": ""
+      }
+    ],
     "latest": "2021.03.08",
     "bug_found": [],
     "not_working": [],
@@ -1360,7 +1647,10 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon": "",
-    "input_data_type": ["genomefasta", "mRNAfasta"],
+    "input_data_type": [
+      "genomefasta",
+      "mRNAfasta"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/gmap-gsnap",
@@ -1376,7 +1666,12 @@
     "name": "goalign",
     "description": "Multiple sequence alignments manipulation",
     "status": "Usable",
-    "recommended": [{"version": "0.3.5", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "0.3.5",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "0.3.5",
     "bug_found": [],
     "not_working": [],
@@ -1397,11 +1692,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/goalign_output.zip",
     "icon": "https://raw.githubusercontent.com/evolbioinfo/goalign/master/images/logo.svg",
-    "input_data_type": ["fasta"],
+    "input_data_type": [
+      "fasta"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/goalign:0.3.5",
-        "input_files": ["small_aligned.fas"],
+        "input_files": [
+          "small_aligned.fas"
+        ],
         "output_dir": "goalign_output",
         "output_file": "small_aligned.sub.fasta",
         "add_config": "",
@@ -1413,7 +1712,12 @@
     "name": "gotree",
     "description": "Phylogenetic trees manipulation",
     "status": "Usable",
-    "recommended": [{"version": "0.4.2", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "0.4.2",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "0.4.2",
     "bug_found": [],
     "not_working": [],
@@ -1434,11 +1738,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/newick.nwk",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/gotree_output.zip",
     "icon": "https://raw.githubusercontent.com/evolbioinfo/gotree/refs/heads/master/images/logo.svg",
-    "input_data_type": ["newick"],
+    "input_data_type": [
+      "newick"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/gotree:0.4.2",
-        "input_files": ["newick.nwk"],
+        "input_files": [
+          "newick.nwk"
+        ],
         "output_dir": "gotree_output",
         "output_file": "distance_matrix",
         "add_config": "",
@@ -1450,7 +1758,12 @@
     "name": "graphviz",
     "description": "Graph building application",
     "status": "Usable",
-    "recommended": [{"version": "2.43.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "2.43.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "2.43.0",
     "bug_found": [],
     "not_working": [],
@@ -1471,11 +1784,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/graph.py",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/graphviz_output.zip",
     "icon": "https://upload.wikimedia.org/wikipedia/en/4/48/GraphvizLogo.png",
-    "input_data_type": ["graph_py"],
+    "input_data_type": [
+      "graph_py"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/graphviz:2.43.0",
-        "input_files": ["graph.py"],
+        "input_files": [
+          "graph.py"
+        ],
         "output_dir": "graphviz_output",
         "output_file": "Graph.gv",
         "add_config": "",
@@ -1487,11 +1804,18 @@
     "name": "haddock-tools",
     "description": "HADDOCK tools",
     "status": "Usable",
-    "recommended": [{"version": "07.06.2021", "date": ""}],
+    "recommended": [
+      {
+        "version": "07.06.2021",
+        "date": ""
+      }
+    ],
     "latest": "07.06.2021",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["git_07.06.2021"],
+    "no_longer_tested": [
+      "git_07.06.2021"
+    ],
     "manual_url": "https://github.com/haddocking/haddock-tools/blob/master/README.md",
     "source_url": "https://github.com/haddocking/haddock-tools",
     "comments": [],
@@ -1522,7 +1846,12 @@
     "name": "haplogrep",
     "description": "haplogroup classification tool",
     "status": "Usable",
-    "recommended": [{"version": "3.2.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "3.2.1",
+        "date": ""
+      }
+    ],
     "latest": "3.2.1",
     "bug_found": [],
     "not_working": [],
@@ -1543,7 +1872,9 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon": "",
-    "input_data_type": ["input"],
+    "input_data_type": [
+      "input"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/haplogrep",
@@ -1559,7 +1890,12 @@
     "name": "human_prot_atlas",
     "description": "Filtering UniProtKB identifier lists based on Human Protein Atlas tissues",
     "status": "Usable",
-    "recommended": [{"version": "1.0.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.0.0",
+        "date": ""
+      }
+    ],
     "latest": "1.0.0",
     "bug_found": [],
     "not_working": [],
@@ -1580,7 +1916,10 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon": "https://www.proteinatlas.org/favicon.ico?v=JyAbEzO2Nb",
-    "input_data_type": ["config", "input"],
+    "input_data_type": [
+      "config",
+      "input"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/human_prot_atlas",
@@ -1596,14 +1935,21 @@
     "name": "hyphy",
     "description": "Phylogenetics inferences",
     "status": "Usable",
-    "recommended": [{"version": "2.3.14", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.3.14",
+        "date": ""
+      }
+    ],
     "latest": "2.3.14",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [],
     "manual_url": "http://hyphy.org/tutorials/CL-prompt-tutorial/",
     "source_url": "https://github.com/veg/hyphy",
-    "comments": ["To see the HyPhy help, just run HYPHYMP -h."],
+    "comments": [
+      "To see the HyPhy help, just run HYPHYMP -h."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -1631,11 +1977,18 @@
     "name": "id-mapping",
     "description": "ID mapping",
     "status": "Usable",
-    "recommended": [{"version": "1.1.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.1.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.1.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["1.0.0"],
+    "no_longer_tested": [
+      "1.0.0"
+    ],
     "manual_url": "https://hub.docker.com/r/pegi3s/id-mapping",
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/id_mapping",
     "comments": [
@@ -1654,11 +2007,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/gene_ids.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/id-mapping_output.zip",
     "icon": "",
-    "input_data_type": ["input"],
+    "input_data_type": [
+      "input"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/id-mapping:1.1.0",
-        "input_files": ["gene_ids.txt"],
+        "input_files": [
+          "gene_ids.txt"
+        ],
         "output_dir": "id-mapping_output",
         "output_file": "output.tsv",
         "add_config": "",
@@ -1670,7 +2027,12 @@
     "name": "igv",
     "description": "Genomics viewer",
     "status": "Usable",
-    "recommended": [{"version": "2.13.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.13.0",
+        "date": ""
+      }
+    ],
     "latest": "2.13.0",
     "bug_found": [],
     "not_working": [],
@@ -1707,7 +2069,12 @@
     "name": "jmodeltest2",
     "description": "Best-fit models of nucleotide substitution",
     "status": "Usable",
-    "recommended": [{"version": "2.1.10", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.1.10",
+        "date": ""
+      }
+    ],
     "latest": "2.1.10",
     "bug_found": [],
     "not_working": [],
@@ -1730,7 +2097,9 @@
     "auto_tests": [
       {
         "docker_image": "pegi3s/jmodeltest2:2.1.10",
-        "input_files": ["small_aligned.fas"],
+        "input_files": [
+          "small_aligned.fas"
+        ],
         "output_dir": "jmodeltest2_output",
         "output_file": "JModeltest2_output",
         "add_config": "",
@@ -1742,7 +2111,12 @@
     "name": "kakscalculator",
     "description": "Sequence divergence",
     "status": "Usable",
-    "recommended": [{"version": "2.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "2.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "2.0",
     "bug_found": [],
     "not_working": [],
@@ -1764,7 +2138,9 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/CDS_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/kakscalculator_output.zip",
     "icon": "",
-    "input_data_type": ["fasta"],
+    "input_data_type": [
+      "fasta"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/kakscalculator",
@@ -1780,7 +2156,12 @@
     "name": "lsd",
     "description": "Discover patterns within biological sequences",
     "status": "Usable",
-    "recommended": [{"version": "1.0.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.0.0",
+        "date": ""
+      }
+    ],
     "latest": "1.0.0",
     "bug_found": [],
     "not_working": [],
@@ -1799,7 +2180,10 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon": "https://raw.githubusercontent.com/nunofonseca/lineagesequencediscovery/master/LSD.png",
-    "input_data_type": ["config", "input"],
+    "input_data_type": [
+      "config",
+      "input"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/lsd",
@@ -1815,14 +2199,21 @@
     "name": "mafft",
     "description": "Sequence alignment",
     "status": "Usable",
-    "recommended": [{"version": "7.505", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "7.505",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "7.505",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [],
     "manual_url": "https://mafft.cbrc.jp/alignment/server/",
     "source_url": "https://gitlab.com/sysimm/mafft",
-    "comments": ["To see the MAFFT help, just run mafft --help."],
+    "comments": [
+      "To see the MAFFT help, just run mafft --help."
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -1836,11 +2227,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/mafft_output.zip",
     "icon": "",
-    "input_data_type": ["fasta"],
+    "input_data_type": [
+      "fasta"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/mafft:7.505",
-        "input_files": ["small_not_aligned.fas"],
+        "input_files": [
+          "small_not_aligned.fas"
+        ],
         "output_dir": "mafft_output",
         "output_file": "sequences_aligned.fasta",
         "add_config": "",
@@ -1852,7 +2247,12 @@
     "name": "mauve",
     "description": "Genome alignment",
     "status": "Usable",
-    "recommended": [{"version": "2.4.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.4.0",
+        "date": ""
+      }
+    ],
     "latest": "2.4.0",
     "bug_found": [],
     "not_working": [],
@@ -1873,7 +2273,10 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon": "https://raw.githubusercontent.com/koadman/mauve/master/src/images/mauve_logo.png",
-    "input_data_type": ["fastq1", "fastq2"],
+    "input_data_type": [
+      "fastq1",
+      "fastq2"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/mauve",
@@ -1889,7 +2292,12 @@
     "name": "maxbin2",
     "description": "Software for binning assembled metagenomic sequences",
     "status": "Usable",
-    "recommended": [{"version": "2.2.4", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.2.4",
+        "date": ""
+      }
+    ],
     "latest": "2.2.4",
     "bug_found": [],
     "not_working": [],
@@ -1924,7 +2332,12 @@
     "name": "megax",
     "description": "Phylogenetics inferences",
     "status": "Usable",
-    "recommended": [{"version": "10.0.5", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "10.0.5",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "10.0.5",
     "bug_found": [],
     "not_working": [],
@@ -1959,7 +2372,12 @@
     "name": "megax_cc",
     "description": "Phylogenetics inferences",
     "status": "Usable",
-    "recommended": [{"version": "10.0.5", "date": ""}],
+    "recommended": [
+      {
+        "version": "10.0.5",
+        "date": ""
+      }
+    ],
     "latest": "10.0.5",
     "bug_found": [],
     "not_working": [],
@@ -1994,7 +2412,12 @@
     "name": "metaeuk",
     "description": "Gene discovery and annotation",
     "status": "Usable",
-    "recommended": [{"version": "41.0.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "41.0.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "41.0.0",
     "bug_found": [],
     "not_working": [],
@@ -2031,7 +2454,12 @@
     "name": "mrbayes",
     "description": "Phylogenetics inferences",
     "status": "Usable",
-    "recommended": [{"version": "3.2.6", "date": ""}],
+    "recommended": [
+      {
+        "version": "3.2.6",
+        "date": ""
+      }
+    ],
     "latest": "3.2.6",
     "bug_found": [],
     "not_working": [],
@@ -2066,7 +2494,12 @@
     "name": "multiqc",
     "description": "Quality control reports",
     "status": "Usable",
-    "recommended": [{"version": "1.14.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.14.0",
+        "date": ""
+      }
+    ],
     "latest": "1.14.0",
     "bug_found": [],
     "not_working": [],
@@ -2101,7 +2534,12 @@
     "name": "muscle",
     "description": "Sequence alignment",
     "status": "Usable",
-    "recommended": [{"version": "3.8.31", "date": ""}],
+    "recommended": [
+      {
+        "version": "3.8.31",
+        "date": ""
+      }
+    ],
     "latest": "3.8.31",
     "bug_found": [],
     "not_working": [],
@@ -2124,7 +2562,9 @@
     "auto_tests": [
       {
         "docker_image": "pegi3s/muscle:3.8.31",
-        "input_files": ["small_not_aligned.fas"],
+        "input_files": [
+          "small_not_aligned.fas"
+        ],
         "output_dir": "muscle_output",
         "output_file": "sequences_aligned.fasta",
         "add_config": "",
@@ -2136,7 +2576,12 @@
     "name": "ncbi-datasets",
     "description": "NCBI databases download",
     "status": "Usable",
-    "recommended": [{"version": "16.12.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "16.12.1",
+        "date": ""
+      }
+    ],
     "latest": "16.12.1",
     "bug_found": [],
     "not_working": [],
@@ -2171,11 +2616,18 @@
     "name": "ncbi_retrieve",
     "description": "Sequence retrieval",
     "status": "Usable",
-    "recommended": [{"version": "1.0.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.0.1",
+        "date": ""
+      }
+    ],
     "latest": "1.0.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["1.0.0"],
+    "no_longer_tested": [
+      "1.0.0"
+    ],
     "manual_url": "https://hub.docker.com/r/pegi3s/ncbi_retrieve/",
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/ncbi_retrieve",
     "comments": [
@@ -2208,7 +2660,12 @@
     "name": "newick_utils",
     "description": "Newick Utilities",
     "status": "Usable",
-    "recommended": [{"version": "1.6", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.6",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.6",
     "bug_found": [],
     "not_working": [],
@@ -2233,7 +2690,9 @@
     "auto_tests": [
       {
         "docker_image": "pegi3s/newick_utils:1.6",
-        "input_files": ["newick.nwk"],
+        "input_files": [
+          "newick.nwk"
+        ],
         "output_dir": "newick_utils_output",
         "output_file": "tree.svg",
         "add_config": "",
@@ -2245,7 +2704,12 @@
     "name": "omegamap",
     "description": "Detection of positively selected sites",
     "status": "Usable",
-    "recommended": [{"version": "2019.06.08", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "2019.06.08",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "2019.06.08",
     "bug_found": [],
     "not_working": [],
@@ -2266,11 +2730,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/CDS_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/omegamap_output.zip",
     "icon": "",
-    "input_data_type": ["fasta"],
+    "input_data_type": [
+      "fasta"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/omegamap:2019.06.08",
-        "input_files": ["CDS_aligned.fas"],
+        "input_files": [
+          "CDS_aligned.fas"
+        ],
         "output_dir": "omegamap_output",
         "output_file": "CDS_aligned.fas.summary",
         "add_config": "",
@@ -2282,11 +2750,19 @@
     "name": "paml",
     "description": "Detection of positively selected sites",
     "status": "Usable",
-    "recommended": [{"version": "4.9j", "date": ""}],
+    "recommended": [
+      {
+        "version": "4.9j",
+        "date": ""
+      }
+    ],
     "latest": "4.9j",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["4.9h", "4.9"],
+    "no_longer_tested": [
+      "4.9h",
+      "4.9"
+    ],
     "manual_url": "http://abacus.gene.ucl.ac.uk/software/pamlDOC.pdf",
     "source_url": "https://github.com/abacus-gene/paml",
     "comments": [],
@@ -2317,7 +2793,12 @@
     "name": "pathvisio",
     "description": "Biological pathway editor",
     "status": "Usable",
-    "recommended": [{"version": "3.3.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "3.3.0",
+        "date": ""
+      }
+    ],
     "latest": "3.3.0",
     "bug_found": [],
     "not_working": [],
@@ -2352,7 +2833,12 @@
     "name": "pdb-tools",
     "description": "PDB handling tools",
     "status": "Usable",
-    "recommended": [{"version": "2.4.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.4.1",
+        "date": ""
+      }
+    ],
     "latest": "2.4.1",
     "bug_found": [],
     "not_working": [],
@@ -2387,7 +2873,12 @@
     "name": "phipack",
     "description": "Recombination tests",
     "status": "Usable",
-    "recommended": [{"version": "1.0.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.0.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.0.0",
     "bug_found": [],
     "not_working": [],
@@ -2408,11 +2899,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/CDS_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/phipack_output.zip",
     "icon": "",
-    "input_data_type": ["fasta"],
+    "input_data_type": [
+      "fasta"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/phipack:1.0.0",
-        "input_files": ["CDS_aligned.fas"],
+        "input_files": [
+          "CDS_aligned.fas"
+        ],
         "output_dir": "phipack_output",
         "output_file": "output",
         "add_config": "",
@@ -2424,11 +2919,22 @@
     "name": "phylogenetic-tree-collapser",
     "description": "Phylogenetic trees handling",
     "status": "Usable",
-    "recommended": [{"version": "1.3.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.3.0",
+        "date": ""
+      }
+    ],
     "latest": "1.3.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["1.3.0-SNAPSHOT", "1.1.0", "1.0.3", "1.0.1", "0.0.1"],
+    "no_longer_tested": [
+      "1.3.0-SNAPSHOT",
+      "1.1.0",
+      "1.0.3",
+      "1.0.1",
+      "0.0.1"
+    ],
     "manual_url": "https://github.com/pegi3s/phylogenetic-tree-collapser",
     "source_url": "https://github.com/pegi3s/phylogenetic-tree-collapser",
     "comments": [],
@@ -2459,7 +2965,12 @@
     "name": "picard",
     "description": "Genomic tools",
     "status": "Usable",
-    "recommended": [{"version": "2.21.5", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.21.5",
+        "date": ""
+      }
+    ],
     "latest": "2.21.5",
     "bug_found": [],
     "not_working": [],
@@ -2482,7 +2993,9 @@
     "auto_tests": [
       {
         "docker_image": "pegi3s/picard:2.21.5",
-        "input_files": ["SAM.sam"],
+        "input_files": [
+          "SAM.sam"
+        ],
         "output_dir": "picard_output",
         "output_file": "cleaned.sam",
         "add_config": "",
@@ -2494,7 +3007,12 @@
     "name": "pilzerd",
     "description": "Protein-protein docking",
     "status": "Usable",
-    "recommended": [{"version": "09.06.2022", "date": ""}],
+    "recommended": [
+      {
+        "version": "09.06.2022",
+        "date": ""
+      }
+    ],
     "latest": "09.06.2022",
     "bug_found": [],
     "not_working": [],
@@ -2529,7 +3047,12 @@
     "name": "plasflow",
     "description": "Plasmid prediction",
     "status": "Usable",
-    "recommended": [{"version": "1.1.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.1.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.1.0",
     "bug_found": [],
     "not_working": [],
@@ -2550,11 +3073,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/plasflow_output.zip",
     "icon": "",
-    "input_data_type": ["fasta"],
+    "input_data_type": [
+      "fasta"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/plasflow:1.1.0",
-        "input_files": ["Citrobacter_freundii_strain_CAV1321_scaffolds.fas"],
+        "input_files": [
+          "Citrobacter_freundii_strain_CAV1321_scaffolds.fas"
+        ],
         "output_dir": "plasflow_output",
         "output_file": "plasflow_predictions.tsv",
         "add_config": "",
@@ -2566,7 +3093,12 @@
     "name": "plottree",
     "description": "Tree drawing",
     "status": "Usable",
-    "recommended": [{"version": "0.0.2", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "0.0.2",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "0.0.2",
     "bug_found": [],
     "not_working": [],
@@ -2587,11 +3119,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/newick.nwk",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/plottree_output.zip",
     "icon": "",
-    "input_data_type": ["newick"],
+    "input_data_type": [
+      "newick"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/plottree:0.0.2",
-        "input_files": ["newick.nwk"],
+        "input_files": [
+          "newick.nwk"
+        ],
         "output_dir": "plottree_output",
         "output_file": "output.png",
         "add_config": "",
@@ -2603,7 +3139,12 @@
     "name": "popart",
     "description": "Population genetics software",
     "status": "Usable",
-    "recommended": [{"version": "1.7", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.7",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.7",
     "bug_found": [],
     "not_working": [],
@@ -2638,7 +3179,12 @@
     "name": "probcons",
     "description": "Sequence alignment",
     "status": "Usable",
-    "recommended": [{"version": "1.12", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.12",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.12",
     "bug_found": [],
     "not_working": [],
@@ -2659,11 +3205,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/4_proteins.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/probcons_output.zip",
     "icon": "",
-    "input_data_type": ["fasta"],
+    "input_data_type": [
+      "fasta"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/probcons:1.12",
-        "input_files": ["4_proteins.fas"],
+        "input_files": [
+          "4_proteins.fas"
+        ],
         "output_dir": "probcons_output",
         "output_file": "sequences_aligned.fasta",
         "add_config": "",
@@ -2675,7 +3225,12 @@
     "name": "probcons_nuc",
     "description": "Sequence alignment",
     "status": "Usable",
-    "recommended": [{"version": "1.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.1",
+        "date": ""
+      }
+    ],
     "latest": "1.1",
     "bug_found": [],
     "not_working": [],
@@ -2698,7 +3253,9 @@
     "auto_tests": [
       {
         "docker_image": "pegi3s/probcons_nuc:1.1",
-        "input_files": ["small_not_aligned.fas"],
+        "input_files": [
+          "small_not_aligned.fas"
+        ],
         "output_dir": "probcons_nuc_output",
         "output_file": "sequences_aligned.fasta",
         "add_config": "",
@@ -2710,7 +3267,12 @@
     "name": "prokka",
     "description": "Genome annotation",
     "status": "Usable",
-    "recommended": [{"version": "1.14.6", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.14.6",
+        "date": ""
+      }
+    ],
     "latest": "1.14.6",
     "bug_found": [],
     "not_working": [],
@@ -2745,7 +3307,12 @@
     "name": "pss-3d",
     "description": "Positively selected sites viewer",
     "status": "Usable",
-    "recommended": [{"version": "1.0.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.0.0",
+        "date": ""
+      }
+    ],
     "latest": "1.0.0",
     "bug_found": [],
     "not_working": [],
@@ -2780,7 +3347,12 @@
     "name": "pycision",
     "description": "Primer trimming tool",
     "status": "Usable",
-    "recommended": [{"version": "0.0.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "0.0.1",
+        "date": ""
+      }
+    ],
     "latest": "0.0.1",
     "bug_found": [],
     "not_working": [],
@@ -2815,11 +3387,18 @@
     "name": "pymol",
     "description": "3D protein structure",
     "status": "Usable",
-    "recommended": [{"version": "2.3.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "2.3.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "2.3.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["1.8.4.0"],
+    "no_longer_tested": [
+      "1.8.4.0"
+    ],
     "manual_url": "https://pymolwiki.org/index.php/Main_Page",
     "source_url": "https://github.com/schrodinger/pymol-open-source",
     "comments": [],
@@ -2850,11 +3429,18 @@
     "name": "qualimap",
     "description": "Sequence read quality assessment",
     "status": "Usable",
-    "recommended": [{"version": "2.2.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.2.1",
+        "date": ""
+      }
+    ],
     "latest": "2.2.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["2.2.1_ubuntu19.01"],
+    "no_longer_tested": [
+      "2.2.1_ubuntu19.01"
+    ],
     "manual_url": "http://qualimap.conesalab.org/",
     "source_url": "https://bitbucket.org/kokonech/qualimap/src/master/",
     "comments": [],
@@ -2885,11 +3471,19 @@
     "name": "r_data-analysis",
     "description": "R image with common data analysis libraries such as caret, dplyr, ggplot2, etc.",
     "status": "Usable",
-    "recommended": [{"version": "4.1.1_v3", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "4.1.1_v3",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "4.1.1_v3",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["4.1.1_v2", "4.1.1_v1"],
+    "no_longer_tested": [
+      "4.1.1_v2",
+      "4.1.1_v1"
+    ],
     "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/r_data-analysis",
     "comments": [
       "You must provide an R script File that ends with .R. See the test data for inspiration."
@@ -2905,7 +3499,9 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/r_data-analysis_script.R",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/r_data-analysis_output.zip",
     "icon": "https://www.r-project.org/logo/Rlogo.svg",
-    "input_data_type": ["R-script"],
+    "input_data_type": [
+      "R-script"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/r_data-analysis",
@@ -2921,11 +3517,19 @@
     "name": "r_deseq2",
     "description": "Differential gene expression analysis",
     "status": "Usable",
-    "recommended": [{"version": "1.32.0_v2", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.32.0_v2",
+        "date": ""
+      }
+    ],
     "latest": "1.32.0_v2",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["1.32.0_v1", "1.32.0"],
+    "no_longer_tested": [
+      "1.32.0_v1",
+      "1.32.0"
+    ],
     "manual_url": "https://www.bioconductor.org/packages/release/bioc/html/DESeq2.html",
     "source_url": "https://bioconductor.org/packages/release/bioc/html/DESeq2.html",
     "comments": [
@@ -2958,11 +3562,18 @@
     "name": "r_edger",
     "description": "Differential gene expression analysis",
     "status": "Usable",
-    "recommended": [{"version": "4.0.16", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "4.0.16",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "4.0.16",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["3.36.0"],
+    "no_longer_tested": [
+      "3.36.0"
+    ],
     "manual_url": "https://www.bioconductor.org/packages/release/bioc/html/edgeR.html",
     "source_url": "https://bioconductor.org/packages/release/bioc/html/edgeR.html",
     "comments": [
@@ -2979,7 +3590,9 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/r_edger.R",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/r_edger_output.zip",
     "icon": "",
-    "input_data_type": ["R-script"],
+    "input_data_type": [
+      "R-script"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/r_edger",
@@ -2995,7 +3608,12 @@
     "name": "r_enhanced-volcano",
     "description": "Creation of Vulcano plots",
     "status": "Usable",
-    "recommended": [{"version": "1.12.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.12.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.12.0",
     "bug_found": [],
     "not_working": [],
@@ -3016,7 +3634,9 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/r_enhanced-volcano.R",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/r_enhanced-volcano_output.zip",
     "icon": "",
-    "input_data_type": ["R-script"],
+    "input_data_type": [
+      "R-script"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/r_enhanced-volcano",
@@ -3032,11 +3652,20 @@
     "name": "r_network",
     "description": "R image with data analysis libraries for network analysis, built on top of r_data-analysis.",
     "status": "Usable",
-    "recommended": [{"version": "4.1.1_v2_v3", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "4.1.1_v2_v3",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "4.1.1_v2_v3",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["4.1.1_v2_v1", "4.1.1_v2_v2", "4.1.1_v2"],
+    "no_longer_tested": [
+      "4.1.1_v2_v1",
+      "4.1.1_v2_v2",
+      "4.1.1_v2"
+    ],
     "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/r_network/README.md",
     "comments": [
       "You must provide an R script File that ends with .R. See the test data for inspiration."
@@ -3052,7 +3681,9 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/r_network.R",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/r_network_output.zip",
     "icon": "https://www.r-project.org/logo/Rlogo.svg",
-    "input_data_type": ["R-script"],
+    "input_data_type": [
+      "R-script"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/r_network",
@@ -3068,7 +3699,12 @@
     "name": "r_venn-diagram",
     "description": "Creation of Venn and Euler plots",
     "status": "Usable",
-    "recommended": [{"version": "1.7.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.7.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.7.0",
     "bug_found": [],
     "not_working": [],
@@ -3089,7 +3725,9 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/r_venn_diagram.R",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/r_venn-diagram_output.zip",
     "icon": "",
-    "input_data_type": ["R-script"],
+    "input_data_type": [
+      "R-script"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/r_venn-diagram",
@@ -3105,7 +3743,12 @@
     "name": "raxml",
     "description": "Phylogenetics inferences",
     "status": "Usable",
-    "recommended": [{"version": "8.2.12", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "8.2.12",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "8.2.12",
     "bug_found": [],
     "not_working": [],
@@ -3126,11 +3769,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/binary.phy",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/raxml_output.zip",
     "icon": "",
-    "input_data_type": ["binary"],
+    "input_data_type": [
+      "binary"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/raxml:8.2.12",
-        "input_files": ["binary.phy"],
+        "input_files": [
+          "binary.phy"
+        ],
         "output_dir": "raxml_output",
         "output_file": "RAxML_bestTree.T1",
         "add_config": "",
@@ -3142,7 +3789,12 @@
     "name": "recombine",
     "description": "Recombination inferences",
     "status": "Usable",
-    "recommended": [{"version": "1.0.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.0.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.0.0",
     "bug_found": [],
     "not_working": [],
@@ -3161,7 +3813,9 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/CDS_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/recombine_output.zip",
     "icon": "",
-    "input_data_type": ["config"],
+    "input_data_type": [
+      "config"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/recombine",
@@ -3177,7 +3831,12 @@
     "name": "repeat_masker",
     "description": "Repetitive DNA",
     "status": "Usable",
-    "recommended": [{"version": "4.0.9", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "4.0.9",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "4.0.9",
     "bug_found": [],
     "not_working": [],
@@ -3198,7 +3857,9 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/6_Drosophila_melanogaster_CDS.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/repeat_masker_output.zip",
     "icon": "https://www.repeatmasker.org/images/repeatmasker-logo-1024px-greytocolor.png",
-    "input_data_type": ["fasta"],
+    "input_data_type": [
+      "fasta"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/repeat_masker",
@@ -3214,7 +3875,12 @@
     "name": "roary",
     "description": "Pan genome calculation",
     "status": "Usable",
-    "recommended": [{"version": "3.6.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "3.6.0",
+        "date": ""
+      }
+    ],
     "latest": "3.6.0",
     "bug_found": [],
     "not_working": [],
@@ -3249,7 +3915,12 @@
     "name": "rootdigger",
     "description": "Phylogenetics tools",
     "status": "Usable",
-    "recommended": [{"version": "1.7.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.7.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.7.0",
     "bug_found": [],
     "not_working": [],
@@ -3270,7 +3941,10 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/rootdigger.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/rootdigger_output.zip",
     "icon": "https://raw.githubusercontent.com/computations/root_digger/refs/heads/master/docs/images/logo.png",
-    "input_data_type": ["fasta", "newick"],
+    "input_data_type": [
+      "fasta",
+      "newick"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/rootdigger",
@@ -3286,7 +3960,12 @@
     "name": "rtn",
     "description": "Remove Numts",
     "status": "Usable",
-    "recommended": [{"version": "08.05.2024", "date": ""}],
+    "recommended": [
+      {
+        "version": "08.05.2024",
+        "date": ""
+      }
+    ],
     "latest": "08.05.2024",
     "bug_found": [],
     "not_working": [],
@@ -3321,11 +4000,19 @@
     "name": "samtools_bcftools",
     "description": "Genomic tools",
     "status": "Usable",
-    "recommended": [{"version": "1.10", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.10",
+        "date": ""
+      }
+    ],
     "latest": "1.10",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["1.9", "1.9_v1"],
+    "no_longer_tested": [
+      "1.9",
+      "1.9_v1"
+    ],
     "manual_url": "http://www.htslib.org/doc/#manual-pages",
     "source_url": "https://github.com/samtools/samtools",
     "comments": [],
@@ -3356,7 +4043,12 @@
     "name": "sapp",
     "description": "Genomic tools",
     "status": "Usable",
-    "recommended": [{"version": "12.09.2019", "date": ""}],
+    "recommended": [
+      {
+        "version": "12.09.2019",
+        "date": ""
+      }
+    ],
     "latest": "12.09.2019",
     "bug_found": [],
     "not_working": [],
@@ -3395,7 +4087,12 @@
     "name": "scipio",
     "description": "Gene annotation",
     "status": "Usable",
-    "recommended": [{"version": "1.4", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.4",
+        "date": ""
+      }
+    ],
     "latest": "1.4",
     "bug_found": [],
     "not_working": [],
@@ -3430,9 +4127,19 @@
     "name": "seda",
     "description": "Sequence dataset builder",
     "status": "Usable",
-    "recommended": [{"version": "1.7.2", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.7.2",
+        "date": ""
+      }
+    ],
     "latest": "1.7.2",
-    "bug_found": [{"version": "<= 1.6.0", "description": "Due to changes in the structure of the NCBI website, the \"NCBI rename\" option no longer works"}],
+    "bug_found": [
+      {
+        "version": "<= 1.6.0",
+        "description": "Due to changes in the structure of the NCBI website, the \"NCBI rename\" option no longer works"
+      }
+    ],
     "not_working": [],
     "no_longer_tested": [
       "1.7.1",
@@ -3462,9 +4169,9 @@
     "invocation_general": "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/data -v /tmp:/tmp pegi3s/seda",
     "usual_invocation_specific": "/opt/SEDA/run-cli.sh seda-command-name --input-directory /data --output-directory /data/output",
     "usual_invocation_specific_comments": [
-       "'seda-command-name' to the name of the conversion command (e.g. fastq2fasta).",
-       "'/data' to the actual name of the folder containing the input files",
-       "'/data/output' to the actual name of the folder where the output files will be produced"
+      "'seda-command-name' to the name of the conversion command (e.g. fastq2fasta).",
+      "'/data' to the actual name of the folder containing the input files",
+      "'/data/output' to the actual name of the folder where the output files will be produced"
     ],
     "test_invocation_specific": "/opt/SEDA/run-cli.sh clustal-align --input-file /data/Test_data/small_not_aligned.fas --output-directory /data/outputFolder/",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
@@ -3474,7 +4181,9 @@
     "auto_tests": [
       {
         "docker_image": "pegi3s/seda:1.7.1",
-        "input_files": ["empty"],
+        "input_files": [
+          "empty"
+        ],
         "output_dir": "",
         "output_file": "",
         "add_config": "",
@@ -3486,7 +4195,12 @@
     "name": "seqkit",
     "description": "FASTA/FASTQ toolkit",
     "status": "Usable",
-    "recommended": [{"version": "2.5.2", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.5.2",
+        "date": ""
+      }
+    ],
     "latest": "2.5.2",
     "bug_found": [],
     "not_working": [],
@@ -3530,7 +4244,12 @@
     "name": "seqtk",
     "description": "FASTA/FASTQ toolkit",
     "status": "Usable",
-    "recommended": [{"version": "1.4", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.4",
+        "date": ""
+      }
+    ],
     "latest": "1.4",
     "bug_found": [],
     "not_working": [],
@@ -3565,11 +4284,18 @@
     "name": "soapdenovo2",
     "description": "de novo sequence assembler",
     "status": "Usable",
-    "recommended": [{"version": "2.0.4", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.0.4",
+        "date": ""
+      }
+    ],
     "latest": "2.0.4",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["2.04"],
+    "no_longer_tested": [
+      "2.04"
+    ],
     "manual_url": "https://github.com/aquaskyline/SOAPdenovo2/blob/master/README.md",
     "source_url": "https://github.com/aquaskyline/SOAPdenovo2",
     "comments": [],
@@ -3600,7 +4326,12 @@
     "name": "spades",
     "description": "de novo sequence assembler",
     "status": "Usable",
-    "recommended": [{"version": "3.11.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "3.11.1",
+        "date": ""
+      }
+    ],
     "latest": "3.11.1",
     "bug_found": [],
     "not_working": [],
@@ -3635,7 +4366,20 @@
     "name": "splitstree",
     "description": "Recombination analysis",
     "status": "Usable",
-    "recommended": [{"version": "4.14.8", "date": "25/11/2024"}, {"version": "4.19.2", "date": "14/01/2025"}, {"version": "6.4.11", "date": "14/01/2025"}],
+    "recommended": [
+      {
+        "version": "4.14.8",
+        "date": "25/11/2024"
+      },
+      {
+        "version": "4.19.2",
+        "date": "14/01/2025"
+      },
+      {
+        "version": "6.4.11",
+        "date": "14/01/2025"
+      }
+    ],
     "latest": "6.4.11",
     "bug_found": [],
     "not_working": [],
@@ -3670,7 +4414,12 @@
     "name": "sratoolkit",
     "description": "Operations on SRA database",
     "status": "Usable",
-    "recommended": [{"version": "3.1.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "3.1.0",
+        "date": ""
+      }
+    ],
     "latest": "3.1.0",
     "bug_found": [],
     "not_working": [],
@@ -3702,7 +4451,9 @@
     "auto_tests": [
       {
         "docker_image": "pegi3s/sratoolkit:3.1.0",
-        "input_files": ["empty"],
+        "input_files": [
+          "empty"
+        ],
         "output_dir": "sratoolkit_output",
         "output_file": "SRR3143588.fastq",
         "add_config": "",
@@ -3714,7 +4465,12 @@
     "name": "takeabreak",
     "description": "Inversion breakpoint detection",
     "status": "Usable",
-    "recommended": [{"version": "1.0.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.0.0",
+        "date": ""
+      }
+    ],
     "latest": "1.0.0",
     "bug_found": [],
     "not_working": [],
@@ -3749,11 +4505,20 @@
     "name": "tcoffee",
     "description": "Sequence alignment",
     "status": "Usable",
-    "recommended": [{"version": "12.0.7", "date": ""}],
+    "recommended": [
+      {
+        "version": "12.0.7",
+        "date": ""
+      }
+    ],
     "latest": "12.0.7",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["12.00.7", "11.00.8", "10.00.r1613"],
+    "no_longer_tested": [
+      "12.00.7",
+      "11.00.8",
+      "10.00.r1613"
+    ],
     "manual_url": "https://tcoffee.readthedocs.io/en/latest/tcoffee_main_documentation.html",
     "source_url": "https://github.com/cbcrg/tcoffee",
     "comments": [],
@@ -3772,7 +4537,9 @@
     "auto_tests": [
       {
         "docker_image": "pegi3s/tcoffee:12.0.7",
-        "input_files": ["small_not_aligned.fas"],
+        "input_files": [
+          "small_not_aligned.fas"
+        ],
         "output_dir": "tcoffee_output",
         "output_file": "aligned.aln",
         "add_config": "",
@@ -3784,11 +4551,18 @@
     "name": "translatorx",
     "description": "Sequence alignment",
     "status": "Usable",
-    "recommended": [{"version": "01.09.2022", "date": ""}],
+    "recommended": [
+      {
+        "version": "01.09.2022",
+        "date": ""
+      }
+    ],
     "latest": "01.09.2022",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["build.04.02.2022"],
+    "no_longer_tested": [
+      "build.04.02.2022"
+    ],
     "manual_url": "http://translatorx.co.uk/",
     "source_url": "https://web.archive.org/web/20241116033407/http://161.111.160.230/index_v5.html",
     "comments": [],
@@ -3819,7 +4593,12 @@
     "name": "tree_snatcher_plus",
     "description": "Tree editing",
     "status": "Usable",
-    "recommended": [{"version": "06.2010", "date": ""}],
+    "recommended": [
+      {
+        "version": "06.2010",
+        "date": ""
+      }
+    ],
     "latest": "06.2010",
     "bug_found": [],
     "not_working": [],
@@ -3854,7 +4633,12 @@
     "name": "treeviewx",
     "description": "Displays phylogenetics trees",
     "status": "Usable",
-    "recommended": [{"version": "0.5.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "0.5.1",
+        "date": ""
+      }
+    ],
     "latest": "0.5.1",
     "bug_found": [],
     "not_working": [],
@@ -3889,7 +4673,12 @@
     "name": "trimmomatic",
     "description": "FASTQ trimming tool",
     "status": "Usable",
-    "recommended": [{"version": "0.40", "date": ""}],
+    "recommended": [
+      {
+        "version": "0.40",
+        "date": ""
+      }
+    ],
     "latest": "0.40",
     "bug_found": [],
     "not_working": [],
@@ -3924,7 +4713,12 @@
     "name": "vcftools",
     "description": "Genomic tools",
     "status": "Usable",
-    "recommended": [{"version": "0.1.16", "date": ""}],
+    "recommended": [
+      {
+        "version": "0.1.16",
+        "date": ""
+      }
+    ],
     "latest": "0.1.16",
     "bug_found": [],
     "not_working": [],
@@ -3959,7 +4753,12 @@
     "name": "velvet",
     "description": "Sequence assembler for very short reads",
     "status": "Usable",
-    "recommended": [{"version": "1.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.1",
+        "date": ""
+      }
+    ],
     "latest": "1.1",
     "bug_found": [],
     "not_working": [],
@@ -3994,7 +4793,12 @@
     "name": "wgsim",
     "description": "Simulate sequencing data",
     "status": "Usable",
-    "recommended": [{"version": "0.3.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "0.3.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "0.3.0",
     "bug_found": [],
     "not_working": [],
@@ -4013,11 +4817,15 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/GCF_000858285.1.fa",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/wgsim_output.zip",
     "icon": "",
-    "input_data_type": ["fasta"],
+    "input_data_type": [
+      "fasta"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/wgsim:0.3.0",
-        "input_files": ["GCF_000858285.1.fa"],
+        "input_files": [
+          "GCF_000858285.1.fa"
+        ],
         "output_dir": "wgsim_output",
         "output_file": "reads1.fq",
         "add_config": "",
@@ -4032,8 +4840,14 @@
     "recommended": [],
     "latest": "18.05.2019",
     "bug_found": [],
-    "not_working": ["18.05.2019", "master"],
-    "no_longer_tested": ["18.05.2019", "master"],
+    "not_working": [
+      "18.05.2019",
+      "master"
+    ],
+    "no_longer_tested": [
+      "18.05.2019",
+      "master"
+    ],
     "manual_url": "https://github.com/haddocking/whiscy",
     "source_url": "https://github.com/haddocking/whiscy",
     "comments": [
@@ -4071,8 +4885,12 @@
     "recommended": [],
     "latest": "27.07.2021",
     "bug_found": [],
-    "not_working": ["27.07.2021"],
-    "no_longer_tested": ["27.07.2021"],
+    "not_working": [
+      "27.07.2021"
+    ],
+    "no_longer_tested": [
+      "27.07.2021"
+    ],
     "manual_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0017695",
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/cport_server",
     "comments": [
@@ -4107,9 +4925,19 @@
     "name": "evoppi-querier",
     "description": "Making queries to the EvoPPI web server",
     "status": "Usable",
-    "recommended": [{"version": "1.0.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.0.1",
+        "date": ""
+      }
+    ],
     "latest": "1.0.1",
-    "bug_found": [{"version": "1.0.0", "description": ""}],
+    "bug_found": [
+      {
+        "version": "1.0.0",
+        "description": ""
+      }
+    ],
     "not_working": [],
     "no_longer_tested": [],
     "manual_url": "https://hub.docker.com/r/pegi3s/evoppi-querier",
@@ -4130,7 +4958,9 @@
     "auto_tests": [
       {
         "docker_image": "pegi3s/evoppi-querier:1.0.1",
-        "input_files": ["evoppi_config.txt"],
+        "input_files": [
+          "evoppi_config.txt"
+        ],
         "output_dir": "evoppi-querier_output",
         "output_file": "EvoPPI_Results.csv",
         "add_config": "",
@@ -4142,11 +4972,18 @@
     "name": "haddock_server",
     "description": "Protein docking prediction",
     "status": "Not_recommended",
-    "recommended": [{"version": "2.2.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.2.1",
+        "date": ""
+      }
+    ],
     "latest": "2.2.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["2.2"],
+    "no_longer_tested": [
+      "2.2"
+    ],
     "manual_url": "https://www.bonvinlab.org/software/haddock2.2/manual/",
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/haddock_server",
     "comments": [],
@@ -4177,7 +5014,12 @@
     "name": "i-tasser_server",
     "description": "Protein structure prediction",
     "status": "Usable",
-    "recommended": [{"version": "30.06.2021", "date": ""}],
+    "recommended": [
+      {
+        "version": "30.06.2021",
+        "date": ""
+      }
+    ],
     "latest": "30.06.2021",
     "bug_found": [],
     "not_working": [],
@@ -4212,7 +5054,12 @@
     "name": "pisa_server",
     "description": "Prediction of protein interfaces",
     "status": "Usable",
-    "recommended": [{"version": "1.0.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.0.0",
+        "date": ""
+      }
+    ],
     "latest": "1.0.0",
     "bug_found": [],
     "not_working": [],
@@ -4247,7 +5094,12 @@
     "name": "sppider",
     "description": "Prediction of protein-protein interfaces",
     "status": "Usable",
-    "recommended": [{"version": "26.05.2019", "date": ""}],
+    "recommended": [
+      {
+        "version": "26.05.2019",
+        "date": ""
+      }
+    ],
     "latest": "26.05.2019",
     "bug_found": [],
     "not_working": [],
@@ -4282,7 +5134,12 @@
     "name": "tm-align_server",
     "description": "Protein structure alignment",
     "status": "Usable",
-    "recommended": [{"version": "1.0.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.0.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.0.0",
     "bug_found": [],
     "not_working": [],
@@ -4305,7 +5162,10 @@
     "auto_tests": [
       {
         "docker_image": "pegi3s/tm-align_server:1.0.0",
-        "input_files": ["AF-P58710-F1-model_v4.pdb", "8qnc.pdb"],
+        "input_files": [
+          "AF-P58710-F1-model_v4.pdb",
+          "8qnc.pdb"
+        ],
         "output_dir": "tm-align_server_output",
         "output_file": "results.html",
         "add_config": "",
@@ -4317,11 +5177,25 @@
     "name": "auto-phylo",
     "description": "Pipeline Maker for Phylogenetic Studies",
     "status": "Usable",
-    "recommended": [{"version": "3.2.0", "date": ""}, {"version": "2.2.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "3.2.0",
+        "date": ""
+      },
+      {
+        "version": "2.2.0",
+        "date": ""
+      }
+    ],
     "latest": "3.2.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["3.0.0", "2.0.1", "2.0.0", "1.0.0"],
+    "no_longer_tested": [
+      "3.0.0",
+      "2.0.1",
+      "2.0.0",
+      "1.0.0"
+    ],
     "manual_url": "http://evolution6.i3s.up.pt/static/auto-phylo/v2/docs/index.html",
     "source_url": "https://github.com/pegi3s/auto-phylo",
     "comments": [],
@@ -4352,11 +5226,21 @@
     "name": "auto-phylo-pipeliner",
     "description": "GUI Designer for auto-phylo",
     "status": "Usable",
-    "recommended": [{"version": "0.1.dev32", "date": ""}],
+    "recommended": [
+      {
+        "version": "0.1.dev32",
+        "date": ""
+      }
+    ],
     "latest": "0.1.dev32",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["0.1.dev31", "0.1.dev30", "0.1.dev27", "0.1.dev23"],
+    "no_longer_tested": [
+      "0.1.dev31",
+      "0.1.dev30",
+      "0.1.dev27",
+      "0.1.dev23"
+    ],
     "manual_url": "http://evolution6.i3s.up.pt/static/auto-phylo/v2/docs/pipeliner.html",
     "source_url": "https://github.com/pegi3s/auto-phylo-pipeliner",
     "comments": [],
@@ -4387,7 +5271,12 @@
     "name": "dib",
     "description": "Drosophila Inversion Breakpoints",
     "status": "Usable",
-    "recommended": [{"version": "1.0.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.0.0",
+        "date": ""
+      }
+    ],
     "latest": "1.0.0",
     "bug_found": [],
     "not_working": [],
@@ -4422,7 +5311,12 @@
     "name": "gbif_gis",
     "description": "Species distribution software",
     "status": "Usable",
-    "recommended": [{"version": "06.06.2019", "date": ""}],
+    "recommended": [
+      {
+        "version": "06.06.2019",
+        "date": ""
+      }
+    ],
     "latest": "06.06.2019",
     "bug_found": [],
     "not_working": [],
@@ -4459,7 +5353,12 @@
     "name": "gis",
     "description": "Species distribution software",
     "status": "Usable",
-    "recommended": [{"version": "06.06.2019", "date": ""}],
+    "recommended": [
+      {
+        "version": "06.06.2019",
+        "date": ""
+      }
+    ],
     "latest": "06.06.2019",
     "bug_found": [],
     "not_working": [],
@@ -4494,11 +5393,18 @@
     "name": "ngs_pipeliner",
     "description": "NGS pipeliner",
     "status": "Usable",
-    "recommended": [{"version": "1.0.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.0.1",
+        "date": ""
+      }
+    ],
     "latest": "1.0.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["1.0.0"],
+    "no_longer_tested": [
+      "1.0.0"
+    ],
     "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/ngs_pipeliner/manual.md",
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/ngs_pipeliner",
     "comments": [],
@@ -4529,11 +5435,18 @@
     "name": "prosplign-procompart",
     "description": "Gene annotation",
     "status": "Usable",
-    "recommended": [{"version": "1.0.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.0.1",
+        "date": ""
+      }
+    ],
     "latest": "1.0.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["1.0.0"],
+    "no_longer_tested": [
+      "1.0.0"
+    ],
     "manual_url": "https://www.ncbi.nlm.nih.gov/sutils/static/prosplign/prosplign.html",
     "source_url": "https://ftp.ncbi.nlm.nih.gov/genomes/TOOLS/ProSplign/",
     "comments": [],
@@ -4564,11 +5477,21 @@
     "name": "splign-compart",
     "description": "Gene annotation",
     "status": "Usable",
-    "recommended": [{"version": "1.2.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.2.1",
+        "date": ""
+      }
+    ],
     "latest": "1.2.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["1.2.0", "1.1.1", "1.1.0", "1.0.0"],
+    "no_longer_tested": [
+      "1.2.0",
+      "1.1.1",
+      "1.1.0",
+      "1.0.0"
+    ],
     "manual_url": "https://hub.docker.com/r/pegi3s/splign-compart/",
     "source_url": "https://ftp.ncbi.nlm.nih.gov/genomes/TOOLS/splign/",
     "comments": [],
@@ -4599,7 +5522,12 @@
     "name": "taxodros_gis",
     "description": "Species distribution software",
     "status": "Usable",
-    "recommended": [{"version": "06.06.2019", "date": ""}],
+    "recommended": [
+      {
+        "version": "06.06.2019",
+        "date": ""
+      }
+    ],
     "latest": "06.06.2019",
     "bug_found": [],
     "not_working": [],
@@ -4636,7 +5564,12 @@
     "name": "auto-pss-genome",
     "description": "Automatic detection of positively selected sites in complete genomes",
     "status": "Usable",
-    "recommended": [{"version": "1.12.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.12.0",
+        "date": ""
+      }
+    ],
     "latest": "1.12.0",
     "bug_found": [],
     "not_working": [],
@@ -4680,11 +5613,18 @@
     "name": "cga",
     "description": "Conserved Genome Annotation Pipeline (CGA)",
     "status": "Usable",
-    "recommended": [{"version": "1.0.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.0.1",
+        "date": ""
+      }
+    ],
     "latest": "1.0.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["1.0.0"],
+    "no_longer_tested": [
+      "1.0.0"
+    ],
     "manual_url": "https://github.com/pegi3s/cga",
     "source_url": "https://github.com/pegi3s/cga",
     "comments": [],
@@ -4715,11 +5655,20 @@
     "name": "check-cds",
     "description": "Compi pipeline to produce valid CDS files",
     "status": "Usable",
-    "recommended": [{"version": "1.3.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.3.0",
+        "date": ""
+      }
+    ],
     "latest": "1.3.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["1.2.0", "1.1.0", "1.0.0"],
+    "no_longer_tested": [
+      "1.2.0",
+      "1.1.0",
+      "1.0.0"
+    ],
     "manual_url": "https://github.com/pegi3s/check-cds",
     "source_url": "https://github.com/pegi3s/check-cds",
     "comments": [],
@@ -4750,7 +5699,12 @@
     "name": "ipssa",
     "description": "PSS detection",
     "status": "Usable",
-    "recommended": [{"version": "1.2.5", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.2.5",
+        "date": ""
+      }
+    ],
     "latest": "1.2.5",
     "bug_found": [],
     "not_working": [],
@@ -4794,7 +5748,12 @@
     "name": "pss-fs",
     "description": "Fast identification of genes with positively selected amino acid sites for detailed analyses",
     "status": "Usable",
-    "recommended": [{"version": "1.12.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.12.0",
+        "date": ""
+      }
+    ],
     "latest": "1.12.0",
     "bug_found": [],
     "not_working": [],
@@ -4838,7 +5797,12 @@
     "name": "pss-genome-fs",
     "description": "Fast identification of genes with positively selected amino acid sites for detailed analyses in complete genomes",
     "status": "Usable",
-    "recommended": [{"version": "1.14.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.14.0",
+        "date": ""
+      }
+    ],
     "latest": "1.14.0",
     "bug_found": [],
     "not_working": [],
@@ -4882,11 +5846,20 @@
     "name": "two-way-blast",
     "description": "Find orthologs using a two-way BLAST (or BLAST reciprocal best hits) approach",
     "status": "Usable",
-    "recommended": [{"version": "1.1.2", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.1.2",
+        "date": ""
+      }
+    ],
     "latest": "1.1.2",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["1.1.1", "1.1.0", "1.0.0"],
+    "no_longer_tested": [
+      "1.1.1",
+      "1.1.0",
+      "1.0.0"
+    ],
     "manual_url": "https://sing-group.org/compihub/explore/5e2db6f9e1138700316488be#overview",
     "source_url": "https://github.com/pegi3s/two-way-blast",
     "comments": [],
@@ -4917,11 +5890,19 @@
     "name": "haddock24-builder",
     "description": "Protein docking prediction",
     "status": "Usable",
-    "recommended": [{"version": "2.4.2", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.4.2",
+        "date": ""
+      }
+    ],
     "latest": "2.4.2",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["2.4.1", "2.4"],
+    "no_longer_tested": [
+      "2.4.1",
+      "2.4"
+    ],
     "manual_url": "https://wenmr.science.uu.nl/haddock2.4/",
     "source_url": "https://wenmr.science.uu.nl/haddock2.4/",
     "comments": [],
@@ -4952,7 +5933,12 @@
     "name": "hdock-builder",
     "description": "Protein docking prediction",
     "status": "Usable",
-    "recommended": [{"version": "1.1", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.1",
+        "date": ""
+      }
+    ],
     "latest": "1.1",
     "bug_found": [],
     "not_working": [],
@@ -4987,7 +5973,12 @@
     "name": "pydock3-builder",
     "description": "Protein docking prediction",
     "status": "Usable",
-    "recommended": [{"version": "3.2.3", "date": ""}],
+    "recommended": [
+      {
+        "version": "3.2.3",
+        "date": ""
+      }
+    ],
     "latest": "3.2.3",
     "bug_found": [],
     "not_working": [],
@@ -5022,7 +6013,12 @@
     "name": "trinity",
     "description": "de novo transcript assembly and quantification",
     "status": "Usable",
-    "recommended": [{"version": "2.11.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "2.11.0",
+        "date": ""
+      }
+    ],
     "latest": "2.11.0",
     "bug_found": [],
     "not_working": [],
@@ -5057,7 +6053,12 @@
     "name": "biopython",
     "description": "Multipurpose Python tools for computational molecular biology",
     "status": "Usable",
-    "recommended": [{"version": "1.78", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.78",
+        "date": ""
+      }
+    ],
     "latest": "1.78",
     "bug_found": [],
     "not_working": [],
@@ -5092,11 +6093,23 @@
     "name": "docker-manager",
     "description": "Docker images manager",
     "status": "Usable",
-    "recommended": [{"version": "v1.1", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "v1.1",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "v1.1",
-    "bug_found": [{"version": "v1", "description": "The status is always 'True'"}],
+    "bug_found": [
+      {
+        "version": "v1",
+        "description": "The status is always 'True'"
+      }
+    ],
     "not_working": [],
-    "no_longer_tested": ["v1"],
+    "no_longer_tested": [
+      "v1"
+    ],
     "manual_url": "https://hub.docker.com/r/pegi3s/docker-manager/",
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/docker-manager",
     "comments": [],
@@ -5127,7 +6140,12 @@
     "name": "formfind",
     "description": "HTML processing",
     "status": "Usable",
-    "recommended": [{"version": "1.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.0",
+        "date": ""
+      }
+    ],
     "latest": "1.0",
     "bug_found": [],
     "not_working": [],
@@ -5162,11 +6180,19 @@
     "name": "r_project",
     "description": "Statistical computing",
     "status": "Usable",
-    "recommended": [{"version": "4.3.3", "date": ""}],
+    "recommended": [
+      {
+        "version": "4.3.3",
+        "date": ""
+      }
+    ],
     "latest": "4.3.3",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["4.1.1", "3.6.0"],
+    "no_longer_tested": [
+      "4.1.1",
+      "3.6.0"
+    ],
     "manual_url": "https://cran.r-project.org/manuals.html",
     "source_url": "https://cran.r-project.org/src/base/",
     "comments": [
@@ -5183,7 +6209,9 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/R_test.R",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/r_project_output.zip",
     "icon": "https://www.r-project.org/logo/Rlogo.svg",
-    "input_data_type": ["R_script"],
+    "input_data_type": [
+      "R_script"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/r_project",
@@ -5199,13 +6227,22 @@
     "name": "docker",
     "description": "Docker image that allows running Docker images",
     "status": "Usable",
-    "recommended": [{"version": "20.04", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "20.04",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "20.04",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["18.04"],
+    "no_longer_tested": [
+      "18.04"
+    ],
     "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/tutorials/docker-in-docker.md",
-    "comments": ["Docker image that allows running Docker images"],
+    "comments": [
+      "Docker image that allows running Docker images"
+    ],
     "gui": false,
     "gui_command": "",
     "podman": "untested",
@@ -5235,11 +6272,18 @@
     "name": "biopython_utilities",
     "description": "Biopython utilities",
     "status": "Usable",
-    "recommended": [{"version": "1.78_0.2.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.78_0.2.0",
+        "date": ""
+      }
+    ],
     "latest": "1.78_0.2.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["1.78_0.1.0"],
+    "no_longer_tested": [
+      "1.78_0.1.0"
+    ],
     "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/biopython_utilities/README.md",
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/biopython_utilities",
     "comments": [],
@@ -5270,11 +6314,19 @@
     "name": "blast_utilities",
     "description": "BLAST utilities",
     "status": "Usable",
-    "recommended": [{"version": "0.3.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "0.3.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "0.3.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["0.2.0", "0.1.0"],
+    "no_longer_tested": [
+      "0.2.0",
+      "0.1.0"
+    ],
     "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/blast_utilities/README.md",
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/blast_utilities",
     "comments": [],
@@ -5291,7 +6343,10 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/blast_utilities.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/blast_utilities_output.zip",
     "icon": "",
-    "input_data_type": ["fasta", "fastaprot"],
+    "input_data_type": [
+      "fasta",
+      "fastaprot"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/blast_utilities",
@@ -5307,11 +6362,19 @@
     "name": "cds2gff3-maker",
     "description": "Creation of GFF3 files from CDS and genome",
     "status": "Usable",
-    "recommended": [{"version": "1.1.0", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "1.1.0",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "1.1.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["1.0.1", "1.0.0"],
+    "no_longer_tested": [
+      "1.0.1",
+      "1.0.0"
+    ],
     "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/cds2gff3-maker/README.md",
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/cds2gff3-maker",
     "comments": [],
@@ -5326,7 +6389,10 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/cds2gff3-maker.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/cds2gff3-maker_output.zip",
     "icon": "",
-    "input_data_type": ["fastaCDS", "fastagenome"],
+    "input_data_type": [
+      "fastaCDS",
+      "fastagenome"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/cds2gff3-maker",
@@ -5342,7 +6408,12 @@
     "name": "utilities",
     "description": "General utilities",
     "status": "Usable",
-    "recommended": [{"version": "0.22.2", "date": ""}],
+    "recommended": [
+      {
+        "version": "0.22.2",
+        "date": ""
+      }
+    ],
     "latest": "0.22.2",
     "bug_found": [],
     "not_working": [],
@@ -5386,11 +6457,21 @@
     "name": "orthologs-finder",
     "description": "Retrieve orthologous genes from DIOPT or Ensembl",
     "status": "Usable",
-    "recommended": [{"version": "1.4.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.4.0",
+        "date": ""
+      }
+    ],
     "latest": "1.4.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["1.2.0", "1.1.0", "1.0.2", "1.0.0"],
+    "no_longer_tested": [
+      "1.2.0",
+      "1.1.0",
+      "1.0.2",
+      "1.0.0"
+    ],
     "manual_url": "https://github.com/pegi3s/orthologs-finder",
     "source_url": "https://github.com/pegi3s/orthologs-finder",
     "comments": [],
@@ -5421,7 +6502,12 @@
     "name": "values2tree",
     "description": "Draw UPGMA trees using lists of values",
     "status": "Usable",
-    "recommended": [{"version": "1.0.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.0.0",
+        "date": ""
+      }
+    ],
     "latest": "1.0.0",
     "bug_found": [],
     "not_working": [],
@@ -5456,7 +6542,12 @@
     "name": "auto-p2docking",
     "description": "A pipeline for protein-protein docking",
     "status": "Usable",
-    "recommended": [{"version": "1.0.0", "date": ""}],
+    "recommended": [
+      {
+        "version": "1.0.0",
+        "date": ""
+      }
+    ],
     "latest": "1.0.0",
     "bug_found": [],
     "not_working": [],
@@ -5492,14 +6583,26 @@
     "description": "Creation of customized Dockerfiles for building R-based images",
     "status": "Usable",
     "recommended": [
-        {"version": "1.2.0", "date": "12/02/2025"},
-        {"version": "1.1.0", "date": "03/02/2025"},
-        {"version": "1.0.0", "date": "14/15/2024"}
+      {
+        "version": "1.2.0",
+        "date": "17/02/2025"
+      },
+      {
+        "version": "1.1.0",
+        "date": "03/02/2025"
+      },
+      {
+        "version": "1.0.0",
+        "date": "14/15/2024"
+      }
     ],
     "latest": "1.2.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["1.1.0", "1.0.0"],
+    "no_longer_tested": [
+      "1.1.0",
+      "1.0.0"
+    ],
     "manual_url": "https://hub.docker.com/r/pegi3s/r_builder/",
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/r_builder",
     "comments": [],
@@ -5510,18 +6613,22 @@
     "invocation_general": "docker run --rm -v /your/data/dir:/data -w /data pegi3s/r_builder",
     "usual_invocation_specific": "generate_dockerfile.sh config.json",
     "usual_invocation_specific_comments": [
-       "'/data' to the actual name of the folder containing the input files",
-       "'config.json' to the actual name the JSON specification file"
+      "'/data' to the actual name of the folder containing the input files",
+      "'config.json' to the actual name the JSON specification file"
     ],
     "test_invocation_specific": "generate_dockerfile.sh config.json",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/r_builder_config.json",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/r_builder_output.zip",
     "icon": "",
-    "input_data_type": ["json"],
+    "input_data_type": [
+      "json"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/r_builder:1.2.0",
-        "input_files": ["r_builder_config.json"],
+        "input_files": [
+          "r_builder_config.json"
+        ],
         "output_dir": "pegi3s_r_sva_4.4.0",
         "output_file": "Dockerfile",
         "add_config": "",
@@ -5533,7 +6640,12 @@
     "name": "r_sva",
     "description": "Batch effects removal",
     "status": "Usable",
-    "recommended": [{"version": "3.54.0", "date": "14/12/2024"}],
+    "recommended": [
+      {
+        "version": "3.54.0",
+        "date": "14/12/2024"
+      }
+    ],
     "latest": "3.54.0",
     "bug_found": [],
     "not_working": [],
@@ -5570,11 +6682,18 @@
     "name": "htseq",
     "description": "Analysis of high-throughput sequencing data",
     "status": "Usable",
-    "recommended": [{"version": "2.0.9", "date": "25/11/2024"}],
+    "recommended": [
+      {
+        "version": "2.0.9",
+        "date": "25/11/2024"
+      }
+    ],
     "latest": "2.0.9",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["0.12.3"],
+    "no_longer_tested": [
+      "0.12.3"
+    ],
     "manual_url": "https://htseq.readthedocs.io/en/latest/",
     "source_url": "https://github.com/htseq/htseq",
     "comments": [],
@@ -5593,11 +6712,17 @@
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/htseq.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/htseq_output.zip",
     "icon": "",
-    "input_data_type": ["bam", "gtf"],
+    "input_data_type": [
+      "bam",
+      "gtf"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/htseq:2.0.9",
-        "input_files": ["small_not_aligned.fas", "Homo_sapiens.GRCh38.86.chromosome22.gtf"],
+        "input_files": [
+          "small_not_aligned.fas",
+          "Homo_sapiens.GRCh38.86.chromosome22.gtf"
+        ],
         "output_dir": "htseq_output",
         "output_file": "test.out",
         "add_config": "",
