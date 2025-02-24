@@ -100,6 +100,7 @@ fi
 
 # Final Dockerfile content
 DOCKERFILE_CONTENT="$DOCKERFILE_CONTENT
+
 CMD [\"/list_r_packages.sh\"]"
 
 # Write the Dockerfile to disk

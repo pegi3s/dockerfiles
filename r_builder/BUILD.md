@@ -3,7 +3,7 @@
 Run:
 
 ```bash
-latest=1.2.0 && docker build ./ -t pegi3s/r_builder:${latest} && docker tag pegi3s/r_builder:${latest} pegi3s/r_builder
+latest=1.2.1 && docker build ./ -t pegi3s/r_builder:${latest} && docker tag pegi3s/r_builder:${latest} pegi3s/r_builder
 ```
 
 # Build log

@@ -5,7 +5,7 @@ This image facilitates the creation of customized Dockerfiles for building R-bas
 
 # Using the `r_builder` image in Linux
 
-You should adapt and run the following command: `docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "/your/data/dir:/data" -w /data pegi3s/r_builder generate_dockerfile.sh config.json`
+You should adapt and run the following command: `docker run -u "$(id -u):$(id -g)" --rm -v /var/run/docker.sock:/var/run/docker.sock -v "/your/data/dir:/data" -w /data pegi3s/r_builder generate_dockerfile.sh config.json`
 
 In this command, you should replace `/your/data/dir` to point to the directory that contains the `config.json` file, that specifies the image dependencies and packages in a JSON file like the following:
 
