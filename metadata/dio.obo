@@ -19,7 +19,7 @@ def: "Pipelines that use nucleotide sequence files as input"
 is_a: DIO:0000002
 
 [Term]
-id: DIO:0000004 
+id: DIO:0000004
 name: Alignment
 def: "Any program that allows the alignment of DNA sequences"
 is_a: DIO:0000002
@@ -117,7 +117,7 @@ is_a: DIO:0000002
 [Term]
 id: DIO:0000020
 name: Recombination
-def "Any program that can be used to detect recombination events or estimate recombination levels"
+def: "Any program that can be used to detect recombination events or estimate recombination levels"
 is_a: DIO:0000002
 
 [Term]
@@ -224,8 +224,8 @@ is_a: DIO:0000030
 
 [Term]
 id: DIO:0000038
-def: "Any program that uses structures (PDB files) as input"
 name: Structures
+def: "Any program that uses structures (PDB files) as input"
 
 [Term]
 id: DIO:0000039
@@ -282,8 +282,8 @@ def: "Any program that can be used to retrieve data from databases"
 
 [Term]
 id: DIO:0000048
-def: "Any program that uses species information as input"
 name: Species
+def: "Any program that uses species information as input"
 
 [Term]
 id: DIO:0000049
@@ -320,7 +320,7 @@ is_a: DIO:0000003
 [Term]
 id: DIO:0000055
 name: Phylogenetics
-def: "Pipelines aimed at performing phylogenetic analyses
+def: "Pipelines aimed at performing phylogenetic analyses"
 is_a: DIO:0000003
 
 [Term]
