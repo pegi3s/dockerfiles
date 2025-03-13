@@ -26,7 +26,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/abyss ",
-    "usual_invocation_specific": "abyss-pe k=25 name=test in='/data/fastq1File /data/fastq2File' --directory=/data/outputFolder",
+    "usual_invocation_specific": "abyss-pe k=25 name=test in='/data/fastq1File /data/fastq2File' --directory=/data/output",
     "usual_invocation_specific_comments": [
       "The `k` parameter is the size of the k-mer. It can be changed to any odd number below the `maxk` value (see comments). The `name` parameter can be changed to any name without blank spaces."
     ],
@@ -246,7 +246,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/alter ",
-    "usual_invocation_specific": "-i /data/inputFile -o /data/outputFolder/output -ia -of out_format -oo Linux -op GENERAL",
+    "usual_invocation_specific": "-i /data/inputFile -o /data/output/output -ia -of out_format -oo Linux -op GENERAL",
     "usual_invocation_specific_comments": [
       "`output` to the actual name of your output file. `out_format` to the output format you intend to obtain (the allowed standard formats are: ALN, FASTA, GDE, MEGA, MSF, NEXUS, PHYLIP and PIR)."
     ],
@@ -424,7 +424,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/bioconvert ",
-    "usual_invocation_specific": "bioconvert-conversion-name /data/inputFile /data/outputFolder/output",
+    "usual_invocation_specific": "bioconvert-conversion-name /data/inputFile /data/output/output",
     "usual_invocation_specific_comments": [
       "'bioconvert-conversion-name' to the name of the conversion command (e.g. fastq2fasta)."
     ],
@@ -641,11 +641,11 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/clustalomega ",
-    "usual_invocation_specific": "-i /data/fastaFile -o /data/outputFolder/output.fasta",
+    "usual_invocation_specific": "-i /data/fastaFile -o /data/output/output.fasta",
     "usual_invocation_specific_comments": [
       "`output.fasta` to the actual name of your aligned FASTA file."
     ],
-    "test_invocation_specific": "-i /data/Test_data/small_not_aligned.fas -o /data/outputFolder/sequences_aligned.fasta",
+    "test_invocation_specific": "-i /data/Test_data/small_not_aligned.fas -o /data/output/sequences_aligned.fasta",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/clustalomega_output.zip",
     "icon": "http://www.clustal.org/images/clustalo_title.png",
@@ -687,7 +687,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/coral ",
-    "usual_invocation_specific": "-f /data/fastaFile -o /data/outputFolder/output.fasta",
+    "usual_invocation_specific": "-f /data/fastaFile -o /data/output/output.fasta",
     "usual_invocation_specific_comments": [
       "Note that the `-f` parameter indicates that the input file is in FASTA format (-fq for FASTQ files, -fs for Solexa FASTA files). `ouput.fasta` to the actual name of your ouput file."
     ],
@@ -733,7 +733,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run -v /your/data/dir:/data pegi3s/cport ",
-    "usual_invocation_specific": "cport /data/pdbFile chain_id --pred method && cp -r /output /data/outputFolder",
+    "usual_invocation_specific": "cport /data/pdbFile chain_id --pred method && cp -r /output /data/output",
     "usual_invocation_specific_comments": [
       "'chain_id' to indicate the identifier of the chain you want to use. `--pred` method to indicate the method you want to use."
     ],
@@ -785,7 +785,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run -v /your/data/dir:/data pegi3s/cport-like ",
-    "usual_invocation_specific": "./cport_batch && cp -r /output /data/outputFolder",
+    "usual_invocation_specific": "./cport_batch && cp -r /output /data/output",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
     "test_data_url": "",
@@ -827,7 +827,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/cutadapt ",
-    "usual_invocation_specific": "-u 10 /data/fastqFile -o /data/outputFolder/output.fq",
+    "usual_invocation_specific": "-u 10 /data/fastqFile -o /data/output/output.fq",
     "usual_invocation_specific_comments": [
       "`output.fq` to the actual name of your output file. A negative value after `-u` would trims reads at the end."
     ],
@@ -1012,7 +1012,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/edena ",
-    "usual_invocation_specific": "-singleEnd /data/fastqFile -prefix /data/outputFolder/output",
+    "usual_invocation_specific": "-singleEnd /data/fastqFile -prefix /data/output/output",
     "usual_invocation_specific_comments": [
       "/data/result to point to the prefix of the output files that will be generated by Edena."
     ],
@@ -1191,7 +1191,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/fastroot ",
-    "usual_invocation_specific": "-i /data/newickFile -m method -o /data/outputFolder/output",
+    "usual_invocation_specific": "-i /data/newickFile -m method -o /data/output/output",
     "usual_invocation_specific_comments": [
       "'method' to either MP (midpoint), MV (minVAR), OG (outgroup), or RTT (root-to-tip). If using OG, the `-g` option can be used to specify the outgroups. If more than one, put them between quotes. 'output' to the actual name of your Newick output file."
     ],
@@ -1237,7 +1237,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/fasttree bash -c ",
-    "usual_invocation_specific": "\"FastTree -nt -gtr -gamma /data/fastaFile > /data/outputFolder/output\"",
+    "usual_invocation_specific": "\"FastTree -nt -gtr -gamma /data/fastaFile > /data/output/output\"",
     "usual_invocation_specific_comments": [
       "`output` to the actual name of your output file."
     ],
@@ -1374,7 +1374,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/flash ",
-    "usual_invocation_specific": "--interleaved-input /data/fastqFile -d /data/outputFolder",
+    "usual_invocation_specific": "--interleaved-input /data/fastqFile -d /data/output",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/flash.zip",
@@ -1639,7 +1639,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v \"/your/data/dir:/data\" pegi3s/gmap-gsnap bash -c ",
-    "usual_invocation_specific": "\"gmap_build -d genome_name -k k_mer_value /data/genomefastaFile && gmap -d genome_name /data/mRNAfastaFile > /data/outputFolder/output\"",
+    "usual_invocation_specific": "\"gmap_build -d genome_name -k k_mer_value /data/genomefastaFile && gmap -d genome_name /data/mRNAfastaFile > /data/output/output\"",
     "usual_invocation_specific_comments": [
       "`genome_name` to a given name. `k_mer`_value to the value of the k-mer size you want to use. `output` to the actual name of your output file."
     ],
@@ -1684,7 +1684,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run -v /your/data/dir:/data --rm pegi3s/goalign ",
-    "usual_invocation_specific": "goalign goalign-application-name -i /data/fastaFile -o /data/outputFolder/output",
+    "usual_invocation_specific": "goalign goalign-application-name -i /data/fastaFile -o /data/output/output",
     "usual_invocation_specific_comments": [
       "'goalign-application-name' to the name of the Goalign application you want to use. 'output' to the actual name of your output file."
     ],
@@ -1730,7 +1730,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run -v /your/data/dir:/data --rm pegi3s/gotree ",
-    "usual_invocation_specific": "gotree gotree-application-name -i /data/newickFile -o /data/outputFolder/output",
+    "usual_invocation_specific": "gotree gotree-application-name -i /data/newickFile -o /data/output/output",
     "usual_invocation_specific_comments": [
       "'gotree-application-name' to the name of the Gotree application you want to use. `output` to the actual name of your output file."
     ],
@@ -2132,7 +2132,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/kakscalculator bash -c ",
-    "usual_invocation_specific": "\"FASTA-AXT /data/fastaFile && KaKs_Calculator -i /data/fastaFile.axt -o /data/outputFolder/results.axt.kaks\"",
+    "usual_invocation_specific": "\"FASTA-AXT /data/fastaFile && KaKs_Calculator -i /data/fastaFile.axt -o /data/output/results.axt.kaks\"",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/CDS_aligned.fas",
@@ -2219,7 +2219,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/mafft bash -c ",
-    "usual_invocation_specific": "\"mafft /data/fastaFile > /data/outputFolder/output.fasta\"",
+    "usual_invocation_specific": "\"mafft /data/fastaFile > /data/output/output.fasta\"",
     "usual_invocation_specific_comments": [
       "output.fasta to the actual name of your aligned FASTA file."
     ],
@@ -2265,7 +2265,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/mauve bash -c ",
-    "usual_invocation_specific": "\"progressiveMauve --output=/data/outputFolder/output /data/fastq1File /data/fastq2File\"",
+    "usual_invocation_specific": "\"progressiveMauve --output=/data/output/output /data/fastq1File /data/fastq2File\"",
     "usual_invocation_specific_comments": [
       "`output` to the actual name of your output file."
     ],
@@ -2722,7 +2722,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/omegamap analyze ",
-    "usual_invocation_specific": "/data/fastaFile /data/outputFolder 25000",
+    "usual_invocation_specific": "/data/fastaFile /data/output 25000",
     "usual_invocation_specific_comments": [
       "`25000` may be replaced with the actual number of iterations you want to perform."
     ],
@@ -2891,7 +2891,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/phipack bash -c \"Phi ",
-    "usual_invocation_specific": "-f /data/fastaFile -p 1000 -o > /data/outputFolder/output\"",
+    "usual_invocation_specific": "-f /data/fastaFile -p 1000 -o > /data/output/output\"",
     "usual_invocation_specific_comments": [
       "`output` to the actual name of your output file."
     ],
@@ -3065,7 +3065,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/plasflow PlasFlow.py ",
-    "usual_invocation_specific": "--input /data/fastaFile --output /data/outputFolder/output --threshold 0.7",
+    "usual_invocation_specific": "--input /data/fastaFile --output /data/output/output --threshold 0.7",
     "usual_invocation_specific_comments": [
       "The default value for the threshold value is 0.7 but this can be changed by replacing 0.7 by another number"
     ],
@@ -3111,7 +3111,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/plottree bash -c ",
-    "usual_invocation_specific": "\"plottree -s 20 -w 20 -l 15 /data/newickFile -o /data/outputFolder/output\"",
+    "usual_invocation_specific": "\"plottree -s 20 -w 20 -l 15 /data/newickFile -o /data/output/output\"",
     "usual_invocation_specific_comments": [
       "The plottree arguments (fontsize (-s), width (-w), and height (-l)) can be changed to suit your needs. You may also change `output` to the desired name of your output file."
     ],
@@ -3197,7 +3197,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/probcons bash -c ",
-    "usual_invocation_specific": "\"probcons /data/fastaFile > /data/outputFolder/output.fasta\"",
+    "usual_invocation_specific": "\"probcons /data/fastaFile > /data/output/output.fasta\"",
     "usual_invocation_specific_comments": [
       "`output.fasta` may be changed to the output desired name"
     ],
@@ -3761,7 +3761,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/raxml raxmlHPC ",
-    "usual_invocation_specific": "-m BINGAMMA -p 12345 -s /data/binaryFile -n T1 -w /data/outputFolder",
+    "usual_invocation_specific": "-m BINGAMMA -p 12345 -s /data/binaryFile -n T1 -w /data/output",
     "usual_invocation_specific_comments": [
       "`-m` to specify the desired model, and -p to use a fixed seed number"
     ],
@@ -4173,7 +4173,7 @@
       "'/data' to the actual name of the folder containing the input files",
       "'/data/output' to the actual name of the folder where the output files will be produced"
     ],
-    "test_invocation_specific": "/opt/SEDA/run-cli.sh clustal-align --input-file /data/Test_data/small_not_aligned.fas --output-directory /data/outputFolder/",
+    "test_invocation_specific": "/opt/SEDA/run-cli.sh clustal-align --input-file /data/Test_data/small_not_aligned.fas --output-directory /data/output/",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/seda_output.zip",
     "icon": "https://www.sing-group.org/seda/images/icon-32.png",
@@ -4811,7 +4811,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v \"/your/data/dir:/data\" pegi3s/wgsim wgsim ",
-    "usual_invocation_specific": "-1151 -2151 -d500 -r0 -e0 -N10000 -R0 -X0 /data/fastaFile /data/outputFolder/reads1.fq /data/outputFolder/reads2.fq",
+    "usual_invocation_specific": "-1151 -2151 -d500 -r0 -e0 -N10000 -R0 -X0 /data/fastaFile /data/output/reads1.fq /data/output/reads2.fq",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/GCF_000858285.1.fa",
@@ -5152,7 +5152,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/tm-align_server bash -c ",
-    "usual_invocation_specific": "\"/opt/run /data/inputFolder /data/outputFolder\"",
+    "usual_invocation_specific": "\"/opt/run /data/inputFolder /data/output\"",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/tm-align_server.zip",
@@ -6383,7 +6383,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/data pegi3s/cds2gff3-maker ",
-    "usual_invocation_specific": "/data/fastaCDSFile /data/fastagenomeFile /data/outputFolder/output.gff3",
+    "usual_invocation_specific": "/data/fastaCDSFile /data/fastagenomeFile /data/output/output.gff3",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/cds2gff3-maker.zip",
