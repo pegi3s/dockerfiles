@@ -120,9 +120,10 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run -v /your/data/dir:/data pegi3s/aegean bash -c ",
-    "usual_invocation_specific": "\"parseval /data/reference_gff3File /data/prediction_gff3File > /data/output\"",
+    "usual_invocation_specific": "\"parseval /data/reference_gff3File /data/prediction_gff3File > /data/outputFolder/results\"",
     "usual_invocation_specific_comments": [
-	  "'parseval' can be changed to other programs ('locuspocus', 'canongff3' and 'gaeval')."
+	  "'parseval' can be changed to other programs ('locuspocus', 'canongff3' and 'gaeval').",
+	  "Results will be saved in a file name 'results'. this name can be changed."
 	  ],
     "test_invocation_specific": "",
     "test_data_url": "",
@@ -164,8 +165,8 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/afterqc bash -c ",
-    "usual_invocation_specific": "\"cd /data && after.py -1 /data/fastqFile\"",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/afterqc",
+    "usual_invocation_specific": " bash -c \"cd /data && after.py -1 /data/fastqFile\"",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
@@ -206,8 +207,8 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/alphafold_db bash -c ",
-    "usual_invocation_specific": "\"/opt/run /data/uniprotIDFile\"",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/alphafold_db",
+    "usual_invocation_specific": " bash -c \"/opt/run /data/uniprotIDFile\"",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "uniprotIDFile to the filename of the list of Uniprot ID's corresponding to the proteins that you want to obtain from AlphaFold. Each line in the file should contain only one Uniprot ID.",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Uniprot.txt",
@@ -251,7 +252,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/alter ",
-    "usual_invocation_specific": "-i /data/inputFile -o /data/output -ia -of out_format -oo Linux -op GENERAL",
+    "usual_invocation_specific": "-i /data/inputFile -o /data/outputFolder/output -ia -of out_format -oo Linux -op GENERAL",
     "usual_invocation_specific_comments": [
       "`output` to the actual name of your output file. `out_format` to the output format you intend to obtain (the allowed standard formats are: ALN, FASTA, GDE, MEGA, MSF, NEXUS, PHYLIP and PIR)."
     ],
@@ -1167,7 +1168,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/fastqc ",
-    "usual_invocation_specific": "/data/fastqFile --outdir /data/output",
+    "usual_invocation_specific": "/data/fastqFile --outdir /data/outputFolder",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
