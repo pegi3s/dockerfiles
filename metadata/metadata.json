@@ -119,14 +119,19 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": " docker run -v /your/data/dir:/data pegi3s/aegean bash -c ",
-    "usual_invocation_specific": "\"program_name options\"",
-    "usual_invocation_specific_comments": [],
+    "invocation_general": "docker run -v /your/data/dir:/data pegi3s/aegean bash -c ",
+    "usual_invocation_specific": "\"parseval /data/reference_gff3File /data/prediction_gff3File > /data/output\"",
+    "usual_invocation_specific_comments": [
+	  "'parseval' can be changed to other programs ('locuspocus', 'canongff3' and 'gaeval')."
+	  ],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
     "icon": "https://raw.githubusercontent.com/BrendelGroup/AEGeAn/refs/heads/main/docs/aegean-logo-v1_0-128.png",
-    "input_data_type": [],
+    "input_data_type": [
+	"reference_gff3",
+	"prediction_gff3"
+	],
     "auto_tests": [
       {
         "docker_image": "pegi3s/aegean",
@@ -246,7 +251,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/alter ",
-    "usual_invocation_specific": "-i /data/inputFile -o /data/output/output -ia -of out_format -oo Linux -op GENERAL",
+    "usual_invocation_specific": "-i /data/inputFile -o /data/output -ia -of out_format -oo Linux -op GENERAL",
     "usual_invocation_specific_comments": [
       "`output` to the actual name of your output file. `out_format` to the output format you intend to obtain (the allowed standard formats are: ALN, FASTA, GDE, MEGA, MSF, NEXUS, PHYLIP and PIR)."
     ],
@@ -293,7 +298,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm pegi3s/autoaugustus augustus",
+    "invocation_general": "docker run --rm pegi3s/autoaugustus augustus ",
     "usual_invocation_specific": "",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
@@ -332,11 +337,11 @@
       "This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file."
     ],
     "gui": true,
-    "gui_command": "",
+    "gui_command": "docker run --rm -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v \"/your/data/dir:/mnt/shared\" -v \"outFolder:/mnt/repository\" pegi3s/bdbm",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v \"/your/data/dir:/mnt/shared\" ",
-    "usual_invocation_specific": "-v \"outFolder:/mnt/repository\" pegi3s/bdbm",
+    "invocation_general": "",
+    "usual_invocation_specific": "",
     "usual_invocation_specific_comments": [
       "This image does not have any parameters."
     ],
@@ -381,9 +386,9 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/bedtools ",
-    "usual_invocation_specific": "bedtools-application-name -fi /data/fastaFile -bed /data/BED_GFF_VCFFile -fo /data/output/bedtools_output/stdout",
+    "usual_invocation_specific": "fastaFromBed -fi /data/fastaFile -bed /data/BED_GFF_VCFFile -fo /data/output",
     "usual_invocation_specific_comments": [
-	  "'bedtools-application-name' to the name of the application command (e.g. fastaFromBed).",
+	  "'fastaFromBed' can be changed to other application commands (e.g. annotatebed).",
 	  "'BED/GFF/VCF' to the actual name of your input BED/GFF/VCF file."
 	  ],
     "test_invocation_specific": "",
@@ -430,7 +435,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/bioconvert ",
-    "usual_invocation_specific": "bioconvert-conversion-name /data/inputFile /data/output/output",
+    "usual_invocation_specific": "bioconvert-conversion-name /data/inputFile /data/output",
     "usual_invocation_specific_comments": [
       "'bioconvert-conversion-name' to the name of the conversion command (e.g. fastq2fasta)."
     ],
@@ -567,7 +572,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v \"/your/data/dir:/data\" pegi3s/bwa",
+    "invocation_general": "docker run --rm -v \"/your/data/dir:/data\" pegi3s/bwa ",
     "usual_invocation_specific": "bwa command options",
     "usual_invocation_specific_comments": [
       "`command` to the specific command of the BWA tool. `options` to the specific options of the BWA tool (these options will include the input/output files, which should be referenced under /data/."
@@ -612,13 +617,15 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/ccp4 bash -c ",
-    "usual_invocation_specific": "\"/ccp4/bin/run data/inputFolder data/outputFolder\"",
+    "usual_invocation_specific": "\"/ccp4/bin/run data/inputFolder data/output\"",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
     "icon": "https://avatars.githubusercontent.com/u/15382671?s=200&v=4",
-    "input_data_type": [],
+    "input_data_type": [
+      "input"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/ccp4",
@@ -652,7 +659,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/clustalomega ",
-    "usual_invocation_specific": "-i /data/fastaFile -o /data/output/output.fasta",
+    "usual_invocation_specific": "-i /data/fastaFile -o /data/output",
     "usual_invocation_specific_comments": [
       "`output.fasta` to the actual name of your aligned FASTA file."
     ],
@@ -744,9 +751,9 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run -v /your/data/dir:/data pegi3s/cport ",
-    "usual_invocation_specific": "cport /data/pdbFile chain_id --pred method && cp -r /output /data/output",
+    "usual_invocation_specific": "cport /data/pdbFile A --pred sppider && cp -r /output /data/output",
     "usual_invocation_specific_comments": [
-      "'chain_id' to indicate the identifier of the chain you want to use. `--pred` method to indicate the method you want to use."
+      "'chain_id' to indicate the identifier of the chain you want to use. `--pred method' to indicate the method you want to use."
     ],
     "test_invocation_specific": "",
     "test_data_url": "",
@@ -975,10 +982,10 @@
       "This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file."
     ],
     "gui": true,
-    "gui_command": "",
+    "gui_command": "docker run -it --rm --env=\"DISPLAY\" --volume=\"${XAUTHORITY:-${HOME}/.Xauthority}:/root/.Xauthority:ro\" --volume=\"/tmp/.X11-unix:/tmp/.X11-unix:ro\" -v=/your/data/dir:/data --hostname=\"$(hostname)\" pegi3s/dnasp-v6 wine \"/wineuser/.wine/drive_c/Program Files (x86)/DnaSP v6/DnaSP6.exe\"",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run -it --rm --env=\"DISPLAY\" --volume=\"${XAUTHORITY:-${HOME}/.Xauthority}:/root/.Xauthority:ro\" --volume=\"/tmp/.X11-unix:/tmp/.X11-unix:ro\" -v=/your/data/dir:/data --hostname=\"$(hostname)\" pegi3s/dnasp-v6 wine \"/wineuser/.wine/drive_c/Program Files (x86)/DnaSP v6/DnaSP6.exe\"",
+    "invocation_general": "",
     "usual_invocation_specific": "",
     "usual_invocation_specific_comments": [
       "This image does not have any parameters."
@@ -1160,7 +1167,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/fastqc ",
-    "usual_invocation_specific": "/data/fastqFile",
+    "usual_invocation_specific": "/data/fastqFile --outdir /data/output",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
