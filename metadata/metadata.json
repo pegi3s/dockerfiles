@@ -659,7 +659,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/clustalomega ",
-    "usual_invocation_specific": "-i /data/fastaFile -o /data/output",
+    "usual_invocation_specific": "-i /data/fastaFile -o /data/outputFolder/output.fasta",
     "usual_invocation_specific_comments": [
       "`output.fasta` to the actual name of your aligned FASTA file."
     ],
