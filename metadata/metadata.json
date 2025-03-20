@@ -1527,7 +1527,7 @@
     "manual_url": "https://gatk.broadinstitute.org/hc/en-us/articles/360037224712--Tool-Documentation-Index",
     "source_url": "https://github.com/broadinstitute/gatk",
     "comments": [
-      "To see GATK 4 available tools, just run gatk --list (please note that GATK 4 does not include some tools that are included in GATK 3\u2060).",
+      "To see GATK 4 available tools, just run gatk --list (please note that GATK 4 does not include some tools that are included in GATK 3).",
       "To obtain the help of a particular tool, you just need to run: gatk tools --help (where tools is the tool name)"
     ],
     "gui": false,
@@ -1542,7 +1542,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "https://avatars.githubusercontent.com/u/32406064?s=280&v=4",
+    "icon": "https://avatars.githubusercontent.com/u/32406064",
     "input_data_type": [],
     "auto_tests": [
       {
@@ -1586,7 +1586,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "https://avatars.githubusercontent.com/u/32406064?s=280&v=4",
+    "icon": "https://avatars.githubusercontent.com/u/32406064",
     "input_data_type": [],
     "auto_tests": [
       {
@@ -1944,7 +1944,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "https://www.proteinatlas.org/favicon.ico?v=JyAbEzO2Nb",
+    "icon": "https://www.proteinatlas.org/favicon.ico",
     "input_data_type": [
       "config",
       "input"
