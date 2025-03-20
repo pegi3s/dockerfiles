@@ -5115,8 +5115,7 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/evoppi-querier_output.zip",
     "icon": "https://raw.githubusercontent.com/pegi3s/evoppi-querier/refs/heads/master/resources/evoppi.png",
     "input_data_type": [
-	  "config",
-	  
+	  "config"
 	],
     "auto_tests": [
       {
