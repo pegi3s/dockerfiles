@@ -4220,7 +4220,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [
-	  "fasta",
+	  "fasta"
 	],
     "auto_tests": [
       {
