@@ -1,0 +1,87 @@
+name: Broken links check
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    # Run every Monday at 9:00 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+    # Allow manual triggering
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            metadata
+          sparse-checkout-cone-mode: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install bdip-tools
+        run: pip install --extra-index-url https://maven.sing-group.org/repository/python-snapshots/simple/ bdip-tools
+
+      - name: Check for broken links
+        # Use || true to ensure the workflow continues even if bdip-tools exits with an error code
+        run: bdip check-broken-links metadata/metadata.json --output report.md || true
+        env:
+          # Default terminal width on GitHub Actions breaks the table formatting
+          COLUMNS: 240
+
+      - name: Check report file content
+        id: check_report
+        run: |
+          # Check if the report file exists and has more than 5 lines (header + data)
+          if [[ -f report.md && $(wc -l < report.md) -gt 5 ]]; then
+            echo "Broken links found in report.md."
+            echo "has_broken_links=true" >> $GITHUB_OUTPUT
+          else
+            echo "No broken links found or report is empty/missing."
+            echo "has_broken_links=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Upload report
+        if: steps.check_report.outputs.has_broken_links == 'true'
+        run: |
+          DATE=$(date +"%d/%m/%Y")
+          LABELS="broken-links,maintenance"
+          TITLE="Broken links detected - $DATE"
+
+          ISSUE_BODY=$(cat <<EOF
+          The broken links check has detected potential broken links in \`metadata.json\`.
+
+          Please review the following report and fix the links as soon as possible:
+
+          $(cat report.md)
+          EOF
+          )
+
+          # Check if an issue already exists
+          EXISTING_ISSUE=$(gh issue list --label "$LABELS" --state open --json number --jq '.[0].number')
+
+          # Create the issue if no existing issue is found
+          if [ -z "$EXISTING_ISSUE" ]; then
+            gh issue create \
+              --title "$TITLE" \
+              --body "$ISSUE_BODY" \
+              --label "$LABELS"
+          else
+            # Update existing opened issue
+            gh issue edit "$EXISTING_ISSUE" \
+              --title "$TITLE" \
+              --body "$ISSUE_BODY"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
