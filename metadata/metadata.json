@@ -3037,7 +3037,7 @@
     "icon": "",
     "input_data_type": [
 	  "tree",
-	  "stop_terms",
+	  "stop_terms"
 	],
     "auto_tests": [
       {
