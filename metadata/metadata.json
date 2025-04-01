@@ -588,7 +588,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [
-	  "chr_fasta",
+	  "chr_fasta"
 	],
     "auto_tests": [
       {
