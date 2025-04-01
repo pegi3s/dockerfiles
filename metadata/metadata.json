@@ -578,9 +578,10 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v \"/your/data/dir:/data\" pegi3s/bwa ",
-    "usual_invocation_specific": " bwa mem /data/chr_fastaFile /data/read1_fqFile /data/read2_fqFile > out_name.sam",
+    "usual_invocation_specific": " bwa index /data/chr_fastaFile",
     "usual_invocation_specific_comments": [
-      "'out_name' to the name of your output file."
+      "After running the previous cammand, replace it with: 'bwa mem /data/fastaInput /data/fastaq1Input /data/fastaq2Input > output_name.sam'",
+	  "Output file will be produced in the same directory as the config file for docknrun."
     ],
     "test_invocation_specific": "",
     "test_data_url": "",
@@ -588,8 +589,6 @@
     "icon": "",
     "input_data_type": [
 	  "chr_fasta",
-	  "read1_fq",
-	  "read2_fq"
 	],
     "auto_tests": [
       {
@@ -714,7 +713,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/coral",
-    "usual_invocation_specific": " -fq /data/fastaFile -o /data/output/output.fq",
+    "usual_invocation_specific": " -f /data/fastaFile -o /data/output/out_name.fasta",
     "usual_invocation_specific_comments": [
       "Note that the `-fq` parameter indicates that the input file is in FASTAQ format (-f for FASTA files, -fs for Solexa FASTA files). `ouput.fq` to the actual name of your ouput file."
     ],
@@ -760,9 +759,9 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run -v /your/data/dir:/data pegi3s/cport ",
-    "usual_invocation_specific": "cport /data/pdbFile A --pred sppider && cp -r /output /data/output",
+    "usual_invocation_specific": "cport /data/pdbFile A --pred all -- output_dir /data/output",
     "usual_invocation_specific_comments": [
-      "'A' to indicate the identifier of the chain you want to use. `sppider' to indicate the method you want to use."
+      "'A' to indicate the identifier of the chain you want to use. `all' to indicate the method you want to use."
     ],
     "test_invocation_specific": "",
     "test_data_url": "",
@@ -991,11 +990,11 @@
       "This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file."
     ],
     "gui": true,
-    "gui_command": "",
+    "gui_command": "wine \"/wineuser/.wine/drive_c/Program Files (x86)/DnaSP v6/DnaSP6.exe\"",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run -it --rm --env=\"DISPLAY\" --volume=\"${XAUTHORITY:-${HOME}/.Xauthority}:/root/.Xauthority:ro\" --volume=\"/tmp/.X11-unix:/tmp/.X11-unix:ro\" -v=/your/data/dir:/data --hostname=\"$(hostname)\" pegi3s/dnasp-v6",
-    "usual_invocation_specific": " wine \"/wineuser/.wine/drive_c/Program Files (x86)/DnaSP v6/DnaSP6.exe\"",
+    "invocation_general": "",
+    "usual_invocation_specific": "",
     "usual_invocation_specific_comments": [
       "This image does not have any parameters."
     ],
@@ -1911,7 +1910,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/haplogrep ",
-    "usual_invocation_specific": "classify --input=/data/inputFile --tree=phylotree-rcrs@17.2 --out data/output/out.txt",
+    "usual_invocation_specific": "classify --input=/data/inputFile --tree=phylotree-rcrs@17.2 --out /data/output/out.txt",
     "usual_invocation_specific_comments": [
       "'out.txt' to the desired name of the output file. You may also want to replace phylotree-rcrs@17.2 for another reference sequence."
     ],
@@ -2226,7 +2225,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v \"/your/data/dir:/data\" -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp pegi3s/lsd",
+    "invocation_general": "",
     "usual_invocation_specific": "",
     "usual_invocation_specific_comments": ["configFile inputFile output.txt cache_dir"],
     "test_invocation_specific": "",
@@ -2363,9 +2362,9 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/maxbin2",
-    "usual_invocation_specific": "run_MaxBin.pl -contig /data/contigfastaFile -reads /data/fastq1File -reads2 /data/fastq2File -out /data/output",
+    "usual_invocation_specific": "run_MaxBin.pl -contig /data/contigfastaFile -reads /data/fastq1File -reads2 /data/fastq2File -out /data/output/out_name",
     "usual_invocation_specific_comments": [
-	  "To see run_MaxBin.pl options, just run docker run --rm pegi3s/maxbin2 run_MaxBin.pl."
+	  "To see run_MaxBin.pl options, just run docker run --rm pegi3s/maxbin2 run_MaxBin.pl. 'out_name' to the name of your output files."
 	],
     "test_invocation_specific": "",
     "test_data_url": "",
@@ -2887,10 +2886,10 @@
     "source_url": "https://github.com/PathVisio/pathvisio",
     "comments": [],
     "gui": true,
-    "gui_command": "",
+    "gui_command": "bash -c \"java -jar pathvisio.jar\"",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp -v /your/data/dir:/data pegi3s/pathvisio bash -c \"java -jar pathvisio.jar\"",
+    "invocation_general": "",
     "usual_invocation_specific": "",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
@@ -3025,10 +3024,10 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v ~/.ptc-cache:/ptc-cache -v ${DATA_DIR}:/data pegi3s/phylogenetic-tree-collapser",
-    "usual_invocation_specific": " collapse-tree.py --input /data/treeFile --input-format newick --taxonomy-stop-terms /data/stop_termsFile --sequence-mapping /data/sequence_to_species_mappingFile --taxonomy /data/taxonomyFile --output /data/output/output-tree.nwk --output-type phylogram --output-collapsed-nodes /data//output/collapsed_nodes.tsv",
+    "invocation_general": "docker run --rm -v ~/.ptc-cache:/ptc-cache -v /your/data/dir:/data pegi3s/phylogenetic-tree-collapser",
+    "usual_invocation_specific": " collapse-tree.py --input /data/treeFile --input-format nexus --taxonomy-stop-terms /data/stop_termsFile --output /data/output/output-tree.nwk --output-type phylogram --output-collapsed-nodes /data/output/collapsed_nodes.tsv",
     "usual_invocation_specific_comments": [
-	  "'output-tree' and 'ollapsed_nodes' can be changed to the names of your output files.",
+	  "'output-tree' and 'collapsed_nodes' can be changed to the names of your output files.",
 	  "If all sequence names in the input phylogenetic tree start with the species name (e.g. Drosophila_melanogaster_fruit_fly_Drosophilidae_AAN09306.2), then the sequence mapping and taxonomy files are optional (--sequence-mapping /data/sequence_to_species_mappingFile --taxonomy /data/taxonomyFile).",
 	  "The taxonomy stop terms file is also optional. If not provided, the script will use as stop terms a list of predefined family names. This file can be shown with the following command: docker run --rm pegi3s/phylogenetic-tree-collapser cat /opt/tree-collapser/data/family_names_only."
 	],
@@ -3039,8 +3038,6 @@
     "input_data_type": [
 	  "tree",
 	  "stop_terms",
-	  "sequence_to_species_mapping",
-	  "taxonomy"
 	],
     "auto_tests": [
       {
@@ -3256,7 +3253,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm --env QT_X11_NO_MITSHM=1 -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v \"/your/data/dir:/data\" pegi3s/popart",
+    "invocation_general": "",
     "usual_invocation_specific": "",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
@@ -3517,7 +3514,7 @@
     "source_url": "https://github.com/schrodinger/pymol-open-source",
     "comments": [],
     "gui": true,
-    "gui_command": "",
+    "gui_command": "pymol",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "",
@@ -4026,15 +4023,17 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data -w /data pegi3s/roary",
-    "usual_invocation_specific": " roary -e --mafft -p 8 -f /data/output *.gff",
+    "usual_invocation_specific": " roary -e --mafft -p 8 /data/inputFolder/*.gff -f /data/output/folder_name ",
     "usual_invocation_specific_comments": [
-	  "Input files must be in the same directory as your config file for docknrun."
+	  "Input files must be in the same directory as your config file for docknrun. 'folder_name' to the name of the output folder."
 	],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
     "icon": "",
-    "input_data_type": [],
+    "input_data_type": [
+	  "input"
+	],
     "auto_tests": [
       {
         "docker_image": "pegi3s/roary",
@@ -4466,9 +4465,9 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/soapdenovo2",
-    "usual_invocation_specific": " SOAPdenovo-127mer <command> [option]",
+    "usual_invocation_specific": " SOAPdenovo-63mer all -s /data/configFile -o /data/output -k 31 -p 4",
     "usual_invocation_specific_comments": [
-	  "SOAPdenovo-127mer' can be changed to other scripts (e.g. SOAPdenovo-63mer and SOAPdenovo-fusion). <command> can be changed to script specific commands (e.g. pregraph, contig, scaff, etc). [option] to command specific parameters."
+	  "SOAPdenovo-63mer' can be changed to other scripts (e.g. SOAPdenovo-127mer and SOAPdenovo-fusion). 'all' can be changed to script specific commands (e.g. pregraph, contig, scaff, etc). Example of a config file can be consulted in the manual."
 	],
     "test_invocation_specific": "",
     "test_data_url": "",
@@ -4876,9 +4875,9 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/trimmomatic",
-    "usual_invocation_specific": " SE -phred33 /data/fastqFile /data/output/out_name.fastq",
+    "usual_invocation_specific": " SE -phred33 /data/fastqFile /data/output/out_name.fastq SLIDINGWINDOW:4:20 MINLEN:36",
     "usual_invocation_specific_comments": [
-	  "'SE' to 'PE' if Paired-End sequencing instead of single-end. '-phred33' can be changed to '-phred64'. 'out_name' to the name of your output file."
+	  "'SE' to 'PE' if Paired-End sequencing instead of single-end. '-phred33' can be changed to '-phred64'. 'out_name' to the name of your output file. '4:20' scans a 4-base window and ctus when the average quality falls below 20. '36' discards reads shorter than 36 bases after trimming."
 	],
     "test_invocation_specific": "",
     "test_data_url": "",
@@ -4920,9 +4919,9 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/vcftools",
-    "usual_invocation_specific": "vcftools --gzvcf /data/vcf_gzFile --remove-indels --recode --recode-INFO-all --out /data/output",
+    "usual_invocation_specific": "vcftools --gzvcf /data/vcf_gzFile --remove-indels --recode --recode-INFO-all --out /data/output/out_name",
     "usual_invocation_specific_comments": [
-	  "'vcftools' can be changed to other application names (e.g. vcf-annotate, vcf-concat, etc). '--gzvcf /data/vcf_gzFile --remove-indels --recode --recode-INFO-all --out /data/output' has commands specific for the application used and should be changed accordingly."
+	  "'vcftools' can be changed to other application names (e.g. vcf-annotate, vcf-concat, etc). '--gzvcf /data/vcf_gzFile --remove-indels --recode --recode-INFO-all --out /data/output' has commands specific for the application used and should be changed accordingly. 'out_name' to the name your output file."
 	],
     "test_invocation_specific": "",
     "test_data_url": "",
@@ -5821,8 +5820,8 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/data --rm pegi3s/auto-pss-genome",
-    "usual_invocation_specific": " /compi run -o --logs /data/logs --num-tasks 8 -- --host_working_dir /data --compi_num_tasks 8",
+    "invocation_general": "docker run --rm -v /tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/working_dir --rm pegi3s/auto-pss-genome",
+    "usual_invocation_specific": " /compi run -o --logs /working_dir/logs --num-tasks 8 -- --host_working_dir /working_dir --compi_num_tasks 8",
     "usual_invocation_specific_comments": [
 	  "Create an folder named 'input' in the same directory as the config file of docknrun."
 	],
@@ -6106,15 +6105,16 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/input/data/dir:/input -v /path/to/output/data/dir:/output pegi3s/two-way-blast",
-    "usual_invocation_specific": " -q -- --reference_file /data/fastaFile --blast_type blastn",
+    "usual_invocation_specific": " --num-tasks 8 -q -- --input_dir /data/inputFolder --output_dir /data/output --reference_file /data/fastaFile --blast_type tblastx",
     "usual_invocation_specific_comments": [
-	  "'blastn' to the type of BLAST you want to use (e.g. tblastx)."
+	  "'tblastx' to the type of BLAST you want to use (e.g. tblastn)."
 	],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
     "icon": "",
     "input_data_type": [
+	  "input",
 	  "fasta"
 	],
     "auto_tests": [
@@ -6153,7 +6153,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v your/data/dir:/data pegi3s/haddock24-builder",
-    "usual_invocation_specific": "  bash -c \"cp /data/* ./ && docker build ./ -t pegi3s/haddock24\"",
+    "usual_invocation_specific": "  bash -c \"cp /data/inputFolder ./ && docker build ./ -t pegi3s/haddock24\"",
     "usual_invocation_specific_comments": [
 	  "Prior to running the comman, you should visit pegi3s webpage for instructions and downloadable files. After running the command, replace it for 'bash -c “./your_mode”'. 'your_mode to pdna_run, plig_run, etc." 
 	],
@@ -6161,7 +6161,9 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon": "",
-    "input_data_type": [],
+    "input_data_type": [
+	  "input"
+	],
     "auto_tests": [
       {
         "docker_image": "pegi3s/haddock24-builder",
@@ -6596,7 +6598,7 @@
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/blast_utilities",
     "usual_invocation_specific": " blast_and_extract /data/fastaFile /data/fastaprotFile 100 500 0.05 /data/output/output_genome_regions",
     "usual_invocation_specific_comments": [
-      "The numbers refer to `max_distance_hits`, `extra_sequence` and `evalue`, respectively"
+      "The numbers refer to `max_distance_hits`, `extra_sequence` and `evalue`, respectively."
     ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/blast_utilities.zip",
@@ -6693,8 +6695,8 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm pegi3s/utilities",
-    "usual_invocation_specific": " backup_file / --help",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/utilities",
+    "usual_invocation_specific": " backup_file /data/inputFile",
     "usual_invocation_specific_comments": [
 	  "'backup_file' can be changed to other utilities (e.g. batch_fasta_remove_line_breaks, create batches, etc)."
 	],
@@ -6702,7 +6704,9 @@
     "test_data_url": "",
     "test_results_url": "",
     "icon": "",
-    "input_data_type": [],
+    "input_data_type": [
+	  "input"
+	],
     "auto_tests": [
       {
         "docker_image": "pegi3s/utilities",
@@ -6975,13 +6979,13 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/htseq",
-    "usual_invocation_specific": "htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr /data/bamFile /data/gtfFile > /data/output/test.out",
+    "usual_invocation_specific": "htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id /data/bamFile /data/gtfFile > /data/output/test.out",
     "usual_invocation_specific_comments": [
       "'htseq-count' to the actual name of the script to be executed (e.g. 'htseq-qa')",
       "'--format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr' with the argumetns required by the script.",
 	  "'test.out' to the name of your output file."
     ],
-    "test_invocation_specific": "htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr test.bam Homo_sapiens.GRCh38.86.chromosome22.gtf > test.out",
+    "test_invocation_specific": "htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id test.bam Homo_sapiens.GRCh38.86.chromosome22.gtf > test.out",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/htseq.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/htseq_output.zip",
     "icon": "",
