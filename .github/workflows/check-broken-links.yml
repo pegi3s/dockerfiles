@@ -1,9 +1,6 @@
 name: Broken links check
 
 on:
-  push:
-    branches:
-      - master
   schedule:
     # Run every Monday at 9:00 AM UTC
     - cron: '0 9 * * 1'
