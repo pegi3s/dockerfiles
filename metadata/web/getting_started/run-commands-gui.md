@@ -15,6 +15,7 @@ The **"Select an Image"** button allows choosing the desired Docker image using 
 * **Open documentation** for the software of choice ("Open documentation" button).
 * Access information at [http://bdip.i3s.up.pt/](http://bdip.i3s.up.pt/) for the selected Docker Image ("Open pegi3s" button).
 * Open the corresponding **GitHub page** ("Open GitHub" button).
+* Open the corresponding **source code page** ("Open source code" button).
 * Access **Test Data** for the selected image ("Test Data" button; test data is already available for most Docker images, and will be soon available for all of them).
 * Access **Test Data Results** ("Test Data Results" button).
 
@@ -40,11 +41,11 @@ In the docknrun **"Run Docker Image"** window, the user can:
 * Select the **input data** (e.g., "Select a fasta file" button in Figure 3).
 * Specify the **output folder** ("Push" button; the folder will be created if it does not exist).
 * View **Developer Notes** (e.g., bug reports, Singularity/Podman compatibility, last testing date).
-* Add **User Notes** (comments for future reference stored in the `Docker_notebook` folder in the working directory).
+* Add **User Notes** (comments for future reference stored in the `documentation_folder` folder in the working directory).
 
 ### Working Directory Notes
 
-If the user wants to change the working directory, they should copy the `Docker_notebook` folder to the new location. Otherwise, the user history (comments, saved executable, and latest invocation files) will be lost.
+If the user wants to change the working directory, they should copy the `documentation_folder` folder to the new location. Otherwise, the user history (comments, saved executable, and latest invocation files) will be lost.
 
 ### Additional Features
 
@@ -70,7 +71,8 @@ By selecting the **"Run"** button, a new window opens to display the operations 
 To run this Docker image, you must have a file named `config` in the working directory. This file declares the location of the files to be processed, such as:
 
 ```bash
-dir="/your/data/dir"
+dir="/full/path/to/data/folder"
+documentation_folder="/data/documentation_folder"
 ```
 
 Then, adapt and run the following command (you may need to invoke `xhost +` first):
