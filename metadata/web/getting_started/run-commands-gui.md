@@ -57,7 +57,7 @@ By selecting the **"Run"** button, a new window opens to display the operations 
 
 <div class="figure-pair">
   <figure>
-    <img src="images/run-commands-gui/figure3-light.png" alt="docknrun Run Docker Image window">
+    <img src="images/run-commands-gui/figure3.png" alt="docknrun Run Docker Image window">
     <figcaption>Figure 3. docknrun "Run Docker Image" window.</figcaption>
   </figure>
   <figure>
