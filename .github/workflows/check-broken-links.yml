@@ -31,7 +31,7 @@ jobs:
 
       - name: Check for broken links
         # Use || true to ensure the workflow continues even if bdip-tools exits with an error code
-        run: bdip check-broken-links metadata/metadata.json --output report.md || true
+        run: bdip check-broken-links metadata/metadata.json --skip-cloudflare-403 --output report.md || true
         env:
           # Default terminal width on GitHub Actions breaks the table formatting
           COLUMNS: 240
