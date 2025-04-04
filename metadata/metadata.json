@@ -6496,7 +6496,7 @@
     "no_longer_tested": [
       "18.04"
     ],
-    "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/tutorials/docker-in-docker.md",
+    "manual_url": "http://bdip.i3s.up.pt/tutorials/docker-in-docker",
     "comments": [
       "Docker image that allows running Docker images"
     ],
