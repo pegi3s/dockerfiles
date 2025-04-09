@@ -1177,7 +1177,7 @@
     "manual_url": "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/",
     "source_url": "https://github.com/s-andrews/FastQC",
     "comments": [],
-    "gui": true,
+    "gui": false,
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
