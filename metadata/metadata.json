@@ -1184,7 +1184,7 @@
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/fastqc ",
     "usual_invocation_specific": "/data/fastqFile --outdir /data/output",
     "usual_invocation_specific_comments": [],
-    "test_invocation_specific": "",
+    "test_invocation_specific": "/data/test/data/SRR3143588_1.fastq --outdir /data/output/results",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/fastqc_output.zip",
     "icon": "https://raw.githubusercontent.com/s-andrews/FastQC/refs/heads/master/uk/ac/babraham/FastQC/Resources/fastqc_icon.svg",
