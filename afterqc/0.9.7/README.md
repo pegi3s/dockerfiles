@@ -14,13 +14,3 @@ In this command, you should replace:
 
 To see the `AfterQC` help, just run `docker run --rm pegi3s/afterqc after.py -h`.
 
-# Test data
-To test the previous command, you can download [this FASTQ compressed file](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=dload&run_list=SRR1654650&format=fastq) (1.1GB). Note that it does not need to be descompressed as `AfterQC` can deal with both compressed and uncompressed FASTQ files. 
-
-In the previous command you just need to replace `/data/input.fq` with `/data/sra_data.fastq.gz`.
-
-# Using the AfterQC image in Windows
-
-Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
-
-You should adapt and run the following command: `docker run --rm -v "/c/Users/User_name/dir/":/data pegi3s/afterqc bash -c "cd /data && after.py -1 /data/input.fq"`
