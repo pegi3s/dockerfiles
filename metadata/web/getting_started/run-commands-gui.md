@@ -71,6 +71,7 @@ By selecting the **"Run"** button, a new window opens to display the operations 
 To run this Docker image, you must have a file named `config` in the working directory. This file declares the location of the files to be processed, such as:
 
 ```bash
+dir="/your/data/dir"
 documentation_folder=documentation_folder
 ```
 
