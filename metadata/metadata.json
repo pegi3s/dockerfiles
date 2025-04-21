@@ -1179,7 +1179,7 @@
     "source_url": "https://github.com/s-andrews/FastQC",
     "comments": [],
     "gui": true,
-    "gui_command": "",
+    "gui_command": " ",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/fastqc ",
