@@ -1,0 +1,64 @@
+name: Update copyright dates
+
+on:
+  schedule:
+    # Run every first day of the year at 09:00 AM UTC
+    - cron: '0 9 1 1 *'
+  workflow_dispatch:
+    # Allow manual triggering
+  push:
+    branches:
+      - "master"
+
+jobs:
+  update-copyright-dates:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install bdip-tools
+        run: pip install --extra-index-url https://maven.sing-group.org/repository/python-snapshots/simple/ bdip-tools
+
+      - name: Git config
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Update copyright dates
+        id: update-dates
+        run: |
+          set +e
+          bdip update-copyright-dates --git .
+          EXIT_CODE=$?
+          set -e
+          
+          if [ $EXIT_CODE -eq 0 ]; then
+            echo "Changes were made and committed to branch"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "No copyright updates needed"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.update-dates.outputs.has_changes == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          YEAR=$(date +%Y)
+          gh pr create \
+            --title "Update copyright dates to $YEAR" \
+            --body "This PR updates the copyright dates to $YEAR." \
+            --base master \
+            --head "maintenance/update-copyright-dates-$YEAR" \
+            --label "maintenance"
