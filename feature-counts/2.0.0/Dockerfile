@@ -1,5 +1,5 @@
 #
-#   Copyright 2018-2021 Hugo López-Fernández, Pedro M. Ferreira, Miguel
+#   Copyright 2018-2025 Hugo López-Fernández, Pedro M. Ferreira, Miguel
 #   Reboiro-Jato, Cristina P. Vieira, and Jorge Vieira
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
