@@ -10,7 +10,7 @@ This guide demonstrates how to create an `alias` in `.bashrc` to be used as a sh
 To add the `alias` to the `.bashrc` file, you need to edit the `.bashrc` using a text editor. 
 Open the Terminal app and type the following command:
 
-```
+```shell
 gedit ~/.bashrc
 ```
 
@@ -18,13 +18,13 @@ gedit ~/.bashrc
 
 Add the `alias` at the bottom of the `.bashrc` file:
 
-```
+```bash
 dockerc() { docker run -v /var/run/docker.sock:/var/run/docker.sock "$(pwd)":/data -w /data -u "$(id -u)":"$(id -g)" --rm -t pegi3s/"$1" ${@:2};}
 ```
 
 How it should look like:
 
-```
+```bash
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -49,17 +49,18 @@ After saving the file and closin the text editor, the new `alias` will be set fo
 
 For instance, using `dockerc()` `alias` created at `2.`, you should adapt and run the following command:
 
-```
+```shell
 dockerc <docker_image> <docker_image_parameters>
 ```
 
 In this command, you should replace:
+
 - `<docker_image>` to the name of the Docker image you intend to use.
 - `<docker_image_parameters>` to the respective parameters of the Docker image you are using.
 
 The following example provided runs the `SAMtools-BCFtools` Docker image, which can be pulled [here](https://hub.docker.com/r/pegi3s/samtools_bcftools/), to view a file called `chr11.bam` available in the current working directory.
 
-```
+```shell
 dockerc samtools_bcftools samtools view chr11.bam
 ```
 
@@ -68,13 +69,14 @@ dockerc samtools_bcftools samtools view chr11.bam
 An `alias` can also be used to replace a command that invokes a Docker image that opens a Graphical User Interface (`GUI`).
 
 As shown in `2.`, just add the `alias` at the bottom of the `.bashrc` file:
-```
+
+```bash
 dockergui() { xhost + && docker run -v "$(pwd)":/data -w /data -u "$(id -u)":"$(id -g)" --rm -ti  -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v /var/run/docker.sock:/var/run/docker.sock pegi3s/"$1" ${@:2}; }
 ```
 
 How it should look like:
 
-```
+```bash
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).

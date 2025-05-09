@@ -8,7 +8,7 @@ This guide demonstrates how to run Docker images from our *Bioinformatics Docker
 
 To pull a public Docker image from Docker Hub, you should run the following command:
 
-```
+```shell
 podman pull docker.io/pegi3s/alter
 ```
 
@@ -16,7 +16,7 @@ podman pull docker.io/pegi3s/alter
 
 To run a GUI application, you can simply run the following command (run `xhost +` first if it fail):
 
-```
+```shell
 podman run --rm -ti -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v "/your/data/dir:/data" docker.io/pegi3s/alter
 ```
 
@@ -26,13 +26,13 @@ Where `/your/data/dir` is the host directory with the data files that is availab
 
 To run CLI commands, you should simply run the following command:
 
-```
+```shell
 podman run --rm -v /your/data/dir:/data docker.io/pegi3s/alter -i /data/input.nexus -o /data/output.fasta -ia -of FASTA -oo Linux -op GENERAL
 ```
 
 Where `/your/data/dir` is the host directory with the data files that is available in the image at `/data`. You can try the above command using [this NEXUS file](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/alter/1.3.4/test_data/input.nexus):
 
-```
+```shell
 wget https://raw.githubusercontent.com/pegi3s/dockerfiles/master/alter/1.3.4/test_data/input.nexus && \
     podman run --rm -v $(pwd):/data docker.io/pegi3s/alter \
         -i /data/input.nexus -o /data/output.fasta -ia -of FASTA -oo Linux -op GENERAL

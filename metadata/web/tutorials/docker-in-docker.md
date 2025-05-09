@@ -30,7 +30,7 @@ To exemplify this, we are going to create a Docker image with a script that uses
 
 Start creating a folder with the following `Dockerfile`:
 
-```
+```dockerfile
 FROM pegi3s/docker
 
 ADD script.sh script.sh
@@ -43,7 +43,7 @@ Download [this test FASTA file](https://raw.githubusercontent.com/pegi3s/dockerf
 
 Add this contents to the `script.sh` file and build the image with `docker build ./ -t dind-test-v1`:
 
-```
+```bash
 #!/bin/bash
 
 DATA_DIR=$1
@@ -54,7 +54,7 @@ docker run --rm -v ${DATA_DIR}:/data pegi3s/utilities fasta_extract_accession_nu
 
 The script receives the name of the directory containing the file to be analyzed as first parameter and will use this location to generate the output file. Thus, when running the script inside a Docker container, we must note that it will create a sibling container. To guarantee it have access to `${DATA_DIR}`, we can share data within our `dind-test-v1` container using host paths (replace `<user>` with your actual username):
 
-```
+```shell
 docker run --rm \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v /home/<user>/dind-test-data:/home/<user>/dind-test-data \
@@ -68,7 +68,7 @@ When using images from our project to develop script or pipelines, we usually mo
 
 To test this approach, add this contents to `script.sh` and build the image with `docker build ./ -t dind-test-v2`:
 
-```
+```bash
 #!/bin/bash
 
 DATA_DIR=$1
@@ -79,7 +79,8 @@ docker run --rm -v ${HOST_DATA_DIR}:/data pegi3s/utilities fasta_extract_accessi
 ```
 
 And now, run the image as follows:
-```
+
+```shell
 docker run --rm \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v /home/<user>/dind-test-data:/data \
@@ -92,5 +93,6 @@ The image below illustrates this approach with the example commands and director
 ![Figure 2](images/docker-in-docker/figure-2.png)
 
 This is the approach we adopted in our pipelines and scripts. To name just two examples:
+
 - [`Auto-PSS-Genome`](https://github.com/pegi3s/auto-pss-genome): a Compi pipeline that runs many other Docker images and includes a `host_working_dir` parameter.
 - [`fasta_remove_line_breaks`](https://github.com/pegi3s/dockerfiles/blob/master/utilities/scripts/fasta_remove_line_breaks): a script from our [`pegi3s/utilities`](https://github.com/pegi3s/dockerfiles/tree/master/utilities) image also using this approach.
