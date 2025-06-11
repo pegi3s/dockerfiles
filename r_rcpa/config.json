@@ -1,0 +1,10 @@
+{
+  "name": "pegi3s/r_rcpa",
+  "image_version": "0.2.6",
+  "from": "r-base:4.4.2",
+  "packages": {
+    "apt": ["libssl-dev", "libcurl4-openssl-dev", "libxml2-dev", "libudunits2-dev", "libgdal-dev"],
+    "r": ["gridExtra", "RCPA", "GSA", "CePa"],
+    "biocmanager": ["AnnotationDbi", "SummarizedExperiment", "Biobase", "DESeq2", "GEOquery", "edgeR", "limma", "graph", "org.Hs.eg.db", "fgsea", "ROntoTools"]
+  }
+}

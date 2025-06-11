@@ -136,13 +136,16 @@ DIO:0000042	pydock3-builder
 DIO:0000051	pydock3-builder
 DIO:0000045	pymol
 DIO:0000036	qualimap
+DIO:0000047	r_annotationdbi
 DIO:0000051	r_builder
 DIO:0000022	r_data-analysis
 DIO:0000022	r_deseq2
 DIO:0000022	r_edger
 DIO:0000022	r_enhanced-volcano
 DIO:0000022	r_network
+DIO:0000037	r_pathfindr
 DIO:0000051	r_project
+DIO:0000037	r_rcpa
 DIO:0000022	r_sva
 DIO:0000037	r_sva
 DIO:0000022	r_venn-diagram

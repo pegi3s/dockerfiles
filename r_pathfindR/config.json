@@ -1,0 +1,10 @@
+{
+  "name": "pegi3s/r_pathfindr",
+  "image_version": "2.4.2",
+  "from": "r-base:4.4.0",
+  "packages": {
+    "apt": ["libssl-dev", "libcurl4-openssl-dev", "libxml2-dev", "libfontconfig1-dev", "libmagick++-dev" , "openjdk-8-jre", "pandoc"],
+    "r": ["pathfindR"],
+    "biocmanager": ["AnnotationDbi", "org.Hs.eg.db", "ggkegg"]
+  }
+}

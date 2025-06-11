@@ -1,0 +1,10 @@
+{
+  "name": "pegi3s/r_annotationdbi",
+  "image_version": "1.68.0",
+  "from": "r-base:4.4.2",
+  "packages": {
+    "apt": ["libssl-dev", "libcurl4-openssl-dev", "libxml2-dev"],
+    "r": [],
+    "biocmanager": ["AnnotationDbi", "org.Hs.eg.db", "hgu95av2.db", "GO.db", "EnsDb.Hsapiens.v75", "TxDb.Hsapiens.UCSC.hg19.knownGene"]
+  }
+}
