@@ -7025,7 +7025,7 @@
   },
   {
     "name": "r_pathfindr",
-    "description": "Batch effects removal",
+    "description": "Enrichment analysis utilizing active subnetwork",
     "status": "Usable",
     "recommended": [
       {
