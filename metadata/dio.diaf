@@ -77,6 +77,7 @@ DIO:0000042	haddock_server
 DIO:0000061	haplogrep
 DIO:0000042	hdock-builder
 DIO:0000051	hdock-builder
+DIO:0000031	hisat2
 DIO:0000031	htseq
 DIO:0000047	human_prot_atlas
 DIO:0000005	hyphy
