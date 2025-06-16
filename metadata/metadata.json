@@ -7161,7 +7161,12 @@
     "name": "hisat2",
     "description": "Genomic tools",
     "status": "Usable",
-    "recommended": [    ],
+    "recommended": [
+      {
+        "version": "2.2.0",
+        "date": "16/06/2025"
+      }
+    ],
     "latest": "2.2.0",
     "bug_found": [],
     "not_working": [],
