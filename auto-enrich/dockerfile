@@ -1,0 +1,18 @@
+FROM ubuntu:24.04
+
+RUN apt-get update && apt-get -y upgrade
+RUN apt-get install -y unzip curl jq wget openjdk-21-jdk bc
+
+RUN apt-get install -y python3-pip
+RUN pip3 install --break-system-packages -Iv \
+    unipressed==1.2.0 \
+    beautifulsoup4==4.12.2 \
+    click==8.1.7 \
+    requests==2.31.0
+
+COPY auto_enrich.zip /opt
+WORKDIR /opt
+RUN unzip auto_enrich.zip && rm auto_enrich.zip
+RUN chmod -R 777 *
+
+ENTRYPOINT ["./run"]
