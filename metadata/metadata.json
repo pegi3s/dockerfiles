@@ -7203,5 +7203,47 @@
         "commands": "hisat2 -x /data/input_data/hisat2/hisat2-indexes/genome_index -1 /data/input_data/hisat2/hcc1395_normal_rep1_1.fastq.gz -2 /data/input_data/hisat2/hcc1395_normal_rep1_1.fastq.gz -S /data/output_folder/hisat2/output.sam"
       }
     ]
+  },
+  {
+    "name": "tagada",
+    "description": "pipeline for RNAseq analyses",
+    "status": "Usable",
+    "recommended": [
+      {
+        "version": "2.1.4",
+        "date": "7/07/2025"
+      }
+    ],
+    "latest": "2.1.4",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://github.com/FAANG/analysis-TAGADA",
+    "source_url": "https://github.com/FAANG/analysis-TAGADA",
+    "comments": [
+      ""
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "",
+    "usual_invocation_specific": "",
+    "usual_invocation_specific_comments": [],
+    "test_invocation_specific": "",
+    "test_data_url": "",
+    "test_results_url": "",
+    "icon": "",
+    "input_data_type": [],
+    "auto_tests": [
+      {
+        "docker_image": "",
+        "input_files": [],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ]
   }
 ]

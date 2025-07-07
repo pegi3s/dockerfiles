@@ -358,3 +358,9 @@ id: DIO:0000061
 name: Read_mapping_and_variant_calling
 def: "Any program that can be used to map reads and/or call variants"
 is_a: DIO:0000008
+
+[Term]
+id: DIO:0000062
+name: RNAseq_annotate
+def: "Any program that can be used to annotate genomes using RNAseq data"
+is_a: DIO:0000030
