@@ -2101,7 +2101,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
-    "icon": "https://raw.githubusercontent.com/igvteam/igv/refs/heads/main/docs/web/IGV_64.png",
+    "icon": "https://raw.githubusercontent.com/igvteam/igv/refs/heads/main/examples/web/IGV_64.png",
     "input_data_type": [],
     "auto_tests": [
       {
@@ -6512,7 +6512,7 @@
     "no_longer_tested": [
       "18.04"
     ],
-    "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/tutorials/docker-in-docker.md",
+    "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/metadata/web/tutorials/docker-in-docker.md",
     "comments": [
       "Docker image that allows running Docker images"
     ],
