@@ -68,7 +68,7 @@
   "contributors": [
     {
       "name": "Daniel Pérez Rodríguez",
-      "description": "Since 2021.",
+      "description": "",
       "photo": "https://github.com/Dannyzimmer.png",
       "contactInfo": {
         "orcid": "0000-0002-8110-3567",
@@ -78,7 +78,7 @@
     },
     {
       "name": "Jorge Vázquez García",
-      "description": "Since 2024. Co-developer of the ngs_pipeliner docker image.",
+      "description": "Co-developer of the ngs_pipeliner docker image.",
       "photo": "https://media.licdn.com/dms/image/D4E03AQGoto7knZNGmw/profile-displayphoto-shrink_200_200/0/1694502590468?e=2147483647&v=beta&t=oMMkjA20tJjnRxkJdsbKHkyEziMbQ2kq_TbMp4KOSW8",
       "contactInfo": {
         "orcid": "0000-0002-9204-4013"
@@ -87,7 +87,7 @@
     },
     {
       "name": "Alba Nogueira Rodríguez",
-      "description": "Since 2024.",
+      "description": "Co-developer of the auto-p2docking docker image.",
       "photo": "https://polydeep.org/assets/img/team/alba.png",
       "contactInfo": {
         "email": "alnogueira@uvigo.gal",
@@ -98,7 +98,7 @@
     },
     {
       "name": "Diogo José Adão",
-      "description": "Since 2023. Co-developer of the docker-manager and pegi3sdocnrun docker images.",
+      "description": "Co-developer of the docker-manager and pegi3sdocnrun docker images.",
       "photo": "https://dozer.i3s.up.pt/fileupload/downloadfile/viewimgnewtab/21f2cca1e5b319b0cdb1c5ff78f219e7",
       "contactInfo": {
         "email": "diogoa@i3s.up.pt"
@@ -107,7 +107,7 @@
     },
     {
       "name": "Miguel Pinto",
-      "description": "Since 2023. Co-developer of the auto-phylo docker image.",
+      "description": "Co-developer of the auto-phylo docker image.",
       "photo": "https://dozer.i3s.up.pt/fileupload/downloadfile/viewimgnewtab/d821bfb69dc651a025e9dcdc85fd9",
       "contactInfo": {
         "email": "mjpinto@i3s.up.pt"
@@ -116,7 +116,7 @@
     },
     {
       "name": "Mariana Cerqueira Barros",
-      "description": "Since 2023. Co-developer of the auto-p2docking docker image.",
+      "description": "Co-developer of the auto-p2docking docker image.",
       "photo": "https://dozer.i3s.up.pt/fileupload/downloadfile/viewimgnewtab/a05cff4fb3a8996c972ec3e95257d96",
       "contactInfo": {
         "email": "mariana.barros@i3s.up.pt"
@@ -135,13 +135,24 @@
     },
         {
       "name": "Gonçalo Marques Castro",
-      "description": "Developed TAGADA",
+      "description": "Developed the TAGADA Docker image.",
       "photo": "",
       "contactInfo": {
         "email": "goncasmncastro@gmail.com",
         "github": "GonCas12"
       },
       "organizations": []
+    },
+     {
+      "name": "Ricardo Soares",
+      "description": "Provided test data for many Docker images.",
+      "photo": "https://dozer.i3s.up.pt/fileupload/downloadfile/viewimgnewtab/8de54addc48fd4458c134c74a407785",
+      "contactInfo": {
+        "email": "ricardo.soares@i3s.up.pt",
+        "orcid": "0000-0002-6332-7807",
+        "github": ""
+      },
+      "organizations": ["i3S", "IBMC"]
     }
   ]
 }
