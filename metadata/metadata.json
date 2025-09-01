@@ -2531,7 +2531,9 @@
     "latest": "3.2.7",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["3.2.6"],
+    "no_longer_tested": [
+      "3.2.6"
+    ],
     "manual_url": "https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf",
     "source_url": "https://github.com/NBISweden/MrBayes",
     "comments": [],
