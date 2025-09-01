@@ -25,6 +25,8 @@ DIO:0000029	blast_utilities
 DIO:0000031	bowtie1
 DIO:0000031	bwa
 DIO:0000040	ccp4
+DIO:0000022	cd-hit
+DIO:0000029	cd-hit
 DIO:0000022	cds2gff3-maker
 DIO:0000007	cga
 DIO:0000022	check-cds
