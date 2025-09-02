@@ -6,7 +6,7 @@ The original Dockerfile is available at [DockerHub](https://hub.docker.com/r/bio
 
 # Using the cd-hit image in Linux
 You should adapt and run the following command:
-`docker run -v /your/data/dir:/data pegi3s/cd-hit bash -c "cd-hit -i /data/input.fas -o /data/output -c 0.9`
+`docker run -v /your/data/dir:/data pegi3s/cd-hit bash -c "cd-hit -i /data/input.fas -o /data/output -c 0.9"`
 
 In this command, you should replace:
 - `/your/data/dir` to point to the directory that contains the input file you want to process.
