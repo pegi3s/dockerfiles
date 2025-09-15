@@ -2658,14 +2658,14 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "16.12.1",
-        "date": ""
+        "version": "18.7.0",
+        "date": "15/09/2025"
       }
     ],
-    "latest": "16.12.1",
+    "latest": "18.7.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": ["16.12.1"],
     "manual_url": "https://github.com/ncbi/datasets",
     "source_url": "https://github.com/ncbi/datasets",
     "comments": [],
@@ -2674,7 +2674,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/ncbi-datasets",
-    "usual_invocation_specific": " datasets download gene gene-id 672 --filename /data/output/out_name.zip",
+    "usual_invocation_specific": "datasets download gene gene-id 672 --filename /data/output/out_name.zip",
     "usual_invocation_specific_comments": [
       "'datasets' can be changed to 'dataformat'. 'download gene' are specific arguments to the 'datasets' command. 'gene-id 672' can be changed to any gene name. Please see NCBI-datasets manual."
     ],
