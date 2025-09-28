@@ -20,7 +20,7 @@ To run a GUI application, you can simply run the following command (run `xhost +
 singularity run docker://pegi3s/alter
 ```
 
-By default, this gives acces to host files since the directories `$HOME`, `/tmp`, `/proc`, `/sys`, and `/dev` are among the system-defined bind points in the default Singularity configuration (read more about this [here](https://singularity.lbl.gov/docs-mount)).
+By default, this gives access to host files since the directories `$HOME`, `/tmp`, `/proc`, `/sys`, and `/dev` are among the system-defined bind points in the default Singularity configuration (read more about this [here](https://singularity.lbl.gov/docs-mount)).
 
 If you want to mount a specific directory, you can do it by using the `-B` parameter as follows:
 
