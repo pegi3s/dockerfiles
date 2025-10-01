@@ -7,35 +7,30 @@ This image facilitates the usage of [Tagada](https://github.com/FAANG/analysis-T
 You should adapt and run the following command:
 `docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "$(pwd)":"$(pwd)" -w "$(pwd)" nextflow-runner-auto:latest nextflow run FAANG/analysis-TAGADA -profile docker -revision 2.1.4 --output results --reads reads.txt --annotation genomic_filtered.gtf --genome genome.fa -params-file custom.config.json --metadata metadata.tsv`
 
-
 In this command, you should replace:
-- `reads.txt` that is the file that contains a list of the names of the read files that are located in te working dir.
+
+- `reads.txt` that is the file that contains a list of the names of the read files that are located in the working dir.
 - `genomic_filtered.gtf` to the name of the GTF file (see notes below).
 - `genome.fa` that is the genome sequence file in FASTA format.
 - `custom.config.json` that is the configuration file (see notes below).
 - `metadata.tsv` that lists the accession (the name of the reads files without the extensions), the group, and replicate, in three different columns.
 
-In Windows WSL it must be run in a Linux partition The .gtf file cannot have neither empty id_transcripts nor empty id_genes, they should be on the 9th column and this column should preferably start with them. Use GTF (GTF2.2) that is compatible with the GFF2. On the 7th column the "?" cannot be pressent. Needs Genome (.fa) and RNASeq (.fq). Most of the optional information (after the "--") needs to be on the custom.config.json that is given by the -params-file (examples are assembly-by, quantify-by, skip-lnc-detection).
+In Windows WSL it must be run in a Linux partition The `.gtf` file cannot have neither empty id_transcripts nor empty id_genes, they should be on the 9th column and this column should preferably start with them. Use GTF (GTF2.2) that is compatible with the GFF2. On the 7th column the "?" cannot be pressent. Needs Genome (.fa) and RNASeq (.fq). Most of the optional information (after the "--") needs to be on the custom.config.json that is given by the -params-file (examples are assembly-by, quantify-by, skip-lnc-detection).
 
-An example of a custom.config.json could be:
+An example of a `custom.config.json` could be:
 
+```json
 {
-
- "assemble-by" : "group",
-
- "quantify-by" : "group,replicate"
-
+  "assemble-by": "group",
+  "quantify-by": "group,replicate"
 }
+```
 
 An example of a metadata.tsv file could be:
 
-|accession	|group	|replicate|
-|---------------|-------|---------|
-|SRR32701035	|1	|1        |
-|SRR32701036	|1	|2        |
+| accession   | group | replicate |
+|-------------|-------|-----------|
+| SRR32701035 | 1     | 1         |
+| SRR32701036 | 1     | 2         |
 
-
-To clean the unecessary data after running this iamge (work + assets), use: docker run --rm -v "$(pwd)":"$(pwd)" -w "$(pwd)" nextflow-runner-auto:latest cleanAll
-
-
-
+To clean the unecessary data after running this iamge (work + assets), use: `docker run --rm -v "$(pwd)":"$(pwd)" -w "$(pwd)" nextflow-runner-auto:latest cleanAll`
