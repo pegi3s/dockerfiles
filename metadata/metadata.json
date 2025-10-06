@@ -4298,19 +4298,20 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.7.3",
-        "date": ""
+        "version": "1.7.4",
+        "date": "03/10/2025"
       }
     ],
-    "latest": "1.7.3",
+    "latest": "1.7.4",
     "bug_found": [
       {
-        "version": "<= 1.6.0, 1.7.2",
+        "version": "<= 1.7.2",
         "description": "Due to changes in the structure of the NCBI website, the \"NCBI rename\" option no longer works"
       }
     ],
     "not_working": [],
     "no_longer_tested": [
+      "1.7.3",
       "1.7.2",
       "1.7.1",
       "1.7.0",
