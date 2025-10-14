@@ -50,7 +50,13 @@
         "add_config": "",
         "commands": " bash -c \"abyss-pe k=25 name=test in='/data/input_data/SRR3143588_1.fastq /data/input_data/SRR3143588_2.fastq' --directory=/data/output_folder/abyss_output\" > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=abyss+AND+assembler",
+      "scholar": "q=abyss+assembler",
+      "bioprotocol": "content=abyss%20assembler",
+      "bioprotocol-exhange": "content=abyss%20assembler"
+    }
   },
   {
     "name": "adops-gui",
@@ -96,7 +102,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=adops+AND+positive+AND+selection",
+      "scholar": "q=adops+positive+selection",
+      "bioprotocol": "content=adops%20positive%20selection",
+      "bioprotocol-exhange": "content=content=adops%20positive%20selection"
+    }
   },
   {
     "name": "aegean",
@@ -142,7 +154,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=aegean+AND+toolkit+AND+Standage",
+      "scholar": "q=aegean+toolkit+Standage",
+      "bioprotocol": "content=aegean%20tollkit%20Standage",
+      "bioprotocol-exhange": "content=aegean%20tollkit%20Standage"
+    }
   },
   {
     "name": "afterqc",
@@ -184,7 +202,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"afterqc\"",
+      "scholar": "q=\"afterqc\"",
+      "bioprotocol": "content=\"afterqc\"",
+      "bioprotocol-exhange": "content=\"afterqc\""
+    }
   },
   {
     "name": "alphafold_db",
@@ -228,7 +252,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=Alphafold+AND+database",
+      "scholar": "q=Alphafold+database",
+      "bioprotocol": "content=Alphafold%20database",
+      "bioprotocol-exhange": "content=Alphafold%20database"
+    }
   },
   {
     "name": "alter",
@@ -276,7 +306,13 @@
         "add_config": "",
         "commands": " -i /data/input_data/nexus.nex -o /data/output_folder/alter_output/output.fasta -ia -of FASTA -oo Linux -op GENERAL > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=ALigment+AND+Transformation+AND+EnviRonment",
+      "scholar": "q=ALigment+Transformation+EnviRonment",
+      "bioprotocol": "content=ALigment%20Transformation%20EnviRonment",
+      "bioprotocol-exhange": "content=ALigment%20Transformation%20EnviRonment"
+    }
   },
   {
     "name": "autoaugustus",
@@ -318,7 +354,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=Augustus+AND+genome",
+      "scholar": "q=Augustus+genome",
+      "bioprotocol": "content=Augustus%20genome",
+      "bioprotocol-exhange": "content=Augustus%20genome"
+    }
   },
   {
     "name": "bdbm",
@@ -362,7 +404,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=bdbm+AND+fasta",
+      "scholar": "q=bdbm+fasta",
+      "bioprotocol": "content=bdbm%20fasta",
+      "bioprotocol-exhange": "content=bdbm%20fasta"
+    }
   },
   {
     "name": "bedtools",
@@ -414,7 +462,13 @@
         "add_config": "",
         "commands": " fastaFromBed -fi /data/input_data/GCF_000858285.1.fa -bed /data/input_data/GCF_000858285.1.gff -fo /data/output_folder/bedtools_output/GCF_000858285.1_annotation.fa > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=Bedtools",
+      "scholar": "q=Bedtools",
+      "bioprotocol": "content=Bedtools",
+      "bioprotocol-exhange": "content=Bedtools"
+    }
   },
   {
     "name": "bioconvert",
@@ -460,7 +514,13 @@
         "add_config": "",
         "commands": " fasta2nexus /data/input_data/small_aligned.fas /data/output_folder/bioconvert_output/small_aligned.nex > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=Bioconvert+AND+software",
+      "scholar": "q=Bioconvert+software",
+      "bioprotocol": "content=Bioconvert%20software",
+      "bioprotocol-exhange": "content=Bioconvert%20software"
+    }
   },
   {
     "name": "blast",
@@ -511,7 +571,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=blast+AND+alignment",
+      "scholar": "q=blast+alignment",
+      "bioprotocol": "content=blast%20alignment",
+      "bioprotocol-exhange": "content=blast%20alignment"
+    }
   },
   {
     "name": "bowtie1",
@@ -555,7 +621,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=bowtie+AND+aligner",
+      "scholar": "q=bowtie+aligner",
+      "bioprotocol": "content=bowtie%20aligner",
+      "bioprotocol-exhange": "content=bowtie%20aligner"
+    }
   },
   {
     "name": "bwa",
@@ -600,7 +672,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=bwa+AND+aligner",
+      "scholar": "q=bwa+aligner",
+      "bioprotocol": "content=bwa%20aligner",
+      "bioprotocol-exhange": "content=bwa%20aligner"
+    }
   },
   {
     "name": "ccp4",
@@ -644,7 +722,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=ccp4+AND+crystallography",
+      "scholar": "q=ccp4+crystallography",
+      "bioprotocol": "content=ccp4%20crystallography",
+      "bioprotocol-exhange": "content=ccp4%20crystallography"
+    }
   },
   {
     "name": "clustalomega",
@@ -690,7 +774,13 @@
         "add_config": "",
         "commands": " -i /data/input_data/small_not_aligned.fas -o /data/output_folder/clustalomega_output/sequences_aligned.fasta > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=clustalomega",
+      "scholar": "q=clustalomega",
+      "bioprotocol": "content=clustalomega",
+      "bioprotocol-exhange": "content=clustalomega"
+    }
   },
   {
     "name": "coral",
@@ -736,7 +826,13 @@
         "add_config": "",
         "commands": " -fq /data/input_data/SRR3143588_1.fastq -o /data/output_folder/coral_output/output.fq > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=Coral+AND+Salmela+AND+Schröder",
+      "scholar": "q=Coral+Salmela+Schröder",
+      "bioprotocol": "content=Coral%20Salmela%20Schröder",
+      "bioprotocol-exhange": "content=Coral%20Salmela%20Schröder"
+    }
   },
   {
     "name": "cport",
@@ -780,7 +876,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=CPORT+AND+residues",
+      "scholar": "q=CPORT+residues",
+      "bioprotocol": "content=CPORT%20residues",
+      "bioprotocol-exhange": "content=CPORT%20residues"
+    }
   },
   {
     "name": "cport-like",
@@ -828,7 +930,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=CPORT+AND+residues",
+      "scholar": "q=CPORT+residues",
+      "bioprotocol": "content=CPORT%20residues",
+      "bioprotocol-exhange": "content=CPORT%20residues"
+    }
   },
   {
     "name": "cutadapt",
@@ -876,7 +984,13 @@
         "add_config": "",
         "commands": " -u 10 /data/input_data/SRR3143588_1.fastq -o /data/output_folder/cutadapt_output/trimmed_SRR3143588_1.fastq > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=cutadapt",
+      "scholar": "q=cutadapt",
+      "bioprotocol": "content=cutadapt",
+      "bioprotocol-exhange": "content=cutadapt"
+    }
   },
   {
     "name": "diamond",
@@ -918,7 +1032,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=diamond+AND+Buchfink",
+      "scholar": "q=diamond+Buchfink",
+      "bioprotocol": "content=diamond%20Buchfink",
+      "bioprotocol-exhange": "content=diamond%20Buchfink"
+    }
   },
   {
     "name": "ditasser_db",
@@ -969,7 +1089,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=D-I-TASSER+AND+deep-learning-based",
+      "scholar": "q=D-I-TASSER+deep-learning-based",
+      "bioprotocol": "content=D-I-TASSER%20deep-learning-based",
+      "bioprotocol-exhange": "content=D-I-TASSER%20deep-learning-based"
+    }
   },
   {
     "name": "dnasp-v6",
@@ -1013,7 +1139,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=dnasp+AND+v.6",
+      "scholar": "q=dnasp+v.6",
+      "bioprotocol": "content=dnasp%20v.6",
+      "bioprotocol-exhange": "content=dnasp%20v.6"
+    }
   },
   {
     "name": "edena",
@@ -1061,7 +1193,13 @@
         "add_config": "",
         "commands": " -singleEnd /data/input_data/SRR3143588_1.fastq -prefix /data/output_folder/edena_output/result > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=edena+AND+genome+AND+assembly",
+      "scholar": "q=edena+genome+assembly",
+      "bioprotocol": "content=edena%20genome%20assembly",
+      "bioprotocol-exhange": "content=edena%20genome%20assembly"
+    }
   },
   {
     "name": "emboss",
@@ -1108,7 +1246,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"Emboss\"+AND+suite",
+      "scholar": "q=\"Emboss\"+suite",
+      "bioprotocol": "content=\"Emboss\"%20suite",
+      "bioprotocol-exhange": "content=\"Emboss\"%20suite"
+    }
   },
   {
     "name": "entrez-direct",
@@ -1156,7 +1300,13 @@
         "add_config": "",
         "commands": " bash -c \"epost -db nuccore -format uid -input /data/input_data/2_nucleotide_accessions.txt | efetch -format fasta > /data/output_folder/entrez-direct_output/sequences.fasta\" > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=Entrez-Direct",
+      "scholar": "q=Entrez-Direct",
+      "bioprotocol": "content=Entrez-Direct",
+      "bioprotocol-exhange": "content=Entrez-Direct"
+    }
   },
   {
     "name": "fastqc",
@@ -1201,7 +1351,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=fastqc",
+      "scholar": "q=fastqc",
+      "bioprotocol": "content=fastqc",
+      "bioprotocol-exhange": "content=fastqc"
+    }
   },
   {
     "name": "fastroot",
@@ -1245,7 +1401,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"fastroot\"+AND+phylogenetic",
+      "scholar": "q=\"fastroot\"+phylogenetic",
+      "bioprotocol": "content=\"fastroot\"%20phylogenetic",
+      "bioprotocol-exhange": "content=\"fastroot\"%20phylogenetic"
+    }
   },
   {
     "name": "fasttree",
@@ -1291,7 +1453,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=fasttree",
+      "scholar": "q=fasttree",
+      "bioprotocol": "content=fasttree",
+      "bioprotocol-exhange": "content=fasttree"
+    }
   },
   {
     "name": "feature-counts",
@@ -1338,7 +1506,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"featureCounts\"",
+      "scholar": "q=\"featureCounts\"",
+      "bioprotocol": "content=\"featureCounts\"",
+      "bioprotocol-exhange": "content=\"featureCounts\""
+    }
   },
   {
     "name": "figtree",
@@ -1382,7 +1556,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=figtree+AND+phylogenetic",
+      "scholar": "q=figtree+phylogenetic",
+      "bioprotocol": "content=figtree%20phylogenetic",
+      "bioprotocol-exhange": "content=figtree%20phylogenetic"
+    }
   },
   {
     "name": "flash",
@@ -1432,7 +1612,13 @@
         "add_config": "",
         "commands": " /data/input_data/SRR3143588_1.fastq /data/input_data/SRR3143588_2.fastq -d /data/output_folder/flash_output > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=FLASH+AND+Magoc+AND+Salzberg",
+      "scholar": "q=FLASH+Magoc+Salzberg",
+      "bioprotocol": "content=FLASH%20Magoc%20Salzberg",
+      "bioprotocol-exhange": "content=FLASH%20Magoc%20Salzberg"
+    }
   },
   {
     "name": "format_auto-pss-genome",
@@ -1474,7 +1660,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=auto-pss-genome",
+      "scholar": "q=auto-pss-genome",
+      "bioprotocol": "content=auto-pss-genome",
+      "bioprotocol-exhange": "content=auto-pss-genome"
+    }
   },
   {
     "name": "freebayes",
@@ -1520,7 +1712,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=freebayes",
+      "scholar": "q=freebayes",
+      "bioprotocol": "content=freebayes",
+      "bioprotocol-exhange": "content=freebayes"
+    }
   },
   {
     "name": "gatk-4",
@@ -1565,7 +1763,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=GATK+AND+Genome+AND+Analysis+AND+Toolkit",
+      "scholar": "q=GATK+Genome+Analysis+Toolkit",
+      "bioprotocol": "content=GATK%20Genome%20Analysis%20Toolkit",
+      "bioprotocol-exhange": "content=GATK%20Genome%20Analysis%20Toolkit"
+    }
   },
   {
     "name": "gatk-3",
@@ -1612,7 +1816,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=GATK+AND+Genome+AND+Analysis+AND+Toolkit",
+      "scholar": "q=GATK+Genome+Analysis+Toolkit",
+      "bioprotocol": "content=GATK%20Genome%20Analysis%20Toolkit",
+      "bioprotocol-exhange": "content=GATK%20Genome%20Analysis%20Toolkit"
+    }
   },
   {
     "name": "getpdb",
@@ -1659,7 +1869,13 @@
         "add_config": "",
         "commands": " bash -c \"./getpdb input_data/Uniprot.txt && mv /data/P54252* /data/output_folder/getpdb_output\" > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=pdb+AND+file",
+      "scholar": "q=pdb+file",
+      "bioprotocol": "content=pdb%20file",
+      "bioprotocol-exhange": "content=pdb%20file"
+    }
   },
   {
     "name": "gmap-gsnap",
@@ -1704,7 +1920,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=gmap-gsnap",
+      "scholar": "q=gmap-gsnap",
+      "bioprotocol": "content=gmap-gsnap",
+      "bioprotocol-exhange": "content=gmap-gsnap"
+    }
   },
   {
     "name": "goalign",
@@ -1751,7 +1973,13 @@
         "add_config": "",
         "commands": " goalign subseq -i /data/input_data/small_aligned.fas -s 20 -l 30 -o /data/output_folder/goalign_output/small_aligned.sub.fasta > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"goalign\"+AND+multiple+AND+alignments",
+      "scholar": "q=\"goalign\"+multiple+alignments",
+      "bioprotocol": "content=\"goalign\"%20multiple%20alignments",
+      "bioprotocol-exhange": "content=\"goalign\"%20multiple%20alignments"
+    }
   },
   {
     "name": "gotree",
@@ -1797,7 +2025,13 @@
         "add_config": "",
         "commands": " gotree matrix -i /data/input_data/newick.nwk -o /data/output_folder/gotree_output/distance_matrix > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"gotree\"+AND+phylogenetic+AND+trees",
+      "scholar": "q=\"gotree\"+phylogenetic+trees",
+      "bioprotocol": "content=\"gotree\"%20phylogenetic%20trees",
+      "bioprotocol-exhange": "content=\"gotree\"%20phylogenetic%20trees"
+    }
   },
   {
     "name": "graphviz",
@@ -1843,7 +2077,13 @@
         "add_config": "",
         "commands": " bash -c \"python3 /data/input_data/graph.py && mv /data/Graph.gv /data/output_folder/graphviz_output && mv /data/Graph.gv.svg /data/output_folder/graphviz_output\" > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=graphviz",
+      "scholar": "q=graphviz",
+      "bioprotocol": "content=graphviz",
+      "bioprotocol-exhange": "content=graphviz"
+    }
   },
   {
     "name": "haddock-tools",
@@ -1887,7 +2127,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=haddock+AND+protein+AND+interaction",
+      "scholar": "q=haddock+protein+interaction",
+      "bioprotocol": "content=haddock%20protein%20interaction",
+      "bioprotocol-exhange": "content=haddock%20protein%20interaction"
+    }
   },
   {
     "name": "haplogrep",
@@ -1931,7 +2177,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=haplogrep",
+      "scholar": "q=haplogrep",
+      "bioprotocol": "content=haplogrep",
+      "bioprotocol-exhange": "content=haplogrep"
+    }
   },
   {
     "name": "human_prot_atlas",
@@ -1976,7 +2228,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=Human-Protein-Atlas+AND+Uniprot",
+      "scholar": "q=Human-Protein-Atlas+Uniprot",
+      "bioprotocol": "content=Human-Protein-Atlas%20Uniprot",
+      "bioprotocol-exhange": "content=Human-Protein-Atlas%20Uniprot"
+    }
   },
   {
     "name": "hyphy",
@@ -2020,7 +2278,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=hyphy+AND+phylogenies",
+      "scholar": "q=hyphy+phylogenies",
+      "bioprotocol": "content=hyphy%20phylogenies",
+      "bioprotocol-exhange": "content=hyphy%20phylogenies"
+    }
   },
   {
     "name": "id-mapping",
@@ -2070,7 +2334,13 @@
         "add_config": "",
         "commands": " gene-id-to-uniprotkb /data/input_data/gene_ids.txt /data/output_folder/id-mapping_output/output.tsv > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=Retrieve/ID-mapping+AND+uniprot",
+      "scholar": "q=Retrieve/ID-mapping+uniprot",
+      "bioprotocol": "content=Retrieve/ID-mapping%20uniprot",
+      "bioprotocol-exhange": "content=Retrieve/ID-mapping%20uniprot"
+    }
   },
   {
     "name": "igv",
@@ -2112,7 +2382,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=IGV+AND+Integrative+AND+Genomics+AND+Viewer",
+      "scholar": "q=IGV+Integrative+Genomics+Viewer",
+      "bioprotocol": "content=IGV%20Integrative%20Genomics%20Viewer",
+      "bioprotocol-exhange": "content=IGV%20Integrative%20Genomics%20Viewer"
+    }
   },
   {
     "name": "jmodeltest2",
@@ -2158,7 +2434,13 @@
         "add_config": "",
         "commands": " java -jar /jmodeltest2/dist/jModelTest.jar -d /data/input_data/small_aligned.fas -g 4 -i -f -AIC -BIC -a -o /data/output_folder/jmodeltest2_output/JModeltest2_output > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=jmodeltest2",
+      "scholar": "q=jmodeltest2",
+      "bioprotocol": "content=jmodeltest2",
+      "bioprotocol-exhange": "content=jmodeltest2"
+    }
   },
   {
     "name": "kakscalculator",
@@ -2203,7 +2485,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=kaks_calculator+AND+Zhang",
+      "scholar": "q=kaks_calculator+Zhang",
+      "bioprotocol": "content=kaks_calculator%20Zhang",
+      "bioprotocol-exhange": "content=kaks_calculator%20Zhang"
+    }
   },
   {
     "name": "lsd",
@@ -2248,7 +2536,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"Lineage+AND+sequence+AND+discovery\"",
+      "scholar": "q=\"Lineage+sequence+discovery\"",
+      "bioprotocol": "content=\"Lineage%20sequence%20discovery\"",
+      "bioprotocol-exhange": "content=\"Lineage%20sequence%20discovery\""
+    }
   },
   {
     "name": "mafft",
@@ -2296,7 +2590,13 @@
         "add_config": "",
         "commands": " bash -c \"mafft /data/input_data/small_not_aligned.fas > /data/output_folder/mafft_output/sequences_aligned.fasta\" > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=mafft",
+      "scholar": "q=mafft",
+      "bioprotocol": "content=mafft",
+      "bioprotocol-exhange": "content=mafft"
+    }
   },
   {
     "name": "mauve",
@@ -2341,7 +2641,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=mauve+AND+alignment",
+      "scholar": "q=mauve+alignment",
+      "bioprotocol": "content=mauve%20alignment",
+      "bioprotocol-exhange": "content=mauve%20alignment"
+    }
   },
   {
     "name": "maxbin2",
@@ -2387,7 +2693,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=maxbin2",
+      "scholar": "q=maxbin2",
+      "bioprotocol": "content=maxbin2",
+      "bioprotocol-exhange": "content=maxbin2"
+    }
   },
   {
     "name": "megax",
@@ -2427,7 +2739,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=megax+AND+software",
+      "scholar": "q=megax+software",
+      "bioprotocol": "content=megax%20software",
+      "bioprotocol-exhange": "content=megax%20software"
+    }
   },
   {
     "name": "megax_cc",
@@ -2470,7 +2788,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=megax+AND+software",
+      "scholar": "q=megax+software",
+      "bioprotocol": "content=megax%20software",
+      "bioprotocol-exhange": "content=megax%20software"
+    }
   },
   {
     "name": "metaeuk",
@@ -2516,7 +2840,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=metaeuk",
+      "scholar": "q=metaeuk",
+      "bioprotocol": "content=metaeuk",
+      "bioprotocol-exhange": "content=metaeuk"
+    }
   },
   {
     "name": "mrbayes",
@@ -2562,7 +2892,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=mrbayes",
+      "scholar": "q=mrbayes",
+      "bioprotocol": "content=mrbayes",
+      "bioprotocol-exhange": "content=mrbayes"
+    }
   },
   {
     "name": "multiqc",
@@ -2604,7 +2940,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=multiqc",
+      "scholar": "q=multiqc",
+      "bioprotocol": "content=multiqc",
+      "bioprotocol-exhange": "content=multiqc"
+    }
   },
   {
     "name": "muscle",
@@ -2648,7 +2990,13 @@
         "add_config": "",
         "commands": " -in /data/input_data/small_not_aligned.fas -out /data/output_folder/muscle_output/sequences_aligned.fasta > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=MUSCLE+AND+aligner+AND+edgar",
+      "scholar": "q=MUSCLE+aligner+edgar",
+      "bioprotocol": "content=MUSCLE%20aligner%20edgar",
+      "bioprotocol-exhange": "content=MUSCLE%20aligner%20edgar"
+    }
   },
   {
     "name": "ncbi-datasets",
@@ -2690,7 +3038,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=NCBI+AND+Datasets+AND+O'Leary+AND+Cox",
+      "scholar": "q=NCBI+Datasets+O'Leary+Cox",
+      "bioprotocol": "content=NCBI%20Datasets%20O'Leary%20Cox",
+      "bioprotocol-exhange": "content=NCBI%20Datasets%20O'Leary%20Cox"
+    }
   },
   {
     "name": "ncbi_retrieve",
@@ -2736,7 +3090,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=ncbi",
+      "scholar": "q=ncbi",
+      "bioprotocol": "content=ncbi",
+      "bioprotocol-exhange": "content=ncbi"
+    }
   },
   {
     "name": "newick_utils",
@@ -2782,7 +3142,13 @@
         "add_config": "",
         "commands": " bash -c \"nw_display -s /data/input_data/newick.nwk > /data/output_folder/newick_utils_output/tree.svg\"  > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=newick+AND+utilities",
+      "scholar": "q=newick+utilities",
+      "bioprotocol": "content=newick%20utilities",
+      "bioprotocol-exhange": "content=newick%20utilities"
+    }
   },
   {
     "name": "omegamap",
@@ -2828,7 +3194,13 @@
         "add_config": "",
         "commands": " analyze /data/input_data/CDS_aligned.fas /data/output_folder/omegamap_output 25000  > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=omegamap+AND+positive+AND+selection",
+      "scholar": "q=omegamap+positive+selection",
+      "bioprotocol": "content=omegamap%20positive%20selection",
+      "bioprotocol-exhange": "content=omegamap%20positive%20selection"
+    }
   },
   {
     "name": "paml",
@@ -2875,7 +3247,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=paml+AND+phylogenetic",
+      "scholar": "q=paml+phylogenetic",
+      "bioprotocol": "content=paml%20phylogenetic",
+      "bioprotocol-exhange": "content=paml%20phylogenetic"
+    }
   },
   {
     "name": "pathvisio",
@@ -2915,7 +3293,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=pathvisio",
+      "scholar": "q=pathvisio",
+      "bioprotocol": "content=pathvisio",
+      "bioprotocol-exhange": "content=pathvisio"
+    }
   },
   {
     "name": "pdb-tools",
@@ -2958,7 +3342,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=pdb+AND+file",
+      "scholar": "q=pdb+file",
+      "bioprotocol": "content=pdb%20file",
+      "bioprotocol-exhange": "content=pdb%20file"
+    }
   },
   {
     "name": "phipack",
@@ -3004,7 +3394,13 @@
         "add_config": "",
         "commands": " bash -c \"Phi -f /data/input_data/CDS_aligned.fas -p 1000 -o > /data/output_folder/phipack_output/output\" > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=phipack+AND+recombination",
+      "scholar": "q=phipack+recombination",
+      "bioprotocol": "content=phipack%20recombination",
+      "bioprotocol-exhange": "content=phipack%20recombination"
+    }
   },
   {
     "name": "phylogenetic-tree-collapser",
@@ -3057,7 +3453,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=PTC+AND+Phylogenetic-Tree-Collapser+AND+docker",
+      "scholar": "q=PTC+Phylogenetic-Tree-Collapser+docker",
+      "bioprotocol": "content=PTC%20Phylogenetic-Tree-Collapser%20docker",
+      "bioprotocol-exhange": "content=PTC%20Phylogenetic-Tree-Collapser%20docker"
+    }
   },
   {
     "name": "picard",
@@ -3104,7 +3506,13 @@
         "add_config": "",
         "commands": " CleanSam -I /data/input_data/SAM.sam -O /data/output_folder/picard_output/cleaned.sam > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=picard+AND+broadinstitute",
+      "scholar": "q=picard+broadinstitute",
+      "bioprotocol": "content=picard%20broadinstitute",
+      "bioprotocol-exhange": "content=picard%20broadinstitute"
+    }
   },
   {
     "name": "pilzerd",
@@ -3147,7 +3555,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=PI-LzeRD",
+      "scholar": "q=PI-LzeRD",
+      "bioprotocol": "content=PI-LzeRD",
+      "bioprotocol-exhange": "content=PI-LzeRD"
+    }
   },
   {
     "name": "plasflow",
@@ -3193,7 +3607,13 @@
         "add_config": "",
         "commands": " PlasFlow.py --input /data/input_data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas --output /data/output_folder/plasflow_output/plasflow_predictions.tsv --threshold 0.7 > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=plasflow",
+      "scholar": "q=plasflow",
+      "bioprotocol": "content=plasflow",
+      "bioprotocol-exhange": "content=plasflow"
+    }
   },
   {
     "name": "plottree",
@@ -3239,7 +3659,13 @@
         "add_config": "",
         "commands": " bash -c \"plottree -s 20 -w 20 -l 15 /data/input_data/newick.nwk -o /data/output_folder/plottree_output/output\" > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"plottree\"",
+      "scholar": "q=\"plottree\"",
+      "bioprotocol": "content=\"plottree\"",
+      "bioprotocol-exhange": "content=\"plottree\""
+    }
   },
   {
     "name": "popart",
@@ -3279,7 +3705,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=PopART+AND+Population+AND+Analysis+AND+with+AND+Reticulate+AND+Trees",
+      "scholar": "q=PopART+Population+Analysis+with+Reticulate+Trees",
+      "bioprotocol": "content=PopART%20Population%20Analysis%20with%20Reticulate%20Trees",
+      "bioprotocol-exhange": "content=PopART%20Population%20Analysis%20with%20Reticulate%20Trees"
+    }
   },
   {
     "name": "probcons",
@@ -3325,7 +3757,13 @@
         "add_config": "",
         "commands": " bash -c \"probcons /data/input_data/4_proteins.fas > /data/output_folder/probcons_output/sequences_aligned.fasta\" > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=probcons",
+      "scholar": "q=probcons",
+      "bioprotocol": "content=probcons",
+      "bioprotocol-exhange": "content=probcons"
+    }
   },
   {
     "name": "probcons_nuc",
@@ -3371,7 +3809,13 @@
         "add_config": "",
         "commands": " bash -c \"probcons /data/input_data/small_not_aligned.fas > /data/output_folder/probcons_nuc_output/sequences_aligned.fasta\" > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=probcons",
+      "scholar": "q=probcons",
+      "bioprotocol": "content=probcons",
+      "bioprotocol-exhange": "content=probcons"
+    }
   },
   {
     "name": "prokka",
@@ -3416,7 +3860,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=prokka",
+      "scholar": "q=prokka",
+      "bioprotocol": "content=prokka",
+      "bioprotocol-exhange": "content=prokka"
+    }
   },
   {
     "name": "pss-3d",
@@ -3460,7 +3910,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=pdb+AND+file",
+      "scholar": "q=pdb+file",
+      "bioprotocol": "content=pdb%20file",
+      "bioprotocol-exhange": "content=pdb%20file"
+    }
   },
   {
     "name": "pycision",
@@ -3503,7 +3959,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=pycision",
+      "scholar": "q=pycision",
+      "bioprotocol": "content=pycision",
+      "bioprotocol-exhange": "content=pycision"
+    }
   },
   {
     "name": "pymol",
@@ -3545,7 +4007,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=pymol",
+      "scholar": "q=pymol",
+      "bioprotocol": "content=pymol",
+      "bioprotocol-exhange": "content=pymol"
+    }
   },
   {
     "name": "qualimap",
@@ -3593,7 +4061,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"qualimap\"",
+      "scholar": "q=\"qualimap\"",
+      "bioprotocol": "content=\"qualimap\"",
+      "bioprotocol-exhange": "content=\"qualimap\""
+    }
   },
   {
     "name": "r_data-analysis",
@@ -3639,7 +4113,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=r+AND+programming+AND+language",
+      "scholar": "q=r+programming+language",
+      "bioprotocol": "content=r%20programming%20language",
+      "bioprotocol-exhange": "content=r%20programming%20language"
+    }
   },
   {
     "name": "r_deseq2",
@@ -3689,7 +4169,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=DESEQ2",
+      "scholar": "q=DESEQ2",
+      "bioprotocol": "content=DESEQ2",
+      "bioprotocol-exhange": "content=DESEQ2"
+    }
   },
   {
     "name": "r_edger",
@@ -3737,7 +4223,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=edgeR+AND+Robinson",
+      "scholar": "q=edgeR+Robinson",
+      "bioprotocol": "content=edgeR%20Robinson",
+      "bioprotocol-exhange": "content=edgeR%20Robinson"
+    }
   },
   {
     "name": "r_enhanced-volcano",
@@ -3781,7 +4273,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"EnhancedVolcano\"",
+      "scholar": "q=\"EnhancedVolcano\"",
+      "bioprotocol": "content=\"EnhancedVolcano\"",
+      "bioprotocol-exhange": "content=\"EnhancedVolcano\""
+    }
   },
   {
     "name": "r_network",
@@ -3828,7 +4326,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=r+AND+programming+AND+language",
+      "scholar": "q=r+programming+language",
+      "bioprotocol": "content=r%20programming%20language",
+      "bioprotocol-exhange": "content=r%20programming%20language"
+    }
   },
   {
     "name": "r_venn-diagram",
@@ -3874,7 +4378,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"VennDiagram\"",
+      "scholar": "q=\"VennDiagram\"",
+      "bioprotocol": "content=\"VennDiagram\"",
+      "bioprotocol-exhange": "content=\"VennDiagram\""
+    }
   },
   {
     "name": "raxml",
@@ -3920,7 +4430,13 @@
         "add_config": "",
         "commands": " raxmlHPC -m BINGAMMA -p 12345 -s /data/input_data/binary.phy -n T1 -w /data/output_folder/raxml_output > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=raxml",
+      "scholar": "q=raxml",
+      "bioprotocol": "content=raxml",
+      "bioprotocol-exhange": "content=raxml"
+    }
   },
   {
     "name": "recombine",
@@ -3967,7 +4483,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=RDP+AND+recombination+AND+detection+AND+program",
+      "scholar": "q=RDP+recombination+detection+program",
+      "bioprotocol": "content=RDP%20recombination%20detection%20program",
+      "bioprotocol-exhange": "content=RDP%20recombination%20detection%20program"
+    }
   },
   {
     "name": "repeat_masker",
@@ -4011,7 +4533,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=RepeatMasker",
+      "scholar": "q=RepeatMasker",
+      "bioprotocol": "content=RepeatMasker",
+      "bioprotocol-exhange": "content=RepeatMasker"
+    }
   },
   {
     "name": "roary",
@@ -4055,7 +4583,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=roary+AND+software",
+      "scholar": "q=roary+software",
+      "bioprotocol": "content=roary%20software",
+      "bioprotocol-exhange": "content=roary%20software"
+    }
   },
   {
     "name": "rootdigger",
@@ -4101,7 +4635,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=root-digger+AND+phylogenetic+AND+trees",
+      "scholar": "q=root-digger+phylogenetic+trees",
+      "bioprotocol": "content=root-digger%20phylogenetic%20trees",
+      "bioprotocol-exhange": "content=root-digger%20phylogenetic%20trees"
+    }
   },
   {
     "name": "rtn",
@@ -4146,7 +4686,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"RtN!\"+AND+\"NUMT\"+AND+removal+AND+tool",
+      "scholar": "q=\"RtN!\"+\"NUMT\"+removal+tool",
+      "bioprotocol": "content=\"RtN!\"%20\"NUMT\"%20removal%20tool",
+      "bioprotocol-exhange": "content=\"RtN!\"%20\"NUMT\"%20removal%20tool"
+    }
   },
   {
     "name": "samtools_bcftools",
@@ -4196,7 +4742,13 @@
         "add_config": "",
         "commands": "sh -c \"samtools stats /data/input_data/hg38_example.bam > /data/output_folder/samtools_bcftools/hg38_example.stats\""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=samtools+AND+bcftools",
+      "scholar": "q=samtools+bcftools",
+      "bioprotocol": "content=samtools%20bcftools",
+      "bioprotocol-exhange": "content=samtools%20bcftools"
+    }
   },
   {
     "name": "sapp",
@@ -4245,7 +4797,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"sapp\"+AND+Semantic+AND+genome+AND+Annotation+AND+Platform+AND+with+AND+Provenance",
+      "scholar": "q=\"sapp\"+Semantic+genome+Annotation+Platform+with+Provenance",
+      "bioprotocol": "content=\"sapp\"%20Semantic%20genome%20Annotation%20Platform%20with%20Provenance",
+      "bioprotocol-exhange": "content=\"sapp\"%20Semantic%20genome%20Annotation%20Platform%20with%20Provenance"
+    }
   },
   {
     "name": "scipio",
@@ -4290,7 +4848,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=scipio+AND+gene+AND+annotation",
+      "scholar": "q=scipio+gene+annotation",
+      "bioprotocol": "content=scipio%20gene%20annotation",
+      "bioprotocol-exhange": "content=scipio%20gene%20annotation"
+    }
   },
   {
     "name": "seda",
@@ -4360,7 +4924,13 @@
         "add_config": "",
         "commands": " -d -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY -v /var/db:/var/db:Z -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/home/developer/.Xauthority -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp pegi3s/seda:1.7.1 > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=seda+AND+SEquence+AND+DAtaset+AND+builder",
+      "scholar": "q=seda+SEquence+DAtaset+builder",
+      "bioprotocol": "content=seda%20SEquence%20DAtaset%20builder",
+      "bioprotocol-exhange": "content=seda%20SEquence%20DAtaset%20builder"
+    }
   },
   {
     "name": "seqkit",
@@ -4413,7 +4983,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"seqkit\"",
+      "scholar": "q=\"seqkit\"",
+      "bioprotocol": "content=\"seqkit\"",
+      "bioprotocol-exhange": "content=\"seqkit\""
+    }
   },
   {
     "name": "seqtk",
@@ -4458,7 +5034,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=seqtk",
+      "scholar": "q=seqtk",
+      "bioprotocol": "content=seqtk",
+      "bioprotocol-exhange": "content=seqtk"
+    }
   },
   {
     "name": "soapdenovo2",
@@ -4502,7 +5084,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=soapdenovo2",
+      "scholar": "q=soapdenovo2",
+      "bioprotocol": "content=soapdenovo2",
+      "bioprotocol-exhange": "content=soapdenovo2"
+    }
   },
   {
     "name": "spades",
@@ -4547,7 +5135,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=SPAdes+AND+assembler",
+      "scholar": "q=SPAdes+assembler",
+      "bioprotocol": "content=SPAdes%20assembler",
+      "bioprotocol-exhange": "content=SPAdes%20assembler"
+    }
   },
   {
     "name": "splitstree",
@@ -4595,7 +5189,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=splitstree",
+      "scholar": "q=splitstree",
+      "bioprotocol": "content=splitstree",
+      "bioprotocol-exhange": "content=splitstree"
+    }
   },
   {
     "name": "sratoolkit",
@@ -4648,7 +5248,13 @@
         "add_config": "",
         "commands": " fastq-dump SRR3143588 --outdir /data/output_folder/sratoolkit_output > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=sratoolkit",
+      "scholar": "q=sratoolkit",
+      "bioprotocol": "content=sratoolkit",
+      "bioprotocol-exhange": "content=sratoolkit"
+    }
   },
   {
     "name": "takeabreak",
@@ -4693,7 +5299,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=TakeABreak+AND+genomic+AND+inversions",
+      "scholar": "q=TakeABreak+genomic+inversions",
+      "bioprotocol": "content=TakeABreak%20genomic%20inversions",
+      "bioprotocol-exhange": "content=TakeABreak%20genomic%20inversions"
+    }
   },
   {
     "name": "tcoffee",
@@ -4743,7 +5355,13 @@
         "add_config": "",
         "commands": " t_coffee /data/input_data/small_not_aligned.fas -run_name /data/output_folder/tcoffee_output/aligned > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=t-coffee+AND+aligner",
+      "scholar": "q=t-coffee+aligner",
+      "bioprotocol": "content=t-coffee%20aligner",
+      "bioprotocol-exhange": "content=t-coffee%20aligner"
+    }
   },
   {
     "name": "translatorx",
@@ -4790,7 +5408,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"translatorx\"",
+      "scholar": "q=\"translatorx\"",
+      "bioprotocol": "content=\"translatorx\"",
+      "bioprotocol-exhange": "content=\"translatorx\""
+    }
   },
   {
     "name": "tree_snatcher_plus",
@@ -4830,7 +5454,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=TreeSnatcher-Plus",
+      "scholar": "q=TreeSnatcher-Plus",
+      "bioprotocol": "content=TreeSnatcher-Plus",
+      "bioprotocol-exhange": "content=TreeSnatcher-Plus"
+    }
   },
   {
     "name": "treeviewx",
@@ -4870,7 +5500,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"treeview+AND+x\"",
+      "scholar": "q=\"treeview+x\"",
+      "bioprotocol": "content=\"treeview%20x\"",
+      "bioprotocol-exhange": "content=\"treeview%20x\""
+    }
   },
   {
     "name": "trimmomatic",
@@ -4914,7 +5550,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=trimmomatic",
+      "scholar": "q=trimmomatic",
+      "bioprotocol": "content=trimmomatic",
+      "bioprotocol-exhange": "content=trimmomatic"
+    }
   },
   {
     "name": "vcftools",
@@ -4958,7 +5600,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=vcftools",
+      "scholar": "q=vcftools",
+      "bioprotocol": "content=vcftools",
+      "bioprotocol-exhange": "content=vcftools"
+    }
   },
   {
     "name": "velvet",
@@ -5003,7 +5651,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=velvet+AND+Zerbino",
+      "scholar": "q=velvet+Zerbino",
+      "bioprotocol": "content=velvet%20Zerbino",
+      "bioprotocol-exhange": "content=velvet%20Zerbino"
+    }
   },
   {
     "name": "wgsim",
@@ -5047,7 +5701,13 @@
         "add_config": "",
         "commands": " wgsim -1151 -2151 -d500 -r0 -e0 -N10000 -R0 -X0 /data/input_data/GCF_000858285.1.fa /data/output_folder/wgsim_output/reads1.fq /data/output_folder/wgsim_output/reads2.fq  > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=wgsim",
+      "scholar": "q=wgsim",
+      "bioprotocol": "content=wgsim",
+      "bioprotocol-exhange": "content=wgsim"
+    }
   },
   {
     "name": "whiscy",
@@ -5184,7 +5844,13 @@
         "add_config": "",
         "commands": " query_single_species -c /data/input_data/evoppi_config.txt -o /data/output_folder/evoppi-querier_output > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=evoppi",
+      "scholar": "q=evoppi",
+      "bioprotocol": "content=evoppi",
+      "bioprotocol-exhange": "content=evoppi"
+    }
   },
   {
     "name": "haddock_server",
@@ -5228,7 +5894,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=haddock+AND+protein+AND+interaction",
+      "scholar": "q=haddock+protein+interaction",
+      "bioprotocol": "content=haddock%20protein%20interaction",
+      "bioprotocol-exhange": "content=haddock%20protein%20interaction"
+    }
   },
   {
     "name": "i-tasser_server",
@@ -5272,7 +5944,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=I-TASSER+AND+structure",
+      "scholar": "q=I-TASSER+structure",
+      "bioprotocol": "content=I-TASSER%20structure",
+      "bioprotocol-exhange": "content=I-TASSER%20structure"
+    }
   },
   {
     "name": "pisa_server",
@@ -5314,7 +5992,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=PDBePISA",
+      "scholar": "q=PDBePISA",
+      "bioprotocol": "content=PDBePISA",
+      "bioprotocol-exhange": "content=PDBePISA"
+    }
   },
   {
     "name": "sppider",
@@ -5357,7 +6041,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"sppider\"+AND+protein-protein+AND+interface",
+      "scholar": "q=\"sppider\"+protein-protein+interface",
+      "bioprotocol": "content=\"sppider\"%20protein-protein%20interface",
+      "bioprotocol-exhange": "content=\"sppider\"%20protein-protein%20interface"
+    }
   },
   {
     "name": "tm-align_server",
@@ -5402,7 +6092,13 @@
         "add_config": "",
         "commands": " bash -c \"/opt/run /data/input_data /data/output_folder/tm-align_server_output\" > /dev/null 2>&1"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=tm-align+AND+zhang+AND+Skolnick",
+      "scholar": "q=tm-align+zhang+Skolnick",
+      "bioprotocol": "content=tm-align%20zhang%20Skolnick",
+      "bioprotocol-exhange": "content=tm-align%20zhang%20Skolnick"
+    }
   },
   {
     "name": "auto-phylo",
@@ -5453,7 +6149,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=Auto-phylo+AND+pipeline+AND+maker",
+      "scholar": "q=Auto-phylo+pipeline+maker",
+      "bioprotocol": "content=Auto-phylo%20pipeline%20maker",
+      "bioprotocol-exhange": "content=Auto-phylo%20pipeline%20maker"
+    }
   },
   {
     "name": "auto-phylo-pipeliner",
@@ -5498,7 +6200,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=Auto-phylo+AND+pipeline+AND+maker",
+      "scholar": "q=Auto-phylo+pipeline+maker",
+      "bioprotocol": "content=Auto-phylo%20pipeline%20maker",
+      "bioprotocol-exhange": "content=Auto-phylo%20pipeline%20maker"
+    }
   },
   {
     "name": "dib",
@@ -5542,7 +6250,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=DIB+AND+Drosophila+AND+Inversion+AND+Breakpoints",
+      "scholar": "q=DIB+Drosophila+Inversion+Breakpoints",
+      "bioprotocol": "content=DIB%20Drosophila%20Inversion%20Breakpoints",
+      "bioprotocol-exhange": "content=DIB%20Drosophila%20Inversion%20Breakpoints"
+    }
   },
   {
     "name": "gbif_gis",
@@ -5585,7 +6299,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=gbif+AND+database",
+      "scholar": "q=gbif+database",
+      "bioprotocol": "content=gbif%20database",
+      "bioprotocol-exhange": "content=gbif%20database"
+    }
   },
   {
     "name": "gis",
@@ -5627,7 +6347,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=GIS+AND+Geographic+AND+Information+AND+System",
+      "scholar": "q=GIS+Geographic+Information+System",
+      "bioprotocol": "content=GIS%20Geographic%20Information%20System",
+      "bioprotocol-exhange": "content=GIS%20Geographic%20Information%20System"
+    }
   },
   {
     "name": "ngs_pipeliner",
@@ -5669,7 +6395,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=next-generation+AND+sequencing",
+      "scholar": "q=next-generation+sequencing",
+      "bioprotocol": "content=next-generation%20sequencing",
+      "bioprotocol-exhange": "content=next-generation%20sequencing"
+    }
   },
   {
     "name": "prosplign-procompart",
@@ -5716,7 +6448,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=prosplign+AND+procompart",
+      "scholar": "q=prosplign+procompart",
+      "bioprotocol": "content=prosplign%20procompart",
+      "bioprotocol-exhange": "content=prosplign%20procompart"
+    }
   },
   {
     "name": "splign-compart",
@@ -5766,7 +6504,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=Splign+AND+NCBI",
+      "scholar": "q=Splign+NCBI",
+      "bioprotocol": "content=Splign%20NCBI",
+      "bioprotocol-exhange": "content=Splign%20NCBI"
+    }
   },
   {
     "name": "taxodros_gis",
@@ -5809,7 +6553,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=TaxoDros",
+      "scholar": "q=TaxoDros",
+      "bioprotocol": "content=TaxoDros",
+      "bioprotocol-exhange": "content=TaxoDros"
+    }
   },
   {
     "name": "auto-pss-genome",
@@ -5860,7 +6610,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=auto-pss-genome",
+      "scholar": "q=auto-pss-genome",
+      "bioprotocol": "content=auto-pss-genome",
+      "bioprotocol-exhange": "content=auto-pss-genome"
+    }
   },
   {
     "name": "cga",
@@ -5904,7 +6660,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"CGA\"+AND+\"(Conserved+AND+Genome+AND+Annotation)\"+AND+pipeline+AND+docker",
+      "scholar": "q=\"CGA\"+\"(Conserved+Genome+Annotation)\"+pipeline+docker",
+      "bioprotocol": "content=\"CGA\"%20\"(Conserved%20Genome%20Annotation)\"%20pipeline%20docker",
+      "bioprotocol-exhange": "content=\"CGA\"%20\"(Conserved%20Genome%20Annotation)\"%20pipeline%20docker"
+    }
   },
   {
     "name": "check-cds",
@@ -5951,7 +6713,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"checkcds\"+AND+pipeline",
+      "scholar": "q=\"checkcds\"+pipeline",
+      "bioprotocol": "content=\"checkcds\"%20pipeline",
+      "bioprotocol-exhange": "content=\"checkcds\"%20pipeline"
+    }
   },
   {
     "name": "ipssa",
@@ -6000,7 +6768,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=ipssa+AND+pss+AND+pipeline",
+      "scholar": "q=ipssa+pss+pipeline",
+      "bioprotocol": "content=ipssa%20pss%20pipeline",
+      "bioprotocol-exhange": "content=ipssa%20pss%20pipeline"
+    }
   },
   {
     "name": "pss-fs",
@@ -6051,7 +6825,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"FastScreen\"+AND+positive-selection",
+      "scholar": "q=\"FastScreen\"+positive-selection",
+      "bioprotocol": "content=\"FastScreen\"%20positive-selection",
+      "bioprotocol-exhange": "content=\"FastScreen\"%20positive-selection"
+    }
   },
   {
     "name": "pss-genome-fs",
@@ -6100,7 +6880,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"GenomeFastScreen\"",
+      "scholar": "q=\"GenomeFastScreen\"",
+      "bioprotocol": "content=\"GenomeFastScreen\"",
+      "bioprotocol-exhange": "content=\"GenomeFastScreen\""
+    }
   },
   {
     "name": "two-way-blast",
@@ -6149,7 +6935,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"two-way+AND+blast\"",
+      "scholar": "q=\"two-way+blast\"",
+      "bioprotocol": "content=\"two-way%20blast\"",
+      "bioprotocol-exhange": "content=\"two-way%20blast\""
+    }
   },
   {
     "name": "haddock24-builder",
@@ -6196,7 +6988,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=haddock+AND+protein+AND+interaction",
+      "scholar": "q=haddock+protein+interaction",
+      "bioprotocol": "content=haddock%20protein%20interaction",
+      "bioprotocol-exhange": "content=haddock%20protein%20interaction"
+    }
   },
   {
     "name": "hdock-builder",
@@ -6241,7 +7039,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=hdock",
+      "scholar": "q=hdock",
+      "bioprotocol": "content=hdock",
+      "bioprotocol-exhange": "content=hdock"
+    }
   },
   {
     "name": "pydock3-builder",
@@ -6283,7 +7087,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=pydock3",
+      "scholar": "q=pydock3",
+      "bioprotocol": "content=pydock3",
+      "bioprotocol-exhange": "content=pydock3"
+    }
   },
   {
     "name": "trinity",
@@ -6328,7 +7138,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=trinity+and+de+and+novo+and+assembler",
+      "scholar": "q=trinity+de+novo+assembler",
+      "bioprotocol": "content=trinity%20de%20novo%20assembler",
+      "bioprotocol-exhange": "content=trinity%20de%20novo%20assembler"
+    }
   },
   {
     "name": "biopython",
@@ -6370,7 +7186,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=biopython",
+      "scholar": "q=biopython",
+      "bioprotocol": "content=biopython",
+      "bioprotocol-exhange": "content=biopython"
+    }
   },
   {
     "name": "docker-manager",
@@ -6417,7 +7239,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=docker-image",
+      "scholar": "q=docker-image",
+      "bioprotocol": "content=docker-image",
+      "bioprotocol-exhange": "content=docker-image"
+    }
   },
   {
     "name": "formfind",
@@ -6459,7 +7287,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"formfind\"+AND+Stenberg",
+      "scholar": "q=\"formfind\"+Stenberg",
+      "bioprotocol": "content=\"formfind\"%20Stenberg",
+      "bioprotocol-exhange": "content=\"formfind\"%20Stenberg"
+    }
   },
   {
     "name": "r_project",
@@ -6506,7 +7340,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=r+AND+programming+AND+language",
+      "scholar": "q=r+programming+language",
+      "bioprotocol": "content=r%20programming%20language",
+      "bioprotocol-exhange": "content=r%20programming%20language"
+    }
   },
   {
     "name": "docker",
@@ -6551,7 +7391,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=docker-image",
+      "scholar": "q=docker-image",
+      "bioprotocol": "content=docker-image",
+      "bioprotocol-exhange": "content=docker-image"
+    }
   },
   {
     "name": "biopython_utilities",
@@ -6597,7 +7443,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=biopython",
+      "scholar": "q=biopython",
+      "bioprotocol": "content=biopython",
+      "bioprotocol-exhange": "content=biopython"
+    }
   },
   {
     "name": "blast_utilities",
@@ -6645,7 +7497,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=blast+AND+alignment",
+      "scholar": "q=blast+alignment",
+      "bioprotocol": "content=blast%20alignment",
+      "bioprotocol-exhange": "content=blast%20alignment"
+    }
   },
   {
     "name": "cds2gff3-maker",
@@ -6691,7 +7549,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=GFF3+AND+file",
+      "scholar": "q=GFF3+file",
+      "bioprotocol": "content=GFF3%20file",
+      "bioprotocol-exhange": "content=GFF3%20file"
+    }
   },
   {
     "name": "utilities",
@@ -6744,7 +7608,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=",
+      "scholar": "q=",
+      "bioprotocol": "content=",
+      "bioprotocol-exhange": "content="
+    }
   },
   {
     "name": "orthologs-finder",
@@ -6794,7 +7664,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=orthologous+AND+genes",
+      "scholar": "q=orthologous+genes",
+      "bioprotocol": "content=orthologous%20genes",
+      "bioprotocol-exhange": "content=orthologous%20genes"
+    }
   },
   {
     "name": "values2tree",
@@ -6834,7 +7710,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"values2tree\"",
+      "scholar": "q=\"values2tree\"",
+      "bioprotocol": "content=\"values2tree\"",
+      "bioprotocol-exhange": "content=\"values2tree\""
+    }
   },
   {
     "name": "auto-p2docking",
@@ -6874,7 +7756,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=auto-p2docking",
+      "scholar": "q=auto-p2docking",
+      "bioprotocol": "content=auto-p2docking",
+      "bioprotocol-exhange": "content=auto-p2docking"
+    }
   },
   {
     "name": "r_builder",
@@ -6937,7 +7825,13 @@
         "add_config": "",
         "commands": "generate_dockerfile.sh /data/input_data/r_builder_config.json --dry-run --work_dir=/data/output_folder/"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=r+AND+programming+AND+language",
+      "scholar": "q=r+programming+language",
+      "bioprotocol": "content=r%20programming%20language",
+      "bioprotocol-exhange": "content=r%20programming%20language"
+    }
   },
   {
     "name": "r_sva",
@@ -6981,7 +7875,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=sva+AND+Surrogate+AND+Variable+AND+Analysis",
+      "scholar": "q=sva+Surrogate+Variable+Analysis",
+      "bioprotocol": "content=sva%20Surrogate%20Variable%20Analysis",
+      "bioprotocol-exhange": "content=sva%20Surrogate%20Variable%20Analysis"
+    }
   },
   {
     "name": "htseq",
@@ -7033,7 +7933,13 @@
         "add_config": "",
         "commands": "htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr test.bam Homo_sapiens.GRCh38.86.chromosome22.gtf > test.out"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=htseq",
+      "scholar": "q=htseq",
+      "bioprotocol": "content=htseq",
+      "bioprotocol-exhange": "content=htseq"
+    }
   },
   {
     "name": "r_pathfindr",
@@ -7218,7 +8124,13 @@
         "add_config": "",
         "commands": "hisat2 -x /data/input_data/hisat2/hisat2-indexes/genome_index -1 /data/input_data/hisat2/hcc1395_normal_rep1_1.fastq.gz -2 /data/input_data/hisat2/hcc1395_normal_rep1_1.fastq.gz -S /data/output_folder/hisat2/output.sam"
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=hisat2",
+      "scholar": "q=hisat2",
+      "bioprotocol": "content=hisat2",
+      "bioprotocol-exhange": "content=hisat2"
+    }
   },
   {
     "name": "tagada",
@@ -7260,7 +8172,13 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=tagada+AND+RNA-Seq",
+      "scholar": "q=tagada+RNA-Seq",
+      "bioprotocol": "content=tagada%20RNA-Seq",
+      "bioprotocol-exhange": "content=tagada%20RNA-Seq"
+    }
   },
   {
     "name": "cd-hit",
@@ -7306,6 +8224,12 @@
         "add_config": "",
         "commands": ""
       }
-    ]
+    ],
+    "custom_searches": {
+      "pubmed": "term=cd-hit+AND+weizhongli",
+      "scholar": "q=cd-hit+weizhongli",
+      "bioprotocol": "content=cd-hit%20weizhongli",
+      "bioprotocol-exhange": "content=cd-hit%20weizhongli"
+    }
   }
 ]
