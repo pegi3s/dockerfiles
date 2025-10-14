@@ -55,7 +55,7 @@
       "pubmed": "term=abyss+AND+assembler",
       "scholar": "q=abyss+assembler",
       "bioprotocol": "content=abyss%20assembler",
-      "bioprotocol-exhange": "content=abyss%20assembler"
+      "bioprotocol_exchange": "content=abyss%20assembler"
     }
   },
   {
@@ -107,7 +107,7 @@
       "pubmed": "term=adops+AND+positive+AND+selection",
       "scholar": "q=adops+positive+selection",
       "bioprotocol": "content=adops%20positive%20selection",
-      "bioprotocol-exhange": "content=content=adops%20positive%20selection"
+      "bioprotocol_exchange": "content=content=adops%20positive%20selection"
     }
   },
   {
@@ -159,7 +159,7 @@
       "pubmed": "term=aegean+AND+toolkit+AND+Standage",
       "scholar": "q=aegean+toolkit+Standage",
       "bioprotocol": "content=aegean%20tollkit%20Standage",
-      "bioprotocol-exhange": "content=aegean%20tollkit%20Standage"
+      "bioprotocol_exchange": "content=aegean%20tollkit%20Standage"
     }
   },
   {
@@ -207,7 +207,7 @@
       "pubmed": "term=\"afterqc\"",
       "scholar": "q=\"afterqc\"",
       "bioprotocol": "content=\"afterqc\"",
-      "bioprotocol-exhange": "content=\"afterqc\""
+      "bioprotocol_exchange": "content=\"afterqc\""
     }
   },
   {
@@ -257,7 +257,7 @@
       "pubmed": "term=Alphafold+AND+database",
       "scholar": "q=Alphafold+database",
       "bioprotocol": "content=Alphafold%20database",
-      "bioprotocol-exhange": "content=Alphafold%20database"
+      "bioprotocol_exchange": "content=Alphafold%20database"
     }
   },
   {
@@ -311,7 +311,7 @@
       "pubmed": "term=ALigment+AND+Transformation+AND+EnviRonment",
       "scholar": "q=ALigment+Transformation+EnviRonment",
       "bioprotocol": "content=ALigment%20Transformation%20EnviRonment",
-      "bioprotocol-exhange": "content=ALigment%20Transformation%20EnviRonment"
+      "bioprotocol_exchange": "content=ALigment%20Transformation%20EnviRonment"
     }
   },
   {
@@ -359,7 +359,7 @@
       "pubmed": "term=Augustus+AND+genome",
       "scholar": "q=Augustus+genome",
       "bioprotocol": "content=Augustus%20genome",
-      "bioprotocol-exhange": "content=Augustus%20genome"
+      "bioprotocol_exchange": "content=Augustus%20genome"
     }
   },
   {
@@ -409,7 +409,7 @@
       "pubmed": "term=bdbm+AND+fasta",
       "scholar": "q=bdbm+fasta",
       "bioprotocol": "content=bdbm%20fasta",
-      "bioprotocol-exhange": "content=bdbm%20fasta"
+      "bioprotocol_exchange": "content=bdbm%20fasta"
     }
   },
   {
@@ -467,7 +467,7 @@
       "pubmed": "term=Bedtools",
       "scholar": "q=Bedtools",
       "bioprotocol": "content=Bedtools",
-      "bioprotocol-exhange": "content=Bedtools"
+      "bioprotocol_exchange": "content=Bedtools"
     }
   },
   {
@@ -519,7 +519,7 @@
       "pubmed": "term=Bioconvert+AND+software",
       "scholar": "q=Bioconvert+software",
       "bioprotocol": "content=Bioconvert%20software",
-      "bioprotocol-exhange": "content=Bioconvert%20software"
+      "bioprotocol_exchange": "content=Bioconvert%20software"
     }
   },
   {
@@ -576,7 +576,7 @@
       "pubmed": "term=blast+AND+alignment",
       "scholar": "q=blast+alignment",
       "bioprotocol": "content=blast%20alignment",
-      "bioprotocol-exhange": "content=blast%20alignment"
+      "bioprotocol_exchange": "content=blast%20alignment"
     }
   },
   {
@@ -626,7 +626,7 @@
       "pubmed": "term=bowtie+AND+aligner",
       "scholar": "q=bowtie+aligner",
       "bioprotocol": "content=bowtie%20aligner",
-      "bioprotocol-exhange": "content=bowtie%20aligner"
+      "bioprotocol_exchange": "content=bowtie%20aligner"
     }
   },
   {
@@ -677,7 +677,7 @@
       "pubmed": "term=bwa+AND+aligner",
       "scholar": "q=bwa+aligner",
       "bioprotocol": "content=bwa%20aligner",
-      "bioprotocol-exhange": "content=bwa%20aligner"
+      "bioprotocol_exchange": "content=bwa%20aligner"
     }
   },
   {
@@ -727,7 +727,7 @@
       "pubmed": "term=ccp4+AND+crystallography",
       "scholar": "q=ccp4+crystallography",
       "bioprotocol": "content=ccp4%20crystallography",
-      "bioprotocol-exhange": "content=ccp4%20crystallography"
+      "bioprotocol_exchange": "content=ccp4%20crystallography"
     }
   },
   {
@@ -779,7 +779,7 @@
       "pubmed": "term=clustalomega",
       "scholar": "q=clustalomega",
       "bioprotocol": "content=clustalomega",
-      "bioprotocol-exhange": "content=clustalomega"
+      "bioprotocol_exchange": "content=clustalomega"
     }
   },
   {
@@ -831,7 +831,7 @@
       "pubmed": "term=Coral+AND+Salmela+AND+Schröder",
       "scholar": "q=Coral+Salmela+Schröder",
       "bioprotocol": "content=Coral%20Salmela%20Schröder",
-      "bioprotocol-exhange": "content=Coral%20Salmela%20Schröder"
+      "bioprotocol_exchange": "content=Coral%20Salmela%20Schröder"
     }
   },
   {
@@ -881,7 +881,7 @@
       "pubmed": "term=CPORT+AND+residues",
       "scholar": "q=CPORT+residues",
       "bioprotocol": "content=CPORT%20residues",
-      "bioprotocol-exhange": "content=CPORT%20residues"
+      "bioprotocol_exchange": "content=CPORT%20residues"
     }
   },
   {
@@ -935,7 +935,7 @@
       "pubmed": "term=CPORT+AND+residues",
       "scholar": "q=CPORT+residues",
       "bioprotocol": "content=CPORT%20residues",
-      "bioprotocol-exhange": "content=CPORT%20residues"
+      "bioprotocol_exchange": "content=CPORT%20residues"
     }
   },
   {
@@ -989,7 +989,7 @@
       "pubmed": "term=cutadapt",
       "scholar": "q=cutadapt",
       "bioprotocol": "content=cutadapt",
-      "bioprotocol-exhange": "content=cutadapt"
+      "bioprotocol_exchange": "content=cutadapt"
     }
   },
   {
@@ -1037,7 +1037,7 @@
       "pubmed": "term=diamond+AND+Buchfink",
       "scholar": "q=diamond+Buchfink",
       "bioprotocol": "content=diamond%20Buchfink",
-      "bioprotocol-exhange": "content=diamond%20Buchfink"
+      "bioprotocol_exchange": "content=diamond%20Buchfink"
     }
   },
   {
@@ -1094,7 +1094,7 @@
       "pubmed": "term=D-I-TASSER+AND+deep-learning-based",
       "scholar": "q=D-I-TASSER+deep-learning-based",
       "bioprotocol": "content=D-I-TASSER%20deep-learning-based",
-      "bioprotocol-exhange": "content=D-I-TASSER%20deep-learning-based"
+      "bioprotocol_exchange": "content=D-I-TASSER%20deep-learning-based"
     }
   },
   {
@@ -1144,7 +1144,7 @@
       "pubmed": "term=dnasp+AND+v.6",
       "scholar": "q=dnasp+v.6",
       "bioprotocol": "content=dnasp%20v.6",
-      "bioprotocol-exhange": "content=dnasp%20v.6"
+      "bioprotocol_exchange": "content=dnasp%20v.6"
     }
   },
   {
@@ -1198,7 +1198,7 @@
       "pubmed": "term=edena+AND+genome+AND+assembly",
       "scholar": "q=edena+genome+assembly",
       "bioprotocol": "content=edena%20genome%20assembly",
-      "bioprotocol-exhange": "content=edena%20genome%20assembly"
+      "bioprotocol_exchange": "content=edena%20genome%20assembly"
     }
   },
   {
@@ -1251,7 +1251,7 @@
       "pubmed": "term=\"Emboss\"+AND+suite",
       "scholar": "q=\"Emboss\"+suite",
       "bioprotocol": "content=\"Emboss\"%20suite",
-      "bioprotocol-exhange": "content=\"Emboss\"%20suite"
+      "bioprotocol_exchange": "content=\"Emboss\"%20suite"
     }
   },
   {
@@ -1305,7 +1305,7 @@
       "pubmed": "term=Entrez-Direct",
       "scholar": "q=Entrez-Direct",
       "bioprotocol": "content=Entrez-Direct",
-      "bioprotocol-exhange": "content=Entrez-Direct"
+      "bioprotocol_exchange": "content=Entrez-Direct"
     }
   },
   {
@@ -1356,7 +1356,7 @@
       "pubmed": "term=fastqc",
       "scholar": "q=fastqc",
       "bioprotocol": "content=fastqc",
-      "bioprotocol-exhange": "content=fastqc"
+      "bioprotocol_exchange": "content=fastqc"
     }
   },
   {
@@ -1406,7 +1406,7 @@
       "pubmed": "term=\"fastroot\"+AND+phylogenetic",
       "scholar": "q=\"fastroot\"+phylogenetic",
       "bioprotocol": "content=\"fastroot\"%20phylogenetic",
-      "bioprotocol-exhange": "content=\"fastroot\"%20phylogenetic"
+      "bioprotocol_exchange": "content=\"fastroot\"%20phylogenetic"
     }
   },
   {
@@ -1458,7 +1458,7 @@
       "pubmed": "term=fasttree",
       "scholar": "q=fasttree",
       "bioprotocol": "content=fasttree",
-      "bioprotocol-exhange": "content=fasttree"
+      "bioprotocol_exchange": "content=fasttree"
     }
   },
   {
@@ -1511,7 +1511,7 @@
       "pubmed": "term=\"featureCounts\"",
       "scholar": "q=\"featureCounts\"",
       "bioprotocol": "content=\"featureCounts\"",
-      "bioprotocol-exhange": "content=\"featureCounts\""
+      "bioprotocol_exchange": "content=\"featureCounts\""
     }
   },
   {
@@ -1561,7 +1561,7 @@
       "pubmed": "term=figtree+AND+phylogenetic",
       "scholar": "q=figtree+phylogenetic",
       "bioprotocol": "content=figtree%20phylogenetic",
-      "bioprotocol-exhange": "content=figtree%20phylogenetic"
+      "bioprotocol_exchange": "content=figtree%20phylogenetic"
     }
   },
   {
@@ -1617,7 +1617,7 @@
       "pubmed": "term=FLASH+AND+Magoc+AND+Salzberg",
       "scholar": "q=FLASH+Magoc+Salzberg",
       "bioprotocol": "content=FLASH%20Magoc%20Salzberg",
-      "bioprotocol-exhange": "content=FLASH%20Magoc%20Salzberg"
+      "bioprotocol_exchange": "content=FLASH%20Magoc%20Salzberg"
     }
   },
   {
@@ -1665,7 +1665,7 @@
       "pubmed": "term=auto-pss-genome",
       "scholar": "q=auto-pss-genome",
       "bioprotocol": "content=auto-pss-genome",
-      "bioprotocol-exhange": "content=auto-pss-genome"
+      "bioprotocol_exchange": "content=auto-pss-genome"
     }
   },
   {
@@ -1717,7 +1717,7 @@
       "pubmed": "term=freebayes",
       "scholar": "q=freebayes",
       "bioprotocol": "content=freebayes",
-      "bioprotocol-exhange": "content=freebayes"
+      "bioprotocol_exchange": "content=freebayes"
     }
   },
   {
@@ -1768,7 +1768,7 @@
       "pubmed": "term=GATK+AND+Genome+AND+Analysis+AND+Toolkit",
       "scholar": "q=GATK+Genome+Analysis+Toolkit",
       "bioprotocol": "content=GATK%20Genome%20Analysis%20Toolkit",
-      "bioprotocol-exhange": "content=GATK%20Genome%20Analysis%20Toolkit"
+      "bioprotocol_exchange": "content=GATK%20Genome%20Analysis%20Toolkit"
     }
   },
   {
@@ -1821,7 +1821,7 @@
       "pubmed": "term=GATK+AND+Genome+AND+Analysis+AND+Toolkit",
       "scholar": "q=GATK+Genome+Analysis+Toolkit",
       "bioprotocol": "content=GATK%20Genome%20Analysis%20Toolkit",
-      "bioprotocol-exhange": "content=GATK%20Genome%20Analysis%20Toolkit"
+      "bioprotocol_exchange": "content=GATK%20Genome%20Analysis%20Toolkit"
     }
   },
   {
@@ -1874,7 +1874,7 @@
       "pubmed": "term=pdb+AND+file",
       "scholar": "q=pdb+file",
       "bioprotocol": "content=pdb%20file",
-      "bioprotocol-exhange": "content=pdb%20file"
+      "bioprotocol_exchange": "content=pdb%20file"
     }
   },
   {
@@ -1925,7 +1925,7 @@
       "pubmed": "term=gmap-gsnap",
       "scholar": "q=gmap-gsnap",
       "bioprotocol": "content=gmap-gsnap",
-      "bioprotocol-exhange": "content=gmap-gsnap"
+      "bioprotocol_exchange": "content=gmap-gsnap"
     }
   },
   {
@@ -1978,7 +1978,7 @@
       "pubmed": "term=\"goalign\"+AND+multiple+AND+alignments",
       "scholar": "q=\"goalign\"+multiple+alignments",
       "bioprotocol": "content=\"goalign\"%20multiple%20alignments",
-      "bioprotocol-exhange": "content=\"goalign\"%20multiple%20alignments"
+      "bioprotocol_exchange": "content=\"goalign\"%20multiple%20alignments"
     }
   },
   {
@@ -2030,7 +2030,7 @@
       "pubmed": "term=\"gotree\"+AND+phylogenetic+AND+trees",
       "scholar": "q=\"gotree\"+phylogenetic+trees",
       "bioprotocol": "content=\"gotree\"%20phylogenetic%20trees",
-      "bioprotocol-exhange": "content=\"gotree\"%20phylogenetic%20trees"
+      "bioprotocol_exchange": "content=\"gotree\"%20phylogenetic%20trees"
     }
   },
   {
@@ -2082,7 +2082,7 @@
       "pubmed": "term=graphviz",
       "scholar": "q=graphviz",
       "bioprotocol": "content=graphviz",
-      "bioprotocol-exhange": "content=graphviz"
+      "bioprotocol_exchange": "content=graphviz"
     }
   },
   {
@@ -2132,7 +2132,7 @@
       "pubmed": "term=haddock+AND+protein+AND+interaction",
       "scholar": "q=haddock+protein+interaction",
       "bioprotocol": "content=haddock%20protein%20interaction",
-      "bioprotocol-exhange": "content=haddock%20protein%20interaction"
+      "bioprotocol_exchange": "content=haddock%20protein%20interaction"
     }
   },
   {
@@ -2182,7 +2182,7 @@
       "pubmed": "term=haplogrep",
       "scholar": "q=haplogrep",
       "bioprotocol": "content=haplogrep",
-      "bioprotocol-exhange": "content=haplogrep"
+      "bioprotocol_exchange": "content=haplogrep"
     }
   },
   {
@@ -2233,7 +2233,7 @@
       "pubmed": "term=Human-Protein-Atlas+AND+Uniprot",
       "scholar": "q=Human-Protein-Atlas+Uniprot",
       "bioprotocol": "content=Human-Protein-Atlas%20Uniprot",
-      "bioprotocol-exhange": "content=Human-Protein-Atlas%20Uniprot"
+      "bioprotocol_exchange": "content=Human-Protein-Atlas%20Uniprot"
     }
   },
   {
@@ -2283,7 +2283,7 @@
       "pubmed": "term=hyphy+AND+phylogenies",
       "scholar": "q=hyphy+phylogenies",
       "bioprotocol": "content=hyphy%20phylogenies",
-      "bioprotocol-exhange": "content=hyphy%20phylogenies"
+      "bioprotocol_exchange": "content=hyphy%20phylogenies"
     }
   },
   {
@@ -2339,7 +2339,7 @@
       "pubmed": "term=Retrieve/ID-mapping+AND+uniprot",
       "scholar": "q=Retrieve/ID-mapping+uniprot",
       "bioprotocol": "content=Retrieve/ID-mapping%20uniprot",
-      "bioprotocol-exhange": "content=Retrieve/ID-mapping%20uniprot"
+      "bioprotocol_exchange": "content=Retrieve/ID-mapping%20uniprot"
     }
   },
   {
@@ -2387,7 +2387,7 @@
       "pubmed": "term=IGV+AND+Integrative+AND+Genomics+AND+Viewer",
       "scholar": "q=IGV+Integrative+Genomics+Viewer",
       "bioprotocol": "content=IGV%20Integrative%20Genomics%20Viewer",
-      "bioprotocol-exhange": "content=IGV%20Integrative%20Genomics%20Viewer"
+      "bioprotocol_exchange": "content=IGV%20Integrative%20Genomics%20Viewer"
     }
   },
   {
@@ -2439,7 +2439,7 @@
       "pubmed": "term=jmodeltest2",
       "scholar": "q=jmodeltest2",
       "bioprotocol": "content=jmodeltest2",
-      "bioprotocol-exhange": "content=jmodeltest2"
+      "bioprotocol_exchange": "content=jmodeltest2"
     }
   },
   {
@@ -2490,7 +2490,7 @@
       "pubmed": "term=kaks_calculator+AND+Zhang",
       "scholar": "q=kaks_calculator+Zhang",
       "bioprotocol": "content=kaks_calculator%20Zhang",
-      "bioprotocol-exhange": "content=kaks_calculator%20Zhang"
+      "bioprotocol_exchange": "content=kaks_calculator%20Zhang"
     }
   },
   {
@@ -2541,7 +2541,7 @@
       "pubmed": "term=\"Lineage+AND+sequence+AND+discovery\"",
       "scholar": "q=\"Lineage+sequence+discovery\"",
       "bioprotocol": "content=\"Lineage%20sequence%20discovery\"",
-      "bioprotocol-exhange": "content=\"Lineage%20sequence%20discovery\""
+      "bioprotocol_exchange": "content=\"Lineage%20sequence%20discovery\""
     }
   },
   {
@@ -2595,7 +2595,7 @@
       "pubmed": "term=mafft",
       "scholar": "q=mafft",
       "bioprotocol": "content=mafft",
-      "bioprotocol-exhange": "content=mafft"
+      "bioprotocol_exchange": "content=mafft"
     }
   },
   {
@@ -2646,7 +2646,7 @@
       "pubmed": "term=mauve+AND+alignment",
       "scholar": "q=mauve+alignment",
       "bioprotocol": "content=mauve%20alignment",
-      "bioprotocol-exhange": "content=mauve%20alignment"
+      "bioprotocol_exchange": "content=mauve%20alignment"
     }
   },
   {
@@ -2698,7 +2698,7 @@
       "pubmed": "term=maxbin2",
       "scholar": "q=maxbin2",
       "bioprotocol": "content=maxbin2",
-      "bioprotocol-exhange": "content=maxbin2"
+      "bioprotocol_exchange": "content=maxbin2"
     }
   },
   {
@@ -2744,7 +2744,7 @@
       "pubmed": "term=megax+AND+software",
       "scholar": "q=megax+software",
       "bioprotocol": "content=megax%20software",
-      "bioprotocol-exhange": "content=megax%20software"
+      "bioprotocol_exchange": "content=megax%20software"
     }
   },
   {
@@ -2793,7 +2793,7 @@
       "pubmed": "term=megax+AND+software",
       "scholar": "q=megax+software",
       "bioprotocol": "content=megax%20software",
-      "bioprotocol-exhange": "content=megax%20software"
+      "bioprotocol_exchange": "content=megax%20software"
     }
   },
   {
@@ -2845,7 +2845,7 @@
       "pubmed": "term=metaeuk",
       "scholar": "q=metaeuk",
       "bioprotocol": "content=metaeuk",
-      "bioprotocol-exhange": "content=metaeuk"
+      "bioprotocol_exchange": "content=metaeuk"
     }
   },
   {
@@ -2897,7 +2897,7 @@
       "pubmed": "term=mrbayes",
       "scholar": "q=mrbayes",
       "bioprotocol": "content=mrbayes",
-      "bioprotocol-exhange": "content=mrbayes"
+      "bioprotocol_exchange": "content=mrbayes"
     }
   },
   {
@@ -2945,7 +2945,7 @@
       "pubmed": "term=multiqc",
       "scholar": "q=multiqc",
       "bioprotocol": "content=multiqc",
-      "bioprotocol-exhange": "content=multiqc"
+      "bioprotocol_exchange": "content=multiqc"
     }
   },
   {
@@ -2995,7 +2995,7 @@
       "pubmed": "term=MUSCLE+AND+aligner+AND+edgar",
       "scholar": "q=MUSCLE+aligner+edgar",
       "bioprotocol": "content=MUSCLE%20aligner%20edgar",
-      "bioprotocol-exhange": "content=MUSCLE%20aligner%20edgar"
+      "bioprotocol_exchange": "content=MUSCLE%20aligner%20edgar"
     }
   },
   {
@@ -3043,7 +3043,7 @@
       "pubmed": "term=NCBI+AND+Datasets+AND+O'Leary+AND+Cox",
       "scholar": "q=NCBI+Datasets+O'Leary+Cox",
       "bioprotocol": "content=NCBI%20Datasets%20O'Leary%20Cox",
-      "bioprotocol-exhange": "content=NCBI%20Datasets%20O'Leary%20Cox"
+      "bioprotocol_exchange": "content=NCBI%20Datasets%20O'Leary%20Cox"
     }
   },
   {
@@ -3095,7 +3095,7 @@
       "pubmed": "term=ncbi",
       "scholar": "q=ncbi",
       "bioprotocol": "content=ncbi",
-      "bioprotocol-exhange": "content=ncbi"
+      "bioprotocol_exchange": "content=ncbi"
     }
   },
   {
@@ -3147,7 +3147,7 @@
       "pubmed": "term=newick+AND+utilities",
       "scholar": "q=newick+utilities",
       "bioprotocol": "content=newick%20utilities",
-      "bioprotocol-exhange": "content=newick%20utilities"
+      "bioprotocol_exchange": "content=newick%20utilities"
     }
   },
   {
@@ -3199,7 +3199,7 @@
       "pubmed": "term=omegamap+AND+positive+AND+selection",
       "scholar": "q=omegamap+positive+selection",
       "bioprotocol": "content=omegamap%20positive%20selection",
-      "bioprotocol-exhange": "content=omegamap%20positive%20selection"
+      "bioprotocol_exchange": "content=omegamap%20positive%20selection"
     }
   },
   {
@@ -3252,7 +3252,7 @@
       "pubmed": "term=paml+AND+phylogenetic",
       "scholar": "q=paml+phylogenetic",
       "bioprotocol": "content=paml%20phylogenetic",
-      "bioprotocol-exhange": "content=paml%20phylogenetic"
+      "bioprotocol_exchange": "content=paml%20phylogenetic"
     }
   },
   {
@@ -3298,7 +3298,7 @@
       "pubmed": "term=pathvisio",
       "scholar": "q=pathvisio",
       "bioprotocol": "content=pathvisio",
-      "bioprotocol-exhange": "content=pathvisio"
+      "bioprotocol_exchange": "content=pathvisio"
     }
   },
   {
@@ -3347,7 +3347,7 @@
       "pubmed": "term=pdb+AND+file",
       "scholar": "q=pdb+file",
       "bioprotocol": "content=pdb%20file",
-      "bioprotocol-exhange": "content=pdb%20file"
+      "bioprotocol_exchange": "content=pdb%20file"
     }
   },
   {
@@ -3399,7 +3399,7 @@
       "pubmed": "term=phipack+AND+recombination",
       "scholar": "q=phipack+recombination",
       "bioprotocol": "content=phipack%20recombination",
-      "bioprotocol-exhange": "content=phipack%20recombination"
+      "bioprotocol_exchange": "content=phipack%20recombination"
     }
   },
   {
@@ -3458,7 +3458,7 @@
       "pubmed": "term=PTC+AND+Phylogenetic-Tree-Collapser+AND+docker",
       "scholar": "q=PTC+Phylogenetic-Tree-Collapser+docker",
       "bioprotocol": "content=PTC%20Phylogenetic-Tree-Collapser%20docker",
-      "bioprotocol-exhange": "content=PTC%20Phylogenetic-Tree-Collapser%20docker"
+      "bioprotocol_exchange": "content=PTC%20Phylogenetic-Tree-Collapser%20docker"
     }
   },
   {
@@ -3511,7 +3511,7 @@
       "pubmed": "term=picard+AND+broadinstitute",
       "scholar": "q=picard+broadinstitute",
       "bioprotocol": "content=picard%20broadinstitute",
-      "bioprotocol-exhange": "content=picard%20broadinstitute"
+      "bioprotocol_exchange": "content=picard%20broadinstitute"
     }
   },
   {
@@ -3560,7 +3560,7 @@
       "pubmed": "term=PI-LzeRD",
       "scholar": "q=PI-LzeRD",
       "bioprotocol": "content=PI-LzeRD",
-      "bioprotocol-exhange": "content=PI-LzeRD"
+      "bioprotocol_exchange": "content=PI-LzeRD"
     }
   },
   {
@@ -3612,7 +3612,7 @@
       "pubmed": "term=plasflow",
       "scholar": "q=plasflow",
       "bioprotocol": "content=plasflow",
-      "bioprotocol-exhange": "content=plasflow"
+      "bioprotocol_exchange": "content=plasflow"
     }
   },
   {
@@ -3664,7 +3664,7 @@
       "pubmed": "term=\"plottree\"",
       "scholar": "q=\"plottree\"",
       "bioprotocol": "content=\"plottree\"",
-      "bioprotocol-exhange": "content=\"plottree\""
+      "bioprotocol_exchange": "content=\"plottree\""
     }
   },
   {
@@ -3710,7 +3710,7 @@
       "pubmed": "term=PopART+AND+Population+AND+Analysis+AND+with+AND+Reticulate+AND+Trees",
       "scholar": "q=PopART+Population+Analysis+with+Reticulate+Trees",
       "bioprotocol": "content=PopART%20Population%20Analysis%20with%20Reticulate%20Trees",
-      "bioprotocol-exhange": "content=PopART%20Population%20Analysis%20with%20Reticulate%20Trees"
+      "bioprotocol_exchange": "content=PopART%20Population%20Analysis%20with%20Reticulate%20Trees"
     }
   },
   {
@@ -3762,7 +3762,7 @@
       "pubmed": "term=probcons",
       "scholar": "q=probcons",
       "bioprotocol": "content=probcons",
-      "bioprotocol-exhange": "content=probcons"
+      "bioprotocol_exchange": "content=probcons"
     }
   },
   {
@@ -3814,7 +3814,7 @@
       "pubmed": "term=probcons",
       "scholar": "q=probcons",
       "bioprotocol": "content=probcons",
-      "bioprotocol-exhange": "content=probcons"
+      "bioprotocol_exchange": "content=probcons"
     }
   },
   {
@@ -3865,7 +3865,7 @@
       "pubmed": "term=prokka",
       "scholar": "q=prokka",
       "bioprotocol": "content=prokka",
-      "bioprotocol-exhange": "content=prokka"
+      "bioprotocol_exchange": "content=prokka"
     }
   },
   {
@@ -3915,7 +3915,7 @@
       "pubmed": "term=pdb+AND+file",
       "scholar": "q=pdb+file",
       "bioprotocol": "content=pdb%20file",
-      "bioprotocol-exhange": "content=pdb%20file"
+      "bioprotocol_exchange": "content=pdb%20file"
     }
   },
   {
@@ -3964,7 +3964,7 @@
       "pubmed": "term=pycision",
       "scholar": "q=pycision",
       "bioprotocol": "content=pycision",
-      "bioprotocol-exhange": "content=pycision"
+      "bioprotocol_exchange": "content=pycision"
     }
   },
   {
@@ -4012,7 +4012,7 @@
       "pubmed": "term=pymol",
       "scholar": "q=pymol",
       "bioprotocol": "content=pymol",
-      "bioprotocol-exhange": "content=pymol"
+      "bioprotocol_exchange": "content=pymol"
     }
   },
   {
@@ -4066,7 +4066,7 @@
       "pubmed": "term=\"qualimap\"",
       "scholar": "q=\"qualimap\"",
       "bioprotocol": "content=\"qualimap\"",
-      "bioprotocol-exhange": "content=\"qualimap\""
+      "bioprotocol_exchange": "content=\"qualimap\""
     }
   },
   {
@@ -4118,7 +4118,7 @@
       "pubmed": "term=r+AND+programming+AND+language",
       "scholar": "q=r+programming+language",
       "bioprotocol": "content=r%20programming%20language",
-      "bioprotocol-exhange": "content=r%20programming%20language"
+      "bioprotocol_exchange": "content=r%20programming%20language"
     }
   },
   {
@@ -4174,7 +4174,7 @@
       "pubmed": "term=DESEQ2",
       "scholar": "q=DESEQ2",
       "bioprotocol": "content=DESEQ2",
-      "bioprotocol-exhange": "content=DESEQ2"
+      "bioprotocol_exchange": "content=DESEQ2"
     }
   },
   {
@@ -4228,7 +4228,7 @@
       "pubmed": "term=edgeR+AND+Robinson",
       "scholar": "q=edgeR+Robinson",
       "bioprotocol": "content=edgeR%20Robinson",
-      "bioprotocol-exhange": "content=edgeR%20Robinson"
+      "bioprotocol_exchange": "content=edgeR%20Robinson"
     }
   },
   {
@@ -4278,7 +4278,7 @@
       "pubmed": "term=\"EnhancedVolcano\"",
       "scholar": "q=\"EnhancedVolcano\"",
       "bioprotocol": "content=\"EnhancedVolcano\"",
-      "bioprotocol-exhange": "content=\"EnhancedVolcano\""
+      "bioprotocol_exchange": "content=\"EnhancedVolcano\""
     }
   },
   {
@@ -4331,7 +4331,7 @@
       "pubmed": "term=r+AND+programming+AND+language",
       "scholar": "q=r+programming+language",
       "bioprotocol": "content=r%20programming%20language",
-      "bioprotocol-exhange": "content=r%20programming%20language"
+      "bioprotocol_exchange": "content=r%20programming%20language"
     }
   },
   {
@@ -4383,7 +4383,7 @@
       "pubmed": "term=\"VennDiagram\"",
       "scholar": "q=\"VennDiagram\"",
       "bioprotocol": "content=\"VennDiagram\"",
-      "bioprotocol-exhange": "content=\"VennDiagram\""
+      "bioprotocol_exchange": "content=\"VennDiagram\""
     }
   },
   {
@@ -4435,7 +4435,7 @@
       "pubmed": "term=raxml",
       "scholar": "q=raxml",
       "bioprotocol": "content=raxml",
-      "bioprotocol-exhange": "content=raxml"
+      "bioprotocol_exchange": "content=raxml"
     }
   },
   {
@@ -4488,7 +4488,7 @@
       "pubmed": "term=RDP+AND+recombination+AND+detection+AND+program",
       "scholar": "q=RDP+recombination+detection+program",
       "bioprotocol": "content=RDP%20recombination%20detection%20program",
-      "bioprotocol-exhange": "content=RDP%20recombination%20detection%20program"
+      "bioprotocol_exchange": "content=RDP%20recombination%20detection%20program"
     }
   },
   {
@@ -4538,7 +4538,7 @@
       "pubmed": "term=RepeatMasker",
       "scholar": "q=RepeatMasker",
       "bioprotocol": "content=RepeatMasker",
-      "bioprotocol-exhange": "content=RepeatMasker"
+      "bioprotocol_exchange": "content=RepeatMasker"
     }
   },
   {
@@ -4588,7 +4588,7 @@
       "pubmed": "term=roary+AND+software",
       "scholar": "q=roary+software",
       "bioprotocol": "content=roary%20software",
-      "bioprotocol-exhange": "content=roary%20software"
+      "bioprotocol_exchange": "content=roary%20software"
     }
   },
   {
@@ -4640,7 +4640,7 @@
       "pubmed": "term=root-digger+AND+phylogenetic+AND+trees",
       "scholar": "q=root-digger+phylogenetic+trees",
       "bioprotocol": "content=root-digger%20phylogenetic%20trees",
-      "bioprotocol-exhange": "content=root-digger%20phylogenetic%20trees"
+      "bioprotocol_exchange": "content=root-digger%20phylogenetic%20trees"
     }
   },
   {
@@ -4691,7 +4691,7 @@
       "pubmed": "term=\"RtN!\"+AND+\"NUMT\"+AND+removal+AND+tool",
       "scholar": "q=\"RtN!\"+\"NUMT\"+removal+tool",
       "bioprotocol": "content=\"RtN!\"%20\"NUMT\"%20removal%20tool",
-      "bioprotocol-exhange": "content=\"RtN!\"%20\"NUMT\"%20removal%20tool"
+      "bioprotocol_exchange": "content=\"RtN!\"%20\"NUMT\"%20removal%20tool"
     }
   },
   {
@@ -4747,7 +4747,7 @@
       "pubmed": "term=samtools+AND+bcftools",
       "scholar": "q=samtools+bcftools",
       "bioprotocol": "content=samtools%20bcftools",
-      "bioprotocol-exhange": "content=samtools%20bcftools"
+      "bioprotocol_exchange": "content=samtools%20bcftools"
     }
   },
   {
@@ -4802,7 +4802,7 @@
       "pubmed": "term=\"sapp\"+AND+Semantic+AND+genome+AND+Annotation+AND+Platform+AND+with+AND+Provenance",
       "scholar": "q=\"sapp\"+Semantic+genome+Annotation+Platform+with+Provenance",
       "bioprotocol": "content=\"sapp\"%20Semantic%20genome%20Annotation%20Platform%20with%20Provenance",
-      "bioprotocol-exhange": "content=\"sapp\"%20Semantic%20genome%20Annotation%20Platform%20with%20Provenance"
+      "bioprotocol_exchange": "content=\"sapp\"%20Semantic%20genome%20Annotation%20Platform%20with%20Provenance"
     }
   },
   {
@@ -4853,7 +4853,7 @@
       "pubmed": "term=scipio+AND+gene+AND+annotation",
       "scholar": "q=scipio+gene+annotation",
       "bioprotocol": "content=scipio%20gene%20annotation",
-      "bioprotocol-exhange": "content=scipio%20gene%20annotation"
+      "bioprotocol_exchange": "content=scipio%20gene%20annotation"
     }
   },
   {
@@ -4929,7 +4929,7 @@
       "pubmed": "term=seda+AND+SEquence+AND+DAtaset+AND+builder",
       "scholar": "q=seda+SEquence+DAtaset+builder",
       "bioprotocol": "content=seda%20SEquence%20DAtaset%20builder",
-      "bioprotocol-exhange": "content=seda%20SEquence%20DAtaset%20builder"
+      "bioprotocol_exchange": "content=seda%20SEquence%20DAtaset%20builder"
     }
   },
   {
@@ -4988,7 +4988,7 @@
       "pubmed": "term=\"seqkit\"",
       "scholar": "q=\"seqkit\"",
       "bioprotocol": "content=\"seqkit\"",
-      "bioprotocol-exhange": "content=\"seqkit\""
+      "bioprotocol_exchange": "content=\"seqkit\""
     }
   },
   {
@@ -5039,7 +5039,7 @@
       "pubmed": "term=seqtk",
       "scholar": "q=seqtk",
       "bioprotocol": "content=seqtk",
-      "bioprotocol-exhange": "content=seqtk"
+      "bioprotocol_exchange": "content=seqtk"
     }
   },
   {
@@ -5089,7 +5089,7 @@
       "pubmed": "term=soapdenovo2",
       "scholar": "q=soapdenovo2",
       "bioprotocol": "content=soapdenovo2",
-      "bioprotocol-exhange": "content=soapdenovo2"
+      "bioprotocol_exchange": "content=soapdenovo2"
     }
   },
   {
@@ -5140,7 +5140,7 @@
       "pubmed": "term=SPAdes+AND+assembler",
       "scholar": "q=SPAdes+assembler",
       "bioprotocol": "content=SPAdes%20assembler",
-      "bioprotocol-exhange": "content=SPAdes%20assembler"
+      "bioprotocol_exchange": "content=SPAdes%20assembler"
     }
   },
   {
@@ -5194,7 +5194,7 @@
       "pubmed": "term=splitstree",
       "scholar": "q=splitstree",
       "bioprotocol": "content=splitstree",
-      "bioprotocol-exhange": "content=splitstree"
+      "bioprotocol_exchange": "content=splitstree"
     }
   },
   {
@@ -5253,7 +5253,7 @@
       "pubmed": "term=sratoolkit",
       "scholar": "q=sratoolkit",
       "bioprotocol": "content=sratoolkit",
-      "bioprotocol-exhange": "content=sratoolkit"
+      "bioprotocol_exchange": "content=sratoolkit"
     }
   },
   {
@@ -5304,7 +5304,7 @@
       "pubmed": "term=TakeABreak+AND+genomic+AND+inversions",
       "scholar": "q=TakeABreak+genomic+inversions",
       "bioprotocol": "content=TakeABreak%20genomic%20inversions",
-      "bioprotocol-exhange": "content=TakeABreak%20genomic%20inversions"
+      "bioprotocol_exchange": "content=TakeABreak%20genomic%20inversions"
     }
   },
   {
@@ -5360,7 +5360,7 @@
       "pubmed": "term=t-coffee+AND+aligner",
       "scholar": "q=t-coffee+aligner",
       "bioprotocol": "content=t-coffee%20aligner",
-      "bioprotocol-exhange": "content=t-coffee%20aligner"
+      "bioprotocol_exchange": "content=t-coffee%20aligner"
     }
   },
   {
@@ -5413,7 +5413,7 @@
       "pubmed": "term=\"translatorx\"",
       "scholar": "q=\"translatorx\"",
       "bioprotocol": "content=\"translatorx\"",
-      "bioprotocol-exhange": "content=\"translatorx\""
+      "bioprotocol_exchange": "content=\"translatorx\""
     }
   },
   {
@@ -5459,7 +5459,7 @@
       "pubmed": "term=TreeSnatcher-Plus",
       "scholar": "q=TreeSnatcher-Plus",
       "bioprotocol": "content=TreeSnatcher-Plus",
-      "bioprotocol-exhange": "content=TreeSnatcher-Plus"
+      "bioprotocol_exchange": "content=TreeSnatcher-Plus"
     }
   },
   {
@@ -5505,7 +5505,7 @@
       "pubmed": "term=\"treeview+AND+x\"",
       "scholar": "q=\"treeview+x\"",
       "bioprotocol": "content=\"treeview%20x\"",
-      "bioprotocol-exhange": "content=\"treeview%20x\""
+      "bioprotocol_exchange": "content=\"treeview%20x\""
     }
   },
   {
@@ -5555,7 +5555,7 @@
       "pubmed": "term=trimmomatic",
       "scholar": "q=trimmomatic",
       "bioprotocol": "content=trimmomatic",
-      "bioprotocol-exhange": "content=trimmomatic"
+      "bioprotocol_exchange": "content=trimmomatic"
     }
   },
   {
@@ -5605,7 +5605,7 @@
       "pubmed": "term=vcftools",
       "scholar": "q=vcftools",
       "bioprotocol": "content=vcftools",
-      "bioprotocol-exhange": "content=vcftools"
+      "bioprotocol_exchange": "content=vcftools"
     }
   },
   {
@@ -5656,7 +5656,7 @@
       "pubmed": "term=velvet+AND+Zerbino",
       "scholar": "q=velvet+Zerbino",
       "bioprotocol": "content=velvet%20Zerbino",
-      "bioprotocol-exhange": "content=velvet%20Zerbino"
+      "bioprotocol_exchange": "content=velvet%20Zerbino"
     }
   },
   {
@@ -5706,7 +5706,7 @@
       "pubmed": "term=wgsim",
       "scholar": "q=wgsim",
       "bioprotocol": "content=wgsim",
-      "bioprotocol-exhange": "content=wgsim"
+      "bioprotocol_exchange": "content=wgsim"
     }
   },
   {
@@ -5849,7 +5849,7 @@
       "pubmed": "term=evoppi",
       "scholar": "q=evoppi",
       "bioprotocol": "content=evoppi",
-      "bioprotocol-exhange": "content=evoppi"
+      "bioprotocol_exchange": "content=evoppi"
     }
   },
   {
@@ -5899,7 +5899,7 @@
       "pubmed": "term=haddock+AND+protein+AND+interaction",
       "scholar": "q=haddock+protein+interaction",
       "bioprotocol": "content=haddock%20protein%20interaction",
-      "bioprotocol-exhange": "content=haddock%20protein%20interaction"
+      "bioprotocol_exchange": "content=haddock%20protein%20interaction"
     }
   },
   {
@@ -5949,7 +5949,7 @@
       "pubmed": "term=I-TASSER+AND+structure",
       "scholar": "q=I-TASSER+structure",
       "bioprotocol": "content=I-TASSER%20structure",
-      "bioprotocol-exhange": "content=I-TASSER%20structure"
+      "bioprotocol_exchange": "content=I-TASSER%20structure"
     }
   },
   {
@@ -5997,7 +5997,7 @@
       "pubmed": "term=PDBePISA",
       "scholar": "q=PDBePISA",
       "bioprotocol": "content=PDBePISA",
-      "bioprotocol-exhange": "content=PDBePISA"
+      "bioprotocol_exchange": "content=PDBePISA"
     }
   },
   {
@@ -6046,7 +6046,7 @@
       "pubmed": "term=\"sppider\"+AND+protein-protein+AND+interface",
       "scholar": "q=\"sppider\"+protein-protein+interface",
       "bioprotocol": "content=\"sppider\"%20protein-protein%20interface",
-      "bioprotocol-exhange": "content=\"sppider\"%20protein-protein%20interface"
+      "bioprotocol_exchange": "content=\"sppider\"%20protein-protein%20interface"
     }
   },
   {
@@ -6097,7 +6097,7 @@
       "pubmed": "term=tm-align+AND+zhang+AND+Skolnick",
       "scholar": "q=tm-align+zhang+Skolnick",
       "bioprotocol": "content=tm-align%20zhang%20Skolnick",
-      "bioprotocol-exhange": "content=tm-align%20zhang%20Skolnick"
+      "bioprotocol_exchange": "content=tm-align%20zhang%20Skolnick"
     }
   },
   {
@@ -6154,7 +6154,7 @@
       "pubmed": "term=Auto-phylo+AND+pipeline+AND+maker",
       "scholar": "q=Auto-phylo+pipeline+maker",
       "bioprotocol": "content=Auto-phylo%20pipeline%20maker",
-      "bioprotocol-exhange": "content=Auto-phylo%20pipeline%20maker"
+      "bioprotocol_exchange": "content=Auto-phylo%20pipeline%20maker"
     }
   },
   {
@@ -6205,7 +6205,7 @@
       "pubmed": "term=Auto-phylo+AND+pipeline+AND+maker",
       "scholar": "q=Auto-phylo+pipeline+maker",
       "bioprotocol": "content=Auto-phylo%20pipeline%20maker",
-      "bioprotocol-exhange": "content=Auto-phylo%20pipeline%20maker"
+      "bioprotocol_exchange": "content=Auto-phylo%20pipeline%20maker"
     }
   },
   {
@@ -6255,7 +6255,7 @@
       "pubmed": "term=DIB+AND+Drosophila+AND+Inversion+AND+Breakpoints",
       "scholar": "q=DIB+Drosophila+Inversion+Breakpoints",
       "bioprotocol": "content=DIB%20Drosophila%20Inversion%20Breakpoints",
-      "bioprotocol-exhange": "content=DIB%20Drosophila%20Inversion%20Breakpoints"
+      "bioprotocol_exchange": "content=DIB%20Drosophila%20Inversion%20Breakpoints"
     }
   },
   {
@@ -6304,7 +6304,7 @@
       "pubmed": "term=gbif+AND+database",
       "scholar": "q=gbif+database",
       "bioprotocol": "content=gbif%20database",
-      "bioprotocol-exhange": "content=gbif%20database"
+      "bioprotocol_exchange": "content=gbif%20database"
     }
   },
   {
@@ -6352,7 +6352,7 @@
       "pubmed": "term=GIS+AND+Geographic+AND+Information+AND+System",
       "scholar": "q=GIS+Geographic+Information+System",
       "bioprotocol": "content=GIS%20Geographic%20Information%20System",
-      "bioprotocol-exhange": "content=GIS%20Geographic%20Information%20System"
+      "bioprotocol_exchange": "content=GIS%20Geographic%20Information%20System"
     }
   },
   {
@@ -6400,7 +6400,7 @@
       "pubmed": "term=next-generation+AND+sequencing",
       "scholar": "q=next-generation+sequencing",
       "bioprotocol": "content=next-generation%20sequencing",
-      "bioprotocol-exhange": "content=next-generation%20sequencing"
+      "bioprotocol_exchange": "content=next-generation%20sequencing"
     }
   },
   {
@@ -6453,7 +6453,7 @@
       "pubmed": "term=prosplign+AND+procompart",
       "scholar": "q=prosplign+procompart",
       "bioprotocol": "content=prosplign%20procompart",
-      "bioprotocol-exhange": "content=prosplign%20procompart"
+      "bioprotocol_exchange": "content=prosplign%20procompart"
     }
   },
   {
@@ -6509,7 +6509,7 @@
       "pubmed": "term=Splign+AND+NCBI",
       "scholar": "q=Splign+NCBI",
       "bioprotocol": "content=Splign%20NCBI",
-      "bioprotocol-exhange": "content=Splign%20NCBI"
+      "bioprotocol_exchange": "content=Splign%20NCBI"
     }
   },
   {
@@ -6558,7 +6558,7 @@
       "pubmed": "term=TaxoDros",
       "scholar": "q=TaxoDros",
       "bioprotocol": "content=TaxoDros",
-      "bioprotocol-exhange": "content=TaxoDros"
+      "bioprotocol_exchange": "content=TaxoDros"
     }
   },
   {
@@ -6615,7 +6615,7 @@
       "pubmed": "term=auto-pss-genome",
       "scholar": "q=auto-pss-genome",
       "bioprotocol": "content=auto-pss-genome",
-      "bioprotocol-exhange": "content=auto-pss-genome"
+      "bioprotocol_exchange": "content=auto-pss-genome"
     }
   },
   {
@@ -6665,7 +6665,7 @@
       "pubmed": "term=\"CGA\"+AND+\"(Conserved+AND+Genome+AND+Annotation)\"+AND+pipeline+AND+docker",
       "scholar": "q=\"CGA\"+\"(Conserved+Genome+Annotation)\"+pipeline+docker",
       "bioprotocol": "content=\"CGA\"%20\"(Conserved%20Genome%20Annotation)\"%20pipeline%20docker",
-      "bioprotocol-exhange": "content=\"CGA\"%20\"(Conserved%20Genome%20Annotation)\"%20pipeline%20docker"
+      "bioprotocol_exchange": "content=\"CGA\"%20\"(Conserved%20Genome%20Annotation)\"%20pipeline%20docker"
     }
   },
   {
@@ -6718,7 +6718,7 @@
       "pubmed": "term=\"checkcds\"+AND+pipeline",
       "scholar": "q=\"checkcds\"+pipeline",
       "bioprotocol": "content=\"checkcds\"%20pipeline",
-      "bioprotocol-exhange": "content=\"checkcds\"%20pipeline"
+      "bioprotocol_exchange": "content=\"checkcds\"%20pipeline"
     }
   },
   {
@@ -6773,7 +6773,7 @@
       "pubmed": "term=ipssa+AND+pss+AND+pipeline",
       "scholar": "q=ipssa+pss+pipeline",
       "bioprotocol": "content=ipssa%20pss%20pipeline",
-      "bioprotocol-exhange": "content=ipssa%20pss%20pipeline"
+      "bioprotocol_exchange": "content=ipssa%20pss%20pipeline"
     }
   },
   {
@@ -6830,7 +6830,7 @@
       "pubmed": "term=\"FastScreen\"+AND+positive-selection",
       "scholar": "q=\"FastScreen\"+positive-selection",
       "bioprotocol": "content=\"FastScreen\"%20positive-selection",
-      "bioprotocol-exhange": "content=\"FastScreen\"%20positive-selection"
+      "bioprotocol_exchange": "content=\"FastScreen\"%20positive-selection"
     }
   },
   {
@@ -6885,7 +6885,7 @@
       "pubmed": "term=\"GenomeFastScreen\"",
       "scholar": "q=\"GenomeFastScreen\"",
       "bioprotocol": "content=\"GenomeFastScreen\"",
-      "bioprotocol-exhange": "content=\"GenomeFastScreen\""
+      "bioprotocol_exchange": "content=\"GenomeFastScreen\""
     }
   },
   {
@@ -6940,7 +6940,7 @@
       "pubmed": "term=\"two-way+AND+blast\"",
       "scholar": "q=\"two-way+blast\"",
       "bioprotocol": "content=\"two-way%20blast\"",
-      "bioprotocol-exhange": "content=\"two-way%20blast\""
+      "bioprotocol_exchange": "content=\"two-way%20blast\""
     }
   },
   {
@@ -6993,7 +6993,7 @@
       "pubmed": "term=haddock+AND+protein+AND+interaction",
       "scholar": "q=haddock+protein+interaction",
       "bioprotocol": "content=haddock%20protein%20interaction",
-      "bioprotocol-exhange": "content=haddock%20protein%20interaction"
+      "bioprotocol_exchange": "content=haddock%20protein%20interaction"
     }
   },
   {
@@ -7044,7 +7044,7 @@
       "pubmed": "term=hdock",
       "scholar": "q=hdock",
       "bioprotocol": "content=hdock",
-      "bioprotocol-exhange": "content=hdock"
+      "bioprotocol_exchange": "content=hdock"
     }
   },
   {
@@ -7092,7 +7092,7 @@
       "pubmed": "term=pydock3",
       "scholar": "q=pydock3",
       "bioprotocol": "content=pydock3",
-      "bioprotocol-exhange": "content=pydock3"
+      "bioprotocol_exchange": "content=pydock3"
     }
   },
   {
@@ -7143,7 +7143,7 @@
       "pubmed": "term=trinity+and+de+and+novo+and+assembler",
       "scholar": "q=trinity+de+novo+assembler",
       "bioprotocol": "content=trinity%20de%20novo%20assembler",
-      "bioprotocol-exhange": "content=trinity%20de%20novo%20assembler"
+      "bioprotocol_exchange": "content=trinity%20de%20novo%20assembler"
     }
   },
   {
@@ -7191,7 +7191,7 @@
       "pubmed": "term=biopython",
       "scholar": "q=biopython",
       "bioprotocol": "content=biopython",
-      "bioprotocol-exhange": "content=biopython"
+      "bioprotocol_exchange": "content=biopython"
     }
   },
   {
@@ -7244,7 +7244,7 @@
       "pubmed": "term=docker-image",
       "scholar": "q=docker-image",
       "bioprotocol": "content=docker-image",
-      "bioprotocol-exhange": "content=docker-image"
+      "bioprotocol_exchange": "content=docker-image"
     }
   },
   {
@@ -7292,7 +7292,7 @@
       "pubmed": "term=\"formfind\"+AND+Stenberg",
       "scholar": "q=\"formfind\"+Stenberg",
       "bioprotocol": "content=\"formfind\"%20Stenberg",
-      "bioprotocol-exhange": "content=\"formfind\"%20Stenberg"
+      "bioprotocol_exchange": "content=\"formfind\"%20Stenberg"
     }
   },
   {
@@ -7345,7 +7345,7 @@
       "pubmed": "term=r+AND+programming+AND+language",
       "scholar": "q=r+programming+language",
       "bioprotocol": "content=r%20programming%20language",
-      "bioprotocol-exhange": "content=r%20programming%20language"
+      "bioprotocol_exchange": "content=r%20programming%20language"
     }
   },
   {
@@ -7396,7 +7396,7 @@
       "pubmed": "term=docker-image",
       "scholar": "q=docker-image",
       "bioprotocol": "content=docker-image",
-      "bioprotocol-exhange": "content=docker-image"
+      "bioprotocol_exchange": "content=docker-image"
     }
   },
   {
@@ -7448,7 +7448,7 @@
       "pubmed": "term=biopython",
       "scholar": "q=biopython",
       "bioprotocol": "content=biopython",
-      "bioprotocol-exhange": "content=biopython"
+      "bioprotocol_exchange": "content=biopython"
     }
   },
   {
@@ -7502,7 +7502,7 @@
       "pubmed": "term=blast+AND+alignment",
       "scholar": "q=blast+alignment",
       "bioprotocol": "content=blast%20alignment",
-      "bioprotocol-exhange": "content=blast%20alignment"
+      "bioprotocol_exchange": "content=blast%20alignment"
     }
   },
   {
@@ -7554,7 +7554,7 @@
       "pubmed": "term=GFF3+AND+file",
       "scholar": "q=GFF3+file",
       "bioprotocol": "content=GFF3%20file",
-      "bioprotocol-exhange": "content=GFF3%20file"
+      "bioprotocol_exchange": "content=GFF3%20file"
     }
   },
   {
@@ -7613,7 +7613,7 @@
       "pubmed": "term=",
       "scholar": "q=",
       "bioprotocol": "content=",
-      "bioprotocol-exhange": "content="
+      "bioprotocol_exchange": "content="
     }
   },
   {
@@ -7669,7 +7669,7 @@
       "pubmed": "term=orthologous+AND+genes",
       "scholar": "q=orthologous+genes",
       "bioprotocol": "content=orthologous%20genes",
-      "bioprotocol-exhange": "content=orthologous%20genes"
+      "bioprotocol_exchange": "content=orthologous%20genes"
     }
   },
   {
@@ -7715,7 +7715,7 @@
       "pubmed": "term=\"values2tree\"",
       "scholar": "q=\"values2tree\"",
       "bioprotocol": "content=\"values2tree\"",
-      "bioprotocol-exhange": "content=\"values2tree\""
+      "bioprotocol_exchange": "content=\"values2tree\""
     }
   },
   {
@@ -7761,7 +7761,7 @@
       "pubmed": "term=auto-p2docking",
       "scholar": "q=auto-p2docking",
       "bioprotocol": "content=auto-p2docking",
-      "bioprotocol-exhange": "content=auto-p2docking"
+      "bioprotocol_exchange": "content=auto-p2docking"
     }
   },
   {
@@ -7830,7 +7830,7 @@
       "pubmed": "term=r+AND+programming+AND+language",
       "scholar": "q=r+programming+language",
       "bioprotocol": "content=r%20programming%20language",
-      "bioprotocol-exhange": "content=r%20programming%20language"
+      "bioprotocol_exchange": "content=r%20programming%20language"
     }
   },
   {
@@ -7880,7 +7880,7 @@
       "pubmed": "term=sva+AND+Surrogate+AND+Variable+AND+Analysis",
       "scholar": "q=sva+Surrogate+Variable+Analysis",
       "bioprotocol": "content=sva%20Surrogate%20Variable%20Analysis",
-      "bioprotocol-exhange": "content=sva%20Surrogate%20Variable%20Analysis"
+      "bioprotocol_exchange": "content=sva%20Surrogate%20Variable%20Analysis"
     }
   },
   {
@@ -7938,7 +7938,7 @@
       "pubmed": "term=htseq",
       "scholar": "q=htseq",
       "bioprotocol": "content=htseq",
-      "bioprotocol-exhange": "content=htseq"
+      "bioprotocol_exchange": "content=htseq"
     }
   },
   {
@@ -8129,7 +8129,7 @@
       "pubmed": "term=hisat2",
       "scholar": "q=hisat2",
       "bioprotocol": "content=hisat2",
-      "bioprotocol-exhange": "content=hisat2"
+      "bioprotocol_exchange": "content=hisat2"
     }
   },
   {
@@ -8177,7 +8177,7 @@
       "pubmed": "term=tagada+AND+RNA-Seq",
       "scholar": "q=tagada+RNA-Seq",
       "bioprotocol": "content=tagada%20RNA-Seq",
-      "bioprotocol-exhange": "content=tagada%20RNA-Seq"
+      "bioprotocol_exchange": "content=tagada%20RNA-Seq"
     }
   },
   {
@@ -8229,7 +8229,7 @@
       "pubmed": "term=cd-hit+AND+weizhongli",
       "scholar": "q=cd-hit+weizhongli",
       "bioprotocol": "content=cd-hit%20weizhongli",
-      "bioprotocol-exhange": "content=cd-hit%20weizhongli"
+      "bioprotocol_exchange": "content=cd-hit%20weizhongli"
     }
   }
 ]
