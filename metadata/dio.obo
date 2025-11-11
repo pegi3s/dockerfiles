@@ -5,6 +5,7 @@ ontology: http://www.semanticweb.org/root/ontologies/2024/1/pegi3s
 id: DIO:0000001
 name: Sequences
 def: "Any program that accepts as input nucleotide, protein or short read sequences"
+is_a: DIO:0000069
 
 [Term]
 id: DIO:0000002
@@ -226,6 +227,7 @@ is_a: DIO:0000030
 id: DIO:0000038
 name: Structures
 def: "Any program that uses structures (PDB files) as input"
+is_a: DIO:0000069
 
 [Term]
 id: DIO:0000039
@@ -284,16 +286,19 @@ def: "Any program that can be used to retrieve data from databases"
 id: DIO:0000048
 name: Species
 def: "Any program that uses species information as input"
+is_a: DIO:0000069
 
 [Term]
 id: DIO:0000049
 name: Images
 def: "Any program that can be used to handle images"
+is_a: DIO:0000069
 
 [Term]
 id: DIO:0000050
 name: Values
 def: "Any program that can be used to accept as input values"
+is_a: DIO:0000069
 
 [Term]
 id: DIO:0000051
@@ -399,4 +404,9 @@ id: DIO:0000068
 name: Protein_docking
 def: "Pipelines for protein docking"
 is_a: DIO:0000063
+
+[Term]
+id: DIO:0000069
+name: Data_type
+def: "Select applications according to data type"
 
