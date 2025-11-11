@@ -394,3 +394,9 @@ name: Transcriptomics
 def: "Pipelines aimed at performing transcriptomic analyses"
 is_a: DIO:0000063
 
+[Term]
+id: DIO:0000068
+name: Protein_docking
+def: "Pipelines for protein docking"
+is_a: DIO:0000063
+
