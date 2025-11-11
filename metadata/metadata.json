@@ -1283,8 +1283,8 @@
       "'epost' and 'efech' can be changed to the names of the Entrez Direct commands you want to use."
     ],
     "test_invocation_specific": " bash -c \"epost -db nuccore -format uid - input /data/test/data/2_nucleotide_accessions.txt| efetch -format fasta > /data/test/results/entrez_direct_test.fasta\"",
-    "test_data_url": "",
-    "test_results_url": "",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/accessions",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/entrez-direct_output.zip",
     "icon": "",
     "input_data_type": [
       "txt"
@@ -2772,8 +2772,8 @@
     "usual_invocation_specific": " megacc -a /data/maoFile -d /data/meg_seq_alignFile -o /data/output",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
-    "test_data_url": "",
-    "test_results_url": "",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/mega_cc.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/mega_cc_output.zip",
     "icon": "https://www.megasoftware.net/web_help_11/template/Charcoal_Grey/logo.png",
     "input_data_type": [
       "mao",
@@ -3280,8 +3280,8 @@
     "usual_invocation_specific": "",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
-    "test_data_url": "",
-    "test_results_url": "",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/WP1771_107199.gpml",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/pathvisio_output.zip",
     "icon": "https://avatars.githubusercontent.com/u/12032945?s=200&v=4",
     "input_data_type": [],
     "auto_tests": [
@@ -3893,8 +3893,8 @@
     "usual_invocation_specific": "sh -c \"map /data/pdbFile /data/pssFile /data/backgroundFile && mv /data/mapped* /data/output\"",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
-    "test_data_url": "",
-    "test_results_url": "",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/pss-3d_input.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/pss-3d_output.zip",
     "icon": "",
     "input_data_type": [
       "pdb",
@@ -5120,8 +5120,8 @@
       "'spades.py' can be changed to other scripts (e.g. dipspades.py, rnaspades.py, etc. '--careful --only-assembler' are specific for this example and should be reviewed if the type of analysis or script is altered, please refer to the manual."
     ],
     "test_invocation_specific": "",
-    "test_data_url": "",
-    "test_results_url": "",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/fastq_input.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/spades_output.zip",
     "icon": "",
     "input_data_type": [
       "fastq_gz1",
@@ -5284,8 +5284,8 @@
       "'out_name' to the name of your output files."
     ],
     "test_invocation_specific": "",
-    "test_data_url": "",
-    "test_results_url": "",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/takeabreak_input.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/takeabreak_output.zip",
     "icon": "",
     "input_data_type": [
       "test_reads_fasta",
@@ -5978,8 +5978,8 @@
     "usual_invocation_specific": "bash -c \"/opt/run /data/inputFolder /data/output\"",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
-    "test_data_url": "",
-    "test_results_url": "",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/pisa_server_input.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/pisa_server_output.zip",
     "icon": "",
     "input_data_type": [
       "input"
@@ -6433,8 +6433,8 @@
       "'out_name' to the name of your output file."
     ],
     "test_invocation_specific": "",
-    "test_data_url": "",
-    "test_results_url": "",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/prosplign-procompart_input.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/prosplign-procompart_output.zip",
     "icon": "",
     "input_data_type": [
       "nuc_fasta",
@@ -6489,8 +6489,8 @@
       "'out_name' to the name of your output file."
     ],
     "test_invocation_specific": " splign-compart-pipeline /data/test/data/dsim-all-chromosome-r2.02.fasta /data/test/data/dmel-sod.fasta /data/test/results/splign-compart_test.fasta",
-    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/test-data-splign-compart.zip",
-    "test_results_url": "",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/splign-compart_input.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/splign-compart_output.zip",
     "icon": "",
     "input_data_type": [
       "nuc_subject_fasta",
