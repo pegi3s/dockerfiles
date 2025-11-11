@@ -364,3 +364,33 @@ id: DIO:0000062
 name: RNAseq_annotate
 def: "Any program that can be used to annotate genomes using RNAseq data"
 is_a: DIO:0000030
+
+[Term]
+id: DIO:0000063
+name: Pipelines
+def: "Any program that is a pipeline"
+
+[Term]
+id: DIO:0000064
+name: Detection_of_PSS
+def: "Pipelines aimed at detecting positively selected amino acid sites (PSS)"
+is_a: DIO:0000063
+
+[Term]
+id: DIO:0000065
+name: Inversion_breakpoint_detection
+def: "Pipelines aimed at detecting inversion breakpoints"
+is_a: DIO:0000063
+
+[Term]
+id: DIO:0000066
+name: Phylogenetics
+def: "Pipelines aimed at performing phylogenetic analyses"
+is_a: DIO:0000063
+
+[Term]
+id: DIO:0000067
+name: Transcriptomics
+def: "Pipelines aimed at performing transcriptomic analyses"
+is_a: DIO:0000063
+
