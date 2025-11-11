@@ -7,7 +7,9 @@ DIO:0000044	alphafold_db
 DIO:0000022	alter
 DIO:0000029	alter
 DIO:0000039	auto-p2docking
+DIO:0000068	auto-p2docking
 DIO:0000055	auto-phylo
+DIO:0000066	auto-phylo
 DIO:0000055	auto-phylo-pipeliner
 DIO:0000010	auto-pss-genome
 DIO:0000013	autoaugustus
@@ -173,6 +175,7 @@ DIO:0000040	sppider
 DIO:0000022	sratoolkit
 DIO:0000062	tagada
 DIO:0000016	takeabreak
+DIO:0000065	takeabreak
 DIO:0000057	taxodros_gis
 DIO:0000004	tcoffee
 DIO:0000024	tcoffee
@@ -185,6 +188,7 @@ DIO:0000026	treeviewx
 DIO:0000036	trimmomatic
 DIO:0000034	trinity
 DIO:0000037	trinity
+DIO:0000067	trinity
 DIO:0000017	two-way-blast
 DIO:0000022	utilities
 DIO:0000029	utilities
