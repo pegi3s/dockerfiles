@@ -239,7 +239,7 @@
     "test_invocation_specific": " bash -c \"/opt/run /data/test/data/Uniprot.txt && mv /data/test/data/Structures_from_AlphaFold /data/test/results\"",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Uniprot.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/alphafold_db_output.zip",
-    "icon": "https://deepmind.google/static/icons/google_deepmind_48dp.5b470587fe7d.svg",
+    "icon": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/icons/google_deepmind_48dp.svg",
     "input_data_type": [
       "uniprotID"
     ],
@@ -2715,7 +2715,7 @@
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [],
-    "manual_url": "https://www.megasoftware.net/web_help_10/index.htm#t=First_Time_User.htm",
+    "manual_url": "https://www.megasoftware.net/web_help_12/index.htm#t=First_Time_User.htm",
     "source_url": "https://www.megasoftware.net/",
     "comments": [],
     "gui": true,
@@ -2728,7 +2728,7 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/CDS_aligned.fas",
     "test_results_url": "",
-    "icon": "https://www.megasoftware.net/web_help_11/template/Charcoal_Grey/logo.png",
+    "icon": "https://www.megasoftware.net/web_help_12/template/Charcoal_Grey/logo.png",
     "input_data_type": [],
     "auto_tests": [
       {
@@ -2761,7 +2761,7 @@
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [],
-    "manual_url": "https://www.megasoftware.net/web_help_10/index.htm#t=Quick_Start_Tutorial.htm",
+    "manual_url": "https://www.megasoftware.net/web_help_12/index.htm#t=Quick_Start_Tutorial.htm",
     "source_url": "https://www.megasoftware.net/",
     "comments": [],
     "gui": false,
@@ -2774,7 +2774,7 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/mega_cc.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/mega_cc_output.zip",
-    "icon": "https://www.megasoftware.net/web_help_11/template/Charcoal_Grey/logo.png",
+    "icon": "https://www.megasoftware.net/web_help_12/template/Charcoal_Grey/logo.png",
     "input_data_type": [
       "mao",
       "meg_seq_align"
@@ -2927,7 +2927,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "https://raw.githubusercontent.com/MultiQC/MultiQC/main/multiqc/templates/default/assets/img/favicon-96x96.png",
+    "icon": "https://raw.githubusercontent.com/MultiQC/MultiQC/main/multiqc/templates/original/assets/img/favicon-96x96.png",
     "input_data_type": [
       "input"
     ],
@@ -3219,7 +3219,7 @@
       "4.9h",
       "4.9"
     ],
-    "manual_url": "http://abacus.gene.ucl.ac.uk/software/pamlDOC.pdf",
+    "manual_url": "https://github.com/abacus-gene/paml/blob/master/doc/pamlDOC.pdf",
     "source_url": "https://github.com/abacus-gene/paml",
     "comments": [],
     "gui": false,
@@ -6064,7 +6064,7 @@
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [],
-    "manual_url": "https://seq2fun.dcmb.med.umich.edu//TM-align/",
+    "manual_url": "https://aideepmed.com/TM-align/",
     "source_url": "https://github.com/kad-ecoli/TMalign",
     "comments": [],
     "gui": false,
