@@ -7355,15 +7355,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "20.04",
-        "date": "25/11/2024"
+        "version": "24.04",
+        "date": "17/11/2025"
       }
     ],
-    "latest": "20.04",
+    "latest": "24.04",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
-      "18.04"
+      "18.04", "20.04"
     ],
     "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/metadata/web/tutorials/docker-in-docker.md",
     "comments": [
