@@ -1,6 +1,0 @@
-[submodule "seda/seda"]
-	path = seda/seda
-	url = git@github.com:sing-group/seda.git
-[submodule "auto-pss-genome/auto-pss-genome"]
-	path = auto-pss-genome/auto-pss-genome
-	url = https://github.com/pegi3s/auto-pss-genome
