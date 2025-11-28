@@ -2303,7 +2303,7 @@
       "1.0.0"
     ],
     "manual_url": "https://hub.docker.com/r/pegi3s/id-mapping",
-    "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/id_mapping",
+    "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/id-mapping",
     "comments": [
       "The valid names for FROM_DB and TO_DB can be obtained with docker run --rm pegi3s/id-mapping list-from-dbs and docker run --rm pegi3s/id-mapping list-to-dbs, respectively. The script`s help can be obtained with --help."
     ],
