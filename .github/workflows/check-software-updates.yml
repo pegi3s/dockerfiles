@@ -1,0 +1,80 @@
+name: Software updates check
+
+on:
+  schedule:
+    # Run every Monday at 9:00 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+    # Allow manual triggering
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          sparse-checkout: |
+            metadata
+          sparse-checkout-cone-mode: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+
+      - name: Install bdip-tools
+        run: pip install --extra-index-url https://maven.sing-group.org/repository/python-snapshots/simple/ bdip-tools
+
+      - name: Check for software updates
+        run: bdip check-software-updates --fuzzy-version-match --output report.md
+
+      - name: Check report file content
+        id: check_report
+        run: |
+          # The report file is created only if software updates are found
+          if [[ -f report.md ]]; then
+            echo "Software updates found in report.md."
+            echo "has_updates=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No software updates found."
+            echo "has_updates=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload report
+        if: steps.check_report.outputs.has_updates == 'true'
+        run: |
+          DATE=$(date +"%d/%m/%Y")
+          LABELS="software-updates,maintenance"
+          TITLE="Software updates available - $DATE"
+
+          ISSUE_BODY=$(cat <<EOF
+          The software updates check has detected available updates.
+
+          Please review the following report and update the software versions as needed:
+
+          $(cat report.md)
+          EOF
+          )
+
+          # Check if an issue already exists
+          EXISTING_ISSUE=$(gh issue list --label "$LABELS" --state open --json number --jq '.[0].number')
+
+          # Create the issue if no existing issue is found
+          if [ -z "$EXISTING_ISSUE" ]; then
+            gh issue create \
+              --title "$TITLE" \
+              --body "$ISSUE_BODY" \
+              --label "$LABELS"
+          else
+            # Update existing opened issue
+            gh issue edit "$EXISTING_ISSUE" \
+              --title "$TITLE" \
+              --body "$ISSUE_BODY"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
