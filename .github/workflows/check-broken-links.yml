@@ -30,22 +30,18 @@ jobs:
         run: pip install --extra-index-url https://maven.sing-group.org/repository/python-snapshots/simple/ bdip-tools
 
       - name: Check for broken links
-        # Use || true to ensure the workflow continues even if bdip-tools exits with an error code
-        run: bdip check-broken-links metadata/metadata.json --skip-cloudflare-403 --output report.md || true
-        env:
-          # Default terminal width on GitHub Actions breaks the table formatting
-          COLUMNS: 240
+        run: bdip check-broken-links metadata/metadata.json --skip-cloudflare-403 --output report.md
 
       - name: Check report file content
         id: check_report
         run: |
-          # Check if the report file exists and has more than 5 lines (header + data)
-          if [[ -f report.md && $(wc -l < report.md) -gt 5 ]]; then
+          # The report file is created only if broken links are found
+          if [[ -f report.md ]]; then
             echo "Broken links found in report.md."
-            echo "has_broken_links=true" >> $GITHUB_OUTPUT
+            echo "has_broken_links=true" >> "$GITHUB_OUTPUT"
           else
-            echo "No broken links found or report is empty/missing."
-            echo "has_broken_links=false" >> $GITHUB_OUTPUT
+            echo "No broken links found."
+            echo "has_broken_links=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Upload report
