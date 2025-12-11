@@ -1,0 +1,53 @@
+{
+    "name": "{{tool_name}}",
+    "description": "{{description}}",
+    "status": "{{status}}",
+    "recommended": [
+        {
+            "version": "{{recommended_version}}",
+            "date": "{{recommended_version_date}}"
+        }
+    ],
+    "latest": "{{latest_version}}",
+    "bug_found": "{{bug_found}}",
+    "not_working": "{{not_working}}",
+    "no_longer_tested": "{{no_longer_tested}}",
+    "manual_url": "{{manual_url}}",
+    "source_url": "{{source_url}}",
+    "comments": "{{comments}}",
+    "gui": "{{gui}}",
+    "gui_command": "{{gui_command}}",
+    "podman": "{{podman}}",
+    "singularity": "{{singularity}}",
+    "invocation_general": "{{invocation_general}}",
+    "usual_invocation_specific": "{{usual_invocation_specific}}",
+    "usual_invocation_specific_comments": [
+        "{{usual_invocation_specific_comments}}"
+    ],
+    "test_invocation_specific": "{{test_invocation}}",
+    "test_data_url": "{{test_data_url}}",
+    "test_results_url": "{{test_results_url}}",
+    "icon": "{{icon_url}}",
+    "input_data_type": [
+        "{{input_data_type}}"
+    ],
+    "auto_tests": [
+        {
+            "docker_image": "{{docker_image}}",
+            "input_files": [
+                "{{input_file}}"
+            ],
+            "output_dir": "{{output_dir}}",
+            "output_file": "{{output_file}}",
+            "add_config": "{{add_configs}}",
+            "commands": "{{commands}}",
+            "time_seconds": "{{time_seconds}}"
+        }
+    ],
+    "custom_searches": {
+        "pubmed": "term={{pubmed}}",
+        "scholar": "q={{scholar}}",
+        "bioprotocol": "content={{bioprotocol}}",
+        "bioprotocol_exchange": "content={{bioprotocol_exchange}}"
+    }
+}
