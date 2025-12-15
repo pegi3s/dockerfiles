@@ -19,6 +19,10 @@ FROM pegi3s/cport:2024.05
 
 RUN apt-get install -y bc
 
+WORKDIR /opt/cport/src/cport
+COPY url.py /opt/cport/src/cport
+RUN chmod 777 /opt/cport/src/cport/url.py
 WORKDIR /
 COPY cport_batch /
 RUN chmod -R 777 /cport_batch
+
