@@ -4863,11 +4863,11 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.7.4",
-        "date": "03/10/2025"
+        "version": "1.7.5",
+        "date": "15/12/2025"
       }
     ],
-    "latest": "1.7.4",
+    "latest": "1.7.5",
     "bug_found": [
       {
         "version": "<= 1.7.2",
@@ -4876,6 +4876,7 @@
     ],
     "not_working": [],
     "no_longer_tested": [
+      "1.7.4",
       "1.7.3",
       "1.7.2",
       "1.7.1",
