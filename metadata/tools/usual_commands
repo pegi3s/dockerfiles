@@ -1,0 +1,56 @@
+#Remove cache, logs and runtime
+prune --cache --runtime --logs
+#Change bdip-tools settings
+settings
+#Show bdip-tools settings
+settings --show
+#Check broken links (console only)
+check-broken-links --skip-cloudflare-403
+#Check broken links and save file
+check-broken-links --output broken_links.csv --skip-cloudflare-403
+#Download test data and save file (requires evolution6 password)
+download-test-data --list
+#Download all files (requires evolution6 password and the execution of the previous command)
+download-test-data --filter ./test_data_list.txt
+#Check if latest tag is updated (console only)
+check-latest-tag-dh
+#Check if latest tag is updated and save file
+check-latest-tag-dh --output latest_tag_check.csv
+#Check metadata JSON versions in Docker Hub (console only)
+check-repositories
+#Check metadata JSON versions in Docker and save file
+check-repositories --output missing_versions.csv
+#Check if image folders exist (console only)
+check-github-folders
+#Check if image folders exist and save file
+check-github-folders --output missing_github_folders.csv
+#Check if image folders exist for program names matching a regular expression (clustal., for instance)
+check-github-folders --include-regex clustal.
+#Validates the JSON file (console only)
+check-metadata-json
+#Validates the JSON file and saves file
+check-metadata-json --output json_validation.csv
+#Create backups (tar files) for all versions of a given Docker image (clustalomega, for instance). Cleans Docker images.
+backup ./backups --clean --image clustalomega
+#Create backups (tar files) for the latest only of a given Docker image (clustalomega, for instance). Cleans Docker images.
+backup ./backups --clean --latest-only --image clustalomega
+#Create backups (tar files) for the Docker images matching the filter (a., for instance). Cleans Docker images.
+backup ./backups --clean --tag-filter a.
+#Add missing copyrights, commit and push COMMIT AND PUSH NOT WORKING
+add-missing-copyrights -m "added missing copyright dates" --git --push
+#Update copyright dates, commit and push COMMIT AND PUSH NOT WORKING
+update-copyright-dates -m "updated copyright dates" --git --push
+#Checks hadolint rules for a given dockerfile (clustalomega, for instance) and saves the result
+hadolint --image clustalomega --output hadolint_clustalomega
+#Runs auto-tests for a given image (clustalomega, for instance) NOT WORKING
+test-images -- image clustalomega
+#Produce a list of Docker images associated with a given ontology term
+ontology-list --programs
+#Produce a list of ontology terms that can be assigned to a Docker image
+ontology-list --output-table
+#General maintenance (checks for broken links, latest tag, metadata, repositories and software updates)
+maintenance-report
+#Check for updates (console only)
+check-software-updates
+#Check for updates and save results
+check-software-updates --output to_update.csv
