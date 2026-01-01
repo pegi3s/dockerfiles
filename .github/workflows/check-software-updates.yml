@@ -30,7 +30,7 @@ jobs:
         run: pip install --extra-index-url https://maven.sing-group.org/repository/python-snapshots/simple/ bdip-tools
 
       - name: Check for software updates
-        run: bdip check-software-updates --fuzzy-version-match --output report.md --github-token ${{ secrets.GITHUB_TOKEN }} metadata/metadata.json
+        run: bdip check-software-updates --fuzzy-version-match --output report.md --github-token ${{ secrets.GITHUB_TOKEN }} -mf metadata/metadata.json
 
       - name: Check report file content
         id: check_report

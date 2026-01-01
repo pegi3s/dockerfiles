@@ -30,7 +30,7 @@ jobs:
         run: pip install --extra-index-url https://maven.sing-group.org/repository/python-snapshots/simple/ bdip-tools
 
       - name: Check for broken links
-        run: bdip check-broken-links metadata/metadata.json --skip-cloudflare-403 --output report.md
+        run: bdip check-broken-links -mf metadata/metadata.json --skip-cloudflare-403 --output report.md
 
       - name: Check report file content
         id: check_report
