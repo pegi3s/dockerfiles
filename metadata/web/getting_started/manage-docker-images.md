@@ -2,6 +2,9 @@
 
 ![Docker Manager](images/manage-docker-images/docker-manager-light.png)
 
+> [!WARNING]
+> This image runs Docker in Docker. Users that are already running Docker 29 should start using the image with the `v1.2`, while users that did not yet update their Docker version to Docker 29 should use the image with the `v1.1` tag. Starting with version `v1.1.1-docker29.0.1`, from now on, only images that are compatible with Docker 29 or above will be released. You can check your Docker version by running the command: docker --version".
+
 After running several Docker images, you may lose track of the images available on a given computer. You may want to delete Docker images that you are not going to use again soon to save hard disk space or erase leftover Docker images that remain after an unexpected restart. All these operations can be managed using the [**pegi3s/docker-manager**](http://bdip.i3s.up.pt/container/docker-manager) image, which provides a simple graphical interface for managing Docker images.
 
 > [!IMPORTANT]

@@ -7204,11 +7204,11 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "v1.1",
-        "date": "25/11/2024"
+        "version": "v1.2",
+        "date": "08/01/2026"
       }
     ],
-    "latest": "v1.1",
+    "latest": "v1.2",
     "bug_found": [
       {
         "version": "v1",
@@ -7217,6 +7217,8 @@
     ],
     "not_working": [],
     "no_longer_tested": [
+      "v1.1.1-docker29.0.1",
+      "v1.1",
       "v1"
     ],
     "manual_url": "https://hub.docker.com/r/pegi3s/docker-manager/",
