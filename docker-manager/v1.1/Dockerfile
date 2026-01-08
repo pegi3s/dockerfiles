@@ -1,5 +1,5 @@
 #
-#   Copyright 2018-2025 Hugo López-Fernández, Pedro M. Ferreira, Miguel 
+#   Copyright 2018-2025 Hugo López-Fernández, Pedro M. Ferreira, Miguel
 
 #   Reboiro-Jato, Cristina P. Vieira, and Jorge Vieira
 #
@@ -16,7 +16,7 @@
 #   limitations under the License.
 #
 
-FROM pegi3s/docker
+FROM pegi3s/docker:29.0.1
 
 RUN apt-get -y update
 RUN apt-get install -y python3

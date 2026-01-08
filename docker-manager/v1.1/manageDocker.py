@@ -3,7 +3,7 @@ import subprocess
 def get_docker_images():
     try:
         # Run the "docker image list" command and capture the output
-        result = subprocess.run("docker image list", shell=True, capture_output=True, text=True, check=True)
+        result = subprocess.run("docker image list --format table", shell=True, capture_output=True, text=True, check=True)
 
         # The output of the command is stored in the 'stdout' attribute of the 'result' object
         docker_images_output = result.stdout
