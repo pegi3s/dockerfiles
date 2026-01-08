@@ -1,7 +1,6 @@
-import subprocess
 import tkinter as tk
 from tkinter import ttk
-from manageDocker import delete_docker_image, get_docker_images
+from manageDocker import delete_docker_image, get_docker_images, is_image_in_use
 
 def show_toast(instruction):
     toast = tk.Toplevel()
@@ -16,12 +15,6 @@ def delete_item(item_id):
 def on_delete_button_click(item_id):
     delete_item(item_id)
 
-def is_image_in_use(image_id):
-    try:
-        subprocess.run(f"docker inspect {image_id}", shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        return True  # Image is in use
-    except subprocess.CalledProcessError as e:
-        return False  # Image is not in use
 
 def delete_selected_item():
     selected_items = my_tree.selection()

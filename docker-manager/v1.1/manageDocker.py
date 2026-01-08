@@ -47,10 +47,22 @@ def check_images_usage(image_list):
 
 def is_image_in_use(image_id):
     try:
-        subprocess.run(f"docker inspect {image_id}", shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        return True  # Image exists and can be inspected, so it's in use
+        result = subprocess.run(
+            f"docker ps -a --filter ancestor={image_id} --format '{{{{.ID}}}}'",
+            shell=True,
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE
+        )
+        output = result.stdout.decode().strip()
+        if output:
+            return True  # There are containers using the image
+        else:
+            return False  # No containers are using the image
     except subprocess.CalledProcessError as e:
-        return False  # Image does not exist, so it's not in use
+        print("Error:", e)
+        return False  # An error occurred, possibly indicating the image is not in use
+
 
 def delete_docker_image(image_id):
     try:
@@ -59,3 +71,7 @@ def delete_docker_image(image_id):
     except subprocess.CalledProcessError as e:
         print("Error:", e)
         return False
+    
+
+def delete_unused_docker_images ():
+    subprocess.run("docker image prune -a", shell=True, check=True)
