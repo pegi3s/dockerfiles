@@ -1,0 +1,4 @@
+#!/bin/bash
+PDB=$1
+echo "Optimal Docking Area (ODA) analysis or Interface prediction from protein surface desolvation energy"
+pyDock3 $PDB oda

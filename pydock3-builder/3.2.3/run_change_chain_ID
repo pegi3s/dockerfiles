@@ -1,0 +1,6 @@
+#!/bin/bash
+PDB=$1
+oldchain=$2
+newchain=$3
+/opt/3D_Dock/scripts/change-pdb-chain-id.perl -pdb $PDB -old $oldchain -new $newchain
+

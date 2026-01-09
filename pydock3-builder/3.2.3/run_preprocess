@@ -1,0 +1,4 @@
+#!/bin/bash
+PDB=$1
+/opt/3D_Dock/scripts/preprocess-pdb.perl -pdb $PDB
+
