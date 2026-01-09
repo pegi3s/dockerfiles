@@ -1,0 +1,8 @@
+## filter_vcf
+filter_vcf.tool = 
+
+filter_vcf.input_1 = 
+filter_vcf.output_1 = 
+
+filter_vcf.raw = @{Parameters.base_dir}/example/correct_vcf_snp.sh @{Parameters.base_dir}/@{@@step_name@@.input_1} @{Parameters.base_dir}/@{@@step_name@@.output_1} -b
+

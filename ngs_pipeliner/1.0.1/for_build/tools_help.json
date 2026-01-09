@@ -1,0 +1,30 @@
+{
+    "urls_tools" : {
+        "Bwa": "https://bio-bwa.sourceforge.net/bwa.shtml",
+        "Bedtools": "https://bedtools.readthedocs.io/en/latest/content/bedtools-suite.html",
+        "FreeBayes": "https://github.com/freebayes/freebayes/blob/master/README.md",
+        "Haplogrep": "https://haplogrep.readthedocs.io/en/latest/parameters/",
+        "Pycision": "https://github.com/Ahhgust/Pycision/blob/master/README.md",
+        "RtN": "https://github.com/Ahhgust/RtN/blob/master/README.md",
+        "Samtools": "https://www.htslib.org/doc/samtools.html",
+        "Trimmomatic": "http://www.usadellab.org/cms/?page=trimmomatic",
+        "Gatk-4":"https://gatk.broadinstitute.org/hc/en-us/articles/360037224712--Tool-Documentation-Index",
+        "FastQC":"https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/",
+        "Seqkit":"https://bioinf.shenwei.me/seqkit/usage/",
+        "VCFtools":"http://vcftools.sourceforge.net/man_latest.html"
+    },
+    "urls_docker_images" : {
+        "Bwa": "https://hub.docker.com/r/pegi3s/bwa/",
+        "Bedtools":"https://hub.docker.com/r/pegi3s/bedtools/",
+        "FreeBayes": "https://hub.docker.com/r/pegi3s/freebayes/",
+        "Haplogrep": "https://hub.docker.com/r/pegi3s/haplogrep/",
+        "Pycision": "https://hub.docker.com/r/pegi3s/pycision/",
+        "RtN": "https://hub.docker.com/r/pegi3s/rtn/",
+        "Samtools": "https://hub.docker.com/r/pegi3s/samtools_bcftools/",
+        "Trimmomatic": "https://hub.docker.com/r/pegi3s/trimmomatic/",
+        "Gatk-4":"https://hub.docker.com/r/pegi3s/gatk-4",
+        "FastQC":"https://hub.docker.com/r/pegi3s/fastqc/",
+        "Seqkit":"https://hub.docker.com/r/pegi3s/seqkit/",
+        "VCFtools":"https://hub.docker.com/r/pegi3s/vcftools/"
+    }
+}

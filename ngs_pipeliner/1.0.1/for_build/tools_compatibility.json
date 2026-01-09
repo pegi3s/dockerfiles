@@ -1,0 +1,14 @@
+{
+    "Bwa":" (~ - ~)",
+    "Bedtools":" (~ - ~)",
+    "FreeBayes":" (bam - vcf)",
+    "Haplogrep":" (~ - txt)",
+    "Pycision":" (bam - bam)",
+    "RtN":" (bam - bam)",
+    "Samtools":" (~ - ~)",
+    "Trimmomatic":" (fastq - fastq)",
+    "Gatk-4":" (~ - ~)",
+    "FastQC":" (fastq - fastq)",
+    "Seqkit":" (fastq - fastq)",
+    "VCFtools":" (vcf - vcf)"
+}
