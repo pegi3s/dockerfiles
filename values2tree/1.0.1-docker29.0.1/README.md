@@ -3,6 +3,9 @@
 
 This image facilitates the usage of `values2tree`, a set of scripts to draw UPGMA trees using lists of values.
 
+> [!WARNING]
+> This image runs Docker in Docker. Users that are already running Docker 29 should start using the image with the version `1.0.1-docker29.0.1`, while users that did not yet update their Docker version to Docker 29 should use the image with the `1.0.0` tag. Starting with version `1.0.1-docker29.0.1`, from now on, only images that are compatible with Docker 29 or above will be released. You can check your Docker version by running the command: docker --version".
+
 # Using the values2tree image in Linux
 
 You should adapt and run the following command: `docker run -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/data pegi3s/values2tree bash -c "<choice> /your/data/dir <directory>"`
