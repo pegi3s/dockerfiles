@@ -3,6 +3,9 @@
 
 This image facilitates the usage of [Tagada](https://github.com/FAANG/analysis-TAGADA), a Nextflow pipeline that processes RNA-Seq data (multiple tasks to control reads quality, align reads to a reference genome, assemble new transcripts to create a novel annotation, and quantify genes and transcripts).
 
+> [!WARNING]
+> This image runs Docker in Docker. Users that are already running Docker 29 should start using the image with the version `2.1.4-docker29.0.1`, while users that did not yet update their Docker version to Docker 29 should use the image with the `2.1.4` tag. Starting with version `2.1.4-docker29.0.1`, from now on, only images that are compatible with Docker 29 or above will be released. You can check your Docker version by running the command: docker --version".
+
 # Using the tagada image in Linux
 You should adapt and run the following command:
 `docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "$(pwd)":"$(pwd)" -w "$(pwd)" nextflow-runner-auto:latest nextflow run FAANG/analysis-TAGADA -profile docker -revision 2.1.4 --output results --reads reads.txt --annotation genomic_filtered.gtf --genome genome.fa -params-file custom.config.json --metadata metadata.tsv`
