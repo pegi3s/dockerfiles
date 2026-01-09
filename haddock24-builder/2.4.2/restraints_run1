@@ -1,0 +1,40 @@
+# -*- coding: utf-8 -*-
+
+import re
+
+def extract_residues(input_string):
+    return re.findall(r'\d+', input_string) #one or more digits (0-9)
+
+#mudar o caminho
+#home/haddock/haddock2.4-2023-08/examples/protein-protein
+file_a_path ="/home/haddock/haddock2.4-2023-08/examples/protein-protein/restrains1"
+file_b_path ="/home/haddock/haddock2.4-2023-08/examples/protein-protein/restrains2"
+
+with open(file_a_path, 'r') as file_a, open(file_b_path, 'r') as file_b, open("/home/haddock/haddock2.4-2023-08/examples/protein-protein/residB.txt", 'w') as resid_b:
+    residues_a = extract_residues(file_a.read())
+    residues_b = extract_residues(file_b.read())
+
+
+# criar o bloco com todos os residuos da cadeia B
+    resid_b.write("       (\n")
+    for i in range(1, len(residues_b)):
+        resid_b.write("        ( resid {}  and segid B)\n".format(residues_b[i]))
+        if i != len(residues_b)-1 :
+            resid_b.write("     or\n")
+    resid_b.write("       )  2.000 2.000 0.000\n")
+
+
+# colocar o bloco anterior em cada residuo da cadeia A
+with open("/home/haddock/haddock2.4-2023-08/examples/protein-protein/restrains.tbl", "w") as output_file, open("/home/haddock/haddock2.4-2023-08/examples/protein-protein/residB.txt", "r") as block_b:
+    output_file.write("! HADDOCK AIR restraints for 1st partner\n")
+    count = 0
+    for residue_a in residues_a:
+        count += 1
+        output_file.write("!\n")
+        output_file.write("assign ( resid {}  and segid A)\n".format(residue_a))
+        block_b.seek(0)  # Reset the cursor to the beginning of the file
+        for line in block_b:
+            output_file.write(line)
+        if count == len(residues_a):
+            break
+

@@ -1,0 +1,145 @@
+## Based on the Dockerfile and software available at https://github.com/colbyford/HADDOCKer/tree/main/HADDOCK2.4 but with important changes
+
+FROM ubuntu:16.04
+
+## global env
+ENV HOME=/home TERM=xterm
+
+## Set the number of cores you want cns/HADDOCK to use
+ARG CORES=64
+
+
+## Install essential for building
+RUN apt-get update && \
+    apt-get install -y \
+        build-essential \
+        git \
+        cmake \
+        wget \
+        flex \
+        gfortran \
+        python-pip \
+        python3-pip \
+        python3-pandas \
+        python2.7 \
+        python2.7-dev
+
+RUN pip install statistics
+
+RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
+
+## set proper timezone
+RUN echo America/New_York > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
+
+
+## Change bash Shell to tcsh
+RUN apt-get install tcsh && \
+    chsh -s /bin/tcsh
+SHELL ["/bin/tcsh", "-c"]
+
+## Make software directory
+RUN mkdir /software
+
+## Install CNSsolve (http://cns-online.org/v1.3/)
+WORKDIR /data
+COPY cns_solve_1.3_all_intel-mac_linux.tar.gz /software/
+RUN cd /software && \
+     gunzip cns_solve_1.3_all_intel-mac_linux.tar.gz && \
+     tar xvf cns_solve_1.3_all_intel-mac_linux.tar && \
+     sed -i 's|setenv CNS_SOLVE .*|setenv CNS_SOLVE /software/cns_solve_1.3|' /software/cns_solve_1.3/cns_solve_env
+#COPY cns_solve_env /software/cns_solve_1.3
+RUN cd /software/cns_solve_1.3 && \
+     make install
+
+## Install FreeSASA
+WORKDIR /software
+RUN wget https://github.com/mittinatten/freesasa/releases/download/2.0.3/freesasa-2.0.3.tar.gz && \
+    tar xvfz freesasa-2.0.3.tar.gz && \
+    cd freesasa-2.0.3 && \
+    ./configure --disable-json --disable-xml --prefix ~/software && \
+    make && \
+    make install
+
+## Install HADDOCK (https://www.bonvinlab.org/software/haddock2.4/installation/)
+WORKDIR /data
+COPY haddock2.4-2023-08.tgz /software/
+RUN cd /software && \
+    tar xvfz haddock2.4-2023-08.tgz
+
+## re-Make CNS with HADDOCK
+WORKDIR /data
+COPY cns_solve_1.3_all_intel-mac_linux.tar.gz /software/
+ENV PFX=$HOME/haddock
+ENV CNS=$PFX/cns_solve
+RUN    mkdir -p $CNS && \
+    tar -C $CNS --strip-components=1 -xzf /software/cns_solve_1.3_all_intel-mac_linux.tar.gz && \
+    tar -C $PFX -xzf /software/haddock2.4-2023-08.tgz && \
+    pushd $CNS && \
+    sed -i.BACK -e "s|_CNSsolve_location_|$CNS|g" cns_solve_env && \
+    cp -a $PFX/haddock2.4-2023-08/cns1.3/* source && \
+    make install && \
+    popd
+
+## Copy config file
+WORKDIR /opt
+COPY local_config_file $HOME/haddock/haddock2.4-2023-08/
+
+## Rename date/time dependent cns_solve-0000000000.exe
+RUN cd $HOME/haddock/cns_solve/intel-x86_64bit-linux/source && \
+    find . -type f -name 'cns_solve*.exe' -exec sh -c 'x="{}"; mv "$x" "cns_solve.exe"' \;
+
+## Configure HADDOCK
+RUN cd $HOME/haddock/haddock2.4-2023-08 && \
+    sed -i s/NUMJOB=24/NUMJOB=$CORES/g local_config_file && \
+    ./install.csh local_config_file
+
+## Grant execution permissions to entire dir
+RUN chmod -R 777 $home
+
+## Fix Symlink issue to QueueSubmit.py
+RUN cd $HOME/haddock/haddock2.4-2023-08/Haddock/Main/ && \
+    rm QueueSubmit.py && \
+    cp QueueSubmit_concat.py QueueSubmit.py
+
+
+#trocar os nomes em vez de remover -> depois volto a trocar no pprun
+RUN mv /home/haddock/haddock2.4-2023-08/examples/protein-protein/run-example.csh /home/haddock/haddock2.4-2023-08/examples/protein-protein/run-example1.csh
+RUN mv /home/haddock/haddock2.4-2023-08/examples/protein-protein/run.param /home/haddock/haddock2.4-2023-08/examples/protein-protein/run1.param
+
+
+#scripts
+WORKDIR /opt
+COPY run-example.csh /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY main /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY zscore_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY restraints_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY prepare_data /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY important_files /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY create_runparam /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY prepare_pdb /home/haddock/haddock2.4-2023-08/examples/protein-protein
+
+#examples
+COPY pdna_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY plig_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY pligshape_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY pp_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY ppdani_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY ppem_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY ppep_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY ppepensemble_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY pppcs_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY pprdc_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY prefinepcs_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY ptetraCG_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY ptrimer_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY refinecomplex_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+COPY solvateddocking_run /home/haddock/haddock2.4-2023-08/examples/protein-protein
+
+RUN chmod -R 777 /home/haddock/haddock2.4-2023-08/examples/protein-protein
+
+WORKDIR /home/haddock/haddock2.4-2023-08/examples/protein-protein
+
+
+
+
+

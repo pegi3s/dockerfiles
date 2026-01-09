@@ -1,0 +1,104 @@
+# -*- coding: utf-8 -*-
+## Based on the active-passive-to-ambig.py available at https://github.com/colbyford/HADDOCKer/tree/72c6abffe0f580dbef39ad26646877933765904c/HADDOCK2.4/helper_scripts but with important changes
+
+
+import re
+
+def extract_residues(input_string):
+    return re.findall(r'\d+', input_string) #one or more digits (0-9)
+    
+
+active_a_path ="/home/haddock/haddock2.4-2023-08/examples/protein-protein/active1"
+passive_a_path ="/home/haddock/haddock2.4-2023-08/examples/protein-protein/passive1"
+active_b_path ="/home/haddock/haddock2.4-2023-08/examples/protein-protein/active2"
+passive_b_path ="/home/haddock/haddock2.4-2023-08/examples/protein-protein/passive2"
+
+
+
+with open(active_a_path, 'r') as file_a, open(passive_a_path, 'r') as file_b, open(active_b_path, 'r') as file_c, open(passive_b_path, 'r') as file_d:
+
+    active1 = extract_residues(file_a.read())
+    passive1 = extract_residues(file_b.read())
+    active2 = extract_residues(file_c.read())
+    passive2 = extract_residues(file_d.read())
+    
+
+
+def active_passive_to_ambig(active1, passive1, active2, passive2, segid1='A', segid2='B', output_file=None):
+    """Convert active and passive residues to Ambiguous Interaction Restraints
+
+    Parameters
+    ----------
+    active1 : list
+        List of active residue numbers of the first segid
+
+    passive1 : list
+        List of passive residue numbers of the first segid
+
+    passive2 : list
+        List of passive residue numbers of the second segid
+
+    active2 : list
+        List of active residue numbers of the second segid
+    
+    active2 : list
+        List of passive residue numbers of the second segid
+
+    segid1 : string
+        Segid to use for the first model
+
+    segid2 : string
+        Segid to use for the second model
+
+    output_file : file object or None, optional
+        File object to write the output. If None, prints to stdout.
+
+    """
+
+    all1 = active1 + passive1
+    all2 = active2 + passive2
+
+    # Função auxiliar para escrever em um arquivo ou imprimir na tela
+    def write_line(line):
+        if output_file is not None:
+            output_file.write(line + '\n')
+        else:
+            print(line)
+
+    write_line('! HADDOCK AIR restraints for 1st partner')
+    write_line('!')
+
+    for resi1 in active1:
+        write_line('assign ( resid {:d}  and segid {:s})'.format(int(resi1), segid1))
+        write_line('       (')
+        c = 0
+        for resi2 in all2:
+            write_line('        ( resid {:d}  and segid {:s})'.format(int(resi2), segid2))
+            c += 1
+            if c != len(all2):
+                write_line('     or')
+
+        write_line('       )  2.0 2.0 0.0')
+        write_line('!')
+
+    write_line('! HADDOCK AIR restraints for 2nd partner')
+    write_line('!')      
+    
+    for resi2 in active2:
+        write_line('assign ( resid {:d}  and segid {:s})'.format(int(resi2), segid2))
+        write_line('       (')
+        c = 0
+        for resi1 in all1:
+            write_line('        ( resid {:d}  and segid {:s})'.format(int(resi1), segid1))
+            c += 1
+            if c != len(all1):
+                write_line('     or')
+
+        write_line('       )  2.0 2.0 0.0')
+        write_line('!')
+
+# Substitua 'output.txt' pelo caminho do arquivo de saída desejado
+with open('/home/haddock/haddock2.4-2023-08/examples/protein-protein/restrains.tbl', 'w') as output_file:
+    active_passive_to_ambig(active1, passive1, active2, passive2, output_file=output_file)
+
+

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd $HOME/haddock/haddock2.4-2023-08/examples/protein-protein
+# voltar a trocar os nomes 
+mv run-example.csh run-example2.csh #trocar o nome do ficheiro copiado do dockerfile
+mv run-example1.csh run-example.csh
+mv run1.param run.param
+./run-example.csh
+cp -R $HOME/haddock/haddock2.4-2023-08/examples/protein-protein/run1 /data
