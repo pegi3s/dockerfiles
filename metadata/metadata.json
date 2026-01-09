@@ -216,14 +216,17 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.0.0",
-        "date": "25/11/2024"
+        "version": "1.0.1-docker29.0.1",
+        "date": "09/01/2026"
       }
     ],
-    "latest": "1.0.0",
+    "latest": "1.0.1-docker29.0.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+    "1.0.0",
+    "1.0.1"
+    ],
     "manual_url": "https://alphafold.ebi.ac.uk/",
     "source_url": "https://ftp.ebi.ac.uk/pub/databases/alphafold/",
     "comments": [],
@@ -1627,14 +1630,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.0.0",
-        "date": ""
+        "version": "1.0.0-docker29.0.1",
+        "date": "09/01/2026"
       }
     ],
-    "latest": "1.0.0",
+    "latest": "1.0.0-docker29.0.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+    "1.0.0"
+    ],
     "manual_url": "https://hub.docker.com/r/pegi3s/format_auto-pss-genome/",
     "source_url": "https://github.com/pegi3s/auto-pss-genome",
     "comments": [],
@@ -6365,15 +6370,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.0.1",
-        "date": ""
+        "version": "1.0.1-docker29.0.1",
+        "date": "09/01/2026"
       }
     ],
-    "latest": "1.0.1",
+    "latest": "1.0.1-docker29.0.1",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
-      "1.0.0"
+      "1.0.0",
+      "1.0.1"
     ],
     "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/ngs_pipeliner/manual.md",
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/ngs_pipeliner",
@@ -6953,14 +6959,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.4.2",
+        "version": "2.4.2-docker29.0.1",
         "date": ""
       }
     ],
-    "latest": "2.4.2",
+    "latest": "2.4.2-docker29.0.1",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "2.4.2",    
       "2.4.1",
       "2.4"
     ],
@@ -7006,14 +7013,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.1",
+        "version": "1.1-docker29.0.1",
         "date": ""
       }
     ],
-    "latest": "1.1",
+    "latest": "1.1-docker29.0.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+    "1.1"
+    ],
     "manual_url": "http://hdock.phys.hust.edu.cn/",
     "source_url": "http://hdock.phys.hust.edu.cn/",
     "comments": [],
@@ -7057,14 +7066,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "3.2.3",
-        "date": ""
+        "version": "3.2.3-docker29.0.1",
+        "date": "09/01/2026"
       }
     ],
-    "latest": "3.2.3",
+    "latest": "3.2.3-docker29.0.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+    "3.2.3"
+    ],
     "manual_url": "https://github.com/brianjimenez/pydock_tutorial",
     "source_url": "https://life.bsc.es/pid/pydock/",
     "comments": [],
@@ -7684,14 +7695,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.0.0",
-        "date": ""
+        "version": "1.0.1-docker29.0.1",
+        "date": "09/01/2026"
       }
     ],
-    "latest": "1.0.0",
+    "latest": "1.0.1-docker29.0.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+    "1.0.0"   
+    ],
     "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/values2tree/README.md",
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/values2tree",
     "comments": [],
@@ -8144,14 +8157,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.1.4",
-        "date": "7/07/2025"
+        "version": "2.1.4-docker29.0.1",
+        "date": "09/01/2026"
       }
     ],
-    "latest": "2.1.4",
+    "latest": "2.1.4-docker29.0.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+    "2.1.4"
+    ],
     "manual_url": "https://github.com/FAANG/analysis-TAGADA",
     "source_url": "https://github.com/FAANG/analysis-TAGADA",
     "comments": [
