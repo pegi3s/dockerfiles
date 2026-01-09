@@ -5,6 +5,9 @@
 
 This image facilitates the usage of [AlphaFold Protein Structure Database](https://alphafold.ebi.ac.uk/), a database with protein structure predictions for the human proteome and 20 other key organisms.
 
+> [!WARNING]
+> This image runs Docker in Docker. Users that are already running Docker 29 should start using the image with the version `1.0.1-docker29.0.1`, while users that did not yet update their Docker version to Docker 29 should use the image with the `1.0.1` tag. Starting with version `1.0.1-docker29.0.1`, from now on, only images that are compatible with Docker 29 or above will be released. You can check your Docker version by running the command: docker --version".
+
 # Using the AlphaFold DB image in Linux
 
 You should adapt and run the following command: 
