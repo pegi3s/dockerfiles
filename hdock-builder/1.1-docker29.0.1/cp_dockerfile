@@ -1,0 +1,6 @@
+FROM ubuntu:20.04
+RUN apt-get update -y
+RUN apt-get install -y libfftw3-3
+WORKDIR /exe
+COPY hdock /exe
+COPY createpl /exe
