@@ -4940,7 +4940,7 @@
     },
     "alternatives": {
       "dockerfiles": {
-        "1": "https://raw.githubusercontent.com/sing-group/seda/refs/heads/master/seda-docker/Dockerfile",
+        "1": "https://raw.githubusercontent.com/sing-group/seda/refs/heads/master/seda-docker/Dockerfile"
       }
     }
   },
