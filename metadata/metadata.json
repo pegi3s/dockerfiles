@@ -4937,6 +4937,11 @@
       "scholar": "q=seda+SEquence+DAtaset+builder",
       "bioprotocol": "content=seda%20SEquence%20DAtaset%20builder",
       "bioprotocol_exchange": "content=seda%20SEquence%20DAtaset%20builder"
+    },
+    "alternatives": {
+      "dockerfiles": {
+        "1": "https://github.com/sing-group/seda/blob/master/seda-docker/Dockerfile",
+      }
     }
   },
   {
