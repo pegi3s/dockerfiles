@@ -1,5 +1,8 @@
 # This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
 
+> [!WARNING]
+> This image runs Docker in Docker. Users that are already running Docker 29 should start using the image with the `pegi3s/utilities:0.22.2-docker29.0.1`, while users that did not yet update their Docker version to Docker 29 should use the image with the `pegi3s/utilities:0.22.2` tag. Starting with version `0.22.2-docker29.0.1`, from now on, only images that are compatible with Docker 29 or above will be released. You can check your Docker version by running the command: docker --version".
+
 # List of utilities
 This Docker image contains different utilities and scripts that may be useful in different scenarios. You can list the utilities by running: `docker run --rm pegi3s/utilities help`.
 

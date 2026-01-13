@@ -7580,14 +7580,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "0.22.2",
-        "date": ""
+        "version": "0.22.2-docker29.0.1",
+        "date": "13/01/2026"
       }
     ],
     "latest": "0.22.2",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "0.22.2",
       "0.22.1",
       "0.22.0",
       "0.21.2",
@@ -7618,12 +7619,14 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/utilities",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
+        "docker_image": "pegi3s/utilities:0.22.2-docker29.0.1",
+        "input_files": [
+          "utilities/test-nucleotide-accessions.fasta"
+        ],
+        "output_dir": "utilities",
+        "output_file": "accessions-mapping.tsv",
         "add_config": "",
-        "commands": ""
+        "commands": "fasta_extract_accession_numbers /data/input_data/utilities/test-nucleotide-accessions.fasta /data/output_folder/utilities/accessions-mapping.tsv"
       }
     ],
     "custom_searches": {

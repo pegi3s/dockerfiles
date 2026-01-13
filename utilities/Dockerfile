@@ -1,5 +1,5 @@
 #
-#   Copyright 2018-2025 Hugo López-Fernández, Pedro M. Ferreira, Miguel 
+#   Copyright 2018-2025 Hugo López-Fernández, Pedro M. Ferreira, Miguel
 #   Reboiro-Jato, Cristina P. Vieira, and Jorge Vieira
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,12 +15,12 @@
 #   limitations under the License.
 #
 
-FROM pegi3s/docker
+FROM pegi3s/docker:29.0.1
 
 RUN apt-get update && \
 	apt-get install -y wget
 
-RUN mkdir -p /opt/scripts && wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O /opt/scripts/jq-linux64 
+RUN mkdir -p /opt/scripts && wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O /opt/scripts/jq-linux64
 
 ARG utilities_version
 
