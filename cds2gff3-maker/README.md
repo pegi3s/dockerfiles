@@ -3,6 +3,9 @@
 
 This image allows the creation of a GFF3 file from a FASTA file containing CDS (one or more sequences) and a genome FASTA file.
 
+> [!WARNING]
+> This image runs Docker in Docker. Users that are already running Docker 29 should start using the image with the `pegi3s/cds2gff3-maker:1.1.0-docker29.0.1`, while users that did not yet update their Docker version to Docker 29 should use the image with the `pegi3s/cds2gff3-maker:1.1.0` tag. Starting with version `pegi3s/cds2gff3-maker:1.1.0-docker29.0.1`, from now on, only images that are compatible with Docker 29 or above will be released. You can check your Docker version by running the command: docker --version".
+
 # Using cds2gff3-maker image in Linux
 
 You should adapt and run the following command:

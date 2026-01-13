@@ -3,6 +3,9 @@
 
 This image facilitates the creation of customized Dockerfiles for building R-based images with system-level dependencies and R packages installed.
 
+> [!WARNING]
+> This image runs Docker in Docker. Users that are already running Docker 29 should start using the image with the `pegi3s/r_builder:1.2.1-docker29.0.1`, while users that did not yet update their Docker version to Docker 29 should use the image with the `pegi3s/r_builder:1.2.1` tag. Starting with version `pegi3s/r_builder:1.2.1-docker29.0.1`, from now on, only images that are compatible with Docker 29 or above will be released. You can check your Docker version by running the command: docker --version".
+
 # Using the `r_builder` image in Linux
 
 You should adapt and run the following command: `docker run -u "$(id -u):$(id -g)" --group-add $(getent group docker | cut -d: -f3) --rm -v /var/run/docker.sock:/var/run/docker.sock -v "/your/data/dir:/data" -w /data pegi3s/r_builder generate_dockerfile.sh config.json`
