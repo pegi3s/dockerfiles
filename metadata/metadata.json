@@ -7789,26 +7789,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.2.1",
-        "date": "24/02/2025"
-      },
-      {
-        "version": "1.2.0",
-        "date": "17/02/2025"
-      },
-      {
-        "version": "1.1.0",
-        "date": "03/02/2025"
-      },
-      {
-        "version": "1.0.0",
-        "date": "14/15/2024"
+        "version": "1.2.1-docker29.0.1",
+        "date": "13/01/2026"
       }
     ],
     "latest": "1.2.1",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "1.2.1",
       "1.2.0",
       "1.1.0",
       "1.0.0"
