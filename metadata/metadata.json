@@ -4868,11 +4868,11 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.7.5",
-        "date": "15/12/2025"
+        "version": "1.7.5-docker29.0.1",
+        "date": "14/01/2026"
       }
     ],
-    "latest": "1.7.5",
+    "latest": "1.7.5-docker29.0.1",
     "bug_found": [
       {
         "version": "<= 1.7.2",
@@ -4881,6 +4881,7 @@
     ],
     "not_working": [],
     "no_longer_tested": [
+      "1.7.5",
       "1.7.4",
       "1.7.3",
       "1.7.2",
@@ -6639,14 +6640,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.0.1",
-        "date": ""
+        "version": "1.1.0",
+        "date": "14/01/2026"
       }
     ],
-    "latest": "1.0.1",
+    "latest": "1.1.0",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "1.0.1-docker29.0.1",
+      "1.0.1",
       "1.0.0"
     ],
     "manual_url": "https://github.com/pegi3s/cga",
@@ -6742,14 +6745,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.2.5",
-        "date": ""
+        "version": "1.2.6",
+        "date": "14/01/2026"
       }
     ],
-    "latest": "1.2.5",
+    "latest": "1.2.6",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "1.2.5-docker29.0.1",
+      "1.2.5",
       "1.2.4",
       "1.2.3",
       "1.2.1",
