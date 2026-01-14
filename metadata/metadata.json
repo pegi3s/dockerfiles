@@ -7562,12 +7562,12 @@
       {
         "docker_image": "pegi3s/cds2gff3-maker:1.1.0-docker29.0.1",
         "input_files": [
-          "test-data-cds2gff3-maker.zip"
+          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/test-data-cds2gff3-maker.zip"
         ],
         "output_dir": "cds2gff3-maker",
-        "output_file": "accessions-mapping.tsv",
+        "output_file": "output.gff3",
         "add_config": "-v /tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock",
-        "commands": "/data/input_data/CDS /data/input_data/genome /data/output_folder/cds2gff3-maker/output.gff3"
+        "commands": "/data/input_data/cds2gff3-maker/CDS /data/input_data/cds2gff3-maker/genome /data/output_folder/cds2gff3-maker/output.gff3"
       }
     ],
     "custom_searches": {
