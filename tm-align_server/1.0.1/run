@@ -1,0 +1,39 @@
+#!/bin/bash
+#
+# Submit to TM-align server
+#
+# docker run --rm -v /workingdir:/data pegi3s/tm-align_server bash -c "/opt/run /data/INPUT /data/OUTPUT"
+#
+#------------------------------------------------------------
+
+# Set input and output folder names
+if [[ ! -z "$1" ]] && [[ ! -z "$2" ]];
+then
+	INPUTDIR=$1
+	OUTDIR=$2
+else
+	INPUTDIR=/data/input
+	OUTDIR=/data/Results_TM-align
+fi
+
+# Input files' names
+F1=$(ls $INPUTDIR/*.pdb | head -1)
+F2=$(ls $INPUTDIR/*.pdb | tail -1)
+
+echo $F1 $F2
+
+# Create /temp
+mkdir -p $OUTDIR/temp
+
+# Submission
+curl -F pdb1="@$F1" -F pdb2="@$F2" https://aideepmed.com/cgi-bin/TMalign.pl > $OUTDIR/temp/submission.tmp # results_tmalign.tmp
+
+# Get results url
+perl -nle 'print $1 if /url=(.+?)">/' $OUTDIR/temp/submission.tmp > $OUTDIR/temp/link.tmp #link_tmalign_results.tmp
+res=$(cat $OUTDIR/temp/link.tmp)
+
+# Page source code
+wget -O - "https://aideepmed.com/$res" > $OUTDIR/results.html #url_check
+
+# Remove /temp
+rm -rf $OUTDIR/temp
