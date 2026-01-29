@@ -198,3 +198,4 @@ DIO:0000022	vcftools
 DIO:0000033	velvet
 DIO:0000035	wgsim
 DIO:0000040	whiscy
+DIO:0000041	tmtools
