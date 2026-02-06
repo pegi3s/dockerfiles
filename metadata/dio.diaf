@@ -147,12 +147,12 @@ DIO:0000040	sppider
 DIO:0000040	whiscy
 DIO:0000041	tm-align_server
 DIO:0000041	tmtools
-DIO:0000041	haddock-tools
 DIO:0000042	haddock24-builder
 DIO:0000042	haddock_server
 DIO:0000042	hdock-builder
 DIO:0000042	pilzerd
 DIO:0000042	pydock3-builder
+DIO:0000042	haddock-tools
 DIO:0000043	i-tasser_server
 DIO:0000044	alphafold_db
 DIO:0000044	ditasser_db
