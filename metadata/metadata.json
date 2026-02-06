@@ -900,7 +900,9 @@
     ],
     "latest": "2024.05",
     "bug_found": [],
-    "not_working": [],
+    "not_working": [
+      "2023.11"
+    ],
     "no_longer_tested": [
       "2023.11"
     ],
