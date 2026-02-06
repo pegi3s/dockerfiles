@@ -224,8 +224,8 @@
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
-    "1.0.0",
-    "1.0.1"
+      "1.0.0",
+      "1.0.1"
     ],
     "manual_url": "https://alphafold.ebi.ac.uk/",
     "source_url": "https://ftp.ebi.ac.uk/pub/databases/alphafold/",
@@ -1638,7 +1638,7 @@
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
-    "1.0.0"
+      "1.0.0"
     ],
     "manual_url": "https://hub.docker.com/r/pegi3s/format_auto-pss-genome/",
     "source_url": "https://github.com/pegi3s/auto-pss-genome",
@@ -1743,7 +1743,7 @@
     "manual_url": "https://gatk.broadinstitute.org/hc/en-us/articles/360037224712--Tool-Documentation-Index",
     "source_url": "https://github.com/broadinstitute/gatk",
     "comments": [
-      "To see GATK 4 available tools, just run gatk --list (please note that GATK 4 does not include some tools that are included in GATK 3\u2060).",
+      "To see GATK 4 available tools, just run gatk --list (please note that GATK 4 does not include some tools that are included in GATK 3⁠).",
       "To obtain the help of a particular tool, you just need to run: gatk tools --help (where tools is the tool name)"
     ],
     "gui": false,
@@ -3017,7 +3017,9 @@
     "latest": "18.7.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": ["16.12.1"],
+    "no_longer_tested": [
+      "16.12.1"
+    ],
     "manual_url": "https://github.com/ncbi/datasets",
     "source_url": "https://github.com/ncbi/datasets",
     "comments": [],
@@ -3080,7 +3082,7 @@
     "invocation_general": "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/data pegi3s/ncbi_retrieve",
     "usual_invocation_specific": " -db assembly -inc GENOME_FASTA -path /your/data/dir",
     "usual_invocation_specific_comments": [
-      "'assembly' can be changed to the NCBI database 'nucleotide'. 'GENOME_FASTA' to the specific information that you want to download from the NCBI website (options: GENOME_GFF, RNA_FASTA, CDS_FASTA, PROT_FASTA, SEQUENCE_REPORT). This option is only available for the \u2018assembly\u2019 database type."
+      "'assembly' can be changed to the NCBI database 'nucleotide'. 'GENOME_FASTA' to the specific information that you want to download from the NCBI website (options: GENOME_GFF, RNA_FASTA, CDS_FASTA, PROT_FASTA, SEQUENCE_REPORT). This option is only available for the ‘assembly’ database type."
     ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/3_nucleotide_accessions_with_comments.txt",
@@ -3947,7 +3949,9 @@
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/pycision",
     "usual_invocation_specific": "  /data/bedFile /data/bamFile",
-    "usual_invocation_specific_comments": ["Output files will be created in the same folder as the input files."],
+    "usual_invocation_specific_comments": [
+      "Output files will be created in the same folder as the input files."
+    ],
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
@@ -4157,7 +4161,7 @@
     "usual_invocation_specific": "bash -c \"Rscript /data/script_rFile > /data/out_name && /data/out_name /data/output\"",
     "usual_invocation_specific_comments": [
       "'out_name' to the name of the output file (replace twice).",
-	  "'In test data, replace the '/your/data/dir' and 'your/data/out' in the .R file."
+      "'In test data, replace the '/your/data/dir' and 'your/data/out' in the .R file."
     ],
     "test_invocation_specific": "",
     "test_data_url": "",
@@ -5948,8 +5952,8 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [
-	  "input"
-	],
+      "input"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/i-tasser_server",
@@ -6078,7 +6082,7 @@
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
-    "1.0.0"
+      "1.0.0"
     ],
     "manual_url": "https://aideepmed.com/TM-align/",
     "source_url": "https://github.com/kad-ecoli/TMalign",
@@ -6834,8 +6838,8 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [
-	"input"
-	],
+      "input"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/pss-fs",
@@ -6979,7 +6983,7 @@
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
-      "2.4.2",    
+      "2.4.2",
       "2.4.1",
       "2.4"
     ],
@@ -6993,7 +6997,7 @@
     "invocation_general": "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v your/data/dir:/data pegi3s/haddock24-builder",
     "usual_invocation_specific": "  bash -c \"cp /data/inputFolder ./ && docker build ./ -t pegi3s/haddock24\"",
     "usual_invocation_specific_comments": [
-      "Prior to running the comman, you should visit pegi3s webpage for instructions and downloadable files. After running the command, replace it for 'bash -c \u201c./your_mode\u201d'. 'your_mode to pdna_run, plig_run, etc."
+      "Prior to running the comman, you should visit pegi3s webpage for instructions and downloadable files. After running the command, replace it for 'bash -c “./your_mode”'. 'your_mode to pdna_run, plig_run, etc."
     ],
     "test_invocation_specific": "",
     "test_data_url": "",
@@ -7033,7 +7037,7 @@
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
-    "1.1"
+      "1.1"
     ],
     "manual_url": "http://hdock.phys.hust.edu.cn/",
     "source_url": "http://hdock.phys.hust.edu.cn/",
@@ -7045,7 +7049,7 @@
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/hdock",
     "usual_invocation_specific": "bash -c \"/exe/hdock /data/pdb1File /data/pdb2File -out /exe/Hdock.out && /exe/createpl /exe/Hdock.out /exe/top100.pdb -nmax 100 -complex -models && mkdir -p /data/output && cp *.pdb /data/output\"",
     "usual_invocation_specific_comments": [
-      "Prior to running the command, you should visit pegi3s webpage for instructions and downloadable files. After running the command, replace it for 'bash -c \u201c./your_mode\u201d'. 'your_mode to pdna_run, plig_run, etc."
+      "Prior to running the command, you should visit pegi3s webpage for instructions and downloadable files. After running the command, replace it for 'bash -c “./your_mode”'. 'your_mode to pdna_run, plig_run, etc."
     ],
     "test_invocation_specific": "",
     "test_data_url": "",
@@ -7086,7 +7090,7 @@
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
-    "3.2.3"
+      "3.2.3"
     ],
     "manual_url": "https://github.com/brianjimenez/pydock_tutorial",
     "source_url": "https://life.bsc.es/pid/pydock/",
@@ -7103,8 +7107,8 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [
-	"pdb"
-	],
+      "pdb"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/pydock3-builder",
@@ -7153,9 +7157,9 @@
     "test_results_url": "",
     "icon": "https://raw.githubusercontent.com/wiki/trinityrnaseq/trinityrnaseq/images/TrinityCompositeLogo.png",
     "input_data_type": [
-	"fastq_gz1",
-	"fastq_gz2"
-	],
+      "fastq_gz1",
+      "fastq_gz2"
+    ],
     "auto_tests": [
       {
         "docker_image": "pegi3s/trinity",
@@ -7392,7 +7396,9 @@
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
-      "18.04", "20.04", "24.04"
+      "18.04",
+      "20.04",
+      "24.04"
     ],
     "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/metadata/web/tutorials/docker-in-docker.md",
     "comments": [
@@ -7722,7 +7728,7 @@
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
-    "1.0.0"   
+      "1.0.0"
     ],
     "manual_url": "https://github.com/pegi3s/dockerfiles/blob/master/values2tree/README.md",
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/values2tree",
@@ -8173,7 +8179,7 @@
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
-    "2.1.4"
+      "2.1.4"
     ],
     "manual_url": "https://github.com/FAANG/analysis-TAGADA",
     "source_url": "https://github.com/FAANG/analysis-TAGADA",
@@ -8261,7 +8267,7 @@
       "bioprotocol_exchange": "content=cd-hit%20weizhongli"
     }
   },
-   {
+  {
     "name": "tmtools",
     "description": "Protein structure alignment",
     "status": "Usable",
@@ -8275,7 +8281,7 @@
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
-    ""
+      ""
     ],
     "manual_url": "https://github.com/jvkersch/tmtools",
     "source_url": "https://github.com/jvkersch/tmtools",

@@ -409,4 +409,3 @@ is_a: DIO:0000063
 id: DIO:0000069
 name: Data_type
 def: "Select applications according to data type"
-
