@@ -1,7 +1,7 @@
 # This image belongs to a larger project called Bioinformatics Docker Images Project (http://pegi3s.github.io/dockerfiles)
 ## (Please note that the original software licenses still apply)
 
-This image facilitates the usage of [tmtools](https://github.com/jvkersch/tmtools), an algorithm for sequence independent protein structure comparisons.
+This image facilitates the usage of [tmtools](https://github.com/jvkersch/tmtools), an algorithm for sequence independent protein structure comparisons. Starting with version 1.0.1, besides the metrics, the python script also outputs the alignment results.
 
 # Using the tmtools image in Linux
 
