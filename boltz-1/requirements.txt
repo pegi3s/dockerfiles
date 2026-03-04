@@ -1,0 +1,2 @@
+boltz==0.4.1
+lightning[extra]==2.5.0.post0
