@@ -1,0 +1,80 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <file_or_directory>"
+    exit 1
+fi
+
+INPUT=$1
+FINAL_OUTPUT="Fasta_file"
+
+# Function to extract the hit region based on PDB 1 alignment
+extract_hit_region() {
+    local file=$1
+    local filename=$(basename "$file")
+
+    # Find the alignment and extract the corresponding PDB 2 residues
+    local result=$(awk '
+        /^PDB 1:/ {
+            # Remove the prefix "PDB 1: "
+            p1 = $0;
+            sub(/^PDB 1:[[:space:]]*/, "", p1);
+            len = length(p1);
+            
+            # Record positions where PDB 1 is NOT a dash
+            for (i=1; i<=len; i++) {
+                if (substr(p1, i, 1) != "-") {
+                    match_pos[i] = 1
+                }
+            }
+        }
+        /^PDB 2:/ {
+            # Remove the prefix "PDB 2: "
+            p2 = $0;
+            sub(/^PDB 2:[[:space:]]*/, "", p2);
+            
+            # Extract characters from PDB 2 at the recorded positions
+            hit = ""
+            for (i=1; i<=length(p2); i++) {
+                if (match_pos[i] == 1) {
+                    char = substr(p2, i, 1)
+                    # Only add if it is not a gap in PDB 2
+                    if (char != "-") {
+                        hit = hit char
+                    }
+                }
+            }
+            print hit
+        }
+    ' "$file")
+
+    if [ -z "$result" ]; then
+        echo "Warning: No alignment found in $file" >&2
+        return 1
+    fi
+
+    echo ">$filename"
+    echo "$result"
+}
+
+# Main
+> "$FINAL_OUTPUT"
+
+if [ -d "$INPUT" ]; then
+    for FILE in "$INPUT"/*; do
+        if [ -f "$FILE" ]; then
+            extract_hit_region "$FILE" >> "$FINAL_OUTPUT"
+        fi
+    done
+elif [ -f "$INPUT" ]; then
+    extract_hit_region "$INPUT" >> "$FINAL_OUTPUT"
+else
+    echo "Error: $INPUT is not a valid file or directory."
+    exit 1
+fi
+
+# Final cleanup
+sed -i '/^$/d' "$FINAL_OUTPUT"
+sed -i 's/.pdb//g' "$FINAL_OUTPUT"
+
+echo "Done! Hit regions extracted to $FINAL_OUTPUT"

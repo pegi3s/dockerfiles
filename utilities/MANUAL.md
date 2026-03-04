@@ -28,7 +28,9 @@ These utilities are alphabetically listed bellow along with comprehensive explan
    * [get_phylo_taxa](#get_phylo_taxa)
    * [get_taxonomy](#get_taxonomy)
    * [hdock_to_PDBePISA_conversion](#hdock_to_PDBePISA_conversion)
+   * [pdb2fasta](#pdb2fasta)
    * [pisa_xml_extract](#pisa_xml_extract)
+   * [tm_align_hit_extract](#tm_align_hit_extract)
    * [rmlastline](#rmlastline)
 
 
@@ -667,6 +669,18 @@ In this command, you should replace
 
 To test this utility you can use  [this input file](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/utilities/test_data/test-hdock-conversion.pdb).
 
+## `pdb2fasta`
+
+The `pdb2fasta` script  extracts sequences in FASTA format from PDB files. Input may be a single file or a directory with PDB files. In the latter case, a multi-FASTA file will be produced. The output file is named "Fasta_file".
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities pdb2fasta /data/file_or_folder`
+
+In this command, you should replace:
+
+- `/your/data/dir` to point to the directory that contains the input file or folder you want to process.
+- `file_or_folder` to the actual name of your input file or folder under `/your/data/dir`.
+
+
 ## `pisa_xml_extract`
 
 The `pisa_xml_extract` script extracts information regarding the number of interface residues and the interface area from XML files generated using [PDBePISA](https://www.ebi.ac.uk/pdbe/pisa/). It also shows information regarding the sites involved in the interaction for the two protein structures. If more than one alternative XML is given for the same pair of proteins, this utility also selects the pair of structures with the highest number of interface residues in the first structure. If two alternatives show the same number of interface residues, the one showing the highest number of interface residues for the second structure is chosen. It also produces a file called "structure1" where the interacting residues of structure1 is shown for the selected pairs of proteins.
@@ -679,6 +693,18 @@ In this command, you should replace
 - `/data/PISA_extract_output` to the name of the output directory (under `/data`).
 
 The tab separated result files produced by the script are best viewed with a spreadsheet editor.
+
+## `tm_align_hit_extract`
+
+The `tm_align_hit_extract` script extracts the hit region of sequence 2 from a TM-align output file generated with the `pegi3s/tmtools` Docker image (1.0.1 or above; it may work with other outputs as well). Input may be a single file or a directory with files. In the latter case, a multi-FASTA file will be produced. The output file is named "Fasta_file".
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities tm_align_hit_extract /data/file_or_folder`
+
+In this command, you should replace:
+
+- `/your/data/dir` to point to the directory that contains the input file or folder you want to process.
+- `file_or_folder` to the actual name of your input file or folder under `/your/data/dir`.
+
 
 ## `rmlastline`
 

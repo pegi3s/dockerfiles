@@ -7604,14 +7604,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "0.22.2-docker29.0.1",
-        "date": "13/01/2026"
+        "version": "0.23.0",
+        "date": "04/05/2026"
       }
     ],
-    "latest": "0.22.2",
+    "latest": "0.23.0",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "0.22.2-docker29.0.1",
       "0.22.2",
       "0.22.1",
       "0.22.0",
