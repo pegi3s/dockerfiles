@@ -8413,5 +8413,42 @@
       "bioprotocol": "content=boltz-1",
       "bioprotocol_exchange": "content=boltz-1"
     }
+  },
+  {
+    "name": "dialign",
+    "description": "sequence alignment program",
+    "status": "Usable",
+    "recommended": [
+      {
+        "version": "2.2.1",
+        "date": "3/6/2026"
+      }
+    ],
+    "latest": "2.2.1",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://bibiserv.cebitec.uni-bielefeld.de/dialign",
+    "source_url": "https://bibiserv.cebitec.uni-bielefeld.de/dialign",
+    "comments": [],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/dialign",
+    "usual_invocation_specific": " bash -c \"./dialign2-2 -n /data/small_not_aligned.fas\"",
+    "usual_invocation_specific_comments": [],
+    "test_invocation_specific": "",
+    "test_data_url": "",
+    "test_results_url": "",
+    "icon": "",
+    "input_data_type": [],
+    "auto_tests": [],
+    "custom_searches": {
+      "pubmed": "term=dialign",
+      "scholar": "q=dialign",
+      "bioprotocol": "content=dialign",
+      "bioprotocol_exchange": "content=dialign"
+    }
   }
 ]

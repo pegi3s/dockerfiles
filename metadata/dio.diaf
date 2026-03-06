@@ -6,6 +6,7 @@ DIO:0000004	muscle
 DIO:0000004	probcons_nuc
 DIO:0000004	tcoffee
 DIO:0000004	translatorx
+DIO:0000004	dialign
 DIO:0000005	hyphy
 DIO:0000005	omegamap
 DIO:0000005	paml
@@ -119,6 +120,7 @@ DIO:0000031	bowtie1
 DIO:0000031	bwa
 DIO:0000031	hisat2
 DIO:0000031	htseq
+DIO:0000031	dialign
 DIO:0000033	abyss
 DIO:0000033	edena
 DIO:0000033	soapdenovo2
