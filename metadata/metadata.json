@@ -8384,7 +8384,12 @@
     "name": "boltz-1",
     "description": "3D structure prediction",
     "status": "Usable",
-    "recommended": [],
+    "recommended": [
+      {
+        "version": "0.4.1",
+        "date": "3/6/2026"
+      }
+    ],
     "latest": "0.4.1",
     "bug_found": [],
     "not_working": [],
