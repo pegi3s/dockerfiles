@@ -35,6 +35,7 @@ DIO:0000012	plottree
 DIO:0000012	raxml
 DIO:0000012	rootdigger
 DIO:0000012	treeviewx
+DIO:0000012	aster
 DIO:0000013	aegean
 DIO:0000013	autoaugustus
 DIO:0000013	prokka
@@ -154,6 +155,7 @@ DIO:0000042	pilzerd
 DIO:0000042	pydock3-builder
 DIO:0000042	haddock-tools
 DIO:0000043	i-tasser_server
+DIO:0000043	boltz-1
 DIO:0000044	alphafold_db
 DIO:0000044	ditasser_db
 DIO:0000044	getpdb
@@ -199,4 +201,3 @@ DIO:0000065	takeabreak
 DIO:0000066	auto-phylo
 DIO:0000067	trinity
 DIO:0000068	auto-p2docking
-DIO:0000012	aster
