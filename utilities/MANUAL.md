@@ -673,12 +673,14 @@ To test this utility you can use  [this input file](https://raw.githubuserconten
 
 The `pdb2fasta` script  extracts sequences in FASTA format from PDB files. Input may be a single file or a directory with PDB files. In the latter case, a multi-FASTA file will be produced. The output file is named "Fasta_file".
 
-You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities pdb2fasta /data/file_or_folder`
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data -w /data pegi3s/utilities pdb2fasta /data/file_or_folder`
 
 In this command, you should replace:
 
 - `/your/data/dir` to point to the directory that contains the input file or folder you want to process.
 - `file_or_folder` to the actual name of your input file or folder under `/your/data/dir`.
+
+Note `-w /data` is neccessary for the script to produce its output in the working directory.
 
 
 ## `pisa_xml_extract`
@@ -698,12 +700,14 @@ The tab separated result files produced by the script are best viewed with a spr
 
 The `tm_align_hit_extract` script extracts the hit region of sequence 2 from a TM-align output file generated with the `pegi3s/tmtools` Docker image (1.0.1 or above; it may work with other outputs as well). Input may be a single file or a directory with files. In the latter case, a multi-FASTA file will be produced. The output file is named "Fasta_file".
 
-You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities tm_align_hit_extract /data/file_or_folder`
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data -w /data pegi3s/utilities tm_align_hit_extract /data/file_or_folder`
 
 In this command, you should replace:
 
 - `/your/data/dir` to point to the directory that contains the input file or folder you want to process.
 - `file_or_folder` to the actual name of your input file or folder under `/your/data/dir`.
+
+Note `-w /data` is neccessary for the script to produce its output in the working directory.
 
 
 ## `rmlastline`
