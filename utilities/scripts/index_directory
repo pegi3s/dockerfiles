@@ -1,0 +1,78 @@
+#!/bin/bash
+
+display_usage() {
+    echo -e "This script generates an index file (index.txt) for one or more directories, listing each file name, last modification date, and size in MB."
+    echo -e "\nUsage:"
+    echo -e "\t`basename $0` /path/to/directory"
+    echo -e "\t`basename $0` -i /path/to/list_of_dirs.txt"
+}
+
+if [[ $1 == "--help" ]]; then
+    display_usage
+    exit 0
+fi
+
+if ! [[ $# -eq 1 || ($# -eq 2 && $1 == "-i") ]]; then
+    tput setaf 1
+    echo -e "Error. This script requires one or two arguments. \n"
+    tput sgr0
+    display_usage
+    exit 1
+fi
+
+# Date format (customizable)
+DATE_FORMAT="%Y-%m-%d %H:%M:%S"
+
+# Parse input
+DIRS=()
+
+if [ "$#" -eq 1 ]; then
+    # Single directory mode
+    DIRS=("$1")
+
+elif [ "$#" -eq 2 ] && [ "$1" = "-i" ]; then
+    LIST_FILE="$2"
+
+    if [ ! -f "$LIST_FILE" ]; then
+        tput setaf 1
+        echo -e "Error: file $LIST_FILE not found. \n"
+        tput sgr0
+        exit 1
+    fi
+
+    # Read directories from file (ignore empty lines and comments)
+    mapfile -t DIRS < <(grep -vE '^\s*$|^\s*#' "$LIST_FILE")
+
+fi
+
+# Process each directory
+for DIR in "${DIRS[@]}"; do
+    INDEX_FILE="$DIR/index.txt"
+
+    # Check directory exists
+    if [ ! -d "$DIR" ]; then
+        echo "Warning: directory $DIR does not exist, skipping."
+        continue
+    fi
+
+    # Empty index file
+    > "$INDEX_FILE"
+
+    find "$DIR" -maxdepth 1 -type f ! -name "index.txt" | while read -r FILE; do
+        BASENAME=$(basename "$FILE")
+
+        # Last modification time
+        MOD_TIME=$(date -r "$FILE" +"$DATE_FORMAT")
+
+        # File size in MB (2 decimal places)
+        FILE_SIZE_BYTES=$(stat -c%s "$FILE")
+        FILE_SIZE_MB=$(awk "BEGIN {printf \"%.2f\", $FILE_SIZE_BYTES/1024/1024}")
+
+        echo -e "${BASENAME}\t${MOD_TIME}\t${FILE_SIZE_MB} MB" >> "$INDEX_FILE"
+    done
+
+    # Sort by filename
+    sort -o "$INDEX_FILE" "$INDEX_FILE"
+
+    echo "Index generated at $INDEX_FILE"
+done

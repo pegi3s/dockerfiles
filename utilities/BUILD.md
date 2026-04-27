@@ -3,7 +3,7 @@
 Run:
 
 ```bash
-CURRENT_UTILITIES_VERSION=0.23.0 && docker build ./ -t pegi3s/utilities:${CURRENT_UTILITIES_VERSION} --build-arg utilities_version=${CURRENT_UTILITIES_VERSION} && docker tag pegi3s/utilities:${CURRENT_UTILITIES_VERSION} pegi3s/utilities:latest
+CURRENT_UTILITIES_VERSION=0.24.0 && docker build ./ -t pegi3s/utilities:${CURRENT_UTILITIES_VERSION} --build-arg utilities_version=${CURRENT_UTILITIES_VERSION} && docker tag pegi3s/utilities:${CURRENT_UTILITIES_VERSION} pegi3s/utilities:latest
 ```
 
 # Build log
@@ -20,3 +20,4 @@ CURRENT_UTILITIES_VERSION=0.23.0 && docker build ./ -t pegi3s/utilities:${CURREN
 - 0.22.2 - 14/09/2022 - Jorge Vieira
 - 0.22.2-docker29.0.1 - 13/01/2026 - Hugo López Fernández
 - 0.23.0 - 04/03/2026 - Hugo López Fernández
+- 0.24.0 - 24/04/2026 - Hugo López Fernández

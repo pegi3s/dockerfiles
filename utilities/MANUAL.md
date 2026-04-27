@@ -28,6 +28,7 @@ These utilities are alphabetically listed bellow along with comprehensive explan
    * [get_phylo_taxa](#get_phylo_taxa)
    * [get_taxonomy](#get_taxonomy)
    * [hdock_to_PDBePISA_conversion](#hdock_to_PDBePISA_conversion)
+   * [index_directory](#index_directory)
    * [pdb2fasta](#pdb2fasta)
    * [pisa_xml_extract](#pisa_xml_extract)
    * [tm_align_hit_extract](#tm_align_hit_extract)
@@ -668,6 +669,22 @@ In this command, you should replace
 - `/data/output.pdb` to the actual name of your output PDB file.
 
 To test this utility you can use  [this input file](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/utilities/test_data/test-hdock-conversion.pdb).
+
+## `index_directory`
+
+The `index_directory` script generates an index file (`index.txt`) for one or more directories, listing each file name, last modification date, and size in MB.
+
+You should adapt and run the following command: `docker run --rm -v /your/data/dir:/data pegi3s/utilities index_directory /data/your_directory`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains the input directory you want to process.
+- `your_directory` to the actual name of the directory to index.
+
+Alternatively, to process multiple directories at once, you can use: `docker run --rm -v /your/data/dir:/data pegi3s/utilities index_directory -i /data/list_of_dirs.txt`
+
+In this command, you should replace:
+- `/your/data/dir` to point to the directory that contains both the directories to index and the list file.
+- `/data/list_of_dirs.txt` to the actual path of the text file containing one directory path per line (lines starting with `#` are ignored).
 
 ## `pdb2fasta`
 
