@@ -1,6 +1,6 @@
 # Monitor Docker images CPU and RAM usage
 
-![Docker View](images/advanced/dockview.png)
+![Docker View](images/dockview/output.png)
 
 > [!WARNING]
 > This image runs Docker in Docker version 29, and thus is only compatible with Docker 29.
