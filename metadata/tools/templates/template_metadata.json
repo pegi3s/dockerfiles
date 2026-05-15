@@ -72,7 +72,10 @@
       "test_data_url",
       "test_results_url",
       "gui",
-      "status"
+      "status",
+      "bug_found",
+      "not_working",
+      "no_longer_tested"
     ],
     "conditional_fields": {
       "gui": {
