@@ -25,15 +25,6 @@ from sppider_seq import (
 )
 
 
-def _probability_to_code(probability: float) -> int:
-    """Map probability to the common interface-residue code used in PEgi3S outputs."""
-    if probability >= 0.50:
-        return 1
-    if probability <= 0.25:
-        return 2
-    return 0
-
-
 def _parse_prediction_header(header_line: str):
     """Parse SPPIDER-seq header lines.
 
@@ -55,7 +46,7 @@ def generate_interface_residues_csv(output_dir: str) -> str:
     """Generate a simplified interface_residues.csv from SPPIDER-seq .txt outputs.
 
     Output columns:
-        query_id;partner_id;model;res_num;res_name;sppiderseq_probability;code
+        query_id;partner_id;model;res_num;res_name;sppiderseq_probability
 
     Notes:
         - res_num is the 1-based residue position in the query sequence.
@@ -93,8 +84,6 @@ def generate_interface_residues_csv(output_dir: str) -> str:
             except ValueError:
                 continue
 
-            code = _probability_to_code(probability)
-
             rows.append(
                 (
                     query_id,
@@ -103,7 +92,6 @@ def generate_interface_residues_csv(output_dir: str) -> str:
                     res_num,
                     res_name,
                     f"{probability:.3f}",
-                    code,
                 )
             )
 
@@ -112,7 +100,7 @@ def generate_interface_residues_csv(output_dir: str) -> str:
         return csv_path
 
     with open(csv_path, "w", encoding="utf-8") as handle:
-        handle.write("query_id;partner_id;model;res_num;res_name;sppiderseq_probability;code\n")
+        handle.write("query_id;partner_id;model;res_num;res_name;sppiderseq_probability\n")
         for row in rows:
             handle.write(";".join(str(value) for value in row) + "\n")
 
