@@ -205,3 +205,5 @@ DIO:0000067	trinity
 DIO:0000068	auto-p2docking
 DIO:0000012	iqtree3
 DIO:0000040	prodigy
+DIO:0000040	ispip
+DIO:0000040	sppider-seq

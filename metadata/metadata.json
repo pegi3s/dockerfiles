@@ -8601,5 +8601,109 @@
         "bioprotocol": "content=PRODIGY%20binding%20affinity",
         "bioprotocol_exchange": "content=PRODIGY%20binding%20affinity"
     }
+},
+{
+    "name": "ispip",
+    "description": "protein-protein interface prediction",
+    "status": "Usable",
+    "recommended": [
+        {
+            "version": "2025.02.23",
+            "date": "2026-05"
+        }
+    ],
+    "latest": "2025.02.23",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://github.com/eved1018/ISPIP",
+    "source_url": "https://github.com/eved1018/ISPIP",
+    "comments": [],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/ispip ",
+    "usual_invocation_specific": "-i /data/input.csv -of /data/output",
+    "usual_invocation_specific_comments": [],
+    "test_invocation_specific": "-i /data/test/data/test_ispip_input.csv -of /data/test/results",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/test_ispip_input.csv",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/ispip_output.zip",
+    "icon": "",
+    "input_data_type": [
+        [
+            "csv"
+        ]
+    ],
+    "auto_tests": [
+        {
+            "docker_image": "pegi3s/ispip",
+            "input_files": [
+                "ispip_input.csv"
+            ],
+            "output_dir": "/data/test/results",
+            "output_file": "ispip_pipeline_done.txt",
+            "add_config": "",
+            "commands": "-i /data/test/data/test_ispip_input.csv -of /data/test/results"
+        }
+    ],
+    "custom_searches": {
+        "pubmed": "term=https://pubmed.ncbi.nlm.nih.gov/?term=ispip",
+        "scholar": "q=https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=ispip&btnG=",
+        "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=ispip",
+        "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=ispip"
+    }
+},
+{
+    "name": "sppider-seq",
+    "description": "Active and passive sites prediction",
+    "status": "Usable",
+    "recommended": [
+        {
+            "version": "2026-05",
+            "date": "2026-05"
+        }
+    ],
+    "latest": "2026-05",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://sppider.cchmc.org/",
+    "source_url": "https://github.com/aporollo-lab/SPPIDER-seq",
+    "comments": [],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/sppiderseq ",
+    "usual_invocation_specific": "--query /data/query.fasta --partner /data/partner.fasta --output /data/output",
+    "usual_invocation_specific_comments": [],
+    "test_invocation_specific": "--query /data/test/data/2ZA4_1.fasta --partner /data/test/data/2ZA4_2.fasta --output /data/test/results",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/sppider-seq.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/sppider-seq_output.zip",
+    "icon": "",
+    "input_data_type": [
+        [
+            "fasta"
+        ]
+    ],
+    "auto_tests": [
+        {
+            "docker_image": "pegi3s/sppiderseq",
+            "input_files": [
+                "2ZA4_1.fasta, 2ZA4_2.fasta"
+            ],
+            "output_dir": "/data/test/results",
+            "output_file": "interface_residues.csv",
+            "add_config": "",
+            "commands": "--query /data/test/data/2ZA4_1.fasta --partner /data/test/data/2ZA4_2.fasta --output /data/test/results"
+        }
+    ],
+    "custom_searches": {
+        "pubmed": "term=https://pubmed.ncbi.nlm.nih.gov/42094486/",
+        "scholar": "q=https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=sppider&btnG=",
+        "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=sppider",
+        "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=sppider"
+    }
 }
 ]
