@@ -193,6 +193,7 @@ def save_interface_residues_csv(df: pd.DataFrame, output_path: str) -> None:
             ispred4_probability >= 0.50       -> 1
             ispred4_probability <= 0.25       -> 2
             0.25 < ispred4_probability < 0.50 -> 0
+            Probability missing / "-"         -> 0
     """
     required_cols = {"ResNum", "ResType", "Probability"}
     missing_cols = required_cols - set(df.columns)
@@ -209,18 +210,31 @@ def save_interface_residues_csv(df: pd.DataFrame, output_path: str) -> None:
         try:
             res_num = int(row["ResNum"])
             res_name = str(row["ResType"]).strip()
-            ispred4_probability = float(row["Probability"])
         except (ValueError, TypeError):
             continue
 
-        if ispred4_probability >= 0.5:
-            code = 1
-        elif ispred4_probability <= 0.25:
-            code = 2
-        else:
-            code = 0
+        prob_raw = str(row["Probability"]).strip()
 
-        rows.append((res_num, res_name, f"{ispred4_probability:.2f}", code))
+        if prob_raw in {"-", ""} or prob_raw.lower() == "nan":
+            ispred4_probability = "-"
+            code = 0
+        else:
+            try:
+                prob = float(prob_raw)
+            except (ValueError, TypeError):
+                ispred4_probability = "-"
+                code = 0
+            else:
+                ispred4_probability = f"{prob:.2f}"
+
+                if prob >= 0.5:
+                    code = 1
+                elif prob <= 0.25:
+                    code = 2
+                else:
+                    code = 0
+
+        rows.append((res_num, res_name, ispred4_probability, code))
 
     if not rows:
         log.warning("No valid residues found for simplified CSV.")
@@ -236,7 +250,7 @@ def save_interface_residues_csv(df: pd.DataFrame, output_path: str) -> None:
 
 
 def process_pdb(pdb_file: str, chain_id: str, output_path: str) -> None:
-    """Run ISPRED4 for a single PDB file and save the CSV."""
+    """Run ISPRED4 for a single PDB file and save all outputs."""
     predictor = Ispred4(pdb_file=pdb_file, chain_id=chain_id)
     df = predictor.run()
 
@@ -244,10 +258,12 @@ def process_pdb(pdb_file: str, chain_id: str, output_path: str) -> None:
         log.warning(f"No predictions returned for {pdb_file}.")
         return
 
-    save_results(df, output_path)
-    
-    simplified_output = str(Path(output_path).with_suffix("")) + ".interface_residues.csv"
-    save_interface_residues_csv(df, simplified_output)
+    output_prefix = str(Path(output_path).with_suffix(""))
+
+    full_output = output_prefix + ".full.csv"
+    interface_output = output_prefix + ".interface_residues.csv"
+    save_results(df, full_output)
+    save_interface_residues_csv(df, interface_output)
 
     # Print a brief summary
     if "Inter" in df.columns:
