@@ -8601,8 +8601,8 @@
         "bioprotocol": "content=PRODIGY%20binding%20affinity",
         "bioprotocol_exchange": "content=PRODIGY%20binding%20affinity"
     }
-},
-{
+  },
+  {
     "name": "ispip",
     "description": "protein-protein interface prediction",
     "status": "Usable",
@@ -8653,8 +8653,8 @@
         "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=ispip",
         "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=ispip"
     }
-},
-{
+  },
+  {
     "name": "sppider-seq",
     "description": "Active and passive sites prediction",
     "status": "Usable",
@@ -8705,5 +8705,5 @@
         "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=sppider",
         "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=sppider"
     }
-}
+
 ]
