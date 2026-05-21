@@ -8705,5 +8705,57 @@
         "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=sppider",
         "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=sppider"
     }
-
+},
+{
+    "name": "ispred4",
+    "description": "Active and passive sites prediction",
+    "status": "",
+    "recommended": [
+        {
+            "version": "4.0.0",
+            "date": "2026-05"
+        }
+    ],
+    "latest": "4.0.0",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://ispred4.biocomp.unibo.it/ispred/default/index",
+    "source_url": "https://ispred4.biocomp.unibo.it/ispred/default/index",
+    "comments": [],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/ispred4 ",
+    "usual_invocation_specific": "/data/input.pdb --chain A --output /data/output.ispred4.csv",
+    "usual_invocation_specific_comments": [],
+    "test_invocation_specific": "/data/test/data/8qnc.pdb --chain A --output /data/test/results/8qnc.ispred4.csv",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/8qnc.pdb",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/ispred4_output.zip",
+    "icon": "",
+    "input_data_type": [
+        [
+            "pdb"
+        ]
+    ],
+    "auto_tests": [
+        {
+            "docker_image": "pegi3s/ispred4",
+            "input_files": [
+                "8qnc.pdb"
+            ],
+            "output_dir": "/data/test/results",
+            "output_file": "8qnc.ispred4.csv",
+            "add_config": "",
+            "commands": "/data/test/data/8qnc.pdb --chain A --output /data/test/results/8qnc.ispred4.csv"
+        }
+    ],
+    "custom_searches": {
+        "pubmed": "term=https://pubmed.ncbi.nlm.nih.gov/28130235/",
+        "scholar": "q=https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=ispred4&btnG=",
+        "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=ispred4",
+        "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=ispred4"
+    }
+}
 ]
