@@ -409,3 +409,9 @@ is_a: DIO:0000063
 id: DIO:0000069
 name: Data_type
 def: "Select applications according to data type"
+
+[Term]
+id: DIO:0000070
+name: Gene_enrichment
+def: "Pipelines aimed at performing gene enrichment analyses"
+is_a: DIO:0000003
