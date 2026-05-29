@@ -8705,8 +8705,8 @@
         "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=sppider",
         "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=sppider"
     }
-},
-{
+  },
+  {
     "name": "ispred4",
     "description": "Active and passive sites prediction",
     "status": "",
@@ -8757,5 +8757,5 @@
         "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=ispred4",
         "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=ispred4"
     }
-}
+  }
 ]
