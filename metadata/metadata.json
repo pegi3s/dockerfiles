@@ -8791,10 +8791,8 @@
     ],
     "auto_tests": [
         {
-            "input_files": [
             "docker_image": "",
-                ""
-            ],
+            "input_files": [],
             "output_dir": "",
             "output_file": "",
             "add_config": "",
