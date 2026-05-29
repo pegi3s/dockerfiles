@@ -8757,53 +8757,5 @@
         "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=ispred4",
         "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=ispred4"
     }
-  },
-    {
-    "name": "auto-enrich",
-    "description": "Gene enrichment analyses",
-    "status": "",
-    "recommended": [
-        {
-            "version": "1.0.0",
-            "date": "2026-05"
-        }
-    ],
-    "latest": "1.0.0",
-    "bug_found": [],
-    "not_working": [],
-    "no_longer_tested": [],
-    "manual_url": "",
-    "source_url": "https://github.com/pegi3s/auto-enrich.git",
-    "comments": [],
-    "gui": false,
-    "gui_command": "",
-    "podman": "untested",
-    "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/auto-enrich ",
-    "usual_invocation_specific": "",
-    "usual_invocation_specific_comments": [],
-    "test_invocation_specific": "",
-    "test_data_url": "",
-    "test_results_url": "",
-    "icon": "",
-    "input_data_type": [
-        []
-    ],
-    "auto_tests": [
-        {
-            "docker_image": "",
-            "input_files": [],
-            "output_dir": "",
-            "output_file": "",
-            "add_config": "",
-            "commands": ""
-        }
-    ],
-    "custom_searches": {
-        "pubmed": "",
-        "scholar": "",
-        "bioprotocol": "",
-        "bioprotocol_exchange": ""
-    }
   }
 ]
