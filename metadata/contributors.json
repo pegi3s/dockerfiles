@@ -143,7 +143,10 @@
         "github": "pedroferreira84"
       },
       "organizations": ["i3S", "IBMC"],
-      "period": "2018-2025"
+      "period": {
+        "from": "2018",
+        "to": "2025"
+      }
     },
     {
       "name": "Bruno Cavadas",
