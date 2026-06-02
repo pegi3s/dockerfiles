@@ -110,7 +110,11 @@
         "email": "devpablogg@gmail.com",
         "github": "PabloG02"
       },
-      "organizations": []
+      "organizations": [],
+      "period": {
+        "from": "2024",
+        "to": ""
+      }
     },
         {
       "name": "Gonçalo Marques Castro",
