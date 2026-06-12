@@ -832,10 +832,10 @@
       }
     ],
     "custom_searches": {
-      "pubmed": "term=Coral+AND+Salmela+AND+Schröder",
-      "scholar": "q=Coral+Salmela+Schröder",
-      "bioprotocol": "content=Coral%20Salmela%20Schröder",
-      "bioprotocol_exchange": "content=Coral%20Salmela%20Schröder"
+      "pubmed": "term=Coral+AND+Salmela+AND+Schr\u00f6der",
+      "scholar": "q=Coral+Salmela+Schr\u00f6der",
+      "bioprotocol": "content=Coral%20Salmela%20Schr\u00f6der",
+      "bioprotocol_exchange": "content=Coral%20Salmela%20Schr\u00f6der"
     }
   },
   {
@@ -1745,7 +1745,7 @@
     "manual_url": "https://gatk.broadinstitute.org/hc/en-us/articles/360037224712--Tool-Documentation-Index",
     "source_url": "https://github.com/broadinstitute/gatk",
     "comments": [
-      "To see GATK 4 available tools, just run gatk --list (please note that GATK 4 does not include some tools that are included in GATK 3⁠).",
+      "To see GATK 4 available tools, just run gatk --list (please note that GATK 4 does not include some tools that are included in GATK 3\u2060).",
       "To obtain the help of a particular tool, you just need to run: gatk tools --help (where tools is the tool name)"
     ],
     "gui": false,
@@ -3084,7 +3084,7 @@
     "invocation_general": "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /your/data/dir:/data pegi3s/ncbi_retrieve",
     "usual_invocation_specific": " -db assembly -inc GENOME_FASTA -path /your/data/dir",
     "usual_invocation_specific_comments": [
-      "'assembly' can be changed to the NCBI database 'nucleotide'. 'GENOME_FASTA' to the specific information that you want to download from the NCBI website (options: GENOME_GFF, RNA_FASTA, CDS_FASTA, PROT_FASTA, SEQUENCE_REPORT). This option is only available for the ‘assembly’ database type."
+      "'assembly' can be changed to the NCBI database 'nucleotide'. 'GENOME_FASTA' to the specific information that you want to download from the NCBI website (options: GENOME_GFF, RNA_FASTA, CDS_FASTA, PROT_FASTA, SEQUENCE_REPORT). This option is only available for the \u2018assembly\u2019 database type."
     ],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/3_nucleotide_accessions_with_comments.txt",
@@ -6999,7 +6999,7 @@
     "invocation_general": "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v your/data/dir:/data pegi3s/haddock24-builder",
     "usual_invocation_specific": "  bash -c \"cp /data/inputFolder ./ && docker build ./ -t pegi3s/haddock24\"",
     "usual_invocation_specific_comments": [
-      "Prior to running the comman, you should visit pegi3s webpage for instructions and downloadable files. After running the command, replace it for 'bash -c “./your_mode”'. 'your_mode to pdna_run, plig_run, etc."
+      "Prior to running the comman, you should visit pegi3s webpage for instructions and downloadable files. After running the command, replace it for 'bash -c \u201c./your_mode\u201d'. 'your_mode to pdna_run, plig_run, etc."
     ],
     "test_invocation_specific": "",
     "test_data_url": "",
@@ -7051,7 +7051,7 @@
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/hdock",
     "usual_invocation_specific": "bash -c \"/exe/hdock /data/pdb1File /data/pdb2File -out /exe/Hdock.out && /exe/createpl /exe/Hdock.out /exe/top100.pdb -nmax 100 -complex -models && mkdir -p /data/output && cp *.pdb /data/output\"",
     "usual_invocation_specific_comments": [
-      "Prior to running the command, you should visit pegi3s webpage for instructions and downloadable files. After running the command, replace it for 'bash -c “./your_mode”'. 'your_mode to pdna_run, plig_run, etc."
+      "Prior to running the command, you should visit pegi3s webpage for instructions and downloadable files. After running the command, replace it for 'bash -c \u201c./your_mode\u201d'. 'your_mode to pdna_run, plig_run, etc."
     ],
     "test_invocation_specific": "",
     "test_data_url": "",
@@ -8462,10 +8462,10 @@
     "description": "phylogenetic inference tool",
     "status": "Usable",
     "recommended": [
-        {
-            "version": "3.1.0",
-            "date": ""
-        }
+      {
+        "version": "3.1.0",
+        "date": ""
+      }
     ],
     "latest": "3.1.0",
     "bug_found": [],
@@ -8486,28 +8486,28 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [
-        "PHYLIP",
-        "FASTA",
-        "NEXUS",
-        "CLUSTAL",
-        "MSF"
+      "PHYLIP",
+      "FASTA",
+      "NEXUS",
+      "CLUSTAL",
+      "MSF"
     ],
     "auto_tests": [
-        {
-            "docker_image": "",
-            "input_files": [],
-            "output_dir": "",
-            "output_file": "",
-            "add_config": "",
-            "commands": "",
-            "time_seconds": "0"
-        }
+      {
+        "docker_image": "",
+        "input_files": [],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": "",
+        "time_seconds": "0"
+      }
     ],
     "custom_searches": {
-        "pubmed": "term=iq-tree+software+for+phylogenetics",
-        "scholar": "q=iq-tree+3+software+for+phylogenetics+&btnG",
-        "bioprotocol": "content=iq-tree 3 phylogenomic inference software",
-        "bioprotocol_exchange": "content=iq-tree 3 phylogenomic inference software"
+      "pubmed": "term=iq-tree+software+for+phylogenetics",
+      "scholar": "q=iq-tree+3+software+for+phylogenetics+&btnG",
+      "bioprotocol": "content=iq-tree 3 phylogenomic inference software",
+      "bioprotocol_exchange": "content=iq-tree 3 phylogenomic inference software"
     }
   },
   {
@@ -8555,10 +8555,10 @@
     "description": "Binding affinity prediction",
     "status": "Usable",
     "recommended": [
-        {
-            "version": "2.4.0",
-            "date": "19/05/2026"
-        }
+      {
+        "version": "2.4.0",
+        "date": "19/05/2026"
+      }
     ],
     "latest": "2.4.0",
     "bug_found": [],
@@ -8574,32 +8574,32 @@
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/prodigy",
     "usual_invocation_specific": "prodigy /data/pdbFile",
     "usual_invocation_specific_comments": [
-        "Path to a PDB or mmCIF structure file, a directory containing multiple structure files, or a multi-model PDB file."
+      "Path to a PDB or mmCIF structure file, a directory containing multiple structure files, or a multi-model PDB file."
     ],
     "test_invocation_specific": "prodigy /data/test/data/1B34.pdb",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/1B34.pdb",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/prodigy_output.zip",
     "icon": "",
     "input_data_type": [
-        "pdb"
+      "pdb"
     ],
     "auto_tests": [
-        {
-            "docker_image": "pegi3s/prodigy:2.4.0",
-            "input_files": [
-                "1B34.pdb"
-            ],
-            "output_dir": "prodigy_output",
-            "output_file": "",
-            "add_config": "",
-            "commands": "bash -c \"prodigy /data/input_data/1B34.pdb > /data/output_folder/prodigy_output/prodigy_output.txt\" > /dev/null 2>&1"
-        }
+      {
+        "docker_image": "pegi3s/prodigy:2.4.0",
+        "input_files": [
+          "1B34.pdb"
+        ],
+        "output_dir": "prodigy_output",
+        "output_file": "",
+        "add_config": "",
+        "commands": "bash -c \"prodigy /data/input_data/1B34.pdb > /data/output_folder/prodigy_output/prodigy_output.txt\" > /dev/null 2>&1"
+      }
     ],
     "custom_searches": {
-        "pubmed": "term=PRODIGY+AND+binding+affinity+AND+protein-protein",
-        "scholar": "q=PRODIGY+binding+affinity+protein-protein",
-        "bioprotocol": "content=PRODIGY%20binding%20affinity",
-        "bioprotocol_exchange": "content=PRODIGY%20binding%20affinity"
+      "pubmed": "term=PRODIGY+AND+binding+affinity+AND+protein-protein",
+      "scholar": "q=PRODIGY+binding+affinity+protein-protein",
+      "bioprotocol": "content=PRODIGY%20binding%20affinity",
+      "bioprotocol_exchange": "content=PRODIGY%20binding%20affinity"
     }
   },
   {
@@ -8607,10 +8607,10 @@
     "description": "protein-protein interface prediction",
     "status": "Usable",
     "recommended": [
-        {
-            "version": "2025.02.23",
-            "date": "2026-05"
-        }
+      {
+        "version": "2025.02.23",
+        "date": "2026-05"
+      }
     ],
     "latest": "2025.02.23",
     "bug_found": [],
@@ -8631,27 +8631,27 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/ispip_output.zip",
     "icon": "",
     "input_data_type": [
-        [
-            "csv"
-        ]
+      [
+        "csv"
+      ]
     ],
     "auto_tests": [
-        {
-            "docker_image": "pegi3s/ispip",
-            "input_files": [
-                "ispip_input.csv"
-            ],
-            "output_dir": "/data/test/results",
-            "output_file": "ispip_pipeline_done.txt",
-            "add_config": "",
-            "commands": "-i /data/test/data/test_ispip_input.csv -of /data/test/results"
-        }
+      {
+        "docker_image": "pegi3s/ispip",
+        "input_files": [
+          "ispip_input.csv"
+        ],
+        "output_dir": "/data/test/results",
+        "output_file": "ispip_pipeline_done.txt",
+        "add_config": "",
+        "commands": "-i /data/test/data/test_ispip_input.csv -of /data/test/results"
+      }
     ],
     "custom_searches": {
-        "pubmed": "term=https://pubmed.ncbi.nlm.nih.gov/?term=ispip",
-        "scholar": "q=https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=ispip&btnG=",
-        "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=ispip",
-        "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=ispip"
+      "pubmed": "term=https://pubmed.ncbi.nlm.nih.gov/?term=ispip",
+      "scholar": "q=https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=ispip&btnG=",
+      "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=ispip",
+      "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=ispip"
     }
   },
   {
@@ -8659,10 +8659,10 @@
     "description": "Active and passive sites prediction",
     "status": "Usable",
     "recommended": [
-        {
-            "version": "2026-05",
-            "date": "2026-05"
-        }
+      {
+        "version": "2026-05",
+        "date": "2026-05"
+      }
     ],
     "latest": "2026-05",
     "bug_found": [],
@@ -8683,27 +8683,27 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/sppider-seq_output.zip",
     "icon": "",
     "input_data_type": [
-        [
-            "fasta"
-        ]
+      [
+        "fasta"
+      ]
     ],
     "auto_tests": [
-        {
-            "docker_image": "pegi3s/sppiderseq",
-            "input_files": [
-                "2ZA4_1.fasta, 2ZA4_2.fasta"
-            ],
-            "output_dir": "/data/test/results",
-            "output_file": "interface_residues.csv",
-            "add_config": "",
-            "commands": "--query /data/test/data/2ZA4_1.fasta --partner /data/test/data/2ZA4_2.fasta --output /data/test/results"
-        }
+      {
+        "docker_image": "pegi3s/sppiderseq",
+        "input_files": [
+          "2ZA4_1.fasta, 2ZA4_2.fasta"
+        ],
+        "output_dir": "/data/test/results",
+        "output_file": "interface_residues.csv",
+        "add_config": "",
+        "commands": "--query /data/test/data/2ZA4_1.fasta --partner /data/test/data/2ZA4_2.fasta --output /data/test/results"
+      }
     ],
     "custom_searches": {
-        "pubmed": "term=https://pubmed.ncbi.nlm.nih.gov/42094486/",
-        "scholar": "q=https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=sppider&btnG=",
-        "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=sppider",
-        "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=sppider"
+      "pubmed": "term=https://pubmed.ncbi.nlm.nih.gov/42094486/",
+      "scholar": "q=https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=sppider&btnG=",
+      "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=sppider",
+      "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=sppider"
     }
   },
   {
@@ -8711,10 +8711,10 @@
     "description": "Active and passive sites prediction",
     "status": "",
     "recommended": [
-        {
-            "version": "4.0.0",
-            "date": "2026-05"
-        }
+      {
+        "version": "4.0.0",
+        "date": "2026-05"
+      }
     ],
     "latest": "4.0.0",
     "bug_found": [],
@@ -8735,38 +8735,38 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/ispred4_output.zip",
     "icon": "",
     "input_data_type": [
-        [
-            "pdb"
-        ]
+      [
+        "pdb"
+      ]
     ],
     "auto_tests": [
-        {
-            "docker_image": "pegi3s/ispred4",
-            "input_files": [
-                "8qnc.pdb"
-            ],
-            "output_dir": "/data/test/results",
-            "output_file": "8qnc.ispred4.csv",
-            "add_config": "",
-            "commands": "/data/test/data/8qnc.pdb --chain A --output /data/test/results/8qnc.ispred4.csv"
-        }
+      {
+        "docker_image": "pegi3s/ispred4",
+        "input_files": [
+          "8qnc.pdb"
+        ],
+        "output_dir": "/data/test/results",
+        "output_file": "8qnc.ispred4.csv",
+        "add_config": "",
+        "commands": "/data/test/data/8qnc.pdb --chain A --output /data/test/results/8qnc.ispred4.csv"
+      }
     ],
     "custom_searches": {
-        "pubmed": "term=https://pubmed.ncbi.nlm.nih.gov/28130235/",
-        "scholar": "q=https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=ispred4&btnG=",
-        "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=ispred4",
-        "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=ispred4"
+      "pubmed": "term=https://pubmed.ncbi.nlm.nih.gov/28130235/",
+      "scholar": "q=https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=ispred4&btnG=",
+      "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=ispred4",
+      "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=ispred4"
     }
   },
-    {
+  {
     "name": "auto-enrich",
     "description": "Gene enrichment analyses",
     "status": "",
     "recommended": [
-        {
-            "version": "1.0.0",
-            "date": "2026-05"
-        }
+      {
+        "version": "1.0.0",
+        "date": "2026-05"
+      }
     ],
     "latest": "1.0.0",
     "bug_found": [],
@@ -8788,20 +8788,70 @@
     "icon": "",
     "input_data_type": [],
     "auto_tests": [
-        {
-            "docker_image": "",
-            "input_files": [],
-            "output_dir": "",
-            "output_file": "",
-            "add_config": "",
-            "commands": ""
-        }
+      {
+        "docker_image": "",
+        "input_files": [],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
     ],
     "custom_searches": {
-        "pubmed": "",
-        "scholar": "",
-        "bioprotocol": "",
-        "bioprotocol_exchange": ""
+      "pubmed": "",
+      "scholar": "",
+      "bioprotocol": "",
+      "bioprotocol_exchange": ""
+    }
+  },
+  {
+    "name": "jaligner",
+    "description": "Pairwise sequence alignment",
+    "status": "Usable",
+    "recommended": [
+      {
+        "version": "20.05.2026",
+        "date": "20/05/2026"
+      }
+    ],
+    "latest": "20.05.2026",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://github.com/ahmedmoustafa/JAligner",
+    "source_url": "https://github.com/ahmedmoustafa/JAligner",
+    "comments": [],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/jaligner ",
+    "usual_invocation_specific": "/data/fastaFile1 /data/fastaFile2 EDNAFULL 10 1",
+    "usual_invocation_specific_comments": [],
+    "test_invocation_specific": "/data/test/data/seq1.fas /data/test/data/seq2.fas EDNAFULL 10 1",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/jaligner_input.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/jaligner_output.zip",
+    "icon": "",
+    "input_data_type": [
+      "fasta"
+    ],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/jaligner:latest",
+        "input_files": [
+          "jaligner_input.zip"
+        ],
+        "output_dir": "jaligner_output",
+        "output_file": "alignment.txt",
+        "add_config": "",
+        "commands": " /data/input_data/seq1.fas /data/input_data/seq2.fas EDNAFULL 10 1 > /data/output_folder/jaligner_output/alignment.txt > /dev/null 2>&1"
+      }
+    ],
+    "custom_searches": {
+      "pubmed": "term=jaligner+AND+pairwise+AND+alignment",
+      "scholar": "q=jaligner+pairwise+alignment",
+      "bioprotocol": "content=jaligner%20pairwise%20alignment",
+      "bioprotocol_exchange": "content=jaligner%20pairwise%20alignment"
     }
   }
 ]
