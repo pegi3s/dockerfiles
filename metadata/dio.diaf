@@ -104,6 +104,7 @@ DIO:0000026	megax_cc
 DIO:0000026	phylogenetic-tree-collapser
 DIO:0000026	plottree
 DIO:0000026	treeviewx
+DIO:0000026 aclust
 DIO:0000027	popart
 DIO:0000028	blast
 DIO:0000028	diamond

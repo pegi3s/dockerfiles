@@ -8853,5 +8853,61 @@
       "bioprotocol": "content=jaligner%20pairwise%20alignment",
       "bioprotocol_exchange": "content=jaligner%20pairwise%20alignment"
     }
+  },
+  {
+    "name": "aclust",
+    "description": "Sequence alignment and phylogenetic tree inference",
+    "status": "Usable",
+    "recommended": [
+      {
+        "version": "20.05.2026",
+        "date": "20/05/2026"
+      }
+    ],
+    "latest": "20.05.2026",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "",
+    "source_url": "https://github.com/GarryGippert/Aclust",
+    "comments": [
+      "The tool requires a substitution score matrix file specified via -s flag (e.g., /opt/Aclust/dat/BLOSUM62.dat)"
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/aclust ",
+    "usual_invocation_specific": "-s /opt/Aclust/dat/BLOSUM62.dat -p /data/output/aclust_out /data/fastaFile",
+    "usual_invocation_specific_comments": [
+      "`/opt/Aclust/dat/BLOSUM62.dat` is the BLOSUM62 substitution score matrix file.",
+      "`/data/output/aclust_out` is the prefix for output files (e.g., aclust_out.dree.txt).",
+      "`/data/fastaFile` is the input protein FASTA file."
+    ],
+    "test_invocation_specific": "-s /opt/Aclust/dat/BLOSUM62.dat -p /data/test/results/aclust_out /data/test/data/4_proteins.fas",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/4_proteins.fas",
+    "test_results_url": "",
+    "icon": "",
+    "input_data_type": [
+      "fasta"
+    ],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/aclust:latest",
+        "input_files": [
+          "4_proteins.fas"
+        ],
+        "output_dir": "aclust_output",
+        "output_file": "aclust_out.dree.txt",
+        "add_config": "",
+        "commands": " bash -c \"sed 's/\\r$//' /data/input_data/4_proteins.fas > /tmp/clean.fas && aclust -s /opt/Aclust/dat/BLOSUM62.dat -p /data/output_folder/aclust_output/aclust_out /tmp/clean.fas\" > /dev/null 2>&1"
+      }
+    ],
+    "custom_searches": {
+      "pubmed": "term=aclust+Gippert",
+      "scholar": "q=aclust+Gippert",
+      "bioprotocol": "content=aclust%20Gippert",
+      "bioprotocol_exchange": "content=aclust%20Gippert"
+    }
   }
 ]
