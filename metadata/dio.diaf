@@ -90,7 +90,7 @@ DIO:0000022	sratoolkit
 DIO:0000022	tree_snatcher_plus
 DIO:0000022	utilities
 DIO:0000022	vcftools
-DIO:0000022 matplotlib-venn
+DIO:0000022	matplotlib-venn
 DIO:0000024	clustalomega
 DIO:0000024	jaligner
 DIO:0000024	mafft
