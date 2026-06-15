@@ -7,7 +7,7 @@ DIO:0000004	muscle
 DIO:0000004	probcons_nuc
 DIO:0000004	tcoffee
 DIO:0000004	translatorx
-DIO:0000004 jaligner
+DIO:0000004	jaligner
 DIO:0000005	hyphy
 DIO:0000005	omegamap
 DIO:0000005	paml
@@ -95,7 +95,7 @@ DIO:0000024	mafft
 DIO:0000024	muscle
 DIO:0000024	probcons
 DIO:0000024	tcoffee
-DIO:0000024 jaligner
+DIO:0000024	jaligner
 DIO:0000025	lsd
 DIO:0000026	fastroot
 DIO:0000026	figtree
@@ -104,7 +104,7 @@ DIO:0000026	megax_cc
 DIO:0000026	phylogenetic-tree-collapser
 DIO:0000026	plottree
 DIO:0000026	treeviewx
-DIO:0000026 aclust
+DIO:0000026	aclust
 DIO:0000027	popart
 DIO:0000028	blast
 DIO:0000028	diamond
