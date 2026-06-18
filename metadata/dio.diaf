@@ -38,6 +38,7 @@ DIO:0000012	phylogenetic-tree-collapser
 DIO:0000012	plottree
 DIO:0000012	raxml
 DIO:0000012	rootdigger
+DIO:0000012	treetime
 DIO:0000012	treeviewx
 DIO:0000013	aegean
 DIO:0000013	autoaugustus
@@ -73,6 +74,7 @@ DIO:0000022	gmap-gsnap
 DIO:0000022	goalign
 DIO:0000022	gotree
 DIO:0000022	id-mapping
+DIO:0000022	matplotlib-venn
 DIO:0000022	picard
 DIO:0000022	r_data-analysis
 DIO:0000022	r_deseq2
@@ -90,7 +92,6 @@ DIO:0000022	sratoolkit
 DIO:0000022	tree_snatcher_plus
 DIO:0000022	utilities
 DIO:0000022	vcftools
-DIO:0000022	matplotlib-venn
 DIO:0000024	clustalomega
 DIO:0000024	jaligner
 DIO:0000024	mafft
@@ -118,10 +119,10 @@ DIO:0000029	emboss
 DIO:0000029	goalign
 DIO:0000029	gotree
 DIO:0000029	id-mapping
+DIO:0000029	matplotlib-venn
 DIO:0000029	seda
 DIO:0000029	tree_snatcher_plus
 DIO:0000029	utilities
-DIO:0000029	matplotlib-venn
 DIO:0000031	bowtie1
 DIO:0000031	bwa
 DIO:0000031	dialign
