@@ -57,6 +57,7 @@ DIO:0000020	recombine
 DIO:0000020	splitstree
 DIO:0000021	blast
 DIO:0000021	diamond
+DIO:0000022	alfatclust
 DIO:0000022	alter
 DIO:0000022	bdbm
 DIO:0000022	bedtools
@@ -110,6 +111,7 @@ DIO:0000026	treeviewx
 DIO:0000027	popart
 DIO:0000028	blast
 DIO:0000028	diamond
+DIO:0000029	alfatclust
 DIO:0000029	alter
 DIO:0000029	bdbm
 DIO:0000029	biopython_utilities

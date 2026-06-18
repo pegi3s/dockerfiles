@@ -9015,5 +9015,60 @@
       "bioprotocol": "content=treetime%20maximum%20likelihood%20phylodynamic",
       "bioprotocol_exchange": "content=treetime%20maximum%20likelihood%20phylodynamic"
     }
+  },
+  {
+    "name": "alfatclust",
+    "description": "Biological sequence clustering",
+    "status": "Usable",
+    "recommended": [
+      {
+        "version": "20.05.2026",
+        "date": "20/05/2026"
+      }
+    ],
+    "latest": "20.05.2026",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://github.com/phglab/ALFATClust",
+    "source_url": "https://github.com/phglab/ALFATClust",
+    "comments": [
+      "Requires FASTA headers with at most one whitespace, no flanking whitespace"
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/alfatclust",
+    "usual_invocation_specific": " alfatclust -i /data/fastaFile -o /data/output/output.txt",
+    "usual_invocation_specific_comments": [
+      "-i: path to input FASTA file",
+      "-o: path to output cluster file"
+    ],
+    "test_invocation_specific": " alfatclust -i /data/test/data/6_Drosophila_melanogaster_CDS.fas -o /data/test/results/output.txt",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/6_Drosophila_melanogaster_CDS.fas",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/alfatclust_output.zip",
+    "icon": "",
+    "input_data_type": [
+      "fasta"
+    ],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/alfatclust:latest",
+        "input_files": [
+          "6_Drosophila_melanogaster_CDS.fas"
+        ],
+        "output_dir": "alfatclust_output",
+        "output_file": "output.txt",
+        "add_config": "",
+        "commands": " alfatclust -i /data/input_data/6_Drosophila_melanogaster_CDS.fas -o /data/output_folder/alfatclust_output/output.txt > /dev/null 2>&1"
+      }
+    ],
+    "custom_searches": {
+      "pubmed": "term=ALFATClust+AND+Chiu+AND+Ong",
+      "scholar": "q=ALFATClust+Chiu+Ong",
+      "bioprotocol": "content=ALFATClust%20Chiu%20Ong",
+      "bioprotocol_exchange": "content=ALFATClust%20Chiu%20Ong"
+    }
   }
 ]
