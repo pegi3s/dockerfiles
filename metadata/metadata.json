@@ -9070,5 +9070,62 @@
       "bioprotocol": "content=ALFATClust%20Chiu%20Ong",
       "bioprotocol_exchange": "content=ALFATClust%20Chiu%20Ong"
     }
+  },
+  {
+    "name": "prank-msa",
+    "description": "Sequence alignment",
+    "status": "Usable",
+    "recommended": [
+      {
+        "version": "250331",
+        "date": "22/06/2026"
+      }
+    ],
+    "latest": "250331",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://ariloytynoja.github.io/prank-msa",
+    "source_url": "https://github.com/ariloytynoja/prank-msa",
+    "comments": [
+      "The tool by default iterates the alignment five times; use -once to disable iteration.",
+      "PRANK breaks ties randomly, so different runs may give different alignments."
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/prank-msa ",
+    "usual_invocation_specific": "-d=/data/fastaFile -o=/data/output/output -F",
+    "usual_invocation_specific_comments": [
+      "`fastaFile` to the actual name of your input FASTA file.",
+      "`output` to the desired prefix for the output files (output.best.fas will be created).",
+      "`-F` specifies that the inference of insertions should be trusted."
+    ],
+    "test_invocation_specific": "-d=/data/test/data/small_not_aligned.fas -o=/data/test/results/output -F -once",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/prank-msa_output.zip",
+    "icon": "",
+    "input_data_type": [
+      "fasta"
+    ],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/prank-msa:250331",
+        "input_files": [
+          "small_not_aligned.fas"
+        ],
+        "output_dir": "prank-msa_output",
+        "output_file": "output.best.fas",
+        "add_config": "",
+        "commands": " -d=/data/input_data/small_not_aligned.fas -o=/data/output_folder/prank-msa_output/output -F -once > /dev/null 2>&1"
+      }
+    ],
+    "custom_searches": {
+      "pubmed": "term=prank",
+      "scholar": "q=prank",
+      "bioprotocol": "content=prank",
+      "bioprotocol_exchange": "content=prank"
+    }
   }
 ]

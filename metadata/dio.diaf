@@ -5,6 +5,7 @@ DIO:0000004	mafft
 DIO:0000004	megax
 DIO:0000004	megax_cc
 DIO:0000004	muscle
+DIO:0000004	prank-msa
 DIO:0000004	probcons_nuc
 DIO:0000004	tcoffee
 DIO:0000004	translatorx
@@ -97,6 +98,7 @@ DIO:0000024	clustalomega
 DIO:0000024	jaligner
 DIO:0000024	mafft
 DIO:0000024	muscle
+DIO:0000024	prank-msa
 DIO:0000024	probcons
 DIO:0000024	tcoffee
 DIO:0000025	lsd
