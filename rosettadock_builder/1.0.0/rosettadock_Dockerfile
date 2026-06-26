@@ -1,0 +1,5 @@
+FROM condaforge/miniforge3
+WORKDIR /data
+RUN conda config --add channels https://conda.rosettacommons.org && \
+    mamba install -y rosetta && \
+    ln -s $(find /opt/conda/bin -name "docking_protocol*" | head -n 1) /usr/local/bin/rosettadock
