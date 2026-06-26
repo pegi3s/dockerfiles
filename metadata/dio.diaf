@@ -172,6 +172,7 @@ DIO:0000042	hdock-builder
 DIO:0000042	pilzerd
 DIO:0000042	pydock3-builder
 DIO:0000042	rosettadock_builder
+DIO:0000042	rosettadock-screening
 DIO:0000043	boltz-1
 DIO:0000043	i-tasser_server
 DIO:0000044	alphafold_db
