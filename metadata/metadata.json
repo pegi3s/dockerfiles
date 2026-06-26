@@ -9127,5 +9127,57 @@
       "bioprotocol": "content=prank",
       "bioprotocol_exchange": "content=prank"
     }
+  },
+    {
+    "name": "rosettadock_builder",
+    "description": "Protein docking prediction",
+    "status": "Usable",
+    "recommended": [
+      {
+        "version": "1.0.0",
+        "date": "26/06/2026"
+      }
+    ],
+    "latest": "1.0.0",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://docs.rosettacommons.org/docs/latest/application_documentation/docking/docking-protocol",
+    "source_url": "https://rosettacommons.org/2024/10/29/conda-channel-installation/",
+    "comments": [],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock pegi3s/rosettadock_builder ",
+    "usual_invocation_specific": "bash -c \"docker build ./ -t pegi3s/rosettadock:$(date +'%Y-%m-%d')\"",
+    "usual_invocation_specific_comments": [
+      "builds a working pegi3s/rosettadock image with date as the tag"
+    ],
+    "test_invocation_specific": "",
+    "test_data_url": "",
+    "test_results_url": "",
+    "icon": "",
+    "input_data_type": [
+      "fasta"
+    ],
+    "auto_tests": [
+      {
+        "docker_image": "",
+        "input_files": [
+          ""
+        ],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ],
+    "custom_searches": {
+      "pubmed": "term=rosetta",
+      "scholar": "q=rosetta",
+      "bioprotocol": "content=rosetta",
+      "bioprotocol_exchange": "content=rosetta"
+    }
   }
 ]
