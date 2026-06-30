@@ -6922,14 +6922,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.1.2",
-        "date": ""
+        "version": "1.2.0",
+        "date": "30/06/2026"
       }
     ],
-    "latest": "1.1.2",
+    "latest": "1.2.0",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "1.1.2",
       "1.1.1",
       "1.1.0",
       "1.0.0"
