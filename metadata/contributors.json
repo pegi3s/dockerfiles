@@ -46,34 +46,63 @@
   ],
   "contributors": [
     {
-      "name": "Daniel Pérez Rodríguez",
-      "description": "",
-      "photo": "https://github.com/Dannyzimmer.png",
+      "name": "Pedro Ferreira",
+      "description": "Contributed to the maintenance of the project",
+      "photo": "https://github.com/pedroferreira84.png",
       "contactInfo": {
-        "orcid": "0000-0002-8110-3567",
-        "github": "Dannyzimmer"
+        "email": "pedro.ferreira@i3s.up.pt",
+        "orcid": "0000-0002-4657-6991",
+        "github": "pedroferreira84"
       },
-      "organizations": ["IISGS"]
+      "organizations": ["i3S", "IBMC"],
+      "period": {
+        "from": "2018",
+        "to": "2025"
+      }
     },
     {
-      "name": "Jorge Vázquez García",
-      "description": "Co-developer of the ngs_pipeliner Docker image.",
-      "photo": "https://media.licdn.com/dms/image/D4E03AQGoto7knZNGmw/profile-displayphoto-shrink_200_200/0/1694502590468?e=2147483647&v=beta&t=oMMkjA20tJjnRxkJdsbKHkyEziMbQ2kq_TbMp4KOSW8",
+      "name": "Pedro Duque",
+      "description": "Provided test data for Docker images.",
+      "photo": "",
       "contactInfo": {
-        "orcid": "0000-0002-9204-4013"
+        "email": "pedro.duque@i3s.up.pt",
+        "orcid": "",
+        "github": ""
       },
-      "organizations": ["INIBIC"]
+      "organizations": ["i3S"],
+      "period": {
+        "from": "2018",
+        "to": "2024"
+      }
     },
     {
-      "name": "Alba Nogueira Rodríguez",
-      "description": "Co-developer of the auto-p2docking Docker image.",
-      "photo": "https://polydeep.org/assets/img/team/alba.png",
+      "name": "Bruno Cavadas",
+      "description": "Provided guidance on Docker images to include in the project",
+      "photo": "https://dozer.i3s.up.pt/fileupload/downloadfile/viewimgnewtab/621f4815878accb56f07876abe8bdd",
       "contactInfo": {
-        "email": "alnogueira@uvigo.gal",
-        "orcid": "0000-0001-5991-7698",
-        "github": "albanogueira"
+        "email": "bcavadas@i3s.up.pt",
+        "orcid": "0000-0003-4104-5398"
       },
-      "organizations": ["SING"]
+      "organizations": ["i3S"],
+      "period": {
+        "from": "2022",
+        "to": ""
+      }
+    },
+    {
+      "name": "Daniela Tavares",
+      "description": "Co-developed the classify Docker image.",
+      "photo": "",
+      "contactInfo": {
+        "email": "",
+        "orcid": "",
+        "github": ""
+      },
+      "organizations": ["i3S"],
+      "period": {
+        "from": "2022",
+        "to": "2023"
+      }
     },
     {
       "name": "Diogo José Adão",
@@ -115,6 +144,21 @@
       }
     },
     {
+      "name": "Ricardo Soares",
+      "description": "Provided test data for Docker images.",
+      "photo": "https://dozer.i3s.up.pt/fileupload/downloadfile/viewimgnewtab/8de54addc48fd4458c134c74a407785",
+      "contactInfo": {
+        "email": "ricardo.soares@i3s.up.pt",
+        "orcid": "0000-0002-6332-7807",
+        "github": ""
+      },
+      "organizations": ["i3S", "IBMC"],
+      "period": {
+        "from": "2023",
+        "to": ""
+      }
+    },
+    {
       "name": "Pablo González González",
       "description": "",
       "photo": "https://github.com/PabloG02.png",
@@ -142,50 +186,6 @@
         "to": "2025"
       }
     },
-     {
-      "name": "Ricardo Soares",
-      "description": "Provided test data for Docker images.",
-      "photo": "https://dozer.i3s.up.pt/fileupload/downloadfile/viewimgnewtab/8de54addc48fd4458c134c74a407785",
-      "contactInfo": {
-        "email": "ricardo.soares@i3s.up.pt",
-        "orcid": "0000-0002-6332-7807",
-        "github": ""
-      },
-      "organizations": ["i3S", "IBMC"],
-      "period": {
-        "from": "2023",
-        "to": ""
-      }
-    },
-    {
-      "name": "Pedro Ferreira",
-      "description": "Contributed to the maintenance of the project",
-      "photo": "https://github.com/pedroferreira84.png",
-      "contactInfo": {
-        "email": "pedro.ferreira@i3s.up.pt",
-        "orcid": "0000-0002-4657-6991",
-        "github": "pedroferreira84"
-      },
-      "organizations": ["i3S", "IBMC"],
-      "period": {
-        "from": "2018",
-        "to": "2025"
-      }
-    },
-    {
-      "name": "Bruno Cavadas",
-      "description": "Provided guidance on Docker images to include in the project",
-      "photo": "https://dozer.i3s.up.pt/fileupload/downloadfile/viewimgnewtab/621f4815878accb56f07876abe8bdd",
-      "contactInfo": {
-        "email": "bcavadas@i3s.up.pt",
-        "orcid": "0000-0003-4104-5398"
-      },
-      "organizations": ["i3S"],
-      "period": {
-        "from": "2022",
-        "to": ""
-      }
-    },
     {
       "name": "José Ribeiro",
       "description": "Co-developer of the auto-enrich Docker image.",
@@ -199,6 +199,76 @@
         "from": "2024",
         "to": ""
       }
-    }
+    },
+    {
+      "name": "Carolina Leite",
+      "description": "Co-developer of the contribute and submit Docker images.",
+      "photo": "https://dozer.i3s.up.pt/fileupload/downloadfile/viewimgnewtab/a1f738d564e2c2c37e49febbec3959a",
+      "contactInfo": {
+        "email": "carolinal@i3s.up.pt",
+        "orcid": ""
+      },
+      "organizations": ["i3S"],
+      "period": {
+        "from": "2025",
+        "to": "2026"
+      }
+    },
+    {
+      "name": "Matilde Ferreira",
+      "description": "Co-developer of the rosettadock-screening Docker image.",
+      "photo": "https://dozer.i3s.up.pt/fileupload/downloadfile/viewimgnewtab/48cadaf8ceb399cf53f3aded82387f",
+      "contactInfo": {
+        "email": "matildef@i3s.up.pt",
+        "orcid": ""
+      },
+      "organizations": ["i3S"],
+      "period": {
+        "from": "2025",
+        "to": "2026"
+      }
+    },
+    {
+      "name": "Daniel Pérez Rodríguez",
+      "description": "",
+      "photo": "https://github.com/Dannyzimmer.png",
+      "contactInfo": {
+        "orcid": "0000-0002-8110-3567",
+        "github": "Dannyzimmer"
+      },
+      "organizations": ["IISGS"],
+      "period": {
+        "from": "",
+        "to": ""
+      }
+    },
+    {
+      "name": "Jorge Vázquez García",
+      "description": "Co-developer of the ngs_pipeliner Docker image.",
+      "photo": "https://media.licdn.com/dms/image/D4E03AQGoto7knZNGmw/profile-displayphoto-shrink_200_200/0/1694502590468?e=2147483647&v=beta&t=oMMkjA20tJjnRxkJdsbKHkyEziMbQ2kq_TbMp4KOSW8",
+      "contactInfo": {
+        "orcid": "0000-0002-9204-4013"
+      },
+      "organizations": ["INIBIC"],
+      "period": {
+        "from": "",
+        "to": ""
+      }
+    },
+    {
+      "name": "Alba Nogueira Rodríguez",
+      "description": "Co-developer of the auto-p2docking Docker image.",
+      "photo": "https://polydeep.org/assets/img/team/alba.png",
+      "contactInfo": {
+        "email": "alnogueira@uvigo.gal",
+        "orcid": "0000-0001-5991-7698",
+        "github": "albanogueira"
+      },
+      "organizations": ["SING"],
+      "period": {
+        "from": "",
+        "to": ""
+      }
+    },
   ]
 }
