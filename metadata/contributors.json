@@ -172,7 +172,7 @@
         "to": ""
       }
     },
-        {
+    {
       "name": "Gonçalo Marques Castro",
       "description": "Development of Docker images.",
       "photo": "",
@@ -269,6 +269,6 @@
         "from": "",
         "to": ""
       }
-    },
+    }
   ]
 }
