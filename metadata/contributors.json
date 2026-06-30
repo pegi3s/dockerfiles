@@ -238,8 +238,8 @@
       },
       "organizations": ["IISGS"],
       "period": {
-        "from": "",
-        "to": ""
+        "from": "2021",
+        "to": "2024"
       }
     },
     {
@@ -251,8 +251,8 @@
       },
       "organizations": ["INIBIC"],
       "period": {
-        "from": "",
-        "to": ""
+        "from": "2024",
+        "to": "2024"
       }
     },
     {
@@ -266,8 +266,8 @@
       },
       "organizations": ["SING"],
       "period": {
-        "from": "",
-        "to": ""
+        "from": "2024",
+        "to": "2024"
       }
     }
   ]
