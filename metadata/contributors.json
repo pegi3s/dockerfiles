@@ -61,6 +61,20 @@
       }
     },
     {
+      "name": "Daniel Pérez Rodríguez",
+      "description": "",
+      "photo": "https://github.com/Dannyzimmer.png",
+      "contactInfo": {
+        "orcid": "0000-0002-8110-3567",
+        "github": "Dannyzimmer"
+      },
+      "organizations": ["IISGS"],
+      "period": {
+        "from": "2021",
+        "to": "2024"
+      }
+    },
+    {
       "name": "Pedro Duque",
       "description": "Provided test data for Docker images.",
       "photo": "",
@@ -159,6 +173,34 @@
       }
     },
     {
+      "name": "Jorge Vázquez García",
+      "description": "Co-developer of the ngs_pipeliner Docker image.",
+      "photo": "https://media.licdn.com/dms/image/D4E03AQGoto7knZNGmw/profile-displayphoto-shrink_200_200/0/1694502590468?e=2147483647&v=beta&t=oMMkjA20tJjnRxkJdsbKHkyEziMbQ2kq_TbMp4KOSW8",
+      "contactInfo": {
+        "orcid": "0000-0002-9204-4013"
+      },
+      "organizations": ["INIBIC"],
+      "period": {
+        "from": "2024",
+        "to": "2024"
+      }
+    },
+    {
+      "name": "Alba Nogueira Rodríguez",
+      "description": "Co-developer of the auto-p2docking Docker image.",
+      "photo": "https://polydeep.org/assets/img/team/alba.png",
+      "contactInfo": {
+        "email": "alnogueira@uvigo.gal",
+        "orcid": "0000-0001-5991-7698",
+        "github": "albanogueira"
+      },
+      "organizations": ["SING"],
+      "period": {
+        "from": "2024",
+        "to": "2024"
+      }
+    },
+    {
       "name": "Pablo González González",
       "description": "",
       "photo": "https://github.com/PabloG02.png",
@@ -226,48 +268,6 @@
       "period": {
         "from": "2025",
         "to": "2026"
-      }
-    },
-    {
-      "name": "Daniel Pérez Rodríguez",
-      "description": "",
-      "photo": "https://github.com/Dannyzimmer.png",
-      "contactInfo": {
-        "orcid": "0000-0002-8110-3567",
-        "github": "Dannyzimmer"
-      },
-      "organizations": ["IISGS"],
-      "period": {
-        "from": "2021",
-        "to": "2024"
-      }
-    },
-    {
-      "name": "Jorge Vázquez García",
-      "description": "Co-developer of the ngs_pipeliner Docker image.",
-      "photo": "https://media.licdn.com/dms/image/D4E03AQGoto7knZNGmw/profile-displayphoto-shrink_200_200/0/1694502590468?e=2147483647&v=beta&t=oMMkjA20tJjnRxkJdsbKHkyEziMbQ2kq_TbMp4KOSW8",
-      "contactInfo": {
-        "orcid": "0000-0002-9204-4013"
-      },
-      "organizations": ["INIBIC"],
-      "period": {
-        "from": "2024",
-        "to": "2024"
-      }
-    },
-    {
-      "name": "Alba Nogueira Rodríguez",
-      "description": "Co-developer of the auto-p2docking Docker image.",
-      "photo": "https://polydeep.org/assets/img/team/alba.png",
-      "contactInfo": {
-        "email": "alnogueira@uvigo.gal",
-        "orcid": "0000-0001-5991-7698",
-        "github": "albanogueira"
-      },
-      "organizations": ["SING"],
-      "period": {
-        "from": "2024",
-        "to": "2024"
       }
     }
   ]
