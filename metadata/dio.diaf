@@ -221,3 +221,5 @@ DIO:0000066	auto-phylo
 DIO:0000067	trinity
 DIO:0000068	auto-p2docking
 DIO:0000070	auto-enrich
+DIO:0000022	seqmodeller
+DIO:0000029	seqmodeller
