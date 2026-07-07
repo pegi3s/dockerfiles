@@ -3,7 +3,7 @@
 Specify the seqkit version in `seqkit_version` and run:
 
 ```bash
-seqkit_version=2.12.0 && docker build ./ -t pegi3s/seqkit:${seqkit_version} --build-arg VERSION=${seqkit_version}  && docker tag pegi3s/seqkit:${seqkit_version} pegi3s/seqkit:latest
+seqkit_version=2.13.0 && docker build ./ -t pegi3s/seqkit:${seqkit_version} --build-arg VERSION=${seqkit_version}  && docker tag pegi3s/seqkit:${seqkit_version} pegi3s/seqkit:latest
 ```
 
 # Build log
@@ -15,3 +15,4 @@ seqkit_version=2.12.0 && docker build ./ -t pegi3s/seqkit:${seqkit_version} --bu
 - 2.4.0 - 12/04/2023 - Hugo López Fernández
 - 2.10.1 - 27/10/2025 - Hugo López Fernández
 - 2.12.0 - 27/10/2025 - Hugo López Fernández
+- 2.13.0 - 07/07/2026 - Hugo López Fernández

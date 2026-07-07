@@ -421,14 +421,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.31.0",
-        "date": ""
+        "version": "2.31.1",
+        "date": "07/07/2026"
       }
     ],
-    "latest": "2.31.0",
+    "latest": "2.31.1",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "2.31.0",
       "2.29.2",
       "2.27.1"
     ],
@@ -455,7 +456,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/bedtools:2.31.0",
+        "docker_image": "pegi3s/bedtools:2.31.1",
         "input_files": [
           "GCF_000858285.1.fa",
           "GCF_000858285.1.gff"
@@ -4957,14 +4958,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.12.0",
-        "date": "10/12/2025"
+        "version": "2.13.0",
+        "date": "07/07/2026"
       }
     ],
-    "latest": "2.12.0",
+    "latest": "2.13.0",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "2.12.0",
       "2.10.1",
       "2.5.2",
       "2.5.1",
@@ -5018,14 +5020,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.4",
-        "date": ""
+        "version": "1.5",
+        "date": "07/07/2026"
       }
     ],
-    "latest": "1.4",
+    "latest": "1.5",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "1.4"
+    ],
     "manual_url": "https://github.com/lh3/seqtk",
     "source_url": "https://github.com/lh3/seqtk",
     "comments": [],
