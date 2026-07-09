@@ -7931,14 +7931,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.0.9",
-        "date": "25/11/2024"
+        "version": "2.1.2",
+        "date": "09/07/2026"
       }
     ],
-    "latest": "2.0.9",
+    "latest": "2.1.2",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "2.0.9",
       "0.12.3"
     ],
     "manual_url": "https://htseq.readthedocs.io/en/latest/",
@@ -7965,15 +7966,14 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/htseq:2.0.9",
+        "docker_image": "pegi3s/htseq:2.1.2",
         "input_files": [
-          "small_not_aligned.fas",
-          "Homo_sapiens.GRCh38.86.chromosome22.gtf"
+          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/htseq.zip"
         ],
         "output_dir": "htseq_output",
         "output_file": "test.out",
         "add_config": "",
-        "commands": "htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr test.bam Homo_sapiens.GRCh38.86.chromosome22.gtf > test.out"
+        "commands": "bash -c \"htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id /data/input_data/htseq/test.bam /data/input_data/htseq/Homo_sapiens.GRCh38.86.chromosome22.gtf > /data/output_folder/htseq_output/test.out\""
       }
     ],
     "custom_searches": {
@@ -9133,7 +9133,7 @@
       "bioprotocol_exchange": "content=prank"
     }
   },
-    {
+  {
     "name": "rosettadock_builder",
     "description": "Protein docking prediction",
     "status": "Usable",
