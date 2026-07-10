@@ -2915,14 +2915,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.14.0",
-        "date": ""
+        "version": "1.35",
+        "date": "10/07/2026"
       }
     ],
-    "latest": "1.14.0",
+    "latest": "1.35",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "1.14.0"
+    ],
     "manual_url": "https://multiqc.info/",
     "source_url": "https://github.com/MultiQC/MultiQC/",
     "comments": [],
@@ -2943,11 +2945,13 @@
     "auto_tests": [
       {
         "docker_image": "pegi3s/multiqc",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
+        "input_files": [
+          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/multiqc.zip"
+        ],
+        "output_dir": "multiqc_output",
+        "output_file": "multiqc_report.html",
         "add_config": "",
-        "commands": ""
+        "commands": "multiqc /data/input_data/multiqc -o /data/output_folder/multiqc_output"
       }
     ],
     "custom_searches": {
