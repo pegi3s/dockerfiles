@@ -15,34 +15,6 @@ In this command, you should replace:
 - `input` to the actual name of your input file.
 - `output` to the actual name of your output file.
 
-# Test data
-
-To test the previous command, you can use the test data files available [here](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/test_data/) to test the following three examples.
-
-## `fasta2fastq` example
-
-Use the [sequences.1.fasta file](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/test_data/sequences.1.fasta) and then run:
-
-```
-docker run --rm -v $(pwd):/data pegi3s/bioconvert fasta2fastq /data/sequences.1.fasta /data/sequences.1.fastq
-```
-
-## `fasta2nexus` example
-
-Use the [sequences.aligned.1.fasta file](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/test_data/sequences.aligned.1.fasta) and then run:
-
-```
-docker run --rm -v $(pwd):/data pegi3s/bioconvert fasta2nexus /data/sequences.aligned.1.fasta /data/sequences.aligned.1.nex
-```
-
-## `nexus2newick` example
-
-Use the [tree.nex file](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/test_data/tree.nex) and then run:
-
-```
-docker run --rm -v $(pwd):/data pegi3s/bioconvert:0.4.3 nexus2newick /data/tree.nex /data/tree.nwk
-```
-
 # Using the bioconvert image in Windows
 
 Please note that data must be under the same drive than the Docker Toolbox installation (usually `C:`) and in a folder with write permissions (e.g. `C:/Users/User_name/`).
