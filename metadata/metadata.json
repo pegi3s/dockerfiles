@@ -5235,14 +5235,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "3.1.0",
-        "date": ""
+        "version": "3.4.1",
+        "date": "14/07/2026"
       }
     ],
-    "latest": "3.1.0",
+    "latest": "3.4.1",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "3.1.0",
       "3.0.10",
       "3.0.7",
       "3.0.6",
@@ -5271,7 +5272,7 @@
     "input_data_type": [],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/sratoolkit:3.1.0",
+        "docker_image": "pegi3s/sratoolkit:3.4.1",
         "input_files": [
           "empty"
         ],

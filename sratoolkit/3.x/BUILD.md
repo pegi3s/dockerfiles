@@ -3,11 +3,12 @@
 Specify the sratoolkit version in `sratoolkit_version` and run:
 
 ```bash
-sratoolkit_version=3.0.6 && docker build ./ -t pegi3s/sratoolkit:${sratoolkit_version} --build-arg VERSION=${sratoolkit_version}  && docker tag pegi3s/sratoolkit:${sratoolkit_version} pegi3s/sratoolkit:latest
+sratoolkit_version=3.4.1 && docker build ./ -t pegi3s/sratoolkit:${sratoolkit_version} --build-arg VERSION=${sratoolkit_version}  && docker tag pegi3s/sratoolkit:${sratoolkit_version} pegi3s/sratoolkit:latest
 ```
 
 # Build log
 
+- 3.4.1 - 14/07/2026 - Hugo López Fernández
 - 3.0.6 - 14/07/2023 - Hugo López Fernández
 - 3.0.5 - 15/05/2023 - Hugo López Fernández
 - 3.0.1 - 31/01/2023 - Hugo López Fernández
