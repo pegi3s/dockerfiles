@@ -623,10 +623,10 @@
       {
         "docker_image": "pegi3s/bowtie1",
         "input_files": [],
-        "output_dir": "",
-        "output_file": "",
+        "output_dir": "bowtie1_test",
+        "output_file": "output.sam",
         "add_config": "",
-        "commands": ""
+        "commands": "sh -c \"BDIR=\\$(dirname \\$(command -v bowtie)) && mkdir -p /data/output_folder/bowtie1_test && bowtie -S \\$BDIR/indexes/e_coli \\$BDIR/reads/e_coli_1000.fq /data/output_folder/bowtie1_test/output.sam\" > /dev/null 2>&1"
       }
     ],
     "custom_searches": {
