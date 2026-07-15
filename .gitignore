@@ -1,3 +1,6 @@
 */.venv
 */__pycache__
                   
+metadata.json
+ontology.diaf
+test_data/

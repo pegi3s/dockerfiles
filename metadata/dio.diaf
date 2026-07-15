@@ -183,6 +183,7 @@ DIO:0000044	ditasser_db
 DIO:0000044	getpdb
 DIO:0000045	pymol
 DIO:0000046	pdb-tools
+DIO:0000046	pdbfixer
 DIO:0000046	utilities
 DIO:0000047	evoppi-querier
 DIO:0000047	human_prot_atlas
