@@ -1945,14 +1945,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "0.3.5",
-        "date": "25/11/2024"
+        "version": "0.4.0",
+        "date": "14/07/2026"
       }
     ],
-    "latest": "0.3.5",
+    "latest": "0.4.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "0.3.5"
+    ],
     "manual_url": "https://github.com/evolbioinfo/goalign",
     "source_url": "https://github.com/evolbioinfo/goalign",
     "comments": [],
@@ -1975,7 +1977,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/goalign:0.3.5",
+        "docker_image": "pegi3s/goalign:0.4.0",
         "input_files": [
           "small_aligned.fas"
         ],
@@ -1998,14 +2000,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "0.4.2",
-        "date": "25/11/2024"
+        "version": "0.5.1",
+        "date": "14/07/2026"
       }
     ],
-    "latest": "0.4.2",
+    "latest": "0.5.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "0.4.2"
+    ],
     "manual_url": "https://github.com/evolbioinfo/gotree",
     "source_url": "https://github.com/evolbioinfo/gotree",
     "comments": [],
@@ -2027,7 +2031,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/gotree:0.4.2",
+        "docker_image": "pegi3s/gotree:0.5.1",
         "input_files": [
           "newick.nwk"
         ],

@@ -22,7 +22,7 @@ ARG VERSION
 RUN apt-get -qq update && apt-get -y upgrade && \
 	apt-get install -y wget
 
-RUN wget https://github.com/evolbioinfo/goalign/releases/download/v${VERSION}/goalign_amd64_linux -O /opt/goalign && \
+RUN wget https://github.com/evolbioinfo/goalign/releases/download/v${VERSION}/goalign_v${VERSION}_amd64_linux -O /opt/goalign && \
 	chmod u+x /opt/goalign
 
 ENV PATH="/opt/:${PATH}"
