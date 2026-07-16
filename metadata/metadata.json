@@ -949,14 +949,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.16",
-        "date": "25/11/2024"
+        "version": "5.2",
+        "date": "16/07/2026"
       }
     ],
-    "latest": "1.16",
+    "latest": "5.2",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "1.16"
+    ],
     "manual_url": "https://cutadapt.readthedocs.io/en/stable/guide.html",
     "source_url": "https://github.com/marcelm/cutadapt",
     "comments": [
@@ -980,7 +982,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/cutadapt:1.16",
+        "docker_image": "pegi3s/cutadapt:5.2",
         "input_files": [
           "SRR3143588_1.fastq"
         ],
