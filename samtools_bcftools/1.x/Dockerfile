@@ -17,8 +17,8 @@
 
 FROM alpine:latest
 
-ARG SAMTOOLS_VERSION=1.22
-ARG BCFTOOLS_VERSION=1.22
+ARG SAMTOOLS_VERSION=1.24
+ARG BCFTOOLS_VERSION=1.24
 
 RUN apk add --no-cache \
     build-base \

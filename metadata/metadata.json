@@ -4724,14 +4724,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.22",
-        "date": "11/06/2025"
+        "version": "1.24",
+        "date": "15/07/2026"
       }
     ],
-    "latest": "1.22",
+    "latest": "1.24",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "1.22",
       "1.10",
       "1.9",
       "1.9_v1"
@@ -4749,7 +4750,7 @@
       "'out_name' to the name of the output file. 'samtools' can be changed to 'bdftools'. 'view - bS' can be changed to other samtools or bcftools applications, following this structure: <samtools_or_bcftools> <options>. Including he input/output files, which should be referenced under /data/"
     ],
     "test_invocation_specific": "samtools view -bS /data/test/SAM.sam > /data/test/results/samtools_test",
-    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SAM.sam",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/samtools_bcftools.zip",
     "test_results_url": "",
     "icon": "",
     "input_data_type": [
@@ -4759,12 +4760,12 @@
       {
         "docker_image": "pegi3s/samtools_bcftools",
         "input_files": [
-          "hg38_example.bam"
+          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/samtools_bcftools.zip"
         ],
         "output_dir": "samtools_bcftools",
         "output_file": "hg38_example.stats",
         "add_config": "",
-        "commands": "sh -c \"samtools stats /data/input_data/hg38_example.bam > /data/output_folder/samtools_bcftools/hg38_example.stats\""
+        "commands": "sh -c \"samtools stats /data/input_data/samtools_bcftools/hg38_example.bam > /data/output_folder/samtools_bcftools/hg38_example.stats\""
       }
     ],
     "custom_searches": {
