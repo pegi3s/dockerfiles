@@ -29,16 +29,15 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 
 RUN apt-get update && apt-get install -y autoconf build-essential unzip
 
-RUN wget https://github.com/NBISweden/MrBayes/archive/v3.2.2.tar.gz -O /tmp/mrbayes.tar.gz &&  \
+RUN wget https://github.com/NBISweden/MrBayes/releases/download/v3.2.2/mrbayes-3.2.2.tar.gz -O /tmp/mrbayes.tar.gz &&  \
 	tar zxvf /tmp/mrbayes.tar.gz -C /tmp/ && \
-	rm /tmp/mrbayes.tar.gz && \
-	tar zxvf /tmp/MrBayes-3.2.2/mrbayes-3.2.2.tar.gz -C /opt/ && \
+	mv /tmp/mrbayes_3.2.2 /opt/mrbayes_3.2.2 && \
 	cd /opt/mrbayes_3.2.2/src && \
 	autoconf && ./configure --with-beagle=no && make
 
 ENV PATH="/opt/mrbayes_3.2.2/src:${PATH}"
 
-RUN wget http://abacus.gene.ucl.ac.uk/software/paml4.9h.tgz -O /tmp/paml.tgz && \
+RUN wget https://github.com/abacus-gene/paml/releases/download/pre-v4.10/paml4.9h.tgz -O /tmp/paml.tgz && \
 	tar zxvf /tmp/paml.tgz -C /opt/ && \
 	rm /tmp/paml.tgz && \
 	cd /opt/paml4.9h && \
@@ -55,5 +54,9 @@ RUN wget http://static.sing-group.org/ADOPS/ADOPS_v0.7.4.zip -O /tmp/ADOPS.zip &
 	mv /opt/ADOPS* /opt/ADOPS && \
 	rm /tmp/ADOPS.zip -f && \
 	sed -i "s/^mrbayes\.dir.*/mrbayes\.dir=\/opt\/mrbayes_3\.2\.2\/src/g" /opt/ADOPS/system.conf
+
+RUN for f in /root/tcoffee/Version_10.00.r1613/plugins/linux/*; do \
+      ln -sf "$f" "/usr/bin/$(basename "$f")"; \
+    done
 
 CMD sh /opt/ADOPS/run.sh

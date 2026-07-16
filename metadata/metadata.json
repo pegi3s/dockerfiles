@@ -65,13 +65,14 @@
     "recommended": [
       {
         "version": "0.7.4",
-        "date": "25/11/2024"
+        "date": "16/07/2026"
       }
     ],
     "latest": "0.7.4",
-    "bug_found": [],
+    "bug_found": ["0.7.4_2019"],
     "not_working": [],
     "no_longer_tested": [
+      "0.7.4_2019",
       "0.7.1"
     ],
     "manual_url": "https://www.sing-group.org/ADOPS/",
@@ -93,16 +94,7 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
     "icon": "https://sing-group.org/ADOPS/adops-icon.png",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/adops-gui",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=adops+AND+positive+AND+selection",
       "scholar": "q=adops+positive+selection",
