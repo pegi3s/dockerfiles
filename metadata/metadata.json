@@ -1945,15 +1945,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "0.4.0",
-        "date": "14/07/2026"
+        "version": "0.4.1",
+        "date": "16/07/2026"
       }
     ],
-    "latest": "0.4.0",
+    "latest": "0.4.1",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
-      "0.3.5"
+      "0.3.5",
+      "0.4.0"
     ],
     "manual_url": "https://github.com/evolbioinfo/goalign",
     "source_url": "https://github.com/evolbioinfo/goalign",
@@ -1977,7 +1978,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/goalign:0.4.0",
+        "docker_image": "pegi3s/goalign:0.4.1",
         "input_files": [
           "small_aligned.fas"
         ],
