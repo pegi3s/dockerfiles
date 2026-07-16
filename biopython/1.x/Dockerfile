@@ -15,8 +15,8 @@
 #   limitations under the License.
 #
 
-FROM python:3.9.19-bullseye
+FROM python:3.11-slim
 
 ARG VERSION
 
-RUN pip install biopython==VERSION reportlab
+RUN pip install "biopython==${VERSION}" reportlab

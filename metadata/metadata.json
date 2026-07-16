@@ -69,7 +69,9 @@
       }
     ],
     "latest": "0.7.4",
-    "bug_found": ["0.7.4_2019"],
+    "bug_found": [
+      "0.7.4_2019"
+    ],
     "not_working": [],
     "no_longer_tested": [
       "0.7.4_2019",
@@ -7195,14 +7197,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.78",
-        "date": ""
+        "version": "1.87",
+        "date": "16/07/2026"
       }
     ],
-    "latest": "1.78",
+    "latest": "1.87",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "1.78"
+    ],
     "manual_url": "http://biopython.org/DIST/docs/tutorial/Tutorial.html",
     "source_url": "https://github.com/biopython/biopython",
     "comments": [],
@@ -7224,10 +7228,10 @@
       {
         "docker_image": "pegi3s/biopython",
         "input_files": [],
-        "output_dir": "",
-        "output_file": "",
+        "output_dir": "biopython_output",
+        "output_file": "version.txt",
         "add_config": "",
-        "commands": ""
+        "commands": "bash -c 'python3 -c \"import Bio; print(Bio.__version__)\" > /data/output_folder/biopython_output/version.txt'"
       }
     ],
     "custom_searches": {
