@@ -60,7 +60,7 @@
   },
   {
     "name": "adops-gui",
-    "description": "Phylogenetics and detection of positively selected sites ",
+    "description": "Phylogenetics and detection of positively selected sites",
     "status": "Usable",
     "recommended": [
       {
@@ -377,7 +377,7 @@
       "This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file."
     ],
     "gui": true,
-    "gui_command": " ",
+    "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "",
@@ -599,7 +599,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/bowtie1 ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/bowtie1",
     "usual_invocation_specific": "sh -c \"mkdir /data/output/bwt1_index && bowtie-build /data/genomefastaFile /data/output/bwt1_index/built_index\"",
     "usual_invocation_specific_comments": [
       "After running the command, aligning can be made by replacing the command by: 'bowtie -S /data/bwt1_index/built_index /data/input.fq /data/output.sam'. '/data/bwt1_index/built_index' to the path of the index built on the first command. '/data/input.fq' to the path of your input file. '/data/output.sam' to the directory of your output file."
@@ -649,7 +649,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v \"/your/data/dir:/data\" pegi3s/bwa ",
+    "invocation_general": "docker run --rm -v \"/your/data/dir:/data\" pegi3s/bwa",
     "usual_invocation_specific": " bwa index /data/chr_fastaFile",
     "usual_invocation_specific_comments": [
       "After running the previous cammand, replace it with: 'bwa mem /data/fastaInput /data/fastaq1Input /data/fastaq2Input > output_name.sam'",
@@ -750,7 +750,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/clustalomega ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/clustalomega",
     "usual_invocation_specific": "-i /data/fastaFile -o /data/output/output.fasta",
     "usual_invocation_specific_comments": [
       "`output.fasta` to the actual name of your aligned FASTA file."
@@ -854,7 +854,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run -v /your/data/dir:/data pegi3s/cport ",
+    "invocation_general": "docker run -v /your/data/dir:/data pegi3s/cport",
     "usual_invocation_specific": "cport /data/pdbFile A --pred all -o /data/output",
     "usual_invocation_specific_comments": [
       "'A' to indicate the identifier of the chain you want to use. `all' to indicate the method you want to use."
@@ -914,7 +914,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run -v /your/data/dir:/data pegi3s/cport-like ",
+    "invocation_general": "docker run -v /your/data/dir:/data pegi3s/cport-like",
     "usual_invocation_specific": "./cport_batch && cp -r /output /data/output",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
@@ -962,7 +962,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/cutadapt ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/cutadapt",
     "usual_invocation_specific": "-u 10 /data/fastqFile -o /data/output/output.fq",
     "usual_invocation_specific_comments": [
       "`output.fq` to the actual name of your output file. A negative value after `-u` would trims reads at the end."
@@ -1014,7 +1014,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/diamond ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/diamond",
     "usual_invocation_specific": "test",
     "usual_invocation_specific_comments": [
       "'test' to the name of the DIAMOND command you want to use. Right after the specific options of the DIAMOND application (these options must include the input/output files, which should be referenced under /data/; see Docker instructions for further details)."
@@ -1171,7 +1171,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/edena ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/edena",
     "usual_invocation_specific": "-singleEnd /data/fastqFile -prefix /data/output/result",
     "usual_invocation_specific_comments": [
       "'result' to point to the prefix of the output files that will be generated by Edena."
@@ -1225,7 +1225,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/emboss ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/emboss",
     "usual_invocation_specific": "infoseq -sequence /data/fastaFile -outfile /data/output/out_name",
     "usual_invocation_specific_comments": [
       "'infoseq' to the name of the EMBOSS application you want to use (e.g. prophet, water, getorf). 'out_name' to the name of the output file.",
@@ -1330,10 +1330,10 @@
     "source_url": "https://github.com/s-andrews/FastQC",
     "comments": [],
     "gui": true,
-    "gui_command": " ",
+    "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/fastqc ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/fastqc",
     "usual_invocation_specific": "/data/fastqFile --outdir /data/output",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "/data/test/data/SRR3143588_1.fastq --outdir /data/test/results/fastqc_test",
@@ -1381,7 +1381,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/fastroot ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/fastroot",
     "usual_invocation_specific": "-i /data/newickFile -m MP -o /data/output/output.nwk",
     "usual_invocation_specific_comments": [
       "'MP' (midpoint) to other methods (e.g MV (minVAR), OG (outgroup), or RTT (root-to-tip)). If using OG, the `-g` option can be used to specify the outgroups. If more than one, put them between quotes. 'output.nwk' to the actual name of your Newick output file."
@@ -1485,7 +1485,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/feature-counts ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/feature-counts",
     "usual_invocation_specific": "featureCounts -a /data/gffFile -o /data/output/output.txt /data/bamFile",
     "usual_invocation_specific_comments": [
       "'output.txt' to the actual name of your output file."
@@ -1535,7 +1535,7 @@
       "This is a GUI, thus there is no test data output for this image. You may have to run 'xhost +' first if you create a .sh file."
     ],
     "gui": true,
-    "gui_command": " ",
+    "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "",
@@ -1588,7 +1588,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/flash ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/flash",
     "usual_invocation_specific": "--interleaved-input /data/fastqFile -d /data/output",
     "usual_invocation_specific_comments": [
       "For pair-end analysis use: /data/input_1.fastq /data/input_2.fastq -d /data/result",
@@ -1692,7 +1692,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/freebayes ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/freebayes",
     "usual_invocation_specific": "-f /data/referenceFile /data/bamFile > /data/output/out_name.vcf",
     "usual_invocation_specific_comments": [
       "Your input fasta to the actual name of your reference file (rCRS.fasta is included with the docker image).",
@@ -1797,7 +1797,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/gatk-3 ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/gatk-3",
     "usual_invocation_specific": "java -jar /opt/GenomeAnalysisTK.jar -T RealignerTargetCreator -R /data/fastaFile -I /data/bamFile -o /data/output/out_name.list",
     "usual_invocation_specific_comments": [
       "'RealignerTargetCreator' to the name of the GATK 3 tool you want to use. The remainder of the command is specific of the GATK 3 tool, please refer to the GATk 3 manual for other tools.)."
@@ -1954,7 +1954,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run -v /your/data/dir:/data --rm pegi3s/goalign ",
+    "invocation_general": "docker run -v /your/data/dir:/data --rm pegi3s/goalign",
     "usual_invocation_specific": "goalign subseq -i /data/fastaFile -s 20 -l 30 -o /data/output/out_name",
     "usual_invocation_specific_comments": [
       "'sebseq' to the name of the Goalign application you want to use (e.g. split, rename, split, etc.). 'out_name' to the actual name of your output file.",
@@ -2009,7 +2009,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run -v /your/data/dir:/data --rm pegi3s/gotree ",
+    "invocation_general": "docker run -v /your/data/dir:/data --rm pegi3s/gotree",
     "usual_invocation_specific": "gotree matrix -i /data/newickFile -o /data/output/out_name",
     "usual_invocation_specific_comments": [
       "'matrix' to the name of the Gotree application you want to use (e.g. collapse, annotate, etc.). 'out_name' to the actual name of your output file."
@@ -2163,7 +2163,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/haplogrep ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/haplogrep",
     "usual_invocation_specific": "classify --input=/data/inputFile --tree=phylotree-rcrs@17.2 --out /data/output/out.txt",
     "usual_invocation_specific_comments": [
       "'out.txt' to the desired name of the output file. You may also want to replace phylotree-rcrs@17.2 for another reference sequence."
@@ -2213,7 +2213,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data -w /data pegi3s/human_prot_atlas ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data -w /data pegi3s/human_prot_atlas",
     "usual_invocation_specific": " /data/configFile /data/inputFile /data/output/out_name.txt cache_dir",
     "usual_invocation_specific_comments": [
       "'out_name.txt' to the actual name of your output TXT file with the filtered identifiers."
@@ -2266,7 +2266,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -it -v /your/data/dir:/data pegi3s/hyphy ",
+    "invocation_general": "docker run --rm -it -v /your/data/dir:/data pegi3s/hyphy",
     "usual_invocation_specific": "HYPHYMP",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
@@ -2367,7 +2367,7 @@
     "source_url": "https://github.com/igvteam/igv",
     "comments": [],
     "gui": true,
-    "gui_command": " ",
+    "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "",
@@ -2518,7 +2518,7 @@
     "source_url": "https://github.com/nunofonseca/lineagesequencediscovery",
     "comments": [],
     "gui": true,
-    "gui_command": " ",
+    "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "",
@@ -2623,7 +2623,7 @@
     "source_url": "https://github.com/koadman/mauve",
     "comments": [],
     "gui": true,
-    "gui_command": " ",
+    "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/mauve",
@@ -2726,7 +2726,7 @@
     "source_url": "https://www.megasoftware.net/",
     "comments": [],
     "gui": true,
-    "gui_command": " ",
+    "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "",
@@ -2775,7 +2775,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/megax_cc ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/megax_cc",
     "usual_invocation_specific": "megacc -a /data/maoFile -d /data/meg_seq_alignFile -o /data/output",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "megacc -a /data/test/data/file.mao -d /data/test/data/file.meg -o /data/test/results/megax_cc_test",
@@ -3699,7 +3699,7 @@
     "source_url": "https://github.com/jessicawleigh/popart",
     "comments": [],
     "gui": true,
-    "gui_command": " ",
+    "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "",
@@ -4579,7 +4579,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data -w /data pegi3s/roary",
-    "usual_invocation_specific": " roary -p 8 /data/inputFolder/*.gff -f /data/output/folder_name ",
+    "usual_invocation_specific": " roary -p 8 /data/inputFolder/*.gff -f /data/output/folder_name",
     "usual_invocation_specific_comments": [
       "Input files must be in the same directory as your config file for docknrun. 'folder_name' to the name of the output folder."
     ],
@@ -5464,7 +5464,7 @@
     "source_url": "https://www.cs.hhu.de/en/research-groups/computational-cell-biology/software-contributions/treesnatcher",
     "comments": [],
     "gui": true,
-    "gui_command": " ",
+    "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "",
@@ -5510,7 +5510,7 @@
     "source_url": "https://salsa.debian.org/med-team/treeviewx",
     "comments": [],
     "gui": true,
-    "gui_command": " ",
+    "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "",
@@ -6210,7 +6210,7 @@
     "source_url": "https://github.com/pegi3s/auto-phylo-pipeliner",
     "comments": [],
     "gui": true,
-    "gui_command": " ",
+    "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "",
@@ -6406,7 +6406,7 @@
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/ngs_pipeliner",
     "comments": [],
     "gui": true,
-    "gui_command": " ",
+    "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "",
@@ -7265,7 +7265,7 @@
     "source_url": "https://github.com/pegi3s/dockerfiles/tree/master/docker-manager",
     "comments": [],
     "gui": true,
-    "gui_command": " ",
+    "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "",
@@ -8357,7 +8357,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/aster <tool_binary> ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/aster <tool_binary>",
     "usual_invocation_specific": "-i /data/input_file [-a /data/mapping_file] -o /data/output_file",
     "usual_invocation_specific_comments": [
       "Mapping file required for multi-copy gene datasets (e.g., ASTRAL-Pro3)."
@@ -8488,7 +8488,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/work/dir:/data pegi3s/iqtree3 ",
+    "invocation_general": "docker run --rm -v /your/work/dir:/data pegi3s/iqtree3",
     "usual_invocation_specific": "iqtree3 -s /data/your_alignment.fasta -m MFP -mtree --merit BIC -B 1000 -alrt 1000 --bnni --seed 1 --prefix /data/output_files/run1 -T AUTO",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
@@ -8623,7 +8623,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/ispip ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/ispip",
     "usual_invocation_specific": "-i /data/input.csv -of /data/output",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "-i /data/test/data/test_ispip_input.csv -of /data/test/results",
@@ -8675,7 +8675,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/sppiderseq ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/sppiderseq",
     "usual_invocation_specific": "--query /data/query.fasta --partner /data/partner.fasta --output /data/output",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "--query /data/test/data/2ZA4_1.fasta --partner /data/test/data/2ZA4_2.fasta --output /data/test/results",
@@ -8727,7 +8727,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/ispred4 ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/ispred4",
     "usual_invocation_specific": "/data/input.pdb --chain A --output /data/output.ispred4.csv",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "/data/test/data/8qnc.pdb --chain A --output /data/test/results/8qnc.ispred4.csv",
@@ -8780,7 +8780,7 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/auto-enrich",
-    "usual_invocation_specific": " ",
+    "usual_invocation_specific": "",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/auto-enrich.zip",
@@ -8821,7 +8821,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/jaligner ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/jaligner",
     "usual_invocation_specific": "/data/fastaFile1 /data/fastaFile2 EDNAFULL 10 1",
     "usual_invocation_specific_comments": [],
     "test_invocation_specific": "/data/test/data/seq1.fas /data/test/data/seq2.fas EDNAFULL 10 1",
@@ -8873,7 +8873,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/aclust ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/aclust",
     "usual_invocation_specific": "-s /opt/Aclust/dat/BLOSUM62.dat -p /data/output/aclust_out /data/fastaFile",
     "usual_invocation_specific_comments": [
       "`/opt/Aclust/dat/BLOSUM62.dat` is the BLOSUM62 substitution score matrix file.",
@@ -8927,7 +8927,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/matplotlib-venn ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/matplotlib-venn",
     "usual_invocation_specific": "python3 /data/python_script.py",
     "usual_invocation_specific_comments": [
       "You must provide a Python script that uses the matplotlib-venn library."
@@ -8977,7 +8977,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/treetime ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/treetime",
     "usual_invocation_specific": "ancestral --aln /data/fastaFile --tree /data/newickFile --outdir /data/output",
     "usual_invocation_specific_comments": [
       "The 'ancestral' subcommand performs ancestral sequence reconstruction.",
@@ -9091,7 +9091,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/prank-msa ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/prank-msa",
     "usual_invocation_specific": "-d=/data/fastaFile -o=/data/output/output -F",
     "usual_invocation_specific_comments": [
       "`fastaFile` to the actual name of your input FASTA file.",
@@ -9145,7 +9145,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock pegi3s/rosettadock_builder ",
+    "invocation_general": "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock pegi3s/rosettadock_builder",
     "usual_invocation_specific": "bash -c \"docker build ./ -t pegi3s/rosettadock:$(date +'%Y-%m-%d')\"",
     "usual_invocation_specific_comments": [
       "builds a working pegi3s/rosettadock image with date as the tag"
@@ -9292,7 +9292,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/scannet conda run --no-capture-output -n scannet python3 /usr/local/bin/main.py ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/scannet conda run --no-capture-output -n scannet python3 /usr/local/bin/main.py",
     "usual_invocation_specific": "/data/pdbFile --noMSA --predictions_folder /data/output",
     "usual_invocation_specific_comments": [
       "/data/pdbFile: PDB file, PDB ID, or Uniprot ID (with optional _chain suffix)",
@@ -9350,7 +9350,7 @@
     "gui_command": "",
     "podman": "untested",
     "singularity": "untested",
-    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/pdbfixer ",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/pdbfixer",
     "usual_invocation_specific": "/data/input.pdb --output=/data/output/fixed.pdb",
     "usual_invocation_specific_comments": [
       "/data/input.pdb is the input PDB file to fix",
