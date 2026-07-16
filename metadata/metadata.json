@@ -8192,16 +8192,17 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.2.0",
-        "date": "16/06/2025"
+        "version": "2.2.2",
+        "date": "16/07/2026"
       }
     ],
-    "latest": "2.2.0",
+    "latest": "2.2.2",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
       "2.1.0",
-      "2.0.5"
+      "2.0.5",
+      "2.2.0"
     ],
     "manual_url": "https://daehwankimlab.github.io/hisat2/",
     "source_url": "https://github.com/DaehwanKimLab/hisat2",
@@ -8226,7 +8227,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/hisat2",
+        "docker_image": "pegi3s/hisat2:2.2.2",
         "input_files": [
           "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/test-data-hisat2.zip"
         ],
