@@ -415,3 +415,9 @@ id: DIO:0000070
 name: Gene_enrichment
 def: "Pipelines aimed at performing gene enrichment analyses"
 is_a: DIO:0000003
+
+[Term]
+id: DIO:0100001
+name: Docker_bases
+def: "Bases for docker images"
+is_a: DIO:0000051
