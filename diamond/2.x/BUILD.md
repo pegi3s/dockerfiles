@@ -8,5 +8,5 @@ diamond_version=2.2.4 && docker build ./ -t pegi3s/diamond:${diamond_version} --
 
 # Build log
 
-- 2.1.8 - 24/10/2023 - Hugo López Fernández
 - 2.2.4 - 16/07/2026 - Hugo López Fernandez
+- 2.1.8 - 24/10/2023 - Hugo López Fernández
