@@ -527,7 +527,7 @@
     "recommended": [
       {
         "version": "2.17.0",
-        "date": "11/12/2025"
+        "date": "16/07/2026"
       }
     ],
     "latest": "2.17.0",
@@ -564,11 +564,13 @@
     "auto_tests": [
       {
         "docker_image": "pegi3s/blast",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
+        "input_files": [
+          "4_proteins.fas"
+        ],
+        "output_dir": "blast_output",
+        "output_file": "reference.phr",
         "add_config": "",
-        "commands": ""
+        "commands": " makeblastdb -in /data/input_data/4_proteins.fas -dbtype prot -out /data/output_folder/blast_output/reference > /dev/null 2>&1"
       }
     ],
     "custom_searches": {
@@ -1001,14 +1003,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.1.8",
-        "date": ""
+        "version": "2.2.4",
+        "date": "16/07/2026"
       }
     ],
-    "latest": "2.1.8",
+    "latest": "2.2.4",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "2.1.8"
+    ],
     "manual_url": "https://github.com/bbuchfink/diamond",
     "source_url": "https://github.com/bbuchfink/diamond",
     "comments": [],
@@ -1029,11 +1033,13 @@
     "auto_tests": [
       {
         "docker_image": "pegi3s/diamond",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
+        "input_files": [
+          "4_proteins.fas"
+        ],
+        "output_dir": "diamond_output",
+        "output_file": "reference.dmnd",
         "add_config": "",
-        "commands": ""
+        "commands": " makedb --in /data/input_data/4_proteins.fas -d /data/output_folder/diamond_output/reference"
       }
     ],
     "custom_searches": {
