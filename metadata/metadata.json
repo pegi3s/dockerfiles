@@ -3237,14 +3237,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "4.9j",
-        "date": ""
+        "version": "4.10.10",
+        "date": "20/07/2026"
       }
     ],
-    "latest": "4.9j",
+    "latest": "4.10.10",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "4.9j",
       "4.9h",
       "4.9"
     ],
@@ -3269,12 +3270,12 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/paml",
+        "docker_image": "pegi3s/paml:4.10.10",
         "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
+        "output_dir": "paml_output",
+        "output_file": "check.txt",
+        "add_config": "--entrypoint /bin/bash",
+        "commands": "-c \"echo | codeml 2>&1 | head -3 > /data/output_folder/paml_output/check.txt\""
       }
     ],
     "custom_searches": {
