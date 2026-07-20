@@ -4428,14 +4428,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "8.2.12",
-        "date": "25/11/2024"
+        "version": "8.2.13",
+        "date": "20/07/2026"
       }
     ],
-    "latest": "8.2.12",
+    "latest": "8.2.13",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "8.2.12"
+    ],
     "manual_url": "https://cme.h-its.org/exelixis/resource/download/NewManual.pdf",
     "source_url": "https://github.com/stamatak/standard-RAxML",
     "comments": [],
@@ -4457,7 +4459,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/raxml:8.2.12",
+        "docker_image": "pegi3s/raxml:8.2.13",
         "input_files": [
           "binary.phy"
         ],
