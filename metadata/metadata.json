@@ -2569,14 +2569,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "7.505",
-        "date": "25/11/2024"
+        "version": "7.525",
+        "date": "20/07/2026"
       }
     ],
-    "latest": "7.505",
+    "latest": "7.525",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "7.505"
+    ],
     "manual_url": "https://mafft.cbrc.jp/alignment/server/",
     "source_url": "https://gitlab.com/sysimm/mafft",
     "comments": [
@@ -2600,7 +2602,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/mafft:7.505",
+        "docker_image": "pegi3s/mafft:7.525",
         "input_files": [
           "small_not_aligned.fas"
         ],
