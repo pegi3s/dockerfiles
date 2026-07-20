@@ -5192,14 +5192,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "3.11.1",
-        "date": ""
+        "version": "4.3.0",
+        "date": "20/07/2026"
       }
     ],
-    "latest": "3.11.1",
+    "latest": "4.3.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "3.11.1"
+    ],
     "manual_url": "https://home.cc.umanitoba.ca/~psgendb/doc/spades/manual.html",
     "source_url": "https://github.com/ablab/spades",
     "comments": [],
@@ -5222,12 +5224,12 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/spades",
+        "docker_image": "pegi3s/spades:4.3.0",
         "input_files": [],
-        "output_dir": "",
-        "output_file": "",
+        "output_dir": "spades_output",
+        "output_file": "contigs.fasta",
         "add_config": "",
-        "commands": ""
+        "commands": " spades.py -1 /opt/SPAdes-4.3.0-Linux/share/spades/test_dataset/ecoli_1K_1.fq.gz -2 /opt/SPAdes-4.3.0-Linux/share/spades/test_dataset/ecoli_1K_2.fq.gz -o /data/output_folder/spades_output > /dev/null 2>&1"
       }
     ],
     "custom_searches": {
