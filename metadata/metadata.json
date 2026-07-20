@@ -8424,8 +8424,8 @@
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [],
-    "manual_url": "https://github.com/chaoszhang/ASTER.git",
-    "source_url": "https://github.com/chaoszhang/ASTER.git",
+    "manual_url": "https://github.com/chaoszhang/ASTER",
+    "source_url": "https://github.com/chaoszhang/ASTER",
     "comments": [
       "Includes ASTRAL-IV, ASTRAL-Pro3, Weighted ASTRAL, CASTER-site, CASTER-pair, WASTER and D* statistic."
     ],
@@ -8849,7 +8849,7 @@
     "not_working": [],
     "no_longer_tested": [],
     "manual_url": "http://evolution6.i3s.up.pt/static/auto-enrich/v1/quickstart.html",
-    "source_url": "https://github.com/pegi3s/auto-enrich.git",
+    "source_url": "https://github.com/pegi3s/auto-enrich",
     "comments": [],
     "gui": false,
     "gui_command": "",
