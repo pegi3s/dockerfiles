@@ -3334,14 +3334,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.4.1",
-        "date": ""
+        "version": "2.7.0",
+        "date": "20/07/2026"
       }
     ],
-    "latest": "2.4.1",
+    "latest": "2.7.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "2.4.1"
+    ],
     "manual_url": "https://github.com/haddocking/pdb-tools/blob/master/README.md",
     "source_url": "https://github.com/haddocking/pdb-tools",
     "comments": [],
@@ -3362,12 +3364,14 @@
     "input_data_type": [],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/pdb-tools",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
+        "docker_image": "pegi3s/pdb-tools:2.7.0",
+        "input_files": [
+          "1B34.pdb"
+        ],
+        "output_dir": "pdb-tools_output",
+        "output_file": "wc.txt",
         "add_config": "",
-        "commands": ""
+        "commands": " bash -c \"pdb_wc /data/input_data/1B34.pdb > /data/output_folder/pdb-tools_output/wc.txt\""
       }
     ],
     "custom_searches": {
