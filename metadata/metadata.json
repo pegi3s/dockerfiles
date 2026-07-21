@@ -2633,14 +2633,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.4.0",
-        "date": ""
+        "version": "2.4.1",
+        "date": "21/07/2026"
       }
     ],
-    "latest": "2.4.0",
+    "latest": "2.4.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "2.4.0"
+    ],
     "manual_url": "https://darlinglab.org/mauve/mauve.html",
     "source_url": "https://github.com/koadman/mauve",
     "comments": [],
@@ -2663,12 +2665,12 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/mauve",
+        "docker_image": "pegi3s/mauve:2.4.1",
         "input_files": [],
-        "output_dir": "",
-        "output_file": "",
+        "output_dir": "mauve_alignment",
+        "output_file": "alignment.backbone",
         "add_config": "",
-        "commands": ""
+        "commands": "progressiveMauve --output=/data/output_folder/mauve_alignment/alignment /opt/mauve-2.4.1/testdata/S_bayanus_small.fasta /opt/mauve-2.4.1/testdata/S_cerevisiae_small.gbk > /dev/null 2>&1"
       }
     ],
     "custom_searches": {
