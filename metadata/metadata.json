@@ -142,16 +142,7 @@
       "reference_gff3",
       "prediction_gff3"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/aegean",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=aegean+AND+toolkit+AND+Standage",
       "scholar": "q=aegean+toolkit+Standage",
@@ -190,16 +181,7 @@
     "input_data_type": [
       "fastq"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/afterqc",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"afterqc\"",
       "scholar": "q=\"afterqc\"",
@@ -243,16 +225,7 @@
     "input_data_type": [
       "uniprotID"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/alphafold_db",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=Alphafold+AND+database",
       "scholar": "q=Alphafold+database",
@@ -345,16 +318,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/autoaugustus",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=Augustus+AND+genome",
       "scholar": "q=Augustus+genome",
@@ -395,16 +359,7 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
     "icon": "https://raw.githubusercontent.com/sing-group/BDBM/master/bdbm-logo.png",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/bdbm",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=bdbm+AND+fasta",
       "scholar": "q=bdbm+fasta",
@@ -723,16 +678,7 @@
     "input_data_type": [
       "input"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/ccp4",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=ccp4+AND+crystallography",
       "scholar": "q=ccp4+crystallography",
@@ -877,16 +823,7 @@
     "input_data_type": [
       "pdb"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/cport",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=CPORT+AND+residues",
       "scholar": "q=CPORT+residues",
@@ -933,16 +870,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/cport-like",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=CPORT+AND+residues",
       "scholar": "q=CPORT+residues",
@@ -1098,16 +1026,7 @@
     "input_data_type": [
       "uniprotlist"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/ditasser_db",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=D-I-TASSER+AND+deep-learning-based",
       "scholar": "q=D-I-TASSER+deep-learning-based",
@@ -1148,16 +1067,7 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
     "icon": "http://www.ub.edu/molevol/julio/media/DnaSPlogo1.gif",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/dnasp-v6",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=dnasp+AND+v.6",
       "scholar": "q=dnasp+v.6",
@@ -1255,16 +1165,7 @@
     "input_data_type": [
       "fasta"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/emboss",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"Emboss\"+AND+suite",
       "scholar": "q=\"Emboss\"+suite",
@@ -1360,16 +1261,7 @@
     "input_data_type": [
       "fastq"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/fastqc",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=fastqc",
       "scholar": "q=fastqc",
@@ -1410,16 +1302,7 @@
     "input_data_type": [
       "newick"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/fastroot",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"fastroot\"+AND+phylogenetic",
       "scholar": "q=\"fastroot\"+phylogenetic",
@@ -1519,16 +1402,7 @@
       "gff",
       "bam"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/feature-counts",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"featureCounts\"",
       "scholar": "q=\"featureCounts\"",
@@ -1569,16 +1443,7 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
     "icon": "https://raw.githubusercontent.com/rambaut/figtree/refs/heads/master/Graphics/FigTreeIcon.png",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/figtree",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=figtree+AND+phylogenetic",
       "scholar": "q=figtree+phylogenetic",
@@ -1675,16 +1540,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/format_auto-pss-genome",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=auto-pss-genome",
       "scholar": "q=auto-pss-genome",
@@ -1727,16 +1583,7 @@
       "reference",
       "bam"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/freebayes",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=freebayes",
       "scholar": "q=freebayes",
@@ -1778,16 +1625,7 @@
     "test_results_url": "",
     "icon": "https://avatars.githubusercontent.com/u/32406064?s=280&v=4",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/gatk-4",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=GATK+AND+Genome+AND+Analysis+AND+Toolkit",
       "scholar": "q=GATK+Genome+Analysis+Toolkit",
@@ -1831,16 +1669,7 @@
       "fasta",
       "bam"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/gatk-3",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=GATK+AND+Genome+AND+Analysis+AND+Toolkit",
       "scholar": "q=GATK+Genome+Analysis+Toolkit",
@@ -1935,16 +1764,7 @@
       "genomefasta",
       "mRNAfasta"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/gmap-gsnap",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=gmap-gsnap",
       "scholar": "q=gmap-gsnap",
@@ -2148,16 +1968,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/haddock-tools",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=haddock+AND+protein+AND+interaction",
       "scholar": "q=haddock+protein+interaction",
@@ -2198,16 +2009,7 @@
     "input_data_type": [
       "input"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/haplogrep",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=haplogrep",
       "scholar": "q=haplogrep",
@@ -2249,16 +2051,7 @@
       "config",
       "input"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/human_prot_atlas",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=Human-Protein-Atlas+AND+Uniprot",
       "scholar": "q=Human-Protein-Atlas+Uniprot",
@@ -2299,16 +2092,7 @@
     "input_data_type": [
       "input"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/hyphy",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=hyphy+AND+phylogenies",
       "scholar": "q=hyphy+phylogenies",
@@ -2403,16 +2187,7 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
     "icon": "https://raw.githubusercontent.com/igvteam/igv/refs/heads/main/examples/web/IGV_64.png",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/igv",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=IGV+AND+Integrative+AND+Genomics+AND+Viewer",
       "scholar": "q=IGV+Integrative+Genomics+Viewer",
@@ -2506,16 +2281,7 @@
     "input_data_type": [
       "fasta"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/kakscalculator",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=kaks_calculator+AND+Zhang",
       "scholar": "q=kaks_calculator+Zhang",
@@ -2557,16 +2323,7 @@
       "config",
       "input"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/lsd",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"Lineage+AND+sequence+AND+discovery\"",
       "scholar": "q=\"Lineage+sequence+discovery\"",
@@ -2718,16 +2475,7 @@
       "fastq1",
       "fastq2"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/maxbin2",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=maxbin2",
       "scholar": "q=maxbin2",
@@ -2764,16 +2512,7 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
     "icon": "https://www.megasoftware.net/web_help_12/template/Charcoal_Grey/logo.png",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/megax",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=megax+AND+software",
       "scholar": "q=megax+software",
@@ -2813,16 +2552,7 @@
       "mao",
       "meg_seq_align"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/megax_cc",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=megax+AND+software",
       "scholar": "q=megax+software",
@@ -2865,16 +2595,7 @@
       "contigs",
       "protein"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/metaeuk",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=metaeuk",
       "scholar": "q=metaeuk",
@@ -2917,16 +2638,7 @@
     "input_data_type": [
       "nexus"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/mrbayes",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=mrbayes",
       "scholar": "q=mrbayes",
@@ -3123,16 +2835,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/ncbi_retrieve",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=ncbi",
       "scholar": "q=ncbi",
@@ -3327,16 +3030,7 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/pathvisio_output.zip",
     "icon": "https://avatars.githubusercontent.com/u/12032945?s=200&v=4",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/pathvisio",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=pathvisio",
       "scholar": "q=pathvisio",
@@ -3491,16 +3185,7 @@
       "tree",
       "stop_terms"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/phylogenetic-tree-collapser",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=PTC+AND+Phylogenetic-Tree-Collapser+AND+docker",
       "scholar": "q=PTC+Phylogenetic-Tree-Collapser+docker",
@@ -3593,16 +3278,7 @@
       "PDB1",
       "PDB2"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/pilzerd",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=PI-LzeRD",
       "scholar": "q=PI-LzeRD",
@@ -3743,16 +3419,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/popart",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=PopART+AND+Population+AND+Analysis+AND+with+AND+Reticulate+AND+Trees",
       "scholar": "q=PopART+Population+Analysis+with+Reticulate+Trees",
@@ -3898,16 +3565,7 @@
     "input_data_type": [
       "fasta"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/prokka",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=prokka",
       "scholar": "q=prokka",
@@ -3948,16 +3606,7 @@
       "pss",
       "background"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/pss-3d",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=pdb+AND+file",
       "scholar": "q=pdb+file",
@@ -3999,16 +3648,7 @@
       "bed",
       "bam"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/pycision",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=pycision",
       "scholar": "q=pycision",
@@ -4047,16 +3687,7 @@
     "test_results_url": "",
     "icon": "https://raw.githubusercontent.com/schrodinger/pymol-open-source/master/data/pymol/icons/icon2.svg",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/pymol",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=pymol",
       "scholar": "q=pymol",
@@ -4101,16 +3732,7 @@
     "input_data_type": [
       "bam"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/qualimap",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"qualimap\"",
       "scholar": "q=\"qualimap\"",
@@ -4153,16 +3775,7 @@
     "input_data_type": [
       "R-script"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/r_data-analysis",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=r+AND+programming+AND+language",
       "scholar": "q=r+programming+language",
@@ -4209,16 +3822,7 @@
     "input_data_type": [
       "script_r"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/r_deseq2",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=DESEQ2",
       "scholar": "q=DESEQ2",
@@ -4263,16 +3867,7 @@
     "input_data_type": [
       "R-script"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/r_edger",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=edgeR+AND+Robinson",
       "scholar": "q=edgeR+Robinson",
@@ -4313,16 +3908,7 @@
     "input_data_type": [
       "R-script"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/r_enhanced-volcano",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"EnhancedVolcano\"",
       "scholar": "q=\"EnhancedVolcano\"",
@@ -4366,16 +3952,7 @@
     "input_data_type": [
       "R-script"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/r_network",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=r+AND+programming+AND+language",
       "scholar": "q=r+programming+language",
@@ -4418,16 +3995,7 @@
     "input_data_type": [
       "R-script"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/r_venn-diagram",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"VennDiagram\"",
       "scholar": "q=\"VennDiagram\"",
@@ -4525,16 +4093,7 @@
       "config",
       "ptable"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/recombine",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=RDP+AND+recombination+AND+detection+AND+program",
       "scholar": "q=RDP+recombination+detection+program",
@@ -4575,16 +4134,7 @@
     "input_data_type": [
       "fasta"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/repeat_masker",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=RepeatMasker",
       "scholar": "q=RepeatMasker",
@@ -4625,16 +4175,7 @@
     "input_data_type": [
       "input"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/roary",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=roary+AND+software",
       "scholar": "q=roary+software",
@@ -4677,16 +4218,7 @@
       "fasta",
       "newick"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/rootdigger",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=root-digger+AND+phylogenetic+AND+trees",
       "scholar": "q=root-digger+phylogenetic+trees",
@@ -4728,16 +4260,7 @@
     "input_data_type": [
       "bam"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/rtn",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"RtN!\"+AND+\"NUMT\"+AND+removal+AND+tool",
       "scholar": "q=\"RtN!\"+\"NUMT\"+removal+tool",
@@ -4840,16 +4363,7 @@
     "input_data_type": [
       "fasta"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/sapp",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"sapp\"+AND+Semantic+AND+genome+AND+Annotation+AND+Platform+AND+with+AND+Provenance",
       "scholar": "q=\"sapp\"+Semantic+genome+Annotation+Platform+with+Provenance",
@@ -4891,16 +4405,7 @@
       "genome",
       "proteins"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/scipio",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=scipio+AND+gene+AND+annotation",
       "scholar": "q=scipio+gene+annotation",
@@ -5036,16 +4541,7 @@
     "input_data_type": [
       "fasta_q"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/seqkit",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"seqkit\"",
       "scholar": "q=\"seqkit\"",
@@ -5089,16 +4585,7 @@
     "input_data_type": [
       "fast_q"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/seqtk",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=seqtk",
       "scholar": "q=seqtk",
@@ -5191,16 +4678,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/soapdenovo2",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=soapdenovo2",
       "scholar": "q=soapdenovo2",
@@ -5298,16 +4776,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/splitstree",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=splitstree",
       "scholar": "q=splitstree",
@@ -5409,16 +4878,7 @@
       "test_reads_fasta",
       "reference_reads_fasta"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/takeabreak",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=TakeABreak+AND+genomic+AND+inversions",
       "scholar": "q=TakeABreak+genomic+inversions",
@@ -5518,16 +4978,7 @@
       "nuc_fasta",
       "aa_fasta_align"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/translatorx",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"translatorx\"",
       "scholar": "q=\"translatorx\"",
@@ -5564,16 +5015,7 @@
     "test_results_url": "",
     "icon": "http://www.cibiv.at/software/treesnatcher/tutorials/wood256.png",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/tree_snatcher_plus",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=TreeSnatcher-Plus",
       "scholar": "q=TreeSnatcher-Plus",
@@ -5610,16 +5052,7 @@
     "test_results_url": "",
     "icon": "https://storage.googleapis.com/google-code-archive/v2/code.google.com/treeviewx/logo.png",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/treeviewx",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"treeview+AND+x\"",
       "scholar": "q=\"treeview+x\"",
@@ -5660,16 +5093,7 @@
     "input_data_type": [
       "fastq"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/trimmomatic",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=trimmomatic",
       "scholar": "q=trimmomatic",
@@ -5866,16 +5290,7 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
     "icon": "https://raw.githubusercontent.com/haddocking/whiscy/refs/heads/main/media/whiscy_logo.png",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/whiscy",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ]
+    "auto_tests": []
   },
   {
     "name": "cport_server",
@@ -5909,16 +5324,7 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/cport_server",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ]
+    "auto_tests": []
   },
   {
     "name": "evoppi-querier",
@@ -6008,16 +5414,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/haddock_server",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=haddock+AND+protein+AND+interaction",
       "scholar": "q=haddock+protein+interaction",
@@ -6058,16 +5455,7 @@
     "input_data_type": [
       "input"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/i-tasser_server",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=I-TASSER+AND+structure",
       "scholar": "q=I-TASSER+structure",
@@ -6106,16 +5494,7 @@
     "input_data_type": [
       "input"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/pisa_server",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=PDBePISA",
       "scholar": "q=PDBePISA",
@@ -6155,16 +5534,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/sppider",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"sppider\"+AND+protein-protein+AND+interface",
       "scholar": "q=\"sppider\"+protein-protein+interface",
@@ -6263,16 +5633,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/auto-phylo",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=Auto-phylo+AND+pipeline+AND+maker",
       "scholar": "q=Auto-phylo+pipeline+maker",
@@ -6314,16 +5675,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/auto-phylo-pipeliner",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=Auto-phylo+AND+pipeline+AND+maker",
       "scholar": "q=Auto-phylo+pipeline+maker",
@@ -6364,16 +5716,7 @@
     "input_data_type": [
       "reference"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/dib",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=DIB+AND+Drosophila+AND+Inversion+AND+Breakpoints",
       "scholar": "q=DIB+Drosophila+Inversion+Breakpoints",
@@ -6413,16 +5756,7 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/gbif_gis_output.zip",
     "icon": "https://avatars.githubusercontent.com/u/1963797?s=200&v=4",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/gbif_gis",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=gbif+AND+database",
       "scholar": "q=gbif+database",
@@ -6461,16 +5795,7 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/gis_output.zip",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/gis",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=GIS+AND+Geographic+AND+Information+AND+System",
       "scholar": "q=GIS+Geographic+Information+System",
@@ -6510,16 +5835,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/ngs_pipeliner",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=next-generation+AND+sequencing",
       "scholar": "q=next-generation+sequencing",
@@ -6563,16 +5879,7 @@
       "nuc_fasta",
       "prot_fasta"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/prosplign-procompart",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=prosplign+AND+procompart",
       "scholar": "q=prosplign+procompart",
@@ -6619,16 +5926,7 @@
       "nuc_subject_fasta",
       "query_nucleotide_CDS"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/splign-compart",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=Splign+AND+NCBI",
       "scholar": "q=Splign+NCBI",
@@ -6668,16 +5966,7 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/taxodros_gis_output.zip",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/taxodros_gis",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=TaxoDros",
       "scholar": "q=TaxoDros",
@@ -6725,16 +6014,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/auto-pss-genome",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=auto-pss-genome",
       "scholar": "q=auto-pss-genome",
@@ -6777,16 +6057,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/cga",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"CGA\"+AND+\"(Conserved+AND+Genome+AND+Annotation)\"+AND+pipeline+AND+docker",
       "scholar": "q=\"CGA\"+\"(Conserved+Genome+Annotation)\"+pipeline+docker",
@@ -6830,16 +6101,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/check-cds",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"checkcds\"+AND+pipeline",
       "scholar": "q=\"checkcds\"+pipeline",
@@ -6887,16 +6149,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/ipssa",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=ipssa+AND+pss+AND+pipeline",
       "scholar": "q=ipssa+pss+pipeline",
@@ -6944,16 +6197,7 @@
     "input_data_type": [
       "input"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/pss-fs",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"FastScreen\"+AND+positive-selection",
       "scholar": "q=\"FastScreen\"+positive-selection",
@@ -7001,16 +6245,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/pss-genome-fs",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"GenomeFastScreen\"",
       "scholar": "q=\"GenomeFastScreen\"",
@@ -7057,16 +6292,7 @@
       "input",
       "fasta"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/two-way-blast",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"two-way+AND+blast\"",
       "scholar": "q=\"two-way+blast\"",
@@ -7111,16 +6337,7 @@
     "input_data_type": [
       "input"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/haddock24-builder",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=haddock+AND+protein+AND+interaction",
       "scholar": "q=haddock+protein+interaction",
@@ -7164,16 +6381,7 @@
       "pdb1",
       "pdb2"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/hdock-builder",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=hdock",
       "scholar": "q=hdock",
@@ -7214,16 +6422,7 @@
     "input_data_type": [
       "pdb"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/pydock3-builder",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=pydock3",
       "scholar": "q=pydock3",
@@ -7265,16 +6464,7 @@
       "fastq_gz1",
       "fastq_gz2"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/trinity",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=trinity+and+de+and+novo+and+assembler",
       "scholar": "q=trinity+de+novo+assembler",
@@ -7371,16 +6561,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/docker-manager",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=docker-image",
       "scholar": "q=docker-image",
@@ -7419,16 +6600,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/formfind",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"formfind\"+AND+Stenberg",
       "scholar": "q=\"formfind\"+Stenberg",
@@ -7472,16 +6644,7 @@
     "input_data_type": [
       "R_script"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/r_project",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=r+AND+programming+AND+language",
       "scholar": "q=r+programming+language",
@@ -7525,16 +6688,7 @@
     "test_results_url": "",
     "icon": "assets/icons/logos/docker-mark-blue.svg",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/docker",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=docker-image",
       "scholar": "q=docker-image",
@@ -7577,16 +6731,7 @@
     "input_data_type": [
       "input"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/biopython_utilities",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=biopython",
       "scholar": "q=biopython",
@@ -7631,16 +6776,7 @@
       "fasta",
       "fastaprot"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/blast_utilities",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=blast+AND+alignment",
       "scholar": "q=blast+alignment",
@@ -7806,16 +6942,7 @@
     "input_data_type": [
       "gene_list"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/orthologs-finder",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=orthologous+AND+genes",
       "scholar": "q=orthologous+genes",
@@ -7854,16 +6981,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/values2tree",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=\"values2tree\"",
       "scholar": "q=\"values2tree\"",
@@ -7900,16 +7018,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/auto-p2docking",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=auto-p2docking",
       "scholar": "q=auto-p2docking",
@@ -8008,16 +7117,7 @@
     "input_data_type": [
       "r_script"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/r_sva",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=sva+AND+Surrogate+AND+Variable+AND+Analysis",
       "scholar": "q=sva+Surrogate+Variable+Analysis",
@@ -8308,16 +7408,7 @@
     "test_results_url": "",
     "icon": "",
     "input_data_type": [],
-    "auto_tests": [
-      {
-        "docker_image": "",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=tagada+AND+RNA-Seq",
       "scholar": "q=tagada+RNA-Seq",
@@ -8358,18 +7449,7 @@
     "input_data_type": [
       "fasta"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/cd-hit",
-        "input_files": [
-          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas"
-        ],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=cd-hit+AND+weizhongli",
       "scholar": "q=cd-hit+weizhongli",
@@ -8410,19 +7490,7 @@
     "input_data_type": [
       "input"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "",
-        "input_files": [
-          "",
-          ""
-        ],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=tmtools+AND+zhang+AND+Skolnick",
       "scholar": "q=tmtools+zhang+Skolnick",
@@ -9035,16 +8103,7 @@
     "input_data_type": [
       "Python-script"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "pegi3s/matplotlib-venn:1.1.2",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=matplotlib-venn",
       "scholar": "q=matplotlib-venn",
@@ -9253,18 +8312,7 @@
     "input_data_type": [
       "fasta"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "",
-        "input_files": [
-          ""
-        ],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "term=rosetta",
       "scholar": "q=rosetta",
@@ -9303,18 +8351,7 @@
     "input_data_type": [
       "fasta"
     ],
-    "auto_tests": [
-      {
-        "docker_image": "",
-        "input_files": [
-          ""
-        ],
-        "output_dir": "",
-        "output_file": "",
-        "add_config": "",
-        "commands": ""
-      }
-    ],
+    "auto_tests": [],
     "custom_searches": {
       "pubmed": "",
       "scholar": "",
