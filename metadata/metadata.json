@@ -638,14 +638,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "0.7.17",
-        "date": ""
+        "version": "0.7.19",
+        "date": "20/07/2026"
       }
     ],
-    "latest": "0.7.17",
+    "latest": "0.7.19",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "0.7.17"
+    ],
     "manual_url": "https://bio-bwa.sourceforge.net/bwa.shtml",
     "source_url": "https://github.com/lh3/bwa",
     "comments": [],
@@ -668,12 +670,14 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/bwa",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
+        "docker_image": "pegi3s/bwa:0.7.19",
+        "input_files": [
+          "GCF_000858285.1.fa"
+        ],
+        "output_dir": "bwa_output",
+        "output_file": "reference.bwt",
         "add_config": "",
-        "commands": ""
+        "commands": " bwa index -p /data/output_folder/bwa_output/reference /data/input_data/GCF_000858285.1.fa"
       }
     ],
     "custom_searches": {
