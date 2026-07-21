@@ -70,7 +70,10 @@
     ],
     "latest": "0.7.4",
     "bug_found": [
-      "0.7.4_2019"
+      {
+        "version": "0.7.4_2019",
+        "description": "Misconfigured execution environment that makes ADOPS failing with aligners like Clustal W2"
+      }
     ],
     "not_working": [],
     "no_longer_tested": [
