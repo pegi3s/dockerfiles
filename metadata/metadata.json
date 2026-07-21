@@ -5730,14 +5730,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.1",
-        "date": ""
+        "version": "1.2.10",
+        "date": "21/07/2026"
       }
     ],
-    "latest": "1.1",
+    "latest": "1.2.10",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "1.1"
+    ],
     "manual_url": "https://github.com/dzerbino/velvet/blob/master/Manual.pdf",
     "source_url": "https://github.com/dzerbino/velvet",
     "comments": [],
@@ -5760,12 +5762,12 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/velvet",
+        "docker_image": "pegi3s/velvet:1.2.10",
         "input_files": [],
-        "output_dir": "",
-        "output_file": "",
+        "output_dir": "velvet_output",
+        "output_file": "contigs.fa",
         "add_config": "",
-        "commands": ""
+        "commands": " bash -c \"velveth /data/output_folder/velvet_output 31 -fasta -short /opt/velvet-1.2.10/tests/reads.fa.gz 2>/dev/null && velvetg /data/output_folder/velvet_output 2>/dev/null\""
       }
     ],
     "custom_searches": {
