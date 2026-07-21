@@ -1430,14 +1430,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.1.10",
-        "date": "25/11/2024"
+        "version": "2.2.0",
+        "date": "21/07/2026"
       }
     ],
-    "latest": "2.1.10",
+    "latest": "2.2.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "2.1.10"
+    ],
     "manual_url": "http://www.microbesonline.org/fasttree/#How",
     "source_url": "https://github.com/morgannprice/fasttree",
     "comments": [
@@ -1461,12 +1463,14 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/fasttree",
-        "input_files": [],
-        "output_dir": "",
-        "output_file": "",
+        "docker_image": "pegi3s/fasttree:2.2.0",
+        "input_files": [
+          "small_aligned.fas"
+        ],
+        "output_dir": "fasttree_output",
+        "output_file": "tree.nwk",
         "add_config": "",
-        "commands": ""
+        "commands": " bash -c \"mkdir -p /data/output_folder/fasttree_output && FastTree /data/input_data/small_aligned.fas > /data/output_folder/fasttree_output/tree.nwk\""
       }
     ],
     "custom_searches": {
