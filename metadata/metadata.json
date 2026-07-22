@@ -6769,7 +6769,7 @@
     "recommended": [
       {
         "version": "1.78_0.2.0",
-        "date": ""
+        "date": "22/07/2026"
       }
     ],
     "latest": "1.78_0.2.0",
@@ -6797,7 +6797,18 @@
     "input_data_type": [
       "input"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/biopython_utilities:1.78_0.2.0",
+        "input_files": [
+          "newick.nwk"
+        ],
+        "output_dir": "biopython_utilities_output",
+        "output_file": "biopython_utilities_test",
+        "add_config": "",
+        "commands": "convert_tree.py -i /data/input_data/newick.nwk -if newick -o /data/output_folder/biopython_utilities_output/biopython_utilities_test -of nexus > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=biopython",
       "scholar": "q=biopython",
