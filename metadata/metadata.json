@@ -1234,7 +1234,7 @@
     "recommended": [
       {
         "version": "0.12.1",
-        "date": "25/11/2024"
+        "date": "22/07/2026"
       }
     ],
     "latest": "0.12.1",
@@ -1261,7 +1261,18 @@
     "input_data_type": [
       "fastq"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/fastqc:0.12.1",
+        "input_files": [
+          "SRR3143588_1.fastq"
+        ],
+        "output_dir": "fastqc_output",
+        "output_file": "SRR3143588_1_fastqc.html",
+        "add_config": "",
+        "commands": "/data/input_data/SRR3143588_1.fastq --outdir /data/output_folder/fastqc_output > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=fastqc",
       "scholar": "q=fastqc",
