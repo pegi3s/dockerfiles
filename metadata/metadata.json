@@ -1298,7 +1298,7 @@
     "recommended": [
       {
         "version": "1.5",
-        "date": "25/11/2024"
+        "date": "22/07/2026"
       }
     ],
     "latest": "1.5",
@@ -1324,7 +1324,18 @@
     "input_data_type": [
       "newick"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/fastroot:1.5",
+        "input_files": [
+          "newick.nwk"
+        ],
+        "output_dir": "fastroot_output",
+        "output_file": "fastroot_test.nwk",
+        "add_config": "",
+        "commands": "-i /data/input_data/newick.nwk -m MP -o /data/output_folder/fastroot_output/fastroot_test.nwk > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=\"fastroot\"+AND+phylogenetic",
       "scholar": "q=\"fastroot\"+phylogenetic",
