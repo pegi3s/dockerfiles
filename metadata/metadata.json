@@ -8024,7 +8024,7 @@
         "name": "auto-enrich",
         "description": "Gene enrichment analyses",
         "project_active": true,
-        "status": "",
+        "status": "Usable",
         "recommended": [
             {
                 "version": "1.0.0",
