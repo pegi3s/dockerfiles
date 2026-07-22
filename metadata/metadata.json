@@ -4589,7 +4589,7 @@
     "recommended": [
       {
         "version": "1.5",
-        "date": "07/07/2026"
+        "date": "22/07/2026"
       }
     ],
     "latest": "1.5",
@@ -4618,7 +4618,18 @@
     "input_data_type": [
       "fast_q"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/seqtk:1.5",
+        "input_files": [
+          "SRR3143588_1.fastq"
+        ],
+        "output_dir": "seqtk_output",
+        "output_file": "seqtk_test",
+        "add_config": "--entrypoint /bin/bash",
+        "commands": "-c \"mkdir -p /data/output_folder/seqtk_output && seqtk seq -r /data/input_data/SRR3143588_1.fastq > /data/output_folder/seqtk_output/seqtk_test\" > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=seqtk",
       "scholar": "q=seqtk",
