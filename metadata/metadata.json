@@ -209,7 +209,7 @@
         "recommended": [
             {
                 "version": "1.0.1-docker29.0.1",
-                "date": "09/01/2026"
+                "date": "22/07/2026"
             }
         ],
         "latest": "1.0.1-docker29.0.1",
@@ -237,7 +237,18 @@
         "input_data_type": [
             "uniprotID"
         ],
-        "auto_tests": [],
+        "auto_tests": [
+            {
+                "docker_image": "pegi3s/alphafold_db:1.0.1-docker29.0.1",
+                "input_files": [
+                    "Uniprot.txt"
+                ],
+                "output_dir": "alphafold_db_output",
+                "output_file": "Structures_from_AlphaFold",
+                "add_config": "",
+                "commands": "bash -c \"/opt/run /data/input_data/Uniprot.txt && cp -r /data/input_data/Structures_from_AlphaFold /data/output_folder/alphafold_db_output && rm -rf /data/input_data/Structures_from_AlphaFold\" > /dev/null 2>&1"
+            }
+        ],
         "custom_searches": {
             "pubmed": "term=Alphafold+AND+database",
             "scholar": "q=Alphafold+database",
