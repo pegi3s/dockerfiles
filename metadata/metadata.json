@@ -4514,7 +4514,7 @@
     "recommended": [
       {
         "version": "2.13.0",
-        "date": "07/07/2026"
+        "date": "22/07/2026"
       }
     ],
     "latest": "2.13.0",
@@ -4552,7 +4552,18 @@
     "input_data_type": [
       "fasta_q"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/seqkit:2.13.0",
+        "input_files": [
+          "SRR3143588_1.fastq"
+        ],
+        "output_dir": "seqkit_output",
+        "output_file": "seqkit_test",
+        "add_config": "",
+        "commands": "seq -p --complement -t dna /data/input_data/SRR3143588_1.fastq -o /data/output_folder/seqkit_output/seqkit_test > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=\"seqkit\"",
       "scholar": "q=\"seqkit\"",
