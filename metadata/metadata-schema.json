@@ -226,7 +226,6 @@
             },
             "add_config": {
               "type": "string",
-              "pattern": "\\S",
               "description": "Additional configuration"
             },
             "commands": {
@@ -237,6 +236,28 @@
           },
           "description": "List of automated tests"
         }
+      },
+      "custom_searches": {
+        "type": "object",
+        "properties": {
+          "pubmed": {
+            "type": "string"
+          },
+          "scholar": {
+            "type": "string"
+          },
+          "bioprotocol": {
+            "type": "string"
+          },
+          "bioprotocol_exchange": {
+            "type": "string"
+          }
+        },
+        "description": "Custom search URLs for the tool"
+      },
+      "project_active": {
+        "type": "boolean",
+        "description": "Whether the tool is part of an active project"
       }
     },
     "allOf": [
