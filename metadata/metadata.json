@@ -5111,7 +5111,7 @@
     "recommended": [
       {
         "version": "0.40",
-        "date": ""
+        "date": "22/07/2026"
       }
     ],
     "latest": "0.40",
@@ -5137,7 +5137,18 @@
     "input_data_type": [
       "fastq"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/trimmomatic:0.40",
+        "input_files": [
+          "SRR3143588_1.fastq"
+        ],
+        "output_dir": "trimmomatic_output",
+        "output_file": "trimmomatic_test",
+        "add_config": "",
+        "commands": "SE -phred33 /data/input_data/SRR3143588_1.fastq /data/output_folder/trimmomatic_output/trimmomatic_test SLIDINGWINDOW:4:20 MINLEN:36 > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=trimmomatic",
       "scholar": "q=trimmomatic",
