@@ -157,7 +157,7 @@
     "recommended": [
       {
         "version": "0.9.7",
-        "date": "25/11/2024"
+        "date": "22/07/2026"
       }
     ],
     "latest": "0.9.7",
@@ -181,7 +181,18 @@
     "input_data_type": [
       "fastq"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/afterqc:0.9.7",
+        "input_files": [
+          "SRR3143588_1.fastq"
+        ],
+        "output_dir": "afterqc_output",
+        "output_file": "good/SRR3143588_1.good.fq",
+        "add_config": "",
+        "commands": "bash -c \"mkdir -p /data/output_folder/afterqc_output && cd /data/output_folder/afterqc_output && after.py -1 /data/input_data/SRR3143588_1.fastq\" > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=\"afterqc\"",
       "scholar": "q=\"afterqc\"",
