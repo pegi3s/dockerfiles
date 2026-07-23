@@ -1,0 +1,48 @@
+#!/bin/bash
+
+DB_TAR="/opt/human.tar.bz2"
+DB_DIR="/opt/HPmod_human"
+
+while read -r name || [[ -n "$name" ]]; do
+    # Strip carriage returns (\r) in case the input file has Windows line endings
+    name=$(echo "$name" | tr -d '\r')
+    [[ -z "$name" ]] && continue
+
+    echo "Processing: $name"
+
+    # 1. Attempt individual file download
+    if wget --no-check-certificate -q -P /opt "https://zhanggroup.org/HPmod/data/$name/model1.pdb.gz"; then
+        gunzip -f /opt/model1.pdb.gz
+        
+        sed -i '/^TER/d; /^END/d' /opt/model1.pdb
+        awk '{print substr($0,1,21) "A" substr($0,23)}' /opt/model1.pdb > "/data/$name.pdb"
+        echo "TER" >> "/data/$name.pdb"
+        
+        rm -f /opt/model1.pdb
+    else
+        echo "Individual download failed for '$name'. Falling back to full database..." >&2
+
+        # 2. Download & Extract archive if missing or empty
+        if [[ ! -d "$DB_DIR" || -z "$(ls -A "$DB_DIR")" ]]; then
+            if [[ ! -f "$DB_TAR" ]]; then
+                echo "Downloading full database archive..." >&2
+                wget --no-check-certificate -P /opt "https://zhanggroup.org/HPmod/human.tar.bz2"
+            fi
+            echo "Extracting database to $DB_DIR..." >&2
+            mkdir -p "$DB_DIR"
+            tar -xjf "$DB_TAR" -C "$DB_DIR"
+        fi
+
+        # 3. Strictly search for exact filename "$name.pdb" in any subfolder
+        target_file=$(find "$DB_DIR" -type f -name "${name}.pdb" | head -n 1)
+
+        if [[ -n "$target_file" && -f "$target_file" ]]; then
+            echo "Found matching file at: $target_file"
+            sed '/^TER/d; /^END/d' "$target_file" | \
+            awk '{print substr($0,1,21) "A" substr($0,23)}' > "/data/$name.pdb"
+            echo "TER" >> "/data/$name.pdb"
+        else
+            echo "Error: Could not locate '${name}.pdb' inside extracted database." >&2
+        fi
+    fi
+done < "/data/$1"
