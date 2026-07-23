@@ -4207,7 +4207,16 @@
     "input_data_type": [
       "fasta"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/repeat_masker:4.0.9",
+        "input_files": ["6_Drosophila_melanogaster_CDS.fas"],
+        "output_dir": "repeat_masker_output",
+        "output_file": "6_Drosophila_melanogaster_CDS.fas.out",
+        "add_config": "",
+        "commands": "bash -c \"RepeatMasker -species drosophila -s /data/input_data/6_Drosophila_melanogaster_CDS.fas -dir /data/output_folder/repeat_masker_output\" > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=RepeatMasker",
       "scholar": "q=RepeatMasker",
