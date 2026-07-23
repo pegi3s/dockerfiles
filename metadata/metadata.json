@@ -1162,7 +1162,7 @@
     "recommended": [
       {
         "version": "6.6.0",
-        "date": "25/11/2024"
+        "date": "23/07/2026"
       }
     ],
     "latest": "6.6.0",
@@ -1190,7 +1190,18 @@
     "input_data_type": [
       "fasta"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/emboss:6.6.0",
+        "input_files": [
+          "6_Drosophila_melanogaster_CDS.fas"
+        ],
+        "output_dir": "emboss_output",
+        "output_file": "emboss_test",
+        "add_config": "",
+        "commands": "infoseq -sequence /data/input_data/6_Drosophila_melanogaster_CDS.fas -outfile /data/output_folder/emboss_output/emboss_test > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=\"Emboss\"+AND+suite",
       "scholar": "q=\"Emboss\"+suite",
