@@ -1,0 +1,95 @@
+#!/bin/bash
+
+BASEURL=https://zhanggroup.org
+
+# Maximum time (in seconds) to wait for the results to become available.
+# Can be overridden by setting the TMALIGN_MAX_WAIT environment variable.
+MAXWAIT=${TMALIGN_MAX_WAIT:-1800}
+
+# The server rejects submissions with "413 Request Entity Too Large" once the
+# combined size of both PDB files goes over ~1 MiB. If the input is bigger
+# than this (safety margin below the actual limit), fall back to submitting
+# only the CA (alpha carbon) atom records, which is all TM-align actually
+# uses to compute the structural alignment. Can be overridden by setting the
+# TMALIGN_SIZE_LIMIT environment variable.
+SIZELIMIT=${TMALIGN_SIZE_LIMIT:-1000000}
+
+# Set input and output folder names
+if [[ ! -z "$1" ]] && [[ ! -z "$2" ]];
+then
+	INPUTDIR=$1
+	OUTDIR=$2
+else
+	INPUTDIR=data/input
+	OUTDIR=data/Results_TM-align
+fi
+
+# Input files' names
+F1=$(ls $INPUTDIR/*.pdb | head -1)
+F2=$(ls $INPUTDIR/*.pdb | tail -1)
+
+# Create /temp
+mkdir -p $OUTDIR/temp
+
+# Keep only the CA (alpha carbon) atom records of a PDB file, which is all
+# TM-align uses to compute the alignment, to shrink oversized inputs.
+reduce_to_ca() {
+	perl -ne 'print if /^(ATOM|HETATM)/ && substr($_,12,4) =~ /^\s*CA\s*$/' "$1"
+	echo "END"
+}
+
+SUBF1=$F1
+SUBF2=$F2
+TOTALSIZE=$(($(stat -c%s "$F1") + $(stat -c%s "$F2")))
+
+if [[ $TOTALSIZE -gt $SIZELIMIT ]]; then
+	echo "Warning: input files are too large ($TOTALSIZE bytes); the TM-align server rejects requests over ~1 MiB (HTTP 413)." >&2
+	echo "Reducing PDB files to CA (alpha carbon) atoms only to fit within the server's limit." >&2
+	SUBF1=$OUTDIR/temp/$(basename "$F1" .pdb)_CA.pdb
+	SUBF2=$OUTDIR/temp/$(basename "$F2" .pdb)_CA.pdb
+	reduce_to_ca "$F1" > "$SUBF1"
+	reduce_to_ca "$F2" > "$SUBF2"
+	NEWTOTALSIZE=$(($(stat -c%s "$SUBF1") + $(stat -c%s "$SUBF2")))
+	if [[ $NEWTOTALSIZE -gt $SIZELIMIT ]]; then
+		echo "Error: even after reducing to CA-only atoms, the input is still too large ($NEWTOTALSIZE bytes) for the TM-align server." >&2
+	fi
+fi
+
+# Submission
+curl -s -F pdb1="@$SUBF1" -F pdb2="@$SUBF2" $BASEURL/cgi-bin/TMalign.pl > $OUTDIR/temp/submission.tmp
+
+# Get the Job ID
+JOBID=$(perl -nle 'print $1 if /Job ID:\s*(\d+)/' $OUTDIR/temp/submission.tmp)
+
+if [[ -z "$JOBID" ]]; then
+	echo "Error: could not find a Job ID in the server response." >&2
+	cp $OUTDIR/temp/submission.tmp $OUTDIR/results.html
+	rm -rf $OUTDIR/temp
+	exit 1
+fi
+
+RESULTURL="$BASEURL/TM-align/tmp/$JOBID.html"
+
+echo "Job submitted (Job ID: $JOBID). Waiting for result..."
+
+# Poll the results page (mirrors the 5s HEAD-request polling done by the
+# submission page's own JavaScript) until it becomes available.
+WAITED=0
+while true; do
+	CODE=$(curl -s -o /dev/null -w "%{http_code}" -I "$RESULTURL")
+	if [[ "$CODE" == "200" ]]; then
+		break
+	fi
+	if [[ $WAITED -ge $MAXWAIT ]]; then
+		echo "Error: timed out after ${MAXWAIT}s waiting for TM-align results (Job ID: $JOBID)." >&2
+		break
+	fi
+	sleep 5
+	WAITED=$((WAITED+5))
+done
+
+# Page source code
+curl -s "$RESULTURL" > $OUTDIR/results.html
+
+# Remove /temp
+rm -rf $OUTDIR/temp

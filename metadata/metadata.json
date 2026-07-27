@@ -5658,17 +5658,18 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.0.1",
-        "date": "21/01/2026"
+        "version": "1.0.2",
+        "date": "27/07/2026"
       }
     ],
-    "latest": "1.0.1",
+    "latest": "1.0.2",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
-      "1.0.0"
+      "1.0.0",
+      "1.0.1"
     ],
-    "manual_url": "https://aideepmed.com/TM-align/",
+    "manual_url": "https://zhanggroup.org/TM-align/",
     "source_url": "https://github.com/kad-ecoli/TMalign",
     "comments": [],
     "gui": false,
@@ -5686,7 +5687,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/tm-align_server:1.0.0",
+        "docker_image": "pegi3s/tm-align_server:1.0.2",
         "input_files": [
           "AF-P58710-F1-model_v4.pdb",
           "8qnc.pdb"
