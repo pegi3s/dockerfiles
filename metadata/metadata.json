@@ -676,15 +676,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "7.0.1",
+        "version": "7.0.2",
         "date": ""
       }
     ],
-    "latest": "7.0.1",
-    "bug_found": [],
+    "latest": "7.0.2",
+    "bug_found": ["7.0.1"],
     "not_working": [],
     "no_longer_tested": [
-      "7.0"
+      "7.0",
+      "7.0.1"
     ],
     "manual_url": "https://www.ccp4.ac.uk/documentation-2/",
     "source_url": "https://www.ccp4.ac.uk/download/",
