@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+#
+# Run CCP4 docker image (for PISA)
+#
+#--------------------------------
+
+# Source functions
+. /ccp4/bin/functions
+
+# Setting input and output folder names
+if [[ ! -z "$1" ]] && [[ ! -z "$2" ]];
+then
+	INDIR=$1
+	OUTDIR=$2
+else
+	INDIR=data/input
+	OUTDIR=data/Results_CCP4-PISA
+fi
+mkdir -p $OUTDIR
+
+# Create tempFolder
+TMPFOLDER=$OUTDIR/tempFolder
+mkdir -p $TMPFOLDER
+
+# Create /tmp/root (for pisa to create session dir)
+mkdir -p /tmp/root
+
+# Generate pisa configuration file
+writePisaCfgTemplateFile "$OUTDIR";
+PISA_CONF_FILE=$OUTDIR/pisa.cfg # note: pisa.cfg will be reused
+
+# Loop through all files in /input
+for file in $INDIR/*
+do
+	# Set session name for each file
+	FILE_NAME=$(basename -- $file) # with pdb extension !
+	SESSION_NAME="${FILE_NAME%.*}" # file folder
+	
+	# Run pisa analysis on the pdb structure
+	/ccp4/bin/pisa $SESSION_NAME -analyse $INDIR/$FILE_NAME $PISA_CONF_FILE | tee $TMPFOLDER/$SESSION_NAME.analyse_output
+	# Get number of interfaces - for loop
+	TOTAL_INTERFACES=$(perl -nle 'print $1 if /total (.+?) interfaces/' $TMPFOLDER/$SESSION_NAME.analyse_output)
+
+	# Obtain results with -detail
+	RESULTS_FOLDER=$OUTDIR/$SESSION_NAME
+	mkdir -p $RESULTS_FOLDER
+
+	for (( interface_no = 1; interface_no <= $TOTAL_INTERFACES; interface_no++ ));
+	do
+		# Get pisa results file for each interface
+		/ccp4/bin/pisa $SESSION_NAME -detail interface ${interface_no} $PISA_CONF_FILE > $RESULTS_FOLDER/interface_${interface_no}_info
+		
+		# Parse results (originates tab separated file)
+		getTsvInfo "$RESULTS_FOLDER/interface_${interface_no}_info" "$RESULTS_FOLDER";
+
+	done
+
+	# Erase session
+	/ccp4/bin/pisa $SESSION_NAME -erase $PISA_CONF_FILE
+
+done
+
+# Delete tempFolder
+yes | rm -rf $TMPFOLDER
