@@ -17,7 +17,7 @@
 
 FROM ubuntu:20.04
 
-ARG VERSION=2.2.2
+ARG VERSION=2.2.3
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y wget python3 make g++ zlib1g-dev libtbb-dev && \

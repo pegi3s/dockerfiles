@@ -7460,14 +7460,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.2.2",
-        "date": "16/07/2026"
+        "version": "2.2.3",
+        "date": "24/08/2026"
       }
     ],
-    "latest": "2.2.2",
+    "latest": "2.2.3",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "2.2.2",
       "2.2.0",
       "2.1.0",
       "2.0.5"
@@ -7494,7 +7495,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/hisat2:2.2.2",
+        "docker_image": "pegi3s/hisat2:2.2.3",
         "input_files": [
           "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/test-data-hisat2.zip"
         ],
