@@ -1518,7 +1518,7 @@
   {
     "name": "flash",
     "description": "Sequence read overlap",
-    "project_active": true,
+    "project_active": false,
     "status": "Usable",
     "recommended": [
       {
