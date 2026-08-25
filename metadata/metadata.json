@@ -1662,14 +1662,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "4.1.4.1",
-        "date": ""
+        "version": "4.7.0.0",
+        "date": "25/08/2026"
       }
     ],
-    "latest": "4.1.4.1",
+    "latest": "4.7.0.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "4.1.4.1"
+    ],
     "manual_url": "https://gatk.broadinstitute.org/hc/en-us/articles/360037224712--Tool-Documentation-Index",
     "source_url": "https://github.com/broadinstitute/gatk",
     "comments": [
