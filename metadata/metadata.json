@@ -3463,7 +3463,7 @@
   {
     "name": "popart",
     "description": "Population genetics software",
-    "project_active": true,
+    "project_active": false,
     "status": "Usable",
     "recommended": [
       {
