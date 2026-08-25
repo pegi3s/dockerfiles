@@ -4987,7 +4987,18 @@
       "test_reads_fasta",
       "reference_reads_fasta"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/takeabreak:1.1.2",
+        "input_files": [
+          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/takeabreak_input.zip"
+        ],
+        "output_dir": "takeabreak_output",
+        "output_file": "output.fasta",
+        "add_config": "",
+        "commands": "bash -c \"./TakeABreak -in /data/input_data/takeabreak/takeabreak_input/toy_example_reads.fasta,/data/input_data/takeabreak/takeabreak_input/toy_example_with_inv_reads.fasta -out /data/output_folder/takeabreak_output/output\" > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=TakeABreak+AND+genomic+AND+inversions",
       "scholar": "q=TakeABreak+genomic+inversions",
