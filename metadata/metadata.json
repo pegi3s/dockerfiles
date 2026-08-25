@@ -2524,18 +2524,20 @@
   {
     "name": "maxbin2",
     "description": "Software for binning assembled metagenomic sequences",
-    "project_active": true,
+    "project_active": false,
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.2.4",
-        "date": ""
+        "version": "2.2.7",
+        "date": "25/08/2026"
       }
     ],
-    "latest": "2.2.4",
+    "latest": "2.2.7",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "2.2.4"
+    ],
     "manual_url": "https://raw.githubusercontent.com/pegi3s/dockerfiles/master/maxbin2/2.2.4/options_menu/options.txt",
     "source_url": "https://sourceforge.net/projects/maxbin2/",
     "comments": [],
