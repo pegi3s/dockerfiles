@@ -4958,14 +4958,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.0.0",
-        "date": ""
+        "version": "1.1.2",
+        "date": "25/08/2026"
       }
     ],
-    "latest": "1.0.0",
+    "latest": "1.1.2",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "1.0.0"
+    ],
     "manual_url": "https://github.com/GATB/TakeABreak/blob/master/README.md",
     "source_url": "https://github.com/GATB/TakeABreak",
     "comments": [],
