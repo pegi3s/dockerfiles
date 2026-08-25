@@ -2824,14 +2824,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "18.33.1",
-        "date": "16/07/2026"
+        "version": "18.36.0",
+        "date": "25/08/2026"
       }
     ],
-    "latest": "18.33.1",
+    "latest": "18.36.0",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "18.33.1",
       "18.32.0",
       "18.7.0",
       "16.12.1"
