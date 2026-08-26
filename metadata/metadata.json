@@ -2418,14 +2418,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "7.525",
-        "date": "20/07/2026"
+        "version": "7.526",
+        "date": "26/08/2026"
       }
     ],
-    "latest": "7.525",
+    "latest": "7.526",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "7.525",
       "7.505"
     ],
     "manual_url": "https://mafft.cbrc.jp/alignment/server/",
@@ -2450,7 +2451,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/mafft:7.525",
+        "docker_image": "pegi3s/mafft:7.526",
         "input_files": [
           "small_not_aligned.fas"
         ],

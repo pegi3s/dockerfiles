@@ -28,10 +28,10 @@ RUN apt-get update \
 
 WORKDIR /opt/mafft
 
-RUN wget -q "https://mafft.cbrc.jp/alignment/software/mafft-${VERSION}-with-extensions-src.tgz" \
-    && tar xzf "mafft-${VERSION}-with-extensions-src.tgz"
+RUN wget -q "https://gitlab.com/sysimm/mafft/-/archive/v${VERSION}/mafft-v${VERSION}.tar.gz" \
+    && tar xzf "mafft-v${VERSION}.tar.gz"
 
-RUN cd "mafft-${VERSION}-with-extensions/core/" \
+RUN cd "mafft-v${VERSION}/core/" \
     && make clean \
     && make \
     && make install \
@@ -40,7 +40,7 @@ RUN cd "mafft-${VERSION}-with-extensions/core/" \
     && make \
     && make install \
     && cd ../../ \
-    && rm -rf "mafft-${VERSION}-with-extensions/"
+    && rm -rf "mafft-v${VERSION}/"
 
 RUN apt-get remove --purge -y build-essential wget \
     && apt-get autoremove -y \
