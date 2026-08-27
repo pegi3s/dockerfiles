@@ -11,7 +11,7 @@ if [[ $1 == "--help" ]]; then
     exit 0
 fi
 
-if [ $# -lt 1 ] && [ $# -gt 2 ]; then
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
     tput setaf 1
     echo -e "Error. This script requires one or two arguments.\n"
     tput sgr0
@@ -22,11 +22,12 @@ fi
 REPOSITORY=$1
 
 JQ=jq-linux64
+CURL=curl
 
 for key in "$@"
 do
 case $key in
-    -jq=*|--option=*)
+    -jq=*|--jq=*)
     JQ="${key#*=}"
     shift
     ;;
@@ -43,21 +44,49 @@ if ! [ -x "$(command -v $JQ)" ]; then
     exit 1
 fi
 
+if ! [ -x "$(command -v $CURL)" ]; then
+    tput setaf 1
+    echo -e "Error. The curl executable is not available: $CURL.\n"
+    tput sgr0
+    exit 1
+fi
+
 item=${REPOSITORY}
 
 # Code to get tags from this gits: https://gist.github.com/robv8r/fa66f5e0fdf001f425fe9facf2db6d49
 tokenUri="https://auth.docker.io/token"
 data=("service=registry.docker.io" "scope=repository:$item:pull")
-token="$(curl --silent --get --data-urlencode ${data[0]} --data-urlencode ${data[1]} $tokenUri | $JQ --raw-output '.token')"
 listUri="https://registry-1.docker.io/v2/$item/tags/list"
-authz="Authorization: Bearer $token"
-result="$(curl --silent --get -H "Accept: application/json" -H "Authorization: Bearer $token" $listUri)"
 
-tagsPresent=$(echo $result | grep tags)
-if [ ! -z $tagsPresent ]; then
-result=$(echo $result | $JQ --raw-output '.')
-
-for tag in $(echo $result | $JQ -r '.tags[]'); do
-    echo "$item:$tag"
+while : ; do
+  token="$(curl --silent --get --data-urlencode ${data[0]} --data-urlencode ${data[1]} "$tokenUri" | $JQ --raw-output '.token')"
+  tokenRC=$?
+  if [ $tokenRC -eq 0 ] && [ -n "$token" ] && [ "$token" != "null" ]; then
+    break
+  fi
+  sleep 60
 done
+
+while : ; do
+  headerFile=$(mktemp)
+  result="$(curl --silent -D "$headerFile" -H "Accept: application/json" -H "Authorization: Bearer $token" "$listUri")"
+  HTTP_CODE=$(grep -oE '^HTTP/[0-9.]+ [0-9]{3}' "$headerFile" | tail -1 | awk '{print $2}')
+  retryAfter=$(grep -i '^Retry-After:' "$headerFile" | tail -1 | tr -d '\r' | awk '{print $2}')
+  rm -f "$headerFile"
+
+  if [ "$HTTP_CODE" = "429" ]; then
+    if [[ "$retryAfter" =~ ^[0-9]+$ ]]; then
+      sleep $retryAfter
+    else
+      sleep 60
+    fi
+    continue
+  fi
+  break
+done
+
+if [ -n "$result" ] && echo "$result" | grep -q tags; then
+  for tag in $(echo "$result" | $JQ -r '.tags[]'); do
+    echo "$item:$tag"
+  done
 fi

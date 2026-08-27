@@ -1,9 +1,15 @@
 #!/bin/bash
 
 display_usage() {
-  echo -e "This script lists the lists the images and tags for a given Docker Hub user."
+  echo -e "This script lists the images and tags for a given Docker Hub user."
   echo -e "\nUsage:"
-  echo -e "\tUsage: `basename $0` <docker-hub-user> [-jq=</path/to/jq>] [-ps/--page-size=<page-size>]"
+  echo -e "\tUsage: `basename $0` <docker-hub-user> [-jq=</path/to/jq>]"
+  echo -e "\nNotes:"
+  echo -e "\tThe anonymous Docker Hub repositories API only allows paging through the first"
+  echo -e "\t100 repositories (pagination offset too large; sign in to page further). To list"
+  echo -e "\tmore than 100 images without authenticating, this script enumerates all"
+  echo -e "\trepositories of the user by querying the repositories endpoint with each"
+  echo -e "\tsingle-character name filter and de-duplicating the results."
 }
 
 if [[ $1 == "--help" ]]; then
@@ -11,9 +17,9 @@ if [[ $1 == "--help" ]]; then
     exit 0
 fi
 
-if [ $# -lt 1 ] && [ $# -gt 3 ]; then
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
     tput setaf 1
-    echo -e "Error. This script requires one, two or three arguments.\n"
+    echo -e "Error. This script requires one or two arguments.\n"
     tput sgr0
     display_usage
     exit 1
@@ -21,18 +27,14 @@ fi
 
 USER=$1
 
-PAGE_SIZE=100
 JQ=jq-linux64
+CURL=curl
 
 for key in "$@"
 do
 case $key in
-    -jq=*|--option=*)
+    -jq=*|--jq=*)
     JQ="${key#*=}"
-    shift
-    ;;
-    -ps=*|--page-size=*)
-    PAGE_SIZE="${key#*=}"
     shift
     ;;
     *)
@@ -48,47 +50,132 @@ if ! [ -x "$(command -v $JQ)" ]; then
     exit 1
 fi
 
-NEXT="https://hub.docker.com/v2/repositories/$USER/?page_size=$PAGE_SIZE"
+if ! [ -x "$(command -v $CURL)" ]; then
+    tput setaf 1
+    echo -e "Error. The curl executable is not available: $CURL.\n"
+    tput sgr0
+    exit 1
+fi
 
-TMP_IMAGES=$(mktemp /tmp/docker-images.XXXXXXXX)
+CHARS="abcdefghijklmnopqrstuvwxyz0123456789-_"
 
-touch ${TMP_IMAGES}
+declare -A SEEN
+IMAGES=()
 
-while [ "$NEXT" != "null" ]; do
-  tmpFile=$(mktemp)
-  wget -q "$NEXT" -O $tmpFile
+for ((k=0; k<${#CHARS}; k++)); do
+  c="${CHARS:$k:1}"
+  NEXT="https://hub.docker.com/v2/repositories/$USER/?name=$c&page_size=100"
 
-  NEXT=$(cat $tmpFile | $JQ --raw-output '.next')
+  while [ -n "$NEXT" ] && [ "$NEXT" != "null" ]; do
+    tmpFile=$(mktemp)
+    headerFile=$(mktemp)
 
-  RESULTS=$(cat $tmpFile | $JQ '.results | length')
+    $CURL -sS -D "$headerFile" -o "$tmpFile" "$NEXT"
+    curlRC=$?
 
-  RESULTS=$(expr $RESULTS - 1)
+    HTTP_CODE=$(grep -oE '^HTTP/[0-9.]+ [0-9]{3}' "$headerFile" | tail -1 | awk '{print $2}')
+    remaining=$(grep -i '^x-ratelimit-remaining:' "$headerFile" | tail -1 | tr -d '\r' | awk '{print $2}')
+    reset=$(grep -i '^x-ratelimit-reset:' "$headerFile" | tail -1 | tr -d '\r' | awk '{print $2}')
 
-  for i in $(seq 0 $RESULTS); do
-   im=$(cat $tmpFile | $JQ --raw-output ".results[$i].name" | tr '\n' ' ')
-   echo $im >> ${TMP_IMAGES}
+    if [ "$HTTP_CODE" = "429" ]; then
+      retryAfter=$(grep -i '^Retry-After:' "$headerFile" | tail -1 | tr -d '\r' | awk '{print $2}')
+      if [[ "$retryAfter" =~ ^[0-9]+$ ]]; then
+        sleep $retryAfter
+      else
+        sleep 60
+      fi
+      rm -f "$tmpFile" "$headerFile"
+      continue
+    fi
+
+    if [ $curlRC -ne 0 ] || [ ! -s "$tmpFile" ] || ! $JQ empty "$tmpFile" >/dev/null 2>&1; then
+      tput setaf 1
+      echo -e "Error. Could not retrieve a valid response from Docker Hub (URL: $NEXT)."
+      echo -e "This is usually caused by HTTP rate limiting (HTTP 429/403). Try again later.\n"
+      tput sgr0
+      rm -f "$tmpFile" "$headerFile"
+      exit 1
+    fi
+
+    MESSAGE=$($JQ --raw-output '.message // ""' "$tmpFile")
+    if [ -n "$MESSAGE" ]; then
+      rm -f "$tmpFile" "$headerFile"
+      break
+    fi
+
+    RESULTS=$($JQ '.results | length' "$tmpFile")
+
+    if ! [[ "$RESULTS" =~ ^[0-9]+$ ]]; then
+      tput setaf 1
+      echo -e "Error. Unexpected response from Docker Hub.\n"
+      tput sgr0
+      rm -f "$tmpFile" "$headerFile"
+      exit 1
+    fi
+
+    for ((i=0; i<RESULTS; i++)); do
+      name=$($JQ --raw-output ".results[$i].name" "$tmpFile")
+      if [ -z "${SEEN[$name]:-}" ]; then
+        SEEN[$name]=1
+        IMAGES+=("$name")
+      fi
+    done
+
+    NEXT=$($JQ --raw-output '.next' "$tmpFile")
+
+    rm -f "$tmpFile" "$headerFile"
+
+    if [ -n "$NEXT" ] && [ "$NEXT" != "null" ]; then
+      if [[ "$remaining" =~ ^[0-9]+$ ]] && [ "$remaining" -eq 0 ]; then
+        now=$(date +%s)
+        if [[ "$reset" =~ ^[0-9]+$ ]] && [ $reset -gt $now ]; then
+          sleep $(( reset - now + 1 ))
+        else
+          sleep 60
+        fi
+      fi
+    fi
   done
-
-  rm $tmpFile
 done
 
-while read image; do
+for image in "${IMAGES[@]}"; do
   item=$USER/$image
 
   # Code to get tags from this gits: https://gist.github.com/robv8r/fa66f5e0fdf001f425fe9facf2db6d49
   tokenUri="https://auth.docker.io/token"
   data=("service=registry.docker.io" "scope=repository:$item:pull")
-  token="$(curl --silent --get --data-urlencode ${data[0]} --data-urlencode ${data[1]} $tokenUri | $JQ --raw-output '.token')"
   listUri="https://registry-1.docker.io/v2/$item/tags/list"
-  authz="Authorization: Bearer $token"
-  result="$(curl --silent --get -H "Accept: application/json" -H "Authorization: Bearer $token" $listUri)"
 
-  tagsPresent=$(echo $result | grep tags)
-  if [ ! -z $tagsPresent ]; then
-    result=$(echo $result | $JQ --raw-output '.')
+  while : ; do
+    token="$(curl --silent --get --data-urlencode ${data[0]} --data-urlencode ${data[1]} "$tokenUri" | $JQ --raw-output '.token')"
+    tokenRC=$?
+    if [ $tokenRC -eq 0 ] && [ -n "$token" ] && [ "$token" != "null" ]; then
+      break
+    fi
+    sleep 60
+  done
 
-    for tag in $(echo $result | $JQ -r '.tags[]'); do
+  while : ; do
+    headerFile=$(mktemp)
+    result="$(curl --silent -D "$headerFile" -H "Accept: application/json" -H "Authorization: Bearer $token" "$listUri")"
+    HTTP_CODE=$(grep -oE '^HTTP/[0-9.]+ [0-9]{3}' "$headerFile" | tail -1 | awk '{print $2}')
+    retryAfter=$(grep -i '^Retry-After:' "$headerFile" | tail -1 | tr -d '\r' | awk '{print $2}')
+    rm -f "$headerFile"
+
+    if [ "$HTTP_CODE" = "429" ]; then
+      if [[ "$retryAfter" =~ ^[0-9]+$ ]]; then
+        sleep $retryAfter
+      else
+        sleep 60
+      fi
+      continue
+    fi
+    break
+  done
+
+  if [ -n "$result" ] && echo "$result" | grep -q tags; then
+    for tag in $(echo "$result" | $JQ -r '.tags[]'); do
       echo "$item:$tag"
     done
   fi
-done < ${TMP_IMAGES}
+done

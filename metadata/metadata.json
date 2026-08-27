@@ -7014,14 +7014,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "0.24.0",
-        "date": "27/04/2026"
+        "version": "0.25.0",
+        "date": "27/08/2026"
       }
     ],
-    "latest": "0.24.0",
+    "latest": "0.25.0",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "0.24.0",
       "0.23.0",
       "0.22.2-docker29.0.1",
       "0.22.2",
@@ -7054,7 +7055,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/utilities:0.24.0",
+        "docker_image": "pegi3s/utilities:0.25.0",
         "input_files": [
           "utilities/test-nucleotide-accessions.fasta"
         ],
