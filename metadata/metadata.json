@@ -3287,14 +3287,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.21.5",
-        "date": ""
+        "version": "3.5.0",
+        "date": "27/08/2026"
       }
     ],
-    "latest": "2.21.5",
+    "latest": "3.5.0",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "2.21.5"
+    ],
     "manual_url": "https://broadinstitute.github.io/picard/command-line-overview.html",
     "source_url": "https://github.com/broadinstitute/picard",
     "comments": [],
@@ -3316,7 +3318,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/picard:2.21.5",
+        "docker_image": "pegi3s/picard:3.5.0",
         "input_files": [
           "SAM.sam"
         ],
