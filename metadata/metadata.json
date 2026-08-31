@@ -7554,14 +7554,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.1.4-docker29.0.1",
-        "date": "09/01/2026"
+        "version": "2.2.1",
+        "date": "31/08/2026"
       }
     ],
-    "latest": "2.1.4-docker29.0.1",
+    "latest": "2.2.1",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "2.1.4-docker29.0.1",
       "2.1.4"
     ],
     "manual_url": "https://github.com/FAANG/analysis-TAGADA",
