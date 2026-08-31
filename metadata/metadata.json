@@ -7618,7 +7618,16 @@
     "input_data_type": [
       "fasta"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/cd-hit:4.6.8",
+        "input_files": ["small_not_aligned.fas"],
+        "output_dir": "cd-hit_output",
+        "output_file": "output",
+        "add_config": "",
+        "commands": "bash -c \"cd-hit -i /data/input_data/small_not_aligned.fas -o /data/output_folder/cd-hit_output/output -c 0.9\" > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=cd-hit+AND+weizhongli",
       "scholar": "q=cd-hit+weizhongli",
