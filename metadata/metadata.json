@@ -4870,22 +4870,18 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "4.14.8",
-        "date": "25/11/2024"
-      },
-      {
-        "version": "4.19.2",
-        "date": "14/01/2025"
-      },
-      {
-        "version": "6.4.11",
-        "date": "14/01/2025"
+        "version": "6.9.5",
+        "date": "31/08/2026"
       }
     ],
-    "latest": "6.4.11",
+    "latest": "6.9.5",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "6.4.11",
+      "4.19.2",
+      "4.14.8"
+    ],
     "manual_url": "https://husonlab.github.io/splitstree6/manual.html",
     "source_url": "https://github.com/husonlab/splitstree6",
     "comments": [],
