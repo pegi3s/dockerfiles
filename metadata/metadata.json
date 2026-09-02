@@ -2184,14 +2184,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.1.0",
-        "date": "25/11/2024"
+        "version": "1.1.1",
+        "date": "02/09/2026"
       }
     ],
-    "latest": "1.1.0",
+    "latest": "1.1.1",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "1.1.0",
       "1.0.0"
     ],
     "manual_url": "https://hub.docker.com/r/pegi3s/id-mapping",
@@ -2216,7 +2217,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/id-mapping:1.1.0",
+        "docker_image": "pegi3s/id-mapping:1.1.1",
         "input_files": [
           "gene_ids.txt"
         ],

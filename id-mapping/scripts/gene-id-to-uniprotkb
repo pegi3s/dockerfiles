@@ -5,9 +5,13 @@ import json
 import time
 import click
 import requests
-from bs4 import BeautifulSoup
+import xml.etree.ElementTree as ET
 
 CACHE_FILE = 'gene-id-to-uniprotkb.json'
+
+UNIPROT_URL_PREFIX = 'https://www.uniprot.org/uniprot/'
+
+EUTILS_URL = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi'
 
 def write_tsv(results, output_file):
     click.echo('GeneID\tUniProtKB', file=output_file)
@@ -44,23 +48,20 @@ def query_gene_id(input_string, cache, quiet):
     if not quiet:
         click.echo(f'Querying NCBI {input_string}')
 
-    url = f'https://www.ncbi.nlm.nih.gov/gene/{input_string}/'
+    url = f'{EUTILS_URL}?db=gene&id={input_string}&retmode=xml'
     response = requests.get(url, timeout=360)
 
     if response.status_code == 200:
-        soup = BeautifulSoup(response.text, 'html.parser')
-        protein_tables = soup.find_all('table', {'id': 'proteinTblId'})
-
-        if len(protein_tables) >= 2:
-            protein_table = protein_tables[1]
-            protein_links = protein_table.find_all('a', href=True)
-
-            for link in protein_links:
-                if link['href'].startswith('https://www.uniprot.org/uniprot/'):
-                    uniprot_url = link['href']
-                    cache[input_string] = uniprot_url.replace('https://www.uniprot.org/uniprot/', '')
+        try:
+            root = ET.fromstring(response.text)
+            for element in root.iter('Other-source_url'):
+                if element.text and element.text.startswith(UNIPROT_URL_PREFIX):
+                    uniprot_id = element.text[len(UNIPROT_URL_PREFIX):]
+                    cache[input_string] = uniprot_id
 
                     return input_string, cache[input_string]
+        except ET.ParseError:
+            pass
 
         click.echo(f'Failed to parse {input_string} from NCBI ({url})')
     elif not quiet:

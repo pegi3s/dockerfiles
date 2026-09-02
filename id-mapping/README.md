@@ -60,7 +60,7 @@ The result will be available in the new `mapping.tsv` file created at `/your/dat
 
 # Gene ID to reference UniProtKB
 
-Conversions using the `map-ids` can produce multiple mappings for the same identifier. To overcome this issue for the specific case of mapping Gene IDs into UniProtKB IDs, the `gene-id-to-uniprotkb` script is provided. This script opens the corresponding NCBI page of the specified Gene ID (e.g. https://www.ncbi.nlm.nih.gov/gene/4287/ for Gene ID 4297) and retrieves the reference protein accession that appears at the bottom of the page (e.g. UniProtKB/Swiss-Prot:P54252 in this case). This way a single UniProtKB ID for a given gene can be found.
+Conversions using the `map-ids` can produce multiple mappings for the same identifier. To overcome this issue for the specific case of mapping Gene IDs into UniProtKB IDs, the `gene-id-to-uniprotkb` script is provided. This script queries the NCBI E-utilities API for the specified Gene ID (e.g. https://www.ncbi.nlm.nih.gov/gene/4287/ for Gene ID 4287) and retrieves the reference protein accession that appears on the corresponding gene page (e.g. UniProtKB/Swiss-Prot:P54252 in this case). This way a single UniProtKB ID for a given gene can be found.
 
 You should adapt and run the following command: 
 ```sh
@@ -75,7 +75,7 @@ In this command, you should replace:
 The script help can be obtained with `docker run --rm pegi3s/id-mapping gene-id-to-uniprotkb --help`.
 
 Notes:
-- The default output format (`--format` or `-f`) is `tsv`. This means that a two-column TSV file is produced (see test data below): original Gene IDs in the first column and converted UniProtKB IDs in the second one. The output format `txt` allows obtaining only a list of the mapped UniProtKB IDs.
+- The default output format (`--output-format` or `-of`) is `tsv`. This means that a two-column TSV file is produced (see test data below): original Gene IDs in the first column and converted UniProtKB IDs in the second one. The output format `txt` allows obtaining only a list of the mapped UniProtKB IDs.
 - If an identifier cannot be found at NCBI it will appear in the output files as `Not found`. They can be ignored by adding `--ignore-missing` or `-i` to the command before.
 
 Advanced script options are described in the next subsections.
@@ -106,7 +106,7 @@ docker run --rm -v /your/data/dir:/data -w /data \
     pegi3s/id-mapping gene-id-to-uniprotkb \
         gene_ids.txt \
         gene_ids_to_uniprotkbs_mapping.tsv \
-        --format tsv \
+        --output-format tsv \
         --cache-dir id_mapping_cache
 ```
 
@@ -120,6 +120,10 @@ GeneID  UniProtKB
 # Changelog
 
 The `latest` tag contains always the most recent version.
+
+## [1.1.1] - 02/09/2026
+
+- Fixes `gene-id-to-uniprotkb` to use the NCBI E-utilities API instead of scraping the NCBI gene HTML page, which is no longer accessible to automated requests.
 
 ## [1.1.0] - 22/01/2024
 
