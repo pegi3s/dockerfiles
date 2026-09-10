@@ -4349,7 +4349,18 @@
       "fasta",
       "newick"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/rootdigger:1.7.0",
+        "input_files": [
+          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/rootdigger.zip"
+        ],
+        "output_dir": "rootdigger_output",
+        "output_file": "Popset_2312465787.nwk.rooted.tree",
+        "add_config": "",
+        "commands": "bash -c \"cp /data/input_data/rootdigger/Popset_2312465787.fas /data/input_data/rootdigger/Popset_2312465787.nwk /data/output_folder/rootdigger_output/ && cd /data/output_folder/rootdigger_output && rd --msa Popset_2312465787.fas --tree Popset_2312465787.nwk --exhaustive\" > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=root-digger+AND+phylogenetic+AND+trees",
       "scholar": "q=root-digger+phylogenetic+trees",
