@@ -2679,12 +2679,12 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/metaeuk",
-    "usual_invocation_specific": "bash -c \"metaeuk easy-predict /data/contigsFile /data/proteinFile predsResults tempfolder && mv /data/predsResults /data/output\"",
+    "usual_invocation_specific": "bash -c \"metaeuk easy-predict /data/contigsFile /data/proteinFile /data/output/predsResults tempfolder\"",
     "usual_invocation_specific_comments": [
       "'easy-predict' to the name of the module to be used. 'predsResults tempfolder' are module dependent options.",
       "The command is used to run the easy-predict workflow, that predicts proteins from contigs (fasta/db) based on similarities to targets (fasta/db) and returns FASTA and GFF files, using FASTA files as input."
     ],
-    "test_invocation_specific": "bash -c \"metaeuk easy-predict /data/test/data/Drosophila_melanogaster_genome /data/test/data/protein_query.fasta predsResults tempfolder && mv /data/predsResults /data/test/results/metaeuk_test\"",
+    "test_invocation_specific": "bash -c \"metaeuk easy-predict /data/test/data/Drosophila_melanogaster_genome /data/test/data/protein_query.fasta /data/test/results/metaeuk_test tempfolder\"",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/metaeuk.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/metaeuk_output.zip",
     "icon": "https://raw.githubusercontent.com/soedinglab/metaeuk/refs/heads/master/imgs/MetaEuk.png",
@@ -2692,7 +2692,18 @@
       "contigs",
       "protein"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/metaeuk:41.0.0",
+        "input_files": [
+          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/metaeuk.zip"
+        ],
+        "output_dir": "metaeuk_output",
+        "output_file": "predsResults.fas",
+        "add_config": "",
+        "commands": "bash -c \"metaeuk easy-predict /data/input_data/metaeuk/Drosophila_melanogaster_genome /data/input_data/metaeuk/protein_query.fasta /data/output_folder/metaeuk_output/predsResults tempfolder\" > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=metaeuk",
       "scholar": "q=metaeuk",
