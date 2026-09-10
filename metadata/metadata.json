@@ -6099,7 +6099,18 @@
       "nuc_subject_fasta",
       "query_nucleotide_CDS"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/splign-compart:1.2.1",
+        "input_files": [
+          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/splign-compart_input.zip"
+        ],
+        "output_dir": "splign-compart_output",
+        "output_file": "splign-compart_test.fasta",
+        "add_config": "",
+        "commands": "splign-compart-pipeline /data/input_data/splign-compart/splign-compart_input/dsim-all-chromosome-r2.02.fasta /data/input_data/splign-compart/splign-compart_input/dmel-sod.fasta /data/output_folder/splign-compart_output/splign-compart_test.fasta > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=Splign+AND+NCBI",
       "scholar": "q=Splign+NCBI",
