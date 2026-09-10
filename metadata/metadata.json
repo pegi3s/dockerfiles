@@ -3656,7 +3656,16 @@
     "input_data_type": [
       "fasta"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/prokka:1.14.6",
+        "input_files": ["GCF_000858285.1.fa"],
+        "output_dir": "prokka_output",
+        "output_file": "prokka_test.gff",
+        "add_config": "",
+        "commands": "bash -c \"mkdir -p /data/output_folder/prokka_output && prokka /data/input_data/GCF_000858285.1.fa --outdir /data/output_folder/prokka_output --genus 'Genus' --prefix prokka_test --force\" > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=prokka",
       "scholar": "q=prokka",
