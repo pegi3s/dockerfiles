@@ -1437,7 +1437,7 @@
     "recommended": [
       {
         "version": "2.0.0",
-        "date": ""
+        "date": "10/09/2026"
       }
     ],
     "latest": "2.0.0",
@@ -1458,14 +1458,25 @@
       "'output.txt' to the actual name of your output file."
     ],
     "test_invocation_specific": "featureCounts -a /data/test/data/saccharomyces.gff -o /data/test/results/feature-counts_test.txt /data/test/data/saccharomyces_data.sorted.bam",
-    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/htseq.zip",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/feature-counts.zip",
     "test_results_url": "",
     "icon": "",
     "input_data_type": [
       "gff",
       "bam"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/feature-counts:2.0.0",
+        "input_files": [
+          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/feature-counts.zip"
+        ],
+        "output_dir": "feature-counts_output",
+        "output_file": "feature-counts_test.txt",
+        "add_config": "",
+        "commands": "featureCounts -a /data/input_data/feature-counts/saccharomyces.gff -g locus_tag -o /data/output_folder/feature-counts_output/feature-counts_test.txt /data/input_data/feature-counts/saccharomyces_data.sorted.bam > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=\"featureCounts\"",
       "scholar": "q=\"featureCounts\"",
