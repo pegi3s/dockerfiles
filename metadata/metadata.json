@@ -6995,7 +6995,18 @@
       "fasta",
       "fastaprot"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/blast_utilities:0.3.0",
+        "input_files": [
+          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/blast_utilities.zip"
+        ],
+        "output_dir": "blast_utilities_output",
+        "output_file": "blast_utilities_test",
+        "add_config": "",
+        "commands": "blast_and_extract /data/input_data/blast_utilities/Drosophila_melanogaster_genome /data/input_data/blast_utilities/protein_query.fasta 100 500 0.05 /data/output_folder/blast_utilities_output/blast_utilities_test > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=blast+AND+alignment",
       "scholar": "q=blast+alignment",
