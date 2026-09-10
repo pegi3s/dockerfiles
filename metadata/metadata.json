@@ -2735,7 +2735,16 @@
     "input_data_type": [
       "nexus"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/mrbayes:3.2.7",
+        "input_files": ["nexus.nex"],
+        "output_dir": "mrbayes_output",
+        "output_file": "nexus.nex.con.tre",
+        "add_config": "",
+        "commands": "bash -c \"cp /data/input_data/nexus.nex /data/output_folder/mrbayes_output/ && cd /data/output_folder/mrbayes_output && mb nexus.nex\" > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=mrbayes",
       "scholar": "q=mrbayes",
