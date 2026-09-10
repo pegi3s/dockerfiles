@@ -2649,7 +2649,18 @@
       "mao",
       "meg_seq_align"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/megax_cc:10.0.5",
+        "input_files": [
+          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/mega_cc.zip"
+        ],
+        "output_dir": "megax_cc_output",
+        "output_file": "megax_cc_test.nwk",
+        "add_config": "",
+        "commands": "megacc -a /data/input_data/megax_cc/file.mao -d /data/input_data/megax_cc/file.meg -o /data/output_folder/megax_cc_output/megax_cc_test > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=megax+AND+software",
       "scholar": "q=megax+software",
