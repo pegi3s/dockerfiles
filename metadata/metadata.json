@@ -966,14 +966,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.2.4",
-        "date": "16/07/2026"
+        "version": "2.2.6",
+        "date": "11/09/2026"
       }
     ],
-    "latest": "2.2.4",
+    "latest": "2.2.6",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "2.2.4",
       "2.1.8"
     ],
     "manual_url": "https://github.com/bbuchfink/diamond",
@@ -994,7 +995,7 @@
     "input_data_type": [],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/diamond",
+        "docker_image": "pegi3s/diamond:2.2.6",
         "input_files": [
           "4_proteins.fas"
         ],
