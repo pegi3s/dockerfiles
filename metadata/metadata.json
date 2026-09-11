@@ -7902,14 +7902,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "3.1.0",
-        "date": ""
+        "version": "3.1.4",
+        "date": "11/09/2026"
       }
     ],
-    "latest": "3.1.0",
+    "latest": "3.1.4",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "3.1.0"
+    ],
     "manual_url": "https://github.com/iqtree/iqtree3",
     "source_url": "https://github.com/iqtree/iqtree3",
     "comments": [],
