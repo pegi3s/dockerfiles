@@ -1,0 +1,18 @@
+This is the license for prank-msa
+
+GPL-2.0-or-later GNU General Public License v2.0 or later
+Can
+Use/reproduce, Distribute, Modify/merge, Commercial use, Use patents, Place warranty
+Must
+Incl. Copyright, State changes, Disclose source, Copyleft/Share a.
+Cannot
+Hold liable, Sublicence
+Compatible
+GPL, For software
+Law
+US law, Not fixed/local
+Support
+Strong Community, OSI approved, FSF Free/Libre
+
+Licence comment:
+Covers both the GPL-2.0 (the "historical" free software license), the GPL-3.0 and possible later versions. Supported by a strong community (the Free Software Foundation - FSF). Copy, modification and distribution authorised. Changes/dates must be traced in source files. Any derivative must also be made available under one or more of these GPL versions. Compatibility / interoperability are known sources of tension when a project combines the covered code with non-GPL sources from other stakeholders, because according to the FSF linking other software to GPLed works extends the GPL coverage to these other programs. Licensing under "GPL-2.0 or later" may be recommended since it is compatible with all GPL versions (2 and 3).  At the contrary, licensing under  "GPL-2.0-only" is not compatible with GPL-3.0.

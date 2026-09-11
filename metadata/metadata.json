@@ -8495,14 +8495,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "250331",
-        "date": "22/06/2026"
+        "version": "251117",
+        "date": "11/09/2026"
       }
     ],
-    "latest": "250331",
+    "latest": "251117",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "250331"
+    ],
     "manual_url": "https://ariloytynoja.github.io/prank-msa",
     "source_url": "https://github.com/ariloytynoja/prank-msa",
     "comments": [
@@ -8528,7 +8530,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/prank-msa:250331",
+        "docker_image": "pegi3s/prank-msa:251117",
         "input_files": [
           "small_not_aligned.fas"
         ],
