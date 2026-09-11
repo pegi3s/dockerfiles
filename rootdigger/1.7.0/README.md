@@ -17,10 +17,10 @@ In this command, you should replace:
 
 # Test data
 
-To test the previous command, you can use the `Popset_2312465787.fasta.nuc_aligned` and `Popset_2312465787.fasta.nuc_aligned.nwk` files [here](https://raw.githubusercontent.com/pegi3s/dockerfiles/master/rootdigger/test_data/rootdigger_test_data.zip) provided, and, after replacing `/your/data/dir` by the actual working directory, run the following command:
+To test the previous command, you can use the `Popset_2312465787.fas` and `Popset_2312465787.nwk` files [here](http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/rootdigger.zip) provided, and, after replacing `/your/data/dir` by the actual working directory, run the following command:
 
 ```
-docker run --rm -v /your/data/dir:/data pegi3s/rootdigger rd --msa /data/Popset_2312465787.fasta.nuc_aligned --tree /data/Popset_2312465787.fasta.nuc_aligned.nwk --exhaustive
+docker run --rm -v /your/data/dir:/data pegi3s/rootdigger rd --msa /data/Popset_2312465787.fas --tree /data/Popset_2312465787.nwk --exhaustive
 ```
 
 # Using the Root Digger image in Windows

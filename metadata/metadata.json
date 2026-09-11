@@ -4357,14 +4357,20 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.7.0",
-        "date": "10/09/2026"
+        "version": "1.8.0",
+        "date": "11/09/2026"
+      },
+      {
+        "version": "2026.09.11",
+        "date": "11/09/2026"
       }
     ],
-    "latest": "1.7.0",
+    "latest": "2026.09.11",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "1.7.0"
+    ],
     "manual_url": "https://github.com/computations/root_digger",
     "source_url": "https://github.com/computations/root_digger",
     "comments": [],
@@ -4387,14 +4393,24 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/rootdigger:1.7.0",
+        "docker_image": "pegi3s/rootdigger:1.8.0",
         "input_files": [
           "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/rootdigger.zip"
         ],
         "output_dir": "rootdigger_output",
         "output_file": "Popset_2312465787.nwk.rooted.tree",
         "add_config": "",
-        "commands": "bash -c \"cp /data/input_data/rootdigger/Popset_2312465787.fas /data/input_data/rootdigger/Popset_2312465787.nwk /data/output_folder/rootdigger_output/ && cd /data/output_folder/rootdigger_output && rd --msa Popset_2312465787.fas --tree Popset_2312465787.nwk --exhaustive\" > /dev/null 2>&1"
+        "commands": "bash -c \"cp /data/input_data/rootdigger/Popset_2312465787.fas /data/input_data/rootdigger/Popset_2312465787.nwk /data/output_folder/rootdigger_output/ && cd /data/output_folder/rootdigger_output && rm -f *.ckp && rd --msa Popset_2312465787.fas --tree Popset_2312465787.nwk --exhaustive\" > /dev/null 2>&1"
+      },
+      {
+        "docker_image": "pegi3s/rootdigger:2026.09.11",
+        "input_files": [
+          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/rootdigger.zip"
+        ],
+        "output_dir": "rootdigger_output",
+        "output_file": "Popset_2312465787.nwk.rooted.tree",
+        "add_config": "",
+        "commands": "bash -c \"cp /data/input_data/rootdigger/Popset_2312465787.fas /data/input_data/rootdigger/Popset_2312465787.nwk /data/output_folder/rootdigger_output/ && cd /data/output_folder/rootdigger_output && rm -f *.ckp && rd --msa Popset_2312465787.fas --tree Popset_2312465787.nwk --exhaustive\" > /dev/null 2>&1"
       }
     ],
     "custom_searches": {
