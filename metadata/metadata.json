@@ -2072,14 +2072,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "3.2.1",
-        "date": ""
+        "version": "3.3.2",
+        "date": "11/09/2026"
       }
     ],
-    "latest": "3.2.1",
+    "latest": "3.3.2",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "3.2.1"
+    ],
     "manual_url": "https://haplogrep.readthedocs.io/en/latest/parameters/",
     "source_url": "https://github.com/genepi/haplogrep3",
     "comments": [],
@@ -2087,18 +2089,29 @@
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/haplogrep",
-    "usual_invocation_specific": "classify --input=/data/inputFile --tree=phylotree-rcrs@17.2 --out /data/output/out.txt",
+    "usual_invocation_specific": "classify --input=/data/inputFile --tree=phylotree-rcrs@17.3 --out /data/output/out.txt",
     "usual_invocation_specific_comments": [
-      "'out.txt' to the desired name of the output file. You may also want to replace phylotree-rcrs@17.2 for another reference sequence."
+      "'out.txt' to the desired name of the output file. You may also want to replace phylotree-rcrs@17.3 for another reference sequence."
     ],
-    "test_invocation_specific": "",
-    "test_data_url": "",
+    "test_invocation_specific": "classify --input=/data/test/data/example-wgs.vcf --tree=phylotree-rcrs@17.3 --out /data/test/results/out.txt",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/haplogrep.zip",
     "test_results_url": "",
     "icon": "",
     "input_data_type": [
       "input"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/haplogrep:3.3.2",
+        "input_files": [
+          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/haplogrep.zip"
+        ],
+        "output_dir": "haplogrep_output",
+        "output_file": "out.txt",
+        "add_config": "",
+        "commands": "classify --input=/data/input_data/haplogrep/example-wgs.vcf --tree=phylotree-rcrs@17.3 --out /data/output_folder/haplogrep_output/out.txt > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=haplogrep",
       "scholar": "q=haplogrep",
