@@ -6,31 +6,37 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.1.0",
-        "date": ""
+        "version": "2.3.10",
+        "date": "14/09/2026"
+      },
+      {
+        "version": "2.3.10-k.256",
+        "date": "14/09/2026"
       }
     ],
-    "latest": "2.1.0",
+    "latest": "2.3.10",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "2.1.0",
       "2.0.2-3"
     ],
-    "manual_url": "https://github.com/bcgsc/abyss/blob/master/README.md",
-    "source_url": "https://github.com/bcgsc/abyss",
+    "manual_url": "https://github.com/BirolLab/abyss/blob/master/README.md",
+    "source_url": "https://github.com/BirolLab/abyss",
     "comments": [
-      "Since the default k-mer size to run an assembly is 64, we have compiled two additional images with --enable-maxk=128 and --enable-maxk=256.",
-      "Please see the documentation."
+      "The default image supports k-mer lengths up to 192 (the ABySS default). An additional image with --enable-maxk=256 is available for larger k-mer sizes.",
+      "The -k.128 variant available for older versions is no longer provided, since the current default (192) already covers it.",
+      "Since ABySS 2.3, the B (Bloom filter) or np (MPI) mode must be specified. Please see the documentation."
     ],
     "gui": false,
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/abyss",
-    "usual_invocation_specific": "abyss-pe k=25 name=test in='/data/fastq1File /data/fastq2File' --directory=/data/output",
+    "usual_invocation_specific": "abyss-pe k=25 B=2G name=test in='/data/fastq1File /data/fastq2File' --directory=/data/output",
     "usual_invocation_specific_comments": [
       "The `k` parameter is the size of the k-mer. It can be changed to any odd number below the `maxk` value (see comments). The `name` parameter can be changed to any name without blank spaces."
     ],
-    "test_invocation_specific": "abyss-pe k=25 name=test in='/data/test/data/reads1.fastq /data/test/data/reads2.fastq' --directory=/data/test/results",
+    "test_invocation_specific": "abyss-pe k=25 B=2G name=test in='/data/test/data/reads1.fastq /data/test/data/reads2.fastq' --directory=/data/test/results",
     "test_data_url": "",
     "test_results_url": "",
     "icon": "",
@@ -40,7 +46,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/abyss:2.1.0",
+        "docker_image": "pegi3s/abyss:2.3.10",
         "input_files": [
           "SRR3143588_1.fastq",
           "SRR3143588_2.fastq"
@@ -48,7 +54,7 @@
         "output_dir": "abyss_output",
         "output_file": "test-scaffolds.fa",
         "add_config": "",
-        "commands": "bash -c \"abyss-pe k=25 name=test in='/data/input_data/SRR3143588_1.fastq /data/input_data/SRR3143588_2.fastq' --directory=/data/output_folder/abyss_output\" > /dev/null 2>&1"
+        "commands": "bash -c \"abyss-pe k=25 B=2G name=test in='/data/input_data/SRR3143588_1.fastq /data/input_data/SRR3143588_2.fastq' --directory=/data/output_folder/abyss_output\" > /dev/null 2>&1"
       }
     ],
     "custom_searches": {
