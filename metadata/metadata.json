@@ -1896,15 +1896,17 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2021.03.08",
-        "date": ""
+        "version": "2025-07-31",
+        "date": "14/09/2026"
       }
     ],
-    "latest": "2021.03.08",
+    "latest": "2025-07-31",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
-    "manual_url": "https://github.com/juliangehring/GMAP-GSNAP/blob/master/README",
+    "no_longer_tested": [
+      "2021.03.08"
+    ],
+    "manual_url": "https://github.com/Genentech/gmap-gsnap",
     "source_url": "http://research-pub.gene.com/gmap/",
     "comments": [],
     "gui": false,
@@ -1915,15 +1917,26 @@
     "usual_invocation_specific_comments": [
       "'genome_name' to a given name. '12' to the value of the k-mer size you want to use. 'out_name' to the actual name of your output file."
     ],
-    "test_invocation_specific": "",
-    "test_data_url": "",
+    "test_invocation_specific": "bash -c \"gmap_build -d genome -k 12 /data/test/data/Drosophila_melanogaster_genome && gmap -d genome /data/test/data/6_Drosophila_melanogaster_CDS.fas > /data/test/results/out.gmap\"",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/cds2gff3-maker.zip",
     "test_results_url": "",
     "icon": "",
     "input_data_type": [
       "genomefasta",
       "mRNAfasta"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/gmap-gsnap:2025-07-31",
+        "input_files": [
+          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/cds2gff3-maker.zip"
+        ],
+        "output_dir": "gmap-gsnap_output",
+        "output_file": "out.gmap",
+        "add_config": "",
+        "commands": "bash -c \"gmap_build -d genome -k 12 /data/input_data/gmap-gsnap/Drosophila_melanogaster_genome && gmap -d genome /data/input_data/gmap-gsnap/6_Drosophila_melanogaster_CDS.fas > /data/output_folder/gmap-gsnap_output/out.gmap\" > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=gmap-gsnap",
       "scholar": "q=gmap-gsnap",
