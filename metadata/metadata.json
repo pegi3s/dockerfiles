@@ -1488,6 +1488,64 @@
     }
   },
   {
+    "name": "subread",
+    "description": "Sequence read alignment and summarization",
+    "project_active": true,
+    "status": "Usable",
+    "recommended": [
+      {
+        "version": "2.1.1",
+        "date": "14/09/2026"
+      }
+    ],
+    "latest": "2.1.1",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://subread.sourceforge.net/",
+    "source_url": "https://sourceforge.net/projects/subread/",
+    "comments": [
+      "This image includes all the Subread programs: subread-align, subread-buildindex, subjunc, exactSNP, sublong, subindel, featureCounts and the utilities.",
+      "The feature-counts image only includes the featureCounts program and is maintained for back-compatibility."
+    ],
+    "gui": false,
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/subread",
+    "usual_invocation_specific": "featureCounts -a /data/gffFile -o /data/output/output.txt /data/bamFile",
+    "usual_invocation_specific_comments": [
+      "'output.txt' to the actual name of your output file."
+    ],
+    "test_invocation_specific": "featureCounts -p -a /data/test/data/saccharomyces.gff -g locus_tag -o /data/test/results/feature-counts_test.txt /data/test/data/saccharomyces_data.sorted.bam",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/feature-counts.zip",
+    "test_results_url": "",
+    "icon": "",
+    "input_data_type": [
+      "fastq",
+      "fasta",
+      "bam",
+      "gff"
+    ],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/subread:2.1.1",
+        "input_files": [
+          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/feature-counts.zip"
+        ],
+        "output_dir": "feature-counts_output",
+        "output_file": "feature-counts_test.txt",
+        "add_config": "",
+        "commands": "featureCounts -p -a /data/input_data/feature-counts/saccharomyces.gff -g locus_tag -o /data/output_folder/feature-counts_output/feature-counts_test.txt /data/input_data/feature-counts/saccharomyces_data.sorted.bam > /dev/null 2>&1"
+      }
+    ],
+    "custom_searches": {
+      "pubmed": "term=\"subread\"",
+      "scholar": "q=\"subread\"",
+      "bioprotocol": "content=\"subread\"",
+      "bioprotocol_exchange": "content=\"subread\""
+    }
+  },
+  {
     "name": "figtree",
     "description": "Phylogenetic tree viewing and editing",
     "project_active": true,

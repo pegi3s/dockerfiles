@@ -15,6 +15,10 @@ statically linked `featureCounts` binary from the official SourceForge release
 Ubuntu release (the previous approach used `apt-get install subread`). Only the
 `featureCounts` binary is extracted from the archive.
 
+The full Subread suite (all binaries) is available in the `pegi3s/subread` image.
+This `feature-counts` image is maintained for back-compatibility and only includes
+the `featureCounts` program.
+
 # Build log
 
 - 2.1.1 - 11/09/2026 - Hugo López Fernández
