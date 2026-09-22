@@ -691,7 +691,12 @@
       }
     ],
     "latest": "7.0.2",
-    "bug_found": ["7.0.1"],
+    "bug_found": [
+      {
+        "version": "<= 7.0.1",
+        "description": ""
+      }
+    ],
     "not_working": [],
     "no_longer_tested": [
       "7.0",
@@ -8189,9 +8194,7 @@
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/ispip_output.zip",
     "icon": "",
     "input_data_type": [
-      [
         "csv"
-      ]
     ],
     "auto_tests": [
       {
@@ -8268,7 +8271,7 @@
     "name": "ispred4",
     "description": "Active and passive sites prediction",
     "project_active": true,
-    "status": "",
+    "status": "Usable",
     "recommended": [
       {
         "version": "4.0.0",
