@@ -4231,7 +4231,16 @@
     "input_data_type": [
       "R-script"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/r_network:4.1.1_v2_v3",
+        "input_files": ["r_network.R"],
+        "output_dir": "r_network_output",
+        "output_file": "Rplots.pdf",
+        "add_config": "",
+        "commands": "bash -c \"cd /data/output_folder/r_network_output && Rscript /data/input_data/r_network.R\" > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=r+AND+programming+AND+language",
       "scholar": "q=r+programming+language",
