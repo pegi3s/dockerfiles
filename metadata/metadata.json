@@ -4045,7 +4045,16 @@
     "input_data_type": [
       "R-script"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/r_data-analysis:4.1.1_v3",
+        "input_files": ["r_data-analysis_script.R"],
+        "output_dir": "r_data-analysis_output",
+        "output_file": "r_data-analysis_output",
+        "add_config": "",
+        "commands": "bash -c \"Rscript /data/input_data/r_data-analysis_script.R > /data/output_folder/r_data-analysis_output/r_data-analysis_output\""
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=r+AND+programming+AND+language",
       "scholar": "q=r+programming+language",
