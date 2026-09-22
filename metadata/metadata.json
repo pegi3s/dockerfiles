@@ -4265,7 +4265,16 @@
     "input_data_type": [
       "R-script"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/r_venn-diagram:1.7.0",
+        "input_files": ["r_venn_diagram.R"],
+        "output_dir": "r_venn-diagram_output",
+        "output_file": "venn_diagram.png",
+        "add_config": "",
+        "commands": "bash -c \"cd /data/output_folder/r_venn-diagram_output && Rscript /data/input_data/r_venn_diagram.R\" > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=\"VennDiagram\"",
       "scholar": "q=\"VennDiagram\"",
