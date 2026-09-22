@@ -8509,7 +8509,16 @@
     "input_data_type": [
       "Python-script"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/matplotlib-venn:1.1.2",
+        "input_files": ["python_script.py"],
+        "output_dir": "matplotlib-venn_output",
+        "output_file": "venn_diagram.svg",
+        "add_config": "",
+        "commands": "bash -c \"python3 /data/input_data/python_script.py && cp /data/venn_diagram.svg /data/output_folder/matplotlib-venn_output/\" > /dev/null 2>&1"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=matplotlib-venn",
       "scholar": "q=matplotlib-venn",
