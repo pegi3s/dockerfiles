@@ -104,7 +104,7 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
-    "icon": "https://sing-group.org/ADOPS/adops-icon.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/adops-gui.png",
     "input_data_type": [],
     "auto_tests": [],
     "custom_searches": {
@@ -144,7 +144,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "https://raw.githubusercontent.com/BrendelGroup/AEGeAn/refs/heads/main/docs/aegean-logo-v1_0-128.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/aegean.png",
     "input_data_type": [
       "reference_gff3",
       "prediction_gff3"
@@ -293,7 +293,7 @@
     "test_invocation_specific": "-i /data/test/data/nexus.nex -o /data/test/results/alter_test -ia -of out_format -oo Linux -op GENERAL",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/nexus.nex",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/alter_output.zip",
-    "icon": "https://raw.githubusercontent.com/sing-group/ALTER/master/alter-web/src/main/webapp/img/logo_small.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/alter.png",
     "input_data_type": [
       "input"
     ],
@@ -387,7 +387,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
-    "icon": "https://raw.githubusercontent.com/sing-group/BDBM/master/bdbm-logo.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/bdbm.png",
     "input_data_type": [],
     "auto_tests": [],
     "custom_searches": {
@@ -431,7 +431,7 @@
     "test_invocation_specific": "fastaFromBed -fi /data/test/data/GCF_000858285.1.fa -bed /data/test/data/GCF_000858285.1.gff -fo /data/test/results/bedtools_test",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/bedtools.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/bedtools_output.zip",
-    "icon": "https://bedtools.readthedocs.io/en/latest/_static/bedtools.swiss.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/bedtools.png",
     "input_data_type": [
       "fasta",
       "BED_GFF_VCF"
@@ -489,7 +489,7 @@
     "test_invocation_specific": "fasta2nexus /data/test/data/small_aligned.fas /data/test/results/bioconvert_test",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/bioconvert_output.zip",
-    "icon": "https://bioconvert.pasteur.cloud/static/images/logo.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/bioconvert.png",
     "input_data_type": [
       "input"
     ],
@@ -603,7 +603,7 @@
     "test_invocation_specific": "sh -c \"mkdir /data/output/bwt1_index && bowtie-build /data/test/data/GCF_000146045.2_R64_genomic.fna /data/test/results/bwt1_index/built_index_test\"",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "https://raw.githubusercontent.com/BenLangmead/bowtie/refs/heads/master/doc/website/images/bowtie_logo.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/bowtie1.png",
     "input_data_type": [
       "genomefasta"
     ],
@@ -714,7 +714,7 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/8qnc.pdb",
     "test_results_url": "",
-    "icon": "https://avatars.githubusercontent.com/u/15382671?s=200&v=4",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/ccp4.png",
     "input_data_type": [
       "input"
     ],
@@ -755,7 +755,7 @@
     "test_invocation_specific": "-i /data/test/data/small_not_aligned.fas -o /data/test/results/sequences_aligned.fasta",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/clustalomega_output.zip",
-    "icon": "http://www.clustal.org/images/clustalo_title.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/clustalomega.png",
     "input_data_type": [
       "fasta"
     ],
@@ -960,7 +960,7 @@
     "test_invocation_specific": "-u 10 /data/test/data/SRR3143588_1.fastq -o /data/test/results/cutadapt_test.fq",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/cutadapt_output.zip",
-    "icon": "https://raw.githubusercontent.com/marcelm/cutadapt/main/doc/_static/cutadapt-logo.svg",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/cutadapt.svg",
     "input_data_type": [
       "fastq"
     ],
@@ -1015,7 +1015,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "https://avatars.githubusercontent.com/u/10001338?v=4",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/diamond.png",
     "input_data_type": [],
     "auto_tests": [
       {
@@ -1215,7 +1215,7 @@
     "test_invocation_specific": "infoseq -sequence /data/test/data/6_Drosophila_melanogaster_CDS.fas -outfile /data/test/results/emboss_test",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/6_Drosophila_melanogaster_CDS.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/emboss_output.zip",
-    "icon": "https://emboss.sourceforge.net/images/emboss.jpg",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/emboss.jpg",
     "input_data_type": [
       "fasta"
     ],
@@ -1323,7 +1323,7 @@
     "test_invocation_specific": "/data/test/data/SRR3143588_1.fastq --outdir /data/test/results/fastqc_test",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/fastqc_output.zip",
-    "icon": "https://raw.githubusercontent.com/s-andrews/FastQC/refs/heads/master/uk/ac/babraham/FastQC/Resources/fastqc_icon.svg",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/fastqc.svg",
     "input_data_type": [
       "fastq"
     ],
@@ -1601,7 +1601,7 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/newick.nwk",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
-    "icon": "https://raw.githubusercontent.com/rambaut/figtree/refs/heads/master/Graphics/FigTreeIcon.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/figtree.png",
     "input_data_type": [],
     "auto_tests": [],
     "custom_searches": {
@@ -1785,7 +1785,7 @@
     "test_invocation_specific": "gatk SortVcf -I /data/test/data/gatk-4/gatk-4_input.vcf -O /data/test/results/gatk4_test.vcf",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/gatk-4.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/gatk-4_output.zip",
-    "icon": "https://avatars.githubusercontent.com/u/32406064?s=280&v=4",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/gatk.png",
     "input_data_type": [],
     "auto_tests": [
       {
@@ -1837,7 +1837,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "https://avatars.githubusercontent.com/u/32406064?s=280&v=4",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/gatk.png",
     "input_data_type": [
       "fasta",
       "bam"
@@ -1991,7 +1991,7 @@
     "test_invocation_specific": "goalign subseq -i /data/test/data/small_aligned.fas -s 20 -l 30 -o /data/test/results/goalign_test",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/goalign_output.zip",
-    "icon": "https://raw.githubusercontent.com/evolbioinfo/goalign/master/images/logo.svg",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/gotree_goalign.png",
     "input_data_type": [
       "fasta"
     ],
@@ -2046,7 +2046,7 @@
     "test_invocation_specific": "gotree matrix -i /data/test/data/newick.nwk -o /data/test/results/gotree_test",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/newick.nwk",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/gotree_output.zip",
-    "icon": "https://raw.githubusercontent.com/evolbioinfo/gotree/refs/heads/master/images/logo.svg",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/gotree_goalign.png",
     "input_data_type": [
       "newick"
     ],
@@ -2245,7 +2245,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "https://www.proteinatlas.org/favicon.ico?v=JyAbEzO2Nb",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/human_prot_atlas.ico",
     "input_data_type": [
       "config",
       "input"
@@ -2291,7 +2291,7 @@
     "test_invocation_specific": "hyphy fel --alignment /data/test/data/tutorial_data/lysin.fna --output /data/test/results/out.json",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/hyphy.zip",
     "test_results_url": "",
-    "icon": "https://raw.githubusercontent.com/veg/hyphy-site/master/docs/images/logo.svg",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/hyphy.svg",
     "input_data_type": [
       "input"
     ],
@@ -2401,7 +2401,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
-    "icon": "https://raw.githubusercontent.com/igvteam/igv/refs/heads/main/examples/web/IGV_64.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/igv.png",
     "input_data_type": [],
     "auto_tests": [],
     "custom_searches": {
@@ -2441,7 +2441,7 @@
     "test_invocation_specific": "java -jar /jmodeltest2/dist/jModelTest.jar -d /data/test/data/small_aligned.fas -g 4 -i -f -AIC -BIC -a -o /data/test/results/jmodeltest2_test",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/jmodeltest2_output.zip",
-    "icon": "https://raw.githubusercontent.com/ddarriba/jmodeltest2/master/src/main/resources/resources/template/resources/logo0.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/jmodeltest2.png",
     "input_data_type": [
       "input"
     ],
@@ -2536,7 +2536,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "https://raw.githubusercontent.com/nunofonseca/lineagesequencediscovery/master/LSD.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/lsd.png",
     "input_data_type": [
       "config",
       "input"
@@ -2638,7 +2638,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "https://raw.githubusercontent.com/koadman/mauve/master/src/images/mauve_logo.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/mauve.png",
     "input_data_type": [
       "fastq1",
       "fastq2"
@@ -2824,7 +2824,7 @@
     "test_invocation_specific": "bash -c \"metaeuk easy-predict /data/test/data/Drosophila_melanogaster_genome /data/test/data/protein_query.fasta /data/test/results/metaeuk_test tempfolder\"",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/metaeuk.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/metaeuk_output.zip",
-    "icon": "https://raw.githubusercontent.com/soedinglab/metaeuk/refs/heads/master/imgs/MetaEuk.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/metaeuk.png",
     "input_data_type": [
       "contigs",
       "protein"
@@ -2879,7 +2879,7 @@
     "test_invocation_specific": "mb /data/test/data/nexus.nex",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/nexus.nex",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/mrbayes_output.zip",
-    "icon": "https://raw.githubusercontent.com/NBISweden/MrBayes/refs/heads/gh-pages/img/bayes.jpg",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/mrbayes.jpg",
     "input_data_type": [
       "nexus"
     ],
@@ -2929,7 +2929,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "https://raw.githubusercontent.com/MultiQC/MultiQC/main/multiqc/templates/original/assets/img/favicon-96x96.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/multiqc.png",
     "input_data_type": [
       "input"
     ],
@@ -3284,7 +3284,7 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/WP1771_107199.gpml",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/pathvisio_output.zip",
-    "icon": "https://avatars.githubusercontent.com/u/12032945?s=200&v=4",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/pathvisio.png",
     "input_data_type": [],
     "auto_tests": [],
     "custom_searches": {
@@ -3326,7 +3326,7 @@
     "test_invocation_specific": "bash -c \"pdb_fetch 1brs > /data/test/data/pdb_tools_test.pdb\"",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/empty",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/pdb-tools_output.zip",
-    "icon": "https://raw.githubusercontent.com/haddocking/pdb-tools/master/docs/logo/pdb-tools.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/pdb-tools.png",
     "input_data_type": [],
     "auto_tests": [
       {
@@ -3954,7 +3954,7 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/8qnc.pdb",
     "test_results_url": "",
-    "icon": "https://raw.githubusercontent.com/schrodinger/pymol-open-source/master/data/pymol/icons/icon2.svg",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/pymol.svg",
     "input_data_type": [],
     "auto_tests": [],
     "custom_searches": {
@@ -4041,7 +4041,7 @@
     "test_invocation_specific": "Rscript /data/test/data/r_data-analysis_script.R",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/r_data-analysis_script.R",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/r_data-analysis_output.zip",
-    "icon": "https://www.r-project.org/logo/Rlogo.svg",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/r_project.svg",
     "input_data_type": [
       "R-script"
     ],
@@ -4227,7 +4227,7 @@
     "test_invocation_specific": "Rscript /data/test/data/r_network.R",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/r_network.R",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/r_network_output.zip",
-    "icon": "https://www.r-project.org/logo/Rlogo.svg",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/r_project.svg",
     "input_data_type": [
       "R-script"
     ],
@@ -4427,7 +4427,7 @@
     "test_invocation_specific": "bash -c \"RepeatMasker -species drosophila -s /data/test/data/6_Drosophila_melanogaster_CDS.fas - dir /data/test/results/repeat_masker_test\"",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/6_Drosophila_melanogaster_CDS.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/repeat_masker_output.zip",
-    "icon": "https://www.repeatmasker.org/images/repeatmasker-logo-1024px-greytocolor.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/repeat_masker.png",
     "input_data_type": [
       "fasta"
     ],
@@ -4525,7 +4525,7 @@
     "test_invocation_specific": "rd --msa /data/test/data/Popset_2312465787.fas --tree /data/test/data/Popset_2312465787.nwk --exhaustive",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/rootdigger.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/rootdigger_output.zip",
-    "icon": "https://raw.githubusercontent.com/computations/root_digger/refs/heads/master/docs/images/logo.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/rootdigger.png",
     "input_data_type": [
       "fasta",
       "newick"
@@ -4804,7 +4804,7 @@
     "test_invocation_specific": "/opt/SEDA/run-cli.sh clustal-align --input-file /data/test/data/small_not_aligned.fas --output-directory /data/test/results/seda_test/",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/seda_output.zip",
-    "icon": "https://www.sing-group.org/seda/images/icon-32.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/seda.png",
     "input_data_type": [],
     "auto_tests": [
       {
@@ -5285,7 +5285,7 @@
     "test_invocation_specific": "t_coffee /data/test/data/small_not_aligned.fas -run_name /data/test/results/tcoffee_test",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/tcoffee_output.zip",
-    "icon": "https://tcoffee.crg.eu/apps/tcoffee/public/images/tcoffeelogo-2.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/tcoffee.png",
     "input_data_type": [
       "fasta"
     ],
@@ -5380,7 +5380,7 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/empty",
     "test_results_url": "",
-    "icon": "http://www.cibiv.at/software/treesnatcher/tutorials/wood256.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/tree_snatcher_plus.png",
     "input_data_type": [],
     "auto_tests": [],
     "custom_searches": {
@@ -5418,7 +5418,7 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/empty",
     "test_results_url": "",
-    "icon": "https://storage.googleapis.com/google-code-archive/v2/code.google.com/treeviewx/logo.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/treeviewx.png",
     "input_data_type": [],
     "auto_tests": [],
     "custom_searches": {
@@ -5669,7 +5669,7 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/empty",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/empty",
-    "icon": "https://raw.githubusercontent.com/haddocking/whiscy/refs/heads/main/media/whiscy_logo.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/whiscy.png",
     "input_data_type": [],
     "auto_tests": []
   },
@@ -5739,7 +5739,7 @@
     "test_invocation_specific": "query_single_species -c /data/test/data/evoppi_config.txt -o /data/test/results/evoppi_querier_test",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/evoppi_config.txt",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/evoppi-querier_output.zip",
-    "icon": "https://raw.githubusercontent.com/pegi3s/evoppi-querier/refs/heads/master/resources/evoppi.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/evoppi-querier.png",
     "input_data_type": [
       "config"
     ],
@@ -6137,7 +6137,7 @@
     "test_invocation_specific": "bash -c \"/opt/run Solanum acaule*\"",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/wc2-5.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/gbif_gis_output.zip",
-    "icon": "https://avatars.githubusercontent.com/u/1963797?s=200&v=4",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/gbif_gis.png",
     "input_data_type": [],
     "auto_tests": [],
     "custom_searches": {
@@ -6856,7 +6856,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "https://raw.githubusercontent.com/wiki/trinityrnaseq/trinityrnaseq/images/TrinityCompositeLogo.png",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/trinity.png",
     "input_data_type": [
       "fastq_gz1",
       "fastq_gz2"
@@ -6898,7 +6898,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "https://raw.githubusercontent.com/biopython/biopython/master/Doc/images/biopython_logo.svg",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/biopython.svg",
     "input_data_type": [
       "python_script"
     ],
@@ -7039,7 +7039,7 @@
     "test_invocation_specific": "R",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/R_test.R",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/r_project_output.zip",
-    "icon": "https://www.r-project.org/logo/Rlogo.svg",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/r_project.svg",
     "input_data_type": [
       "R_script"
     ],
@@ -7085,7 +7085,7 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/empty",
     "test_results_url": "",
-    "icon": "assets/icons/logos/docker-mark-blue.svg",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/docker.svg",
     "input_data_type": [],
     "auto_tests": [],
     "custom_searches": {
@@ -7126,7 +7126,7 @@
     "test_invocation_specific": "convert_tree.py -i /data/test/data/newick.nwk -if newick -o /data/test/results/biopython_utilities_test -of nexus",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/newick.nwk",
     "test_results_url": "",
-    "icon": "https://raw.githubusercontent.com/biopython/biopython/master/Doc/images/biopython_logo.svg",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/biopython.svg",
     "input_data_type": [
       "input"
     ],
@@ -8880,7 +8880,7 @@
     "test_invocation_specific": "/data/test/data/8qnc.pdb --noMSA --predictions_folder /data/test/results",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/8qnc.pdb",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/scannet_output.zip",
-    "icon": "https://raw.githubusercontent.com/jertubiana/ScanNet/master/images/ScanNet_logo.jpg",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/scannet.jpg",
     "input_data_type": [
       "pdb",
       "cif"
