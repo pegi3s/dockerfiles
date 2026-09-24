@@ -3,7 +3,7 @@
 ## Build command
 
 ```bash
-splitstree_version=6.9.5 && docker build ./ -t pegi3s/splitstree:${splitstree_version} --build-arg VERSION=${splitstree_version} && docker tag pegi3s/splitstree:${splitstree_version} pegi3s/splitstree:latest
+splitstree_version=6.9.6 && docker build ./ -t pegi3s/splitstree:${splitstree_version} --build-arg VERSION=${splitstree_version} && docker tag pegi3s/splitstree:${splitstree_version} pegi3s/splitstree:latest
 ```
 
 ## Notes
@@ -16,4 +16,5 @@ system Java installation is required.
 
 ## Build log
 
+- 6.9.6 - 24/09/2026 - Hugo López Fernández
 - 6.9.5 - 31/08/2026 - Hugo Lopez Fernandez
