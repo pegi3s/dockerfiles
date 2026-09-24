@@ -1,0 +1,26 @@
+#!/bin/bash
+project=$1
+solutions=$2
+solPDB=$3
+restraint=$4 # (R or r for restraints)
+cd /data
+echo "Setup project"
+pyDock3 $project setup
+echo "Run ftdock"
+# the "pyDock3 $project ftdock" command requires the use of the libg2c.so.0 that cannot be installed in Ubuntu 14.04. Therefore, it is substituted by the command in the next line that invokes ftdock directly rather than through pyDock3.
+ftdock -static $project"_rec.pdb" -mobile $project"_lig.pdb" > output
+mv ftdock_global.dat $project.ftdock
+echo "From FFT to Rot"
+pyDock3 $project rotftdock
+cp $project.rot $project.rot.original && head "-"$solutions $project.rot.original > $project.rot
+echo "Scoring using the pyDock energy function the first "$solutions" solutions"
+pyDock3 $project dockser > dockser.log
+if [ $restraint == 'R' ] || [ $restraint == 'r' ]
+then
+	echo "Using data-based distance restraints to orient docking"
+	pyDock3 $project dockrst > dockrst.log
+	mv $project.eneRST $project.ene
+fi
+pyDock3 $project makePDB 1 $solPDB
+echo "Interface prediction from docking results"
+pyDock3 $project patch
