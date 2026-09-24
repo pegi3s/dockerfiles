@@ -39,7 +39,7 @@
     "test_invocation_specific": "abyss-pe k=25 B=2G name=test in='/data/test/data/reads1.fastq /data/test/data/reads2.fastq' --directory=/data/test/results",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/abyss.png",
     "input_data_type": [
       "fastq1",
       "fastq2"
@@ -548,7 +548,7 @@
     "test_invocation_specific": "",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/blast.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/blast_output.zip",
-    "icon": "",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/blast.ico",
     "input_data_type": [
       "input",
       "fasta"
@@ -1643,7 +1643,7 @@
     "test_invocation_specific": "--interleaved-input /data/test/data/SRR3143588_1.fastq -d /data/test/results/flash_test",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/flash.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/flash_output.zip",
-    "icon": "",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/flash.jpg",
     "input_data_type": [
       "fastq"
     ],
@@ -1738,7 +1738,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/freebayes.png",
     "input_data_type": [
       "reference",
       "bam"
@@ -3436,7 +3436,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/phylogenetic-tree-collapser.png",
     "input_data_type": [
       "tree",
       "stop_terms"
@@ -3481,7 +3481,7 @@
     "test_invocation_specific": "CleanSam -I /data/test/data/SAM.sam -O /data/test/results/picard_test",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SAM.sam",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/picard_output.zip",
-    "icon": "",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/picard.png",
     "input_data_type": [
       "SAM_BAM_CRAM_VCF"
     ],
@@ -3715,7 +3715,7 @@
     "test_invocation_specific": "bash -c \"probcons /data/test/data/4_proteins.fas > /data/test/results/probcons_test.fasta\"",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/4_proteins.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/probcons_output.zip",
-    "icon": "",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/probcons.jpg",
     "input_data_type": [
       "fasta"
     ],
@@ -3767,7 +3767,7 @@
     "test_invocation_specific": "bash -c \"probcons /data/test/data/small_not_aligned.fas > /data/test/results/probcons_nuc_test.fasta\"",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/probcons_nuc_output.zip",
-    "icon": "",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/probcons.jpg",
     "input_data_type": [
       "fasta"
     ],
@@ -3998,7 +3998,7 @@
     "test_invocation_specific": "qualimap bamqc -bam /data/test/data/test.bam -c -nw 400 -hm 3",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/qualimap.png",
     "input_data_type": [
       "bam"
     ],
@@ -4733,7 +4733,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/scipio.png",
     "input_data_type": [
       "genome",
       "proteins"
@@ -5339,7 +5339,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/translatorx.gif",
     "input_data_type": [
       "nuc_fasta",
       "aa_fasta_align"
@@ -5459,7 +5459,7 @@
     "test_invocation_specific": "SE -phred33 /data/test/data/SRR3143588_1.fastq /data/test/results/trimmomatic_test SLIDINGWINDOW:4:20 MINLEN:36",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/SRR3143588_1.fastq",
     "test_results_url": "",
-    "icon": "",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/trimmomatic.png",
     "input_data_type": [
       "fastq"
     ],
@@ -6728,7 +6728,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/haddock24-builder.jpg",
     "input_data_type": [
       "input"
     ],
@@ -7962,7 +7962,7 @@
     "test_invocation_specific": "astral4 -i /data/input_data/gene_trees.nw -o /data/output_folder/species_tree.tre",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/aster.png",
     "input_data_type": [
       "newick",
       "fasta",
@@ -8700,7 +8700,7 @@
     "test_invocation_specific": "-d=/data/test/data/small_not_aligned.fas -o=/data/test/results/output -F -once",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/prank-msa_output.zip",
-    "icon": "",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/prank-msa.png",
     "input_data_type": [
       "fasta"
     ],
@@ -8752,7 +8752,7 @@
     "test_invocation_specific": "",
     "test_data_url": "",
     "test_results_url": "",
-    "icon": "",
+    "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/rosettadock_builder.png",
     "input_data_type": [
       "fasta"
     ],
