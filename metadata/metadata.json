@@ -6706,14 +6706,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.4.2-docker29.0.1",
+        "version": "2.4.3",
         "date": ""
       }
     ],
-    "latest": "2.4.2-docker29.0.1",
+    "latest": "2.4.3",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "2.4.2-docker29.0.1",
       "2.4.2",
       "2.4.1",
       "2.4"
