@@ -2959,24 +2959,26 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "3.8.31",
-        "date": ""
+        "version": "5.3",
+        "date": "24/09/2026"
       }
     ],
-    "latest": "3.8.31",
+    "latest": "5.3",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
-    "manual_url": "https://www.drive5.com/muscle/",
+    "no_longer_tested": [
+      "3.8.31"
+    ],
+    "manual_url": "https://github.com/rcedgar/muscle",
     "source_url": "https://github.com/rcedgar/muscle",
     "comments": [],
     "gui": false,
     "podman": "untested",
     "singularity": "untested",
     "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/muscle",
-    "usual_invocation_specific": "-in /data/fastaFile -out /data/output/sequences_aligned.fasta",
+    "usual_invocation_specific": "-align /data/fastaFile -output /data/output/sequences_aligned.fasta",
     "usual_invocation_specific_comments": [],
-    "test_invocation_specific": "-in /data/test/data/small_not_aligned.fas -out /data/test/results/muscle_test.fasta",
+    "test_invocation_specific": "-align /data/test/data/small_not_aligned.fas -output /data/test/results/sequences_aligned.fasta",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/muscle_output.zip",
     "icon": "",
@@ -2985,14 +2987,14 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/muscle:3.8.31",
+        "docker_image": "pegi3s/muscle:5.3",
         "input_files": [
           "small_not_aligned.fas"
         ],
         "output_dir": "muscle_output",
         "output_file": "sequences_aligned.fasta",
         "add_config": "",
-        "commands": "-in /data/input_data/small_not_aligned.fas -out /data/output_folder/muscle_output/sequences_aligned.fasta > /dev/null 2>&1"
+        "commands": "-align /data/input_data/small_not_aligned.fas -output /data/output_folder/muscle_output/sequences_aligned.fasta > /dev/null 2>&1"
       }
     ],
     "custom_searches": {
