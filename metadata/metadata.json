@@ -990,14 +990,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "2.2.6",
-        "date": "11/09/2026"
+        "version": "2.2.8",
+        "date": "24/09/2026"
       }
     ],
-    "latest": "2.2.6",
+    "latest": "2.2.8",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "2.2.6",
       "2.2.4",
       "2.1.8"
     ],
@@ -1019,7 +1020,7 @@
     "input_data_type": [],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/diamond:2.2.6",
+        "docker_image": "pegi3s/diamond:2.2.8",
         "input_files": [
           "4_proteins.fas"
         ],
