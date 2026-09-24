@@ -6881,14 +6881,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.87",
-        "date": "16/07/2026"
+        "version": "1.88",
+        "date": "24/09/2026"
       }
     ],
-    "latest": "1.87",
+    "latest": "1.88",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "1.87",
       "1.78"
     ],
     "manual_url": "http://biopython.org/DIST/docs/tutorial/Tutorial.html",
@@ -6909,7 +6910,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/biopython",
+        "docker_image": "pegi3s/biopython:1.88",
         "input_files": [],
         "output_dir": "biopython_output",
         "output_file": "version.txt",
