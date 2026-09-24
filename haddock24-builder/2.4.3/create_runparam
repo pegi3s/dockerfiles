@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-csa
+
+
+
+with open('/home/haddock/haddock2.4-2023-08/examples/protein-protein/run.param','w') as run_param:
+    run_param.write('AMBIG_TBL=./restrains.tbl')
+    run_param.write('\nHADDOCK_DIR=../../')
+    run_param.write('\nN_COMP=2')
+    run_param.write('\nPDB_FILE1=./pdb1.pdb')
+    run_param.write('\nPDB_FILE2=./pdb2.pdb')
+    run_param.write('\nPDB_LIST2=./')
+    run_param.write('\nPROJECT_DIR=./')
+    run_param.write('\nPROT_SEGID_1=A')
+    run_param.write('\nPROT_SEGID_2=B')
+    run_param.write('\nRUN_NUMBER=1')
+
+
+
+
+
+
+

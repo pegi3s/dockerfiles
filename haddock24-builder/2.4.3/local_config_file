@@ -1,0 +1,4 @@
+set CNSTMP=$HOME/haddock/cns_solve/intel-x86_64bit-linux/source/cns_solve.exe
+set QUEUETMP=/bin/tcsh
+set NUMJOB=24
+set QUEUESUB=QueueSubmit_concat.py

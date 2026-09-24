@@ -1,0 +1,93 @@
+# -*- coding: utf-8 -*-
+
+import os
+import shutil
+import subprocess
+import re
+
+#calcular z-scores
+z_score = subprocess.call(['python', '/home/haddock/haddock2.4-2023-08/examples/protein-protein/zscore_run'])
+
+def find_file_and_copy(file_path, destination_dir):
+    if os.path.isfile(file_path):
+        # Create the destination directory if it doesn't exist
+        if not os.path.exists(destination_dir):
+            os.makedirs(destination_dir)
+
+        # Get the file name from the file path
+        file_name = os.path.basename(file_path)
+
+        # Construct the destination file path
+        destination_path = os.path.join(destination_dir, file_name)
+
+        # Copy the file to the destination directory
+        shutil.copy2(file_path, destination_path)
+    else:
+        print("The file {} does not exist.".format(file_path))
+
+def copy_directory(source_dir, destination_dir):
+    if not os.path.exists(destination_dir):
+        os.makedirs(destination_dir)  # Cria o diretório se não existir
+    shutil.copytree(source_dir, os.path.join(destination_dir, 'run1'))
+
+if z_score == 0:
+
+    find_file_and_copy('/home/haddock/haddock2.4-2023-08/examples/protein-protein/negative_z_scores.txt','/data/haddock_results')
+    find_file_and_copy('/home/haddock/haddock2.4-2023-08/examples/protein-protein/all_z_scores.txt','/data/haddock_results')
+
+    #ver se são necessários todos os ficheiros
+    values= {}
+    with open('/data/haddock_config','r') as config:
+        lines = config.readlines()
+        for line in lines:
+            parts = line.strip().split('=')
+            key = parts[0].strip()
+            value = "=".join(parts[1:]).strip()
+            values[key] = value
+
+        option = str(values['ALL_FILES'])
+        y = ["YES","yes","y","Y","Yes"]
+        if option in y:
+            copy_directory('/home/haddock/haddock2.4-2023-08/examples/protein-protein/run1', '/data/haddock_results')
+
+            with open('/home/haddock/haddock2.4-2023-08/examples/protein-protein/negative_z_scores.txt', 'r') as neg_z_scores:
+                clusters = [line.strip() for line in neg_z_scores.readlines()] #tirar os \n
+
+                for cluster in clusters:
+                    file = '/home/haddock/haddock2.4-2023-08/examples/protein-protein/run1/structures/it1/water/file.list_{}_best4'.format(cluster)
+                    dir = '/opt/{}'.format(cluster)
+                    dir2  = '/data/haddock_results/{}'.format(cluster)
+
+                    find_file_and_copy(file,dir)
+                    find_file_and_copy(file,dir2)
+
+                    with open(file , 'r') as proteins:
+                        pdb = [line.strip() for line in proteins.readlines() if line.strip()] #tirar linhas em branco
+                        for protein in pdb:
+                            file_name = re.findall(r'PREVIT:([^"]+)', protein)
+                            protein_path = '/home/haddock/haddock2.4-2023-08/examples/protein-protein/run1/structures/it1/water/{}'.format(file_name[0])
+                            #find_file_and_copy(protein_path,dir)
+                            find_file_and_copy(protein_path,dir2)
+
+        else:
+            with open('/home/haddock/haddock2.4-2023-08/examples/protein-protein/negative_z_scores.txt', 'r') as neg_z_scores:
+                clusters = [line.strip() for line in neg_z_scores.readlines()] #tirar os \n
+
+                for cluster in clusters:
+                    file = '/home/haddock/haddock2.4-2023-08/examples/protein-protein/run1/structures/it1/water/file.list_{}_best4'.format(cluster)
+                    dir = '/opt/{}'.format(cluster)
+                    dir2  = '/data/haddock_results/{}'.format(cluster)
+
+                    #find_file_and_copy(file,dir)
+                    find_file_and_copy(file,dir2)
+
+                    with open(file , 'r') as proteins:
+                        pdb = [line.strip() for line in proteins.readlines() if line.strip()] #tirar linhas em branco
+                        for protein in pdb:
+                            file_name = re.findall(r'PREVIT:([^"]+)', protein)
+                            protein_path = '/home/haddock/haddock2.4-2023-08/examples/protein-protein/run1/structures/it1/water/{}'.format(file_name[0])
+                            #find_file_and_copy(protein_path,dir)
+                            find_file_and_copy(protein_path,dir2)
+
+else:
+    exit()

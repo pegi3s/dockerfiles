@@ -1,0 +1,53 @@
+# -*- coding: utf-8 -*-
+
+import statistics
+import re
+
+clusters = []
+s = []
+try: 
+    with open("/home/haddock/haddock2.4-2023-08/examples/protein-protein/run1/structures/it1/water/cluster_haddock-score.txt", 'r') as scores:
+        linhas = scores.readlines()
+        for linha in linhas[1:]:
+            partes = linha.strip().split()  # Dividir a linha em partes
+            nome = partes[0]
+            score = float(partes[1])
+            s.append(score)
+            clusters.append((nome, score))
+
+except IOError:
+    print("The HADDOCK could not find any acceptable results.")
+    exit()
+
+
+def extract_cluster_numbers(file_names):
+    cluster_numbers = []
+    pattern = r'nam_clust(\d+)' #procura o numero 
+    for file_name in file_names:
+        match = re.search(pattern, file_name)
+        if match:
+            cluster_numbers.append('clust{}'.format(match.group(1))) #adiciona o numero a clust
+    return cluster_numbers
+
+def zscore():
+    media = statistics.mean(s)
+    desvio_padrao = statistics.stdev(s)
+    neg = []
+
+    with open('/home/haddock/haddock2.4-2023-08/examples/protein-protein/all_z_scores.txt', 'w') as z_score:
+        z_score.write('#Cluster  z-score')
+        for cluster in clusters:
+            zscore = round((cluster[1] - media) / desvio_padrao , 4)
+            if zscore <= 0:
+                neg.append(cluster[0])
+            z_score.write('\n{} {}'.format(cluster[0], zscore))
+        
+    with open('/home/haddock/haddock2.4-2023-08/examples/protein-protein/negative_z_scores.txt', 'w') as neg_z_scores:
+        names = extract_cluster_numbers(neg)
+        for i, name in enumerate(names):
+            if i != len(names) - 1:  # Verifica se não é a última linha
+                neg_z_scores.write('{}\n'.format(name))
+            else:
+                neg_z_scores.write(name)  # Se for a última linha, não adiciona a quebra de linha
+    
+zscore() 
