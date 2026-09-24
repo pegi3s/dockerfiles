@@ -9010,5 +9010,43 @@
         "bioprotocol": "",
         "bioprotocol_exchange": ""
       }
+    },
+    {
+      "name": "pesto",
+      "description": "Prediction of active and passive sites",
+      "project_active": true,
+      "status": "Usable",
+      "recommended": [
+        {
+          "version": "i_v4_1",
+          "date": "24/09/2026"
+        }
+      ],
+      "latest": "i_v4_1",
+      "bug_found": [],
+      "not_working": [],
+      "no_longer_tested": [],
+      "manual_url": "https://github.com/LBM-EPFL/PeSTo",
+      "source_url": "https://github.com/LBM-EPFL/PeSTo",
+      "comments": [],
+      "gui": false,
+      "gui_command": "",
+      "podman": "untested",
+      "singularity": "untested",
+      "invocation_general": "docker run --rm -v /your/data/dir:/app/input -v /your/data/dir/output:/app/output pegi3s/pesto",
+      "usual_invocation_specific": "",
+      "usual_invocation_specific_comments": [],
+      "test_invocation_specific": "",
+      "test_data_url": "",
+      "test_results_url": "",
+      "icon": "",
+      "input_data_type": [],
+      "auto_tests": [],
+      "custom_searches": {
+        "pubmed": "",
+        "scholar": "",
+        "bioprotocol": "",
+        "bioprotocol_exchange": ""
+      }
     }
 ]
