@@ -9049,5 +9049,63 @@
         "bioprotocol": "",
         "bioprotocol_exchange": ""
       }
+    },
+    {
+    "name": "scriber",
+    "description": "Protein-binding residue prediction",
+    "status": "Usable",
+    "recommended": [
+        {
+            "version": "latest",
+            "date": "24/09/2026"
+        }
+    ],
+    "latest": "latest",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://biomine2.cs.vcu.edu/servers/SCRIBER/",
+    "source_url": "https://biomine2.cs.vcu.edu/servers/SCRIBER/",
+    "comments": [
+        "This Docker image runs SCRIBER through the online SCRIBER webserver and saves the predicted protein-binding residues as a CSV file. The tool depends on the availability and structure of the external webserver"
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/scriber ",
+    "usual_invocation_specific": "/data/input.pdb A --output /data/results",
+    "usual_invocation_specific_comments": [
+        [
+            "Replace input.pdb with the input PDB file and replace A with the chain to analyse. The output path can also be changed as needed."
+        ]
+    ],
+    "test_invocation_specific": "/data/scriber/test_data/data/atxn3wt_IT.pdb A --output /data/scriber/test_data/results",
+    "test_data_url": "",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/scriber_output.zip",
+    "icon": "",
+    "input_data_type": [
+        [
+            "pdb"
+        ]
+    ],
+    "auto_tests": [
+        {
+            "docker_image": "pegi3s/scriber",
+            "input_files": [
+                "atxn3wt_IT.pdb"
+            ],
+            "output_dir": "/data/scriber/test_data/results",
+            "output_file": "atxn3wt_IT.scriber.csv",
+            "add_config": "",
+            "commands": "/data/scriber/test_data/data/atxn3wt_IT.pdb A --output /data/scriber/test_data/results"
+        }
+    ],
+    "custom_searches": {
+        "pubmed": "term=https://pubmed.ncbi.nlm.nih.gov/?term=SCRIBER+protein+binding+residues",
+        "scholar": "q=https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=SCRIBER+protein+binding+residues&btnG=",
+        "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=SCRIBER",
+        "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=SCRIBER"
     }
+}
 ]
