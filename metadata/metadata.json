@@ -2802,14 +2802,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "41.0.0",
-        "date": "10/09/2026"
+        "version": "7-bba0d80",
+        "date": "02/10/2026"
       }
     ],
-    "latest": "41.0.0",
+    "latest": "7-bba0d80",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "41.0.0"
+    ],
     "manual_url": "https://github.com/soedinglab/metaeuk/blob/master/README.md",
     "source_url": "https://github.com/soedinglab/metaeuk",
     "comments": [],
@@ -2832,7 +2834,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/metaeuk:41.0.0",
+        "docker_image": "pegi3s/metaeuk:7-bba0d80",
         "input_files": [
           "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/metaeuk.zip"
         ],
