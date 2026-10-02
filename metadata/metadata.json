@@ -4714,20 +4714,22 @@
   {
     "name": "scipio",
     "description": "Gene annotation",
-    "project_active": true,
+    "project_active": false,
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.4",
-        "date": ""
+        "version": "1.4.1",
+        "date": "02/10/2026"
       }
     ],
-    "latest": "1.4",
+    "latest": "1.4.1",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
-    "manual_url": "https://hub.docker.com/r/pegi3s/scipio/",
-    "source_url": "https://www.webscipio.org/webscipio/download_scipio",
+    "no_longer_tested": [
+      "1.4"
+    ],
+    "manual_url": "https://www.webscipio.org/webscipio/scipio",
+    "source_url": "https://www.webscipio.org/webscipio/download_scipio_1_4",
     "comments": [],
     "gui": false,
     "podman": "untested",
