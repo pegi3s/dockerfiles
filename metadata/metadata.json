@@ -3014,14 +3014,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "18.37.0",
-        "date": "24/09/2026"
+        "version": "18.38.0",
+        "date": "02/10/2026"
       }
     ],
-    "latest": "18.37.0",
+    "latest": "18.38.0",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "18.37.0",
       "18.36.0",
       "18.33.1",
       "18.32.0",
@@ -3046,7 +3047,7 @@
     "input_data_type": [],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/ncbi-datasets:18.37.0",
+        "docker_image": "pegi3s/ncbi-datasets:18.38.0",
         "input_files": [],
         "output_dir": "",
         "output_file": "ncbi_datasets.zip",
