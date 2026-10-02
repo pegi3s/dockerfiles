@@ -7947,14 +7947,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.23",
-        "date": "10/07/2025"
+        "version": "1.25",
+        "date": "01/10/2026"
       }
     ],
-    "latest": "1.23",
+    "latest": "1.25",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "1.23"
+    ],
     "manual_url": "https://github.com/chaoszhang/ASTER",
     "source_url": "https://github.com/chaoszhang/ASTER",
     "comments": [
