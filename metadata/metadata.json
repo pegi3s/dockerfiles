@@ -1300,14 +1300,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "0.12.1",
-        "date": "22/07/2026"
+        "version": "0.13.0",
+        "date": "08/10/2026"
       }
     ],
-    "latest": "0.12.1",
+    "latest": "0.13.0",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "0.12.1",
       "0.11.9",
       "0.11.7"
     ],
@@ -1330,7 +1331,7 @@
     ],
     "auto_tests": [
       {
-        "docker_image": "pegi3s/fastqc:0.12.1",
+        "docker_image": "pegi3s/fastqc:0.13.0",
         "input_files": [
           "SRR3143588_1.fastq"
         ],

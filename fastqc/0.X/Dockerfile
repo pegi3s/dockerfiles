@@ -30,9 +30,9 @@ RUN apt-get update && \
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 
 RUN apt-get -qq update && apt-get -y upgrade && \
-	apt install -y wget libfindbin-libs-perl software-properties-common unzip
+	apt install -y wget libfindbin-libs-perl python3 software-properties-common unzip
 
-RUN wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v${VERSION}.zip -O /tmp/fastqc.zip && \ 
+RUN wget https://github.com/s-andrews/FastQC/releases/download/v${VERSION}/fastqc_v${VERSION}.zip -O /tmp/fastqc.zip && \ 
     unzip /tmp/fastqc.zip -d /opt/ && \
     rm /tmp/fastqc.zip && \
     chmod 777 /opt/FastQC/fastqc
