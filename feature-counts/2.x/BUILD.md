@@ -1,9 +1,9 @@
 # Building instructions
 
-Specify the subread version in `feature-counts_version` and run (from this `2.x/` directory):
+Specify the subread version in `feature_counts_version` and run (from this `2.x/` directory):
 
 ```bash
-feature-counts_version=2.1.1 && docker build ./ -t pegi3s/feature-counts:${feature-counts_version} --build-arg VERSION=${feature-counts_version} && docker tag pegi3s/feature-counts:${feature-counts_version} pegi3s/feature-counts:latest
+feature_counts_version=2.1.1 && docker build ./ -t pegi3s/feature-counts:${feature_counts_version} --build-arg VERSION=${feature_counts_version} && docker tag pegi3s/feature-counts:${feature_counts_version} pegi3s/feature-counts:latest
 ```
 
 # Notes
