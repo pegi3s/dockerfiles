@@ -3,7 +3,7 @@
 Specify the HyPhy version in `hyphy_version` and run (from this `2.x/` directory):
 
 ```bash
-hyphy_version=2.5.101 && docker build ./ -t pegi3s/hyphy:${hyphy_version} --build-arg VERSION=${hyphy_version} && docker tag pegi3s/hyphy:${hyphy_version} pegi3s/hyphy:latest
+hyphy_version=2.5.103 && docker build ./ -t pegi3s/hyphy:${hyphy_version} --build-arg VERSION=${hyphy_version} && docker tag pegi3s/hyphy:${hyphy_version} pegi3s/hyphy:latest
 ```
 
 # Notes
@@ -20,4 +20,5 @@ executable into `/usr/local/bin` and the HyPhy resources into `/usr/local/share/
 
 # Build log
 
+- 2.5.103 - 08/10/2026 - Hugo López Fernández
 - 2.5.101 - 14/09/2026 - Hugo López Fernández
