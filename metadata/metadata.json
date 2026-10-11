@@ -9134,6 +9134,7 @@
     {
     "name": "agat",
     "description": "GFF/GTF annotation handling",
+    "project_active": true,
     "status": "Usable",
     "recommended": [
         {
@@ -9191,6 +9192,7 @@
   {
     "name": "alerax",
     "description": "Species tree inference and reconciliation",
+    "project_active": true,
     "status": "Usable",
     "recommended": [
         {
@@ -9249,6 +9251,7 @@
   {
     "name": "generax",
     "description": "gene and species tree inference",
+    "project_active": true,
     "status": "Usable",
     "recommended": [
         {
@@ -9306,6 +9309,7 @@
   {
     "name": "maffilter",
     "description": "Multiple genome alignment filtering",
+    "project_active": true,
     "status": "Usable",
     "recommended": [
         {
@@ -9358,6 +9362,7 @@
   {
     "name": "paf2chain",
     "description": "Alignment format conversion",
+    "project_active": true,
     "status": "Usable",
     "recommended": [
         {
@@ -9411,6 +9416,7 @@
   {
     "name": "trimal",
     "description": "Multiple sequence alignments trimming",
+    "project_active": true,
     "status": "Usable",
     "recommended": [
         {
