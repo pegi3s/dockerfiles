@@ -9129,6 +9129,336 @@
         "scholar": "q=https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=SCRIBER+protein+binding+residues&btnG=",
         "bioprotocol": "content=https://bio-protocol.org/en/searchlist?content=SCRIBER",
         "bioprotocol_exchange": "content=https://bio-protocol.org/exchange/searchlist?content=SCRIBER"
+      }
+    },
+    {
+    "name": "agat",
+    "description": "GFF/GTF annotation handling",
+    "status": "Usable",
+    "recommended": [
+        {
+            "version": "1.7.0",
+            "date": "01/10/2026"
+        }
+    ],
+    "latest": "1.7.0",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://nbisweden.github.io/AGAT/",
+    "source_url": "https://github.com/NBISweden/AGAT",
+    "comments": [
+        "AGAT is a toolkit with many tools. To see the available tools run: agat --tools.",
+        "To see the help of a specific tool run: agat_convert_sp_gxf2gxf.pl --help."
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/agat",
+    "usual_invocation_specific": "agat_convert_sp_gxf2gxf.pl -g /data/gffFile -o /data/output/output.gff3",
+    "usual_invocation_specific_comments": [
+        "To see the AGAT tools available, just run: docker run --rm pegi3s/agat agat --tools.",
+        "To see a specific tool help, just run: docker run --rm pegi3s/agat agat_convert_sp_gxf2gxf.pl --help."
+    ],
+    "test_invocation_specific": "agat_convert_sp_gxf2gxf.pl -g /data/test/data/fake.gff -o /data/test/results/fake.gff3",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/fake.gff",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/agat_output.zip",
+    "icon": "",
+    "input_data_type": [
+        "gff",
+        "gtf"
+    ],
+    "auto_tests": [
+        {
+            "docker_image": "pegi3s/agat:1.7.0",
+            "input_files": [
+                "saccharomyces.gff"
+            ],
+            "output_dir": "agat_output",
+            "output_file": "saccharomyces.gff3",
+            "add_config": "",
+            "commands": "agat_convert_sp_gxf2gxf.pl -g /data/input_data/saccharomyces.gff -o /data/output_folder/agat_output/saccharomyces.gff3 > /dev/null 2>&1"
+        }
+    ],
+    "custom_searches": {
+        "pubmed": "term=AGAT+AND+GFF+AND+annotation",
+        "scholar": "q=AGAT+GFF+annotation",
+        "bioprotocol": "content=AGAT%20GFF%20annotation",
+        "bioprotocol_exchange": "content=AGAT%20GFF%20annotation"
+    }
+  },
+  {
+    "name": "alerax",
+    "description": "Species tree inference and reconciliation",
+    "status": "Usable",
+    "recommended": [
+        {
+            "version": "1.4.1",
+            "date": "01/10/2026"
+        }
+    ],
+    "latest": "1.4.1",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://github.com/BenoitMorel/AleRax/wiki",
+    "source_url": "https://github.com/BenoitMorel/AleRax",
+    "comments": [
+        "The gene families are described through a families file listing the gene trees (and/or alignments) of each family. See https://github.com/BenoitMorel/AleRax/wiki for its format.",
+        "MPI is included, so the tool can also be run in parallel (e.g. with mpirun)."
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/alerax",
+    "usual_invocation_specific": "-f /data/families.txt -s /data/species_tree.nwk -p /data/output",
+    "usual_invocation_specific_comments": [
+        "'-f' specifies the families file describing the gene trees (or alignments) of each gene family.",
+        "'-s' specifies the starting species tree (a Newick file path or 'Random').",
+        "'-p' specifies the output directory."
+    ],
+    "test_invocation_specific": "-f /data/test/data/families.txt -s /data/test/data/species_tree.nwk -p /data/test/results/alerax_output",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/alerax_input_data.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/alerax_output.zip",
+    "icon": "",
+    "input_data_type": [
+        "newick"
+    ],
+    "auto_tests": [
+        {
+            "docker_image": "pegi3s/alerax:1.4.1",
+            "input_files": [
+                "families.txt",
+                "Popset_2312465787.nwk"
+            ],
+            "output_dir": "alerax_output",
+            "output_file": "inferred_species_tree.newick",
+            "add_config": "",
+            "commands": "-f /data/input_data/families.txt -s Random -p /data/output_folder/alerax_output > /dev/null 2>&1"
+        }
+    ],
+    "custom_searches": {
+        "pubmed": "term=AleRax+species+tree+reconciliation",
+        "scholar": "q=AleRax+species+tree+reconciliation",
+        "bioprotocol": "content=AleRax",
+        "bioprotocol_exchange": "content=AleRax"
+    }
+  },
+  {
+    "name": "generax",
+    "description": "gene and species tree inference",
+    "status": "Usable",
+    "recommended": [
+        {
+            "version": "2.1.3",
+            "date": "01/10/2026"
+        }
+    ],
+    "latest": "2.1.3",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://github.com/BenoitMorel/GeneRax/wiki",
+    "source_url": "https://github.com/benoitmorel/generax",
+    "comments": [
+        "Includes SpeciesRax (since v2.0.0) for inferring a rooted species tree from a set of unrooted gene trees.",
+        "Checkpointing is supported with the --checkpoint flag to resume long-running analyses.",
+        "The software is also available from bioconda."
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/generax",
+    "usual_invocation_specific": "bash -c \"generax --families /data/familiesFile --species-tree MiniNJ --strategy SKIP --rec-model UndatedDTL --per-family-rates --prune-species-tree --si-strategy HYBRID --prefix /data/output/out_name\"",
+    "usual_invocation_specific_comments": [
+        "The families file lists, for each family, the starting gene tree and the gene-to-species mapping.",
+        "The --species-tree parameter can be a species tree file or MiniNJ to infer it with MiniNJ.",
+        "The output files are generated using the prefix given to the --prefix parameter."
+    ],
+    "test_invocation_specific": "-f /data/test/data/families.txt -s /data/test/data/species_tree.nwk -p /data/test/data/results/soutput --rec-model UndatedDL --strategy EVAL",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/generax_input_data.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/generax_output.zip",
+    "icon": "https://raw.githubusercontent.com/benoitmorel/generax/master/doc/generax_logo.png",
+    "input_data_type": [
+        "newick",
+        "fasta"
+    ],
+    "auto_tests": [
+        {
+            "docker_image": "pegi3s/generax",
+            "input_files": [],
+            "output_dir": "",
+            "output_file": "",
+            "add_config": "",
+            "commands": ""
+        }
+    ],
+    "custom_searches": {
+        "pubmed": "term=GeneRax+species+tree+gene+family",
+        "scholar": "q=GeneRax+species+tree+gene+family",
+        "bioprotocol": "content=GeneRax%20species%20tree%20gene%20family",
+        "bioprotocol_exchange": "content=GeneRax%20species%20tree%20gene%20family"
+    }
+  },
+  {
+    "name": "maffilter",
+    "description": "Multiple genome alignment filtering",
+    "status": "Usable",
+    "recommended": [
+        {
+            "version": "latest",
+            "date": "01/10/2026"
+        }
+    ],
+    "latest": "latest",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://jydu.github.io/maffilter/",
+    "source_url": "https://github.com/jydu/maffilter",
+    "comments": [],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/maffilter",
+    "usual_invocation_specific": "input.file=/data/mafFile output.log=/data/out_name.log maf.filter=Output(file=/data/out_name.maf)",
+    "usual_invocation_specific_comments": [
+        "`mafFile` to the actual name of your MAF alignment file.",
+        "`out_name` to the actual name of your output file.",
+        "`Output(file=...)` to the MafFilter filter(s) you want to apply."
+    ],
+    "test_invocation_specific": "input.file=/data/test/data/test.maf input.file.compression=none input.format=Maf output.log=/data/test/data/results/out_name.log \"maf.filter=XFullGap(species=(hg18, panTro1, baboon, mm4, rn3)), Output(file=/data/filtered.maf)\"",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/test.maf",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/maffilter_output.zip",
+    "icon": "",
+    "input_data_type": [
+        "fasta"
+    ],
+    "auto_tests": [
+        {
+            "docker_image": "pegi3s/maffilter",
+            "input_files": [],
+            "output_dir": "",
+            "output_file": "",
+            "add_config": "",
+            "commands": ""
+        }
+    ],
+    "custom_searches": {
+        "pubmed": "term=MafFilter+AND+Dutheil",
+        "scholar": "q=MafFilter+Dutheil",
+        "bioprotocol": "content=MafFilter%20Dutheil",
+        "bioprotocol_exchange": "content=MafFilter%20Dutheil"
+    }
+  },
+  {
+    "name": "paf2chain",
+    "description": "Alignment format conversion",
+    "status": "Usable",
+    "recommended": [
+        {
+            "version": "0.1.1",
+            "date": "01/10/2026"
+        }
+    ],
+    "latest": "0.1.1",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "",
+    "source_url": "https://github.com/AndreaGuarracino/paf2chain",
+    "comments": [
+        "Input PAF files must contain CIGAR strings in the cg:Z: tag (e.g. produced by minimap2 -c, wfmash or lastz --format=paf:wfmash)."
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/paf2chain",
+    "usual_invocation_specific": "bash -c \"paf2chain -i /data/test/data/pafFile > /data/test/data/results/output.chain\"",
+    "usual_invocation_specific_comments": [
+        "'pafFile' to the actual name of your PAF file. It must contain CIGAR strings in the cg:Z: tag.",
+        "'output.chain' to the actual name of your output file."
+    ],
+    "test_invocation_specific": "\"-i /data/hg18ToHg19.over.chain.paf > /data/output.chain\"",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/hg18ToHg19.over.chain.paf",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/paf2chain_output.zip",
+    "icon": "",
+    "input_data_type": [
+        "paf"
+    ],
+    "auto_tests": [
+        {
+            "docker_image": "pegi3s/paf2chain",
+            "input_files": [],
+            "output_dir": "",
+            "output_file": "",
+            "add_config": "",
+            "commands": ""
+        }
+    ],
+    "custom_searches": {
+        "pubmed": "term=paf2chain",
+        "scholar": "q=paf2chain",
+        "bioprotocol": "content=paf2chain",
+        "bioprotocol_exchange": "content=paf2chain"
+    }
+  },
+  {
+    "name": "trimal",
+    "description": "Multiple sequence alignments trimming",
+    "status": "Usable",
+    "recommended": [
+        {
+            "version": "1.5.1",
+            "date": "01/10/2026"
+        }
+    ],
+    "latest": "1.5.1",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://trimal.readthedocs.io",
+    "source_url": "https://github.com/inab/trimal",
+    "comments": [],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/trimal",
+    "usual_invocation_specific": "-in /data/fastaFile -out /data/output/out_name.fas -gt 0.8",
+    "usual_invocation_specific_comments": [
+        "'-gt 0.8' removes all positions in the alignment with gaps in 80% or more of the sequences.",
+        "Use '-automated1' to automatically select the best trimming method for the alignment."
+    ],
+    "test_invocation_specific": "-in /data/test/data/small_aligned.fas -out /data/test/results/small_aligned_trimmed.fas -gt 0.8",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_aligned.fas",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/trimal_output.zip",
+    "icon": "",
+    "input_data_type": [
+        "fasta"
+    ],
+    "auto_tests": [
+        {
+            "docker_image": "pegi3s/trimal:1.5.1",
+            "input_files": [
+                "small_aligned.fas"
+            ],
+            "output_dir": "trimal_output",
+            "output_file": "small_aligned_trimmed.fas",
+            "add_config": "",
+            "commands": "-in /data/input_data/small_aligned.fas -out /data/output_folder/trimal_output/small_aligned_trimmed.fas -gt 0.8 > /dev/null 2>&1"
+        }
+    ],
+    "custom_searches": {
+        "pubmed": "term=trimAl+AND+alignment+trimming",
+        "scholar": "q=trimAl+alignment+trimming",
+        "bioprotocol": "content=trimAl%20alignment%20trimming",
+        "bioprotocol_exchange": "content=trimAl%20alignment%20trimming"
     }
 }
 ]
