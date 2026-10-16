@@ -1719,14 +1719,16 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "1.3.6",
-        "date": ""
+        "version": "1.3.10",
+        "date": "16/10/2026"
       }
     ],
-    "latest": "1.3.6",
+    "latest": "1.3.10",
     "bug_found": [],
     "not_working": [],
-    "no_longer_tested": [],
+    "no_longer_tested": [
+      "1.3.6"
+    ],
     "manual_url": "https://github.com/freebayes/freebayes",
     "source_url": "https://github.com/freebayes/freebayes",
     "comments": [],
@@ -1739,15 +1741,26 @@
       "Your input fasta to the actual name of your reference file (rCRS.fasta is included with the docker image).",
       "'out_name' to the name of your output file"
     ],
-    "test_invocation_specific": "",
-    "test_data_url": "",
+    "test_invocation_specific": "-f /data/test/data/freebayes_reference.fa /data/test/data/freebayes_reads.bam -v /data/test/results/freebayes_test.vcf",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/freebayes_input_data.zip",
     "test_results_url": "",
     "icon": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/icons/freebayes.png",
     "input_data_type": [
       "reference",
       "bam"
     ],
-    "auto_tests": [],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/freebayes:1.3.10",
+        "input_files": [
+          "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/freebayes_input_data.zip"
+        ],
+        "output_dir": "freebayes_output",
+        "output_file": "freebayes_test.vcf",
+        "add_config": "",
+        "commands": "-f /data/input_data/freebayes/freebayes_reference.fa /data/input_data/freebayes/freebayes_reads.bam -v /data/output_folder/freebayes_output/freebayes_test.vcf"
+      }
+    ],
     "custom_searches": {
       "pubmed": "term=freebayes",
       "scholar": "q=freebayes",
