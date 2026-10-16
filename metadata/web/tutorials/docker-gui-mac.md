@@ -20,13 +20,15 @@ open -a XQuartz
 
 ## 2. Configure XQuartz
 
-Open XQuartz and navigate to **Settings (or Preferences) → Security**.
+Note that the only visual change when you open XQuartz is the macOS **Menu Bar** (the top bar with the Apple logo). XQuartz options are accessed from that menu.
 
-Enable the **Allow connections from network clients** option.
+Follow these steps to configure XQuartz:
 
-Close and reopen XQuartz for the changes to take effect. If necessary, log out of macOS and log in again.
+- Open XQuartz and, from the **Menu Bar**, navigate to **XQuartz → Settings... → Security**.
+- Enable the **Allow connections from network clients** option.
+- Close and reopen XQuartz for the changes to take effect. If necessary, log out of macOS and log in again.
 
-Keep XQuartz running while using graphical applications from Docker containers.
+Remember to keep XQuartz running while using graphical applications from Docker containers.
 
 ## 3. Prepare a directory for your data
 
@@ -46,9 +48,9 @@ Open a macOS Terminal and run:
 /opt/X11/bin/xhost +localhost
 ```
 
-This allows local connections to the X11 server. You only need to run this command when the appropriate access permission has not already been configured for your session.
+This allows local connections to the X11 server.
 
-**Security note:** Avoid using `xhost +`, which disables access control for all clients. The command above is more restrictive.
+**Important:** You must run this command **every time XQuartz is closed and reopened**, not just once. Even if it was run in a previous session, reopening XQuartz requires running it again.
 
 ## 5. Run a graphical Docker application
 
@@ -85,13 +87,30 @@ If the graphical application does not open, check the following:
 
 - **XQuartz is running.** Open it with `open -a XQuartz` if necessary.
 - **Network client connections are enabled.** Check the XQuartz security settings.
-- **The X11 access permissions are configured.** Run `/opt/X11/bin/xhost +localhost` in the macOS Terminal.
+- **The X11 access permissions are configured.** Run `/opt/X11/bin/xhost +localhost` in the macOS Terminal. Remember to run it again every time XQuartz is closed and reopened.
 - **The display variable is set correctly.** The Docker command must include `-e DISPLAY=host.docker.internal:0`.
 - **Docker Desktop is running.** Test the Docker installation with `docker run hello-world`.
 
 If the application still fails to start, check the error messages printed in the Terminal and consult the documentation for the specific Docker image.
 
 For further information about installing Docker on macOS, see our [Docker installation instructions](https://bdip.i3s.up.pt/getting-started#install-docker).
+
+## 7. Uninstall XQuartz
+
+If you no longer need XQuartz, you can uninstall it like any other application: open the Finder, go to **Applications**, find **XQuartz** and drag it to the Trash.
+
+Alternatively, you can uninstall it from the macOS Terminal:
+
+```shell
+# 1. Close XQuartz
+osascript -e 'tell application "XQuartz" to quit'
+
+# 2. Uninstall XQuartz via Homebrew
+brew uninstall --cask xquartz
+
+# 3. Check that it has been uninstalled
+ls -d /Applications/Utilities/XQuartz.app 2>/dev/null || echo "XQuartz uninstalled"
+```
 
 ---
 
