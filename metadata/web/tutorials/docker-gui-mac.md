@@ -81,6 +81,31 @@ You can adapt this command to run other graphical applications available in our 
 
 **Note for Apple Silicon users:** The pegi3S images used in this example are built for `linux/amd64`. Docker Desktop can run them on Apple Silicon through emulation, but performance and compatibility may vary.
 
+### 5.1 Running Docker in Docker
+
+Some graphical applications, such as SEDA, need to run Docker commands themselves, for example to launch sibling containers that execute their tools. On macOS, this requires exposing the Docker Desktop daemon to the container and configuring the Docker client inside it. The complete command for SEDA is:
+
+```shell
+docker run --rm -ti \
+  --platform linux/amd64 \
+  -e USERID=$(id -u) \
+  -e USER=$(whoami) \
+  -e DISPLAY=host.docker.internal:0 \
+  -e DOCKER_HOST=unix:///var/run/docker.sock \
+  -e DOCKER_API_VERSION=1.43 \
+  -v "$HOME/Documents/Docker:/data" \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  pegi3s/seda:1.7.5-docker29.0.1
+```
+
+This command adds the following options to the example above:
+
+- `-v /var/run/docker.sock:/var/run/docker.sock` exposes the Docker Desktop daemon to the container. Use `/var/run/docker.sock`, not the socket path of the active Docker context.
+- `-e DOCKER_HOST=unix:///var/run/docker.sock` tells the Docker client inside the container where to connect.
+- `-e DOCKER_API_VERSION=1.43` sets the API version used by the client. Adjust or omit it depending on the API version supported by your Docker Desktop daemon.
+
+XQuartz must be running and `/opt/X11/bin/xhost +localhost` must have been executed since the last time XQuartz was started. The Docker-in-Docker on macOS tutorial describes the full configuration and troubleshooting.
+
 ## 6. Troubleshooting
 
 If the graphical application does not open, check the following:
@@ -114,4 +139,4 @@ ls -d /Applications/Utilities/XQuartz.app 2>/dev/null || echo "XQuartz uninstall
 
 ---
 
-**Compatibility note:** This procedure was tested on a MacBook Pro with an Apple M4 processor running macOS 26.2, using the `pegi3s/seda:1.7.5-docker29.0.1` image and the graphical interface opened successfully. However, running Docker containers from within Docker images has not yet been tested, and compatibility with other macOS versions, Docker images, and Apple Silicon configurations cannot guaranteed.
+**Compatibility note:** This procedure was tested on a MacBook Pro with an Apple M4 processor running macOS 26.2, using the `pegi3s/seda:1.7.5-docker29.0.1` image and the graphical interface opened successfully. Running Docker containers from within the SEDA image (Docker in Docker) was also tested successfully using the configuration described in section 5.1. However, compatibility with other macOS versions, Docker images, and Apple Silicon configurations cannot be guaranteed.

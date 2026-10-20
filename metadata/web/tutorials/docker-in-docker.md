@@ -4,6 +4,8 @@ Sometimes we need to run Docker commands inside Docker containers. For instance,
 
 This guide demonstrates how to run Docker commands using Docker images from our *Bioinformatics Docker Images Project*. You can use the [`pegi3s/docker`](https://hub.docker.com/r/pegi3s/docker) image for the examples.
 
+> **macOS users:** Docker Desktop runs the Docker daemon inside a virtual machine, so additional configuration is required. The *Docker-in-Docker on macOS* tutorial describes the required mount, environment variables, and API compatibility checks.
+
 ## 1. Running Docker inside a Docker container
 
 To do so, the Docker client must be installed in the Docker image that will run Docker commands. This is what we have done in the [`pegi3s/docker`](https://hub.docker.com/r/pegi3s/docker) image.
