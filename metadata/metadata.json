@@ -9307,7 +9307,7 @@
         "The --species-tree parameter can be a species tree file or MiniNJ to infer it with MiniNJ.",
         "The output files are generated using the prefix given to the --prefix parameter."
     ],
-    "test_invocation_specific": "-f /data/test/data/families.txt -s /data/test/data/species_tree.nwk -p /data/test/data/results/soutput --rec-model UndatedDL --strategy EVAL",
+    "test_invocation_specific": "-f /data/test/data/families.txt -s /data/test/data/species_tree.nwk -p /data/test/results/generax_output --rec-model UndatedDL --strategy EVAL",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/generax_input_data.zip",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/generax_output.zip",
     "icon": "https://raw.githubusercontent.com/benoitmorel/generax/master/doc/generax_logo.png",
@@ -9361,7 +9361,7 @@
         "`out_name` to the actual name of your output file.",
         "`Output(file=...)` to the MafFilter filter(s) you want to apply."
     ],
-    "test_invocation_specific": "input.file=/data/test/data/test.maf input.file.compression=none input.format=Maf output.log=/data/test/data/results/out_name.log \"maf.filter=XFullGap(species=(hg18, panTro1, baboon, mm4, rn3)), Output(file=/data/filtered.maf)\"",
+    "test_invocation_specific": "input.file=/data/test/data/test.maf input.file.compression=none input.format=Maf output.log=/data/test/data/results/out_name.log \"maf.filter=XFullGap(species=(hg18, panTro1, baboon, mm4, rn3)), Output(file=/data/test/results/filtered.maf)\"",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/test.maf",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/maffilter_output.zip",
     "icon": "",
@@ -9415,7 +9415,7 @@
         "'pafFile' to the actual name of your PAF file. It must contain CIGAR strings in the cg:Z: tag.",
         "'output.chain' to the actual name of your output file."
     ],
-    "test_invocation_specific": "\"-i /data/hg18ToHg19.over.chain.paf > /data/output.chain\"",
+    "test_invocation_specific": "bash -c \"paf2chain -i /data/test/data/pafFile > /data/test/data/results/output.chain\"",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/hg18ToHg19.over.chain.paf",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/paf2chain_output.zip",
     "icon": "",
