@@ -3,10 +3,12 @@
 Specify the release version in `datasets_version` and run:
 
 ```bash
-datasets_version=18.39.0 && docker build ./ -t pegi3s/ncbi-datasets:${datasets_version} --build-arg VERSION=${datasets_version}  && docker tag pegi3s/ncbi-datasets:${datasets_version} pegi3s/ncbi-datasets:latest
+datasets_version=18.40.0 && docker build ./ -t pegi3s/ncbi-datasets:${datasets_version} --build-arg VERSION=${datasets_version}  && docker tag pegi3s/ncbi-datasets:${datasets_version} pegi3s/ncbi-datasets:latest
+```
 
 # Build log
 
+- 18.40.0 - 28/10/2026 - Hugo López Fernández
 - 18.39.0 - 14/10/2026 - Hugo López Fernández
 - 18.38.0 - 02/10/2026 - Hugo López Fernández
 - 18.37.0 - 24/09/2026 - Hugo López Fernández
