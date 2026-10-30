@@ -9125,8 +9125,7 @@
     "test_data_url": "",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/scriber_output.zip",
     "icon": "",
-    "input_data_type": ["pdb"]
-    ],
+    "input_data_type": ["pdb"],
     "auto_tests": [
         {
             "docker_image": "pegi3s/scriber",
