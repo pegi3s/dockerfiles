@@ -9480,5 +9480,62 @@
         "bioprotocol": "content=trimAl%20alignment%20trimming",
         "bioprotocol_exchange": "content=trimAl%20alignment%20trimming"
     }
-}
+  },
+  {
+    "name": "phyml",
+    "description": "Phylogenetics inferences",
+    "project_active": true,
+    "status": "Usable",
+    "recommended": [
+        {
+            "version": "3.3.20260528",
+            "date": "05/11/2026"
+        }
+    ],
+    "latest": "3.3.20260528",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://github.com/stephaneguindon/phyml",
+    "source_url": "https://github.com/stephaneguindon/phyml",
+    "comments": [
+        "PhyML writes two output files: <input>_phyml_tree.txt and <input>_phyml_stats.txt.",
+        "Use '-b 0' to disable bootstrap; otherwise the analysis may take much longer.",
+        "To see the help, run: docker run --rm pegi3s/phyml phyml -h."
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/phyml",
+    "usual_invocation_specific": "bash -c \"phyml -i /data/nexusFile -d nt -b 0\"",
+    "usual_invocation_specific_comments": [
+        "'-i' to specify the input alignment file, '-d' to specify the data type ('nt' for nucleotide or 'aa' for amino-acid), and '-b' to set the number of bootstrap replicates (0 for none)."
+    ],
+    "test_invocation_specific": "bash -c \"phyml -i /data/test/data/nexus.nex -d nt -b 0\"",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/phyml.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/phyml_output.zip",
+    "icon": "",
+    "input_data_type": [
+        "nexus"
+    ],
+    "auto_tests": [
+        {
+            "docker_image": "pegi3s/phyml:3.3.20260528",
+            "input_files": [
+                "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/phyml.zip"
+            ],
+            "output_dir": "phyml_output",
+            "output_file": "nexus.nwk",
+            "add_config": "",
+            "commands": "bash -c \"mkdir -p /data/output_folder/phyml_output && cp /data/input_data/phyml/nexus.nex /data/output_folder/phyml_output/ && cd /data/output_folder/phyml_output && phyml -i nexus.nex -d nt -b 0 && mv nexus.nex_phyml_tree.txt nexus.nwk\" > /dev/null 2>&1"
+        }
+    ],
+    "custom_searches": {
+        "pubmed": "term=phyml",
+        "scholar": "q=phyml",
+        "bioprotocol": "content=phyml",
+        "bioprotocol_exchange": "content=phyml"
+    }
+  }
 ]
