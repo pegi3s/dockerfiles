@@ -68,6 +68,7 @@ DIO:0000491	jaligner
 DIO:0000491	two-way-blast
 DIO:0000492	clustalomega
 DIO:0000492	dialign
+DIO:0000492	famsa
 DIO:0000492	maffilter
 DIO:0000492	mafft
 DIO:0000492	muscle
