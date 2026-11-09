@@ -169,6 +169,7 @@ DIO:0002940	r_enhanced-volcano
 DIO:0002940	r_venn-diagram
 DIO:0003080	pdbfixer
 DIO:0003182	cactus
+DIO:0003182	make_lastz_chains
 DIO:0003182	mauve
 DIO:0003184	igv
 DIO:0003186	gmap-gsnap
