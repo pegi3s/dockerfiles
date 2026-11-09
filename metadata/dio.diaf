@@ -91,6 +91,7 @@ DIO:0000523	bwa
 DIO:0000523	minimap2
 DIO:0000524	abyss
 DIO:0000524	edena
+DIO:0000524	quast
 DIO:0000524	velvet
 DIO:0000525	abyss
 DIO:0000525	soapdenovo2
@@ -195,12 +196,14 @@ DIO:0003219	fastqc
 DIO:0003219	multiqc
 DIO:0003219	picard
 DIO:0003219	qualimap
+DIO:0003219	quast
 DIO:0003223	r_deseq2
 DIO:0003223	r_edger
 DIO:0003223	r_rcpa
 DIO:0003237	cutadapt
 DIO:0003237	pycision
 DIO:0003237	trimmomatic
+DIO:0003258	quast
 DIO:0003258	trinity
 DIO:0003436	bioconvert
 DIO:0003436	paf2chain

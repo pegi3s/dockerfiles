@@ -10017,5 +10017,62 @@
       "bioprotocol": "content=multiz%20threaded%20blockset%20aligner",
       "bioprotocol_exchange": "content=multiz%20threaded%20blockset%20aligner"
     }
+  },
+  {
+    "name": "quast",
+    "description": "Genome assembly evaluation",
+    "status": "Usable",
+    "recommended": [
+      {
+        "version": "5.3.0",
+        "date": "01/10/2026"
+      }
+    ],
+    "latest": "5.3.0",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "http://quast.sf.net/manual.html",
+    "source_url": "https://github.com/ablab/quast",
+    "comments": [
+      "QUAST works both with and without reference genomes; results are much more informative if a close reference genome is provided.",
+      "The tool accepts multiple assemblies, thus is suitable for comparison."
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/quast",
+    "usual_invocation_specific": "/data/fastaFile -o /data/output/quast_output",
+    "usual_invocation_specific_comments": [
+      "'/data/fastaFile' to the name of your assembly FASTA file. Several assemblies can be provided, which is suitable for comparison.",
+      "'-r /data/reference.fasta.gz' to provide a reference genome (optional).",
+      "'quast_output' to the name of the output directory."
+    ],
+    "test_invocation_specific": "/data/test/data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas -o /data/test/results/quast_output",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas",
+    "test_results_url": "",
+    "icon": "https://raw.githubusercontent.com/ablab/quast/master/quast_libs/html_saver/static/img/quast_logo_black.png",
+    "input_data_type": [
+      "fasta"
+    ],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/quast:5.3.0",
+        "input_files": [
+          "Citrobacter_freundii_strain_CAV1321_scaffolds.fas"
+        ],
+        "output_dir": "quast_output",
+        "output_file": "report.tsv",
+        "add_config": "",
+        "commands": "/data/input_data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas -o /data/output_folder/quast_output > /dev/null 2>&1"
+      }
+    ],
+    "custom_searches": {
+      "pubmed": "term=QUAST+AND+quality+assessment+AND+genome+assemblies",
+      "scholar": "q=QUAST+quality+assessment+genome+assemblies",
+      "bioprotocol": "content=QUAST%20quality%20assessment%20genome%20assemblies",
+      "bioprotocol_exchange": "content=QUAST%20quality%20assessment%20genome%20assemblies"
+    }
   }
 ]
