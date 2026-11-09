@@ -9848,5 +9848,65 @@
       "bioprotocol": "content=make_lastz_chains%20genome%20alignment",
       "bioprotocol_exchange": "content=make_lastz_chains%20genome%20alignment"
     }
+  },
+  {
+    "name": "mashtree",
+    "description": "Whole genome sequence comparison",
+    "status": "Usable",
+    "recommended": [
+      {
+        "version": "1.4.6",
+        "date": "01/10/2026"
+      }
+    ],
+    "latest": "1.4.6",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://github.com/lskatz/mashtree/tree/master/docs",
+    "source_url": "https://github.com/lskatz/mashtree",
+    "comments": [
+      "FASTQ files are read as raw reads; FASTA, GenBank and EMBL files are read as genome assemblies.",
+      "Input files can be compressed with gz, bz2 or zip.",
+      "To see the Mashtree help, just run mashtree --help."
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/mashtree",
+    "usual_invocation_specific": "mashtree --numcpus 12 --outtree /data/output/output.nwk /data/fastaFile",
+    "usual_invocation_specific_comments": [
+      "'--numcpus' to set the number of threads to use.",
+      "'fastaFile' to the actual name of your input file.",
+      "'output.nwk' to the actual name of your output file."
+    ],
+    "test_invocation_specific": "mashtree --outtree /data/test/results/mashtree.nwk /data/test/data/GCF_000858285.1.fa /data/test/data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/mashtree.zip",
+    "test_results_url": "",
+    "icon": "",
+    "input_data_type": [
+      "fasta",
+      "fastq"
+    ],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/mashtree:1.4.6",
+        "input_files": [
+          "GCF_000858285.1.fa",
+          "Citrobacter_freundii_strain_CAV1321_scaffolds.fas"
+        ],
+        "output_dir": "mashtree_output",
+        "output_file": "mashtree.nwk",
+        "add_config": "",
+        "commands": "mkdir -p /data/output_folder/mashtree_output && mashtree --outtree /data/output_folder/mashtree_output/mashtree.nwk /data/input_data/GCF_000858285.1.fa /data/input_data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas > /dev/null 2>&1"
+      }
+    ],
+    "custom_searches": {
+      "pubmed": "term=mashtree+AND+whole+genome+sequence",
+      "scholar": "q=mashtree+whole+genome+sequence",
+      "bioprotocol": "content=mashtree%20whole%20genome%20sequence",
+      "bioprotocol_exchange": "content=mashtree%20whole%20genome%20sequence"
+    }
   }
 ]

@@ -102,6 +102,7 @@ DIO:0000540	fasttree
 DIO:0000540	generax
 DIO:0000540	iqtree3
 DIO:0000540	jmodeltest2
+DIO:0000540	mashtree
 DIO:0000540	megax
 DIO:0000540	megax_cc
 DIO:0000540	phyml
@@ -114,6 +115,7 @@ DIO:0000547	alerax
 DIO:0000547	fasttree
 DIO:0000547	generax
 DIO:0000547	iqtree3
+DIO:0000547	mashtree
 DIO:0000547	megax
 DIO:0000547	megax_cc
 DIO:0000547	mrbayes
