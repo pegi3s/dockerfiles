@@ -10074,5 +10074,63 @@
       "bioprotocol": "content=QUAST%20quality%20assessment%20genome%20assemblies",
       "bioprotocol_exchange": "content=QUAST%20quality%20assessment%20genome%20assemblies"
     }
+  },
+  {
+    "name": "repeatmodeler",
+    "description": "de novo repeat modeling",
+    "status": "Usable",
+    "recommended": [
+      {
+        "version": "2.0.9",
+        "date": "01/10/2026"
+      }
+    ],
+    "latest": "2.0.9",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "http://www.repeatmasker.org/RepeatModeler",
+    "source_url": "https://github.com/Dfam-consortium/RepeatModeler",
+    "comments": [
+      "A BLAST database must first be created with the BuildDatabase utility, e.g. BuildDatabase -name <database_name> /data/<fastaFile>.",
+      "RepeatModeler is designed to run on genome assemblies rather than raw reads and it is recommended to run it on a single machine with at least 32 GB of RAM and multiple processors.",
+      "Use -threads to specify the number of processors and -LTRStruct to additionally run the LTR structural discovery pipeline."
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/repeatmodeler",
+    "usual_invocation_specific": "bash -c \"BuildDatabase -name repeatmodeler_db /data/<fastaFile> && RepeatModeler -database repeatmodeler_db -threads 4\"",
+    "usual_invocation_specific_comments": [
+      "/data/<fastaFile> is the FASTA file with the genome assembly to analyse.",
+      "repeatmodeler_db is the name of the BLAST database created by BuildDatabase.",
+      "-threads 4 specifies the number of processors to use."
+    ],
+    "test_invocation_specific": "bash -c \"cd /data/test/results && BuildDatabase -name repeatmodeler_db /data/test/data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas && RepeatModeler -database repeatmodeler_db -threads 4\"",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas",
+    "test_results_url": "",
+    "icon": "",
+    "input_data_type": [
+      "fasta"
+    ],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/repeatmodeler:2.0.9",
+        "input_files": [
+          "Citrobacter_freundii_strain_CAV1321_scaffolds.fas"
+        ],
+        "output_dir": "repeatmodeler_output",
+        "output_file": "repeatmodeler_db-families.fa",
+        "add_config": "",
+        "commands": "bash -c \"mkdir -p /data/output_folder/repeatmodeler_output && cd /data/output_folder/repeatmodeler_output && BuildDatabase -name repeatmodeler_db /data/input_data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas && RepeatModeler -database repeatmodeler_db -threads 4\" > /dev/null 2>&1"
+      }
+    ],
+    "custom_searches": {
+      "pubmed": "term=RepeatModeler",
+      "scholar": "q=RepeatModeler",
+      "bioprotocol": "content=RepeatModeler",
+      "bioprotocol_exchange": "content=RepeatModeler"
+    }
   }
 ]

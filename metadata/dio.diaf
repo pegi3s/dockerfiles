@@ -46,7 +46,9 @@ DIO:0000362	prokka
 DIO:0000362	sapp
 DIO:0000362	tagada
 DIO:0000368	repeat_masker
+DIO:0000368	repeatmodeler
 DIO:0000379	repeat_masker
+DIO:0000379	repeatmodeler
 DIO:0000451	omegamap
 DIO:0000451	phipack
 DIO:0000451	recombine
