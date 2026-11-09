@@ -22,6 +22,7 @@ DIO:0000335	bioconvert
 DIO:0000335	biopython_utilities
 DIO:0000335	haddock-tools
 DIO:0000335	id-mapping
+DIO:0000335	kentutils
 DIO:0000335	paf2chain
 DIO:0000335	pdb-tools
 DIO:0000335	picard

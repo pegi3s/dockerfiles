@@ -1,0 +1,18 @@
+This is the license for kentutils
+
+UCSC Genome Browser License
+Can
+Use/reproduce, Distribute, Modify/merge
+Must
+Incl. Copyright, Include licence
+Cannot
+Commercial use, Hold liable, Use trademark
+Compatible
+Not compatible with permissive and copyleft licences
+Law
+Not fixed/local
+Support
+Source-available, not OSI approved
+
+Licence comment:
+The kentUtils repository is an ENCODE DCC distribution of UCSC command-line tools. Its source files are covered by the UCSC Genome Browser licence (see licenseUcscGenomeBrowser.txt): use, modification and distribution are free of charge for academic, nonprofit and personal purposes, while commercial download, installation or use of the binaries and source code requires a commercial licence from The Regents of the University of California. This licence is not listed by SPDX and is not approved by the OSI.

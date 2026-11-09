@@ -9733,5 +9733,61 @@
       "bioprotocol": "content=FAMSA%20multiple%20sequence%20alignment",
       "bioprotocol_exchange": "content=FAMSA%20multiple%20sequence%20alignment"
     }
+  },
+  {
+    "name": "kentutils",
+    "description": "Genome data utilities",
+    "status": "Usable",
+    "recommended": [
+      {
+        "version": "302.1.0",
+        "date": "01/10/2026"
+      }
+    ],
+    "latest": "302.1.0",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "",
+    "source_url": "https://github.com/ENCODE-DCC/kentUtils",
+    "comments": [
+      "This image provides a large collection of UCSC command-line utilities (225 commands) for sequence and genome interval file manipulation, such as faToTwoBit, twoBitToFa, faSize, faSplit, bedToBigBed and bigWigToBedGraph.",
+      "Each kentUtils utility uses its own arguments; run a utility without arguments or with -h to display its usage."
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/kentutils",
+    "usual_invocation_specific": "faToTwoBit /data/fastaFile /data/output.2bit",
+    "usual_invocation_specific_comments": [
+      "'faToTwoBit' can be changed to other utility commands provided by the image (e.g. twoBitToFa, faSize, faSplit, bedToBigBed).",
+      "'/data/fastaFile' and '/data/output.2bit' are the input FASTA file and the name of the generated output file, respectively."
+    ],
+    "test_invocation_specific": "faToTwoBit /data/test/data/small_not_aligned.fas /data/test/results/small_not_aligned.2bit",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
+    "test_results_url": "",
+    "icon": "",
+    "input_data_type": [
+      "fasta"
+    ],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/kentutils:302.1.0",
+        "input_files": [
+          "small_not_aligned.fas"
+        ],
+        "output_dir": "kentutils_output",
+        "output_file": "small_not_aligned.2bit",
+        "add_config": "",
+        "commands": "faToTwoBit /data/input_data/small_not_aligned.fas /data/output_folder/kentutils_output/small_not_aligned.2bit > /dev/null 2>&1"
+      }
+    ],
+    "custom_searches": {
+      "pubmed": "term=kentUtils",
+      "scholar": "q=kentUtils",
+      "bioprotocol": "content=kentUtils",
+      "bioprotocol_exchange": "content=kentUtils"
+    }
   }
 ]
