@@ -12,6 +12,7 @@ DIO:0000289	goalign
 DIO:0000289	trimal
 DIO:0000326	auto-phylo
 DIO:0000326	auto-phylo-pipeliner
+DIO:0000326	cafe
 DIO:0000326	fastroot
 DIO:0000326	gotree
 DIO:0000326	newick_utils
