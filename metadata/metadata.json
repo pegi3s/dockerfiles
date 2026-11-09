@@ -9908,5 +9908,63 @@
       "bioprotocol": "content=mashtree%20whole%20genome%20sequence",
       "bioprotocol_exchange": "content=mashtree%20whole%20genome%20sequence"
     }
+  },
+  {
+    "name": "minimap2",
+    "description": "Sequence read aligner",
+    "status": "Usable",
+    "recommended": [
+      {
+        "version": "2.31",
+        "date": "01/10/2026"
+      }
+    ],
+    "latest": "2.31",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://lh3.github.io/minimap2/minimap2.html",
+    "source_url": "https://github.com/lh3/minimap2",
+    "comments": [
+      "Minimap2 is usually run with a preset given by the -x option (e.g. 'map-ont', 'map-pb', 'sr', 'splice' or 'asm5') that sets multiple parameters at once."
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/minimap2",
+    "usual_invocation_specific": "sh -c \"minimap2 -a /data/chr_fastaFile /data/fastaFile > /data/output/aln.sam\"",
+    "usual_invocation_specific_comments": [
+      "`/data/chr_fastaFile` to the actual name of your reference genome in FASTA format.",
+      "`/data/fastaFile` to the actual name of your query sequences in FASTA or FASTQ format.",
+      "`/data/output/aln.sam` to the actual name of your output alignment file in SAM format."
+    ],
+    "test_invocation_specific": "sh -c \"minimap2 -a /data/test/data/GCF_000858285.1.fa /data/test/data/query.fa > /data/test/results/aln.sam\"",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/minimap2.zip",
+    "test_results_url": "",
+    "icon": "",
+    "input_data_type": [
+      "chr_fasta",
+      "fasta"
+    ],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/minimap2:2.31",
+        "input_files": [
+          "GCF_000858285.1.fa",
+          "query.fa"
+        ],
+        "output_dir": "minimap2_output",
+        "output_file": "aln.sam",
+        "add_config": "",
+        "commands": "sh -c \"minimap2 -a /data/input_data/GCF_000858285.1.fa /data/input_data/query.fa > /data/output_folder/minimap2_output/aln.sam\" > /dev/null 2>&1"
+      }
+    ],
+    "custom_searches": {
+      "pubmed": "term=minimap2+AND+Li",
+      "scholar": "q=minimap2+Li",
+      "bioprotocol": "content=minimap2%20Li",
+      "bioprotocol_exchange": "content=minimap2%20Li"
+    }
   }
 ]

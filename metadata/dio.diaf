@@ -87,6 +87,7 @@ DIO:0000510	tm-align_server
 DIO:0000510	tmtools
 DIO:0000523	bedtools
 DIO:0000523	bwa
+DIO:0000523	minimap2
 DIO:0000524	abyss
 DIO:0000524	edena
 DIO:0000524	velvet
@@ -182,6 +183,7 @@ DIO:0003199	gmap-gsnap
 DIO:0003199	hisat2
 DIO:0003209	aegean
 DIO:0003211	bwa
+DIO:0003211	minimap2
 DIO:0003217	abyss
 DIO:0003219	afterqc
 DIO:0003219	coral
