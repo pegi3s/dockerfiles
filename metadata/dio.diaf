@@ -72,6 +72,7 @@ DIO:0000492	dialign
 DIO:0000492	famsa
 DIO:0000492	maffilter
 DIO:0000492	mafft
+DIO:0000492	multiz
 DIO:0000492	muscle
 DIO:0000492	prank-msa
 DIO:0000492	probcons
@@ -174,6 +175,7 @@ DIO:0003080	pdbfixer
 DIO:0003182	cactus
 DIO:0003182	make_lastz_chains
 DIO:0003182	mauve
+DIO:0003182	multiz
 DIO:0003184	igv
 DIO:0003186	gmap-gsnap
 DIO:0003192	cutadapt

@@ -9966,5 +9966,56 @@
       "bioprotocol": "content=minimap2%20Li",
       "bioprotocol_exchange": "content=minimap2%20Li"
     }
+  },
+  {
+    "name": "multiz",
+    "description": "Multiple sequence alignment",
+    "status": "Usable",
+    "recommended": [
+      {
+        "version": "latest",
+        "date": "01/10/2026"
+      }
+    ],
+    "latest": "latest",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "http://www.bx.psu.edu/miller_lab",
+    "source_url": "https://github.com/multiz/multiz",
+    "comments": [],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/multiz",
+    "usual_invocation_specific": "bash -c \"multiz /data/mafFile1 /data/mafFile2 1 > /data/output/out.maf\"",
+    "usual_invocation_specific_comments": [
+      "`mafFile1` and `mafFile2` to the actual names of your two input MAF files.",
+      "`out.maf` to the actual name of your aligned MAF file."
+    ],
+    "test_invocation_specific": "",
+    "test_data_url": "",
+    "test_results_url": "",
+    "icon": "",
+    "input_data_type": [
+      "maf"
+    ],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/multiz:latest",
+        "input_files": [],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ],
+    "custom_searches": {
+      "pubmed": "term=multiz+AND+threaded+blockset+aligner",
+      "scholar": "q=multiz+threaded+blockset+aligner",
+      "bioprotocol": "content=multiz%20threaded%20blockset%20aligner",
+      "bioprotocol_exchange": "content=multiz%20threaded%20blockset%20aligner"
+    }
   }
 ]
