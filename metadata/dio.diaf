@@ -163,11 +163,13 @@ DIO:0002464	ccp4
 DIO:0002464	cport
 DIO:0002464	cport-like
 DIO:0002464	cport_server
+DIO:0002464	deepprosite
 DIO:0002464	pesto
 DIO:0002464	pisa_server
 DIO:0002464	prodigy
 DIO:0002464	scriber
 DIO:0002464	whiscy
+DIO:0002492	deepprosite
 DIO:0002492	ispip
 DIO:0002492	ispred4
 DIO:0002492	scannet
