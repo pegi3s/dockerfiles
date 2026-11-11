@@ -42,6 +42,7 @@ DIO:0000362	aegean
 DIO:0000362	agat
 DIO:0000362	autoaugustus
 DIO:0000362	cds2gff3-maker
+DIO:0000362	fraggenescanrs
 DIO:0000362	prokka
 DIO:0000362	sapp
 DIO:0000362	tagada
@@ -222,6 +223,7 @@ DIO:0003658	r_data-analysis
 DIO:0003662	autoaugustus
 DIO:0003663	autoaugustus
 DIO:0003663	cga
+DIO:0003663	fraggenescanrs
 DIO:0003663	metaeuk
 DIO:0003663	prosplign-procompart
 DIO:0003663	scipio

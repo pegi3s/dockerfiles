@@ -10178,5 +10178,65 @@
       "bioprotocol": "",
       "bioprotocol_exchange": ""
     }
+  },
+  {
+    "name": "fraggenescanrs",
+    "description": "Gene prediction",
+    "project_active": true,
+    "status": "Usable",
+    "recommended": [
+      {
+        "version": "1.1.0",
+        "date": "13/10/2026"
+      }
+    ],
+    "latest": "1.1.0",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "https://github.com/unipept/FragGeneScanRs",
+    "source_url": "https://github.com/unipept/FragGeneScanRs",
+    "comments": [
+      "FragGeneScanRs reads from standard input and writes to standard output by default, so predicted proteins can also be obtained with: docker run --rm -i pegi3s/fraggenescanrs -t 454_10 < /data/reads.fas > /data/proteins.faa",
+      "The -t option selects the training file for the input data type (complete, sanger_5, sanger_10, 454_5, 454_10, 454_30, illumina_5 or illumina_10).",
+      "Use -w 1 when the input contains complete genomic sequences and -w 0 for short sequence reads."
+    ],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm -v /your/data/dir:/data pegi3s/fraggenescanrs",
+    "usual_invocation_specific": "FragGeneScanRs -s /data/seq_file.fas -o /data/output/out_name -w 1 -t complete",
+    "usual_invocation_specific_comments": [
+      "'-s' is the absolute path for the FASTA file containing the DNA sequences to undergo gene prediction.",
+      "'-o' is the absolute path and prefix for the output files: files with extensions '.out', '.faa' and '.ffn' are created, containing the gene prediction metadata, the protein translations of the predicted genes, and the DNA sequences of the predicted genes, respectively.",
+      "'-w 1' indicates that the input has complete genomic sequences (use '-w 0' for short sequence reads).",
+      "'-t complete' selects the training file; other options include sanger_5, sanger_10, 454_5, 454_10, 454_30, illumina_5 and illumina_10."
+    ],
+    "test_invocation_specific": "FragGeneScanRs -s /data/test/data/GCF_000858285.1.fa -o /data/test/results/fraggenescanrs_test -w 1 -t complete",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/GCF_000858285.1.fa",
+    "test_results_url": "",
+    "icon": "",
+    "input_data_type": [
+      "fasta"
+    ],
+    "auto_tests": [
+      {
+        "docker_image": "pegi3s/fraggenescanrs:1.1.0",
+        "input_files": [
+          "GCF_000858285.1.fa"
+        ],
+        "output_dir": "fraggenescanrs_output",
+        "output_file": "output.faa",
+        "add_config": "",
+        "commands": "bash -c \"mkdir -p /data/output_folder/fraggenescanrs_output && FragGeneScanRs -s /data/input_data/GCF_000858285.1.fa -o /data/output_folder/fraggenescanrs_output/output -w 1 -t complete\" > /dev/null 2>&1"
+      }
+    ],
+    "custom_searches": {
+      "pubmed": "term=FragGeneScanRs",
+      "scholar": "q=FragGeneScanRs",
+      "bioprotocol": "content=FragGeneScanRs",
+      "bioprotocol_exchange": "content=FragGeneScanRs"
+    }
   }
 ]
