@@ -10132,5 +10132,51 @@
       "bioprotocol": "content=RepeatModeler",
       "bioprotocol_exchange": "content=RepeatModeler"
     }
+  },
+  {
+    "name": "kcells",
+    "description": "cell segmentation, clustering and unusual-cell detection",
+    "status": "Usable",
+    "recommended": [
+      {
+        "version": "1.0.0",
+        "date": "10/11/2026"
+      }
+    ],
+    "latest": "1.0.0",
+    "bug_found": [],
+    "not_working": [],
+    "no_longer_tested": [],
+    "manual_url": "",
+    "source_url": "",
+    "comments": [],
+    "gui": false,
+    "gui_command": "",
+    "podman": "untested",
+    "singularity": "untested",
+    "invocation_general": "docker run --rm --user \"$(id -u):$(id -g)\" -v \"/your/data/dir/input_folder:/app/input:ro\" -v \"/your/data/dir/results_folder:/app/output\" pegi3s/kcells --input /app/input --output-dir /app/output",
+    "usual_invocation_specific": "--cellpose-diameter celldia --border-cells bcells --cluster-method cmethod --k nk --features feat --n-unusual nunusual",
+    "usual_invocation_specific_comments": [],
+    "test_invocation_specific": "--cellpose-diameter celldia --border-cells bcells --cluster-method cmethod --k nk --features feat --n-unusual nunusual",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/kcells_input_data.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/kcells_output_data.zip",
+    "icon": "",
+    "input_data_type": [],
+    "auto_tests": [
+      {
+        "docker_image": "",
+        "input_files": [],
+        "output_dir": "",
+        "output_file": "",
+        "add_config": "",
+        "commands": ""
+      }
+    ],
+    "custom_searches": {
+      "pubmed": "",
+      "scholar": "",
+      "bioprotocol": "",
+      "bioprotocol_exchange": ""
+    }
   }
 ]

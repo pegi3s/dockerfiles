@@ -1,0 +1,11 @@
+# CPU-only PyTorch (much smaller than the default CUDA build); remove this
+# line to get the GPU build.
+--extra-index-url https://download.pytorch.org/whl/cpu
+numpy
+opencv-python-headless
+scikit-learn
+pillow
+scipy
+scikit-image
+torch
+cellpose==3.1.1.3

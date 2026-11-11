@@ -209,6 +209,7 @@ DIO:0003258	quast
 DIO:0003258	trinity
 DIO:0003436	bioconvert
 DIO:0003436	paf2chain
+DIO:0003443	kcells
 DIO:0003456	rosettadock_builder
 DIO:0003459	aclust
 DIO:0003459	alfatclust
