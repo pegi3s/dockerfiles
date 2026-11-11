@@ -1,0 +1,36 @@
+#!/bin/bash
+set -e
+cd "$(dirname "$0")"
+source ./common
+
+PDB_FILES=()
+while IFS= read -r -d '' file; do
+    PDB_FILES+=("$(basename "$file")")
+done < <(find "$PDB_DIR" -maxdepth 1 -name "*.pdb" -print0 | sort -z)
+
+NUM_FILES=${#PDB_FILES[@]}
+
+if [ "$NUM_FILES" -lt 2 ]; then
+    echo "Error: at least 2 files .pdb are required in '$dir' (found: $NUM_FILES)."
+    exit 1
+fi
+
+echo "Found $NUM_FILES PDB files in '$dir'. Starting unique pairwise comparisons..."
+echo "Host dir: $HOST_DIR | Results: $extra_dir"
+echo "------------------------------------------------------------------"
+
+for ((i=0; i<NUM_FILES; i++)); do
+    for ((j=i+1; j<NUM_FILES; j++)); do
+        pdb1="${PDB_FILES[$i]}"
+        pdb2="${PDB_FILES[$j]}"
+        output_file="output_${pdb1%.pdb}_vs_${pdb2%.pdb}.txt"
+
+        echo "Running: $pdb1 vs $pdb2 -> $extra_dir/$output_file"
+
+        docker run --rm -v "$HOST_DIR:/data" pegi3s/tmtools \
+            bash -c "python script.py /data/$dir/$pdb1 /data/$dir/$pdb2 > /data/$extra_dir/$output_file"
+    done
+done
+
+echo "------------------------------------------------------------------"
+echo "All comparisons completed! Results in: $extra_dir/"

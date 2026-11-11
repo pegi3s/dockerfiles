@@ -1,0 +1,123 @@
+#!/bin/bash
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+cd "$(dirname "$0")"
+source ./common
+TARGET_DIR="$EXTRA_DIR"
+
+echo "Scanning alignment output files in: $extra_dir/"
+echo "------------------------------------------------------------------"
+
+# Find all output files dynamically
+shopt -s nullglob
+files=("$TARGET_DIR"/output_*_vs_*.txt)
+shopt -u nullglob
+
+if [ ${#files[@]} -eq 0 ]; then
+    echo "Error: No alignment output files (output_*_vs_*.txt) found in the directory."
+    exit 1
+fi
+
+# Create temporary files for tracking names and scores safely
+NAMES_FILE=$(mktemp)
+SCORES_FILE=$(mktemp)
+trap 'rm -f "$NAMES_FILE" "$SCORES_FILE"' EXIT
+
+# 3. Parse each output file, extract names, and find max TM-scores from lines 6 & 7
+for f in "${files[@]}"; do
+    fname=$(basename "$f")
+    core="${fname#output_}"
+    core="${core%.txt}"
+    
+    # Use awk to find the last occurrence of '_vs_' (robust against underscores in protein names)
+    read b1 b2 < <(echo "$core" | awk '{
+        n = length($0)
+        idx = 0
+        for (i = 1; i <= n - 3; i++) {
+            if (substr($0, i, 4) == "_vs_") {
+                idx = i
+            }
+        }
+        if (idx > 0) {
+            print substr($0, 1, idx - 1), substr($0, idx + 4)
+        }
+    }')
+
+    if [ -z "$b1" ] || [ -z "$b2" ]; then
+        continue
+    fi
+
+    echo "$b1" >> "$NAMES_FILE"
+    echo "$b2" >> "$NAMES_FILE"
+
+    # Extract lines 6 and 7, find the maximum floating-point TM-score (supporting 0.xxx and 1.0000)
+    max_score=$(sed -n '6p;7p' "$f" | grep -oE '[0-1]\.[0-9]+' | sort -nr | head -n1)
+    [ -z "$max_score" ] && continue
+
+    echo "$b1 $b2 $max_score" >> "$SCORES_FILE"
+    echo "$b2 $b1 $max_score" >> "$SCORES_FILE"
+done
+
+# Get sorted unique list of all protein basenames
+mapfile -t basenames < <(sort -u "$NAMES_FILE")
+num_structures=${#basenames[@]}
+
+echo "Discovered $num_structures unique structures from alignment files."
+
+# 4. Generate Lower-Triangular TXT Matrix via AWK
+TXT_PATH="$TARGET_DIR/tm_score_matrix_inv.txt"
+
+awk -v names_str="${basenames[*]}" -v txt_path="$TXT_PATH" '
+BEGIN {
+    num_b = split(names_str, basenames, " ")
+}
+NR == FNR {
+    score[$1, $2] = $3
+    next
+}
+END {
+    # Calculate column width based on longest protein name
+    max_len = 10
+    for (i = 1; i <= num_b; i++) {
+        if (length(basenames[i]) > max_len) {
+            max_len = length(basenames[i])
+        }
+    }
+    col_width = max_len + 2
+
+    # Build Header Line
+    header_line = sprintf("%-*s", col_width, "")
+    for (i = 1; i <= num_b; i++) {
+        header_line = header_line sprintf("%*s", col_width, basenames[i])
+    }
+
+    # Write Header to file and console
+    print header_line > txt_path
+    print "\nTM-Score Lower-Triangular Matrix:"
+    print "------------------------------------------------------------------"
+    print header_line
+
+    # Build and print rows (Lower triangle: j <= i)
+    for (i = 1; i <= num_b; i++) {
+        b1 = basenames[i]
+        row_line = sprintf("%-*s", col_width, b1)
+        for (j = 1; j <= i; j++) {
+            b2 = basenames[j]
+            if (i == j) {
+                val_str = "1.0000"
+            } else if (score[b1, b2] != "") {
+                val_str = sprintf("%.4f", score[b1, b2])
+            } else {
+                val_str = "NA"
+            }
+            row_line = row_line sprintf("%*s", col_width, val_str)
+        }
+        print row_line >> txt_path
+        print row_line
+    }
+    print "------------------------------------------------------------------"
+    printf("Matrix successfully created and saved to: %s\n", txt_path)
+}
+' "$SCORES_FILE" "$SCORES_FILE"

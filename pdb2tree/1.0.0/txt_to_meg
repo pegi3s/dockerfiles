@@ -1,0 +1,36 @@
+#!/bin/bash
+set -e
+cd "$(dirname "$0")"
+source ./common
+
+IN="$EXTRA_DIR/tm_score_matrix_inv.txt"
+OUT="$EXTRA_DIR/tm_distance.meg"
+
+[ -f "$IN" ] || { echo "Error: '$IN' not found."; exit 1; }
+
+if grep -qw "NA" "$IN"; then
+    echo "Error: the matrix has values NA (missing alignments). .meg can't be generated."
+    exit 1
+fi
+
+N=$(awk 'NR>1 && NF>0' "$IN" | wc -l)
+
+{
+  echo "#mega"
+  echo "!Title TM-score distance;"
+  echo "!Format DataType=Distance DataFormat=LowerLeft NTaxa=$N;"
+  echo
+  awk 'NR>1 && NF>0 { print "#" $1 }' "$IN"
+  echo
+  awk 'NR>2 && NF>0 {
+    row = ""
+    for (j = 2; j < NF; j++) {
+      v = sprintf("%.4f", 1 - $j)
+      row = (row == "" ? v : row " " v)
+    }
+    print row
+  }' "$IN"
+} > "$OUT"
+
+cat "$OUT"
+echo "MEGA file saved to: $results_dir/tm_distance.meg"

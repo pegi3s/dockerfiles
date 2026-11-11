@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e
+cd "$(dirname "$0")"
+source ./common
+
+./run_align
+./matrix_inverted
+./txt_to_meg 
+
+# mega_cc
+# The .mao file is bundled in the image (/opt). The megacc container only sees the
+# host folder mounted at /data, so copy it there first.
+cp ./infer_UPGMA_distances.mao "$EXTRA_DIR/infer_UPGMA_distances.mao"
+docker run --rm -v "$HOST_DIR":/data pegi3s/megax_cc megacc -a /data/$extra_dir/infer_UPGMA_distances.mao -d /data/$extra_dir/tm_distance.meg -o /data/$results_dir/newick
+
+# plottree
+docker run --rm -v "$HOST_DIR":/data pegi3s/plottree bash -c "plottree -w 15 /data/$results_dir/newick.nwk -o /data/$results_dir/tree"

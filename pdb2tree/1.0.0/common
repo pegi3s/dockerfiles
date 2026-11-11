@@ -1,0 +1,49 @@
+#!/bin/bash
+# Reads config and defines PDB_DIR and RESULTS_DIR. Prepares the folders for the other scripts.
+
+BASE_DIR="${BASE_DIR:-/data}"
+CONFIG_FILE="$BASE_DIR/config"
+
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "Error: file 'config' not found in $BASE_DIR"
+    echo "Runs with: -v \"\$(pwd)\":/data (the folder must contain 'config')"
+    exit 1
+fi
+
+source <(tr -d '\r' < "$CONFIG_FILE")
+
+dir="${dir:-pdb}"
+results_dir="${results_dir:-results}"
+dir="${dir%/}"
+results_dir="${results_dir%/}"
+
+case "$dir$results_dir" in
+    /*|*..*)
+        echo "Error: 'dir' and 'results_dir' in config must be names of folders related to the folder of the project (without / or ..)."
+        exit 1 ;;
+esac
+
+# The docker run calls in the scripts are done by your pc's Docker, so -v needs the path on your pc.
+# First use HOST_DIR (from config). If it is empty, find the path automatically.
+if [ -z "$HOST_DIR" ]; then
+    HOST_DIR=$(docker inspect "$(hostname)" \
+        --format '{{range .Mounts}}{{if eq .Destination "/data"}}{{.Source}}{{end}}{{end}}' 2>/dev/null || true)
+fi
+if [ -z "$HOST_DIR" ]; then
+    echo "Error: couldn't figure out the path to the project folder on the host."
+    echo "Run with: -v /var/run/docker.sock:/var/run/docker.sock -v \"\$(pwd)\":/data"
+    echo "or define HOST_DIR in config."
+    exit 1
+fi
+
+PDB_DIR="$BASE_DIR/$dir"
+EXTRA_DIR="$BASE_DIR/$extra_dir"
+RESULTS_DIR="$BASE_DIR/$results_dir"
+
+if [ ! -d "$PDB_DIR" ]; then
+    echo "Error: the folder '$dir' (defined in config) doesn't exist in $BASE_DIR"
+    exit 1
+fi
+
+mkdir -p "$RESULTS_DIR"
+mkdir -p "$EXTRA_DIR"
