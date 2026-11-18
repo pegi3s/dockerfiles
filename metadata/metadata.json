@@ -9428,7 +9428,7 @@
       "'pafFile' to the actual name of your PAF file. It must contain CIGAR strings in the cg:Z: tag.",
       "'output.chain' to the actual name of your output file."
     ],
-    "test_invocation_specific": "bash -c \"paf2chain -i /data/test/data/pafFile > /data/test/data/results/output.chain\"",
+    "test_invocation_specific": "bash -c \"paf2chain -i /data/test/data/hg18ToHg19.over.chain.paf > /data/test/data/results/output.chain\"",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/hg18ToHg19.over.chain.paf",
     "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/paf2chain_output.zip",
     "icon": "",
@@ -9566,6 +9566,7 @@
   {
     "name": "cactus",
     "description": "reference-free whole-genome aligner",
+    "project_active": true,
     "status": "Usable",
     "recommended": [
       {
@@ -9596,8 +9597,8 @@
       "`--binariesMode local` uses the binaries compiled in the image; omit it to use an external Docker image instead."
     ],
     "test_invocation_specific": "bash -c \"mkdir -p /data/test/results/cactus_output/workDir && awk 'BEGIN{n=0} /^>/{n++} n>=1 && n<=3 {print > (\\\"/data/test/results/cactus_output/g\\\" n \\\".fas\\\")}' /data/test/data/small_not_aligned.fas && printf '((g1:0.1,g2:0.1)ingroupAnc:0.1,g3:0.1)cactusRoot;\\ng1 /data/test/results/cactus_output/g1.fas\\ng2 /data/test/results/cactus_output/g2.fas\\ng3 /data/test/results/cactus_output/g3.fas\\n' > /data/test/results/cactus_output/cactus_test.seqfile && cactus --binariesMode local --batchSystem single_machine --maxCores 8 --consCores 8 --workDir /data/test/results/cactus_output/workDir /data/test/results/cactus_output/jobStore /data/test/results/cactus_output/cactus_test.seqfile /data/test/results/cactus_output/bembidion.hal\"",
-    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
-    "test_results_url": "",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/cactus_input_data.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/cactus_output.zip",
     "icon": "",
     "input_data_type": [
       "fasta"
@@ -9606,7 +9607,7 @@
       {
         "docker_image": "pegi3s/cactus:3.3.0",
         "input_files": [
-          "small_not_aligned.fas"
+          "cactus_input_data.zip"
         ],
         "output_dir": "cactus_output",
         "output_file": "bembidion.hal",
@@ -9624,6 +9625,7 @@
   {
     "name": "cafe",
     "description": "Gene family evolution analysis",
+    "project_active": true,
     "status": "Usable",
     "recommended": [
       {
@@ -9651,9 +9653,9 @@
     "usual_invocation_specific_comments": [
       "'scriptFile' to the actual name of a file containing the CAFE commands to run (e.g. 'load -i /data/familyFile', 'tree -i /data/treeFile', 'lambda -s', 'report')."
     ],
-    "test_invocation_specific": "",
-    "test_data_url": "",
-    "test_results_url": "",
+    "test_invocation_specific": "cafe /data/script.cafe",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/cafe_input_data.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/cafe_output.zip",
     "icon": "https://raw.githubusercontent.com/hahnlab/CAFE/master/docs/images/cafe_logo.png",
     "input_data_type": [
       "newick",
@@ -9682,6 +9684,7 @@
   {
     "name": "famsa",
     "description": "Multiple sequence alignment",
+    "project_active": true,
     "status": "Usable",
     "recommended": [
       {
@@ -9710,7 +9713,7 @@
     ],
     "test_invocation_specific": "/data/test/data/4_proteins.fas /data/test/results/sequences_aligned.fas",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/4_proteins.fas",
-    "test_results_url": "",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/famsa_output.zip",
     "icon": "",
     "input_data_type": [
       "fasta"
@@ -9737,6 +9740,7 @@
   {
     "name": "kentutils",
     "description": "Genome data utilities",
+    "project_active": false,
     "status": "Usable",
     "recommended": [
       {
@@ -9766,7 +9770,7 @@
     ],
     "test_invocation_specific": "faToTwoBit /data/test/data/small_not_aligned.fas /data/test/results/small_not_aligned.2bit",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/small_not_aligned.fas",
-    "test_results_url": "",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/kenutils_output.zip",
     "icon": "",
     "input_data_type": [
       "fasta"
@@ -9793,6 +9797,7 @@
   {
     "name": "make_lastz_chains",
     "description": "Pairwise genome alignment",
+    "project_active": true,
     "status": "Usable",
     "recommended": [
       {
@@ -9823,8 +9828,8 @@
       "'results' to the output directory where the chain files will be created."
     ],
     "test_invocation_specific": "nextflow run /opt/make_lastz_chains/main.nf -params-file /opt/make_lastz_chains/params.json -profile docker --reference_name seq1 --query_name seq2 --reference_genome /data/test/data/seq1.fas --query_genome /data/test/data/seq2.fas --outdir /data/test/results/results",
-    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/seq1.fas",
-    "test_results_url": "",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/make_lastz_chains_input_data.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/make_lastz_chains_output.zip",
     "icon": "https://raw.githubusercontent.com/hillerlab/make_lastz_chains/main/assets/figures/hillerlab-light.png",
     "input_data_type": [
       "fasta"
@@ -9852,6 +9857,7 @@
   {
     "name": "mashtree",
     "description": "Whole genome sequence comparison",
+    "project_active": true,
     "status": "Usable",
     "recommended": [
       {
@@ -9881,9 +9887,9 @@
       "'fastaFile' to the actual name of your input file.",
       "'output.nwk' to the actual name of your output file."
     ],
-    "test_invocation_specific": "mashtree --outtree /data/test/results/mashtree.nwk /data/test/data/GCF_000858285.1.fa /data/test/data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas",
-    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/mashtree.zip",
-    "test_results_url": "",
+    "test_invocation_specific": "mashtree --outtree /data/test/results/mashtree.nwk /data/test/data/simCow.fasta /data/test/data/simDog.fasta /data/test/data/simHuman.fasta /data/test/data/simMouse.fasta /data/test/data/simRat.fasta",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/mashtree_input_data.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/mashtree_output.zip",
     "icon": "",
     "input_data_type": [
       "fasta",
@@ -9912,6 +9918,7 @@
   {
     "name": "minimap2",
     "description": "Sequence read aligner",
+    "project_active": true,
     "status": "Usable",
     "recommended": [
       {
@@ -9939,9 +9946,9 @@
       "`/data/fastaFile` to the actual name of your query sequences in FASTA or FASTQ format.",
       "`/data/output/aln.sam` to the actual name of your output alignment file in SAM format."
     ],
-    "test_invocation_specific": "sh -c \"minimap2 -a /data/test/data/GCF_000858285.1.fa /data/test/data/query.fa > /data/test/results/aln.sam\"",
-    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/minimap2.zip",
-    "test_results_url": "",
+    "test_invocation_specific": "sh -c \"minimap2 -a /data/test/data/reference.fa /data/test/data/query.fa > /data/test/results/aln.sam\"",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/minimap2_input_data.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/minimap2_output.zip",
     "icon": "",
     "input_data_type": [
       "chr_fasta",
@@ -9970,6 +9977,7 @@
   {
     "name": "multiz",
     "description": "Multiple sequence alignment",
+    "project_active": true,
     "status": "Usable",
     "recommended": [
       {
@@ -9994,9 +10002,9 @@
       "`mafFile1` and `mafFile2` to the actual names of your two input MAF files.",
       "`out.maf` to the actual name of your aligned MAF file."
     ],
-    "test_invocation_specific": "",
-    "test_data_url": "",
-    "test_results_url": "",
+    "test_invocation_specific": "bash -c \"multiz /data/mafFile1.maf /data/mafFile2.maf 1 > /data/output/out.maf\"",
+    "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/multiz_input_data.zip",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/multiz_output.zip",
     "icon": "",
     "input_data_type": [
       "maf"
@@ -10021,6 +10029,7 @@
   {
     "name": "quast",
     "description": "Genome assembly evaluation",
+    "project_active": true,
     "status": "Usable",
     "recommended": [
       {
@@ -10051,7 +10060,7 @@
     ],
     "test_invocation_specific": "/data/test/data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas -o /data/test/results/quast_output",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas",
-    "test_results_url": "",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/quast_output.zip",
     "icon": "https://raw.githubusercontent.com/ablab/quast/master/quast_libs/html_saver/static/img/quast_logo_black.png",
     "input_data_type": [
       "fasta"
@@ -10078,6 +10087,7 @@
   {
     "name": "repeatmodeler",
     "description": "de novo repeat modeling",
+    "project_active": true,
     "status": "Usable",
     "recommended": [
       {
@@ -10109,7 +10119,7 @@
     ],
     "test_invocation_specific": "bash -c \"cd /data/test/results && BuildDatabase -name repeatmodeler_db /data/test/data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas && RepeatModeler -database repeatmodeler_db -threads 4\"",
     "test_data_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/input_test_data/Citrobacter_freundii_strain_CAV1321_scaffolds.fas",
-    "test_results_url": "",
+    "test_results_url": "http://evolution6.i3s.up.pt/static/pegi3s/dockerfiles/output_test_data/repeatmodeler_output.zip",
     "icon": "",
     "input_data_type": [
       "fasta"
