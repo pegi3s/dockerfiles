@@ -5149,14 +5149,15 @@
     "status": "Usable",
     "recommended": [
       {
-        "version": "6.9.7",
-        "date": "02/10/2026"
+        "version": "6.10.0",
+        "date": "18/11/2026"
       }
     ],
-    "latest": "6.9.7",
+    "latest": "6.10.0",
     "bug_found": [],
     "not_working": [],
     "no_longer_tested": [
+      "6.9.7",
       "6.9.6",
       "6.9.5",
       "6.4.11",
